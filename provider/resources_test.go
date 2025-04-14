@@ -36,7 +36,7 @@ func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
 	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		actual := hasNonComputedTagsAndTagsAllOptimized(key, value)
-		expected := hasNonComputedTagsAndTagsAll(key, value)
+		expected := hasNonComputedTagsAndTagsAll(value)
 		assert.Equal(t, expected, actual, "%q", key)
 		return true
 	})
@@ -46,7 +46,7 @@ func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
 		if r.SchemaFunc != nil {
 			res, ok := p.P.ResourcesMap().GetOk(rn)
 			if ok {
-				v := hasNonComputedTagsAndTagsAll(rn, res)
+				v := hasNonComputedTagsAndTagsAll(res)
 				t.Logf("Should cache %v: %s", v, rn)
 			}
 		}

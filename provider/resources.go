@@ -5855,22 +5855,22 @@ func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resou
 		return false
 	}
 
-	return hasNonComputedTagsAndTagsAll(tfResourceName, res)
+	return hasNonComputedTagsAndTagsAll(res)
 }
 
-func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool {
+func hasNonComputedTagsAndTagsAll(res shim.Resource) bool {
 	// Skip resources that don't have tags.
 	tagsF, ok := res.Schema().GetOk("tags")
 	if !ok {
 		return false
 	}
 	// Skip resources that don't have tags_all.
-	_, ok = res.Schema().GetOk("tags_all")
+	tagsAllF, ok := res.Schema().GetOk("tags_all")
 	if !ok {
 		return false
 	}
-	// tags must be non-computed.
-	if tagsF.Computed() {
+	// tags and tagsAll must not be computed.
+	if tagsF.Computed() || tagsAllF.Computed() {
 		return false
 	}
 	return true
