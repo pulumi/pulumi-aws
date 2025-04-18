@@ -1,0 +1,31 @@
+name: security-group
+runtime: yaml
+description: A Pulumi YAML program for creating VPC and Security Group resources
+
+resources:
+  vpc:
+    type: aws:ec2:Vpc
+    properties:
+      cidrBlock: 10.0.0.0/16
+      enableDnsHostnames: true
+      enableDnsSupport: true
+      instanceTenancy: default
+
+  securityGroup:
+    type: aws:ec2:SecurityGroup
+    properties:
+      vpcId: ${vpc.id}
+      ingress:
+        - protocol: tcp
+          fromPort: 80
+          toPort: 80
+          cidrBlocks: ["0.0.0.0/0"]
+        - protocol: tcp
+          fromPort: 8080
+          toPort: 8080
+          cidrBlocks: ["0.0.0.0/0"]
+      egress:
+        - protocol: "-1"
+          fromPort: 0
+          toPort: 0
+          cidrBlocks: ["0.0.0.0/0"]

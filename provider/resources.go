@@ -2024,8 +2024,22 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {Default: managedByPulumi},
 					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-					"egress":  {Name: "egress"},
+					"ingress": {
+						Name: "ingress",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"description": {Default: &info.Default{Value: ""}},
+							},
+						},
+					},
+					"egress": {
+						Name: "egress",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"description": {Default: &info.Default{Value: ""}},
+							},
+						},
+					},
 				},
 			},
 			"aws_network_interface_sg_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},

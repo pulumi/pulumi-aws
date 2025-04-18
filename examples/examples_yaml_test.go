@@ -971,7 +971,7 @@ outputs:
 		}, step.properties))
 
 	t.Logf("template for %s: \n%s", step.name, body)
-	require.NoError(t, os.WriteFile(testPath, []byte(body), 0600))
+	require.NoError(t, os.WriteFile(testPath, []byte(body), 0o600))
 }
 
 func loadAwsDefaultConfig() aws.Config {
@@ -1371,7 +1371,6 @@ outputs:
 		return expandMap(2, map[string]interface{}{
 			"properties": a,
 		})
-
 	}
 
 	for _, typ := range types {
@@ -1393,8 +1392,8 @@ outputs:
 
 			fpath := filepath.Join(path, "Pulumi.yaml")
 			if os.Getenv("PULUMI_ACCEPT") == "true" {
-				require.NoError(t, os.MkdirAll(path, 0700))
-				require.NoError(t, os.WriteFile(fpath, []byte(body), 0600))
+				require.NoError(t, os.MkdirAll(path, 0o700))
+				require.NoError(t, os.WriteFile(fpath, []byte(body), 0o600))
 			} else {
 				existing, err := os.ReadFile(fpath)
 				if assert.NoError(t, err) {
@@ -1944,4 +1943,19 @@ func TestElasticacheReplicationGroup(t *testing.T) {
 	upResult := ptest.Up(t)
 	replicationGroupArn := upResult.Outputs["replicationGroupArn"].Value.(string)
 	assert.NotEmpty(t, replicationGroupArn)
+}
+
+func TestSecurityGroupPreviewWarning(t *testing.T) {
+	t.Parallel()
+	pt := pulumiTest(t, filepath.Join("test-programs", "security-group", "security-group-1"))
+	pt.Up(t)
+
+	st := pt.ExportStack(t)
+
+	pt2 := pulumiTest(t, filepath.Join("test-programs", "security-group"))
+	pt2.ImportStack(t, st)
+	prev := pt2.Preview(t, optpreview.Diff())
+
+	assert.NotContains(t, prev.StdOut, "warning: Failed to calculate preview for element")
+	assert.NotContains(t, prev.StdErr, "warning: Failed to calculate preview for element")
 }
