@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Wed, 6 Dec 2023 23:44:25 -0500
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Fri, 18 Apr 2025 12:28:18 -0400
 Subject: [PATCH] DisableTagSchemaCheck for PF provider
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 9f08eec23b..3d0858f1e1 100644
+index 1bfa22c88b..1e9ac010bf 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -409,8 +409,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
@@ -67,15 +67,3 @@ index 0000000000..f790acb4e2
 +	r.Schema(ctx, resource.SchemaRequest{}, &resp)
 +	return &resp
 +}
-diff --git a/shim/shim.go b/shim/shim.go
-index 3378f955bb..b94f722d26 100644
---- a/shim/shim.go
-+++ b/shim/shim.go
-@@ -17,6 +17,7 @@ type UpstreamProvider struct {
- }
- 
- func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
-+	ctx = fwprovider.DisableTagSchemaCheck(ctx)
- 	primary, err := provider.New(provider.DisableTagSchemaCheck(ctx))
- 	if err != nil {
- 		return UpstreamProvider{}, err

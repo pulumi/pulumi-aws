@@ -12,7 +12,6 @@
 #
 # - ./upstream.sh checkout
 # - ./scripts/patch_computed_only.sh
-# - (cd upstream && git add . && git commit -m 'Fix tags_all Computed for PF resources')
 # - ./upstream.sh check_in
 #
 # TODO[pulumi/pulumi-aws#2962] automate this to not require intervention.
@@ -32,3 +31,10 @@ for f in $FILES; do
     replace="s/names.AttrTagsAll:\s+tftags.TagsAttributeComputedOnly/names.AttrTagsAll: tftags.TagsAttribute/g"
     perl -i -p -e "$replace" "upstream/$f"
 done
+
+# Add the tags fixes to the existing commit that manages the tags_all attribute.
+cd upstream
+git add .
+tags_all_commit=$(git log --pretty=format:"%h" --grep="Apply tags patches" -n 1)
+git commit --fixup="$tags_all_commit"
+git -c rebase --interactive --autosquash "$tags_all_commit^"

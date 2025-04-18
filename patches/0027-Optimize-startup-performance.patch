@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Fri, 18 Apr 2025 12:50:37 -0400
+Subject: [PATCH] Optimize startup performance
+
+
+diff --git a/internal/provider/provider.go b/internal/provider/provider.go
+index e275f61b55..f92b95e508 100644
+--- a/internal/provider/provider.go
++++ b/internal/provider/provider.go
+@@ -307,7 +307,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 
+ 			interceptors := interceptorItems{}
+ 			if v.Tags != nil {
+-				schema := r.SchemaMap()
++				schema := schemaMapForTagsChecking(ctx, r, true)
+ 
+ 				// The data source has opted in to transparent tagging.
+ 				// Ensure that the schema look OK.
+@@ -378,7 +378,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 			var customizeDiffFuncs []schema.CustomizeDiffFunc
+ 			interceptors := interceptorItems{}
+ 			if v.Tags != nil {
+-				schema := r.SchemaMap()
++				schema := schemaMapForTagsChecking(ctx, r, false)
+ 
+ 				// The resource has opted in to transparent tagging.
+ 				// Ensure that the schema look OK.
+diff --git a/internal/provider/provider_tagcheck.go b/internal/provider/provider_tagcheck.go
+new file mode 100644
+index 0000000000..8cea6059ba
+--- /dev/null
++++ b/internal/provider/provider_tagcheck.go
+@@ -0,0 +1,37 @@
++package provider
++
++import (
++	"context"
++
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/names"
++)
++
++type disableTagsSchemaCheckKey struct{}
++
++func DisableTagSchemaCheck(ctx context.Context) context.Context {
++	return context.WithValue(ctx, disableTagsSchemaCheckKey{}, true)
++}
++
++func schemaMapForTagsChecking(ctx context.Context, r *schema.Resource, tagsComputed bool) map[string]*schema.Schema {
++	flag := ctx.Value(disableTagsSchemaCheckKey{})
++	switch flag := flag.(type) {
++	case bool:
++		if flag {
++			//lintignore:S013
++			return map[string]*schema.Schema{
++				names.AttrTags: {
++					Type:     schema.TypeMap,
++					Computed: tagsComputed,
++					Elem:     &schema.Schema{Type: schema.TypeString},
++				},
++				names.AttrTagsAll: {
++					Type:     schema.TypeMap,
++					Computed: true,
++					Elem:     &schema.Schema{Type: schema.TypeString},
++				},
++			}
++		}
++	}
++	return r.SchemaMap()
++}
