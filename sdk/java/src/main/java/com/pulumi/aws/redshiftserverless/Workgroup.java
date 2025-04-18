@@ -8,6 +8,7 @@ import com.pulumi.aws.redshiftserverless.WorkgroupArgs;
 import com.pulumi.aws.redshiftserverless.inputs.WorkgroupState;
 import com.pulumi.aws.redshiftserverless.outputs.WorkgroupConfigParameter;
 import com.pulumi.aws.redshiftserverless.outputs.WorkgroupEndpoint;
+import com.pulumi.aws.redshiftserverless.outputs.WorkgroupPricePerformanceTarget;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -181,6 +182,20 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> port() {
         return this.port;
+    }
+    /**
+     * Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     * 
+     */
+    @Export(name="pricePerformanceTarget", refs={WorkgroupPricePerformanceTarget.class}, tree="[0]")
+    private Output<WorkgroupPricePerformanceTarget> pricePerformanceTarget;
+
+    /**
+     * @return Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     * 
+     */
+    public Output<WorkgroupPricePerformanceTarget> pricePerformanceTarget() {
+        return this.pricePerformanceTarget;
     }
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.

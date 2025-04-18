@@ -91,6 +91,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
+        /// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        /// </summary>
+        [Output("pricePerformanceTarget")]
+        public Output<Outputs.WorkgroupPricePerformanceTarget> PricePerformanceTarget { get; private set; } = null!;
+
+        /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
         [Output("publiclyAccessible")]
@@ -223,6 +229,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        /// </summary>
+        [Input("pricePerformanceTarget")]
+        public Input<Inputs.WorkgroupPricePerformanceTargetArgs>? PricePerformanceTarget { get; set; }
+
+        /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
         [Input("publiclyAccessible")]
@@ -339,6 +351,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        /// </summary>
+        [Input("pricePerformanceTarget")]
+        public Input<Inputs.WorkgroupPricePerformanceTargetGetArgs>? PricePerformanceTarget { get; set; }
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.

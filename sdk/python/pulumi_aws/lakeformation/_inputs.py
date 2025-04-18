@@ -1197,6 +1197,9 @@ if not MYPY:
         Name of the table.
         """
         wildcard: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+        """
 elif False:
     OptInResourceDataTableArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1211,6 +1214,7 @@ class OptInResourceDataTableArgs:
         :param pulumi.Input[builtins.str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         :param pulumi.Input[builtins.str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[builtins.str] name: Name of the table.
+        :param pulumi.Input[builtins.bool] wildcard: Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
         """
         pulumi.set(__self__, "database_name", database_name)
         if catalog_id is not None:
@@ -1259,6 +1263,9 @@ class OptInResourceDataTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter

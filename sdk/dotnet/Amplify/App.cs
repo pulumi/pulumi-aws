@@ -281,6 +281,12 @@ namespace Pulumi.Aws.Amplify
         public Output<Outputs.AppCacheConfig> CacheConfig { get; private set; } = null!;
 
         /// <summary>
+        /// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+        /// </summary>
+        [Output("computeRoleArn")]
+        public Output<string?> ComputeRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Output("customHeaders")]
@@ -497,6 +503,12 @@ namespace Pulumi.Aws.Amplify
         public Input<Inputs.AppCacheConfigArgs>? CacheConfig { get; set; }
 
         /// <summary>
+        /// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+        /// </summary>
+        [Input("computeRoleArn")]
+        public Input<string>? ComputeRoleArn { get; set; }
+
+        /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Input("customHeaders")]
@@ -683,6 +695,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("cacheConfig")]
         public Input<Inputs.AppCacheConfigGetArgs>? CacheConfig { get; set; }
+
+        /// <summary>
+        /// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+        /// </summary>
+        [Input("computeRoleArn")]
+        public Input<string>? ComputeRoleArn { get; set; }
 
         /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.

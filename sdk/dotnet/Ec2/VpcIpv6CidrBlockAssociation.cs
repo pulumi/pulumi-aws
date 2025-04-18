@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpv6CidrBlockAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         /// </summary>
         [Output("assignGeneratedIpv6CidrBlock")]
         public Output<bool> AssignGeneratedIpv6CidrBlock { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         /// <summary>
-        /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+        /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
         /// </summary>
         [Output("ipv6Pool")]
         public Output<string> Ipv6Pool { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpv6CidrBlockAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Ipv6NetmaskLength { get; set; }
 
         /// <summary>
-        /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+        /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
         /// </summary>
         [Input("ipv6Pool")]
         public Input<string>? Ipv6Pool { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpv6CidrBlockAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Ipv6NetmaskLength { get; set; }
 
         /// <summary>
-        /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+        /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
         /// </summary>
         [Input("ipv6Pool")]
         public Input<string>? Ipv6Pool { get; set; }

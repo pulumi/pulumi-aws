@@ -63,8 +63,11 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> ContainerImage { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the image the version is based on.
+        /// Indicates Horovod compatibility.
         /// </summary>
+        [Output("horovod")]
+        public Output<bool?> Horovod { get; private set; } = null!;
+
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
@@ -74,6 +77,45 @@ namespace Pulumi.Aws.Sagemaker
         [Output("imageName")]
         public Output<string> ImageName { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        /// </summary>
+        [Output("jobType")]
+        public Output<string?> JobType { get; private set; } = null!;
+
+        /// <summary>
+        /// The machine learning framework vended in the image version.
+        /// </summary>
+        [Output("mlFramework")]
+        public Output<string?> MlFramework { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        /// </summary>
+        [Output("processor")]
+        public Output<string?> Processor { get; private set; } = null!;
+
+        /// <summary>
+        /// The supported programming language and its version.
+        /// </summary>
+        [Output("programmingLang")]
+        public Output<string?> ProgrammingLang { get; private set; } = null!;
+
+        /// <summary>
+        /// The maintainer description of the image version.
+        /// </summary>
+        [Output("releaseNotes")]
+        public Output<string?> ReleaseNotes { get; private set; } = null!;
+
+        /// <summary>
+        /// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        /// </summary>
+        [Output("vendorGuidance")]
+        public Output<string?> VendorGuidance { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the image. If not specified, the latest version is described.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -130,10 +172,52 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> BaseImage { get; set; } = null!;
 
         /// <summary>
+        /// Indicates Horovod compatibility.
+        /// </summary>
+        [Input("horovod")]
+        public Input<bool>? Horovod { get; set; }
+
+        /// <summary>
         /// The name of the image. Must be unique to your account.
         /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        /// </summary>
+        [Input("jobType")]
+        public Input<string>? JobType { get; set; }
+
+        /// <summary>
+        /// The machine learning framework vended in the image version.
+        /// </summary>
+        [Input("mlFramework")]
+        public Input<string>? MlFramework { get; set; }
+
+        /// <summary>
+        /// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        /// </summary>
+        [Input("processor")]
+        public Input<string>? Processor { get; set; }
+
+        /// <summary>
+        /// The supported programming language and its version.
+        /// </summary>
+        [Input("programmingLang")]
+        public Input<string>? ProgrammingLang { get; set; }
+
+        /// <summary>
+        /// The maintainer description of the image version.
+        /// </summary>
+        [Input("releaseNotes")]
+        public Input<string>? ReleaseNotes { get; set; }
+
+        /// <summary>
+        /// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        /// </summary>
+        [Input("vendorGuidance")]
+        public Input<string>? VendorGuidance { get; set; }
 
         public ImageVersionArgs()
         {
@@ -162,8 +246,11 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? ContainerImage { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the image the version is based on.
+        /// Indicates Horovod compatibility.
         /// </summary>
+        [Input("horovod")]
+        public Input<bool>? Horovod { get; set; }
+
         [Input("imageArn")]
         public Input<string>? ImageArn { get; set; }
 
@@ -173,6 +260,45 @@ namespace Pulumi.Aws.Sagemaker
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }
 
+        /// <summary>
+        /// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        /// </summary>
+        [Input("jobType")]
+        public Input<string>? JobType { get; set; }
+
+        /// <summary>
+        /// The machine learning framework vended in the image version.
+        /// </summary>
+        [Input("mlFramework")]
+        public Input<string>? MlFramework { get; set; }
+
+        /// <summary>
+        /// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        /// </summary>
+        [Input("processor")]
+        public Input<string>? Processor { get; set; }
+
+        /// <summary>
+        /// The supported programming language and its version.
+        /// </summary>
+        [Input("programmingLang")]
+        public Input<string>? ProgrammingLang { get; set; }
+
+        /// <summary>
+        /// The maintainer description of the image version.
+        /// </summary>
+        [Input("releaseNotes")]
+        public Input<string>? ReleaseNotes { get; set; }
+
+        /// <summary>
+        /// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        /// </summary>
+        [Input("vendorGuidance")]
+        public Input<string>? VendorGuidance { get; set; }
+
+        /// <summary>
+        /// The version of the image. If not specified, the latest version is described.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

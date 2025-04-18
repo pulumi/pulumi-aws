@@ -95,6 +95,11 @@ export type HsmConfiguration = import("./hsmConfiguration").HsmConfiguration;
 export const HsmConfiguration: typeof import("./hsmConfiguration").HsmConfiguration = null as any;
 utilities.lazyLoad(exports, ["HsmConfiguration"], () => require("./hsmConfiguration"));
 
+export { IntegrationArgs, IntegrationState } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+
 export { LoggingArgs, LoggingState } from "./logging";
 export type Logging = import("./logging").Logging;
 export const Logging: typeof import("./logging").Logging = null as any;
@@ -177,6 +182,8 @@ const _module = {
                 return new HsmClientCertificate(name, <any>undefined, { urn })
             case "aws:redshift/hsmConfiguration:HsmConfiguration":
                 return new HsmConfiguration(name, <any>undefined, { urn })
+            case "aws:redshift/integration:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws:redshift/logging:Logging":
                 return new Logging(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
@@ -215,6 +222,7 @@ pulumi.runtime.registerResourceModule("aws", "redshift/endpointAuthorization", _
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmClientCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/integration", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/logging", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/partner", _module)

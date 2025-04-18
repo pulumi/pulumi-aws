@@ -16,6 +16,61 @@ namespace Pulumi.Aws.Drs
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Drs.ReplicationConfigurationTemplate("example", new()
+    ///     {
+    ///         AssociateDefaultSecurityGroup = false,
+    ///         BandwidthThrottling = 12,
+    ///         CreatePublicIp = false,
+    ///         DataPlaneRouting = "PRIVATE_IP",
+    ///         DefaultLargeStagingDiskType = "GP2",
+    ///         EbsEncryption = "DEFAULT",
+    ///         EbsEncryptionKeyArn = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///         ReplicationServerInstanceType = "t3.small",
+    ///         ReplicationServersSecurityGroupsIds = exampleAwsSecurityGroup.Select(__item =&gt; __item.Id).ToList(),
+    ///         StagingAreaSubnetId = exampleAwsSubnet.Id,
+    ///         UseDedicatedReplicationServer = false,
+    ///         PitPolicies = new[]
+    ///         {
+    ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Interval = 10,
+    ///                 RetentionDuration = 60,
+    ///                 Units = "MINUTE",
+    ///                 RuleId = 1,
+    ///             },
+    ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Interval = 1,
+    ///                 RetentionDuration = 24,
+    ///                 Units = "HOUR",
+    ///                 RuleId = 2,
+    ///             },
+    ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Interval = 1,
+    ///                 RetentionDuration = 3,
+    ///                 Units = "DAY",
+    ///                 RuleId = 3,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:

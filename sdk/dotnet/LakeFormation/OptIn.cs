@@ -28,14 +28,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lake Formation Opt In using the `example_id_arg`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lakeformation/optIn:OptIn example opt_in-id-12345678
-    /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/optIn:OptIn")]
     public partial class OptIn : global::Pulumi.CustomResource

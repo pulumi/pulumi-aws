@@ -2145,7 +2145,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
         :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -2232,7 +2232,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -4280,7 +4280,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -4367,7 +4367,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -5410,7 +5410,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -5497,7 +5497,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -6270,7 +6270,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -6357,7 +6357,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -7143,7 +7143,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -7230,7 +7230,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -8006,7 +8006,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -8093,7 +8093,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -8855,7 +8855,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -8942,7 +8942,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -9717,7 +9717,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -9804,7 +9804,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -10577,7 +10577,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -10664,7 +10664,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -11450,7 +11450,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -11537,7 +11537,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -12313,7 +12313,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -12400,7 +12400,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -13162,7 +13162,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
         :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -13249,7 +13249,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 

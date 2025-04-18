@@ -27,6 +27,74 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.drs.ReplicationConfigurationTemplate;
+ * import com.pulumi.aws.drs.ReplicationConfigurationTemplateArgs;
+ * import com.pulumi.aws.drs.inputs.ReplicationConfigurationTemplatePitPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ReplicationConfigurationTemplate("example", ReplicationConfigurationTemplateArgs.builder()
+ *             .associateDefaultSecurityGroup(false)
+ *             .bandwidthThrottling(12)
+ *             .createPublicIp(false)
+ *             .dataPlaneRouting("PRIVATE_IP")
+ *             .defaultLargeStagingDiskType("GP2")
+ *             .ebsEncryption("DEFAULT")
+ *             .ebsEncryptionKeyArn("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
+ *             .replicationServerInstanceType("t3.small")
+ *             .replicationServersSecurityGroupsIds(exampleAwsSecurityGroup.stream().map(element -> element.id()).collect(toList()))
+ *             .stagingAreaSubnetId(exampleAwsSubnet.id())
+ *             .useDedicatedReplicationServer(false)
+ *             .pitPolicies(            
+ *                 ReplicationConfigurationTemplatePitPolicyArgs.builder()
+ *                     .enabled(true)
+ *                     .interval(10)
+ *                     .retentionDuration(60)
+ *                     .units("MINUTE")
+ *                     .ruleId(1)
+ *                     .build(),
+ *                 ReplicationConfigurationTemplatePitPolicyArgs.builder()
+ *                     .enabled(true)
+ *                     .interval(1)
+ *                     .retentionDuration(24)
+ *                     .units("HOUR")
+ *                     .ruleId(2)
+ *                     .build(),
+ *                 ReplicationConfigurationTemplatePitPolicyArgs.builder()
+ *                     .enabled(true)
+ *                     .interval(1)
+ *                     .retentionDuration(3)
+ *                     .units("DAY")
+ *                     .ruleId(3)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:

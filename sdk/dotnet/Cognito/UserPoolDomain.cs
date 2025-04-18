@@ -132,6 +132,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
+        /// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+        /// </summary>
+        [Output("managedLoginVersion")]
+        public Output<int> ManagedLoginVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The S3 bucket where the static files for this domain are stored.
         /// </summary>
         [Output("s3Bucket")]
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Cognito
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
+        /// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+        /// </summary>
+        [Input("managedLoginVersion")]
+        public Input<int>? ManagedLoginVersion { get; set; }
+
+        /// <summary>
         /// The user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -256,6 +268,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+        /// </summary>
+        [Input("managedLoginVersion")]
+        public Input<int>? ManagedLoginVersion { get; set; }
 
         /// <summary>
         /// The S3 bucket where the static files for this domain are stored.

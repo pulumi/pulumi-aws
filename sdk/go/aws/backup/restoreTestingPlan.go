@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewRestoreTestingPlan(ctx, "example", &backup.RestoreTestingPlanArgs{
+//				Name: pulumi.String("example_restore_testing_plan"),
 //				RecoveryPointSelection: &backup.RestoreTestingPlanRecoveryPointSelectionArgs{
 //					Algorithm: pulumi.String("LATEST_WITHIN_WINDOW"),
 //					IncludeVaults: pulumi.StringArray{

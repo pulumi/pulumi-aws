@@ -1812,6 +1812,7 @@
         "redshift/hsmClientCertificate.ts",
         "redshift/hsmConfiguration.ts",
         "redshift/index.ts",
+        "redshift/integration.ts",
         "redshift/logging.ts",
         "redshift/parameterGroup.ts",
         "redshift/partner.ts",

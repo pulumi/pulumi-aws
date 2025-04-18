@@ -170,14 +170,14 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
         return this.caCertificatePem;
     }
     /**
-     * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      * 
      */
     @Export(name="certificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateMode;
 
     /**
-     * @return The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * @return The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      * 
      */
     public Output<Optional<String>> certificateMode() {
@@ -273,7 +273,7 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
     }
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
      * 
      */
     @Export(name="verificationCertificatePem", refs={String.class}, tree="[0]")
@@ -281,7 +281,7 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
      * 
      */
     public Output<Optional<String>> verificationCertificatePem() {

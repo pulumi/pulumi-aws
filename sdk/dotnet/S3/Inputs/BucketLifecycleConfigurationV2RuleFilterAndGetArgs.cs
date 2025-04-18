@@ -34,7 +34,9 @@ namespace Pulumi.Aws.S3.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+        /// Key-value map of resource tags.
+        /// All of these tags must exist in the object's tag set in order for the rule to apply.
+        /// If set, must contain at least one key-value pair.
         /// </summary>
         public InputMap<string> Tags
         {

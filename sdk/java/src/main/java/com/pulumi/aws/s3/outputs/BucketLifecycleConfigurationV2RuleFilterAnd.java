@@ -29,7 +29,9 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
      */
     private @Nullable String prefix;
     /**
-     * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
+     * @return Key-value map of resource tags.
+     * All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
+     * If set, must contain at least one key-value pair.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -57,7 +59,9 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
+     * @return Key-value map of resource tags.
+     * All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
+     * If set, must contain at least one key-value pair.
      * 
      */
     public Map<String,String> tags() {

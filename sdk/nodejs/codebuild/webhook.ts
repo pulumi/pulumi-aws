@@ -91,6 +91,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly filterGroups!: pulumi.Output<outputs.codebuild.WebhookFilterGroup[] | undefined>;
     /**
+     * If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     */
+    public readonly manualCreation!: pulumi.Output<boolean | undefined>;
+    /**
      * The CodeBuild endpoint where webhook events are sent.
      */
     public /*out*/ readonly payloadUrl!: pulumi.Output<string>;
@@ -127,6 +131,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["branchFilter"] = state ? state.branchFilter : undefined;
             resourceInputs["buildType"] = state ? state.buildType : undefined;
             resourceInputs["filterGroups"] = state ? state.filterGroups : undefined;
+            resourceInputs["manualCreation"] = state ? state.manualCreation : undefined;
             resourceInputs["payloadUrl"] = state ? state.payloadUrl : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
             resourceInputs["scopeConfiguration"] = state ? state.scopeConfiguration : undefined;
@@ -140,6 +145,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["branchFilter"] = args ? args.branchFilter : undefined;
             resourceInputs["buildType"] = args ? args.buildType : undefined;
             resourceInputs["filterGroups"] = args ? args.filterGroups : undefined;
+            resourceInputs["manualCreation"] = args ? args.manualCreation : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["scopeConfiguration"] = args ? args.scopeConfiguration : undefined;
             resourceInputs["payloadUrl"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface WebhookState {
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
     filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
+    /**
+     * If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     */
+    manualCreation?: pulumi.Input<boolean>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
@@ -207,6 +217,10 @@ export interface WebhookArgs {
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
     filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
+    /**
+     * If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     */
+    manualCreation?: pulumi.Input<boolean>;
     /**
      * The name of the build project.
      */

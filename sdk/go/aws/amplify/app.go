@@ -308,6 +308,8 @@ type App struct {
 	BuildSpec pulumi.StringOutput `pulumi:"buildSpec"`
 	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
 	CacheConfig AppCacheConfigOutput `pulumi:"cacheConfig"`
+	// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+	ComputeRoleArn pulumi.StringPtrOutput `pulumi:"computeRoleArn"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders pulumi.StringOutput `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
@@ -405,6 +407,8 @@ type appState struct {
 	BuildSpec *string `pulumi:"buildSpec"`
 	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
 	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
+	// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+	ComputeRoleArn *string `pulumi:"computeRoleArn"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
@@ -458,6 +462,8 @@ type AppState struct {
 	BuildSpec pulumi.StringPtrInput
 	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
 	CacheConfig AppCacheConfigPtrInput
+	// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+	ComputeRoleArn pulumi.StringPtrInput
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
 	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
@@ -513,6 +519,8 @@ type appArgs struct {
 	BuildSpec *string `pulumi:"buildSpec"`
 	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
 	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
+	// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+	ComputeRoleArn *string `pulumi:"computeRoleArn"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
@@ -557,6 +565,8 @@ type AppArgs struct {
 	BuildSpec pulumi.StringPtrInput
 	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
 	CacheConfig AppCacheConfigPtrInput
+	// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+	ComputeRoleArn pulumi.StringPtrInput
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
 	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
@@ -707,6 +717,11 @@ func (o AppOutput) BuildSpec() pulumi.StringOutput {
 // Cache configuration for the Amplify app. See `cacheConfig` Block for details.
 func (o AppOutput) CacheConfig() AppCacheConfigOutput {
 	return o.ApplyT(func(v *App) AppCacheConfigOutput { return v.CacheConfig }).(AppCacheConfigOutput)
+}
+
+// AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+func (o AppOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.

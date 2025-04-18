@@ -271,7 +271,7 @@ type Cluster struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint pulumi.StringOutput `pulumi:"configurationEndpoint"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -337,7 +337,7 @@ type Cluster struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -391,7 +391,7 @@ type clusterState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint *string `pulumi:"configurationEndpoint"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -457,7 +457,7 @@ type clusterState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -482,7 +482,7 @@ type ClusterState struct {
 	ClusterId pulumi.StringPtrInput
 	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint pulumi.StringPtrInput
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -548,7 +548,7 @@ type ClusterState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
@@ -569,7 +569,7 @@ type clusterArgs struct {
 	AzMode *string `pulumi:"azMode"`
 	// Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
 	ClusterId *string `pulumi:"clusterId"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -629,7 +629,7 @@ type clusterArgs struct {
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -647,7 +647,7 @@ type ClusterArgs struct {
 	AzMode pulumi.StringPtrInput
 	// Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
 	ClusterId pulumi.StringPtrInput
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -707,7 +707,7 @@ type ClusterArgs struct {
 	SubnetGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
@@ -845,7 +845,7 @@ func (o ClusterOutput) ConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
 }
 
-// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
 func (o ClusterOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
@@ -986,7 +986,7 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
 func (o ClusterOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
 }

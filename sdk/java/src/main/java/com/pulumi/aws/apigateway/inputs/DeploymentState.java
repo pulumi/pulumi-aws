@@ -75,37 +75,53 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
+     * **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
+     * @deprecated
+     * execution_arn is deprecated. Use the aws.apigateway.Stage resource instead.
+     * 
      */
+    @Deprecated /* execution_arn is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Import(name="executionArn")
     private @Nullable Output<String> executionArn;
 
     /**
-     * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
+     * @return **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
+     * @deprecated
+     * execution_arn is deprecated. Use the aws.apigateway.Stage resource instead.
+     * 
      */
+    @Deprecated /* execution_arn is deprecated. Use the aws.apigateway.Stage resource instead. */
     public Optional<Output<String>> executionArn() {
         return Optional.ofNullable(this.executionArn);
     }
 
     /**
-     * URL to invoke the API pointing to the stage,
+     * **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
+     * @deprecated
+     * invoke_url is deprecated. Use the aws.apigateway.Stage resource instead.
+     * 
      */
+    @Deprecated /* invoke_url is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Import(name="invokeUrl")
     private @Nullable Output<String> invokeUrl;
 
     /**
-     * @return URL to invoke the API pointing to the stage,
+     * @return **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
+     * @deprecated
+     * invoke_url is deprecated. Use the aws.apigateway.Stage resource instead.
+     * 
      */
+    @Deprecated /* invoke_url is deprecated. Use the aws.apigateway.Stage resource instead. */
     public Optional<Output<String>> invokeUrl() {
         return Optional.ofNullable(this.invokeUrl);
     }
@@ -316,49 +332,65 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
+         * @param executionArn **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
          * 
          * @return builder
          * 
+         * @deprecated
+         * execution_arn is deprecated. Use the aws.apigateway.Stage resource instead.
+         * 
          */
+        @Deprecated /* execution_arn is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder executionArn(@Nullable Output<String> executionArn) {
             $.executionArn = executionArn;
             return this;
         }
 
         /**
-         * @param executionArn Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
+         * @param executionArn **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
          * 
          * @return builder
          * 
+         * @deprecated
+         * execution_arn is deprecated. Use the aws.apigateway.Stage resource instead.
+         * 
          */
+        @Deprecated /* execution_arn is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder executionArn(String executionArn) {
             return executionArn(Output.of(executionArn));
         }
 
         /**
-         * @param invokeUrl URL to invoke the API pointing to the stage,
+         * @param invokeUrl **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
          * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
          * 
          * @return builder
          * 
+         * @deprecated
+         * invoke_url is deprecated. Use the aws.apigateway.Stage resource instead.
+         * 
          */
+        @Deprecated /* invoke_url is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder invokeUrl(@Nullable Output<String> invokeUrl) {
             $.invokeUrl = invokeUrl;
             return this;
         }
 
         /**
-         * @param invokeUrl URL to invoke the API pointing to the stage,
+         * @param invokeUrl **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
          * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
          * 
          * @return builder
          * 
+         * @deprecated
+         * invoke_url is deprecated. Use the aws.apigateway.Stage resource instead.
+         * 
          */
+        @Deprecated /* invoke_url is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder invokeUrl(String invokeUrl) {
             return invokeUrl(Output.of(invokeUrl));
         }

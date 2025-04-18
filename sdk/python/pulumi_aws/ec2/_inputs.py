@@ -357,6 +357,18 @@ __all__ = [
     'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentVpcArgs',
     'NetworkInsightsAnalysisReturnPathComponentVpcArgsDict',
+    'NetworkInsightsPathFilterAtDestinationArgs',
+    'NetworkInsightsPathFilterAtDestinationArgsDict',
+    'NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs',
+    'NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgsDict',
+    'NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs',
+    'NetworkInsightsPathFilterAtDestinationSourcePortRangeArgsDict',
+    'NetworkInsightsPathFilterAtSourceArgs',
+    'NetworkInsightsPathFilterAtSourceArgsDict',
+    'NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs',
+    'NetworkInsightsPathFilterAtSourceDestinationPortRangeArgsDict',
+    'NetworkInsightsPathFilterAtSourceSourcePortRangeArgs',
+    'NetworkInsightsPathFilterAtSourceSourcePortRangeArgsDict',
     'NetworkInterfaceAttachmentArgs',
     'NetworkInterfaceAttachmentArgsDict',
     'NetworkInterfacePermissionTimeoutsArgs',
@@ -15772,6 +15784,398 @@ class NetworkInsightsAnalysisReturnPathComponentVpcArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class NetworkInsightsPathFilterAtDestinationArgsDict(TypedDict):
+        destination_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The destination IPv4 address.
+        """
+        destination_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgsDict']]
+        """
+        The destination port range. See below for details.
+        """
+        source_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        IP address of the source resource.
+        """
+        source_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgsDict']]
+        """
+        The source port range. See below for details.
+        """
+elif False:
+    NetworkInsightsPathFilterAtDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkInsightsPathFilterAtDestinationArgs:
+    def __init__(__self__, *,
+                 destination_address: Optional[pulumi.Input[builtins.str]] = None,
+                 destination_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs']] = None,
+                 source_address: Optional[pulumi.Input[builtins.str]] = None,
+                 source_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] destination_address: The destination IPv4 address.
+        :param pulumi.Input['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs'] destination_port_range: The destination port range. See below for details.
+        :param pulumi.Input[builtins.str] source_address: IP address of the source resource.
+        :param pulumi.Input['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs'] source_port_range: The source port range. See below for details.
+        """
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if source_address is not None:
+            pulumi.set(__self__, "source_address", source_address)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The destination IPv4 address.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "destination_address", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs']]:
+        """
+        The destination port range. See below for details.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @destination_port_range.setter
+    def destination_port_range(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs']]):
+        pulumi.set(self, "destination_port_range", value)
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IP address of the source resource.
+        """
+        return pulumi.get(self, "source_address")
+
+    @source_address.setter
+    def source_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source_address", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs']]:
+        """
+        The source port range. See below for details.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    @source_port_range.setter
+    def source_port_range(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs']]):
+        pulumi.set(self, "source_port_range", value)
+
+
+if not MYPY:
+    class NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgsDict(TypedDict):
+        from_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The first port in the range.
+        """
+        to_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The last port in the range.
+        """
+elif False:
+    NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[builtins.int]] = None,
+                 to_port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] from_port: The first port in the range.
+        :param pulumi.Input[builtins.int] to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
+    class NetworkInsightsPathFilterAtDestinationSourcePortRangeArgsDict(TypedDict):
+        from_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The first port in the range.
+        """
+        to_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The last port in the range.
+        """
+elif False:
+    NetworkInsightsPathFilterAtDestinationSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[builtins.int]] = None,
+                 to_port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] from_port: The first port in the range.
+        :param pulumi.Input[builtins.int] to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
+    class NetworkInsightsPathFilterAtSourceArgsDict(TypedDict):
+        destination_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The destination IPv4 address.
+        """
+        destination_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgsDict']]
+        """
+        The destination port range. See below for details.
+        """
+        source_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        IP address of the source resource.
+        """
+        source_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterAtSourceSourcePortRangeArgsDict']]
+        """
+        The source port range. See below for details.
+        """
+elif False:
+    NetworkInsightsPathFilterAtSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkInsightsPathFilterAtSourceArgs:
+    def __init__(__self__, *,
+                 destination_address: Optional[pulumi.Input[builtins.str]] = None,
+                 destination_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs']] = None,
+                 source_address: Optional[pulumi.Input[builtins.str]] = None,
+                 source_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceSourcePortRangeArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] destination_address: The destination IPv4 address.
+        :param pulumi.Input['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs'] destination_port_range: The destination port range. See below for details.
+        :param pulumi.Input[builtins.str] source_address: IP address of the source resource.
+        :param pulumi.Input['NetworkInsightsPathFilterAtSourceSourcePortRangeArgs'] source_port_range: The source port range. See below for details.
+        """
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if source_address is not None:
+            pulumi.set(__self__, "source_address", source_address)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The destination IPv4 address.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "destination_address", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs']]:
+        """
+        The destination port range. See below for details.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @destination_port_range.setter
+    def destination_port_range(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs']]):
+        pulumi.set(self, "destination_port_range", value)
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IP address of the source resource.
+        """
+        return pulumi.get(self, "source_address")
+
+    @source_address.setter
+    def source_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source_address", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceSourcePortRangeArgs']]:
+        """
+        The source port range. See below for details.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    @source_port_range.setter
+    def source_port_range(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceSourcePortRangeArgs']]):
+        pulumi.set(self, "source_port_range", value)
+
+
+if not MYPY:
+    class NetworkInsightsPathFilterAtSourceDestinationPortRangeArgsDict(TypedDict):
+        from_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The first port in the range.
+        """
+        to_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The last port in the range.
+        """
+elif False:
+    NetworkInsightsPathFilterAtSourceDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[builtins.int]] = None,
+                 to_port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] from_port: The first port in the range.
+        :param pulumi.Input[builtins.int] to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
+    class NetworkInsightsPathFilterAtSourceSourcePortRangeArgsDict(TypedDict):
+        from_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The first port in the range.
+        """
+        to_port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The last port in the range.
+        """
+elif False:
+    NetworkInsightsPathFilterAtSourceSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkInsightsPathFilterAtSourceSourcePortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[builtins.int]] = None,
+                 to_port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] from_port: The first port in the range.
+        :param pulumi.Input[builtins.int] to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "to_port", value)
 
 
 if not MYPY:

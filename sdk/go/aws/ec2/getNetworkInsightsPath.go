@@ -69,8 +69,12 @@ type LookupNetworkInsightsPathResult struct {
 	// IP address of the AWS resource that is the destination of the path.
 	DestinationIp string `pulumi:"destinationIp"`
 	// Destination port.
-	DestinationPort int                            `pulumi:"destinationPort"`
-	Filters         []GetNetworkInsightsPathFilter `pulumi:"filters"`
+	DestinationPort int `pulumi:"destinationPort"`
+	// Filters of the network paths at the destination.
+	FilterAtDestinations []GetNetworkInsightsPathFilterAtDestination `pulumi:"filterAtDestinations"`
+	// Filters of the network paths at the source.
+	FilterAtSources []GetNetworkInsightsPathFilterAtSource `pulumi:"filterAtSources"`
+	Filters         []GetNetworkInsightsPathFilter         `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                    string `pulumi:"id"`
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
@@ -147,6 +151,20 @@ func (o LookupNetworkInsightsPathResultOutput) DestinationIp() pulumi.StringOutp
 // Destination port.
 func (o LookupNetworkInsightsPathResultOutput) DestinationPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) int { return v.DestinationPort }).(pulumi.IntOutput)
+}
+
+// Filters of the network paths at the destination.
+func (o LookupNetworkInsightsPathResultOutput) FilterAtDestinations() GetNetworkInsightsPathFilterAtDestinationArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) []GetNetworkInsightsPathFilterAtDestination {
+		return v.FilterAtDestinations
+	}).(GetNetworkInsightsPathFilterAtDestinationArrayOutput)
+}
+
+// Filters of the network paths at the source.
+func (o LookupNetworkInsightsPathResultOutput) FilterAtSources() GetNetworkInsightsPathFilterAtSourceArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) []GetNetworkInsightsPathFilterAtSource {
+		return v.FilterAtSources
+	}).(GetNetworkInsightsPathFilterAtSourceArrayOutput)
 }
 
 func (o LookupNetworkInsightsPathResultOutput) Filters() GetNetworkInsightsPathFilterArrayOutput {

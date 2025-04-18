@@ -195,6 +195,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     * 
+     */
+    @Import(name="forceUpdateVersion")
+    private @Nullable Output<Boolean> forceUpdateVersion;
+
+    /**
+     * @return Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     * 
+     */
+    public Optional<Output<Boolean>> forceUpdateVersion() {
+        return Optional.ofNullable(this.forceUpdateVersion);
+    }
+
+    /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      * 
      */
@@ -446,6 +461,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.endpoint = $.endpoint;
+        this.forceUpdateVersion = $.forceUpdateVersion;
         this.identities = $.identities;
         this.kubernetesNetworkConfig = $.kubernetesNetworkConfig;
         this.name = $.name;
@@ -725,6 +741,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param forceUpdateVersion Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceUpdateVersion(@Nullable Output<Boolean> forceUpdateVersion) {
+            $.forceUpdateVersion = forceUpdateVersion;
+            return this;
+        }
+
+        /**
+         * @param forceUpdateVersion Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceUpdateVersion(Boolean forceUpdateVersion) {
+            return forceUpdateVersion(Output.of(forceUpdateVersion));
         }
 
         /**

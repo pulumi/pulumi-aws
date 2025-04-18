@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshiftserverless;
 
 import com.pulumi.aws.redshiftserverless.inputs.WorkgroupConfigParameterArgs;
+import com.pulumi.aws.redshiftserverless.inputs.WorkgroupPricePerformanceTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -112,6 +113,21 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     * 
+     */
+    @Import(name="pricePerformanceTarget")
+    private @Nullable Output<WorkgroupPricePerformanceTargetArgs> pricePerformanceTarget;
+
+    /**
+     * @return Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     * 
+     */
+    public Optional<Output<WorkgroupPricePerformanceTargetArgs>> pricePerformanceTarget() {
+        return Optional.ofNullable(this.pricePerformanceTarget);
+    }
+
+    /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
@@ -199,6 +215,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         this.maxCapacity = $.maxCapacity;
         this.namespaceName = $.namespaceName;
         this.port = $.port;
+        this.pricePerformanceTarget = $.pricePerformanceTarget;
         this.publiclyAccessible = $.publiclyAccessible;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
@@ -358,6 +375,27 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param pricePerformanceTarget Price-performance scaling for the workgroup. See `Price Performance Target` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pricePerformanceTarget(@Nullable Output<WorkgroupPricePerformanceTargetArgs> pricePerformanceTarget) {
+            $.pricePerformanceTarget = pricePerformanceTarget;
+            return this;
+        }
+
+        /**
+         * @param pricePerformanceTarget Price-performance scaling for the workgroup. See `Price Performance Target` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pricePerformanceTarget(WorkgroupPricePerformanceTargetArgs pricePerformanceTarget) {
+            return pricePerformanceTarget(Output.of(pricePerformanceTarget));
         }
 
         /**

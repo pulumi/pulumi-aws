@@ -112,6 +112,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     * 
+     */
+    @Import(name="forceUpdateVersion")
+    private @Nullable Output<Boolean> forceUpdateVersion;
+
+    /**
+     * @return Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     * 
+     */
+    public Optional<Output<Boolean>> forceUpdateVersion() {
+        return Optional.ofNullable(this.forceUpdateVersion);
+    }
+
+    /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      * 
      */
@@ -289,6 +304,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
+        this.forceUpdateVersion = $.forceUpdateVersion;
         this.kubernetesNetworkConfig = $.kubernetesNetworkConfig;
         this.name = $.name;
         this.outpostConfig = $.outpostConfig;
@@ -446,6 +462,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionConfig(ClusterEncryptionConfigArgs encryptionConfig) {
             return encryptionConfig(Output.of(encryptionConfig));
+        }
+
+        /**
+         * @param forceUpdateVersion Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceUpdateVersion(@Nullable Output<Boolean> forceUpdateVersion) {
+            $.forceUpdateVersion = forceUpdateVersion;
+            return this;
+        }
+
+        /**
+         * @param forceUpdateVersion Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceUpdateVersion(Boolean forceUpdateVersion) {
+            return forceUpdateVersion(Output.of(forceUpdateVersion));
         }
 
         /**

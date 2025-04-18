@@ -3273,7 +3273,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -3325,7 +3325,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -3436,7 +3436,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs:
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -5981,7 +5981,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -6033,7 +6033,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -6144,7 +6144,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -7377,7 +7377,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -7429,7 +7429,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -7540,7 +7540,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -8440,7 +8440,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -8492,7 +8492,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -8603,7 +8603,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -9522,7 +9522,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -9574,7 +9574,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -9685,7 +9685,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -10586,7 +10586,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -10638,7 +10638,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -10749,7 +10749,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -11630,7 +11630,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -11682,7 +11682,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -11793,7 +11793,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -12693,7 +12693,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -12745,7 +12745,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -12856,7 +12856,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs:
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -13756,7 +13756,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -13808,7 +13808,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -13919,7 +13919,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -14838,7 +14838,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -14890,7 +14890,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -15001,7 +15001,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs:
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -15902,7 +15902,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -15954,7 +15954,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -16065,7 +16065,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs:
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -16946,7 +16946,7 @@ if not MYPY:
         """
         ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgsDict']]
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         json_body: NotRequired[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgsDict']]
         """
@@ -16998,7 +16998,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs']]] header_orders: Inspect the request headers. See Header Order below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs']]] headers: Inspect the request headers. See Headers below for details.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs'] ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs'] ja4_fingerprint: Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs'] json_body: Inspect the request body as JSON. See JSON Body for details.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs'] method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -17109,7 +17109,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs:
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs']]:
         """
-        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 

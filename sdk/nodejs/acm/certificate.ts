@@ -224,10 +224,6 @@ export class Certificate extends pulumi.CustomResource {
      * Status of the certificate.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-     */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -401,10 +397,6 @@ export interface CertificateState {
      * Status of the certificate.
      */
     status?: pulumi.Input<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-     */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -476,10 +468,6 @@ export interface CertificateArgs {
      * Certificate's PEM-formatted private key
      */
     privateKey?: pulumi.Input<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-     */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

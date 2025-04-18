@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +64,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
      */
     public readonly destination!: pulumi.Output<string | undefined>;
     /**
@@ -76,6 +79,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
      * Destination port to analyze access to.
      */
     public readonly destinationPort!: pulumi.Output<number | undefined>;
+    public readonly filterAtDestination!: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    public readonly filterAtSource!: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      *
@@ -123,6 +128,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
             resourceInputs["destinationIp"] = state ? state.destinationIp : undefined;
             resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
+            resourceInputs["filterAtDestination"] = state ? state.filterAtDestination : undefined;
+            resourceInputs["filterAtSource"] = state ? state.filterAtSource : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
@@ -140,6 +147,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["destinationIp"] = args ? args.destinationIp : undefined;
             resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["filterAtDestination"] = args ? args.filterAtDestination : undefined;
+            resourceInputs["filterAtSource"] = args ? args.filterAtSource : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
@@ -163,7 +172,7 @@ export interface NetworkInsightsPathState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
      */
     destination?: pulumi.Input<string>;
     /**
@@ -178,6 +187,8 @@ export interface NetworkInsightsPathState {
      * Destination port to analyze access to.
      */
     destinationPort?: pulumi.Input<number>;
+    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      *
@@ -213,7 +224,7 @@ export interface NetworkInsightsPathState {
  */
 export interface NetworkInsightsPathArgs {
     /**
-     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
      */
     destination?: pulumi.Input<string>;
     /**
@@ -224,6 +235,8 @@ export interface NetworkInsightsPathArgs {
      * Destination port to analyze access to.
      */
     destinationPort?: pulumi.Input<number>;
+    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      *

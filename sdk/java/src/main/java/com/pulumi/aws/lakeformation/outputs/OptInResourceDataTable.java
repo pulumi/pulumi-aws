@@ -28,6 +28,10 @@ public final class OptInResourceDataTable {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+     * 
+     */
     private @Nullable Boolean wildcard;
 
     private OptInResourceDataTable() {}
@@ -52,6 +56,10 @@ public final class OptInResourceDataTable {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+     * 
+     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

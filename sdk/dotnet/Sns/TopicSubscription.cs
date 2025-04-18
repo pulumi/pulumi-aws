@@ -24,27 +24,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// 
-    /// You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("user_updates_sqs_target", new()
-    ///     {
-    ///         Topic = "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
-    ///         Protocol = "sqs",
-    ///         Endpoint = "arn:aws:sqs:us-west-2:432981146916:queue-too",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+    /// ### Basic usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -59,9 +39,54 @@ namespace Pulumi.Aws.Sns
     ///         Name = "user-updates-topic",
     ///     });
     /// 
+    ///     var sqsQueuePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         PolicyId = "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "user_updates_sqs_target",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "sns.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SQS:SendMessage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:sqs:us-west-2:123456789012:user-updates-queue",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             userUpdates.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var userUpdatesQueue = new Aws.Sqs.Queue("user_updates_queue", new()
     ///     {
     ///         Name = "user-updates-queue",
+    ///         Policy = sqsQueuePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var userUpdatesSqsTarget = new Aws.Sns.TopicSubscription("user_updates_sqs_target", new()
@@ -73,6 +98,8 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Example Cross-account Subscription
     /// 
     /// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
     /// 
@@ -100,7 +127,7 @@ namespace Pulumi.Aws.Sns
     ///         { "region", "us-east-1" },
     ///         { "role-name", "service/service" },
     ///     };
-    ///     var sns_topic_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
@@ -188,7 +215,7 @@ namespace Pulumi.Aws.Sns
     ///         },
     ///     });
     /// 
-    ///     var sqs_queue_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var sqsQueuePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         PolicyId = $"arn:aws:sqs:{sqs.Region}:{sqs.Account_id}:{sqs.Name}/SQSDefaultPolicy",
     ///         Statements = new[]
@@ -232,30 +259,30 @@ namespace Pulumi.Aws.Sns
     ///         },
     ///     });
     /// 
-    ///     var sns_topic = new Aws.Sns.Topic("sns-topic", new()
+    ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()
     ///     {
     ///         Name = sns.Name,
     ///         DisplayName = sns.Display_name,
-    ///         Policy = sns_topic_policy.Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var sqs_queue = new Aws.Sqs.Queue("sqs-queue", new()
+    ///     var sqsQueue = new Aws.Sqs.Queue("sqs_queue", new()
     ///     {
     ///         Name = sqs.Name,
-    ///         Policy = sqs_queue_policy.Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         Policy = sqsQueuePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topic", new()
+    ///     var snsTopicTopicSubscription = new Aws.Sns.TopicSubscription("sns_topic", new()
     ///     {
-    ///         Topic = sns_topic.Arn,
+    ///         Topic = snsTopic.Arn,
     ///         Protocol = "sqs",
-    ///         Endpoint = sqs_queue.Arn,
+    ///         Endpoint = sqsQueue.Arn,
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ## Example with Delivery Policy
+    /// ### Example with Delivery Policy
     /// 
     /// This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `delivery_policy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
     /// 
