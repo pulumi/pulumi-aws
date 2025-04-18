@@ -70,13 +70,41 @@ export class ImageVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly containerImage!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the image the version is based on.
+     * Indicates Horovod compatibility.
      */
+    public readonly horovod!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly imageArn!: pulumi.Output<string>;
     /**
      * The name of the image. Must be unique to your account.
      */
     public readonly imageName!: pulumi.Output<string>;
+    /**
+     * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     */
+    public readonly jobType!: pulumi.Output<string | undefined>;
+    /**
+     * The machine learning framework vended in the image version.
+     */
+    public readonly mlFramework!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     */
+    public readonly processor!: pulumi.Output<string | undefined>;
+    /**
+     * The supported programming language and its version.
+     */
+    public readonly programmingLang!: pulumi.Output<string | undefined>;
+    /**
+     * The maintainer description of the image version.
+     */
+    public readonly releaseNotes!: pulumi.Output<string | undefined>;
+    /**
+     * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     */
+    public readonly vendorGuidance!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the image. If not specified, the latest version is described.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -95,8 +123,15 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["baseImage"] = state ? state.baseImage : undefined;
             resourceInputs["containerImage"] = state ? state.containerImage : undefined;
+            resourceInputs["horovod"] = state ? state.horovod : undefined;
             resourceInputs["imageArn"] = state ? state.imageArn : undefined;
             resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["jobType"] = state ? state.jobType : undefined;
+            resourceInputs["mlFramework"] = state ? state.mlFramework : undefined;
+            resourceInputs["processor"] = state ? state.processor : undefined;
+            resourceInputs["programmingLang"] = state ? state.programmingLang : undefined;
+            resourceInputs["releaseNotes"] = state ? state.releaseNotes : undefined;
+            resourceInputs["vendorGuidance"] = state ? state.vendorGuidance : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ImageVersionArgs | undefined;
@@ -107,7 +142,14 @@ export class ImageVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'imageName'");
             }
             resourceInputs["baseImage"] = args ? args.baseImage : undefined;
+            resourceInputs["horovod"] = args ? args.horovod : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["jobType"] = args ? args.jobType : undefined;
+            resourceInputs["mlFramework"] = args ? args.mlFramework : undefined;
+            resourceInputs["processor"] = args ? args.processor : undefined;
+            resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
+            resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
+            resourceInputs["vendorGuidance"] = args ? args.vendorGuidance : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["containerImage"] = undefined /*out*/;
             resourceInputs["imageArn"] = undefined /*out*/;
@@ -135,13 +177,41 @@ export interface ImageVersionState {
      */
     containerImage?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the image the version is based on.
+     * Indicates Horovod compatibility.
      */
+    horovod?: pulumi.Input<boolean>;
     imageArn?: pulumi.Input<string>;
     /**
      * The name of the image. Must be unique to your account.
      */
     imageName?: pulumi.Input<string>;
+    /**
+     * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     */
+    jobType?: pulumi.Input<string>;
+    /**
+     * The machine learning framework vended in the image version.
+     */
+    mlFramework?: pulumi.Input<string>;
+    /**
+     * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     */
+    processor?: pulumi.Input<string>;
+    /**
+     * The supported programming language and its version.
+     */
+    programmingLang?: pulumi.Input<string>;
+    /**
+     * The maintainer description of the image version.
+     */
+    releaseNotes?: pulumi.Input<string>;
+    /**
+     * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     */
+    vendorGuidance?: pulumi.Input<string>;
+    /**
+     * The version of the image. If not specified, the latest version is described.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -154,7 +224,35 @@ export interface ImageVersionArgs {
      */
     baseImage: pulumi.Input<string>;
     /**
+     * Indicates Horovod compatibility.
+     */
+    horovod?: pulumi.Input<boolean>;
+    /**
      * The name of the image. Must be unique to your account.
      */
     imageName: pulumi.Input<string>;
+    /**
+     * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     */
+    jobType?: pulumi.Input<string>;
+    /**
+     * The machine learning framework vended in the image version.
+     */
+    mlFramework?: pulumi.Input<string>;
+    /**
+     * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     */
+    processor?: pulumi.Input<string>;
+    /**
+     * The supported programming language and its version.
+     */
+    programmingLang?: pulumi.Input<string>;
+    /**
+     * The maintainer description of the image version.
+     */
+    releaseNotes?: pulumi.Input<string>;
+    /**
+     * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     */
+    vendorGuidance?: pulumi.Input<string>;
 }

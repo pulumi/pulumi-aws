@@ -38,7 +38,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
         /// <summary>

@@ -29,7 +29,7 @@ class GetNetworkInsightsPathResult:
     """
     A collection of values returned by getNetworkInsightsPath.
     """
-    def __init__(__self__, arn=None, destination=None, destination_arn=None, destination_ip=None, destination_port=None, filters=None, id=None, network_insights_path_id=None, protocol=None, source=None, source_arn=None, source_ip=None, tags=None):
+    def __init__(__self__, arn=None, destination=None, destination_arn=None, destination_ip=None, destination_port=None, filter_at_destinations=None, filter_at_sources=None, filters=None, id=None, network_insights_path_id=None, protocol=None, source=None, source_arn=None, source_ip=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,12 @@ class GetNetworkInsightsPathResult:
         if destination_port and not isinstance(destination_port, int):
             raise TypeError("Expected argument 'destination_port' to be a int")
         pulumi.set(__self__, "destination_port", destination_port)
+        if filter_at_destinations and not isinstance(filter_at_destinations, list):
+            raise TypeError("Expected argument 'filter_at_destinations' to be a list")
+        pulumi.set(__self__, "filter_at_destinations", filter_at_destinations)
+        if filter_at_sources and not isinstance(filter_at_sources, list):
+            raise TypeError("Expected argument 'filter_at_sources' to be a list")
+        pulumi.set(__self__, "filter_at_sources", filter_at_sources)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -109,6 +115,22 @@ class GetNetworkInsightsPathResult:
         Destination port.
         """
         return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter(name="filterAtDestinations")
+    def filter_at_destinations(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtDestinationResult']:
+        """
+        Filters of the network paths at the destination.
+        """
+        return pulumi.get(self, "filter_at_destinations")
+
+    @property
+    @pulumi.getter(name="filterAtSources")
+    def filter_at_sources(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtSourceResult']:
+        """
+        Filters of the network paths at the source.
+        """
+        return pulumi.get(self, "filter_at_sources")
 
     @property
     @pulumi.getter
@@ -180,6 +202,8 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
             destination_arn=self.destination_arn,
             destination_ip=self.destination_ip,
             destination_port=self.destination_port,
+            filter_at_destinations=self.filter_at_destinations,
+            filter_at_sources=self.filter_at_sources,
             filters=self.filters,
             id=self.id,
             network_insights_path_id=self.network_insights_path_id,
@@ -224,6 +248,8 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
         destination_arn=pulumi.get(__ret__, 'destination_arn'),
         destination_ip=pulumi.get(__ret__, 'destination_ip'),
         destination_port=pulumi.get(__ret__, 'destination_port'),
+        filter_at_destinations=pulumi.get(__ret__, 'filter_at_destinations'),
+        filter_at_sources=pulumi.get(__ret__, 'filter_at_sources'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
@@ -265,6 +291,8 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
         destination_arn=pulumi.get(__response__, 'destination_arn'),
         destination_ip=pulumi.get(__response__, 'destination_ip'),
         destination_port=pulumi.get(__response__, 'destination_port'),
+        filter_at_destinations=pulumi.get(__response__, 'filter_at_destinations'),
+        filter_at_sources=pulumi.get(__response__, 'filter_at_sources'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         network_insights_path_id=pulumi.get(__response__, 'network_insights_path_id'),

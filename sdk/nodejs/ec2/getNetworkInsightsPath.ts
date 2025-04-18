@@ -73,6 +73,14 @@ export interface GetNetworkInsightsPathResult {
      * Destination port.
      */
     readonly destinationPort: number;
+    /**
+     * Filters of the network paths at the destination.
+     */
+    readonly filterAtDestinations: outputs.ec2.GetNetworkInsightsPathFilterAtDestination[];
+    /**
+     * Filters of the network paths at the source.
+     */
+    readonly filterAtSources: outputs.ec2.GetNetworkInsightsPathFilterAtSource[];
     readonly filters?: outputs.ec2.GetNetworkInsightsPathFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.

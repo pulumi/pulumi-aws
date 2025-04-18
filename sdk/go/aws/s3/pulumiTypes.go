@@ -3200,7 +3200,9 @@ type BucketLifecycleConfigurationV2RuleFilterAnd struct {
 	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
 	// Prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+	// Key-value map of resource tags.
+	// All of these tags must exist in the object's tag set in order for the rule to apply.
+	// If set, must contain at least one key-value pair.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -3222,7 +3224,9 @@ type BucketLifecycleConfigurationV2RuleFilterAndArgs struct {
 	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
 	// Prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+	// Key-value map of resource tags.
+	// All of these tags must exist in the object's tag set in order for the rule to apply.
+	// If set, must contain at least one key-value pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -3318,7 +3322,9 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Prefix() pulumi.Strin
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+// Key-value map of resource tags.
+// All of these tags must exist in the object's tag set in order for the rule to apply.
+// If set, must contain at least one key-value pair.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -3377,7 +3383,9 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Prefix() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+// Key-value map of resource tags.
+// All of these tags must exist in the object's tag set in order for the rule to apply.
+// If set, must contain at least one key-value pair.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string {
 		if v == nil {

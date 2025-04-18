@@ -31,44 +31,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.TopicSubscription;
- * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()
- *             .topic("arn:aws:sns:us-west-2:432981146916:user-updates-topic")
- *             .protocol("sqs")
- *             .endpoint("arn:aws:sqs:us-west-2:432981146916:queue-too")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+ * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -80,6 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
  * import com.pulumi.aws.sns.TopicArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.sns.TopicSubscription;
@@ -101,8 +66,28 @@ import javax.annotation.Nullable;
  *             .name("user-updates-topic")
  *             .build());
  * 
+ *         final var sqsQueuePolicy = userUpdates.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .policyId("arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid("user_updates_sqs_target")
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("sns.amazonaws.com")
+ *                     .build())
+ *                 .actions("SQS:SendMessage")
+ *                 .resources("arn:aws:sqs:us-west-2:123456789012:user-updates-queue")
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("ArnEquals")
+ *                     .variable("aws:SourceArn")
+ *                     .values(_arn)
+ *                     .build())
+ *                 .build())
+ *             .build()));
+ * 
  *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()
  *             .name("user-updates-queue")
+ *             .policy(sqsQueuePolicy.applyValue(_sqsQueuePolicy -> _sqsQueuePolicy.json()))
  *             .build());
  * 
  *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()
@@ -116,6 +101,8 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Example Cross-account Subscription
  * 
  * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
  * 
@@ -162,7 +149,7 @@ import javax.annotation.Nullable;
  *             Map.entry("region", "us-east-1"),
  *             Map.entry("role-name", "service/service")
  *         ));
- *         final var sns-topic-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("__default_policy_ID")
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -207,7 +194,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         final var sqs-queue-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var sqsQueuePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId(String.format("arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy", sqs.region(),sqs.account-id(),sqs.name()))
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid("example-sns-topic")
@@ -226,21 +213,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var sns_topic = new Topic("sns-topic", TopicArgs.builder()
+ *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
  *             .name(sns.name())
  *             .displayName(sns.display_name())
- *             .policy(sns_topic_policy.json())
+ *             .policy(snsTopicPolicy.json())
  *             .build());
  * 
- *         var sqs_queue = new Queue("sqs-queue", QueueArgs.builder()
+ *         var sqsQueue = new Queue("sqsQueue", QueueArgs.builder()
  *             .name(sqs.name())
- *             .policy(sqs_queue_policy.json())
+ *             .policy(sqsQueuePolicy.json())
  *             .build());
  * 
- *         var sns_topicTopicSubscription = new TopicSubscription("sns-topicTopicSubscription", TopicSubscriptionArgs.builder()
- *             .topic(sns_topic.arn())
+ *         var snsTopicTopicSubscription = new TopicSubscription("snsTopicTopicSubscription", TopicSubscriptionArgs.builder()
+ *             .topic(snsTopic.arn())
  *             .protocol("sqs")
- *             .endpoint(sqs_queue.arn())
+ *             .endpoint(sqsQueue.arn())
  *             .build());
  * 
  *     }
@@ -249,7 +236,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Example with Delivery Policy
+ * ### Example with Delivery Policy
  * 
  * This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `delivery_policy` for `aws.sns.TopicSubscription` should not be wrapped in an `&#34;http&#34;` object.
  * 

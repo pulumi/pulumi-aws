@@ -38,14 +38,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lake Formation Opt In using the `example_id_arg`. For example:
-//
-// ```sh
-// $ pulumi import aws:lakeformation/optIn:OptIn example opt_in-id-12345678
-// ```
 type OptIn struct {
 	pulumi.CustomResourceState
 

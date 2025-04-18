@@ -180,10 +180,10 @@ class _DeploymentState:
                Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[builtins.str] description: Description of the deployment
-        :param pulumi.Input[builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
+        :param pulumi.Input[builtins.str] execution_arn: **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
+        :param pulumi.Input[builtins.str] invoke_url: **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
@@ -204,7 +204,13 @@ class _DeploymentState:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_arn is not None:
+            warnings.warn("""execution_arn is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""execution_arn is deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.""")
+        if execution_arn is not None:
             pulumi.set(__self__, "execution_arn", execution_arn)
+        if invoke_url is not None:
+            warnings.warn("""invoke_url is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""invoke_url is deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.""")
         if invoke_url is not None:
             pulumi.set(__self__, "invoke_url", invoke_url)
         if rest_api is not None:
@@ -265,9 +271,10 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="executionArn")
+    @_utilities.deprecated("""execution_arn is deprecated. Use the apigateway.Stage resource instead.""")
     def execution_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Execution ARN to be used in `lambda_permission`'s `source_arn`
+        **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
         e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
@@ -279,9 +286,10 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="invokeUrl")
+    @_utilities.deprecated("""invoke_url is deprecated. Use the apigateway.Stage resource instead.""")
     def invoke_url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        URL to invoke the API pointing to the stage,
+        **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
         e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")
@@ -511,10 +519,10 @@ class Deployment(pulumi.CustomResource):
                Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[builtins.str] description: Description of the deployment
-        :param pulumi.Input[builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
+        :param pulumi.Input[builtins.str] execution_arn: **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
+        :param pulumi.Input[builtins.str] invoke_url: **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
@@ -570,9 +578,10 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
+    @_utilities.deprecated("""execution_arn is deprecated. Use the apigateway.Stage resource instead.""")
     def execution_arn(self) -> pulumi.Output[builtins.str]:
         """
-        Execution ARN to be used in `lambda_permission`'s `source_arn`
+        **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
         e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
@@ -580,9 +589,10 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeUrl")
+    @_utilities.deprecated("""invoke_url is deprecated. Use the apigateway.Stage resource instead.""")
     def invoke_url(self) -> pulumi.Output[builtins.str]:
         """
-        URL to invoke the API pointing to the stage,
+        **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
         e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")

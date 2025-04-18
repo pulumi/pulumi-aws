@@ -25503,6 +25503,1026 @@ func (o NetworkInsightsAnalysisReturnPathComponentVpcArrayOutput) Index(i pulumi
 	}).(NetworkInsightsAnalysisReturnPathComponentVpcOutput)
 }
 
+type NetworkInsightsPathFilterAtDestination struct {
+	// The destination IPv4 address.
+	DestinationAddress *string `pulumi:"destinationAddress"`
+	// The destination port range. See below for details.
+	DestinationPortRange *NetworkInsightsPathFilterAtDestinationDestinationPortRange `pulumi:"destinationPortRange"`
+	// IP address of the source resource.
+	SourceAddress *string `pulumi:"sourceAddress"`
+	// The source port range. See below for details.
+	SourcePortRange *NetworkInsightsPathFilterAtDestinationSourcePortRange `pulumi:"sourcePortRange"`
+}
+
+// NetworkInsightsPathFilterAtDestinationInput is an input type that accepts NetworkInsightsPathFilterAtDestinationArgs and NetworkInsightsPathFilterAtDestinationOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtDestinationInput` via:
+//
+//	NetworkInsightsPathFilterAtDestinationArgs{...}
+type NetworkInsightsPathFilterAtDestinationInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtDestinationOutput() NetworkInsightsPathFilterAtDestinationOutput
+	ToNetworkInsightsPathFilterAtDestinationOutputWithContext(context.Context) NetworkInsightsPathFilterAtDestinationOutput
+}
+
+type NetworkInsightsPathFilterAtDestinationArgs struct {
+	// The destination IPv4 address.
+	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
+	// The destination port range. See below for details.
+	DestinationPortRange NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrInput `pulumi:"destinationPortRange"`
+	// IP address of the source resource.
+	SourceAddress pulumi.StringPtrInput `pulumi:"sourceAddress"`
+	// The source port range. See below for details.
+	SourcePortRange NetworkInsightsPathFilterAtDestinationSourcePortRangePtrInput `pulumi:"sourcePortRange"`
+}
+
+func (NetworkInsightsPathFilterAtDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterAtDestinationArgs) ToNetworkInsightsPathFilterAtDestinationOutput() NetworkInsightsPathFilterAtDestinationOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtDestinationArgs) ToNetworkInsightsPathFilterAtDestinationOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationOutput)
+}
+
+func (i NetworkInsightsPathFilterAtDestinationArgs) ToNetworkInsightsPathFilterAtDestinationPtrOutput() NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtDestinationArgs) ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationOutput).ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterAtDestinationPtrInput is an input type that accepts NetworkInsightsPathFilterAtDestinationArgs, NetworkInsightsPathFilterAtDestinationPtr and NetworkInsightsPathFilterAtDestinationPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtDestinationPtrInput` via:
+//
+//	        NetworkInsightsPathFilterAtDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterAtDestinationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtDestinationPtrOutput() NetworkInsightsPathFilterAtDestinationPtrOutput
+	ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(context.Context) NetworkInsightsPathFilterAtDestinationPtrOutput
+}
+
+type networkInsightsPathFilterAtDestinationPtrType NetworkInsightsPathFilterAtDestinationArgs
+
+func NetworkInsightsPathFilterAtDestinationPtr(v *NetworkInsightsPathFilterAtDestinationArgs) NetworkInsightsPathFilterAtDestinationPtrInput {
+	return (*networkInsightsPathFilterAtDestinationPtrType)(v)
+}
+
+func (*networkInsightsPathFilterAtDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterAtDestinationPtrType) ToNetworkInsightsPathFilterAtDestinationPtrOutput() NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterAtDestinationPtrType) ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtDestinationOutput) ToNetworkInsightsPathFilterAtDestinationOutput() NetworkInsightsPathFilterAtDestinationOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationOutput) ToNetworkInsightsPathFilterAtDestinationOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationOutput) ToNetworkInsightsPathFilterAtDestinationPtrOutput() NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return o.ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterAtDestinationOutput) ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterAtDestination) *NetworkInsightsPathFilterAtDestination {
+		return &v
+	}).(NetworkInsightsPathFilterAtDestinationPtrOutput)
+}
+
+// The destination IPv4 address.
+func (o NetworkInsightsPathFilterAtDestinationOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestination) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
+}
+
+// The destination port range. See below for details.
+func (o NetworkInsightsPathFilterAtDestinationOutput) DestinationPortRange() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestination) *NetworkInsightsPathFilterAtDestinationDestinationPortRange {
+		return v.DestinationPortRange
+	}).(NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput)
+}
+
+// IP address of the source resource.
+func (o NetworkInsightsPathFilterAtDestinationOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestination) *string { return v.SourceAddress }).(pulumi.StringPtrOutput)
+}
+
+// The source port range. See below for details.
+func (o NetworkInsightsPathFilterAtDestinationOutput) SourcePortRange() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestination) *NetworkInsightsPathFilterAtDestinationSourcePortRange {
+		return v.SourcePortRange
+	}).(NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) ToNetworkInsightsPathFilterAtDestinationPtrOutput() NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) ToNetworkInsightsPathFilterAtDestinationPtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) Elem() NetworkInsightsPathFilterAtDestinationOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestination) NetworkInsightsPathFilterAtDestination {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterAtDestination
+		return ret
+	}).(NetworkInsightsPathFilterAtDestinationOutput)
+}
+
+// The destination IPv4 address.
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination port range. See below for details.
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) DestinationPortRange() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestination) *NetworkInsightsPathFilterAtDestinationDestinationPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRange
+	}).(NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput)
+}
+
+// IP address of the source resource.
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source port range. See below for details.
+func (o NetworkInsightsPathFilterAtDestinationPtrOutput) SourcePortRange() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestination) *NetworkInsightsPathFilterAtDestinationSourcePortRange {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRange
+	}).(NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationDestinationPortRange struct {
+	// The first port in the range.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort *int `pulumi:"toPort"`
+}
+
+// NetworkInsightsPathFilterAtDestinationDestinationPortRangeInput is an input type that accepts NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs and NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtDestinationDestinationPortRangeInput` via:
+//
+//	NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{...}
+type NetworkInsightsPathFilterAtDestinationDestinationPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput
+	ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput
+}
+
+type NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs struct {
+	// The first port in the range.
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput)
+}
+
+func (i NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput).ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrInput is an input type that accepts NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs, NetworkInsightsPathFilterAtDestinationDestinationPortRangePtr and NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrInput` via:
+//
+//	        NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput
+	ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput
+}
+
+type networkInsightsPathFilterAtDestinationDestinationPortRangePtrType NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs
+
+func NetworkInsightsPathFilterAtDestinationDestinationPortRangePtr(v *NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrInput {
+	return (*networkInsightsPathFilterAtDestinationDestinationPortRangePtrType)(v)
+}
+
+func (*networkInsightsPathFilterAtDestinationDestinationPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterAtDestinationDestinationPortRangePtrType) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterAtDestinationDestinationPortRangePtrType) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return o.ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterAtDestinationDestinationPortRange) *NetworkInsightsPathFilterAtDestinationDestinationPortRange {
+		return &v
+	}).(NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestinationDestinationPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestinationDestinationPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput) ToNetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput) Elem() NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestinationDestinationPortRange) NetworkInsightsPathFilterAtDestinationDestinationPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterAtDestinationDestinationPortRange
+		return ret
+	}).(NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestinationDestinationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestinationDestinationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationSourcePortRange struct {
+	// The first port in the range.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort *int `pulumi:"toPort"`
+}
+
+// NetworkInsightsPathFilterAtDestinationSourcePortRangeInput is an input type that accepts NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs and NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtDestinationSourcePortRangeInput` via:
+//
+//	NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{...}
+type NetworkInsightsPathFilterAtDestinationSourcePortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput
+	ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput
+}
+
+type NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs struct {
+	// The first port in the range.
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput)
+}
+
+func (i NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput).ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterAtDestinationSourcePortRangePtrInput is an input type that accepts NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs, NetworkInsightsPathFilterAtDestinationSourcePortRangePtr and NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtDestinationSourcePortRangePtrInput` via:
+//
+//	        NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterAtDestinationSourcePortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput
+	ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput
+}
+
+type networkInsightsPathFilterAtDestinationSourcePortRangePtrType NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs
+
+func NetworkInsightsPathFilterAtDestinationSourcePortRangePtr(v *NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) NetworkInsightsPathFilterAtDestinationSourcePortRangePtrInput {
+	return (*networkInsightsPathFilterAtDestinationSourcePortRangePtrType)(v)
+}
+
+func (*networkInsightsPathFilterAtDestinationSourcePortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterAtDestinationSourcePortRangePtrType) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterAtDestinationSourcePortRangePtrType) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return o.ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterAtDestinationSourcePortRange) *NetworkInsightsPathFilterAtDestinationSourcePortRange {
+		return &v
+	}).(NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestinationSourcePortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtDestinationSourcePortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput() NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput) ToNetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput) Elem() NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestinationSourcePortRange) NetworkInsightsPathFilterAtDestinationSourcePortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterAtDestinationSourcePortRange
+		return ret
+	}).(NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestinationSourcePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtDestinationSourcePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSource struct {
+	// The destination IPv4 address.
+	DestinationAddress *string `pulumi:"destinationAddress"`
+	// The destination port range. See below for details.
+	DestinationPortRange *NetworkInsightsPathFilterAtSourceDestinationPortRange `pulumi:"destinationPortRange"`
+	// IP address of the source resource.
+	SourceAddress *string `pulumi:"sourceAddress"`
+	// The source port range. See below for details.
+	SourcePortRange *NetworkInsightsPathFilterAtSourceSourcePortRange `pulumi:"sourcePortRange"`
+}
+
+// NetworkInsightsPathFilterAtSourceInput is an input type that accepts NetworkInsightsPathFilterAtSourceArgs and NetworkInsightsPathFilterAtSourceOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtSourceInput` via:
+//
+//	NetworkInsightsPathFilterAtSourceArgs{...}
+type NetworkInsightsPathFilterAtSourceInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtSourceOutput() NetworkInsightsPathFilterAtSourceOutput
+	ToNetworkInsightsPathFilterAtSourceOutputWithContext(context.Context) NetworkInsightsPathFilterAtSourceOutput
+}
+
+type NetworkInsightsPathFilterAtSourceArgs struct {
+	// The destination IPv4 address.
+	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
+	// The destination port range. See below for details.
+	DestinationPortRange NetworkInsightsPathFilterAtSourceDestinationPortRangePtrInput `pulumi:"destinationPortRange"`
+	// IP address of the source resource.
+	SourceAddress pulumi.StringPtrInput `pulumi:"sourceAddress"`
+	// The source port range. See below for details.
+	SourcePortRange NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput `pulumi:"sourcePortRange"`
+}
+
+func (NetworkInsightsPathFilterAtSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterAtSourceArgs) ToNetworkInsightsPathFilterAtSourceOutput() NetworkInsightsPathFilterAtSourceOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtSourceArgs) ToNetworkInsightsPathFilterAtSourceOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceOutput)
+}
+
+func (i NetworkInsightsPathFilterAtSourceArgs) ToNetworkInsightsPathFilterAtSourcePtrOutput() NetworkInsightsPathFilterAtSourcePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtSourceArgs) ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceOutput).ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterAtSourcePtrInput is an input type that accepts NetworkInsightsPathFilterAtSourceArgs, NetworkInsightsPathFilterAtSourcePtr and NetworkInsightsPathFilterAtSourcePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtSourcePtrInput` via:
+//
+//	        NetworkInsightsPathFilterAtSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterAtSourcePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtSourcePtrOutput() NetworkInsightsPathFilterAtSourcePtrOutput
+	ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(context.Context) NetworkInsightsPathFilterAtSourcePtrOutput
+}
+
+type networkInsightsPathFilterAtSourcePtrType NetworkInsightsPathFilterAtSourceArgs
+
+func NetworkInsightsPathFilterAtSourcePtr(v *NetworkInsightsPathFilterAtSourceArgs) NetworkInsightsPathFilterAtSourcePtrInput {
+	return (*networkInsightsPathFilterAtSourcePtrType)(v)
+}
+
+func (*networkInsightsPathFilterAtSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterAtSourcePtrType) ToNetworkInsightsPathFilterAtSourcePtrOutput() NetworkInsightsPathFilterAtSourcePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterAtSourcePtrType) ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourcePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtSourceOutput) ToNetworkInsightsPathFilterAtSourceOutput() NetworkInsightsPathFilterAtSourceOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceOutput) ToNetworkInsightsPathFilterAtSourceOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceOutput) ToNetworkInsightsPathFilterAtSourcePtrOutput() NetworkInsightsPathFilterAtSourcePtrOutput {
+	return o.ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterAtSourceOutput) ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterAtSource) *NetworkInsightsPathFilterAtSource {
+		return &v
+	}).(NetworkInsightsPathFilterAtSourcePtrOutput)
+}
+
+// The destination IPv4 address.
+func (o NetworkInsightsPathFilterAtSourceOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSource) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
+}
+
+// The destination port range. See below for details.
+func (o NetworkInsightsPathFilterAtSourceOutput) DestinationPortRange() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSource) *NetworkInsightsPathFilterAtSourceDestinationPortRange {
+		return v.DestinationPortRange
+	}).(NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput)
+}
+
+// IP address of the source resource.
+func (o NetworkInsightsPathFilterAtSourceOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSource) *string { return v.SourceAddress }).(pulumi.StringPtrOutput)
+}
+
+// The source port range. See below for details.
+func (o NetworkInsightsPathFilterAtSourceOutput) SourcePortRange() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSource) *NetworkInsightsPathFilterAtSourceSourcePortRange {
+		return v.SourcePortRange
+	}).(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) ToNetworkInsightsPathFilterAtSourcePtrOutput() NetworkInsightsPathFilterAtSourcePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) ToNetworkInsightsPathFilterAtSourcePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourcePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) Elem() NetworkInsightsPathFilterAtSourceOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSource) NetworkInsightsPathFilterAtSource {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterAtSource
+		return ret
+	}).(NetworkInsightsPathFilterAtSourceOutput)
+}
+
+// The destination IPv4 address.
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination port range. See below for details.
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) DestinationPortRange() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSource) *NetworkInsightsPathFilterAtSourceDestinationPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRange
+	}).(NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput)
+}
+
+// IP address of the source resource.
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source port range. See below for details.
+func (o NetworkInsightsPathFilterAtSourcePtrOutput) SourcePortRange() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSource) *NetworkInsightsPathFilterAtSourceSourcePortRange {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRange
+	}).(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceDestinationPortRange struct {
+	// The first port in the range.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort *int `pulumi:"toPort"`
+}
+
+// NetworkInsightsPathFilterAtSourceDestinationPortRangeInput is an input type that accepts NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs and NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtSourceDestinationPortRangeInput` via:
+//
+//	NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{...}
+type NetworkInsightsPathFilterAtSourceDestinationPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput
+	ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput
+}
+
+type NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs struct {
+	// The first port in the range.
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput)
+}
+
+func (i NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput).ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterAtSourceDestinationPortRangePtrInput is an input type that accepts NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs, NetworkInsightsPathFilterAtSourceDestinationPortRangePtr and NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtSourceDestinationPortRangePtrInput` via:
+//
+//	        NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterAtSourceDestinationPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput
+	ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput
+}
+
+type networkInsightsPathFilterAtSourceDestinationPortRangePtrType NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs
+
+func NetworkInsightsPathFilterAtSourceDestinationPortRangePtr(v *NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) NetworkInsightsPathFilterAtSourceDestinationPortRangePtrInput {
+	return (*networkInsightsPathFilterAtSourceDestinationPortRangePtrType)(v)
+}
+
+func (*networkInsightsPathFilterAtSourceDestinationPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterAtSourceDestinationPortRangePtrType) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterAtSourceDestinationPortRangePtrType) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return o.ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterAtSourceDestinationPortRange) *NetworkInsightsPathFilterAtSourceDestinationPortRange {
+		return &v
+	}).(NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSourceDestinationPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSourceDestinationPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput() NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput) ToNetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput) Elem() NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSourceDestinationPortRange) NetworkInsightsPathFilterAtSourceDestinationPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterAtSourceDestinationPortRange
+		return ret
+	}).(NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSourceDestinationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSourceDestinationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceSourcePortRange struct {
+	// The first port in the range.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort *int `pulumi:"toPort"`
+}
+
+// NetworkInsightsPathFilterAtSourceSourcePortRangeInput is an input type that accepts NetworkInsightsPathFilterAtSourceSourcePortRangeArgs and NetworkInsightsPathFilterAtSourceSourcePortRangeOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtSourceSourcePortRangeInput` via:
+//
+//	NetworkInsightsPathFilterAtSourceSourcePortRangeArgs{...}
+type NetworkInsightsPathFilterAtSourceSourcePortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutput() NetworkInsightsPathFilterAtSourceSourcePortRangeOutput
+	ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangeOutput
+}
+
+type NetworkInsightsPathFilterAtSourceSourcePortRangeArgs struct {
+	// The first port in the range.
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (NetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutput() NetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceSourcePortRangeOutput)
+}
+
+func (i NetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceSourcePortRangeOutput).ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput is an input type that accepts NetworkInsightsPathFilterAtSourceSourcePortRangeArgs, NetworkInsightsPathFilterAtSourceSourcePortRangePtr and NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput` via:
+//
+//	        NetworkInsightsPathFilterAtSourceSourcePortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput
+	ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput
+}
+
+type networkInsightsPathFilterAtSourceSourcePortRangePtrType NetworkInsightsPathFilterAtSourceSourcePortRangeArgs
+
+func NetworkInsightsPathFilterAtSourceSourcePortRangePtr(v *NetworkInsightsPathFilterAtSourceSourcePortRangeArgs) NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput {
+	return (*networkInsightsPathFilterAtSourceSourcePortRangePtrType)(v)
+}
+
+func (*networkInsightsPathFilterAtSourceSourcePortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterAtSourceSourcePortRangePtrType) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterAtSourceSourcePortRangePtrType) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceSourcePortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutput() NetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return o.ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterAtSourceSourcePortRange) *NetworkInsightsPathFilterAtSourceSourcePortRange {
+		return &v
+	}).(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSourceSourcePortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterAtSourceSourcePortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput() NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput) ToNetworkInsightsPathFilterAtSourceSourcePortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput) Elem() NetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSourceSourcePortRange) NetworkInsightsPathFilterAtSourceSourcePortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterAtSourceSourcePortRange
+		return ret
+	}).(NetworkInsightsPathFilterAtSourceSourcePortRangeOutput)
+}
+
+// The first port in the range.
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSourceSourcePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterAtSourceSourcePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
 type NetworkInterfaceAttachmentType struct {
 	AttachmentId *string `pulumi:"attachmentId"`
 	// Integer to define the devices index.
@@ -54402,6 +55422,638 @@ func (o GetNetworkInsightsPathFilterArrayOutput) Index(i pulumi.IntInput) GetNet
 	}).(GetNetworkInsightsPathFilterOutput)
 }
 
+type GetNetworkInsightsPathFilterAtDestination struct {
+	DestinationAddress    string                                                          `pulumi:"destinationAddress"`
+	DestinationPortRanges []GetNetworkInsightsPathFilterAtDestinationDestinationPortRange `pulumi:"destinationPortRanges"`
+	SourceAddress         string                                                          `pulumi:"sourceAddress"`
+	SourcePortRanges      []GetNetworkInsightsPathFilterAtDestinationSourcePortRange      `pulumi:"sourcePortRanges"`
+}
+
+// GetNetworkInsightsPathFilterAtDestinationInput is an input type that accepts GetNetworkInsightsPathFilterAtDestinationArgs and GetNetworkInsightsPathFilterAtDestinationOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtDestinationInput` via:
+//
+//	GetNetworkInsightsPathFilterAtDestinationArgs{...}
+type GetNetworkInsightsPathFilterAtDestinationInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtDestinationOutput() GetNetworkInsightsPathFilterAtDestinationOutput
+	ToGetNetworkInsightsPathFilterAtDestinationOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtDestinationOutput
+}
+
+type GetNetworkInsightsPathFilterAtDestinationArgs struct {
+	DestinationAddress    pulumi.StringInput                                                      `pulumi:"destinationAddress"`
+	DestinationPortRanges GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayInput `pulumi:"destinationPortRanges"`
+	SourceAddress         pulumi.StringInput                                                      `pulumi:"sourceAddress"`
+	SourcePortRanges      GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayInput      `pulumi:"sourcePortRanges"`
+}
+
+func (GetNetworkInsightsPathFilterAtDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationArgs) ToGetNetworkInsightsPathFilterAtDestinationOutput() GetNetworkInsightsPathFilterAtDestinationOutput {
+	return i.ToGetNetworkInsightsPathFilterAtDestinationOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationArgs) ToGetNetworkInsightsPathFilterAtDestinationOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtDestinationOutput)
+}
+
+// GetNetworkInsightsPathFilterAtDestinationArrayInput is an input type that accepts GetNetworkInsightsPathFilterAtDestinationArray and GetNetworkInsightsPathFilterAtDestinationArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtDestinationArrayInput` via:
+//
+//	GetNetworkInsightsPathFilterAtDestinationArray{ GetNetworkInsightsPathFilterAtDestinationArgs{...} }
+type GetNetworkInsightsPathFilterAtDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtDestinationArrayOutput() GetNetworkInsightsPathFilterAtDestinationArrayOutput
+	ToGetNetworkInsightsPathFilterAtDestinationArrayOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtDestinationArrayOutput
+}
+
+type GetNetworkInsightsPathFilterAtDestinationArray []GetNetworkInsightsPathFilterAtDestinationInput
+
+func (GetNetworkInsightsPathFilterAtDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationArray) ToGetNetworkInsightsPathFilterAtDestinationArrayOutput() GetNetworkInsightsPathFilterAtDestinationArrayOutput {
+	return i.ToGetNetworkInsightsPathFilterAtDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationArray) ToGetNetworkInsightsPathFilterAtDestinationArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtDestinationArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationOutput) ToGetNetworkInsightsPathFilterAtDestinationOutput() GetNetworkInsightsPathFilterAtDestinationOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationOutput) ToGetNetworkInsightsPathFilterAtDestinationOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestination) string { return v.DestinationAddress }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationOutput) DestinationPortRanges() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestination) []GetNetworkInsightsPathFilterAtDestinationDestinationPortRange {
+		return v.DestinationPortRanges
+	}).(GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationOutput) SourceAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestination) string { return v.SourceAddress }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationOutput) SourcePortRanges() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestination) []GetNetworkInsightsPathFilterAtDestinationSourcePortRange {
+		return v.SourcePortRanges
+	}).(GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtDestination)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationArrayOutput) ToGetNetworkInsightsPathFilterAtDestinationArrayOutput() GetNetworkInsightsPathFilterAtDestinationArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationArrayOutput) ToGetNetworkInsightsPathFilterAtDestinationArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationArrayOutput) Index(i pulumi.IntInput) GetNetworkInsightsPathFilterAtDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInsightsPathFilterAtDestination {
+		return vs[0].([]GetNetworkInsightsPathFilterAtDestination)[vs[1].(int)]
+	}).(GetNetworkInsightsPathFilterAtDestinationOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRange struct {
+	FromPort int `pulumi:"fromPort"`
+	ToPort   int `pulumi:"toPort"`
+}
+
+// GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeInput is an input type that accepts GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs and GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeInput` via:
+//
+//	GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{...}
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput
+	ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput
+}
+
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs struct {
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return i.ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput)
+}
+
+// GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayInput is an input type that accepts GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray and GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayInput` via:
+//
+//	GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray{ GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{...} }
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput
+	ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput
+}
+
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray []GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeInput
+
+func (GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput {
+	return i.ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestinationDestinationPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestinationDestinationPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtDestinationDestinationPortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput() GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput) Index(i pulumi.IntInput) GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInsightsPathFilterAtDestinationDestinationPortRange {
+		return vs[0].([]GetNetworkInsightsPathFilterAtDestinationDestinationPortRange)[vs[1].(int)]
+	}).(GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRange struct {
+	FromPort int `pulumi:"fromPort"`
+	ToPort   int `pulumi:"toPort"`
+}
+
+// GetNetworkInsightsPathFilterAtDestinationSourcePortRangeInput is an input type that accepts GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs and GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtDestinationSourcePortRangeInput` via:
+//
+//	GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{...}
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRangeInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput
+	ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput
+}
+
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs struct {
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return i.ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput)
+}
+
+// GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayInput is an input type that accepts GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray and GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayInput` via:
+//
+//	GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray{ GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{...} }
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput
+	ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput
+}
+
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray []GetNetworkInsightsPathFilterAtDestinationSourcePortRangeInput
+
+func (GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput {
+	return i.ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestinationSourcePortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtDestinationSourcePortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtDestinationSourcePortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput() GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput) Index(i pulumi.IntInput) GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInsightsPathFilterAtDestinationSourcePortRange {
+		return vs[0].([]GetNetworkInsightsPathFilterAtDestinationSourcePortRange)[vs[1].(int)]
+	}).(GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSource struct {
+	DestinationAddress    string                                                     `pulumi:"destinationAddress"`
+	DestinationPortRanges []GetNetworkInsightsPathFilterAtSourceDestinationPortRange `pulumi:"destinationPortRanges"`
+	SourceAddress         string                                                     `pulumi:"sourceAddress"`
+	SourcePortRanges      []GetNetworkInsightsPathFilterAtSourceSourcePortRange      `pulumi:"sourcePortRanges"`
+}
+
+// GetNetworkInsightsPathFilterAtSourceInput is an input type that accepts GetNetworkInsightsPathFilterAtSourceArgs and GetNetworkInsightsPathFilterAtSourceOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtSourceInput` via:
+//
+//	GetNetworkInsightsPathFilterAtSourceArgs{...}
+type GetNetworkInsightsPathFilterAtSourceInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtSourceOutput() GetNetworkInsightsPathFilterAtSourceOutput
+	ToGetNetworkInsightsPathFilterAtSourceOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtSourceOutput
+}
+
+type GetNetworkInsightsPathFilterAtSourceArgs struct {
+	DestinationAddress    pulumi.StringInput                                                 `pulumi:"destinationAddress"`
+	DestinationPortRanges GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayInput `pulumi:"destinationPortRanges"`
+	SourceAddress         pulumi.StringInput                                                 `pulumi:"sourceAddress"`
+	SourcePortRanges      GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayInput      `pulumi:"sourcePortRanges"`
+}
+
+func (GetNetworkInsightsPathFilterAtSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceArgs) ToGetNetworkInsightsPathFilterAtSourceOutput() GetNetworkInsightsPathFilterAtSourceOutput {
+	return i.ToGetNetworkInsightsPathFilterAtSourceOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceArgs) ToGetNetworkInsightsPathFilterAtSourceOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtSourceOutput)
+}
+
+// GetNetworkInsightsPathFilterAtSourceArrayInput is an input type that accepts GetNetworkInsightsPathFilterAtSourceArray and GetNetworkInsightsPathFilterAtSourceArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtSourceArrayInput` via:
+//
+//	GetNetworkInsightsPathFilterAtSourceArray{ GetNetworkInsightsPathFilterAtSourceArgs{...} }
+type GetNetworkInsightsPathFilterAtSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtSourceArrayOutput() GetNetworkInsightsPathFilterAtSourceArrayOutput
+	ToGetNetworkInsightsPathFilterAtSourceArrayOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtSourceArrayOutput
+}
+
+type GetNetworkInsightsPathFilterAtSourceArray []GetNetworkInsightsPathFilterAtSourceInput
+
+func (GetNetworkInsightsPathFilterAtSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceArray) ToGetNetworkInsightsPathFilterAtSourceArrayOutput() GetNetworkInsightsPathFilterAtSourceArrayOutput {
+	return i.ToGetNetworkInsightsPathFilterAtSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceArray) ToGetNetworkInsightsPathFilterAtSourceArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtSourceArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceOutput) ToGetNetworkInsightsPathFilterAtSourceOutput() GetNetworkInsightsPathFilterAtSourceOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceOutput) ToGetNetworkInsightsPathFilterAtSourceOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSource) string { return v.DestinationAddress }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceOutput) DestinationPortRanges() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSource) []GetNetworkInsightsPathFilterAtSourceDestinationPortRange {
+		return v.DestinationPortRanges
+	}).(GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceOutput) SourceAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSource) string { return v.SourceAddress }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceOutput) SourcePortRanges() GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSource) []GetNetworkInsightsPathFilterAtSourceSourcePortRange {
+		return v.SourcePortRanges
+	}).(GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtSource)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceArrayOutput) ToGetNetworkInsightsPathFilterAtSourceArrayOutput() GetNetworkInsightsPathFilterAtSourceArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceArrayOutput) ToGetNetworkInsightsPathFilterAtSourceArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceArrayOutput) Index(i pulumi.IntInput) GetNetworkInsightsPathFilterAtSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInsightsPathFilterAtSource {
+		return vs[0].([]GetNetworkInsightsPathFilterAtSource)[vs[1].(int)]
+	}).(GetNetworkInsightsPathFilterAtSourceOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRange struct {
+	FromPort int `pulumi:"fromPort"`
+	ToPort   int `pulumi:"toPort"`
+}
+
+// GetNetworkInsightsPathFilterAtSourceDestinationPortRangeInput is an input type that accepts GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs and GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtSourceDestinationPortRangeInput` via:
+//
+//	GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{...}
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRangeInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput
+	ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput
+}
+
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs struct {
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return i.ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput)
+}
+
+// GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayInput is an input type that accepts GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray and GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayInput` via:
+//
+//	GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray{ GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{...} }
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput
+	ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput
+}
+
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray []GetNetworkInsightsPathFilterAtSourceDestinationPortRangeInput
+
+func (GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput {
+	return i.ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSourceDestinationPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSourceDestinationPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtSourceDestinationPortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput() GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput) Index(i pulumi.IntInput) GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInsightsPathFilterAtSourceDestinationPortRange {
+		return vs[0].([]GetNetworkInsightsPathFilterAtSourceDestinationPortRange)[vs[1].(int)]
+	}).(GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceSourcePortRange struct {
+	FromPort int `pulumi:"fromPort"`
+	ToPort   int `pulumi:"toPort"`
+}
+
+// GetNetworkInsightsPathFilterAtSourceSourcePortRangeInput is an input type that accepts GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs and GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtSourceSourcePortRangeInput` via:
+//
+//	GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs{...}
+type GetNetworkInsightsPathFilterAtSourceSourcePortRangeInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput() GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput
+	ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput
+}
+
+type GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs struct {
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput() GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return i.ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput)
+}
+
+// GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayInput is an input type that accepts GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray and GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayInput` via:
+//
+//	GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray{ GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs{...} }
+type GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput() GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput
+	ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutputWithContext(context.Context) GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput
+}
+
+type GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray []GetNetworkInsightsPathFilterAtSourceSourcePortRangeInput
+
+func (GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput() GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput {
+	return i.ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput() GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSourceSourcePortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkInsightsPathFilterAtSourceSourcePortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInsightsPathFilterAtSourceSourcePortRange)(nil)).Elem()
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput() GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput) ToGetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutputWithContext(ctx context.Context) GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput {
+	return o
+}
+
+func (o GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput) Index(i pulumi.IntInput) GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInsightsPathFilterAtSourceSourcePortRange {
+		return vs[0].([]GetNetworkInsightsPathFilterAtSourceSourcePortRange)[vs[1].(int)]
+	}).(GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput)
+}
+
 type GetNetworkInterfaceAssociation struct {
 	// Allocation ID.
 	AllocationId string `pulumi:"allocationId"`
@@ -60300,6 +61952,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrayInput)(nil)).Elem(), NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisReturnPathComponentVpcInput)(nil)).Elem(), NetworkInsightsAnalysisReturnPathComponentVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisReturnPathComponentVpcArrayInput)(nil)).Elem(), NetworkInsightsAnalysisReturnPathComponentVpcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationInput)(nil)).Elem(), NetworkInsightsPathFilterAtDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationPtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationDestinationPortRangeInput)(nil)).Elem(), NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationSourcePortRangeInput)(nil)).Elem(), NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtDestinationSourcePortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourcePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceDestinationPortRangeInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceDestinationPortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceSourcePortRangeInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceSourcePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceSourcePortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeArrayInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionTimeoutsInput)(nil)).Elem(), NetworkInterfacePermissionTimeoutsArgs{})
@@ -60749,6 +62413,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsAnalysisReturnPathComponentVpcArrayInput)(nil)).Elem(), GetNetworkInsightsAnalysisReturnPathComponentVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterInput)(nil)).Elem(), GetNetworkInsightsPathFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationSourcePortRangeInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceDestinationPortRangeInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceSourcePortRangeInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtSourceSourcePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayInput)(nil)).Elem(), GetNetworkInsightsPathFilterAtSourceSourcePortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAssociationInput)(nil)).Elem(), GetNetworkInterfaceAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAssociationArrayInput)(nil)).Elem(), GetNetworkInterfaceAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAttachmentTypeInput)(nil)).Elem(), GetNetworkInterfaceAttachmentTypeArgs{})
@@ -61181,6 +62857,18 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisReturnPathComponentVpcOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisReturnPathComponentVpcArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtDestinationOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtDestinationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtDestinationDestinationPortRangePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtDestinationSourcePortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtDestinationSourcePortRangePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourcePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceDestinationPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceDestinationPortRangePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceSourcePortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionTimeoutsOutput{})
@@ -61630,6 +63318,18 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkInsightsAnalysisReturnPathComponentVpcArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterOutput{})
 	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtDestinationOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtDestinationSourcePortRangeOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtDestinationSourcePortRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtSourceOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtSourceDestinationPortRangeOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtSourceDestinationPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtSourceSourcePortRangeOutput{})
+	pulumi.RegisterOutputType(GetNetworkInsightsPathFilterAtSourceSourcePortRangeArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceAssociationOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceAssociationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceAttachmentTypeOutput{})

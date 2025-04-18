@@ -10,8 +10,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -109,16 +111,22 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
         return this.containerImage;
     }
     /**
-     * The Amazon Resource Name (ARN) of the image the version is based on.
+     * Indicates Horovod compatibility.
      * 
      */
+    @Export(name="horovod", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> horovod;
+
+    /**
+     * @return Indicates Horovod compatibility.
+     * 
+     */
+    public Output<Optional<Boolean>> horovod() {
+        return Codegen.optional(this.horovod);
+    }
     @Export(name="imageArn", refs={String.class}, tree="[0]")
     private Output<String> imageArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the image the version is based on.
-     * 
-     */
     public Output<String> imageArn() {
         return this.imageArn;
     }
@@ -136,9 +144,101 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
     public Output<String> imageName() {
         return this.imageName;
     }
+    /**
+     * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     * 
+     */
+    @Export(name="jobType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> jobType;
+
+    /**
+     * @return Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     * 
+     */
+    public Output<Optional<String>> jobType() {
+        return Codegen.optional(this.jobType);
+    }
+    /**
+     * The machine learning framework vended in the image version.
+     * 
+     */
+    @Export(name="mlFramework", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> mlFramework;
+
+    /**
+     * @return The machine learning framework vended in the image version.
+     * 
+     */
+    public Output<Optional<String>> mlFramework() {
+        return Codegen.optional(this.mlFramework);
+    }
+    /**
+     * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     * 
+     */
+    @Export(name="processor", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> processor;
+
+    /**
+     * @return Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     * 
+     */
+    public Output<Optional<String>> processor() {
+        return Codegen.optional(this.processor);
+    }
+    /**
+     * The supported programming language and its version.
+     * 
+     */
+    @Export(name="programmingLang", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> programmingLang;
+
+    /**
+     * @return The supported programming language and its version.
+     * 
+     */
+    public Output<Optional<String>> programmingLang() {
+        return Codegen.optional(this.programmingLang);
+    }
+    /**
+     * The maintainer description of the image version.
+     * 
+     */
+    @Export(name="releaseNotes", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> releaseNotes;
+
+    /**
+     * @return The maintainer description of the image version.
+     * 
+     */
+    public Output<Optional<String>> releaseNotes() {
+        return Codegen.optional(this.releaseNotes);
+    }
+    /**
+     * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     * 
+     */
+    @Export(name="vendorGuidance", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> vendorGuidance;
+
+    /**
+     * @return The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     * 
+     */
+    public Output<Optional<String>> vendorGuidance() {
+        return Codegen.optional(this.vendorGuidance);
+    }
+    /**
+     * The version of the image. If not specified, the latest version is described.
+     * 
+     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
+    /**
+     * @return The version of the image. If not specified, the latest version is described.
+     * 
+     */
     public Output<Integer> version() {
         return this.version;
     }

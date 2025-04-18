@@ -620,6 +620,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
+     * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     * 
+     */
+    @Export(name="forceUpdateVersion", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forceUpdateVersion;
+
+    /**
+     * @return Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     * 
+     */
+    public Output<Optional<Boolean>> forceUpdateVersion() {
+        return Codegen.optional(this.forceUpdateVersion);
+    }
+    /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      * 
      */

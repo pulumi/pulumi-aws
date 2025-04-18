@@ -1828,6 +1828,8 @@ class Instance(pulumi.CustomResource):
 
         ### Basic example using AMI lookup
 
+        Using a data source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1846,6 +1848,20 @@ class Instance(pulumi.CustomResource):
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
+
+        Using AWS Systems Manager Parameter Store
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        web = aws.ec2.Instance("web",
+            ami="resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
             instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
@@ -2063,6 +2079,8 @@ class Instance(pulumi.CustomResource):
 
         ### Basic example using AMI lookup
 
+        Using a data source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2081,6 +2099,20 @@ class Instance(pulumi.CustomResource):
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
+
+        Using AWS Systems Manager Parameter Store
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        web = aws.ec2.Instance("web",
+            ami="resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
             instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",

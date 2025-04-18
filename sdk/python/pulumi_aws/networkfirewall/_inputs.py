@@ -1092,7 +1092,7 @@ if not MYPY:
         """
         ip_address_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         """
 elif False:
     FirewallSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
@@ -1104,7 +1104,7 @@ class FirewallSubnetMappingArgs:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] subnet_id: The unique identifier for the subnet.
-        :param pulumi.Input[builtins.str] ip_address_type: The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        :param pulumi.Input[builtins.str] ip_address_type: The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address_type is not None:
@@ -1126,7 +1126,7 @@ class FirewallSubnetMappingArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         """
         return pulumi.get(self, "ip_address_type")
 

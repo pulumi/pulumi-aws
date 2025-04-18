@@ -60,7 +60,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[builtins.str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[builtins.str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
-        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         :param pulumi.Input[builtins.str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -97,7 +97,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         :param pulumi.Input[builtins.str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -224,7 +224,7 @@ class ClusterArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -514,7 +514,7 @@ class ClusterArgs:
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
@@ -574,7 +574,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] cluster_address: (Memcached only) DNS name of the cache cluster without the port appended.
         :param pulumi.Input[builtins.str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[builtins.str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
-        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         :param pulumi.Input[builtins.str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -613,7 +613,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -803,7 +803,7 @@ class _ClusterState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -1118,7 +1118,7 @@ class _ClusterState:
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
@@ -1305,7 +1305,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[builtins.str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[builtins.str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
-        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         :param pulumi.Input[builtins.str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -1342,7 +1342,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         :param pulumi.Input[builtins.str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         ...
     @overload
@@ -1635,7 +1635,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_address: (Memcached only) DNS name of the cache cluster without the port appended.
         :param pulumi.Input[builtins.str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[builtins.str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
-        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        :param pulumi.Input[builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         :param pulumi.Input[builtins.str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -1674,7 +1674,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        :param pulumi.Input[builtins.bool] transit_encryption_enabled: Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1795,7 +1795,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -2010,7 +2010,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 

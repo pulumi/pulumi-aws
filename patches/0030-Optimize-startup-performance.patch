@@ -102,34 +102,46 @@ index e24e53fe17..3378f955bb 100644
 -			}
 -		}
 -		return updatedSchema
-+	updatedResourcesMap := map[string]*schema.Resource{}
-+	for rn, r := range sdkV2Provider.ResourcesMap {
-+		updatedResourcesMap[rn] = markTagsAllNotComputedForResource(rn, r)
- 	}
-+	sdkV2Provider.ResourcesMap = updatedResourcesMap
-+}
- 
+-	}
+-
 -	updatedResource := func(rn string, r *schema.Resource) *schema.Resource {
 -		if _, ok := r.SchemaMap()["tags_all"]; !ok {
 -			return r
+-		}
+-
+-		u := *r
+-		if r.SchemaFunc != nil {
+-			old := r.SchemaFunc
+-			u.SchemaFunc = func() map[string]*schema.Schema {
+-				return updateSchema(rn, old())
+-			}
+-		} else {
+-			u.Schema = updateSchema(rn, r.Schema)
+-		}
+-		return &u
+-	}
+-
+ 	updatedResourcesMap := map[string]*schema.Resource{}
+ 	for rn, r := range sdkV2Provider.ResourcesMap {
+-		updatedResourcesMap[rn] = updatedResource(rn, r)
++		updatedResourcesMap[rn] = markTagsAllNotComputedForResource(rn, r)
+ 	}
+ 	sdkV2Provider.ResourcesMap = updatedResourcesMap
+ }
++
 +func markTagsAllNotComputedForResource(rn string, r *schema.Resource) *schema.Resource {
 +	u := *r
 +	if r.SchemaFunc != nil {
 +		old := r.SchemaFunc
 +		u.SchemaFunc = func() map[string]*schema.Schema {
 +			return markTagsAllNotComputedForSchema(rn, old())
- 		}
++		}
 +	} else {
 +		u.Schema = markTagsAllNotComputedForSchema(rn, r.Schema)
 +	}
 +	return &u
 +}
- 
--		u := *r
--		if r.SchemaFunc != nil {
--			old := r.SchemaFunc
--			u.SchemaFunc = func() map[string]*schema.Schema {
--				return updateSchema(rn, old())
++
 +func markTagsAllNotComputedForSchema(rn string, s map[string]*schema.Schema) map[string]*schema.Schema {
 +	if _, ok := s["tags_all"]; !ok {
 +		return s
@@ -142,18 +154,10 @@ index e24e53fe17..3378f955bb 100644
 +				updatedSchema[k] = &tagsAll
 +			} else {
 +				panic(fmt.Sprintf("Unable to edit tagsAll schema for %q", rn))
- 			}
- 		} else {
--			u.Schema = updateSchema(rn, r.Schema)
++			}
++		} else {
 +			updatedSchema[k] = v
- 		}
--		return &u
--	}
--
--	updatedResourcesMap := map[string]*schema.Resource{}
--	for rn, r := range sdkV2Provider.ResourcesMap {
--		updatedResourcesMap[rn] = updatedResource(rn, r)
- 	}
--	sdkV2Provider.ResourcesMap = updatedResourcesMap
++		}
++	}
 +	return updatedSchema
- }
++}

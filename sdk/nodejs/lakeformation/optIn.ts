@@ -20,14 +20,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lakeformation.OptIn("example", {});
  * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lake Formation Opt In using the `example_id_arg`. For example:
- *
- * ```sh
- * $ pulumi import aws:lakeformation/optIn:OptIn example opt_in-id-12345678
- * ```
  */
 export class OptIn extends pulumi.CustomResource {
     /**

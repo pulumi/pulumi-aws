@@ -217,7 +217,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationEndpoint!: pulumi.Output<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -333,7 +333,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
      */
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
 
@@ -471,7 +471,7 @@ export interface ClusterState {
      */
     configurationEndpoint?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -587,7 +587,7 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
 }
@@ -619,7 +619,7 @@ export interface ClusterArgs {
      */
     clusterId?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -725,7 +725,7 @@ export interface ClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
 }

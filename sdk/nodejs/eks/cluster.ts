@@ -358,6 +358,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     */
+    public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
+    /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
     public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
@@ -447,6 +451,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
             resourceInputs["identities"] = state ? state.identities : undefined;
             resourceInputs["kubernetesNetworkConfig"] = state ? state.kubernetesNetworkConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -476,6 +481,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
@@ -549,6 +555,10 @@ export interface ClusterState {
      * Endpoint for your Kubernetes API server.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     */
+    forceUpdateVersion?: pulumi.Input<boolean>;
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
@@ -640,6 +650,10 @@ export interface ClusterArgs {
      * Configuration block with encryption configuration for the cluster. Detailed below.
      */
     encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    /**
+     * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+     */
+    forceUpdateVersion?: pulumi.Input<boolean>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */

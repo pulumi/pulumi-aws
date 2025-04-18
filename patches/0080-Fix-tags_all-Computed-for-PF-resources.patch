@@ -69,3 +69,16 @@ index 12086429c8..50db21df14 100644
  			"target_db_cluster_snapshot_identifier": schema.StringAttribute{
  				Required: true,
  				PlanModifiers: []planmodifier.String{
+diff --git a/internal/service/redshift/integration.go b/internal/service/redshift/integration.go
+index 691478c7af..e0745b2847 100644
+--- a/internal/service/redshift/integration.go
++++ b/internal/service/redshift/integration.go
+@@ -81,7 +81,7 @@ func (r *integrationResource) Schema(ctx context.Context, req resource.SchemaReq
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrTargetARN: schema.StringAttribute{
+ 				CustomType: fwtypes.ARNType,
+ 				Required:   true,

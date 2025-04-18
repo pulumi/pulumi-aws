@@ -185,6 +185,14 @@ namespace Pulumi.Aws.Ec2
         /// Destination port.
         /// </summary>
         public readonly int DestinationPort;
+        /// <summary>
+        /// Filters of the network paths at the destination.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterAtDestinationResult> FilterAtDestinations;
+        /// <summary>
+        /// Filters of the network paths at the source.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterAtSourceResult> FilterAtSources;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -224,6 +232,10 @@ namespace Pulumi.Aws.Ec2
 
             int destinationPort,
 
+            ImmutableArray<Outputs.GetNetworkInsightsPathFilterAtDestinationResult> filterAtDestinations,
+
+            ImmutableArray<Outputs.GetNetworkInsightsPathFilterAtSourceResult> filterAtSources,
+
             ImmutableArray<Outputs.GetNetworkInsightsPathFilterResult> filters,
 
             string id,
@@ -245,6 +257,8 @@ namespace Pulumi.Aws.Ec2
             DestinationArn = destinationArn;
             DestinationIp = destinationIp;
             DestinationPort = destinationPort;
+            FilterAtDestinations = filterAtDestinations;
+            FilterAtSources = filterAtSources;
             Filters = filters;
             Id = id;
             NetworkInsightsPathId = networkInsightsPathId;

@@ -28,6 +28,8 @@ __all__ = [
     'WorkgroupEndpointVpcEndpointArgsDict',
     'WorkgroupEndpointVpcEndpointNetworkInterfaceArgs',
     'WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict',
+    'WorkgroupPricePerformanceTargetArgs',
+    'WorkgroupPricePerformanceTargetArgsDict',
 ]
 
 MYPY = False
@@ -480,5 +482,56 @@ class WorkgroupEndpointVpcEndpointNetworkInterfaceArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class WorkgroupPricePerformanceTargetArgsDict(TypedDict):
+        enabled: pulumi.Input[builtins.bool]
+        """
+        Whether to enable price-performance scaling.
+        """
+        level: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+        """
+elif False:
+    WorkgroupPricePerformanceTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkgroupPricePerformanceTargetArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[builtins.bool],
+                 level: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Whether to enable price-performance scaling.
+        :param pulumi.Input[builtins.int] level: The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        Whether to enable price-performance scaling.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "level", value)
 
 

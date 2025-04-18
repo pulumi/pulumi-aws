@@ -188,6 +188,12 @@ __all__ = [
     'NetworkInsightsAnalysisReturnPathComponentTransitGateway',
     'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute',
     'NetworkInsightsAnalysisReturnPathComponentVpc',
+    'NetworkInsightsPathFilterAtDestination',
+    'NetworkInsightsPathFilterAtDestinationDestinationPortRange',
+    'NetworkInsightsPathFilterAtDestinationSourcePortRange',
+    'NetworkInsightsPathFilterAtSource',
+    'NetworkInsightsPathFilterAtSourceDestinationPortRange',
+    'NetworkInsightsPathFilterAtSourceSourcePortRange',
     'NetworkInterfaceAttachment',
     'NetworkInterfacePermissionTimeouts',
     'PeeringConnectionOptionsAccepter',
@@ -413,6 +419,12 @@ __all__ = [
     'GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult',
     'GetNetworkInsightsAnalysisReturnPathComponentVpcResult',
     'GetNetworkInsightsPathFilterResult',
+    'GetNetworkInsightsPathFilterAtDestinationResult',
+    'GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeResult',
+    'GetNetworkInsightsPathFilterAtDestinationSourcePortRangeResult',
+    'GetNetworkInsightsPathFilterAtSourceResult',
+    'GetNetworkInsightsPathFilterAtSourceDestinationPortRangeResult',
+    'GetNetworkInsightsPathFilterAtSourceSourcePortRangeResult',
     'GetNetworkInterfaceAssociationResult',
     'GetNetworkInterfaceAttachmentResult',
     'GetNetworkInterfaceFilterResult',
@@ -11950,6 +11962,362 @@ class NetworkInsightsAnalysisReturnPathComponentVpc(dict):
 
 
 @pulumi.output_type
+class NetworkInsightsPathFilterAtDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "sourceAddress":
+            suggest = "source_address"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterAtDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterAtDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterAtDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: Optional[builtins.str] = None,
+                 destination_port_range: Optional['outputs.NetworkInsightsPathFilterAtDestinationDestinationPortRange'] = None,
+                 source_address: Optional[builtins.str] = None,
+                 source_port_range: Optional['outputs.NetworkInsightsPathFilterAtDestinationSourcePortRange'] = None):
+        """
+        :param builtins.str destination_address: The destination IPv4 address.
+        :param 'NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs' destination_port_range: The destination port range. See below for details.
+        :param builtins.str source_address: IP address of the source resource.
+        :param 'NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs' source_port_range: The source port range. See below for details.
+        """
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if source_address is not None:
+            pulumi.set(__self__, "source_address", source_address)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[builtins.str]:
+        """
+        The destination IPv4 address.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterAtDestinationDestinationPortRange']:
+        """
+        The destination port range. See below for details.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> Optional[builtins.str]:
+        """
+        IP address of the source resource.
+        """
+        return pulumi.get(self, "source_address")
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterAtDestinationSourcePortRange']:
+        """
+        The source port range. See below for details.
+        """
+        return pulumi.get(self, "source_port_range")
+
+
+@pulumi.output_type
+class NetworkInsightsPathFilterAtDestinationDestinationPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterAtDestinationDestinationPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterAtDestinationDestinationPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterAtDestinationDestinationPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: Optional[builtins.int] = None,
+                 to_port: Optional[builtins.int] = None):
+        """
+        :param builtins.int from_port: The first port in the range.
+        :param builtins.int to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[builtins.int]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[builtins.int]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class NetworkInsightsPathFilterAtDestinationSourcePortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterAtDestinationSourcePortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterAtDestinationSourcePortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterAtDestinationSourcePortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: Optional[builtins.int] = None,
+                 to_port: Optional[builtins.int] = None):
+        """
+        :param builtins.int from_port: The first port in the range.
+        :param builtins.int to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[builtins.int]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[builtins.int]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class NetworkInsightsPathFilterAtSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "sourceAddress":
+            suggest = "source_address"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterAtSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterAtSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterAtSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: Optional[builtins.str] = None,
+                 destination_port_range: Optional['outputs.NetworkInsightsPathFilterAtSourceDestinationPortRange'] = None,
+                 source_address: Optional[builtins.str] = None,
+                 source_port_range: Optional['outputs.NetworkInsightsPathFilterAtSourceSourcePortRange'] = None):
+        """
+        :param builtins.str destination_address: The destination IPv4 address.
+        :param 'NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs' destination_port_range: The destination port range. See below for details.
+        :param builtins.str source_address: IP address of the source resource.
+        :param 'NetworkInsightsPathFilterAtSourceSourcePortRangeArgs' source_port_range: The source port range. See below for details.
+        """
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if source_address is not None:
+            pulumi.set(__self__, "source_address", source_address)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[builtins.str]:
+        """
+        The destination IPv4 address.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterAtSourceDestinationPortRange']:
+        """
+        The destination port range. See below for details.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> Optional[builtins.str]:
+        """
+        IP address of the source resource.
+        """
+        return pulumi.get(self, "source_address")
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterAtSourceSourcePortRange']:
+        """
+        The source port range. See below for details.
+        """
+        return pulumi.get(self, "source_port_range")
+
+
+@pulumi.output_type
+class NetworkInsightsPathFilterAtSourceDestinationPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterAtSourceDestinationPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterAtSourceDestinationPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterAtSourceDestinationPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: Optional[builtins.int] = None,
+                 to_port: Optional[builtins.int] = None):
+        """
+        :param builtins.int from_port: The first port in the range.
+        :param builtins.int to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[builtins.int]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[builtins.int]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class NetworkInsightsPathFilterAtSourceSourcePortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterAtSourceSourcePortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterAtSourceSourcePortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterAtSourceSourcePortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: Optional[builtins.int] = None,
+                 to_port: Optional[builtins.int] = None):
+        """
+        :param builtins.int from_port: The first port in the range.
+        :param builtins.int to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[builtins.int]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[builtins.int]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
 class NetworkInterfaceAttachment(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -22266,6 +22634,148 @@ class GetNetworkInsightsPathFilterResult(dict):
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetNetworkInsightsPathFilterAtDestinationResult(dict):
+    def __init__(__self__, *,
+                 destination_address: builtins.str,
+                 destination_port_ranges: Sequence['outputs.GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeResult'],
+                 source_address: builtins.str,
+                 source_port_ranges: Sequence['outputs.GetNetworkInsightsPathFilterAtDestinationSourcePortRangeResult']):
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        pulumi.set(__self__, "source_address", source_address)
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> builtins.str:
+        return pulumi.get(self, "destination_address")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeResult']:
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> builtins.str:
+        return pulumi.get(self, "source_address")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtDestinationSourcePortRangeResult']:
+        return pulumi.get(self, "source_port_ranges")
+
+
+@pulumi.output_type
+class GetNetworkInsightsPathFilterAtDestinationDestinationPortRangeResult(dict):
+    def __init__(__self__, *,
+                 from_port: builtins.int,
+                 to_port: builtins.int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> builtins.int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> builtins.int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class GetNetworkInsightsPathFilterAtDestinationSourcePortRangeResult(dict):
+    def __init__(__self__, *,
+                 from_port: builtins.int,
+                 to_port: builtins.int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> builtins.int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> builtins.int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class GetNetworkInsightsPathFilterAtSourceResult(dict):
+    def __init__(__self__, *,
+                 destination_address: builtins.str,
+                 destination_port_ranges: Sequence['outputs.GetNetworkInsightsPathFilterAtSourceDestinationPortRangeResult'],
+                 source_address: builtins.str,
+                 source_port_ranges: Sequence['outputs.GetNetworkInsightsPathFilterAtSourceSourcePortRangeResult']):
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        pulumi.set(__self__, "source_address", source_address)
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> builtins.str:
+        return pulumi.get(self, "destination_address")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtSourceDestinationPortRangeResult']:
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> builtins.str:
+        return pulumi.get(self, "source_address")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtSourceSourcePortRangeResult']:
+        return pulumi.get(self, "source_port_ranges")
+
+
+@pulumi.output_type
+class GetNetworkInsightsPathFilterAtSourceDestinationPortRangeResult(dict):
+    def __init__(__self__, *,
+                 from_port: builtins.int,
+                 to_port: builtins.int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> builtins.int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> builtins.int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class GetNetworkInsightsPathFilterAtSourceSourcePortRangeResult(dict):
+    def __init__(__self__, *,
+                 from_port: builtins.int,
+                 to_port: builtins.int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> builtins.int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> builtins.int:
+        return pulumi.get(self, "to_port")
 
 
 @pulumi.output_type

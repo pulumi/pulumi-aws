@@ -30,6 +30,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+        /// </summary>
         [Input("wildcard")]
         public Input<bool>? Wildcard { get; set; }
 

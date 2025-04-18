@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -137,6 +138,20 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<WebhookFilterGroup>>> filterGroups() {
         return Codegen.optional(this.filterGroups);
+    }
+    /**
+     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * 
+     */
+    @Export(name="manualCreation", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> manualCreation;
+
+    /**
+     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * 
+     */
+    public Output<Optional<Boolean>> manualCreation() {
+        return Codegen.optional(this.manualCreation);
     }
     /**
      * The CodeBuild endpoint where webhook events are sent.

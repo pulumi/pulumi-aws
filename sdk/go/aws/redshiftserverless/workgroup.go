@@ -67,6 +67,8 @@ type Workgroup struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The port number on which the cluster accepts incoming connections.
 	Port pulumi.IntOutput `pulumi:"port"`
+	// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+	PricePerformanceTarget WorkgroupPricePerformanceTargetOutput `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -139,6 +141,8 @@ type workgroupState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The port number on which the cluster accepts incoming connections.
 	Port *int `pulumi:"port"`
+	// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+	PricePerformanceTarget *WorkgroupPricePerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -176,6 +180,8 @@ type WorkgroupState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The port number on which the cluster accepts incoming connections.
 	Port pulumi.IntPtrInput
+	// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+	PricePerformanceTarget WorkgroupPricePerformanceTargetPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -213,6 +219,8 @@ type workgroupArgs struct {
 	NamespaceName string `pulumi:"namespaceName"`
 	// The port number on which the cluster accepts incoming connections.
 	Port *int `pulumi:"port"`
+	// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+	PricePerformanceTarget *WorkgroupPricePerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -241,6 +249,8 @@ type WorkgroupArgs struct {
 	NamespaceName pulumi.StringInput
 	// The port number on which the cluster accepts incoming connections.
 	Port pulumi.IntPtrInput
+	// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+	PricePerformanceTarget WorkgroupPricePerformanceTargetPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -380,6 +390,11 @@ func (o WorkgroupOutput) NamespaceName() pulumi.StringOutput {
 // The port number on which the cluster accepts incoming connections.
 func (o WorkgroupOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// Price-performance scaling for the workgroup. See `Price Performance Target` below.
+func (o WorkgroupOutput) PricePerformanceTarget() WorkgroupPricePerformanceTargetOutput {
+	return o.ApplyT(func(v *Workgroup) WorkgroupPricePerformanceTargetOutput { return v.PricePerformanceTarget }).(WorkgroupPricePerformanceTargetOutput)
 }
 
 // A value that specifies whether the workgroup can be accessed from a public network.

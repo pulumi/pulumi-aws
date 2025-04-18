@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.NetworkInsightsPathArgs;
 import com.pulumi.aws.ec2.inputs.NetworkInsightsPathState;
+import com.pulumi.aws.ec2.outputs.NetworkInsightsPathFilterAtDestination;
+import com.pulumi.aws.ec2.outputs.NetworkInsightsPathFilterAtSource;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -82,14 +84,14 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destination;
 
     /**
-     * @return ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * @return ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
      * 
      */
     public Output<Optional<String>> destination() {
@@ -136,6 +138,18 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> destinationPort() {
         return Codegen.optional(this.destinationPort);
+    }
+    @Export(name="filterAtDestination", refs={NetworkInsightsPathFilterAtDestination.class}, tree="[0]")
+    private Output<NetworkInsightsPathFilterAtDestination> filterAtDestination;
+
+    public Output<NetworkInsightsPathFilterAtDestination> filterAtDestination() {
+        return this.filterAtDestination;
+    }
+    @Export(name="filterAtSource", refs={NetworkInsightsPathFilterAtSource.class}, tree="[0]")
+    private Output<NetworkInsightsPathFilterAtSource> filterAtSource;
+
+    public Output<NetworkInsightsPathFilterAtSource> filterAtSource() {
+        return this.filterAtSource;
     }
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.

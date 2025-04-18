@@ -456,6 +456,20 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.cacheConfig;
     }
     /**
+     * AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+     * 
+     */
+    @Export(name="computeRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> computeRoleArn;
+
+    /**
+     * @return AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+     * 
+     */
+    public Output<Optional<String>> computeRoleArn() {
+        return Codegen.optional(this.computeRoleArn);
+    }
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */

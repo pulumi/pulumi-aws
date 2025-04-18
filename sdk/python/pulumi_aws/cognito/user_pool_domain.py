@@ -22,17 +22,21 @@ class UserPoolDomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[builtins.str],
                  user_pool_id: pulumi.Input[builtins.str],
-                 certificate_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_login_version: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if managed_login_version is not None:
+            pulumi.set(__self__, "managed_login_version", managed_login_version)
 
     @property
     @pulumi.getter
@@ -70,6 +74,18 @@ class UserPoolDomainArgs:
     def certificate_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
+    @property
+    @pulumi.getter(name="managedLoginVersion")
+    def managed_login_version(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+        """
+        return pulumi.get(self, "managed_login_version")
+
+    @managed_login_version.setter
+    def managed_login_version(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "managed_login_version", value)
+
 
 @pulumi.input_type
 class _UserPoolDomainState:
@@ -80,6 +96,7 @@ class _UserPoolDomainState:
                  cloudfront_distribution_arn: Optional[pulumi.Input[builtins.str]] = None,
                  cloudfront_distribution_zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_login_version: Optional[pulumi.Input[builtins.int]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
@@ -91,6 +108,7 @@ class _UserPoolDomainState:
         :param pulumi.Input[builtins.str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         :param pulumi.Input[builtins.str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
         :param pulumi.Input[builtins.str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[builtins.str] version: The app version.
@@ -107,6 +125,8 @@ class _UserPoolDomainState:
             pulumi.set(__self__, "cloudfront_distribution_zone_id", cloudfront_distribution_zone_id)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if managed_login_version is not None:
+            pulumi.set(__self__, "managed_login_version", managed_login_version)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if user_pool_id is not None:
@@ -187,6 +207,18 @@ class _UserPoolDomainState:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="managedLoginVersion")
+    def managed_login_version(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+        """
+        return pulumi.get(self, "managed_login_version")
+
+    @managed_login_version.setter
+    def managed_login_version(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "managed_login_version", value)
+
+    @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -230,6 +262,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_login_version: Optional[pulumi.Input[builtins.int]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -284,6 +317,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
         ...
@@ -357,6 +391,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_login_version: Optional[pulumi.Input[builtins.int]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -371,6 +406,7 @@ class UserPoolDomain(pulumi.CustomResource):
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["managed_login_version"] = managed_login_version
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -396,6 +432,7 @@ class UserPoolDomain(pulumi.CustomResource):
             cloudfront_distribution_arn: Optional[pulumi.Input[builtins.str]] = None,
             cloudfront_distribution_zone_id: Optional[pulumi.Input[builtins.str]] = None,
             domain: Optional[pulumi.Input[builtins.str]] = None,
+            managed_login_version: Optional[pulumi.Input[builtins.int]] = None,
             s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
             user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None) -> 'UserPoolDomain':
@@ -412,6 +449,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         :param pulumi.Input[builtins.str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
         :param pulumi.Input[builtins.str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[builtins.str] version: The app version.
@@ -426,6 +464,7 @@ class UserPoolDomain(pulumi.CustomResource):
         __props__.__dict__["cloudfront_distribution_arn"] = cloudfront_distribution_arn
         __props__.__dict__["cloudfront_distribution_zone_id"] = cloudfront_distribution_zone_id
         __props__.__dict__["domain"] = domain
+        __props__.__dict__["managed_login_version"] = managed_login_version
         __props__.__dict__["s3_bucket"] = s3_bucket
         __props__.__dict__["user_pool_id"] = user_pool_id
         __props__.__dict__["version"] = version
@@ -478,6 +517,14 @@ class UserPoolDomain(pulumi.CustomResource):
         For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="managedLoginVersion")
+    def managed_login_version(self) -> pulumi.Output[builtins.int]:
+        """
+        A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+        """
+        return pulumi.get(self, "managed_login_version")
 
     @property
     @pulumi.getter(name="s3Bucket")

@@ -7,6 +7,7 @@ import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
 import com.pulumi.aws.codebuild.inputs.WebhookScopeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -61,6 +62,21 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<WebhookFilterGroupArgs>>> filterGroups() {
         return Optional.ofNullable(this.filterGroups);
+    }
+
+    /**
+     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * 
+     */
+    @Import(name="manualCreation")
+    private @Nullable Output<Boolean> manualCreation;
+
+    /**
+     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * 
+     */
+    public Optional<Output<Boolean>> manualCreation() {
+        return Optional.ofNullable(this.manualCreation);
     }
 
     /**
@@ -144,6 +160,7 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
         this.branchFilter = $.branchFilter;
         this.buildType = $.buildType;
         this.filterGroups = $.filterGroups;
+        this.manualCreation = $.manualCreation;
         this.payloadUrl = $.payloadUrl;
         this.projectName = $.projectName;
         this.scopeConfiguration = $.scopeConfiguration;
@@ -240,6 +257,27 @@ public final class WebhookState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder filterGroups(WebhookFilterGroupArgs... filterGroups) {
             return filterGroups(List.of(filterGroups));
+        }
+
+        /**
+         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manualCreation(@Nullable Output<Boolean> manualCreation) {
+            $.manualCreation = manualCreation;
+            return this;
+        }
+
+        /**
+         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manualCreation(Boolean manualCreation) {
+            return manualCreation(Output.of(manualCreation));
         }
 
         /**

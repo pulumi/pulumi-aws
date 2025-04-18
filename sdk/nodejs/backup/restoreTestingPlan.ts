@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.RestoreTestingPlan("example", {
+ *     name: "example_restore_testing_plan",
  *     recoveryPointSelection: {
  *         algorithm: "LATEST_WITHIN_WINDOW",
  *         includeVaults: ["*"],

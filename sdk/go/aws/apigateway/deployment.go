@@ -46,12 +46,16 @@ type Deployment struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the deployment
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	//
+	// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
-	// URL to invoke the API pointing to the stage,
+	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	//
+	// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// REST API identifier.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -115,12 +119,16 @@ type deploymentState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the deployment
 	Description *string `pulumi:"description"`
-	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	//
+	// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
 	ExecutionArn *string `pulumi:"executionArn"`
-	// URL to invoke the API pointing to the stage,
+	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	//
+	// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// REST API identifier.
 	RestApi interface{} `pulumi:"restApi"`
@@ -152,12 +160,16 @@ type DeploymentState struct {
 	CreatedDate pulumi.StringPtrInput
 	// Description of the deployment
 	Description pulumi.StringPtrInput
-	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	//
+	// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
 	ExecutionArn pulumi.StringPtrInput
-	// URL to invoke the API pointing to the stage,
+	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	//
+	// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
 	InvokeUrl pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.Input
@@ -345,15 +357,19 @@ func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+//
+// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
 func (o DeploymentOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
 }
 
-// URL to invoke the API pointing to the stage,
+// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
 // e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+//
+// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
 func (o DeploymentOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
 }

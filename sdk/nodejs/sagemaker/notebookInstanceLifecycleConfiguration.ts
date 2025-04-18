@@ -79,6 +79,16 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     public readonly onStart!: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a NotebookInstanceLifecycleConfiguration resource with the given unique name, arguments, and options.
@@ -97,12 +107,16 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["onCreate"] = state ? state.onCreate : undefined;
             resourceInputs["onStart"] = state ? state.onStart : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NotebookInstanceLifecycleConfigurationArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["onCreate"] = args ? args.onCreate : undefined;
             resourceInputs["onStart"] = args ? args.onStart : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -129,6 +143,16 @@ export interface NotebookInstanceLifecycleConfigurationState {
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     onStart?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -147,4 +171,8 @@ export interface NotebookInstanceLifecycleConfigurationArgs {
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     onStart?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

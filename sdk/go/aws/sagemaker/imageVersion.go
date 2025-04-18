@@ -59,11 +59,25 @@ type ImageVersion struct {
 	BaseImage pulumi.StringOutput `pulumi:"baseImage"`
 	// The registry path of the container image that contains this image version.
 	ContainerImage pulumi.StringOutput `pulumi:"containerImage"`
-	// The Amazon Resource Name (ARN) of the image the version is based on.
-	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
+	// Indicates Horovod compatibility.
+	Horovod  pulumi.BoolPtrOutput `pulumi:"horovod"`
+	ImageArn pulumi.StringOutput  `pulumi:"imageArn"`
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
-	Version   pulumi.IntOutput    `pulumi:"version"`
+	// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+	JobType pulumi.StringPtrOutput `pulumi:"jobType"`
+	// The machine learning framework vended in the image version.
+	MlFramework pulumi.StringPtrOutput `pulumi:"mlFramework"`
+	// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+	Processor pulumi.StringPtrOutput `pulumi:"processor"`
+	// The supported programming language and its version.
+	ProgrammingLang pulumi.StringPtrOutput `pulumi:"programmingLang"`
+	// The maintainer description of the image version.
+	ReleaseNotes pulumi.StringPtrOutput `pulumi:"releaseNotes"`
+	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+	VendorGuidance pulumi.StringPtrOutput `pulumi:"vendorGuidance"`
+	// The version of the image. If not specified, the latest version is described.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewImageVersion registers a new resource with the given unique name, arguments, and options.
@@ -108,11 +122,25 @@ type imageVersionState struct {
 	BaseImage *string `pulumi:"baseImage"`
 	// The registry path of the container image that contains this image version.
 	ContainerImage *string `pulumi:"containerImage"`
-	// The Amazon Resource Name (ARN) of the image the version is based on.
+	// Indicates Horovod compatibility.
+	Horovod  *bool   `pulumi:"horovod"`
 	ImageArn *string `pulumi:"imageArn"`
 	// The name of the image. Must be unique to your account.
 	ImageName *string `pulumi:"imageName"`
-	Version   *int    `pulumi:"version"`
+	// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+	JobType *string `pulumi:"jobType"`
+	// The machine learning framework vended in the image version.
+	MlFramework *string `pulumi:"mlFramework"`
+	// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+	Processor *string `pulumi:"processor"`
+	// The supported programming language and its version.
+	ProgrammingLang *string `pulumi:"programmingLang"`
+	// The maintainer description of the image version.
+	ReleaseNotes *string `pulumi:"releaseNotes"`
+	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+	VendorGuidance *string `pulumi:"vendorGuidance"`
+	// The version of the image. If not specified, the latest version is described.
+	Version *int `pulumi:"version"`
 }
 
 type ImageVersionState struct {
@@ -122,11 +150,25 @@ type ImageVersionState struct {
 	BaseImage pulumi.StringPtrInput
 	// The registry path of the container image that contains this image version.
 	ContainerImage pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the image the version is based on.
+	// Indicates Horovod compatibility.
+	Horovod  pulumi.BoolPtrInput
 	ImageArn pulumi.StringPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringPtrInput
-	Version   pulumi.IntPtrInput
+	// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+	JobType pulumi.StringPtrInput
+	// The machine learning framework vended in the image version.
+	MlFramework pulumi.StringPtrInput
+	// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+	Processor pulumi.StringPtrInput
+	// The supported programming language and its version.
+	ProgrammingLang pulumi.StringPtrInput
+	// The maintainer description of the image version.
+	ReleaseNotes pulumi.StringPtrInput
+	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+	VendorGuidance pulumi.StringPtrInput
+	// The version of the image. If not specified, the latest version is described.
+	Version pulumi.IntPtrInput
 }
 
 func (ImageVersionState) ElementType() reflect.Type {
@@ -136,16 +178,44 @@ func (ImageVersionState) ElementType() reflect.Type {
 type imageVersionArgs struct {
 	// The registry path of the container image on which this image version is based.
 	BaseImage string `pulumi:"baseImage"`
+	// Indicates Horovod compatibility.
+	Horovod *bool `pulumi:"horovod"`
 	// The name of the image. Must be unique to your account.
 	ImageName string `pulumi:"imageName"`
+	// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+	JobType *string `pulumi:"jobType"`
+	// The machine learning framework vended in the image version.
+	MlFramework *string `pulumi:"mlFramework"`
+	// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+	Processor *string `pulumi:"processor"`
+	// The supported programming language and its version.
+	ProgrammingLang *string `pulumi:"programmingLang"`
+	// The maintainer description of the image version.
+	ReleaseNotes *string `pulumi:"releaseNotes"`
+	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+	VendorGuidance *string `pulumi:"vendorGuidance"`
 }
 
 // The set of arguments for constructing a ImageVersion resource.
 type ImageVersionArgs struct {
 	// The registry path of the container image on which this image version is based.
 	BaseImage pulumi.StringInput
+	// Indicates Horovod compatibility.
+	Horovod pulumi.BoolPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringInput
+	// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+	JobType pulumi.StringPtrInput
+	// The machine learning framework vended in the image version.
+	MlFramework pulumi.StringPtrInput
+	// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+	Processor pulumi.StringPtrInput
+	// The supported programming language and its version.
+	ProgrammingLang pulumi.StringPtrInput
+	// The maintainer description of the image version.
+	ReleaseNotes pulumi.StringPtrInput
+	// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+	VendorGuidance pulumi.StringPtrInput
 }
 
 func (ImageVersionArgs) ElementType() reflect.Type {
@@ -250,7 +320,11 @@ func (o ImageVersionOutput) ContainerImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ContainerImage }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the image the version is based on.
+// Indicates Horovod compatibility.
+func (o ImageVersionOutput) Horovod() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.BoolPtrOutput { return v.Horovod }).(pulumi.BoolPtrOutput)
+}
+
 func (o ImageVersionOutput) ImageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
 }
@@ -260,6 +334,37 @@ func (o ImageVersionOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+func (o ImageVersionOutput) JobType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.JobType }).(pulumi.StringPtrOutput)
+}
+
+// The machine learning framework vended in the image version.
+func (o ImageVersionOutput) MlFramework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.MlFramework }).(pulumi.StringPtrOutput)
+}
+
+// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+func (o ImageVersionOutput) Processor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.Processor }).(pulumi.StringPtrOutput)
+}
+
+// The supported programming language and its version.
+func (o ImageVersionOutput) ProgrammingLang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.ProgrammingLang }).(pulumi.StringPtrOutput)
+}
+
+// The maintainer description of the image version.
+func (o ImageVersionOutput) ReleaseNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.ReleaseNotes }).(pulumi.StringPtrOutput)
+}
+
+// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+func (o ImageVersionOutput) VendorGuidance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.VendorGuidance }).(pulumi.StringPtrOutput)
+}
+
+// The version of the image. If not specified, the latest version is described.
 func (o ImageVersionOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }
