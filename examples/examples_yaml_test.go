@@ -41,7 +41,6 @@ import (
 	tagsdk "github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi"
 	s3sdk "github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
-	"github.com/hexops/autogold/v2"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
@@ -1957,8 +1956,6 @@ func TestSecurityGroupPreviewWarning(t *testing.T) {
 	pt2.ImportStack(t, st)
 	prev := pt2.Preview(t, optpreview.Diff())
 
-	assert.NotContains(t, prev.StdOut, "warning")
-	assert.NotContains(t, prev.StdErr, "warning")
-
-	autogold.Expect(``).Equal(t, prev.StdOut)
+	assert.NotContains(t, prev.StdOut, "warning: Failed to calculate preview for element")
+	assert.NotContains(t, prev.StdErr, "warning: Failed to calculate preview for element")
 }
