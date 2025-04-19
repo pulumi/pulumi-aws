@@ -237,7 +237,7 @@ checkout() {
   # Allow directory to be empty
   shopt -s nullglob
   for patch in ../patches/*.patch; do
-    if ! git am --3way "${patch}"; then
+    if ! git am --ignore-whitespace --3way "${patch}"; then
       err_failed_to_apply "$(basename "${patch}")"
     fi
   done
