@@ -248,6 +248,9 @@ class _VocabularyState:
 
 
 class Vocabulary(pulumi.CustomResource):
+
+    pulumi_type = "aws:transcribe/vocabulary:Vocabulary"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

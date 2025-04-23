@@ -65,6 +65,9 @@ class _OrganizationAdminAccountState:
 
 
 class OrganizationAdminAccount(pulumi.CustomResource):
+
+    pulumi_type = "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

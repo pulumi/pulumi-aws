@@ -198,6 +198,9 @@ class _V2modelsBotVersionState:
 
 
 class V2modelsBotVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:lex/v2modelsBotVersion:V2modelsBotVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

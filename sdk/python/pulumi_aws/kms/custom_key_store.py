@@ -299,6 +299,9 @@ class _CustomKeyStoreState:
 
 
 class CustomKeyStore(pulumi.CustomResource):
+
+    pulumi_type = "aws:kms/customKeyStore:CustomKeyStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

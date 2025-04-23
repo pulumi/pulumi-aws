@@ -220,6 +220,9 @@ class _ProfilesProfileState:
 
 
 class ProfilesProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/profilesProfile:ProfilesProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

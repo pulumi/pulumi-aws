@@ -297,6 +297,9 @@ class _ConfiguredTableState:
 
 
 class ConfiguredTable(pulumi.CustomResource):
+
+    pulumi_type = "aws:cleanrooms/configuredTable:ConfiguredTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

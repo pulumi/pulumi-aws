@@ -470,6 +470,9 @@ class _EventRuleState:
 
 
 class EventRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/eventRule:EventRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -160,6 +160,9 @@ class _MetricsDestinationState:
 
 
 class MetricsDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:rum/metricsDestination:MetricsDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

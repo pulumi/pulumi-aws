@@ -261,6 +261,9 @@ class _FsxOpenZfsFileSystemState:
 
 
 class FsxOpenZfsFileSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

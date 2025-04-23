@@ -271,6 +271,9 @@ class _EmailChannelState:
 
 
 class EmailChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/emailChannel:EmailChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -287,6 +287,9 @@ class _RepositoryAssociationState:
 
 
 class RepositoryAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:codegurureviewer/repositoryAssociation:RepositoryAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -224,6 +224,9 @@ class _UserPoolDomainState:
 
 
 class UserPoolDomain(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/userPoolDomain:UserPoolDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

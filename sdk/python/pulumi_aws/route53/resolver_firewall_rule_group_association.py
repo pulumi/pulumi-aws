@@ -259,6 +259,9 @@ class _ResolverFirewallRuleGroupAssociationState:
 
 
 class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _PatchGroupState:
 
 
 class PatchGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/patchGroup:PatchGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

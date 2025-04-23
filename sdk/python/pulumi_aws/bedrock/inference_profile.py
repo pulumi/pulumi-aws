@@ -308,6 +308,9 @@ class _InferenceProfileState:
 
 
 class InferenceProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/inferenceProfile:InferenceProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

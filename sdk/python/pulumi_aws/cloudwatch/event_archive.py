@@ -209,6 +209,9 @@ class _EventArchiveState:
 
 
 class EventArchive(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/eventArchive:EventArchive"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -527,6 +527,9 @@ class _ElasticClusterState:
 
 
 class ElasticCluster(pulumi.CustomResource):
+
+    pulumi_type = "aws:docdb/elasticCluster:ElasticCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

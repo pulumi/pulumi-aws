@@ -307,6 +307,9 @@ class _AgentDataSourceState:
 
 
 class AgentDataSource(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/agentDataSource:AgentDataSource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

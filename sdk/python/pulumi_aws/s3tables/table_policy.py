@@ -175,6 +175,9 @@ class _TablePolicyState:
 
 
 class TablePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3tables/tablePolicy:TablePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

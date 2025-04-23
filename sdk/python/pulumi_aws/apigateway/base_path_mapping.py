@@ -192,6 +192,9 @@ class _BasePathMappingState:
 
 
 class BasePathMapping(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/basePathMapping:BasePathMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

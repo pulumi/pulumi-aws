@@ -227,6 +227,9 @@ class _AccessPointState:
 
 
 class AccessPoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:efs/accessPoint:AccessPoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

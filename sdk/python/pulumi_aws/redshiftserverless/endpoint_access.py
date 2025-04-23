@@ -257,6 +257,9 @@ class _EndpointAccessState:
 
 
 class EndpointAccess(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshiftserverless/endpointAccess:EndpointAccess"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

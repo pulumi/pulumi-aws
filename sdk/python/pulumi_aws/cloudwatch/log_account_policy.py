@@ -191,6 +191,9 @@ class _LogAccountPolicyState:
 
 
 class LogAccountPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/logAccountPolicy:LogAccountPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

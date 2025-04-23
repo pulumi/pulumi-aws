@@ -66,6 +66,9 @@ class _EncryptionByDefaultState:
 
 
 class EncryptionByDefault(pulumi.CustomResource):
+
+    pulumi_type = "aws:ebs/encryptionByDefault:EncryptionByDefault"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -179,6 +179,9 @@ class _VpcIpamPoolCidrState:
 
 
 class VpcIpamPoolCidr(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

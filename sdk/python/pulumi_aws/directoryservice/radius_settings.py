@@ -314,6 +314,9 @@ class _RadiusSettingsState:
 
 
 class RadiusSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws:directoryservice/radiusSettings:RadiusSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

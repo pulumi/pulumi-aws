@@ -174,6 +174,9 @@ class _WorkspaceApiKeyState:
 
 
 class WorkspaceApiKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:grafana/workspaceApiKey:WorkspaceApiKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

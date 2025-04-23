@@ -219,6 +219,9 @@ class _LbCertificateState:
 
 
 class LbCertificate(pulumi.CustomResource):
+
+    pulumi_type = "aws:lightsail/lbCertificate:LbCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

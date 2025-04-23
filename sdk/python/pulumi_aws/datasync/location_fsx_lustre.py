@@ -228,6 +228,9 @@ class _LocationFsxLustreState:
 
 
 class LocationFsxLustre(pulumi.CustomResource):
+
+    pulumi_type = "aws:datasync/locationFsxLustre:LocationFsxLustre"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

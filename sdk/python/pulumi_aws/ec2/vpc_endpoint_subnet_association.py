@@ -96,6 +96,9 @@ class _VpcEndpointSubnetAssociationState:
 
 
 class VpcEndpointSubnetAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

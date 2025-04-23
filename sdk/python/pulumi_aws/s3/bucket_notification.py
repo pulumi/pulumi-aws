@@ -203,6 +203,9 @@ class _BucketNotificationState:
 
 
 class BucketNotification(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketNotification:BucketNotification"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

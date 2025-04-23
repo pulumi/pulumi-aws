@@ -247,6 +247,9 @@ class _FrameworkState:
 
 
 class Framework(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/framework:Framework"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

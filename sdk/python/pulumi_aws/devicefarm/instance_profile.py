@@ -262,6 +262,9 @@ class _InstanceProfileState:
 
 
 class InstanceProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:devicefarm/instanceProfile:InstanceProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

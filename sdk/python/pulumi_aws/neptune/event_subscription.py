@@ -341,6 +341,9 @@ class _EventSubscriptionState:
 
 
 class EventSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws:neptune/eventSubscription:EventSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

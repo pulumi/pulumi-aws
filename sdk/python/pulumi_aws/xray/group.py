@@ -198,6 +198,9 @@ class _GroupState:
 
 
 class Group(pulumi.CustomResource):
+
+    pulumi_type = "aws:xray/group:Group"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

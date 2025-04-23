@@ -357,6 +357,9 @@ class _WorkspaceState:
 
 
 class Workspace(pulumi.CustomResource):
+
+    pulumi_type = "aws:workspaces/workspace:Workspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

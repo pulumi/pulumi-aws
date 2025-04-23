@@ -323,6 +323,9 @@ class _RecommendationPreferencesState:
 
 
 class RecommendationPreferences(pulumi.CustomResource):
+
+    pulumi_type = "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

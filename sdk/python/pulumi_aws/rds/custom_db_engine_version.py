@@ -532,6 +532,9 @@ class _CustomDbEngineVersionState:
 
 
 class CustomDbEngineVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/customDbEngineVersion:CustomDbEngineVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

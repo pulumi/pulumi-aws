@@ -284,6 +284,9 @@ class _RoomState:
 
 
 class Room(pulumi.CustomResource):
+
+    pulumi_type = "aws:ivschat/room:Room"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

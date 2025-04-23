@@ -124,6 +124,9 @@ class _GroupAssociationState:
 
 
 class GroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:synthetics/groupAssociation:GroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

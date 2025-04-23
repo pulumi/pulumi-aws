@@ -550,6 +550,9 @@ class _DocumentState:
 
 
 class Document(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/document:Document"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

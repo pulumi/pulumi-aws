@@ -292,6 +292,9 @@ class _FileSystemAssociationState:
 
 
 class FileSystemAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:storagegateway/fileSystemAssociation:FileSystemAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

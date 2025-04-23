@@ -41,10 +41,10 @@ import (
 // return err
 // }
 // example := exampleVault.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -68,13 +68,11 @@ import (
 // },
 // },
 // },
-// }, nil))), nil
+// }, nil)), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = backup.NewVaultPolicy(ctx, "example", &backup.VaultPolicyArgs{
 // BackupVaultName: exampleVault.Name,
-// Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(example.Json),
 // })
 // if err != nil {
 // return err

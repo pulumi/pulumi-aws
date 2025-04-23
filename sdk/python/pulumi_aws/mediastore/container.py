@@ -150,6 +150,9 @@ class _ContainerState:
 
 
 class Container(pulumi.CustomResource):
+
+    pulumi_type = "aws:mediastore/container:Container"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

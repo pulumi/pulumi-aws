@@ -652,6 +652,9 @@ class _ReplicationInstanceState:
 
 
 class ReplicationInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:dms/replicationInstance:ReplicationInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

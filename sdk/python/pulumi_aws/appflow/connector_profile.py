@@ -249,6 +249,9 @@ class _ConnectorProfileState:
 
 
 class ConnectorProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:appflow/connectorProfile:ConnectorProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

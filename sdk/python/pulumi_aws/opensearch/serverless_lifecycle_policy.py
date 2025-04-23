@@ -184,6 +184,9 @@ class _ServerlessLifecyclePolicyState:
 
 
 class ServerlessLifecyclePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

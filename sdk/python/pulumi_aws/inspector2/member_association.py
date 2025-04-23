@@ -113,6 +113,9 @@ class _MemberAssociationState:
 
 
 class MemberAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:inspector2/memberAssociation:MemberAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

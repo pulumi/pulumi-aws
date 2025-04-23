@@ -65,6 +65,9 @@ class _AccountSuppressionAttributesState:
 
 
 class AccountSuppressionAttributes(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

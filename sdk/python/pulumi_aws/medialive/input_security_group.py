@@ -155,6 +155,9 @@ class _InputSecurityGroupState:
 
 
 class InputSecurityGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:medialive/inputSecurityGroup:InputSecurityGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

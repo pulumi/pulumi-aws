@@ -227,6 +227,9 @@ class _DeliveryChannelState:
 
 
 class DeliveryChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/deliveryChannel:DeliveryChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

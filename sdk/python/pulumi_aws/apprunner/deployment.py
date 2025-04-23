@@ -123,6 +123,9 @@ class _DeploymentState:
 
 
 class Deployment(pulumi.CustomResource):
+
+    pulumi_type = "aws:apprunner/deployment:Deployment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

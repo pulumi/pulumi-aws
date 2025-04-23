@@ -230,6 +230,9 @@ class _VpcIngressConnectionState:
 
 
 class VpcIngressConnection(pulumi.CustomResource):
+
+    pulumi_type = "aws:apprunner/vpcIngressConnection:VpcIngressConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

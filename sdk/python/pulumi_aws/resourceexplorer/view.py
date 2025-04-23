@@ -264,6 +264,9 @@ class _ViewState:
 
 
 class View(pulumi.CustomResource):
+
+    pulumi_type = "aws:resourceexplorer/view:View"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

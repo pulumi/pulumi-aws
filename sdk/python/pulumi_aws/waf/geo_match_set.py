@@ -116,6 +116,9 @@ class _GeoMatchSetState:
 
 
 class GeoMatchSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:waf/geoMatchSet:GeoMatchSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

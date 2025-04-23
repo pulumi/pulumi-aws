@@ -174,6 +174,9 @@ class _ServiceNetworkState:
 
 
 class ServiceNetwork(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpclattice/serviceNetwork:ServiceNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -308,6 +308,9 @@ class _ResponseHeadersPolicyState:
 
 
 class ResponseHeadersPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

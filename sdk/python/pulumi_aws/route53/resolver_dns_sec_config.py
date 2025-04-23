@@ -113,6 +113,9 @@ class _ResolverDnsSecConfigState:
 
 
 class ResolverDnsSecConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

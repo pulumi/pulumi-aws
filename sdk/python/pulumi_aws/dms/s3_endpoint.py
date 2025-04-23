@@ -1658,6 +1658,9 @@ class _S3EndpointState:
 
 
 class S3Endpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:dms/s3Endpoint:S3Endpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

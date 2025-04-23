@@ -116,6 +116,9 @@ class _RegexMatchSetState:
 
 
 class RegexMatchSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:waf/regexMatchSet:RegexMatchSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

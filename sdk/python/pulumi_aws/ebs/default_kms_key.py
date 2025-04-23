@@ -65,6 +65,9 @@ class _DefaultKmsKeyState:
 
 
 class DefaultKmsKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:ebs/defaultKmsKey:DefaultKmsKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

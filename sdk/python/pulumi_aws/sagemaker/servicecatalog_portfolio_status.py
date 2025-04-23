@@ -65,6 +65,9 @@ class _ServicecatalogPortfolioStatusState:
 
 
 class ServicecatalogPortfolioStatus(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

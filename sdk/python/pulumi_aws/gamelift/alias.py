@@ -199,6 +199,9 @@ class _AliasState:
 
 
 class Alias(pulumi.CustomResource):
+
+    pulumi_type = "aws:gamelift/alias:Alias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

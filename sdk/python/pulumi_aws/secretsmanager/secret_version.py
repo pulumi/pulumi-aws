@@ -201,6 +201,9 @@ class _SecretVersionState:
 
 
 class SecretVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:secretsmanager/secretVersion:SecretVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

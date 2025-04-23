@@ -394,6 +394,9 @@ class _MethodState:
 
 
 class Method(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/method:Method"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

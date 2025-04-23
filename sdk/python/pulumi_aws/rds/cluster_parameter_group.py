@@ -267,6 +267,9 @@ class _ClusterParameterGroupState:
 
 
 class ClusterParameterGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/clusterParameterGroup:ClusterParameterGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

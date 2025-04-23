@@ -134,6 +134,9 @@ class _DefaultRouteTableAssociationState:
 
 
 class DefaultRouteTableAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

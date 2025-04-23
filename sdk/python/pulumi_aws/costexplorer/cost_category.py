@@ -318,6 +318,9 @@ class _CostCategoryState:
 
 
 class CostCategory(pulumi.CustomResource):
+
+    pulumi_type = "aws:costexplorer/costCategory:CostCategory"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -2030,7 +2030,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }
@@ -2121,7 +2121,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }
@@ -2212,7 +2212,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }
@@ -2303,7 +2303,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }
@@ -2394,7 +2394,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }
@@ -2485,7 +2485,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }
@@ -2576,7 +2576,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
+     *             .policy(allowBillingLogging.json())
      *             .build());
      * 
      *     }

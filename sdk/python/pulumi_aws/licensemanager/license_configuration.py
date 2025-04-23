@@ -309,6 +309,9 @@ class _LicenseConfigurationState:
 
 
 class LicenseConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:licensemanager/licenseConfiguration:LicenseConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

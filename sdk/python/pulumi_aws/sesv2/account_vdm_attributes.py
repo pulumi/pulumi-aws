@@ -139,6 +139,9 @@ class _AccountVdmAttributesState:
 
 
 class AccountVdmAttributes(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/accountVdmAttributes:AccountVdmAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

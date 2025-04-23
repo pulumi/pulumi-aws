@@ -97,6 +97,9 @@ class _DomainIdentityState:
 
 
 class DomainIdentity(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/domainIdentity:DomainIdentity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

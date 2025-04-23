@@ -231,6 +231,9 @@ class _EnvironmentBlueprintConfigurationState:
 
 
 class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

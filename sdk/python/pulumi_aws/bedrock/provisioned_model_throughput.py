@@ -253,6 +253,9 @@ class _ProvisionedModelThroughputState:
 
 
 class ProvisionedModelThroughput(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

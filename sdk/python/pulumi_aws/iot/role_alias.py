@@ -196,6 +196,9 @@ class _RoleAliasState:
 
 
 class RoleAlias(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/roleAlias:RoleAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -373,6 +373,9 @@ class _FaqState:
 
 
 class Faq(pulumi.CustomResource):
+
+    pulumi_type = "aws:kendra/faq:Faq"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

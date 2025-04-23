@@ -227,6 +227,9 @@ class _WorkforceState:
 
 
 class Workforce(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/workforce:Workforce"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

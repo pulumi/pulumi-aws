@@ -211,6 +211,9 @@ class _ResourceLfTagsState:
 
 
 class ResourceLfTags(pulumi.CustomResource):
+
+    pulumi_type = "aws:lakeformation/resourceLfTags:ResourceLfTags"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

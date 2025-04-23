@@ -105,6 +105,9 @@ class _KeyAliasState:
 
 
 class KeyAlias(pulumi.CustomResource):
+
+    pulumi_type = "aws:paymentcryptography/keyAlias:KeyAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

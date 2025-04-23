@@ -187,6 +187,9 @@ class _BucketLifecycleConfigurationV2State:
 
 
 class BucketLifecycleConfigurationV2(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

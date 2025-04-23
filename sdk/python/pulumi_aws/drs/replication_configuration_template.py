@@ -573,6 +573,9 @@ class _ReplicationConfigurationTemplateState:
 
 
 class ReplicationConfigurationTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

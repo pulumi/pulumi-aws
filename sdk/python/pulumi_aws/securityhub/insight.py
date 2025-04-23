@@ -146,6 +146,9 @@ class _InsightState:
 
 
 class Insight(pulumi.CustomResource):
+
+    pulumi_type = "aws:securityhub/insight:Insight"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

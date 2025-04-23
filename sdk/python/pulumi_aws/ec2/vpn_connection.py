@@ -2054,6 +2054,9 @@ class _VpnConnectionState:
 
 
 class VpnConnection(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpnConnection:VpnConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

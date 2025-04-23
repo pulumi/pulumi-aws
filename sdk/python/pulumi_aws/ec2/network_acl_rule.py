@@ -406,6 +406,9 @@ class _NetworkAclRuleState:
 
 
 class NetworkAclRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/networkAclRule:NetworkAclRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

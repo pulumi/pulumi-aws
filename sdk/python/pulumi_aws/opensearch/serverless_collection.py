@@ -308,6 +308,9 @@ class _ServerlessCollectionState:
 
 
 class ServerlessCollection(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearch/serverlessCollection:ServerlessCollection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

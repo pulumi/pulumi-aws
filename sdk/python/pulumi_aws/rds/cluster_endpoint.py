@@ -275,6 +275,9 @@ class _ClusterEndpointState:
 
 
 class ClusterEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/clusterEndpoint:ClusterEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

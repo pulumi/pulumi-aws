@@ -247,6 +247,9 @@ class _FirewallPolicyState:
 
 
 class FirewallPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkfirewall/firewallPolicy:FirewallPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

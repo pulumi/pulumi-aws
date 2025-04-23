@@ -759,6 +759,9 @@ class _StaticWebLayerState:
 
 
 class StaticWebLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/staticWebLayer:StaticWebLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

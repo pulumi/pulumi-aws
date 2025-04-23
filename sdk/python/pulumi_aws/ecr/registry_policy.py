@@ -81,6 +81,9 @@ class _RegistryPolicyState:
 
 
 class RegistryPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecr/registryPolicy:RegistryPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

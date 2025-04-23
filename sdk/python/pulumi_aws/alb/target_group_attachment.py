@@ -168,6 +168,9 @@ class _TargetGroupAttachmentState:
 
 
 class TargetGroupAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:alb/targetGroupAttachment:TargetGroupAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

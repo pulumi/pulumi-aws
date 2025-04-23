@@ -129,6 +129,9 @@ class _ConfigurationSetEventDestinationState:
 
 
 class ConfigurationSetEventDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

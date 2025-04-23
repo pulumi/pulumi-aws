@@ -222,6 +222,9 @@ class _SslNegotiationPolicyState:
 
 
 class SslNegotiationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:elb/sslNegotiationPolicy:SslNegotiationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

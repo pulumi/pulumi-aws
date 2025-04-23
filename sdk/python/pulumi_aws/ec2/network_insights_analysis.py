@@ -351,6 +351,9 @@ class _NetworkInsightsAnalysisState:
 
 
 class NetworkInsightsAnalysis(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

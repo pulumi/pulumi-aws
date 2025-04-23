@@ -156,6 +156,9 @@ class _EventActionState:
 
 
 class EventAction(pulumi.CustomResource):
+
+    pulumi_type = "aws:dataexchange/eventAction:EventAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

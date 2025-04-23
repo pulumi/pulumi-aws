@@ -98,6 +98,9 @@ class _BotAssociationState:
 
 
 class BotAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/botAssociation:BotAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

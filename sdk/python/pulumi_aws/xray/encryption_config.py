@@ -97,6 +97,9 @@ class _EncryptionConfigState:
 
 
 class EncryptionConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:xray/encryptionConfig:EncryptionConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

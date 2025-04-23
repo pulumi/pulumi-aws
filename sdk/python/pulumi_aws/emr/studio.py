@@ -531,6 +531,9 @@ class _StudioState:
 
 
 class Studio(pulumi.CustomResource):
+
+    pulumi_type = "aws:emr/studio:Studio"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

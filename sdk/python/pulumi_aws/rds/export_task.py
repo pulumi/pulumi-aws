@@ -415,6 +415,9 @@ class _ExportTaskState:
 
 
 class ExportTask(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/exportTask:ExportTask"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

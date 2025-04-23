@@ -225,6 +225,9 @@ class _OriginRequestPolicyState:
 
 
 class OriginRequestPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/originRequestPolicy:OriginRequestPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

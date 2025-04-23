@@ -129,6 +129,9 @@ class _RouteTableAssociationState:
 
 
 class RouteTableAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/routeTableAssociation:RouteTableAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

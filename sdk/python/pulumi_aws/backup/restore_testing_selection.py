@@ -289,6 +289,9 @@ class _RestoreTestingSelectionState:
 
 
 class RestoreTestingSelection(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/restoreTestingSelection:RestoreTestingSelection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

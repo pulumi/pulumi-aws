@@ -90,7 +90,7 @@ def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilte
         "name": "state",
         "values": ["pendingAcceptance"],
     }])
-    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
+    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
     ```
 
 
@@ -122,7 +122,7 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
         "name": "state",
         "values": ["pendingAcceptance"],
     }])
-    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
+    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
     ```
 
 

@@ -128,6 +128,9 @@ class _BucketAccelerateConfigurationV2State:
 
 
 class BucketAccelerateConfigurationV2(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

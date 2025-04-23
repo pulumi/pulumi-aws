@@ -740,6 +740,9 @@ class _NfsFileShareState:
 
 
 class NfsFileShare(pulumi.CustomResource):
+
+    pulumi_type = "aws:storagegateway/nfsFileShare:NfsFileShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

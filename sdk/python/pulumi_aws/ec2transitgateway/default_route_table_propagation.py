@@ -134,6 +134,9 @@ class _DefaultRouteTablePropagationState:
 
 
 class DefaultRouteTablePropagation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2transitgateway/defaultRouteTablePropagation:DefaultRouteTablePropagation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

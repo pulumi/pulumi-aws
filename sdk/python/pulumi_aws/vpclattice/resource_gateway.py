@@ -310,6 +310,9 @@ class _ResourceGatewayState:
 
 
 class ResourceGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpclattice/resourceGateway:ResourceGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

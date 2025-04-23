@@ -341,6 +341,9 @@ class _AuthorizerState:
 
 
 class Authorizer(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/authorizer:Authorizer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

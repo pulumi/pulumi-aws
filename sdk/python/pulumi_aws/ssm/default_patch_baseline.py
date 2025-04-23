@@ -160,6 +160,9 @@ class _DefaultPatchBaselineState:
 
 
 class DefaultPatchBaseline(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

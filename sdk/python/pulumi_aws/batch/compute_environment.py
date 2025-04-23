@@ -407,6 +407,9 @@ class _ComputeEnvironmentState:
 
 
 class ComputeEnvironment(pulumi.CustomResource):
+
+    pulumi_type = "aws:batch/computeEnvironment:ComputeEnvironment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

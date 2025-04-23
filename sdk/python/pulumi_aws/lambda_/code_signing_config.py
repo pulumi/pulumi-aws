@@ -231,6 +231,9 @@ class _CodeSigningConfigState:
 
 
 class CodeSigningConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:lambda/codeSigningConfig:CodeSigningConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -778,6 +778,9 @@ class _AmiCopyState:
 
 
 class AmiCopy(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/amiCopy:AmiCopy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

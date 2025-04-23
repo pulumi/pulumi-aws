@@ -485,6 +485,9 @@ class _NetworkProfileState:
 
 
 class NetworkProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:devicefarm/networkProfile:NetworkProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

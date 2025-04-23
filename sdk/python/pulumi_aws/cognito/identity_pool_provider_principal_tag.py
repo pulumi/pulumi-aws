@@ -160,6 +160,9 @@ class _IdentityPoolProviderPrincipalTagState:
 
 
 class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

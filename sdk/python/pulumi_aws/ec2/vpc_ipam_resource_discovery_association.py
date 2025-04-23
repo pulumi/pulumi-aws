@@ -244,6 +244,9 @@ class _VpcIpamResourceDiscoveryAssociationState:
 
 
 class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

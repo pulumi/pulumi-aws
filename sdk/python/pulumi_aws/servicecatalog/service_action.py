@@ -171,6 +171,9 @@ class _ServiceActionState:
 
 
 class ServiceAction(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/serviceAction:ServiceAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

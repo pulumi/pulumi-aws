@@ -143,6 +143,9 @@ class _VaultNotificationsState:
 
 
 class VaultNotifications(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/vaultNotifications:VaultNotifications"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

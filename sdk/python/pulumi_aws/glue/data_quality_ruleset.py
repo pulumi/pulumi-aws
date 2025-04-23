@@ -279,6 +279,9 @@ class _DataQualityRulesetState:
 
 
 class DataQualityRuleset(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/dataQualityRuleset:DataQualityRuleset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

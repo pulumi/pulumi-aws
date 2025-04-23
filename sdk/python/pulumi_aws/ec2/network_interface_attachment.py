@@ -159,6 +159,9 @@ class _NetworkInterfaceAttachmentState:
 
 
 class NetworkInterfaceAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

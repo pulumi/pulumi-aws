@@ -65,6 +65,9 @@ class _ConnectionConfirmationState:
 
 
 class ConnectionConfirmation(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/connectionConfirmation:ConnectionConfirmation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

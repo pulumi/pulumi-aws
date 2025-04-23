@@ -96,6 +96,9 @@ class _TrackerAssociationState:
 
 
 class TrackerAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:location/trackerAssociation:TrackerAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

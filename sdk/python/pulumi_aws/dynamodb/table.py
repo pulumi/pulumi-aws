@@ -888,6 +888,9 @@ class _TableState:
 
 
 class Table(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/table:Table"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1049,7 +1052,7 @@ class Table(pulumi.CustomResource):
                 "Zone": "SW",
             })
         example_tag = aws.dynamodb.Tag("example",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+            resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.name,
                 replace=alternate.name)).apply(lambda invoke: invoke.result),
             key="Architect",
@@ -1233,7 +1236,7 @@ class Table(pulumi.CustomResource):
                 "Zone": "SW",
             })
         example_tag = aws.dynamodb.Tag("example",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+            resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.name,
                 replace=alternate.name)).apply(lambda invoke: invoke.result),
             key="Architect",

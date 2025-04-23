@@ -470,6 +470,9 @@ class _TableExportState:
 
 
 class TableExport(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/tableExport:TableExport"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

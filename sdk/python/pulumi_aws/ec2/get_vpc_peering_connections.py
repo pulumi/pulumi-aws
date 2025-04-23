@@ -104,7 +104,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringC
         "values": [foo["id"]],
     }])
     # get the details of each resource
-    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
+    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in len(pcs.ids).apply(lambda length: range(length))]
     ```
 
 
@@ -148,7 +148,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
         "values": [foo["id"]],
     }])
     # get the details of each resource
-    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
+    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in len(pcs.ids).apply(lambda length: range(length))]
     ```
 
 

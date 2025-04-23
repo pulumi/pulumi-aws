@@ -221,6 +221,9 @@ class _VpcIpamScopeState:
 
 
 class VpcIpamScope(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpamScope:VpcIpamScope"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -112,6 +112,9 @@ class _StaticIpAttachmentState:
 
 
 class StaticIpAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:lightsail/staticIpAttachment:StaticIpAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

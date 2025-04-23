@@ -245,6 +245,9 @@ class _MulticastDomainState:
 
 
 class MulticastDomain(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2transitgateway/multicastDomain:MulticastDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

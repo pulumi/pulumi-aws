@@ -127,6 +127,9 @@ class _PermissionSetInlinePolicyState:
 
 
 class PermissionSetInlinePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

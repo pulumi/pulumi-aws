@@ -96,6 +96,9 @@ class _EndpointPrivateDnsState:
 
 
 class EndpointPrivateDns(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpc/endpointPrivateDns:EndpointPrivateDns"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

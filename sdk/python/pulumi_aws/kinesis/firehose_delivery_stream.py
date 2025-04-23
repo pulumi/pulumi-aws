@@ -623,6 +623,9 @@ class _FirehoseDeliveryStreamState:
 
 
 class FirehoseDeliveryStream(pulumi.CustomResource):
+
+    pulumi_type = "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

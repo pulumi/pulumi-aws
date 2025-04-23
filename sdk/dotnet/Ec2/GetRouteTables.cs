@@ -23,13 +23,12 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new()
+        ///     var rts = Aws.Ec2.GetRouteTables.Invoke(new()
         ///     {
         ///         VpcId = vpcId,
         ///         Filters = new[]
@@ -46,12 +45,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var r = new List&lt;Aws.Ec2.Route&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Apply(getRouteTablesResult =&gt; getRouteTablesResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         r.Add(new Aws.Ec2.Route($"r-{range.Value}", new()
         ///         {
-        ///             RouteTableId = rts.Ids[range.Value],
+        ///             RouteTableId = rts.Apply(getRouteTablesResult =&gt; getRouteTablesResult.Ids)[range.Value],
         ///             DestinationCidrBlock = "10.0.0.0/22",
         ///             VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
         ///         }));
@@ -74,13 +73,12 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new()
+        ///     var rts = Aws.Ec2.GetRouteTables.Invoke(new()
         ///     {
         ///         VpcId = vpcId,
         ///         Filters = new[]
@@ -97,12 +95,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var r = new List&lt;Aws.Ec2.Route&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Apply(getRouteTablesResult =&gt; getRouteTablesResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         r.Add(new Aws.Ec2.Route($"r-{range.Value}", new()
         ///         {
-        ///             RouteTableId = rts.Ids[range.Value],
+        ///             RouteTableId = rts.Apply(getRouteTablesResult =&gt; getRouteTablesResult.Ids)[range.Value],
         ///             DestinationCidrBlock = "10.0.0.0/22",
         ///             VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
         ///         }));
@@ -125,13 +123,12 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new()
+        ///     var rts = Aws.Ec2.GetRouteTables.Invoke(new()
         ///     {
         ///         VpcId = vpcId,
         ///         Filters = new[]
@@ -148,12 +145,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var r = new List&lt;Aws.Ec2.Route&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; rts.Apply(getRouteTablesResult =&gt; getRouteTablesResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         r.Add(new Aws.Ec2.Route($"r-{range.Value}", new()
         ///         {
-        ///             RouteTableId = rts.Ids[range.Value],
+        ///             RouteTableId = rts.Apply(getRouteTablesResult =&gt; getRouteTablesResult.Ids)[range.Value],
         ///             DestinationCidrBlock = "10.0.0.0/22",
         ///             VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
         ///         }));

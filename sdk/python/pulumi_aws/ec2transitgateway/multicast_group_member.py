@@ -127,6 +127,9 @@ class _MulticastGroupMemberState:
 
 
 class MulticastGroupMember(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

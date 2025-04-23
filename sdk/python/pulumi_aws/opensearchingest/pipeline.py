@@ -400,6 +400,9 @@ class _PipelineState:
 
 
 class Pipeline(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearchingest/pipeline:Pipeline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

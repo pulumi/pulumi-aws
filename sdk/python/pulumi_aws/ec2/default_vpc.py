@@ -438,6 +438,9 @@ class _DefaultVpcState:
 
 
 class DefaultVpc(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/defaultVpc:DefaultVpc"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

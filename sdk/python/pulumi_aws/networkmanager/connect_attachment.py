@@ -360,6 +360,9 @@ class _ConnectAttachmentState:
 
 
 class ConnectAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/connectAttachment:ConnectAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

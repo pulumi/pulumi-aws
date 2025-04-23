@@ -96,6 +96,9 @@ class _DedicatedIpAssignmentState:
 
 
 class DedicatedIpAssignment(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

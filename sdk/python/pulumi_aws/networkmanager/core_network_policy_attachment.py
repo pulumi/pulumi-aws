@@ -112,6 +112,9 @@ class _CoreNetworkPolicyAttachmentState:
 
 
 class CoreNetworkPolicyAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

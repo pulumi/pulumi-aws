@@ -129,6 +129,9 @@ class _StreamConsumerState:
 
 
 class StreamConsumer(pulumi.CustomResource):
+
+    pulumi_type = "aws:kinesis/streamConsumer:StreamConsumer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

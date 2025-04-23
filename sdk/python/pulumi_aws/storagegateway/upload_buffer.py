@@ -129,6 +129,9 @@ class _UploadBufferState:
 
 
 class UploadBuffer(pulumi.CustomResource):
+
+    pulumi_type = "aws:storagegateway/uploadBuffer:UploadBuffer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

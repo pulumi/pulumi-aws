@@ -647,6 +647,9 @@ class _GraphQLApiState:
 
 
 class GraphQLApi(pulumi.CustomResource):
+
+    pulumi_type = "aws:appsync/graphQLApi:GraphQLApi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

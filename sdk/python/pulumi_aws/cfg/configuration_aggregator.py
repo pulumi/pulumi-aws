@@ -208,6 +208,9 @@ class _ConfigurationAggregatorState:
 
 
 class ConfigurationAggregator(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/configurationAggregator:ConfigurationAggregator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

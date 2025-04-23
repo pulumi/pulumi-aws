@@ -81,6 +81,9 @@ class _InboundConnectionAccepterState:
 
 
 class InboundConnectionAccepter(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

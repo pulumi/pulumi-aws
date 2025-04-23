@@ -341,6 +341,9 @@ class _DataRepositoryAssociationState:
 
 
 class DataRepositoryAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -416,6 +416,9 @@ class _BudgetActionState:
 
 
 class BudgetAction(pulumi.CustomResource):
+
+    pulumi_type = "aws:budgets/budgetAction:BudgetAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

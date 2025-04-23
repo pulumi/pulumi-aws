@@ -68,6 +68,9 @@ class _InvocationLoggingConfigurationState:
 
 
 class InvocationLoggingConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

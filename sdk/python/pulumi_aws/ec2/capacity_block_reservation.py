@@ -382,6 +382,9 @@ class _CapacityBlockReservationState:
 
 
 class CapacityBlockReservation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/capacityBlockReservation:CapacityBlockReservation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

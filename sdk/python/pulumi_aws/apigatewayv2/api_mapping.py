@@ -159,6 +159,9 @@ class _ApiMappingState:
 
 
 class ApiMapping(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/apiMapping:ApiMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

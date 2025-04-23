@@ -224,6 +224,9 @@ class _EndpointAuthorizationState:
 
 
 class EndpointAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/endpointAuthorization:EndpointAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

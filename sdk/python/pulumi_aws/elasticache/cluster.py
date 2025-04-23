@@ -1128,6 +1128,9 @@ class _ClusterState:
 
 
 class Cluster(pulumi.CustomResource):
+
+    pulumi_type = "aws:elasticache/cluster:Cluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

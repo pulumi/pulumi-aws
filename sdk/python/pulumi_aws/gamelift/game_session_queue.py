@@ -296,6 +296,9 @@ class _GameSessionQueueState:
 
 
 class GameSessionQueue(pulumi.CustomResource):
+
+    pulumi_type = "aws:gamelift/gameSessionQueue:GameSessionQueue"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

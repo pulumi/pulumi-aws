@@ -244,6 +244,9 @@ class _ConformancePackState:
 
 
 class ConformancePack(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/conformancePack:ConformancePack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

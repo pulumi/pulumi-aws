@@ -195,6 +195,9 @@ class _DomainNameAccessAssociationState:
 
 
 class DomainNameAccessAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

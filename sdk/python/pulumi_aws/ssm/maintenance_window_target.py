@@ -229,6 +229,9 @@ class _MaintenanceWindowTargetState:
 
 
 class MaintenanceWindowTarget(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -363,6 +363,9 @@ class _IdentityPoolState:
 
 
 class IdentityPool(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/identityPool:IdentityPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

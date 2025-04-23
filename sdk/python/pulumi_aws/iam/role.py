@@ -471,6 +471,9 @@ class _RoleState:
 
 
 class Role(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/role:Role"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

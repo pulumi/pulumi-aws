@@ -329,6 +329,9 @@ class _ResolverEndpointState:
 
 
 class ResolverEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverEndpoint:ResolverEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

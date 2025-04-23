@@ -240,6 +240,9 @@ class _AttachmentAccepterState:
 
 
 class AttachmentAccepter(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/attachmentAccepter:AttachmentAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

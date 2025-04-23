@@ -309,6 +309,9 @@ class _WorkteamState:
 
 
 class Workteam(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/workteam:Workteam"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

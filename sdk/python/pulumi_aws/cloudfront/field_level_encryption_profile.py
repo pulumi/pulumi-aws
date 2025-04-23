@@ -179,6 +179,9 @@ class _FieldLevelEncryptionProfileState:
 
 
 class FieldLevelEncryptionProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

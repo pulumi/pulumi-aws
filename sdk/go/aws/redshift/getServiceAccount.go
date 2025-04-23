@@ -47,11 +47,11 @@ import (
 // return err
 // }
 // allowAuditLogging := bucket.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Sid: "Put bucket policy needed for audit logging",
-// Effect: "Allow",
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("Put bucket policy needed for audit logging"))),
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -68,8 +68,8 @@ import (
 // },
 // },
 // {
-// Sid: "Get bucket policy needed for audit logging",
-// Effect: "Allow",
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("Get bucket policy needed for audit logging"))),
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -84,13 +84,11 @@ import (
 // Resources: bucketAwsS3Bucket.Arn,
 // },
 // },
-// }, nil))), nil
+// }, nil)), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = s3.NewBucketPolicy(ctx, "allow_audit_logging", &s3.BucketPolicyArgs{
 // Bucket: bucket.ID(),
-// Policy: pulumi.String(allowAuditLogging.ApplyT(func(allowAuditLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowAuditLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(allowAuditLogging.Json),
 // })
 // if err != nil {
 // return err

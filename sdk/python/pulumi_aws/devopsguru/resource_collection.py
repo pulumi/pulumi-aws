@@ -139,6 +139,9 @@ class _ResourceCollectionState:
 
 
 class ResourceCollection(pulumi.CustomResource):
+
+    pulumi_type = "aws:devopsguru/resourceCollection:ResourceCollection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

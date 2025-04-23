@@ -129,6 +129,9 @@ class _SharedDirectoryAccepterState:
 
 
 class SharedDirectoryAccepter(pulumi.CustomResource):
+
+    pulumi_type = "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

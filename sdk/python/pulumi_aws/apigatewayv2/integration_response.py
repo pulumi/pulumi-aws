@@ -223,6 +223,9 @@ class _IntegrationResponseState:
 
 
 class IntegrationResponse(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/integrationResponse:IntegrationResponse"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -189,6 +189,9 @@ class _PlaybackKeyPairState:
 
 
 class PlaybackKeyPair(pulumi.CustomResource):
+
+    pulumi_type = "aws:ivs/playbackKeyPair:PlaybackKeyPair"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

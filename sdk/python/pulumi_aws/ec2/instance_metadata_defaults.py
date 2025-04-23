@@ -162,6 +162,9 @@ class _InstanceMetadataDefaultsState:
 
 
 class InstanceMetadataDefaults(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

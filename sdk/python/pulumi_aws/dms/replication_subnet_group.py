@@ -207,6 +207,9 @@ class _ReplicationSubnetGroupState:
 
 
 class ReplicationSubnetGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:dms/replicationSubnetGroup:ReplicationSubnetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

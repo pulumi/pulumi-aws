@@ -168,6 +168,9 @@ class _DataShareAuthorizationState:
 
 
 class DataShareAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/dataShareAuthorization:DataShareAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

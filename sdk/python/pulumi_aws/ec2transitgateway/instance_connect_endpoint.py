@@ -319,6 +319,9 @@ class _InstanceConnectEndpointState:
 
 
 class InstanceConnectEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

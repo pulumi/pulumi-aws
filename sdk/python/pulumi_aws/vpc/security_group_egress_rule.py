@@ -404,6 +404,9 @@ class _SecurityGroupEgressRuleState:
 
 
 class SecurityGroupEgressRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

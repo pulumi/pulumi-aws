@@ -176,6 +176,9 @@ class _ServiceSpecificCredentialState:
 
 
 class ServiceSpecificCredential(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/serviceSpecificCredential:ServiceSpecificCredential"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

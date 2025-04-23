@@ -278,6 +278,9 @@ class _VirtualNodeState:
 
 
 class VirtualNode(pulumi.CustomResource):
+
+    pulumi_type = "aws:appmesh/virtualNode:VirtualNode"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

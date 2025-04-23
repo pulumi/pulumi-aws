@@ -369,6 +369,9 @@ class _RuleGroupState:
 
 
 class RuleGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:wafv2/ruleGroup:RuleGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -97,6 +97,9 @@ class _FindingAggregatorState:
 
 
 class FindingAggregator(pulumi.CustomResource):
+
+    pulumi_type = "aws:securityhub/findingAggregator:FindingAggregator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -230,6 +230,9 @@ class _BuildState:
 
 
 class Build(pulumi.CustomResource):
+
+    pulumi_type = "aws:gamelift/build:Build"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -221,6 +221,9 @@ class _AccountAssignmentState:
 
 
 class AccountAssignment(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssoadmin/accountAssignment:AccountAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

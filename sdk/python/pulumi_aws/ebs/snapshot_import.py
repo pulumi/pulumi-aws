@@ -479,6 +479,9 @@ class _SnapshotImportState:
 
 
 class SnapshotImport(pulumi.CustomResource):
+
+    pulumi_type = "aws:ebs/snapshotImport:SnapshotImport"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

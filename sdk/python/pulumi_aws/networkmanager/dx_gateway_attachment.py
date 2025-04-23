@@ -321,6 +321,9 @@ class _DxGatewayAttachmentState:
 
 
 class DxGatewayAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

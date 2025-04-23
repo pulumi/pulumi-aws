@@ -210,6 +210,9 @@ class _DefaultVpcDhcpOptionsState:
 
 
 class DefaultVpcDhcpOptions(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -115,6 +115,9 @@ class _GlobalTableState:
 
 
 class GlobalTable(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/globalTable:GlobalTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

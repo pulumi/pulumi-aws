@@ -98,6 +98,9 @@ class _ManagedScalingPolicyState:
 
 
 class ManagedScalingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:emr/managedScalingPolicy:ManagedScalingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

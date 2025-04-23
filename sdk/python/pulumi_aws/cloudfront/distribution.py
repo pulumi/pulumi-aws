@@ -723,6 +723,9 @@ class _DistributionState:
 
 
 class Distribution(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/distribution:Distribution"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

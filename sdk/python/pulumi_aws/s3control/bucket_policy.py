@@ -96,6 +96,9 @@ class _BucketPolicyState:
 
 
 class BucketPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3control/bucketPolicy:BucketPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

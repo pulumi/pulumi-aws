@@ -183,6 +183,9 @@ class _CollectionState:
 
 
 class Collection(pulumi.CustomResource):
+
+    pulumi_type = "aws:rekognition/collection:Collection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -196,6 +196,9 @@ class _ClassifierState:
 
 
 class Classifier(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/classifier:Classifier"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -304,6 +304,9 @@ class _ResolverRuleState:
 
 
 class ResolverRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverRule:ResolverRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
