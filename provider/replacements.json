@@ -19,6 +19,10 @@
     {
       "old": "[1]: https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html",
       "new": ""
+    },
+    {
+      "old": "    * `subject_alternative_names` - (Optional) Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) or use the `terraform taint` command to trigger recreation.\n",
+      "new": "    * `subject_alternative_names` - (Optional) Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).\n"
     }
   ],
   "amplify_app.html.markdown": [

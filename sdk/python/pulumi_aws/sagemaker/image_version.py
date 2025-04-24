@@ -21,14 +21,42 @@ __all__ = ['ImageVersionArgs', 'ImageVersion']
 class ImageVersionArgs:
     def __init__(__self__, *,
                  base_image: pulumi.Input[builtins.str],
-                 image_name: pulumi.Input[builtins.str]):
+                 image_name: pulumi.Input[builtins.str],
+                 horovod: Optional[pulumi.Input[builtins.bool]] = None,
+                 job_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ml_framework: Optional[pulumi.Input[builtins.str]] = None,
+                 processor: Optional[pulumi.Input[builtins.str]] = None,
+                 programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 release_notes: Optional[pulumi.Input[builtins.str]] = None,
+                 vendor_guidance: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ImageVersion resource.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[builtins.bool] horovod: Indicates Horovod compatibility.
+        :param pulumi.Input[builtins.str] job_type: Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
+        :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
+        :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
+        if horovod is not None:
+            pulumi.set(__self__, "horovod", horovod)
+        if job_type is not None:
+            pulumi.set(__self__, "job_type", job_type)
+        if ml_framework is not None:
+            pulumi.set(__self__, "ml_framework", ml_framework)
+        if processor is not None:
+            pulumi.set(__self__, "processor", processor)
+        if programming_lang is not None:
+            pulumi.set(__self__, "programming_lang", programming_lang)
+        if release_notes is not None:
+            pulumi.set(__self__, "release_notes", release_notes)
+        if vendor_guidance is not None:
+            pulumi.set(__self__, "vendor_guidance", vendor_guidance)
 
     @property
     @pulumi.getter(name="baseImage")
@@ -54,6 +82,90 @@ class ImageVersionArgs:
     def image_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "image_name", value)
 
+    @property
+    @pulumi.getter
+    def horovod(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates Horovod compatibility.
+        """
+        return pulumi.get(self, "horovod")
+
+    @horovod.setter
+    def horovod(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "horovod", value)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter(name="mlFramework")
+    def ml_framework(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The machine learning framework vended in the image version.
+        """
+        return pulumi.get(self, "ml_framework")
+
+    @ml_framework.setter
+    def ml_framework(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ml_framework", value)
+
+    @property
+    @pulumi.getter
+    def processor(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        """
+        return pulumi.get(self, "processor")
+
+    @processor.setter
+    def processor(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "processor", value)
+
+    @property
+    @pulumi.getter(name="programmingLang")
+    def programming_lang(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The supported programming language and its version.
+        """
+        return pulumi.get(self, "programming_lang")
+
+    @programming_lang.setter
+    def programming_lang(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "programming_lang", value)
+
+    @property
+    @pulumi.getter(name="releaseNotes")
+    def release_notes(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The maintainer description of the image version.
+        """
+        return pulumi.get(self, "release_notes")
+
+    @release_notes.setter
+    def release_notes(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "release_notes", value)
+
+    @property
+    @pulumi.getter(name="vendorGuidance")
+    def vendor_guidance(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        """
+        return pulumi.get(self, "vendor_guidance")
+
+    @vendor_guidance.setter
+    def vendor_guidance(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vendor_guidance", value)
+
 
 @pulumi.input_type
 class _ImageVersionState:
@@ -61,16 +173,30 @@ class _ImageVersionState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  base_image: Optional[pulumi.Input[builtins.str]] = None,
                  container_image: Optional[pulumi.Input[builtins.str]] = None,
+                 horovod: Optional[pulumi.Input[builtins.bool]] = None,
                  image_arn: Optional[pulumi.Input[builtins.str]] = None,
                  image_name: Optional[pulumi.Input[builtins.str]] = None,
+                 job_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ml_framework: Optional[pulumi.Input[builtins.str]] = None,
+                 processor: Optional[pulumi.Input[builtins.str]] = None,
+                 programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 release_notes: Optional[pulumi.Input[builtins.str]] = None,
+                 vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering ImageVersion resources.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.str] container_image: The registry path of the container image that contains this image version.
-        :param pulumi.Input[builtins.str] image_arn: The Amazon Resource Name (ARN) of the image the version is based on.
+        :param pulumi.Input[builtins.bool] horovod: Indicates Horovod compatibility.
         :param pulumi.Input[builtins.str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[builtins.str] job_type: Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
+        :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
+        :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        :param pulumi.Input[builtins.int] version: The version of the image. If not specified, the latest version is described.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -78,10 +204,24 @@ class _ImageVersionState:
             pulumi.set(__self__, "base_image", base_image)
         if container_image is not None:
             pulumi.set(__self__, "container_image", container_image)
+        if horovod is not None:
+            pulumi.set(__self__, "horovod", horovod)
         if image_arn is not None:
             pulumi.set(__self__, "image_arn", image_arn)
         if image_name is not None:
             pulumi.set(__self__, "image_name", image_name)
+        if job_type is not None:
+            pulumi.set(__self__, "job_type", job_type)
+        if ml_framework is not None:
+            pulumi.set(__self__, "ml_framework", ml_framework)
+        if processor is not None:
+            pulumi.set(__self__, "processor", processor)
+        if programming_lang is not None:
+            pulumi.set(__self__, "programming_lang", programming_lang)
+        if release_notes is not None:
+            pulumi.set(__self__, "release_notes", release_notes)
+        if vendor_guidance is not None:
+            pulumi.set(__self__, "vendor_guidance", vendor_guidance)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -122,11 +262,20 @@ class _ImageVersionState:
         pulumi.set(self, "container_image", value)
 
     @property
+    @pulumi.getter
+    def horovod(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates Horovod compatibility.
+        """
+        return pulumi.get(self, "horovod")
+
+    @horovod.setter
+    def horovod(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "horovod", value)
+
+    @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the image the version is based on.
-        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -146,8 +295,83 @@ class _ImageVersionState:
         pulumi.set(self, "image_name", value)
 
     @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter(name="mlFramework")
+    def ml_framework(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The machine learning framework vended in the image version.
+        """
+        return pulumi.get(self, "ml_framework")
+
+    @ml_framework.setter
+    def ml_framework(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ml_framework", value)
+
+    @property
+    @pulumi.getter
+    def processor(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        """
+        return pulumi.get(self, "processor")
+
+    @processor.setter
+    def processor(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "processor", value)
+
+    @property
+    @pulumi.getter(name="programmingLang")
+    def programming_lang(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The supported programming language and its version.
+        """
+        return pulumi.get(self, "programming_lang")
+
+    @programming_lang.setter
+    def programming_lang(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "programming_lang", value)
+
+    @property
+    @pulumi.getter(name="releaseNotes")
+    def release_notes(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The maintainer description of the image version.
+        """
+        return pulumi.get(self, "release_notes")
+
+    @release_notes.setter
+    def release_notes(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "release_notes", value)
+
+    @property
+    @pulumi.getter(name="vendorGuidance")
+    def vendor_guidance(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        """
+        return pulumi.get(self, "vendor_guidance")
+
+    @vendor_guidance.setter
+    def vendor_guidance(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vendor_guidance", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The version of the image. If not specified, the latest version is described.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -161,7 +385,14 @@ class ImageVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_image: Optional[pulumi.Input[builtins.str]] = None,
+                 horovod: Optional[pulumi.Input[builtins.bool]] = None,
                  image_name: Optional[pulumi.Input[builtins.str]] = None,
+                 job_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ml_framework: Optional[pulumi.Input[builtins.str]] = None,
+                 processor: Optional[pulumi.Input[builtins.str]] = None,
+                 programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 release_notes: Optional[pulumi.Input[builtins.str]] = None,
+                 vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Image Version resource.
@@ -190,7 +421,14 @@ class ImageVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
+        :param pulumi.Input[builtins.bool] horovod: Indicates Horovod compatibility.
         :param pulumi.Input[builtins.str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[builtins.str] job_type: Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
+        :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
+        :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         """
         ...
     @overload
@@ -238,7 +476,14 @@ class ImageVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_image: Optional[pulumi.Input[builtins.str]] = None,
+                 horovod: Optional[pulumi.Input[builtins.bool]] = None,
                  image_name: Optional[pulumi.Input[builtins.str]] = None,
+                 job_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ml_framework: Optional[pulumi.Input[builtins.str]] = None,
+                 processor: Optional[pulumi.Input[builtins.str]] = None,
+                 programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 release_notes: Optional[pulumi.Input[builtins.str]] = None,
+                 vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -251,9 +496,16 @@ class ImageVersion(pulumi.CustomResource):
             if base_image is None and not opts.urn:
                 raise TypeError("Missing required property 'base_image'")
             __props__.__dict__["base_image"] = base_image
+            __props__.__dict__["horovod"] = horovod
             if image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_name'")
             __props__.__dict__["image_name"] = image_name
+            __props__.__dict__["job_type"] = job_type
+            __props__.__dict__["ml_framework"] = ml_framework
+            __props__.__dict__["processor"] = processor
+            __props__.__dict__["programming_lang"] = programming_lang
+            __props__.__dict__["release_notes"] = release_notes
+            __props__.__dict__["vendor_guidance"] = vendor_guidance
             __props__.__dict__["arn"] = None
             __props__.__dict__["container_image"] = None
             __props__.__dict__["image_arn"] = None
@@ -271,8 +523,15 @@ class ImageVersion(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             base_image: Optional[pulumi.Input[builtins.str]] = None,
             container_image: Optional[pulumi.Input[builtins.str]] = None,
+            horovod: Optional[pulumi.Input[builtins.bool]] = None,
             image_arn: Optional[pulumi.Input[builtins.str]] = None,
             image_name: Optional[pulumi.Input[builtins.str]] = None,
+            job_type: Optional[pulumi.Input[builtins.str]] = None,
+            ml_framework: Optional[pulumi.Input[builtins.str]] = None,
+            processor: Optional[pulumi.Input[builtins.str]] = None,
+            programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+            release_notes: Optional[pulumi.Input[builtins.str]] = None,
+            vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'ImageVersion':
         """
         Get an existing ImageVersion resource's state with the given name, id, and optional extra
@@ -284,8 +543,15 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.str] container_image: The registry path of the container image that contains this image version.
-        :param pulumi.Input[builtins.str] image_arn: The Amazon Resource Name (ARN) of the image the version is based on.
+        :param pulumi.Input[builtins.bool] horovod: Indicates Horovod compatibility.
         :param pulumi.Input[builtins.str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[builtins.str] job_type: Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
+        :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
+        :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        :param pulumi.Input[builtins.int] version: The version of the image. If not specified, the latest version is described.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -294,8 +560,15 @@ class ImageVersion(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["base_image"] = base_image
         __props__.__dict__["container_image"] = container_image
+        __props__.__dict__["horovod"] = horovod
         __props__.__dict__["image_arn"] = image_arn
         __props__.__dict__["image_name"] = image_name
+        __props__.__dict__["job_type"] = job_type
+        __props__.__dict__["ml_framework"] = ml_framework
+        __props__.__dict__["processor"] = processor
+        __props__.__dict__["programming_lang"] = programming_lang
+        __props__.__dict__["release_notes"] = release_notes
+        __props__.__dict__["vendor_guidance"] = vendor_guidance
         __props__.__dict__["version"] = version
         return ImageVersion(resource_name, opts=opts, __props__=__props__)
 
@@ -324,11 +597,16 @@ class ImageVersion(pulumi.CustomResource):
         return pulumi.get(self, "container_image")
 
     @property
+    @pulumi.getter
+    def horovod(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Indicates Horovod compatibility.
+        """
+        return pulumi.get(self, "horovod")
+
+    @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the image the version is based on.
-        """
         return pulumi.get(self, "image_arn")
 
     @property
@@ -340,7 +618,58 @@ class ImageVersion(pulumi.CustomResource):
         return pulumi.get(self, "image_name")
 
     @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+        """
+        return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter(name="mlFramework")
+    def ml_framework(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The machine learning framework vended in the image version.
+        """
+        return pulumi.get(self, "ml_framework")
+
+    @property
+    @pulumi.getter
+    def processor(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+        """
+        return pulumi.get(self, "processor")
+
+    @property
+    @pulumi.getter(name="programmingLang")
+    def programming_lang(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The supported programming language and its version.
+        """
+        return pulumi.get(self, "programming_lang")
+
+    @property
+    @pulumi.getter(name="releaseNotes")
+    def release_notes(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The maintainer description of the image version.
+        """
+        return pulumi.get(self, "release_notes")
+
+    @property
+    @pulumi.getter(name="vendorGuidance")
+    def vendor_guidance(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+        """
+        return pulumi.get(self, "vendor_guidance")
+
+    @property
     @pulumi.getter
     def version(self) -> pulumi.Output[builtins.int]:
+        """
+        The version of the image. If not specified, the latest version is described.
+        """
         return pulumi.get(self, "version")
 

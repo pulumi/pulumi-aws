@@ -418,16 +418,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * @return Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     public Output<List<String>> subjectAlternativeNames() {

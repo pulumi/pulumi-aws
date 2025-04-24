@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallSubnetMapping
     {
         /// <summary>
-        /// The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        /// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         /// </summary>
         public readonly string? IpAddressType;
         /// <summary>

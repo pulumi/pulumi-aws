@@ -1367,7 +1367,9 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
         :param builtins.int object_size_greater_than: Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         :param builtins.int object_size_less_than: Maximum object size to which the rule applies. Value must be at least `1` if specified.
         :param builtins.str prefix: Prefix identifying one or more objects to which the rule applies.
-        :param Mapping[str, builtins.str] tags: Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+        :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
+               All of these tags must exist in the object's tag set in order for the rule to apply.
+               If set, must contain at least one key-value pair.
         """
         if object_size_greater_than is not None:
             pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
@@ -1406,7 +1408,9 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
+        Key-value map of resource tags.
+        All of these tags must exist in the object's tag set in order for the rule to apply.
+        If set, must contain at least one key-value pair.
         """
         return pulumi.get(self, "tags")
 

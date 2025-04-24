@@ -9639,6 +9639,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/integration",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/integration:Integration": "Integration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/logging",
   "fqn": "pulumi_aws.redshift",
   "classes": {

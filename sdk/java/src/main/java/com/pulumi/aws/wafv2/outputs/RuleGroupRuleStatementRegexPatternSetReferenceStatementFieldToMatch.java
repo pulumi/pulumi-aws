@@ -55,7 +55,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
      */
     private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
@@ -134,7 +134,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {

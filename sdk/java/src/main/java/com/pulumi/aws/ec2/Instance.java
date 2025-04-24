@@ -38,6 +38,8 @@ import javax.annotation.Nullable;
  * 
  * ### Basic example using AMI lookup
  * 
+ * Using a data source
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -79,6 +81,43 @@ import javax.annotation.Nullable;
  * 
  *         var web = new Instance("web", InstanceArgs.builder()
  *             .ami(ubuntu.id())
+ *             .instanceType("t3.micro")
+ *             .tags(Map.of("Name", "HelloWorld"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Using AWS Systems Manager Parameter Store
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var web = new Instance("web", InstanceArgs.builder()
+ *             .ami("resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64")
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());

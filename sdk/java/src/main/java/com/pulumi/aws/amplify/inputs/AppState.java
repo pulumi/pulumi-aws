@@ -128,6 +128,21 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+     * 
+     */
+    @Import(name="computeRoleArn")
+    private @Nullable Output<String> computeRoleArn;
+
+    /**
+     * @return AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+     * 
+     */
+    public Optional<Output<String>> computeRoleArn() {
+        return Optional.ofNullable(this.computeRoleArn);
+    }
+
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
@@ -400,6 +415,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         this.basicAuthCredentials = $.basicAuthCredentials;
         this.buildSpec = $.buildSpec;
         this.cacheConfig = $.cacheConfig;
+        this.computeRoleArn = $.computeRoleArn;
         this.customHeaders = $.customHeaders;
         this.customRules = $.customRules;
         this.defaultDomain = $.defaultDomain;
@@ -592,6 +608,27 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cacheConfig(AppCacheConfigArgs cacheConfig) {
             return cacheConfig(Output.of(cacheConfig));
+        }
+
+        /**
+         * @param computeRoleArn AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeRoleArn(@Nullable Output<String> computeRoleArn) {
+            $.computeRoleArn = computeRoleArn;
+            return this;
+        }
+
+        /**
+         * @param computeRoleArn AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeRoleArn(String computeRoleArn) {
+            return computeRoleArn(Output.of(computeRoleArn));
         }
 
         /**

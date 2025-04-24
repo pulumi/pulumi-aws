@@ -55,7 +55,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
@@ -134,7 +134,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {

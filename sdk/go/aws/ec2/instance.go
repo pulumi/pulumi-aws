@@ -17,6 +17,8 @@ import (
 //
 // ### Basic example using AMI lookup
 //
+// # Using a data source
+//
 // ```go
 // package main
 //
@@ -54,6 +56,36 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 //				Ami:          pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Using AWS Systems Manager Parameter Store
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+//				Ami:          pulumi.String("resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"),
 //				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),

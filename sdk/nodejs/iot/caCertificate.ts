@@ -104,7 +104,7 @@ export class CaCertificate extends pulumi.CustomResource {
      */
     public readonly caCertificatePem!: pulumi.Output<string>;
     /**
-     * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      */
     public readonly certificateMode!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class CaCertificate extends pulumi.CustomResource {
     public /*out*/ readonly validities!: pulumi.Output<outputs.iot.CaCertificateValidity[]>;
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
      */
     public readonly verificationCertificatePem!: pulumi.Output<string | undefined>;
 
@@ -216,7 +216,7 @@ export interface CaCertificateState {
      */
     caCertificatePem?: pulumi.Input<string>;
     /**
-     * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      */
     certificateMode?: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface CaCertificateState {
     validities?: pulumi.Input<pulumi.Input<inputs.iot.CaCertificateValidity>[]>;
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
      */
     verificationCertificatePem?: pulumi.Input<string>;
 }
@@ -269,7 +269,7 @@ export interface CaCertificateArgs {
      */
     caCertificatePem: pulumi.Input<string>;
     /**
-     * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      */
     certificateMode?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface CaCertificateArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
      */
     verificationCertificatePem?: pulumi.Input<string>;
 }

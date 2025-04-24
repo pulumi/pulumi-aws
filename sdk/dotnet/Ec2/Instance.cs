@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ### Basic example using AMI lookup
     /// 
+    /// Using a data source
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,6 +57,29 @@ namespace Pulumi.Aws.Ec2
     ///     var web = new Aws.Ec2.Instance("web", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Using AWS Systems Manager Parameter Store
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var web = new Aws.Ec2.Instance("web", new()
+    ///     {
+    ///         Ami = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
     ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         Tags = 
     ///         {

@@ -5,7 +5,7 @@ Subject: [PATCH] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index 37dfefef59..24568eb8c3 100644
+index 8f0e9c9116..e81f19328e 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -183,6 +183,13 @@ func resourceCluster() *schema.Resource {
@@ -22,7 +22,7 @@ index 37dfefef59..24568eb8c3 100644
  			"enabled_cluster_log_types": {
  				Type:     schema.TypeSet,
  				Optional: true,
-@@ -611,7 +618,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
+@@ -615,7 +622,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
  		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  

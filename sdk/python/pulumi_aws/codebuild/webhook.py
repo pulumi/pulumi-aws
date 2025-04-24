@@ -26,6 +26,7 @@ class WebhookArgs:
                  branch_filter: Optional[pulumi.Input[builtins.str]] = None,
                  build_type: Optional[pulumi.Input[builtins.str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+                 manual_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  scope_configuration: Optional[pulumi.Input['WebhookScopeConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Webhook resource.
@@ -33,6 +34,7 @@ class WebhookArgs:
         :param pulumi.Input[builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
+        :param pulumi.Input[builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input['WebhookScopeConfigurationArgs'] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         """
         pulumi.set(__self__, "project_name", project_name)
@@ -42,6 +44,8 @@ class WebhookArgs:
             pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if manual_creation is not None:
+            pulumi.set(__self__, "manual_creation", manual_creation)
         if scope_configuration is not None:
             pulumi.set(__self__, "scope_configuration", scope_configuration)
 
@@ -94,6 +98,18 @@ class WebhookArgs:
         pulumi.set(self, "filter_groups", value)
 
     @property
+    @pulumi.getter(name="manualCreation")
+    def manual_creation(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        """
+        return pulumi.get(self, "manual_creation")
+
+    @manual_creation.setter
+    def manual_creation(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "manual_creation", value)
+
+    @property
     @pulumi.getter(name="scopeConfiguration")
     def scope_configuration(self) -> Optional[pulumi.Input['WebhookScopeConfigurationArgs']]:
         """
@@ -112,6 +128,7 @@ class _WebhookState:
                  branch_filter: Optional[pulumi.Input[builtins.str]] = None,
                  build_type: Optional[pulumi.Input[builtins.str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+                 manual_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  payload_url: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  scope_configuration: Optional[pulumi.Input['WebhookScopeConfigurationArgs']] = None,
@@ -122,6 +139,7 @@ class _WebhookState:
         :param pulumi.Input[builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
+        :param pulumi.Input[builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[builtins.str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[builtins.str] project_name: The name of the build project.
         :param pulumi.Input['WebhookScopeConfigurationArgs'] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
@@ -134,6 +152,8 @@ class _WebhookState:
             pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if manual_creation is not None:
+            pulumi.set(__self__, "manual_creation", manual_creation)
         if payload_url is not None:
             pulumi.set(__self__, "payload_url", payload_url)
         if project_name is not None:
@@ -180,6 +200,18 @@ class _WebhookState:
     @filter_groups.setter
     def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
+
+    @property
+    @pulumi.getter(name="manualCreation")
+    def manual_creation(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        """
+        return pulumi.get(self, "manual_creation")
+
+    @manual_creation.setter
+    def manual_creation(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "manual_creation", value)
 
     @property
     @pulumi.getter(name="payloadUrl")
@@ -250,6 +282,7 @@ class Webhook(pulumi.CustomResource):
                  branch_filter: Optional[pulumi.Input[builtins.str]] = None,
                  build_type: Optional[pulumi.Input[builtins.str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+                 manual_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -300,6 +333,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
+        :param pulumi.Input[builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[builtins.str] project_name: The name of the build project.
         :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         """
@@ -369,6 +403,7 @@ class Webhook(pulumi.CustomResource):
                  branch_filter: Optional[pulumi.Input[builtins.str]] = None,
                  build_type: Optional[pulumi.Input[builtins.str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+                 manual_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -383,6 +418,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["branch_filter"] = branch_filter
             __props__.__dict__["build_type"] = build_type
             __props__.__dict__["filter_groups"] = filter_groups
+            __props__.__dict__["manual_creation"] = manual_creation
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
@@ -405,6 +441,7 @@ class Webhook(pulumi.CustomResource):
             branch_filter: Optional[pulumi.Input[builtins.str]] = None,
             build_type: Optional[pulumi.Input[builtins.str]] = None,
             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+            manual_creation: Optional[pulumi.Input[builtins.bool]] = None,
             payload_url: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
             scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
@@ -420,6 +457,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
+        :param pulumi.Input[builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[builtins.str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[builtins.str] project_name: The name of the build project.
         :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']] scope_configuration: Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
@@ -433,6 +471,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["branch_filter"] = branch_filter
         __props__.__dict__["build_type"] = build_type
         __props__.__dict__["filter_groups"] = filter_groups
+        __props__.__dict__["manual_creation"] = manual_creation
         __props__.__dict__["payload_url"] = payload_url
         __props__.__dict__["project_name"] = project_name
         __props__.__dict__["scope_configuration"] = scope_configuration
@@ -463,6 +502,14 @@ class Webhook(pulumi.CustomResource):
         Information about the webhook's trigger. Filter group blocks are documented below.
         """
         return pulumi.get(self, "filter_groups")
+
+    @property
+    @pulumi.getter(name="manualCreation")
+    def manual_creation(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        """
+        return pulumi.get(self, "manual_creation")
 
     @property
     @pulumi.getter(name="payloadUrl")

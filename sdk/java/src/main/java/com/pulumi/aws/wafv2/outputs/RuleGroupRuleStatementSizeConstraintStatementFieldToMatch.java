@@ -55,7 +55,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
      */
     private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
@@ -134,7 +134,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {

@@ -28,6 +28,7 @@ class AppArgs:
                  basic_auth_credentials: Optional[pulumi.Input[builtins.str]] = None,
                  build_spec: Optional[pulumi.Input[builtins.str]] = None,
                  cache_config: Optional[pulumi.Input['AppCacheConfigArgs']] = None,
+                 compute_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  custom_headers: Optional[pulumi.Input[builtins.str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -50,6 +51,7 @@ class AppArgs:
         :param pulumi.Input[builtins.str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[builtins.str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         :param pulumi.Input['AppCacheConfigArgs'] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
+        :param pulumi.Input[builtins.str] compute_role_arn: AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
         :param pulumi.Input[builtins.str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[builtins.str] description: Description for an Amplify app.
@@ -77,6 +79,8 @@ class AppArgs:
             pulumi.set(__self__, "build_spec", build_spec)
         if cache_config is not None:
             pulumi.set(__self__, "cache_config", cache_config)
+        if compute_role_arn is not None:
+            pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
@@ -177,6 +181,18 @@ class AppArgs:
     @cache_config.setter
     def cache_config(self, value: Optional[pulumi.Input['AppCacheConfigArgs']]):
         pulumi.set(self, "cache_config", value)
+
+    @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+        """
+        return pulumi.get(self, "compute_role_arn")
+
+    @compute_role_arn.setter
+    def compute_role_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "compute_role_arn", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -357,6 +373,7 @@ class _AppState:
                  basic_auth_credentials: Optional[pulumi.Input[builtins.str]] = None,
                  build_spec: Optional[pulumi.Input[builtins.str]] = None,
                  cache_config: Optional[pulumi.Input['AppCacheConfigArgs']] = None,
+                 compute_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  custom_headers: Optional[pulumi.Input[builtins.str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  default_domain: Optional[pulumi.Input[builtins.str]] = None,
@@ -383,6 +400,7 @@ class _AppState:
         :param pulumi.Input[builtins.str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[builtins.str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         :param pulumi.Input['AppCacheConfigArgs'] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
+        :param pulumi.Input[builtins.str] compute_role_arn: AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
         :param pulumi.Input[builtins.str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[builtins.str] default_domain: Default domain for the Amplify app.
@@ -415,6 +433,8 @@ class _AppState:
             pulumi.set(__self__, "build_spec", build_spec)
         if cache_config is not None:
             pulumi.set(__self__, "cache_config", cache_config)
+        if compute_role_arn is not None:
+            pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
@@ -536,6 +556,18 @@ class _AppState:
     @cache_config.setter
     def cache_config(self, value: Optional[pulumi.Input['AppCacheConfigArgs']]):
         pulumi.set(self, "cache_config", value)
+
+    @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+        """
+        return pulumi.get(self, "compute_role_arn")
+
+    @compute_role_arn.setter
+    def compute_role_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "compute_role_arn", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -754,6 +786,7 @@ class App(pulumi.CustomResource):
                  basic_auth_credentials: Optional[pulumi.Input[builtins.str]] = None,
                  build_spec: Optional[pulumi.Input[builtins.str]] = None,
                  cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+                 compute_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  custom_headers: Optional[pulumi.Input[builtins.str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -933,6 +966,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[builtins.str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
+        :param pulumi.Input[builtins.str] compute_role_arn: AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
         :param pulumi.Input[builtins.str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[builtins.str] description: Description for an Amplify app.
@@ -1131,6 +1165,7 @@ class App(pulumi.CustomResource):
                  basic_auth_credentials: Optional[pulumi.Input[builtins.str]] = None,
                  build_spec: Optional[pulumi.Input[builtins.str]] = None,
                  cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+                 compute_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  custom_headers: Optional[pulumi.Input[builtins.str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -1160,6 +1195,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)
             __props__.__dict__["build_spec"] = build_spec
             __props__.__dict__["cache_config"] = cache_config
+            __props__.__dict__["compute_role_arn"] = compute_role_arn
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
@@ -1197,6 +1233,7 @@ class App(pulumi.CustomResource):
             basic_auth_credentials: Optional[pulumi.Input[builtins.str]] = None,
             build_spec: Optional[pulumi.Input[builtins.str]] = None,
             cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+            compute_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             custom_headers: Optional[pulumi.Input[builtins.str]] = None,
             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
             default_domain: Optional[pulumi.Input[builtins.str]] = None,
@@ -1228,6 +1265,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[builtins.str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
+        :param pulumi.Input[builtins.str] compute_role_arn: AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
         :param pulumi.Input[builtins.str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[builtins.str] default_domain: Default domain for the Amplify app.
@@ -1257,6 +1295,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["basic_auth_credentials"] = basic_auth_credentials
         __props__.__dict__["build_spec"] = build_spec
         __props__.__dict__["cache_config"] = cache_config
+        __props__.__dict__["compute_role_arn"] = compute_role_arn
         __props__.__dict__["custom_headers"] = custom_headers
         __props__.__dict__["custom_rules"] = custom_rules
         __props__.__dict__["default_domain"] = default_domain
@@ -1331,6 +1370,14 @@ class App(pulumi.CustomResource):
         Cache configuration for the Amplify app. See `cache_config` Block for details.
         """
         return pulumi.get(self, "cache_config")
+
+    @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        AWS Identity and Access Management (IAM) SSR compute role for an Amplify app.
+        """
+        return pulumi.get(self, "compute_role_arn")
 
     @property
     @pulumi.getter(name="customHeaders")

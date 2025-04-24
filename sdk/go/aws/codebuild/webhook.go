@@ -79,6 +79,8 @@ type Webhook struct {
 	BuildType pulumi.StringPtrOutput `pulumi:"buildType"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayOutput `pulumi:"filterGroups"`
+	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+	ManualCreation pulumi.BoolPtrOutput `pulumi:"manualCreation"`
 	// The CodeBuild endpoint where webhook events are sent.
 	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
 	// The name of the build project.
@@ -134,6 +136,8 @@ type webhookState struct {
 	BuildType *string `pulumi:"buildType"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
+	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+	ManualCreation *bool `pulumi:"manualCreation"`
 	// The CodeBuild endpoint where webhook events are sent.
 	PayloadUrl *string `pulumi:"payloadUrl"`
 	// The name of the build project.
@@ -153,6 +157,8 @@ type WebhookState struct {
 	BuildType pulumi.StringPtrInput
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayInput
+	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+	ManualCreation pulumi.BoolPtrInput
 	// The CodeBuild endpoint where webhook events are sent.
 	PayloadUrl pulumi.StringPtrInput
 	// The name of the build project.
@@ -176,6 +182,8 @@ type webhookArgs struct {
 	BuildType *string `pulumi:"buildType"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
+	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+	ManualCreation *bool `pulumi:"manualCreation"`
 	// The name of the build project.
 	ProjectName string `pulumi:"projectName"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
@@ -190,6 +198,8 @@ type WebhookArgs struct {
 	BuildType pulumi.StringPtrInput
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayInput
+	// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+	ManualCreation pulumi.BoolPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
@@ -296,6 +306,11 @@ func (o WebhookOutput) BuildType() pulumi.StringPtrOutput {
 // Information about the webhook's trigger. Filter group blocks are documented below.
 func (o WebhookOutput) FilterGroups() WebhookFilterGroupArrayOutput {
 	return o.ApplyT(func(v *Webhook) WebhookFilterGroupArrayOutput { return v.FilterGroups }).(WebhookFilterGroupArrayOutput)
+}
+
+// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
+func (o WebhookOutput) ManualCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.BoolPtrOutput { return v.ManualCreation }).(pulumi.BoolPtrOutput)
 }
 
 // The CodeBuild endpoint where webhook events are sent.

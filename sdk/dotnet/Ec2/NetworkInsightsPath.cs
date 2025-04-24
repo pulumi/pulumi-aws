@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("destinationPort")]
         public Output<int?> DestinationPort { get; private set; } = null!;
+
+        [Output("filterAtDestination")]
+        public Output<Outputs.NetworkInsightsPathFilterAtDestination> FilterAtDestination { get; private set; } = null!;
+
+        [Output("filterAtSource")]
+        public Output<Outputs.NetworkInsightsPathFilterAtSource> FilterAtSource { get; private set; } = null!;
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -158,7 +164,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInsightsPathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
+
+        [Input("filterAtDestination")]
+        public Input<Inputs.NetworkInsightsPathFilterAtDestinationArgs>? FilterAtDestination { get; set; }
+
+        [Input("filterAtSource")]
+        public Input<Inputs.NetworkInsightsPathFilterAtSourceArgs>? FilterAtSource { get; set; }
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -222,7 +234,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -244,6 +256,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
+
+        [Input("filterAtDestination")]
+        public Input<Inputs.NetworkInsightsPathFilterAtDestinationGetArgs>? FilterAtDestination { get; set; }
+
+        [Input("filterAtSource")]
+        public Input<Inputs.NetworkInsightsPathFilterAtSourceGetArgs>? FilterAtSource { get; set; }
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.

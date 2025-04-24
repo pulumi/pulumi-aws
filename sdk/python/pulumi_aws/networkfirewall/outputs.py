@@ -940,7 +940,7 @@ class FirewallSubnetMapping(dict):
                  ip_address_type: Optional[builtins.str] = None):
         """
         :param builtins.str subnet_id: The unique identifier for the subnet.
-        :param builtins.str ip_address_type: The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        :param builtins.str ip_address_type: The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address_type is not None:
@@ -958,7 +958,7 @@ class FirewallSubnetMapping(dict):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[builtins.str]:
         """
-        The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
         """
         return pulumi.get(self, "ip_address_type")
 

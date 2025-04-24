@@ -225,8 +225,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
@@ -402,8 +401,7 @@ export interface CertificateState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -477,8 +475,7 @@ export interface CertificateArgs {
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

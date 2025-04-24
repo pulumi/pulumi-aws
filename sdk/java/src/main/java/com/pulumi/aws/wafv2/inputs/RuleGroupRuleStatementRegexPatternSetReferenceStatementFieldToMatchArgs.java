@@ -119,14 +119,14 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     }
 
     /**
-     * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     @Import(name="ja4Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
 
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
@@ -406,7 +406,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * @param ja4Fingerprint Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * @param ja4Fingerprint Inspect the JA4 fingerprint. See `ja4_fingerprint` below for details.
          * 
          * @return builder
          * 

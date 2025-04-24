@@ -265,7 +265,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ConfigurationEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         /// </summary>
         [Output("transitEncryptionEnabled")]
         public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -689,7 +689,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
@@ -765,7 +765,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ConfigurationEndpoint { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -960,7 +960,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }

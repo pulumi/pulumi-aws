@@ -280,8 +280,7 @@ namespace Pulumi.Aws.Acm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate.
-        /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+        /// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
@@ -440,8 +439,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate.
-        /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+        /// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -617,8 +615,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate.
-        /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+        /// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {

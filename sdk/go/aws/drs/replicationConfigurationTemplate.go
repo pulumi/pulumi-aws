@@ -18,6 +18,74 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/drs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSecurityGroup {
+// splat0 = append(splat0, val0.Id)
+// }
+// _, err := drs.NewReplicationConfigurationTemplate(ctx, "example", &drs.ReplicationConfigurationTemplateArgs{
+// AssociateDefaultSecurityGroup: pulumi.Bool(false),
+// BandwidthThrottling: pulumi.Int(12),
+// CreatePublicIp: pulumi.Bool(false),
+// DataPlaneRouting: pulumi.String("PRIVATE_IP"),
+// DefaultLargeStagingDiskType: pulumi.String("GP2"),
+// EbsEncryption: pulumi.String("DEFAULT"),
+// EbsEncryptionKeyArn: pulumi.String("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"),
+// ReplicationServerInstanceType: pulumi.String("t3.small"),
+// ReplicationServersSecurityGroupsIds: toPulumiArray(splat0),
+// StagingAreaSubnetId: pulumi.Any(exampleAwsSubnet.Id),
+// UseDedicatedReplicationServer: pulumi.Bool(false),
+// PitPolicies: drs.ReplicationConfigurationTemplatePitPolicyArray{
+// &drs.ReplicationConfigurationTemplatePitPolicyArgs{
+// Enabled: pulumi.Bool(true),
+// Interval: pulumi.Int(10),
+// RetentionDuration: pulumi.Int(60),
+// Units: pulumi.String("MINUTE"),
+// RuleId: pulumi.Int(1),
+// },
+// &drs.ReplicationConfigurationTemplatePitPolicyArgs{
+// Enabled: pulumi.Bool(true),
+// Interval: pulumi.Int(1),
+// RetentionDuration: pulumi.Int(24),
+// Units: pulumi.String("HOUR"),
+// RuleId: pulumi.Int(2),
+// },
+// &drs.ReplicationConfigurationTemplatePitPolicyArgs{
+// Enabled: pulumi.Bool(true),
+// Interval: pulumi.Int(1),
+// RetentionDuration: pulumi.Int(3),
+// Units: pulumi.String("DAY"),
+// RuleId: pulumi.Int(3),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:

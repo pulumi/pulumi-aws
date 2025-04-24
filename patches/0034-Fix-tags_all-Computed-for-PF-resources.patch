@@ -5,11 +5,11 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index 063f30cd17..73fba162eb 100644
+index 1e7b516880..a0e509ab99 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
-@@ -82,7 +82,7 @@ func (r *scraperResource) Schema(ctx context.Context, request resource.SchemaReq
- 				},
+@@ -76,7 +76,7 @@ func (r *scraperResource) Schema(ctx context.Context, request resource.SchemaReq
+ 				Required: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
@@ -44,10 +44,10 @@ index ba3d204d75..b16fc33f0b 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index 9cf3b004ac..efb90c5a09 100644
+index cc5c312598..f453619c2c 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
-@@ -177,7 +177,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
+@@ -181,7 +181,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

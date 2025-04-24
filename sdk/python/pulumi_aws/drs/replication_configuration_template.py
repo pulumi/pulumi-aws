@@ -601,6 +601,49 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.drs.ReplicationConfigurationTemplate("example",
+            associate_default_security_group=False,
+            bandwidth_throttling=12,
+            create_public_ip=False,
+            data_plane_routing="PRIVATE_IP",
+            default_large_staging_disk_type="GP2",
+            ebs_encryption="DEFAULT",
+            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+            replication_server_instance_type="t3.small",
+            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
+            staging_area_subnet_id=example_aws_subnet["id"],
+            use_dedicated_replication_server=False,
+            pit_policies=[
+                {
+                    "enabled": True,
+                    "interval": 10,
+                    "retention_duration": 60,
+                    "units": "MINUTE",
+                    "rule_id": 1,
+                },
+                {
+                    "enabled": True,
+                    "interval": 1,
+                    "retention_duration": 24,
+                    "units": "HOUR",
+                    "rule_id": 2,
+                },
+                {
+                    "enabled": True,
+                    "interval": 1,
+                    "retention_duration": 3,
+                    "units": "DAY",
+                    "rule_id": 3,
+                },
+            ])
+        ```
+
         ## Import
 
         Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:
@@ -641,6 +684,49 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
 
         ## Example Usage
+
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.drs.ReplicationConfigurationTemplate("example",
+            associate_default_security_group=False,
+            bandwidth_throttling=12,
+            create_public_ip=False,
+            data_plane_routing="PRIVATE_IP",
+            default_large_staging_disk_type="GP2",
+            ebs_encryption="DEFAULT",
+            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+            replication_server_instance_type="t3.small",
+            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
+            staging_area_subnet_id=example_aws_subnet["id"],
+            use_dedicated_replication_server=False,
+            pit_policies=[
+                {
+                    "enabled": True,
+                    "interval": 10,
+                    "retention_duration": 60,
+                    "units": "MINUTE",
+                    "rule_id": 1,
+                },
+                {
+                    "enabled": True,
+                    "interval": 1,
+                    "retention_duration": 24,
+                    "units": "HOUR",
+                    "rule_id": 2,
+                },
+                {
+                    "enabled": True,
+                    "interval": 1,
+                    "retention_duration": 3,
+                    "units": "DAY",
+                    "rule_id": 3,
+                },
+            ])
+        ```
 
         ## Import
 

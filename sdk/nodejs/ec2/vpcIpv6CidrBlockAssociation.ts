@@ -73,7 +73,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      */
     public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean>;
     /**
@@ -97,7 +97,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
      */
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
-     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6PamPoolId`.
+     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      */
     public readonly ipv6Pool!: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
  */
 export interface VpcIpv6CidrBlockAssociationState {
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
@@ -174,7 +174,7 @@ export interface VpcIpv6CidrBlockAssociationState {
      */
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
-     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6PamPoolId`.
+     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      */
     ipv6Pool?: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface VpcIpv6CidrBlockAssociationState {
  */
 export interface VpcIpv6CidrBlockAssociationArgs {
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
@@ -204,7 +204,7 @@ export interface VpcIpv6CidrBlockAssociationArgs {
      */
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
-     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6PamPoolId`.
+     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      */
     ipv6Pool?: pulumi.Input<string>;
     /**

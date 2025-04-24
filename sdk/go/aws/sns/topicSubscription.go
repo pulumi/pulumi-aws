@@ -26,74 +26,84 @@ import (
 //
 // ## Example Usage
 //
-// You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
+// ### Basic usage
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
-//				Topic:    pulumi.Any("arn:aws:sns:us-west-2:432981146916:user-updates-topic"),
-//				Protocol: pulumi.String("sqs"),
-//				Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
-//
-// ```go
-// package main
-//
-// import (
-//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			userUpdates, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
-//				Name: pulumi.String("user-updates-topic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
-//				Name: pulumi.String("user-updates-queue"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
-//				Topic:    userUpdates.Arn,
-//				Protocol: pulumi.String("sqs"),
-//				Endpoint: userUpdatesQueue.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// userUpdates, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+// Name: pulumi.String("user-updates-topic"),
+// })
+// if err != nil {
+// return err
+// }
+// sqsQueuePolicy := userUpdates.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// PolicyId: "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "user_updates_sqs_target",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "sns.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "SQS:SendMessage",
+// },
+// Resources: []string{
+// "arn:aws:sqs:us-west-2:123456789012:user-updates-queue",
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "ArnEquals",
+// Variable: "aws:SourceArn",
+// Values: interface{}{
+// arn,
+// },
+// },
+// },
+// },
+// },
+// }, nil))), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
+// Name: pulumi.String("user-updates-queue"),
+// Policy: pulumi.String(sqsQueuePolicy.ApplyT(func(sqsQueuePolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &sqsQueuePolicy.Json, nil
+// }).(pulumi.StringPtrOutput)),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
+// Topic: userUpdates.Arn,
+// Protocol: pulumi.String("sqs"),
+// Endpoint: userUpdatesQueue.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
+//
+// ### Example Cross-account Subscription
 //
 // You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 //
@@ -133,7 +143,7 @@ import (
 // if param := cfg.GetObject("sqs"); param != nil {
 // sqs = param
 // }
-// sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// snsTopicPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // PolicyId: pulumi.StringRef("__default_policy_ID"),
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -203,7 +213,7 @@ import (
 // if err != nil {
 // return err
 // }
-// sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// sqsQueuePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.AccountId, sqs.Name)),
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -238,25 +248,25 @@ import (
 // if err != nil {
 // return err
 // }
-// sns_topic, err := sns.NewTopic(ctx, "sns-topic", &sns.TopicArgs{
+// snsTopic, err := sns.NewTopic(ctx, "sns_topic", &sns.TopicArgs{
 // Name: pulumi.Any(sns.Name),
 // DisplayName: pulumi.Any(sns.Display_name),
-// Policy: pulumi.String(sns_topic_policy.Json),
+// Policy: pulumi.String(snsTopicPolicy.Json),
 // })
 // if err != nil {
 // return err
 // }
-// sqs_queue, err := sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
+// sqsQueue, err := sqs.NewQueue(ctx, "sqs_queue", &sqs.QueueArgs{
 // Name: pulumi.Any(sqs.Name),
-// Policy: pulumi.String(sqs_queue_policy.Json),
+// Policy: pulumi.String(sqsQueuePolicy.Json),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = sns.NewTopicSubscription(ctx, "sns-topic", &sns.TopicSubscriptionArgs{
-// Topic: sns_topic.Arn,
+// _, err = sns.NewTopicSubscription(ctx, "sns_topic", &sns.TopicSubscriptionArgs{
+// Topic: snsTopic.Arn,
 // Protocol: pulumi.String("sqs"),
-// Endpoint: sqs_queue.Arn,
+// Endpoint: sqsQueue.Arn,
 // })
 // if err != nil {
 // return err
@@ -266,7 +276,7 @@ import (
 // }
 // ```
 //
-// ## Example with Delivery Policy
+// ### Example with Delivery Policy
 //
 // This example demonstrates how to define a `deliveryPolicy` for an HTTPS subscription. Unlike the `sns.Topic` resource, the `deliveryPolicy` for `sns.TopicSubscription` should not be wrapped in an `"http"` object.
 //

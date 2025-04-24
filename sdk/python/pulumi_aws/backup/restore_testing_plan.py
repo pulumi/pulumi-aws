@@ -278,6 +278,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingPlan("example",
+            name="example_restore_testing_plan",
             recovery_point_selection={
                 "algorithm": "LATEST_WITHIN_WINDOW",
                 "include_vaults": ["*"],
@@ -320,6 +321,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingPlan("example",
+            name="example_restore_testing_plan",
             recovery_point_selection={
                 "algorithm": "LATEST_WITHIN_WINDOW",
                 "include_vaults": ["*"],

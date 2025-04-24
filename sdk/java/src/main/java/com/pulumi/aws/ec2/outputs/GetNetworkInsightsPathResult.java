@@ -4,6 +4,8 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsPathFilter;
+import com.pulumi.aws.ec2.outputs.GetNetworkInsightsPathFilterAtDestination;
+import com.pulumi.aws.ec2.outputs.GetNetworkInsightsPathFilterAtSource;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -40,6 +42,16 @@ public final class GetNetworkInsightsPathResult {
      * 
      */
     private Integer destinationPort;
+    /**
+     * @return Filters of the network paths at the destination.
+     * 
+     */
+    private List<GetNetworkInsightsPathFilterAtDestination> filterAtDestinations;
+    /**
+     * @return Filters of the network paths at the source.
+     * 
+     */
+    private List<GetNetworkInsightsPathFilterAtSource> filterAtSources;
     private @Nullable List<GetNetworkInsightsPathFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -109,6 +121,20 @@ public final class GetNetworkInsightsPathResult {
     public Integer destinationPort() {
         return this.destinationPort;
     }
+    /**
+     * @return Filters of the network paths at the destination.
+     * 
+     */
+    public List<GetNetworkInsightsPathFilterAtDestination> filterAtDestinations() {
+        return this.filterAtDestinations;
+    }
+    /**
+     * @return Filters of the network paths at the source.
+     * 
+     */
+    public List<GetNetworkInsightsPathFilterAtSource> filterAtSources() {
+        return this.filterAtSources;
+    }
     public List<GetNetworkInsightsPathFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -172,6 +198,8 @@ public final class GetNetworkInsightsPathResult {
         private String destinationArn;
         private String destinationIp;
         private Integer destinationPort;
+        private List<GetNetworkInsightsPathFilterAtDestination> filterAtDestinations;
+        private List<GetNetworkInsightsPathFilterAtSource> filterAtSources;
         private @Nullable List<GetNetworkInsightsPathFilter> filters;
         private String id;
         private String networkInsightsPathId;
@@ -188,6 +216,8 @@ public final class GetNetworkInsightsPathResult {
     	      this.destinationArn = defaults.destinationArn;
     	      this.destinationIp = defaults.destinationIp;
     	      this.destinationPort = defaults.destinationPort;
+    	      this.filterAtDestinations = defaults.filterAtDestinations;
+    	      this.filterAtSources = defaults.filterAtSources;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.networkInsightsPathId = defaults.networkInsightsPathId;
@@ -237,6 +267,28 @@ public final class GetNetworkInsightsPathResult {
             }
             this.destinationPort = destinationPort;
             return this;
+        }
+        @CustomType.Setter
+        public Builder filterAtDestinations(List<GetNetworkInsightsPathFilterAtDestination> filterAtDestinations) {
+            if (filterAtDestinations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "filterAtDestinations");
+            }
+            this.filterAtDestinations = filterAtDestinations;
+            return this;
+        }
+        public Builder filterAtDestinations(GetNetworkInsightsPathFilterAtDestination... filterAtDestinations) {
+            return filterAtDestinations(List.of(filterAtDestinations));
+        }
+        @CustomType.Setter
+        public Builder filterAtSources(List<GetNetworkInsightsPathFilterAtSource> filterAtSources) {
+            if (filterAtSources == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "filterAtSources");
+            }
+            this.filterAtSources = filterAtSources;
+            return this;
+        }
+        public Builder filterAtSources(GetNetworkInsightsPathFilterAtSource... filterAtSources) {
+            return filterAtSources(List.of(filterAtSources));
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkInsightsPathFilter> filters) {
@@ -310,6 +362,8 @@ public final class GetNetworkInsightsPathResult {
             _resultValue.destinationArn = destinationArn;
             _resultValue.destinationIp = destinationIp;
             _resultValue.destinationPort = destinationPort;
+            _resultValue.filterAtDestinations = filterAtDestinations;
+            _resultValue.filterAtSources = filterAtSources;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.networkInsightsPathId = networkInsightsPathId;

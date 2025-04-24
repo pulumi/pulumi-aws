@@ -150,16 +150,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+     * @return Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
@@ -427,8 +425,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
-         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -439,8 +436,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
-         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -450,8 +446,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
-         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 

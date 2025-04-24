@@ -2291,8 +2291,9 @@ type OptInResourceDataTable struct {
 	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
-	Name     *string `pulumi:"name"`
-	Wildcard *bool   `pulumi:"wildcard"`
+	Name *string `pulumi:"name"`
+	// Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+	Wildcard *bool `pulumi:"wildcard"`
 }
 
 // OptInResourceDataTableInput is an input type that accepts OptInResourceDataTableArgs and OptInResourceDataTableOutput values.
@@ -2312,8 +2313,9 @@ type OptInResourceDataTableArgs struct {
 	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Wildcard pulumi.BoolPtrInput   `pulumi:"wildcard"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
 func (OptInResourceDataTableArgs) ElementType() reflect.Type {
@@ -2408,6 +2410,7 @@ func (o OptInResourceDataTableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
 func (o OptInResourceDataTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -2466,6 +2469,7 @@ func (o OptInResourceDataTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
 func (o OptInResourceDataTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataTable) *bool {
 		if v == nil {

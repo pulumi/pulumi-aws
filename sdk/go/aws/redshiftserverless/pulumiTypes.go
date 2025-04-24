@@ -716,6 +716,162 @@ func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.
 	}).(WorkgroupEndpointVpcEndpointNetworkInterfaceOutput)
 }
 
+type WorkgroupPricePerformanceTarget struct {
+	// Whether to enable price-performance scaling.
+	Enabled bool `pulumi:"enabled"`
+	// The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+	Level *int `pulumi:"level"`
+}
+
+// WorkgroupPricePerformanceTargetInput is an input type that accepts WorkgroupPricePerformanceTargetArgs and WorkgroupPricePerformanceTargetOutput values.
+// You can construct a concrete instance of `WorkgroupPricePerformanceTargetInput` via:
+//
+//	WorkgroupPricePerformanceTargetArgs{...}
+type WorkgroupPricePerformanceTargetInput interface {
+	pulumi.Input
+
+	ToWorkgroupPricePerformanceTargetOutput() WorkgroupPricePerformanceTargetOutput
+	ToWorkgroupPricePerformanceTargetOutputWithContext(context.Context) WorkgroupPricePerformanceTargetOutput
+}
+
+type WorkgroupPricePerformanceTargetArgs struct {
+	// Whether to enable price-performance scaling.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+	Level pulumi.IntPtrInput `pulumi:"level"`
+}
+
+func (WorkgroupPricePerformanceTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupPricePerformanceTarget)(nil)).Elem()
+}
+
+func (i WorkgroupPricePerformanceTargetArgs) ToWorkgroupPricePerformanceTargetOutput() WorkgroupPricePerformanceTargetOutput {
+	return i.ToWorkgroupPricePerformanceTargetOutputWithContext(context.Background())
+}
+
+func (i WorkgroupPricePerformanceTargetArgs) ToWorkgroupPricePerformanceTargetOutputWithContext(ctx context.Context) WorkgroupPricePerformanceTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPricePerformanceTargetOutput)
+}
+
+func (i WorkgroupPricePerformanceTargetArgs) ToWorkgroupPricePerformanceTargetPtrOutput() WorkgroupPricePerformanceTargetPtrOutput {
+	return i.ToWorkgroupPricePerformanceTargetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupPricePerformanceTargetArgs) ToWorkgroupPricePerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPricePerformanceTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPricePerformanceTargetOutput).ToWorkgroupPricePerformanceTargetPtrOutputWithContext(ctx)
+}
+
+// WorkgroupPricePerformanceTargetPtrInput is an input type that accepts WorkgroupPricePerformanceTargetArgs, WorkgroupPricePerformanceTargetPtr and WorkgroupPricePerformanceTargetPtrOutput values.
+// You can construct a concrete instance of `WorkgroupPricePerformanceTargetPtrInput` via:
+//
+//	        WorkgroupPricePerformanceTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupPricePerformanceTargetPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupPricePerformanceTargetPtrOutput() WorkgroupPricePerformanceTargetPtrOutput
+	ToWorkgroupPricePerformanceTargetPtrOutputWithContext(context.Context) WorkgroupPricePerformanceTargetPtrOutput
+}
+
+type workgroupPricePerformanceTargetPtrType WorkgroupPricePerformanceTargetArgs
+
+func WorkgroupPricePerformanceTargetPtr(v *WorkgroupPricePerformanceTargetArgs) WorkgroupPricePerformanceTargetPtrInput {
+	return (*workgroupPricePerformanceTargetPtrType)(v)
+}
+
+func (*workgroupPricePerformanceTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupPricePerformanceTarget)(nil)).Elem()
+}
+
+func (i *workgroupPricePerformanceTargetPtrType) ToWorkgroupPricePerformanceTargetPtrOutput() WorkgroupPricePerformanceTargetPtrOutput {
+	return i.ToWorkgroupPricePerformanceTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupPricePerformanceTargetPtrType) ToWorkgroupPricePerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPricePerformanceTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPricePerformanceTargetPtrOutput)
+}
+
+type WorkgroupPricePerformanceTargetOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupPricePerformanceTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupPricePerformanceTarget)(nil)).Elem()
+}
+
+func (o WorkgroupPricePerformanceTargetOutput) ToWorkgroupPricePerformanceTargetOutput() WorkgroupPricePerformanceTargetOutput {
+	return o
+}
+
+func (o WorkgroupPricePerformanceTargetOutput) ToWorkgroupPricePerformanceTargetOutputWithContext(ctx context.Context) WorkgroupPricePerformanceTargetOutput {
+	return o
+}
+
+func (o WorkgroupPricePerformanceTargetOutput) ToWorkgroupPricePerformanceTargetPtrOutput() WorkgroupPricePerformanceTargetPtrOutput {
+	return o.ToWorkgroupPricePerformanceTargetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupPricePerformanceTargetOutput) ToWorkgroupPricePerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPricePerformanceTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupPricePerformanceTarget) *WorkgroupPricePerformanceTarget {
+		return &v
+	}).(WorkgroupPricePerformanceTargetPtrOutput)
+}
+
+// Whether to enable price-performance scaling.
+func (o WorkgroupPricePerformanceTargetOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkgroupPricePerformanceTarget) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+func (o WorkgroupPricePerformanceTargetOutput) Level() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkgroupPricePerformanceTarget) *int { return v.Level }).(pulumi.IntPtrOutput)
+}
+
+type WorkgroupPricePerformanceTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupPricePerformanceTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupPricePerformanceTarget)(nil)).Elem()
+}
+
+func (o WorkgroupPricePerformanceTargetPtrOutput) ToWorkgroupPricePerformanceTargetPtrOutput() WorkgroupPricePerformanceTargetPtrOutput {
+	return o
+}
+
+func (o WorkgroupPricePerformanceTargetPtrOutput) ToWorkgroupPricePerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPricePerformanceTargetPtrOutput {
+	return o
+}
+
+func (o WorkgroupPricePerformanceTargetPtrOutput) Elem() WorkgroupPricePerformanceTargetOutput {
+	return o.ApplyT(func(v *WorkgroupPricePerformanceTarget) WorkgroupPricePerformanceTarget {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupPricePerformanceTarget
+		return ret
+	}).(WorkgroupPricePerformanceTargetOutput)
+}
+
+// Whether to enable price-performance scaling.
+func (o WorkgroupPricePerformanceTargetPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkgroupPricePerformanceTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+func (o WorkgroupPricePerformanceTargetPtrOutput) Level() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkgroupPricePerformanceTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetWorkgroupEndpoint struct {
 	// The DNS address of the VPC endpoint.
 	Address string `pulumi:"address"`
@@ -1085,6 +1241,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointVpcEndpointArrayInput)(nil)).Elem(), WorkgroupEndpointVpcEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointVpcEndpointNetworkInterfaceInput)(nil)).Elem(), WorkgroupEndpointVpcEndpointNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput)(nil)).Elem(), WorkgroupEndpointVpcEndpointNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPricePerformanceTargetInput)(nil)).Elem(), WorkgroupPricePerformanceTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPricePerformanceTargetPtrInput)(nil)).Elem(), WorkgroupPricePerformanceTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointInput)(nil)).Elem(), GetWorkgroupEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointArrayInput)(nil)).Elem(), GetWorkgroupEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointInput)(nil)).Elem(), GetWorkgroupEndpointVpcEndpointArgs{})
@@ -1103,6 +1261,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupEndpointVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(WorkgroupEndpointVpcEndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(WorkgroupPricePerformanceTargetOutput{})
+	pulumi.RegisterOutputType(WorkgroupPricePerformanceTargetPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkgroupEndpointOutput{})
 	pulumi.RegisterOutputType(GetWorkgroupEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkgroupEndpointVpcEndpointOutput{})
