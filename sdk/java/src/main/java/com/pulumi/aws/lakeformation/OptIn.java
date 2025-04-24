@@ -55,14 +55,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Import
- * 
- * Using `pulumi import`, import Lake Formation Opt In using the `example_id_arg`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lakeformation/optIn:OptIn example opt_in-id-12345678
- * ```
- * 
  */
 @ResourceType(type="aws:lakeformation/optIn:OptIn")
 public class OptIn extends com.pulumi.resources.CustomResource {

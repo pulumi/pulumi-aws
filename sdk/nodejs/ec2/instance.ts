@@ -16,6 +16,8 @@ import {InstanceProfile} from "../iam";
  *
  * ### Basic example using AMI lookup
  *
+ * Using a data source
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,6 +38,21 @@ import {InstanceProfile} from "../iam";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
+ *     tags: {
+ *         Name: "HelloWorld",
+ *     },
+ * });
+ * ```
+ *
+ * Using AWS Systems Manager Parameter Store
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const web = new aws.ec2.Instance("web", {
+ *     ami: "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
  *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
  *         Name: "HelloWorld",

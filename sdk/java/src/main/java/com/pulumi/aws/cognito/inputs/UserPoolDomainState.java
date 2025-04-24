@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -106,6 +107,21 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     * 
+     */
+    @Import(name="managedLoginVersion")
+    private @Nullable Output<Integer> managedLoginVersion;
+
+    /**
+     * @return A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     * 
+     */
+    public Optional<Output<Integer>> managedLoginVersion() {
+        return Optional.ofNullable(this.managedLoginVersion);
+    }
+
+    /**
      * The S3 bucket where the static files for this domain are stored.
      * 
      */
@@ -159,6 +175,7 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
         this.cloudfrontDistributionArn = $.cloudfrontDistributionArn;
         this.cloudfrontDistributionZoneId = $.cloudfrontDistributionZoneId;
         this.domain = $.domain;
+        this.managedLoginVersion = $.managedLoginVersion;
         this.s3Bucket = $.s3Bucket;
         this.userPoolId = $.userPoolId;
         this.version = $.version;
@@ -306,6 +323,27 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param managedLoginVersion A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedLoginVersion(@Nullable Output<Integer> managedLoginVersion) {
+            $.managedLoginVersion = managedLoginVersion;
+            return this;
+        }
+
+        /**
+         * @param managedLoginVersion A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedLoginVersion(Integer managedLoginVersion) {
+            return managedLoginVersion(Output.of(managedLoginVersion));
         }
 
         /**

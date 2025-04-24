@@ -182,14 +182,6 @@ class OptIn(pulumi.CustomResource):
         example = aws.lakeformation.OptIn("example")
         ```
 
-        ## Import
-
-        Using `pulumi import`, import Lake Formation Opt In using the `example_id_arg`. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/optIn:OptIn example opt_in-id-12345678
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
@@ -214,14 +206,6 @@ class OptIn(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.OptIn("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation Opt In using the `example_id_arg`. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/optIn:OptIn example opt_in-id-12345678
         ```
 
         :param str resource_name: The name of the resource.

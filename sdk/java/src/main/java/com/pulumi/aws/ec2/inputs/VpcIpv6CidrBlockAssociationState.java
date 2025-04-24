@@ -18,14 +18,14 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
     public static final VpcIpv6CidrBlockAssociationState Empty = new VpcIpv6CidrBlockAssociationState();
 
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
      * 
      */
     @Import(name="assignGeneratedIpv6CidrBlock")
     private @Nullable Output<Boolean> assignGeneratedIpv6CidrBlock;
 
     /**
-     * @return Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+     * @return Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
      * 
      */
     public Optional<Output<Boolean>> assignGeneratedIpv6CidrBlock() {
@@ -108,14 +108,14 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
     }
 
     /**
-     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
      * 
      */
     @Import(name="ipv6Pool")
     private @Nullable Output<String> ipv6Pool;
 
     /**
-     * @return The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+     * @return The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
      * 
      */
     public Optional<Output<String>> ipv6Pool() {
@@ -169,7 +169,7 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param assignGeneratedIpv6CidrBlock Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+         * @param assignGeneratedIpv6CidrBlock Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param assignGeneratedIpv6CidrBlock Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+         * @param assignGeneratedIpv6CidrBlock Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param ipv6Pool The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+         * @param ipv6Pool The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param ipv6Pool The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
+         * @param ipv6Pool The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
          * 
          * @return builder
          * 

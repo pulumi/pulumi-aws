@@ -62,9 +62,17 @@ public final class OptInResourceDataTableArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+     * 
+     */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
+    /**
+     * @return Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+     * 
+     */
     public Optional<Output<Boolean>> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }
@@ -159,11 +167,23 @@ public final class OptInResourceDataTableArgs extends com.pulumi.resources.Resou
             return name(Output.of(name));
         }
 
+        /**
+         * @param wildcard Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wildcard(@Nullable Output<Boolean> wildcard) {
             $.wildcard = wildcard;
             return this;
         }
 
+        /**
+         * @param wildcard Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wildcard(Boolean wildcard) {
             return wildcard(Output.of(wildcard));
         }

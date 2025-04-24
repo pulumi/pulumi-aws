@@ -88,6 +88,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableArray<Outputs.WebhookFilterGroup>> FilterGroups { get; private set; } = null!;
 
         /// <summary>
+        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        /// </summary>
+        [Output("manualCreation")]
+        public Output<bool?> ManualCreation { get; private set; } = null!;
+
+        /// <summary>
         /// The CodeBuild endpoint where webhook events are sent.
         /// </summary>
         [Output("payloadUrl")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
+        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        /// </summary>
+        [Input("manualCreation")]
+        public Input<bool>? ManualCreation { get; set; }
+
+        /// <summary>
         /// The name of the build project.
         /// </summary>
         [Input("projectName", required: true)]
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.CodeBuild
             get => _filterGroups ?? (_filterGroups = new InputList<Inputs.WebhookFilterGroupGetArgs>());
             set => _filterGroups = value;
         }
+
+        /// <summary>
+        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        /// </summary>
+        [Input("manualCreation")]
+        public Input<bool>? ManualCreation { get; set; }
 
         /// <summary>
         /// The CodeBuild endpoint where webhook events are sent.

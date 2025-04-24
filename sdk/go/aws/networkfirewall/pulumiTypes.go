@@ -2230,7 +2230,7 @@ func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) Inde
 }
 
 type FirewallSubnetMapping struct {
-	// The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+	// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The unique identifier for the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -2248,7 +2248,7 @@ type FirewallSubnetMappingInput interface {
 }
 
 type FirewallSubnetMappingArgs struct {
-	// The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+	// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// The unique identifier for the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -2305,7 +2305,7 @@ func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutputWithContext(ct
 	return o
 }
 
-// The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+// The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
 func (o FirewallSubnetMappingOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallSubnetMapping) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }

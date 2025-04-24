@@ -65,14 +65,14 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      * 
      */
     @Import(name="certificateMode")
     private @Nullable Output<String> certificateMode;
 
     /**
-     * @return The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+     * @return The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      * 
      */
     public Optional<Output<String>> certificateMode() {
@@ -111,7 +111,7 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
      * 
      */
     @Import(name="verificationCertificatePem")
@@ -119,7 +119,7 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
      * 
      */
     public Optional<Output<String>> verificationCertificatePem() {
@@ -220,7 +220,7 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateMode The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+         * @param certificateMode The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateMode The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+         * @param certificateMode The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param verificationCertificatePem PEM encoded verification certificate containing the common name of a registration code. Review
-         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class CaCertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param verificationCertificatePem PEM encoded verification certificate containing the common name of a registration code. Review
-         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
          * 
          * @return builder
          * 

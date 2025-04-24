@@ -30,6 +30,7 @@ class ClusterArgs:
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
+                 force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
@@ -50,6 +51,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
+        :param pulumi.Input[builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -74,6 +76,8 @@ class ClusterArgs:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
+        if force_update_version is not None:
+            pulumi.set(__self__, "force_update_version", force_update_version)
         if kubernetes_network_config is not None:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if name is not None:
@@ -187,6 +191,18 @@ class ClusterArgs:
     @encryption_config.setter
     def encryption_config(self, value: Optional[pulumi.Input['ClusterEncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
+
+    @property
+    @pulumi.getter(name="forceUpdateVersion")
+    def force_update_version(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        """
+        return pulumi.get(self, "force_update_version")
+
+    @force_update_version.setter
+    def force_update_version(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "force_update_version", value)
 
     @property
     @pulumi.getter(name="kubernetesNetworkConfig")
@@ -312,6 +328,7 @@ class _ClusterState:
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  identities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -339,6 +356,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[builtins.str] endpoint: Endpoint for your Kubernetes API server.
+        :param pulumi.Input[builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
@@ -381,6 +399,8 @@ class _ClusterState:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if force_update_version is not None:
+            pulumi.set(__self__, "force_update_version", force_update_version)
         if identities is not None:
             pulumi.set(__self__, "identities", identities)
         if kubernetes_network_config is not None:
@@ -552,6 +572,18 @@ class _ClusterState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="forceUpdateVersion")
+    def force_update_version(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        """
+        return pulumi.get(self, "force_update_version")
+
+    @force_update_version.setter
+    def force_update_version(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "force_update_version", value)
 
     @property
     @pulumi.getter
@@ -748,6 +780,7 @@ class Cluster(pulumi.CustomResource):
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
+                 force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
@@ -1026,6 +1059,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
+        :param pulumi.Input[builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -1326,6 +1360,7 @@ class Cluster(pulumi.CustomResource):
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
+                 force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
@@ -1352,6 +1387,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
+            __props__.__dict__["force_update_version"] = force_update_version
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_config"] = outpost_config
@@ -1399,6 +1435,7 @@ class Cluster(pulumi.CustomResource):
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
+            force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]]] = None,
             kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1431,6 +1468,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[builtins.str] endpoint: Endpoint for your Kubernetes API server.
+        :param pulumi.Input[builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
@@ -1465,6 +1503,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["force_update_version"] = force_update_version
         __props__.__dict__["identities"] = identities
         __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
         __props__.__dict__["name"] = name
@@ -1571,6 +1610,14 @@ class Cluster(pulumi.CustomResource):
         Endpoint for your Kubernetes API server.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="forceUpdateVersion")
+    def force_update_version(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        """
+        return pulumi.get(self, "force_update_version")
 
     @property
     @pulumi.getter

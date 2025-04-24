@@ -322,15 +322,18 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      * * `TransferSecurityPolicy-2022-03`
      * * `TransferSecurityPolicy-2023-05`
      * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2025-03`
      * * `TransferSecurityPolicy-FIPS-2020-06`
      * * `TransferSecurityPolicy-FIPS-2023-05`
      * * `TransferSecurityPolicy-FIPS-2024-01`
      * * `TransferSecurityPolicy-FIPS-2024-05`
+     * * `TransferSecurityPolicy-FIPS-2025-03`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
+     * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
      * 
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
@@ -345,15 +348,18 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      * * `TransferSecurityPolicy-2022-03`
      * * `TransferSecurityPolicy-2023-05`
      * * `TransferSecurityPolicy-2024-01`
+     * * `TransferSecurityPolicy-2025-03`
      * * `TransferSecurityPolicy-FIPS-2020-06`
      * * `TransferSecurityPolicy-FIPS-2023-05`
      * * `TransferSecurityPolicy-FIPS-2024-01`
      * * `TransferSecurityPolicy-FIPS-2024-05`
+     * * `TransferSecurityPolicy-FIPS-2025-03`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
+     * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
      * 
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
@@ -937,15 +943,18 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * * `TransferSecurityPolicy-2022-03`
          * * `TransferSecurityPolicy-2023-05`
          * * `TransferSecurityPolicy-2024-01`
+         * * `TransferSecurityPolicy-2025-03`
          * * `TransferSecurityPolicy-FIPS-2020-06`
          * * `TransferSecurityPolicy-FIPS-2023-05`
          * * `TransferSecurityPolicy-FIPS-2024-01`
          * * `TransferSecurityPolicy-FIPS-2024-05`
+         * * `TransferSecurityPolicy-FIPS-2025-03`
          * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
          * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
          * * `TransferSecurityPolicy-Restricted-2018-11`
          * * `TransferSecurityPolicy-Restricted-2020-06`
          * * `TransferSecurityPolicy-Restricted-2024-06`
+         * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
          * 
          * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
@@ -964,15 +973,18 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * * `TransferSecurityPolicy-2022-03`
          * * `TransferSecurityPolicy-2023-05`
          * * `TransferSecurityPolicy-2024-01`
+         * * `TransferSecurityPolicy-2025-03`
          * * `TransferSecurityPolicy-FIPS-2020-06`
          * * `TransferSecurityPolicy-FIPS-2023-05`
          * * `TransferSecurityPolicy-FIPS-2024-01`
          * * `TransferSecurityPolicy-FIPS-2024-05`
+         * * `TransferSecurityPolicy-FIPS-2025-03`
          * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
          * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
          * * `TransferSecurityPolicy-Restricted-2018-11`
          * * `TransferSecurityPolicy-Restricted-2020-06`
          * * `TransferSecurityPolicy-Restricted-2024-06`
+         * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
          * 
          * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 

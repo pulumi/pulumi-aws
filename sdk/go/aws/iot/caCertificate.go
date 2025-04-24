@@ -114,7 +114,7 @@ type CaCertificate struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// PEM encoded CA certificate.
 	CaCertificatePem pulumi.StringOutput `pulumi:"caCertificatePem"`
-	// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode pulumi.StringPtrOutput `pulumi:"certificateMode"`
 	// The customer version of the CA certificate.
 	CustomerVersion pulumi.IntOutput `pulumi:"customerVersion"`
@@ -131,7 +131,7 @@ type CaCertificate struct {
 	// When the CA certificate is valid.
 	Validities CaCertificateValidityArrayOutput `pulumi:"validities"`
 	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem pulumi.StringPtrOutput `pulumi:"verificationCertificatePem"`
 }
 
@@ -193,7 +193,7 @@ type caCertificateState struct {
 	Arn *string `pulumi:"arn"`
 	// PEM encoded CA certificate.
 	CaCertificatePem *string `pulumi:"caCertificatePem"`
-	// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode *string `pulumi:"certificateMode"`
 	// The customer version of the CA certificate.
 	CustomerVersion *int `pulumi:"customerVersion"`
@@ -210,7 +210,7 @@ type caCertificateState struct {
 	// When the CA certificate is valid.
 	Validities []CaCertificateValidity `pulumi:"validities"`
 	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem *string `pulumi:"verificationCertificatePem"`
 }
 
@@ -223,7 +223,7 @@ type CaCertificateState struct {
 	Arn pulumi.StringPtrInput
 	// PEM encoded CA certificate.
 	CaCertificatePem pulumi.StringPtrInput
-	// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode pulumi.StringPtrInput
 	// The customer version of the CA certificate.
 	CustomerVersion pulumi.IntPtrInput
@@ -240,7 +240,7 @@ type CaCertificateState struct {
 	// When the CA certificate is valid.
 	Validities CaCertificateValidityArrayInput
 	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem pulumi.StringPtrInput
 }
 
@@ -255,14 +255,14 @@ type caCertificateArgs struct {
 	AllowAutoRegistration bool `pulumi:"allowAutoRegistration"`
 	// PEM encoded CA certificate.
 	CaCertificatePem string `pulumi:"caCertificatePem"`
-	// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode *string `pulumi:"certificateMode"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem *string `pulumi:"verificationCertificatePem"`
 }
 
@@ -274,14 +274,14 @@ type CaCertificateArgs struct {
 	AllowAutoRegistration pulumi.BoolInput
 	// PEM encoded CA certificate.
 	CaCertificatePem pulumi.StringInput
-	// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 	VerificationCertificatePem pulumi.StringPtrInput
 }
 
@@ -392,7 +392,7 @@ func (o CaCertificateOutput) CaCertificatePem() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.CaCertificatePem }).(pulumi.StringOutput)
 }
 
-// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 func (o CaCertificateOutput) CertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringPtrOutput { return v.CertificateMode }).(pulumi.StringPtrOutput)
 }
@@ -430,7 +430,7 @@ func (o CaCertificateOutput) Validities() CaCertificateValidityArrayOutput {
 }
 
 // PEM encoded verification certificate containing the common name of a registration code. Review
-// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificateMode` is `DEFAULT`.
+// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 func (o CaCertificateOutput) VerificationCertificatePem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringPtrOutput { return v.VerificationCertificatePem }).(pulumi.StringPtrOutput)
 }

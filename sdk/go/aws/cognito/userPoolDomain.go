@@ -127,6 +127,8 @@ type UserPoolDomain struct {
 	CloudfrontDistributionZoneId pulumi.StringOutput `pulumi:"cloudfrontDistributionZoneId"`
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringOutput `pulumi:"domain"`
+	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+	ManagedLoginVersion pulumi.IntOutput `pulumi:"managedLoginVersion"`
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
 	// The user pool ID.
@@ -183,6 +185,8 @@ type userPoolDomainState struct {
 	CloudfrontDistributionZoneId *string `pulumi:"cloudfrontDistributionZoneId"`
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain *string `pulumi:"domain"`
+	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The user pool ID.
@@ -204,6 +208,8 @@ type UserPoolDomainState struct {
 	CloudfrontDistributionZoneId pulumi.StringPtrInput
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringPtrInput
+	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+	ManagedLoginVersion pulumi.IntPtrInput
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket pulumi.StringPtrInput
 	// The user pool ID.
@@ -221,6 +227,8 @@ type userPoolDomainArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain string `pulumi:"domain"`
+	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
 	// The user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -231,6 +239,8 @@ type UserPoolDomainArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringInput
+	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+	ManagedLoginVersion pulumi.IntPtrInput
 	// The user pool ID.
 	UserPoolId pulumi.StringInput
 }
@@ -350,6 +360,11 @@ func (o UserPoolDomainOutput) CloudfrontDistributionZoneId() pulumi.StringOutput
 // For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 func (o UserPoolDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+func (o UserPoolDomainOutput) ManagedLoginVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.IntOutput { return v.ManagedLoginVersion }).(pulumi.IntOutput)
 }
 
 // The S3 bucket where the static files for this domain are stored.

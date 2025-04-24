@@ -110,6 +110,10 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public readonly domain!: pulumi.Output<string>;
     /**
+     * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     */
+    public readonly managedLoginVersion!: pulumi.Output<number>;
+    /**
      * The S3 bucket where the static files for this domain are stored.
      */
     public /*out*/ readonly s3Bucket!: pulumi.Output<string>;
@@ -141,6 +145,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
             resourceInputs["cloudfrontDistributionZoneId"] = state ? state.cloudfrontDistributionZoneId : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["managedLoginVersion"] = state ? state.managedLoginVersion : undefined;
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -154,6 +159,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
             }
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["managedLoginVersion"] = args ? args.managedLoginVersion : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["cloudfrontDistribution"] = undefined /*out*/;
@@ -196,6 +202,10 @@ export interface UserPoolDomainState {
      */
     domain?: pulumi.Input<string>;
     /**
+     * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     */
+    managedLoginVersion?: pulumi.Input<number>;
+    /**
      * The S3 bucket where the static files for this domain are stored.
      */
     s3Bucket?: pulumi.Input<string>;
@@ -221,6 +231,10 @@ export interface UserPoolDomainArgs {
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
     domain: pulumi.Input<string>;
+    /**
+     * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     */
+    managedLoginVersion?: pulumi.Input<number>;
     /**
      * The user pool ID.
      */

@@ -21,33 +21,43 @@ import {Topic} from "./index";
  *
  * ## Example Usage
  *
- * You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
- *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
- *     protocol: "sqs",
- *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
- * });
- * ```
- *
- * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+ * ### Basic usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
- * const userUpdatesQueue = new aws.sqs.Queue("user_updates_queue", {name: "user-updates-queue"});
+ * const sqsQueuePolicy = userUpdates.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ *     policyId: "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+ *     statements: [{
+ *         sid: "user_updates_sqs_target",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["sns.amazonaws.com"],
+ *         }],
+ *         actions: ["SQS:SendMessage"],
+ *         resources: ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             variable: "aws:SourceArn",
+ *             values: [arn],
+ *         }],
+ *     }],
+ * }));
+ * const userUpdatesQueue = new aws.sqs.Queue("user_updates_queue", {
+ *     name: "user-updates-queue",
+ *     policy: sqsQueuePolicy.apply(sqsQueuePolicy => sqsQueuePolicy.json),
+ * });
  * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
  *     topic: userUpdates.arn,
  *     protocol: "sqs",
  *     endpoint: userUpdatesQueue.arn,
  * });
  * ```
+ *
+ * ### Example Cross-account Subscription
  *
  * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
  *
@@ -69,7 +79,7 @@ import {Topic} from "./index";
  *     region: "us-east-1",
  *     "role-name": "service/service",
  * };
- * const sns_topic_policy = aws.iam.getPolicyDocument({
+ * const snsTopicPolicy = aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
  *     statements: [
  *         {
@@ -116,7 +126,7 @@ import {Topic} from "./index";
  *         },
  *     ],
  * });
- * const sqs_queue_policy = aws.iam.getPolicyDocument({
+ * const sqsQueuePolicy = aws.iam.getPolicyDocument({
  *     policyId: `arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}/SQSDefaultPolicy`,
  *     statements: [{
  *         sid: "example-sns-topic",
@@ -134,23 +144,23 @@ import {Topic} from "./index";
  *         }],
  *     }],
  * });
- * const sns_topic = new aws.sns.Topic("sns-topic", {
+ * const snsTopic = new aws.sns.Topic("sns_topic", {
  *     name: sns.name,
  *     displayName: sns.display_name,
- *     policy: sns_topic_policy.then(sns_topic_policy => sns_topic_policy.json),
+ *     policy: snsTopicPolicy.then(snsTopicPolicy => snsTopicPolicy.json),
  * });
- * const sqs_queue = new aws.sqs.Queue("sqs-queue", {
+ * const sqsQueue = new aws.sqs.Queue("sqs_queue", {
  *     name: sqs.name,
- *     policy: sqs_queue_policy.then(sqs_queue_policy => sqs_queue_policy.json),
+ *     policy: sqsQueuePolicy.then(sqsQueuePolicy => sqsQueuePolicy.json),
  * });
- * const sns_topicTopicSubscription = new aws.sns.TopicSubscription("sns-topic", {
- *     topic: sns_topic.arn,
+ * const snsTopicTopicSubscription = new aws.sns.TopicSubscription("sns_topic", {
+ *     topic: snsTopic.arn,
  *     protocol: "sqs",
- *     endpoint: sqs_queue.arn,
+ *     endpoint: sqsQueue.arn,
  * });
  * ```
  *
- * ## Example with Delivery Policy
+ * ### Example with Delivery Policy
  *
  * This example demonstrates how to define a `deliveryPolicy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `deliveryPolicy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
  *

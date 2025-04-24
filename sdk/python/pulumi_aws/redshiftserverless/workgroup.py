@@ -29,6 +29,7 @@ class WorkgroupArgs:
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  max_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 price_performance_target: Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -44,6 +45,7 @@ class WorkgroupArgs:
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -61,6 +63,8 @@ class WorkgroupArgs:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if price_performance_target is not None:
+            pulumi.set(__self__, "price_performance_target", price_performance_target)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
@@ -157,6 +161,18 @@ class WorkgroupArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']]:
+        """
+        Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        """
+        return pulumi.get(self, "price_performance_target")
+
+    @price_performance_target.setter
+    def price_performance_target(self, value: Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']]):
+        pulumi.set(self, "price_performance_target", value)
+
+    @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -216,6 +232,7 @@ class _WorkgroupState:
                  max_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 price_performance_target: Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -233,6 +250,7 @@ class _WorkgroupState:
         :param pulumi.Input[builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -259,6 +277,8 @@ class _WorkgroupState:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if price_performance_target is not None:
+            pulumi.set(__self__, "price_performance_target", price_performance_target)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
@@ -374,6 +394,18 @@ class _WorkgroupState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']]:
+        """
+        Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        """
+        return pulumi.get(self, "price_performance_target")
+
+    @price_performance_target.setter
+    def price_performance_target(self, value: Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']]):
+        pulumi.set(self, "price_performance_target", value)
+
+    @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -472,6 +504,7 @@ class Workgroup(pulumi.CustomResource):
                  max_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 price_performance_target: Optional[pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -508,6 +541,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -565,6 +599,7 @@ class Workgroup(pulumi.CustomResource):
                  max_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 price_performance_target: Optional[pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -587,6 +622,7 @@ class Workgroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["port"] = port
+            __props__.__dict__["price_performance_target"] = price_performance_target
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -616,6 +652,7 @@ class Workgroup(pulumi.CustomResource):
             max_capacity: Optional[pulumi.Input[builtins.int]] = None,
             namespace_name: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            price_performance_target: Optional[pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -638,6 +675,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -660,6 +698,7 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["max_capacity"] = max_capacity
         __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["port"] = port
+        __props__.__dict__["price_performance_target"] = price_performance_target
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -732,6 +771,14 @@ class Workgroup(pulumi.CustomResource):
         The port number on which the cluster accepts incoming connections.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> pulumi.Output['outputs.WorkgroupPricePerformanceTarget']:
+        """
+        Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        """
+        return pulumi.get(self, "price_performance_target")
 
     @property
     @pulumi.getter(name="publiclyAccessible")

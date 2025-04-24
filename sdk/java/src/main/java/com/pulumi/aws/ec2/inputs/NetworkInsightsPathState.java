@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.ec2.inputs;
 
+import com.pulumi.aws.ec2.inputs.NetworkInsightsPathFilterAtDestinationArgs;
+import com.pulumi.aws.ec2.inputs.NetworkInsightsPathFilterAtSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -33,14 +35,14 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
      * 
      */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
     /**
-     * @return ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+     * @return ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
      * 
      */
     public Optional<Output<String>> destination() {
@@ -90,6 +92,20 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<Integer>> destinationPort() {
         return Optional.ofNullable(this.destinationPort);
+    }
+
+    @Import(name="filterAtDestination")
+    private @Nullable Output<NetworkInsightsPathFilterAtDestinationArgs> filterAtDestination;
+
+    public Optional<Output<NetworkInsightsPathFilterAtDestinationArgs>> filterAtDestination() {
+        return Optional.ofNullable(this.filterAtDestination);
+    }
+
+    @Import(name="filterAtSource")
+    private @Nullable Output<NetworkInsightsPathFilterAtSourceArgs> filterAtSource;
+
+    public Optional<Output<NetworkInsightsPathFilterAtSourceArgs>> filterAtSource() {
+        return Optional.ofNullable(this.filterAtSource);
     }
 
     /**
@@ -202,6 +218,8 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
         this.destinationArn = $.destinationArn;
         this.destinationIp = $.destinationIp;
         this.destinationPort = $.destinationPort;
+        this.filterAtDestination = $.filterAtDestination;
+        this.filterAtSource = $.filterAtSource;
         this.protocol = $.protocol;
         this.source = $.source;
         this.sourceArn = $.sourceArn;
@@ -250,7 +268,7 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param destination ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+         * @param destination ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
          * 
          * @return builder
          * 
@@ -261,7 +279,7 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param destination ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+         * @param destination ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
          * 
          * @return builder
          * 
@@ -331,6 +349,24 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
          */
         public Builder destinationPort(Integer destinationPort) {
             return destinationPort(Output.of(destinationPort));
+        }
+
+        public Builder filterAtDestination(@Nullable Output<NetworkInsightsPathFilterAtDestinationArgs> filterAtDestination) {
+            $.filterAtDestination = filterAtDestination;
+            return this;
+        }
+
+        public Builder filterAtDestination(NetworkInsightsPathFilterAtDestinationArgs filterAtDestination) {
+            return filterAtDestination(Output.of(filterAtDestination));
+        }
+
+        public Builder filterAtSource(@Nullable Output<NetworkInsightsPathFilterAtSourceArgs> filterAtSource) {
+            $.filterAtSource = filterAtSource;
+            return this;
+        }
+
+        public Builder filterAtSource(NetworkInsightsPathFilterAtSourceArgs filterAtSource) {
+            return filterAtSource(Output.of(filterAtSource));
         }
 
         /**

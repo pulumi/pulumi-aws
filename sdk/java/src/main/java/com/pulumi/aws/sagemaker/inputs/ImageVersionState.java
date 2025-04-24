@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -62,16 +63,23 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the image the version is based on.
+     * Indicates Horovod compatibility.
      * 
      */
+    @Import(name="horovod")
+    private @Nullable Output<Boolean> horovod;
+
+    /**
+     * @return Indicates Horovod compatibility.
+     * 
+     */
+    public Optional<Output<Boolean>> horovod() {
+        return Optional.ofNullable(this.horovod);
+    }
+
     @Import(name="imageArn")
     private @Nullable Output<String> imageArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the image the version is based on.
-     * 
-     */
     public Optional<Output<String>> imageArn() {
         return Optional.ofNullable(this.imageArn);
     }
@@ -91,9 +99,107 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.imageName);
     }
 
+    /**
+     * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     * 
+     */
+    @Import(name="jobType")
+    private @Nullable Output<String> jobType;
+
+    /**
+     * @return Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+     * 
+     */
+    public Optional<Output<String>> jobType() {
+        return Optional.ofNullable(this.jobType);
+    }
+
+    /**
+     * The machine learning framework vended in the image version.
+     * 
+     */
+    @Import(name="mlFramework")
+    private @Nullable Output<String> mlFramework;
+
+    /**
+     * @return The machine learning framework vended in the image version.
+     * 
+     */
+    public Optional<Output<String>> mlFramework() {
+        return Optional.ofNullable(this.mlFramework);
+    }
+
+    /**
+     * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     * 
+     */
+    @Import(name="processor")
+    private @Nullable Output<String> processor;
+
+    /**
+     * @return Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+     * 
+     */
+    public Optional<Output<String>> processor() {
+        return Optional.ofNullable(this.processor);
+    }
+
+    /**
+     * The supported programming language and its version.
+     * 
+     */
+    @Import(name="programmingLang")
+    private @Nullable Output<String> programmingLang;
+
+    /**
+     * @return The supported programming language and its version.
+     * 
+     */
+    public Optional<Output<String>> programmingLang() {
+        return Optional.ofNullable(this.programmingLang);
+    }
+
+    /**
+     * The maintainer description of the image version.
+     * 
+     */
+    @Import(name="releaseNotes")
+    private @Nullable Output<String> releaseNotes;
+
+    /**
+     * @return The maintainer description of the image version.
+     * 
+     */
+    public Optional<Output<String>> releaseNotes() {
+        return Optional.ofNullable(this.releaseNotes);
+    }
+
+    /**
+     * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     * 
+     */
+    @Import(name="vendorGuidance")
+    private @Nullable Output<String> vendorGuidance;
+
+    /**
+     * @return The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+     * 
+     */
+    public Optional<Output<String>> vendorGuidance() {
+        return Optional.ofNullable(this.vendorGuidance);
+    }
+
+    /**
+     * The version of the image. If not specified, the latest version is described.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
+    /**
+     * @return The version of the image. If not specified, the latest version is described.
+     * 
+     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -104,8 +210,15 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.baseImage = $.baseImage;
         this.containerImage = $.containerImage;
+        this.horovod = $.horovod;
         this.imageArn = $.imageArn;
         this.imageName = $.imageName;
+        this.jobType = $.jobType;
+        this.mlFramework = $.mlFramework;
+        this.processor = $.processor;
+        this.programmingLang = $.programmingLang;
+        this.releaseNotes = $.releaseNotes;
+        this.vendorGuidance = $.vendorGuidance;
         this.version = $.version;
     }
 
@@ -191,22 +304,31 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageArn The Amazon Resource Name (ARN) of the image the version is based on.
+         * @param horovod Indicates Horovod compatibility.
          * 
          * @return builder
          * 
          */
+        public Builder horovod(@Nullable Output<Boolean> horovod) {
+            $.horovod = horovod;
+            return this;
+        }
+
+        /**
+         * @param horovod Indicates Horovod compatibility.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder horovod(Boolean horovod) {
+            return horovod(Output.of(horovod));
+        }
+
         public Builder imageArn(@Nullable Output<String> imageArn) {
             $.imageArn = imageArn;
             return this;
         }
 
-        /**
-         * @param imageArn The Amazon Resource Name (ARN) of the image the version is based on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageArn(String imageArn) {
             return imageArn(Output.of(imageArn));
         }
@@ -232,11 +354,149 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
             return imageName(Output.of(imageName));
         }
 
+        /**
+         * @param jobType Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobType(@Nullable Output<String> jobType) {
+            $.jobType = jobType;
+            return this;
+        }
+
+        /**
+         * @param jobType Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobType(String jobType) {
+            return jobType(Output.of(jobType));
+        }
+
+        /**
+         * @param mlFramework The machine learning framework vended in the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mlFramework(@Nullable Output<String> mlFramework) {
+            $.mlFramework = mlFramework;
+            return this;
+        }
+
+        /**
+         * @param mlFramework The machine learning framework vended in the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mlFramework(String mlFramework) {
+            return mlFramework(Output.of(mlFramework));
+        }
+
+        /**
+         * @param processor Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder processor(@Nullable Output<String> processor) {
+            $.processor = processor;
+            return this;
+        }
+
+        /**
+         * @param processor Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder processor(String processor) {
+            return processor(Output.of(processor));
+        }
+
+        /**
+         * @param programmingLang The supported programming language and its version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder programmingLang(@Nullable Output<String> programmingLang) {
+            $.programmingLang = programmingLang;
+            return this;
+        }
+
+        /**
+         * @param programmingLang The supported programming language and its version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder programmingLang(String programmingLang) {
+            return programmingLang(Output.of(programmingLang));
+        }
+
+        /**
+         * @param releaseNotes The maintainer description of the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder releaseNotes(@Nullable Output<String> releaseNotes) {
+            $.releaseNotes = releaseNotes;
+            return this;
+        }
+
+        /**
+         * @param releaseNotes The maintainer description of the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder releaseNotes(String releaseNotes) {
+            return releaseNotes(Output.of(releaseNotes));
+        }
+
+        /**
+         * @param vendorGuidance The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vendorGuidance(@Nullable Output<String> vendorGuidance) {
+            $.vendorGuidance = vendorGuidance;
+            return this;
+        }
+
+        /**
+         * @param vendorGuidance The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vendorGuidance(String vendorGuidance) {
+            return vendorGuidance(Output.of(vendorGuidance));
+        }
+
+        /**
+         * @param version The version of the image. If not specified, the latest version is described.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The version of the image. If not specified, the latest version is described.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
 
@@ -25,6 +27,8 @@ class NetworkInsightsPathArgs:
                  destination: Optional[pulumi.Input[builtins.str]] = None,
                  destination_ip: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port: Optional[pulumi.Input[builtins.int]] = None,
+                 filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']] = None,
+                 filter_at_source: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -33,7 +37,7 @@ class NetworkInsightsPathArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] source: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[builtins.int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
@@ -47,6 +51,10 @@ class NetworkInsightsPathArgs:
             pulumi.set(__self__, "destination_ip", destination_ip)
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
+        if filter_at_destination is not None:
+            pulumi.set(__self__, "filter_at_destination", filter_at_destination)
+        if filter_at_source is not None:
+            pulumi.set(__self__, "filter_at_source", filter_at_source)
         if source_ip is not None:
             pulumi.set(__self__, "source_ip", source_ip)
         if tags is not None:
@@ -82,7 +90,7 @@ class NetworkInsightsPathArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         """
         return pulumi.get(self, "destination")
 
@@ -113,6 +121,24 @@ class NetworkInsightsPathArgs:
     @destination_port.setter
     def destination_port(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "destination_port", value)
+
+    @property
+    @pulumi.getter(name="filterAtDestination")
+    def filter_at_destination(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']]:
+        return pulumi.get(self, "filter_at_destination")
+
+    @filter_at_destination.setter
+    def filter_at_destination(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']]):
+        pulumi.set(self, "filter_at_destination", value)
+
+    @property
+    @pulumi.getter(name="filterAtSource")
+    def filter_at_source(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']]:
+        return pulumi.get(self, "filter_at_source")
+
+    @filter_at_source.setter
+    def filter_at_source(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']]):
+        pulumi.set(self, "filter_at_source", value)
 
     @property
     @pulumi.getter(name="sourceIp")
@@ -147,6 +173,8 @@ class _NetworkInsightsPathState:
                  destination_arn: Optional[pulumi.Input[builtins.str]] = None,
                  destination_ip: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port: Optional[pulumi.Input[builtins.int]] = None,
+                 filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']] = None,
+                 filter_at_source: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -156,7 +184,7 @@ class _NetworkInsightsPathState:
         """
         Input properties used for looking up and filtering NetworkInsightsPath resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Network Insights Path.
-        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[builtins.str] destination_arn: ARN of the destination.
         :param pulumi.Input[builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[builtins.int] destination_port: Destination port to analyze access to.
@@ -179,6 +207,10 @@ class _NetworkInsightsPathState:
             pulumi.set(__self__, "destination_ip", destination_ip)
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
+        if filter_at_destination is not None:
+            pulumi.set(__self__, "filter_at_destination", filter_at_destination)
+        if filter_at_source is not None:
+            pulumi.set(__self__, "filter_at_source", filter_at_source)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if source is not None:
@@ -211,7 +243,7 @@ class _NetworkInsightsPathState:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         """
         return pulumi.get(self, "destination")
 
@@ -254,6 +286,24 @@ class _NetworkInsightsPathState:
     @destination_port.setter
     def destination_port(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "destination_port", value)
+
+    @property
+    @pulumi.getter(name="filterAtDestination")
+    def filter_at_destination(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']]:
+        return pulumi.get(self, "filter_at_destination")
+
+    @filter_at_destination.setter
+    def filter_at_destination(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']]):
+        pulumi.set(self, "filter_at_destination", value)
+
+    @property
+    @pulumi.getter(name="filterAtSource")
+    def filter_at_source(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']]:
+        return pulumi.get(self, "filter_at_source")
+
+    @filter_at_source.setter
+    def filter_at_source(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']]):
+        pulumi.set(self, "filter_at_source", value)
 
     @property
     @pulumi.getter
@@ -339,6 +389,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[builtins.str]] = None,
                  destination_ip: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port: Optional[pulumi.Input[builtins.int]] = None,
+                 filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
+                 filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
@@ -369,7 +421,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[builtins.int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -426,6 +478,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[builtins.str]] = None,
                  destination_ip: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port: Optional[pulumi.Input[builtins.int]] = None,
+                 filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
+                 filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
@@ -442,6 +496,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["destination_ip"] = destination_ip
             __props__.__dict__["destination_port"] = destination_port
+            __props__.__dict__["filter_at_destination"] = filter_at_destination
+            __props__.__dict__["filter_at_source"] = filter_at_source
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
@@ -469,6 +525,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
             destination_arn: Optional[pulumi.Input[builtins.str]] = None,
             destination_ip: Optional[pulumi.Input[builtins.str]] = None,
             destination_port: Optional[pulumi.Input[builtins.int]] = None,
+            filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
+            filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
             source: Optional[pulumi.Input[builtins.str]] = None,
             source_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -483,7 +541,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Network Insights Path.
-        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[builtins.str] destination_arn: ARN of the destination.
         :param pulumi.Input[builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[builtins.int] destination_port: Destination port to analyze access to.
@@ -505,6 +563,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         __props__.__dict__["destination_arn"] = destination_arn
         __props__.__dict__["destination_ip"] = destination_ip
         __props__.__dict__["destination_port"] = destination_port
+        __props__.__dict__["filter_at_destination"] = filter_at_destination
+        __props__.__dict__["filter_at_source"] = filter_at_source
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["source"] = source
         __props__.__dict__["source_arn"] = source_arn
@@ -525,7 +585,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         """
         return pulumi.get(self, "destination")
 
@@ -552,6 +612,16 @@ class NetworkInsightsPath(pulumi.CustomResource):
         Destination port to analyze access to.
         """
         return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter(name="filterAtDestination")
+    def filter_at_destination(self) -> pulumi.Output['outputs.NetworkInsightsPathFilterAtDestination']:
+        return pulumi.get(self, "filter_at_destination")
+
+    @property
+    @pulumi.getter(name="filterAtSource")
+    def filter_at_source(self) -> pulumi.Output['outputs.NetworkInsightsPathFilterAtSource']:
+        return pulumi.get(self, "filter_at_source")
 
     @property
     @pulumi.getter

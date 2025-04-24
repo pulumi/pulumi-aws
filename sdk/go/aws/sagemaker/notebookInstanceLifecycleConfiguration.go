@@ -74,6 +74,12 @@ type NotebookInstanceLifecycleConfiguration struct {
 	OnCreate pulumi.StringPtrOutput `pulumi:"onCreate"`
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrOutput `pulumi:"onStart"`
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewNotebookInstanceLifecycleConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +120,12 @@ type notebookInstanceLifecycleConfigurationState struct {
 	OnCreate *string `pulumi:"onCreate"`
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart *string `pulumi:"onStart"`
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type NotebookInstanceLifecycleConfigurationState struct {
@@ -125,6 +137,12 @@ type NotebookInstanceLifecycleConfigurationState struct {
 	OnCreate pulumi.StringPtrInput
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (NotebookInstanceLifecycleConfigurationState) ElementType() reflect.Type {
@@ -138,6 +156,8 @@ type notebookInstanceLifecycleConfigurationArgs struct {
 	OnCreate *string `pulumi:"onCreate"`
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart *string `pulumi:"onStart"`
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NotebookInstanceLifecycleConfiguration resource.
@@ -148,6 +168,8 @@ type NotebookInstanceLifecycleConfigurationArgs struct {
 	OnCreate pulumi.StringPtrInput
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (NotebookInstanceLifecycleConfigurationArgs) ElementType() reflect.Type {
@@ -255,6 +277,18 @@ func (o NotebookInstanceLifecycleConfigurationOutput) OnCreate() pulumi.StringPt
 // A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 func (o NotebookInstanceLifecycleConfigurationOutput) OnStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringPtrOutput { return v.OnStart }).(pulumi.StringPtrOutput)
+}
+
+// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o NotebookInstanceLifecycleConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o NotebookInstanceLifecycleConfigurationOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type NotebookInstanceLifecycleConfigurationArrayOutput struct{ *pulumi.OutputState }

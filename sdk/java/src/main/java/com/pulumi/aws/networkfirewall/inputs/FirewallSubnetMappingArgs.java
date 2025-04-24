@@ -17,14 +17,14 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
     public static final FirewallSubnetMappingArgs Empty = new FirewallSubnetMappingArgs();
 
     /**
-     * The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * @return The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -72,7 +72,7 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ipAddressType The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+         * @param ipAddressType The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ipAddressType The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+         * @param ipAddressType The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
          * 
          * @return builder
          * 

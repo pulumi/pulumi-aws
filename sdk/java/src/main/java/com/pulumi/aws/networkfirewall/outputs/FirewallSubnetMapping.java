@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallSubnetMapping {
     /**
-     * @return The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * @return The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
      * 
      */
     private @Nullable String ipAddressType;
@@ -25,7 +25,7 @@ public final class FirewallSubnetMapping {
 
     private FirewallSubnetMapping() {}
     /**
-     * @return The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * @return The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
      * 
      */
     public Optional<String> ipAddressType() {

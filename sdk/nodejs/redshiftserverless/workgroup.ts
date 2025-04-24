@@ -91,6 +91,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
+     * Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     */
+    public readonly pricePerformanceTarget!: pulumi.Output<outputs.redshiftserverless.WorkgroupPricePerformanceTarget>;
+    /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
@@ -144,6 +148,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["pricePerformanceTarget"] = state ? state.pricePerformanceTarget : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -165,6 +170,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["pricePerformanceTarget"] = args ? args.pricePerformanceTarget : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -216,6 +222,10 @@ export interface WorkgroupState {
      * The port number on which the cluster accepts incoming connections.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     */
+    pricePerformanceTarget?: pulumi.Input<inputs.redshiftserverless.WorkgroupPricePerformanceTarget>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
@@ -278,6 +288,10 @@ export interface WorkgroupArgs {
      * The port number on which the cluster accepts incoming connections.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Price-performance scaling for the workgroup. See `Price Performance Target` below.
+     */
+    pricePerformanceTarget?: pulumi.Input<inputs.redshiftserverless.WorkgroupPricePerformanceTarget>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */

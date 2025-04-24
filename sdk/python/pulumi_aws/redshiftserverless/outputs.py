@@ -23,6 +23,7 @@ __all__ = [
     'WorkgroupEndpoint',
     'WorkgroupEndpointVpcEndpoint',
     'WorkgroupEndpointVpcEndpointNetworkInterface',
+    'WorkgroupPricePerformanceTarget',
     'GetWorkgroupEndpointResult',
     'GetWorkgroupEndpointVpcEndpointResult',
     'GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult',
@@ -418,6 +419,36 @@ class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
         The unique identifier of the subnet.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class WorkgroupPricePerformanceTarget(dict):
+    def __init__(__self__, *,
+                 enabled: builtins.bool,
+                 level: Optional[builtins.int] = None):
+        """
+        :param builtins.bool enabled: Whether to enable price-performance scaling.
+        :param builtins.int level: The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        """
+        Whether to enable price-performance scaling.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[builtins.int]:
+        """
+        The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+        """
+        return pulumi.get(self, "level")
 
 
 @pulumi.output_type

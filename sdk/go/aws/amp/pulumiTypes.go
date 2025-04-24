@@ -756,6 +756,8 @@ type ScraperTimeouts struct {
 	Create *string `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
 }
 
 // ScraperTimeoutsInput is an input type that accepts ScraperTimeoutsArgs and ScraperTimeoutsOutput values.
@@ -774,6 +776,8 @@ type ScraperTimeoutsArgs struct {
 	Create pulumi.StringPtrInput `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
 func (ScraperTimeoutsArgs) ElementType() reflect.Type {
@@ -863,6 +867,11 @@ func (o ScraperTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ScraperTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
 type ScraperTimeoutsPtrOutput struct{ *pulumi.OutputState }
 
 func (ScraperTimeoutsPtrOutput) ElementType() reflect.Type {
@@ -904,6 +913,16 @@ func (o ScraperTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ScraperTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
 	}).(pulumi.StringPtrOutput)
 }
 

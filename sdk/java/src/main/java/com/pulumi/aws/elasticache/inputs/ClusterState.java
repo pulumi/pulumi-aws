@@ -161,14 +161,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -572,14 +572,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
      * 
      */
     @Import(name="transitEncryptionEnabled")
     private @Nullable Output<Boolean> transitEncryptionEnabled;
 
     /**
-     * @return Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * @return Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
      * 
      */
     public Optional<Output<Boolean>> transitEncryptionEnabled() {
@@ -848,7 +848,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
          * 
          * @return builder
          * 
@@ -859,7 +859,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
+         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` and `valkey`.
          * 
          * @return builder
          * 
@@ -1439,7 +1439,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitEncryptionEnabled Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+         * @param transitEncryptionEnabled Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
          * 
          * @return builder
          * 
@@ -1450,7 +1450,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitEncryptionEnabled Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+         * @param transitEncryptionEnabled Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption (https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) and (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) documentation for more details.
          * 
          * @return builder
          * 

@@ -508,6 +508,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        /// </summary>
+        [Output("forceUpdateVersion")]
+        public Output<bool?> ForceUpdateVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         /// </summary>
         [Output("identities")]
@@ -690,6 +696,12 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
 
         /// <summary>
+        /// Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        /// </summary>
+        [Input("forceUpdateVersion")]
+        public Input<bool>? ForceUpdateVersion { get; set; }
+
+        /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kubernetesNetworkConfig")]
@@ -852,6 +864,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        /// </summary>
+        [Input("forceUpdateVersion")]
+        public Input<bool>? ForceUpdateVersion { get; set; }
 
         [Input("identities")]
         private InputList<Inputs.ClusterIdentityGetArgs>? _identities;

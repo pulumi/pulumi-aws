@@ -14,6 +14,50 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.drs.ReplicationConfigurationTemplate("example", {
+ *     associateDefaultSecurityGroup: false,
+ *     bandwidthThrottling: 12,
+ *     createPublicIp: false,
+ *     dataPlaneRouting: "PRIVATE_IP",
+ *     defaultLargeStagingDiskType: "GP2",
+ *     ebsEncryption: "DEFAULT",
+ *     ebsEncryptionKeyArn: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     replicationServerInstanceType: "t3.small",
+ *     replicationServersSecurityGroupsIds: exampleAwsSecurityGroup.map(__item => __item.id),
+ *     stagingAreaSubnetId: exampleAwsSubnet.id,
+ *     useDedicatedReplicationServer: false,
+ *     pitPolicies: [
+ *         {
+ *             enabled: true,
+ *             interval: 10,
+ *             retentionDuration: 60,
+ *             units: "MINUTE",
+ *             ruleId: 1,
+ *         },
+ *         {
+ *             enabled: true,
+ *             interval: 1,
+ *             retentionDuration: 24,
+ *             units: "HOUR",
+ *             ruleId: 2,
+ *         },
+ *         {
+ *             enabled: true,
+ *             interval: 1,
+ *             retentionDuration: 3,
+ *             units: "DAY",
+ *             ruleId: 3,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:

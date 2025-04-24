@@ -49,8 +49,6 @@ class CertificateArgs:
         :param pulumi.Input[builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[builtins.str] private_key: Certificate's PEM-formatted private key
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
-               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
@@ -185,10 +183,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        Set of domains that should be SANs in the issued certificate.
-        To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -284,8 +278,6 @@ class _CertificateState:
         :param pulumi.Input[builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[builtins.str] status: Status of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
-               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Source of the certificate.
@@ -546,10 +538,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        Set of domains that should be SANs in the issued certificate.
-        To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -777,8 +765,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[builtins.str] private_key: Certificate's PEM-formatted private key
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
-               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
@@ -1027,8 +1013,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[builtins.str] status: Status of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
-               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Source of the certificate.
@@ -1204,10 +1188,6 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        Set of domains that should be SANs in the issued certificate.
-        To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @property

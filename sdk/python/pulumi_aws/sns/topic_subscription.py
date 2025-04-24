@@ -519,31 +519,39 @@ class TopicSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
-            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic",
-            protocol="sqs",
-            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too")
-        ```
-
-        Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+        ### Basic usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        user_updates_queue = aws.sqs.Queue("user_updates_queue", name="user-updates-queue")
+        sqs_queue_policy = user_updates.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+            statements=[{
+                "sid": "user_updates_sqs_target",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["sns.amazonaws.com"],
+                }],
+                "actions": ["SQS:SendMessage"],
+                "resources": ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
+                "conditions": [{
+                    "test": "ArnEquals",
+                    "variable": "aws:SourceArn",
+                    "values": [arn],
+                }],
+            }]))
+        user_updates_queue = aws.sqs.Queue("user_updates_queue",
+            name="user-updates-queue",
+            policy=sqs_queue_policy.json)
         user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
             topic=user_updates.arn,
             protocol="sqs",
             endpoint=user_updates_queue.arn)
         ```
+
+        ### Example Cross-account Subscription
 
         You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 
@@ -630,20 +638,20 @@ class TopicSubscription(pulumi.CustomResource):
                     "values": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                 }],
             }])
-        sns_topic = aws.sns.Topic("sns-topic",
+        sns_topic = aws.sns.Topic("sns_topic",
             name=sns["name"],
             display_name=sns["display_name"],
             policy=sns_topic_policy.json)
-        sqs_queue = aws.sqs.Queue("sqs-queue",
+        sqs_queue = aws.sqs.Queue("sqs_queue",
             name=sqs["name"],
             policy=sqs_queue_policy.json)
-        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topic",
+        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns_topic",
             topic=sns_topic.arn,
             protocol="sqs",
             endpoint=sqs_queue.arn)
         ```
 
-        ## Example with Delivery Policy
+        ### Example with Delivery Policy
 
         This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `sns.Topic` resource, the `delivery_policy` for `sns.TopicSubscription` should not be wrapped in an `"http"` object.
 
@@ -722,31 +730,39 @@ class TopicSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
-            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic",
-            protocol="sqs",
-            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too")
-        ```
-
-        Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+        ### Basic usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        user_updates_queue = aws.sqs.Queue("user_updates_queue", name="user-updates-queue")
+        sqs_queue_policy = user_updates.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+            statements=[{
+                "sid": "user_updates_sqs_target",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["sns.amazonaws.com"],
+                }],
+                "actions": ["SQS:SendMessage"],
+                "resources": ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
+                "conditions": [{
+                    "test": "ArnEquals",
+                    "variable": "aws:SourceArn",
+                    "values": [arn],
+                }],
+            }]))
+        user_updates_queue = aws.sqs.Queue("user_updates_queue",
+            name="user-updates-queue",
+            policy=sqs_queue_policy.json)
         user_updates_sqs_target = aws.sns.TopicSubscription("user_updates_sqs_target",
             topic=user_updates.arn,
             protocol="sqs",
             endpoint=user_updates_queue.arn)
         ```
+
+        ### Example Cross-account Subscription
 
         You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 
@@ -833,20 +849,20 @@ class TopicSubscription(pulumi.CustomResource):
                     "values": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                 }],
             }])
-        sns_topic = aws.sns.Topic("sns-topic",
+        sns_topic = aws.sns.Topic("sns_topic",
             name=sns["name"],
             display_name=sns["display_name"],
             policy=sns_topic_policy.json)
-        sqs_queue = aws.sqs.Queue("sqs-queue",
+        sqs_queue = aws.sqs.Queue("sqs_queue",
             name=sqs["name"],
             policy=sqs_queue_policy.json)
-        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topic",
+        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns_topic",
             topic=sns_topic.arn,
             protocol="sqs",
             endpoint=sqs_queue.arn)
         ```
 
-        ## Example with Delivery Policy
+        ### Example with Delivery Policy
 
         This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `sns.Topic` resource, the `delivery_policy` for `sns.TopicSubscription` should not be wrapped in an `"http"` object.
 

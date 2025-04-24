@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -218,6 +219,20 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> domain() {
         return this.domain;
+    }
+    /**
+     * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     * 
+     */
+    @Export(name="managedLoginVersion", refs={Integer.class}, tree="[0]")
+    private Output<Integer> managedLoginVersion;
+
+    /**
+     * @return A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+     * 
+     */
+    public Output<Integer> managedLoginVersion() {
+        return this.managedLoginVersion;
     }
     /**
      * The S3 bucket where the static files for this domain are stored.
