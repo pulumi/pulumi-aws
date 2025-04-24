@@ -185,7 +185,8 @@ type Certificate struct {
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
 	RenewalSummaries CertificateRenewalSummaryArrayOutput `pulumi:"renewalSummaries"`
 	// Status of the certificate.
-	Status                  pulumi.StringOutput      `pulumi:"status"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -279,7 +280,8 @@ type certificateState struct {
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
 	RenewalSummaries []CertificateRenewalSummary `pulumi:"renewalSummaries"`
 	// Status of the certificate.
-	Status                  *string  `pulumi:"status"`
+	Status *string `pulumi:"status"`
+	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -337,7 +339,8 @@ type CertificateState struct {
 	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
 	RenewalSummaries CertificateRenewalSummaryArrayInput
 	// Status of the certificate.
-	Status                  pulumi.StringPtrInput
+	Status pulumi.StringPtrInput
+	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -381,7 +384,8 @@ type certificateArgs struct {
 	// Configuration block used to set certificate options. Detailed below.
 	Options *CertificateOptions `pulumi:"options"`
 	// Certificate's PEM-formatted private key
-	PrivateKey              *string  `pulumi:"privateKey"`
+	PrivateKey *string `pulumi:"privateKey"`
+	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -414,7 +418,8 @@ type CertificateArgs struct {
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrInput
 	// Certificate's PEM-formatted private key
-	PrivateKey              pulumi.StringPtrInput
+	PrivateKey pulumi.StringPtrInput
+	// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -599,6 +604,7 @@ func (o CertificateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }

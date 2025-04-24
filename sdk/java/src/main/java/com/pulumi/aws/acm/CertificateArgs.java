@@ -149,9 +149,17 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.privateKey);
     }
 
+    /**
+     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * 
+     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
+    /**
+     * @return Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * 
+     */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
@@ -416,15 +424,33 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return privateKey(Output.of(privateKey));
         }
 
+        /**
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectAlternativeNames(@Nullable Output<List<String>> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
+        /**
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectAlternativeNames(List<String> subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
+        /**
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectAlternativeNames(String... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
