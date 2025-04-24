@@ -3368,7 +3368,10 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_redshift_hsm_configuration":             {Tok: awsResource(redshiftMod, "HsmConfiguration")},
 			"aws_redshift_partner":                       {Tok: awsResource(redshiftMod, "Partner")},
 			"aws_redshift_cluster_snapshot":              {Tok: awsResource(redshiftMod, "ClusterSnapshot")},
-
+			"aws_redshift_integration": {
+				Tok:       awsResource(redshiftMod, "Integration"),
+				ComputeID: tfbridge.DelegateIDField("arn", "aws", "https://github.com/pulumi/pulumi-aws"),
+			},
 			// RedshiftData
 			"aws_redshiftdata_statement": {Tok: awsResource(redshiftDataMod, "Statement")},
 
