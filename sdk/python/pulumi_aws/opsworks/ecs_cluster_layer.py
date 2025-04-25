@@ -794,6 +794,9 @@ class _EcsClusterLayerState:
 
 
 class EcsClusterLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/ecsClusterLayer:EcsClusterLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

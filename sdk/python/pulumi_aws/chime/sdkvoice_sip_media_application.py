@@ -206,6 +206,9 @@ class _SdkvoiceSipMediaApplicationState:
 
 
 class SdkvoiceSipMediaApplication(pulumi.CustomResource):
+
+    pulumi_type = "aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

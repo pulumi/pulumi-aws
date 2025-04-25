@@ -406,6 +406,9 @@ class _ExternalKeyState:
 
 
 class ExternalKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:kms/externalKey:ExternalKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

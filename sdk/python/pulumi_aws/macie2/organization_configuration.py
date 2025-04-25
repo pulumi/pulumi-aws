@@ -65,6 +65,9 @@ class _OrganizationConfigurationState:
 
 
 class OrganizationConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:macie2/organizationConfiguration:OrganizationConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

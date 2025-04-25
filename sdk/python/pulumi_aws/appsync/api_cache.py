@@ -222,6 +222,9 @@ class _ApiCacheState:
 
 
 class ApiCache(pulumi.CustomResource):
+
+    pulumi_type = "aws:appsync/apiCache:ApiCache"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

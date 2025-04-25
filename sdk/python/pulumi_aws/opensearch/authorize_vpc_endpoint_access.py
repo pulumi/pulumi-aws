@@ -114,6 +114,9 @@ class _AuthorizeVpcEndpointAccessState:
 
 
 class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

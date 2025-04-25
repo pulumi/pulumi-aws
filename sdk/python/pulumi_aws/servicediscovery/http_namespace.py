@@ -182,6 +182,9 @@ class _HttpNamespaceState:
 
 
 class HttpNamespace(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicediscovery/httpNamespace:HttpNamespace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

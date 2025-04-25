@@ -100,6 +100,9 @@ class _VoiceConnectorGroupState:
 
 
 class VoiceConnectorGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:chime/voiceConnectorGroup:VoiceConnectorGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

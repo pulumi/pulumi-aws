@@ -96,6 +96,9 @@ class _RedriveAllowPolicyState:
 
 
 class RedriveAllowPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:sqs/redriveAllowPolicy:RedriveAllowPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

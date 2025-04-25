@@ -804,6 +804,9 @@ class _ClusterInstanceState:
 
 
 class ClusterInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:docdb/clusterInstance:ClusterInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

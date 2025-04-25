@@ -248,6 +248,9 @@ class _VocabularyFilterState:
 
 
 class VocabularyFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws:transcribe/vocabularyFilter:VocabularyFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

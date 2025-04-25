@@ -143,6 +143,9 @@ class _EnvironmentMembershipState:
 
 
 class EnvironmentMembership(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloud9/environmentMembership:EnvironmentMembership"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

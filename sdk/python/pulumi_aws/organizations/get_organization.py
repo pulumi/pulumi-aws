@@ -207,7 +207,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
-    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
         "effect": "Allow",
         "actions": [
             "SNS:Subscribe",
@@ -270,7 +270,7 @@ def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.In
 
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
-    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
         "effect": "Allow",
         "actions": [
             "SNS:Subscribe",

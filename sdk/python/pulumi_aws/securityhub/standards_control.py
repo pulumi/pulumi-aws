@@ -240,6 +240,9 @@ class _StandardsControlState:
 
 
 class StandardsControl(pulumi.CustomResource):
+
+    pulumi_type = "aws:securityhub/standardsControl:StandardsControl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

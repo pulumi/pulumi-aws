@@ -239,6 +239,9 @@ class _ConfigurationTemplateState:
 
 
 class ConfigurationTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

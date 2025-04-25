@@ -179,6 +179,9 @@ class _ContinuousDeploymentPolicyState:
 
 
 class ContinuousDeploymentPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

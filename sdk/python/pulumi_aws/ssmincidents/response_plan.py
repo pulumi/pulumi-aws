@@ -271,6 +271,9 @@ class _ResponsePlanState:
 
 
 class ResponsePlan(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssmincidents/responsePlan:ResponsePlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

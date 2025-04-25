@@ -634,6 +634,9 @@ class _LaunchConfigurationState:
 
 
 class LaunchConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/launchConfiguration:LaunchConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -273,6 +273,9 @@ class _AgentAgentCollaboratorState:
 
 
 class AgentAgentCollaborator(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

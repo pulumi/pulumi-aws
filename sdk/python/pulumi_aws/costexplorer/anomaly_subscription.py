@@ -293,6 +293,9 @@ class _AnomalySubscriptionState:
 
 
 class AnomalySubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws:costexplorer/anomalySubscription:AnomalySubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

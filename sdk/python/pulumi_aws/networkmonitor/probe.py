@@ -334,6 +334,9 @@ class _ProbeState:
 
 
 class Probe(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmonitor/probe:Probe"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

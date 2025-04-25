@@ -182,6 +182,9 @@ class _IdentityProviderConfigState:
 
 
 class IdentityProviderConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:eks/identityProviderConfig:IdentityProviderConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

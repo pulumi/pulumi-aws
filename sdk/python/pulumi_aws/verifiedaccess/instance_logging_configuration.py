@@ -98,6 +98,9 @@ class _InstanceLoggingConfigurationState:
 
 
 class InstanceLoggingConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

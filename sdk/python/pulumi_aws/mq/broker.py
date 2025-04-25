@@ -780,6 +780,9 @@ class _BrokerState:
 
 
 class Broker(pulumi.CustomResource):
+
+    pulumi_type = "aws:mq/broker:Broker"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

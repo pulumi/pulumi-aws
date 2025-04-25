@@ -1547,6 +1547,9 @@ class _ReplicationGroupState:
 
 
 class ReplicationGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:elasticache/replicationGroup:ReplicationGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

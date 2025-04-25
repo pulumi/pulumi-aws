@@ -199,6 +199,9 @@ class _SiteState:
 
 
 class Site(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/site:Site"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

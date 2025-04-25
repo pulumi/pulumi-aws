@@ -200,6 +200,9 @@ class _SnapshotCopyState:
 
 
 class SnapshotCopy(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/snapshotCopy:SnapshotCopy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

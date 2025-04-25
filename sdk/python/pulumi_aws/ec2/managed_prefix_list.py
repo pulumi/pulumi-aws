@@ -262,6 +262,9 @@ class _ManagedPrefixListState:
 
 
 class ManagedPrefixList(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/managedPrefixList:ManagedPrefixList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

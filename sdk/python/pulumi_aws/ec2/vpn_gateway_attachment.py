@@ -96,6 +96,9 @@ class _VpnGatewayAttachmentState:
 
 
 class VpnGatewayAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

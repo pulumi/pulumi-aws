@@ -724,6 +724,9 @@ class _OntapFileSystemState:
 
 
 class OntapFileSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/ontapFileSystem:OntapFileSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

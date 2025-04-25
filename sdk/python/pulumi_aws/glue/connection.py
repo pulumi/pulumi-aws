@@ -344,6 +344,9 @@ class _ConnectionState:
 
 
 class Connection(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/connection:Connection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -214,6 +214,9 @@ class _DomainNameState:
 
 
 class DomainName(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/domainName:DomainName"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

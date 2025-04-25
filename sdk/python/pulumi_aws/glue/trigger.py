@@ -438,6 +438,9 @@ class _TriggerState:
 
 
 class Trigger(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/trigger:Trigger"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

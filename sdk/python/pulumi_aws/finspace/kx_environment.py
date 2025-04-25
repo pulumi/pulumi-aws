@@ -351,6 +351,9 @@ class _KxEnvironmentState:
 
 
 class KxEnvironment(pulumi.CustomResource):
+
+    pulumi_type = "aws:finspace/kxEnvironment:KxEnvironment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

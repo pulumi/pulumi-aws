@@ -438,6 +438,9 @@ class _InstanceGroupState:
 
 
 class InstanceGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:emr/instanceGroup:InstanceGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

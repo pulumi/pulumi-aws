@@ -265,6 +265,9 @@ class _SecurityProfileState:
 
 
 class SecurityProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/securityProfile:SecurityProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

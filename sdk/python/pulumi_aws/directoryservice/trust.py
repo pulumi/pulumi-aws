@@ -404,6 +404,9 @@ class _TrustState:
 
 
 class Trust(pulumi.CustomResource):
+
+    pulumi_type = "aws:directoryservice/trust:Trust"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

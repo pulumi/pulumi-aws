@@ -112,6 +112,9 @@ class _RepositoryPolicyState:
 
 
 class RepositoryPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecr/repositoryPolicy:RepositoryPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

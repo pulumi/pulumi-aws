@@ -623,6 +623,9 @@ class _TrailState:
 
 
 class Trail(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudtrail/trail:Trail"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

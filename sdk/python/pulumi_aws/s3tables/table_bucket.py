@@ -172,6 +172,9 @@ class _TableBucketState:
 
 
 class TableBucket(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3tables/tableBucket:TableBucket"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

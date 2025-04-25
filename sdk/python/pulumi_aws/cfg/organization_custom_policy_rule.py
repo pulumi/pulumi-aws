@@ -471,6 +471,9 @@ class _OrganizationCustomPolicyRuleState:
 
 
 class OrganizationCustomPolicyRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

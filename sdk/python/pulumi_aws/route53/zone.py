@@ -318,6 +318,9 @@ class _ZoneState:
 
 
 class Zone(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/zone:Zone"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

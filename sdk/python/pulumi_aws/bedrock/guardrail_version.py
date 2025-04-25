@@ -179,6 +179,9 @@ class _GuardrailVersionState:
 
 
 class GuardrailVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/guardrailVersion:GuardrailVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

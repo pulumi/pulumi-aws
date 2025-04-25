@@ -128,6 +128,9 @@ class _SinkPolicyState:
 
 
 class SinkPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:oam/sinkPolicy:SinkPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

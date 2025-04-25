@@ -357,6 +357,9 @@ class _ApnsSandboxChannelState:
 
 
 class ApnsSandboxChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

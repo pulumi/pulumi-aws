@@ -201,6 +201,9 @@ class _SubnetGroupState:
 
 
 class SubnetGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/subnetGroup:SubnetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

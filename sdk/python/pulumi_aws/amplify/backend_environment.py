@@ -176,6 +176,9 @@ class _BackendEnvironmentState:
 
 
 class BackendEnvironment(pulumi.CustomResource):
+
+    pulumi_type = "aws:amplify/backendEnvironment:BackendEnvironment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

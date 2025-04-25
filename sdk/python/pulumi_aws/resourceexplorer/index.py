@@ -159,6 +159,9 @@ class _IndexState:
 
 
 class Index(pulumi.CustomResource):
+
+    pulumi_type = "aws:resourceexplorer/index:Index"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

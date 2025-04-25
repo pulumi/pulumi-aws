@@ -514,6 +514,9 @@ class _ScheduledQueryState:
 
 
 class ScheduledQuery(pulumi.CustomResource):
+
+    pulumi_type = "aws:timestreamquery/scheduledQuery:ScheduledQuery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -214,6 +214,9 @@ class _ScheduleGroupState:
 
 
 class ScheduleGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:scheduler/scheduleGroup:ScheduleGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

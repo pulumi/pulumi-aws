@@ -265,6 +265,9 @@ class _SnapshotScheduleState:
 
 
 class SnapshotSchedule(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/snapshotSchedule:SnapshotSchedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

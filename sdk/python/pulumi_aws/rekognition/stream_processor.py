@@ -445,6 +445,9 @@ class _StreamProcessorState:
 
 
 class StreamProcessor(pulumi.CustomResource):
+
+    pulumi_type = "aws:rekognition/streamProcessor:StreamProcessor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

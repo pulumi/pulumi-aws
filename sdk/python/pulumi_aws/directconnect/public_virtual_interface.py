@@ -413,6 +413,9 @@ class _PublicVirtualInterfaceState:
 
 
 class PublicVirtualInterface(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/publicVirtualInterface:PublicVirtualInterface"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

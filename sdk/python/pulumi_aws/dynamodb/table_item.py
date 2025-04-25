@@ -159,6 +159,9 @@ class _TableItemState:
 
 
 class TableItem(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/tableItem:TableItem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

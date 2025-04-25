@@ -160,6 +160,9 @@ class _TagOptionResourceAssociationState:
 
 
 class TagOptionResourceAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -128,6 +128,9 @@ class _SecurityGroupAssociationState:
 
 
 class SecurityGroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/securityGroupAssociation:SecurityGroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

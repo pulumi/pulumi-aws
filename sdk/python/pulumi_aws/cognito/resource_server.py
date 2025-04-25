@@ -178,6 +178,9 @@ class _ResourceServerState:
 
 
 class ResourceServer(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/resourceServer:ResourceServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

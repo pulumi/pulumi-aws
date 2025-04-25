@@ -163,6 +163,9 @@ class _ObjectLambdaAccessPointState:
 
 
 class ObjectLambdaAccessPoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -169,6 +169,9 @@ class _RoutingControlState:
 
 
 class RoutingControl(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53recoverycontrol/routingControl:RoutingControl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

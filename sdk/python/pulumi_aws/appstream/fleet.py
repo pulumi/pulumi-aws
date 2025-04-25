@@ -682,6 +682,9 @@ class _FleetState:
 
 
 class Fleet(pulumi.CustomResource):
+
+    pulumi_type = "aws:appstream/fleet:Fleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -277,6 +277,9 @@ class _PermissionSetState:
 
 
 class PermissionSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssoadmin/permissionSet:PermissionSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

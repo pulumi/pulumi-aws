@@ -485,6 +485,9 @@ class _MLTransformState:
 
 
 class MLTransform(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/mLTransform:MLTransform"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

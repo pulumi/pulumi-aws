@@ -325,6 +325,9 @@ class _GrantState:
 
 
 class Grant(pulumi.CustomResource):
+
+    pulumi_type = "aws:kms/grant:Grant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

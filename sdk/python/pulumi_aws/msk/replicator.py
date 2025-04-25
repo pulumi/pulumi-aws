@@ -272,6 +272,9 @@ class _ReplicatorState:
 
 
 class Replicator(pulumi.CustomResource):
+
+    pulumi_type = "aws:msk/replicator:Replicator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

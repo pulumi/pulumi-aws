@@ -160,6 +160,9 @@ class _IdentityNotificationTopicState:
 
 
 class IdentityNotificationTopic(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/identityNotificationTopic:IdentityNotificationTopic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

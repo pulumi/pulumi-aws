@@ -159,6 +159,9 @@ class _UsagePlanKeyState:
 
 
 class UsagePlanKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/usagePlanKey:UsagePlanKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -97,6 +97,9 @@ class _EmailIdentityFeedbackAttributesState:
 
 
 class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -143,6 +143,9 @@ class _CustomDomainAssociationState:
 
 
 class CustomDomainAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

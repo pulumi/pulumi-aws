@@ -208,6 +208,9 @@ class _AccessLogSubscriptionState:
 
 
 class AccessLogSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpclattice/accessLogSubscription:AccessLogSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

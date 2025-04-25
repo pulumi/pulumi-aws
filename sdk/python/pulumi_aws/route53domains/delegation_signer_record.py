@@ -139,6 +139,9 @@ class _DelegationSignerRecordState:
 
 
 class DelegationSignerRecord(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53domains/delegationSignerRecord:DelegationSignerRecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

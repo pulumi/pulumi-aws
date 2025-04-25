@@ -779,6 +779,9 @@ class _ManagedUserPoolClientState:
 
 
 class ManagedUserPoolClient(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/managedUserPoolClient:ManagedUserPoolClient"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

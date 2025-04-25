@@ -96,6 +96,9 @@ class _GroupPoliciesExclusiveState:
 
 
 class GroupPoliciesExclusive(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

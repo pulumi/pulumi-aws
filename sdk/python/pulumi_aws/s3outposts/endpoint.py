@@ -257,6 +257,9 @@ class _EndpointState:
 
 
 class Endpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3outposts/endpoint:Endpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

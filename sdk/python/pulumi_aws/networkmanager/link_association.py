@@ -127,6 +127,9 @@ class _LinkAssociationState:
 
 
 class LinkAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/linkAssociation:LinkAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

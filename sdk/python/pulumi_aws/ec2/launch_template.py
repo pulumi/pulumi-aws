@@ -1324,6 +1324,9 @@ class _LaunchTemplateState:
 
 
 class LaunchTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/launchTemplate:LaunchTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

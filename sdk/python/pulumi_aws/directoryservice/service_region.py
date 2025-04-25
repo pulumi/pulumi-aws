@@ -213,6 +213,9 @@ class _ServiceRegionState:
 
 
 class ServiceRegion(pulumi.CustomResource):
+
+    pulumi_type = "aws:directoryservice/serviceRegion:ServiceRegion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -327,6 +327,9 @@ class _ResiliencyPolicyState:
 
 
 class ResiliencyPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

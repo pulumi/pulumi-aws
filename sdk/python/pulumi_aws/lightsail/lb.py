@@ -301,6 +301,9 @@ class _LbState:
 
 
 class Lb(pulumi.CustomResource):
+
+    pulumi_type = "aws:lightsail/lb:Lb"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

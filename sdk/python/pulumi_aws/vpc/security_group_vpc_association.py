@@ -138,6 +138,9 @@ class _SecurityGroupVpcAssociationState:
 
 
 class SecurityGroupVpcAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

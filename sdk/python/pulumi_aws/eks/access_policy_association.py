@@ -192,6 +192,9 @@ class _AccessPolicyAssociationState:
 
 
 class AccessPolicyAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:eks/accessPolicyAssociation:AccessPolicyAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

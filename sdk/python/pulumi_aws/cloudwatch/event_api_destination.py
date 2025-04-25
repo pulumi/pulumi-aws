@@ -239,6 +239,9 @@ class _EventApiDestinationState:
 
 
 class EventApiDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/eventApiDestination:EventApiDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

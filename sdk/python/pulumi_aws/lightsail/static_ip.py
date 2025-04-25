@@ -114,6 +114,9 @@ class _StaticIpState:
 
 
 class StaticIp(pulumi.CustomResource):
+
+    pulumi_type = "aws:lightsail/staticIp:StaticIp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -114,6 +114,9 @@ class _AssessmentTargetState:
 
 
 class AssessmentTarget(pulumi.CustomResource):
+
+    pulumi_type = "aws:inspector/assessmentTarget:AssessmentTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

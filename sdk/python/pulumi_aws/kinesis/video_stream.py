@@ -298,6 +298,9 @@ class _VideoStreamState:
 
 
 class VideoStream(pulumi.CustomResource):
+
+    pulumi_type = "aws:kinesis/videoStream:VideoStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

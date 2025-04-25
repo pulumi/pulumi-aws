@@ -193,6 +193,9 @@ class _SmsChannelState:
 
 
 class SmsChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/smsChannel:SmsChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

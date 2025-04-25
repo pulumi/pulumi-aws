@@ -385,6 +385,9 @@ class _SigningJobState:
 
 
 class SigningJob(pulumi.CustomResource):
+
+    pulumi_type = "aws:signer/signingJob:SigningJob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

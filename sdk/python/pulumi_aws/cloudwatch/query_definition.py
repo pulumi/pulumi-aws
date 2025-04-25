@@ -145,6 +145,9 @@ class _QueryDefinitionState:
 
 
 class QueryDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/queryDefinition:QueryDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

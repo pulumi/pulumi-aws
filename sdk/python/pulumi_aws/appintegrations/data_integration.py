@@ -261,6 +261,9 @@ class _DataIntegrationState:
 
 
 class DataIntegration(pulumi.CustomResource):
+
+    pulumi_type = "aws:appintegrations/dataIntegration:DataIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

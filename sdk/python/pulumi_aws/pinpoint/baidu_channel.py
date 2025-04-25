@@ -159,6 +159,9 @@ class _BaiduChannelState:
 
 
 class BaiduChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/baiduChannel:BaiduChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

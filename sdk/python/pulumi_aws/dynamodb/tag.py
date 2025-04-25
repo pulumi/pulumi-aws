@@ -127,6 +127,9 @@ class _TagState:
 
 
 class Tag(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/tag:Tag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -155,7 +158,7 @@ class Tag(pulumi.CustomResource):
             "region_name": replica.name,
         }])
         test = aws.dynamodb.Tag("test",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+            resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.name,
                 replace=replica.name)).apply(lambda invoke: invoke.result),
             key="testkey",
@@ -202,7 +205,7 @@ class Tag(pulumi.CustomResource):
             "region_name": replica.name,
         }])
         test = aws.dynamodb.Tag("test",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+            resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.name,
                 replace=replica.name)).apply(lambda invoke: invoke.result),
             key="testkey",

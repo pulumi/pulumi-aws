@@ -88,15 +88,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeCidrsubnet1, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   cidrBlock,
+//				Newbits: 4,
+//				Netnum:  pulumi.Int(azNumber[example.NameSuffix]),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			// Create a subnet for the AZ within the regional VPC
 //			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
 //				VpcId: exampleVpc.ID(),
 //				CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-//					return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-//						Input:   cidrBlock,
-//						Newbits: 4,
-//						Netnum:  pulumi.Int(azNumber[example.NameSuffix]),
-//					}, nil))), nil
+//					return std.CidrsubnetResult(invokeCidrsubnet1), nil
 //				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 //					return invoke.Result, nil
 //				}).(pulumi.StringPtrOutput)),

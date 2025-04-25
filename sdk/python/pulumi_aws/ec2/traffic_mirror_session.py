@@ -338,6 +338,9 @@ class _TrafficMirrorSessionState:
 
 
 class TrafficMirrorSession(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/trafficMirrorSession:TrafficMirrorSession"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

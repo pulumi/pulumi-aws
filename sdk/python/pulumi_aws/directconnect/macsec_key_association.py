@@ -201,6 +201,9 @@ class _MacsecKeyAssociationState:
 
 
 class MacsecKeyAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

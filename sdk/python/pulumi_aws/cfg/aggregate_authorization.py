@@ -164,6 +164,9 @@ class _AggregateAuthorizationState:
 
 
 class AggregateAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/aggregateAuthorization:AggregateAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

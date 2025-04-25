@@ -369,6 +369,9 @@ class _OrganizationManagedRuleState:
 
 
 class OrganizationManagedRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/organizationManagedRule:OrganizationManagedRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

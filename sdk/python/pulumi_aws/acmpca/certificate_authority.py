@@ -423,6 +423,9 @@ class _CertificateAuthorityState:
 
 
 class CertificateAuthority(pulumi.CustomResource):
+
+    pulumi_type = "aws:acmpca/certificateAuthority:CertificateAuthority"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

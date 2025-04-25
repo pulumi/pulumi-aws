@@ -192,6 +192,9 @@ class _AuthorizationRuleState:
 
 
 class AuthorizationRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2clientvpn/authorizationRule:AuthorizationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

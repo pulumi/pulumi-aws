@@ -98,6 +98,9 @@ class _PreferencesState:
 
 
 class Preferences(pulumi.CustomResource):
+
+    pulumi_type = "aws:costoptimizationhub/preferences:Preferences"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

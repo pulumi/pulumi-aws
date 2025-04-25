@@ -96,6 +96,9 @@ class _LogIndexPolicyState:
 
 
 class LogIndexPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/logIndexPolicy:LogIndexPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1007,6 +1007,9 @@ class _LustreFileSystemState:
 
 
 class LustreFileSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/lustreFileSystem:LustreFileSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

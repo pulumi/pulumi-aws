@@ -211,6 +211,9 @@ class _DirectoryBucketState:
 
 
 class DirectoryBucket(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/directoryBucket:DirectoryBucket"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

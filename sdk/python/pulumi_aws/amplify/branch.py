@@ -676,6 +676,9 @@ class _BranchState:
 
 
 class Branch(pulumi.CustomResource):
+
+    pulumi_type = "aws:amplify/branch:Branch"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

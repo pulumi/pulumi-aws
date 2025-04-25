@@ -65,6 +65,9 @@ class _OrganizationsAccessState:
 
 
 class OrganizationsAccess(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/organizationsAccess:OrganizationsAccess"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

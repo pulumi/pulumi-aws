@@ -200,6 +200,9 @@ class _VpcEndpointConnectionNotificationState:
 
 
 class VpcEndpointConnectionNotification(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

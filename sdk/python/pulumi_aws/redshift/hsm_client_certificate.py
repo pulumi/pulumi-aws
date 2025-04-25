@@ -149,6 +149,9 @@ class _HsmClientCertificateState:
 
 
 class HsmClientCertificate(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/hsmClientCertificate:HsmClientCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

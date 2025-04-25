@@ -201,6 +201,9 @@ class _SdkvoiceSipRuleState:
 
 
 class SdkvoiceSipRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

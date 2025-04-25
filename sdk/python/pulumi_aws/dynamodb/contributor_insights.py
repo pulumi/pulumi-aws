@@ -97,6 +97,9 @@ class _ContributorInsightsState:
 
 
 class ContributorInsights(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/contributorInsights:ContributorInsights"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

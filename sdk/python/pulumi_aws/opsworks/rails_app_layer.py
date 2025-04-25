@@ -959,6 +959,9 @@ class _RailsAppLayerState:
 
 
 class RailsAppLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/railsAppLayer:RailsAppLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

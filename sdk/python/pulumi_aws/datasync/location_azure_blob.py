@@ -337,6 +337,9 @@ class _LocationAzureBlobState:
 
 
 class LocationAzureBlob(pulumi.CustomResource):
+
+    pulumi_type = "aws:datasync/locationAzureBlob:LocationAzureBlob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

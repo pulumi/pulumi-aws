@@ -797,6 +797,9 @@ class _StackState:
 
 
 class Stack(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/stack:Stack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

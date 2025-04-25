@@ -193,6 +193,9 @@ class _MemberDetectorFeatureState:
 
 
 class MemberDetectorFeature(pulumi.CustomResource):
+
+    pulumi_type = "aws:guardduty/memberDetectorFeature:MemberDetectorFeature"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

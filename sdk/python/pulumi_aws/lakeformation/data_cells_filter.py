@@ -92,6 +92,9 @@ class _DataCellsFilterState:
 
 
 class DataCellsFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws:lakeformation/dataCellsFilter:DataCellsFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

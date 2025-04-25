@@ -441,6 +441,9 @@ class _ScheduleState:
 
 
 class Schedule(pulumi.CustomResource):
+
+    pulumi_type = "aws:scheduler/schedule:Schedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

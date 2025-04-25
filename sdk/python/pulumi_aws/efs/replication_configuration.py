@@ -166,6 +166,9 @@ class _ReplicationConfigurationState:
 
 
 class ReplicationConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:efs/replicationConfiguration:ReplicationConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

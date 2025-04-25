@@ -96,6 +96,9 @@ class _DataProtectionPolicyState:
 
 
 class DataProtectionPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:sns/dataProtectionPolicy:DataProtectionPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

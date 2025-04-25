@@ -250,6 +250,9 @@ class _PodIdentityAssociationState:
 
 
 class PodIdentityAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:eks/podIdentityAssociation:PodIdentityAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

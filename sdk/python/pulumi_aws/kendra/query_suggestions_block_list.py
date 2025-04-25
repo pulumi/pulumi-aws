@@ -273,6 +273,9 @@ class _QuerySuggestionsBlockListState:
 
 
 class QuerySuggestionsBlockList(pulumi.CustomResource):
+
+    pulumi_type = "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

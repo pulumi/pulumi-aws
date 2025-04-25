@@ -176,6 +176,9 @@ class _KeyspaceState:
 
 
 class Keyspace(pulumi.CustomResource):
+
+    pulumi_type = "aws:keyspaces/keyspace:Keyspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

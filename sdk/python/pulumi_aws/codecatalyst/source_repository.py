@@ -168,6 +168,9 @@ class _SourceRepositoryState:
 
 
 class SourceRepository(pulumi.CustomResource):
+
+    pulumi_type = "aws:codecatalyst/sourceRepository:SourceRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

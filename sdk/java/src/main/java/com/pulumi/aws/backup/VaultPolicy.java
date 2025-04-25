@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()
  *             .backupVaultName(exampleVault.name())
- *             .policy(example.applyValue(_example -> _example.json()))
+ *             .policy(example.json())
  *             .build());
  * 
  *     }

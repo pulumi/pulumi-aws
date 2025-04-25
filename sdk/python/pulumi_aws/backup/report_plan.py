@@ -262,6 +262,9 @@ class _ReportPlanState:
 
 
 class ReportPlan(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/reportPlan:ReportPlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

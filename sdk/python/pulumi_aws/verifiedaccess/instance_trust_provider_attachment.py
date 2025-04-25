@@ -96,6 +96,9 @@ class _InstanceTrustProviderAttachmentState:
 
 
 class InstanceTrustProviderAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

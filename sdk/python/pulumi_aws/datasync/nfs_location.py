@@ -241,6 +241,9 @@ class _NfsLocationState:
 
 
 class NfsLocation(pulumi.CustomResource):
+
+    pulumi_type = "aws:datasync/nfsLocation:NfsLocation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

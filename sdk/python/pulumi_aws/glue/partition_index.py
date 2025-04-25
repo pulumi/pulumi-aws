@@ -161,6 +161,9 @@ class _PartitionIndexState:
 
 
 class PartitionIndex(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/partitionIndex:PartitionIndex"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

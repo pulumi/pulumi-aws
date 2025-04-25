@@ -587,6 +587,9 @@ class _ContainerRecipeState:
 
 
 class ContainerRecipe(pulumi.CustomResource):
+
+    pulumi_type = "aws:imagebuilder/containerRecipe:ContainerRecipe"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

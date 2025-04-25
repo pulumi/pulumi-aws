@@ -261,6 +261,9 @@ class _AssessmentTemplateState:
 
 
 class AssessmentTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws:inspector/assessmentTemplate:AssessmentTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

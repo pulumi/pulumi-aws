@@ -96,6 +96,9 @@ class _ResourceAssociationState:
 
 
 class ResourceAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ram/resourceAssociation:ResourceAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

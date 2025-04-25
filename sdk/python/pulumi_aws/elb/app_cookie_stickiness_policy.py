@@ -171,6 +171,9 @@ class _AppCookieStickinessPolicyState:
 
 
 class AppCookieStickinessPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

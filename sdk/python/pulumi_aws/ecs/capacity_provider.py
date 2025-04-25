@@ -167,6 +167,9 @@ class _CapacityProviderState:
 
 
 class CapacityProvider(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecs/capacityProvider:CapacityProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

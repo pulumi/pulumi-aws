@@ -266,6 +266,9 @@ class _ExperienceState:
 
 
 class Experience(pulumi.CustomResource):
+
+    pulumi_type = "aws:kendra/experience:Experience"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -184,6 +184,9 @@ class _IpGroupState:
 
 
 class IpGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:workspaces/ipGroup:IpGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

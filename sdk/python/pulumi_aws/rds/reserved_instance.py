@@ -399,6 +399,9 @@ class _ReservedInstanceState:
 
 
 class ReservedInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/reservedInstance:ReservedInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

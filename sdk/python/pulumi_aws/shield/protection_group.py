@@ -259,6 +259,9 @@ class _ProtectionGroupState:
 
 
 class ProtectionGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:shield/protectionGroup:ProtectionGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

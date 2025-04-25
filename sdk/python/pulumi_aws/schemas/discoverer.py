@@ -165,6 +165,9 @@ class _DiscovererState:
 
 
 class Discoverer(pulumi.CustomResource):
+
+    pulumi_type = "aws:schemas/discoverer:Discoverer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

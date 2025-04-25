@@ -132,6 +132,9 @@ class _PolicyStoreState:
 
 
 class PolicyStore(pulumi.CustomResource):
+
+    pulumi_type = "aws:verifiedpermissions/policyStore:PolicyStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

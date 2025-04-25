@@ -96,6 +96,9 @@ class _ConnectionAssociationState:
 
 
 class ConnectionAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/connectionAssociation:ConnectionAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

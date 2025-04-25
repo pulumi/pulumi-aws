@@ -224,6 +224,9 @@ class _AgentAgentKnowledgeBaseAssociationState:
 
 
 class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

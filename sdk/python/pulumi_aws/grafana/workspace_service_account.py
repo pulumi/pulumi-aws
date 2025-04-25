@@ -144,6 +144,9 @@ class _WorkspaceServiceAccountState:
 
 
 class WorkspaceServiceAccount(pulumi.CustomResource):
+
+    pulumi_type = "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

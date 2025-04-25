@@ -116,6 +116,9 @@ class _SizeConstraintSetState:
 
 
 class SizeConstraintSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:waf/sizeConstraintSet:SizeConstraintSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

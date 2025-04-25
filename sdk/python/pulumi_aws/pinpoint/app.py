@@ -280,6 +280,9 @@ class _AppState:
 
 
 class App(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/app:App"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

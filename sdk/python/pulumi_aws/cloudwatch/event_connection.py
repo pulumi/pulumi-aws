@@ -226,6 +226,9 @@ class _EventConnectionState:
 
 
 class EventConnection(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/eventConnection:EventConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

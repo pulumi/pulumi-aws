@@ -278,6 +278,9 @@ class _VirtualRouterState:
 
 
 class VirtualRouter(pulumi.CustomResource):
+
+    pulumi_type = "aws:appmesh/virtualRouter:VirtualRouter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

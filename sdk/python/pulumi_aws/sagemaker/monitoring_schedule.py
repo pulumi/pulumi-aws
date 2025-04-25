@@ -167,6 +167,9 @@ class _MonitoringScheduleState:
 
 
 class MonitoringSchedule(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/monitoringSchedule:MonitoringSchedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

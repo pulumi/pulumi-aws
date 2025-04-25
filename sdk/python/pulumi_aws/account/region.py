@@ -144,6 +144,9 @@ class _RegionState:
 
 
 class Region(pulumi.CustomResource):
+
+    pulumi_type = "aws:account/region:Region"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

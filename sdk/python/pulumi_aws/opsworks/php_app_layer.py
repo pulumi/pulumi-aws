@@ -767,6 +767,9 @@ class _PhpAppLayerState:
 
 
 class PhpAppLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/phpAppLayer:PhpAppLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

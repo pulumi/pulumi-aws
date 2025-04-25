@@ -160,6 +160,9 @@ class _MethodSettingsState:
 
 
 class MethodSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/methodSettings:MethodSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

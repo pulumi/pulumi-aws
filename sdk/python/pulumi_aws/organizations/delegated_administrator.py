@@ -208,6 +208,9 @@ class _DelegatedAdministratorState:
 
 
 class DelegatedAdministrator(pulumi.CustomResource):
+
+    pulumi_type = "aws:organizations/delegatedAdministrator:DelegatedAdministrator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

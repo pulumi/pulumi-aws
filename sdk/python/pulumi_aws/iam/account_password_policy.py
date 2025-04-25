@@ -338,6 +338,9 @@ class _AccountPasswordPolicyState:
 
 
 class AccountPasswordPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/accountPasswordPolicy:AccountPasswordPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

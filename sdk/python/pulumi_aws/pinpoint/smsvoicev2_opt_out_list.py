@@ -134,6 +134,9 @@ class _Smsvoicev2OptOutListState:
 
 
 class Smsvoicev2OptOutList(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

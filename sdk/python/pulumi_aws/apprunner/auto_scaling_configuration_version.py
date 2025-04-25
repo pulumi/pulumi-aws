@@ -301,6 +301,9 @@ class _AutoScalingConfigurationVersionState:
 
 
 class AutoScalingConfigurationVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

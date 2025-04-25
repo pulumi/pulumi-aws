@@ -145,6 +145,9 @@ class _VpcIpamPreviewNextCidrState:
 
 
 class VpcIpamPreviewNextCidr(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

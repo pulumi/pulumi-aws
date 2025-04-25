@@ -368,6 +368,9 @@ class _MemberState:
 
 
 class Member(pulumi.CustomResource):
+
+    pulumi_type = "aws:macie2/member:Member"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -453,6 +453,9 @@ class _EntityRecognizerState:
 
 
 class EntityRecognizer(pulumi.CustomResource):
+
+    pulumi_type = "aws:comprehend/entityRecognizer:EntityRecognizer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -105,6 +105,9 @@ class _AccountSettingState:
 
 
 class AccountSetting(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecr/accountSetting:AccountSetting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

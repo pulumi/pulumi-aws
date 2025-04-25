@@ -292,6 +292,9 @@ class _FlowDefinitionState:
 
 
 class FlowDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/flowDefinition:FlowDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

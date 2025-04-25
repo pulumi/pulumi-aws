@@ -398,6 +398,9 @@ class _PipelineState:
 
 
 class Pipeline(pulumi.CustomResource):
+
+    pulumi_type = "aws:elastictranscoder/pipeline:Pipeline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

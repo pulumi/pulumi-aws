@@ -909,6 +909,9 @@ class _SmbFileShareState:
 
 
 class SmbFileShare(pulumi.CustomResource):
+
+    pulumi_type = "aws:storagegateway/smbFileShare:SmbFileShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

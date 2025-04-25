@@ -146,6 +146,9 @@ class _ScalingPlanState:
 
 
 class ScalingPlan(pulumi.CustomResource):
+
+    pulumi_type = "aws:autoscalingplans/scalingPlan:ScalingPlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
