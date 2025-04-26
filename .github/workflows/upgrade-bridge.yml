@@ -49,6 +49,11 @@ on:
         required: false
         type: boolean
         default: false
+      patch-release:
+        description: Whether to create a patch release
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -100,7 +105,7 @@ jobs:
         tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
     - name: Call upgrade provider action
       if: github.event_name == 'workflow_dispatch'
-      uses: pulumi/pulumi-upgrade-provider-action@ff5cb5907aecba099e61146c4d4d074c7fd6ca99 # v0.0.15
+      uses: pulumi/pulumi-upgrade-provider-action@819d5a53c48d0c7ddd67acbc82eb220b342084eb # v0.0.16
       with:
         kind: ${{ inputs.kind }}
         email: bot@pulumi.com
@@ -111,9 +116,10 @@ jobs:
         pr-reviewers: ${{ inputs.pr-reviewers }}
         pr-description: ${{ inputs.pr-description }}
         pr-title-prefix: ${{ inputs.pr-title-prefix }}
+        patch-release: ${{ github.event.client_payload.patch-release }}
     - name: Call upgrade provider action
       if: github.event_name == 'repository_dispatch'
-      uses: pulumi/pulumi-upgrade-provider-action@ff5cb5907aecba099e61146c4d4d074c7fd6ca99 # v0.0.15
+      uses: pulumi/pulumi-upgrade-provider-action@819d5a53c48d0c7ddd67acbc82eb220b342084eb # v0.0.16
       with:
         kind: ${{ github.event.client_payload.kind || 'bridge' }}
         email: bot@pulumi.com
@@ -124,3 +130,4 @@ jobs:
         pr-reviewers: ${{ github.event.client_payload.pr-reviewers }}
         pr-description: ${{ github.event.client_payload.pr-description }}
         pr-title-prefix: ${{ github.event.client_payload.pr-title-prefix }}
+        patch-release: ${{ github.event.client_payload.patch-release }}

@@ -148,7 +148,7 @@ build_nodejs: .make/build_nodejs
 	cd sdk/nodejs/ && \
 		yarn install && \
 		yarn run tsc && \
-		cp ../../README.md ../../LICENSE* package.json yarn.lock ./bin/
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
 	@touch $@
 .PHONY: generate_nodejs build_nodejs
 
