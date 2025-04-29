@@ -27,6 +27,9 @@ class SharingWithOrganizationArgs:
 
 
 class SharingWithOrganization(pulumi.CustomResource):
+
+    pulumi_type = "aws:ram/sharingWithOrganization:SharingWithOrganization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

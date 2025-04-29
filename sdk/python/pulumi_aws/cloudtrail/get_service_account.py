@@ -92,7 +92,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     allow_cloudtrail_logging = pulumi.Output.all(
         bucketArn=bucket.arn,
         bucketArn1=bucket.arn
-    ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
+    ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[
         {
             "sid": "Put bucket policy needed for trails",
             "effect": "Allow",
@@ -154,7 +154,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     allow_cloudtrail_logging = pulumi.Output.all(
         bucketArn=bucket.arn,
         bucketArn1=bucket.arn
-    ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
+    ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[
         {
             "sid": "Put bucket policy needed for trails",
             "effect": "Allow",

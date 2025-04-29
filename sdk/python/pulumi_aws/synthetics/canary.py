@@ -715,6 +715,9 @@ class _CanaryState:
 
 
 class Canary(pulumi.CustomResource):
+
+    pulumi_type = "aws:synthetics/canary:Canary"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

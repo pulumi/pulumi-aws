@@ -138,6 +138,9 @@ class _FastSnapshotRestoreState:
 
 
 class FastSnapshotRestore(pulumi.CustomResource):
+
+    pulumi_type = "aws:ebs/fastSnapshotRestore:FastSnapshotRestore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

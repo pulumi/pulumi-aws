@@ -165,6 +165,9 @@ class _ModelPackageGroupState:
 
 
 class ModelPackageGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/modelPackageGroup:ModelPackageGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

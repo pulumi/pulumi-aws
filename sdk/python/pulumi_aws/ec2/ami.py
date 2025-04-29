@@ -804,6 +804,9 @@ class _AmiState:
 
 
 class Ami(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/ami:Ami"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

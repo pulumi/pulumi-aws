@@ -251,6 +251,9 @@ class _UserHierarchyGroupState:
 
 
 class UserHierarchyGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/userHierarchyGroup:UserHierarchyGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

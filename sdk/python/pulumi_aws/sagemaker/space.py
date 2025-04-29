@@ -326,6 +326,9 @@ class _SpaceState:
 
 
 class Space(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/space:Space"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

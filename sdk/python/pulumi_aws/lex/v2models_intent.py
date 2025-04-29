@@ -617,6 +617,9 @@ class _V2modelsIntentState:
 
 
 class V2modelsIntent(pulumi.CustomResource):
+
+    pulumi_type = "aws:lex/v2modelsIntent:V2modelsIntent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

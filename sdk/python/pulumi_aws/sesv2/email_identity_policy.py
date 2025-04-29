@@ -127,6 +127,9 @@ class _EmailIdentityPolicyState:
 
 
 class EmailIdentityPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

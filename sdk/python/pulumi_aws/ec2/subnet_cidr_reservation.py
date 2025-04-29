@@ -175,6 +175,9 @@ class _SubnetCidrReservationState:
 
 
 class SubnetCidrReservation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/subnetCidrReservation:SubnetCidrReservation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

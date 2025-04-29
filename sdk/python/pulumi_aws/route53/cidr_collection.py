@@ -98,6 +98,9 @@ class _CidrCollectionState:
 
 
 class CidrCollection(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/cidrCollection:CidrCollection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

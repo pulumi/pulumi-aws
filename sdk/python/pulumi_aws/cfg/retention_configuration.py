@@ -81,6 +81,9 @@ class _RetentionConfigurationState:
 
 
 class RetentionConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/retentionConfiguration:RetentionConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

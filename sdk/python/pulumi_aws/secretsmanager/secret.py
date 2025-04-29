@@ -360,6 +360,9 @@ class _SecretState:
 
 
 class Secret(pulumi.CustomResource):
+
+    pulumi_type = "aws:secretsmanager/secret:Secret"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

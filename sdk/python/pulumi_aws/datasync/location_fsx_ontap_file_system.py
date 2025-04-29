@@ -285,6 +285,9 @@ class _LocationFsxOntapFileSystemState:
 
 
 class LocationFsxOntapFileSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

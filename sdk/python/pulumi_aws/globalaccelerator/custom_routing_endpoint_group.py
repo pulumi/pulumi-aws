@@ -178,6 +178,9 @@ class _CustomRoutingEndpointGroupState:
 
 
 class CustomRoutingEndpointGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

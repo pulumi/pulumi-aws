@@ -112,6 +112,9 @@ class _TopicPolicyState:
 
 
 class TopicPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:sns/topicPolicy:TopicPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

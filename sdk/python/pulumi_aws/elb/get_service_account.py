@@ -90,7 +90,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
         "effect": "Allow",
         "principals": [{
             "type": "AWS",
@@ -149,7 +149,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
         "effect": "Allow",
         "principals": [{
             "type": "AWS",

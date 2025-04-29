@@ -749,6 +749,9 @@ class _TopicRuleState:
 
 
 class TopicRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/topicRule:TopicRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

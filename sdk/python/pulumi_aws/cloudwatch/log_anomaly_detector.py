@@ -312,6 +312,9 @@ class _LogAnomalyDetectorState:
 
 
 class LogAnomalyDetector(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

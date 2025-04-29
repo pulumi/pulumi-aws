@@ -175,6 +175,9 @@ class _ConnectionAliasState:
 
 
 class ConnectionAlias(pulumi.CustomResource):
+
+    pulumi_type = "aws:workspaces/connectionAlias:ConnectionAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

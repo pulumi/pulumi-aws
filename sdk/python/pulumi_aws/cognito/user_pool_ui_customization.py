@@ -225,6 +225,9 @@ class _UserPoolUICustomizationState:
 
 
 class UserPoolUICustomization(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/userPoolUICustomization:UserPoolUICustomization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

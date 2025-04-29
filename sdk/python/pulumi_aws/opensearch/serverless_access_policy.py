@@ -184,6 +184,9 @@ class _ServerlessAccessPolicyState:
 
 
 class ServerlessAccessPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

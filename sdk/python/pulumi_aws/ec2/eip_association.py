@@ -254,6 +254,9 @@ class _EipAssociationState:
 
 
 class EipAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/eipAssociation:EipAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

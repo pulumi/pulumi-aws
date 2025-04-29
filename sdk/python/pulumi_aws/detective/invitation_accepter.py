@@ -65,6 +65,9 @@ class _InvitationAccepterState:
 
 
 class InvitationAccepter(pulumi.CustomResource):
+
+    pulumi_type = "aws:detective/invitationAccepter:InvitationAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

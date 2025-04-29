@@ -121,6 +121,9 @@ class _VpcIpamOrganizationAdminAccountState:
 
 
 class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

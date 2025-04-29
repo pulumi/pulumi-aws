@@ -190,6 +190,9 @@ class _AppregistryApplicationState:
 
 
 class AppregistryApplication(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/appregistryApplication:AppregistryApplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

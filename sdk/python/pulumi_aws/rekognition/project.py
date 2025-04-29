@@ -232,6 +232,9 @@ class _ProjectState:
 
 
 class Project(pulumi.CustomResource):
+
+    pulumi_type = "aws:rekognition/project:Project"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -160,6 +160,9 @@ class _LicenseAssociationState:
 
 
 class LicenseAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:grafana/licenseAssociation:LicenseAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

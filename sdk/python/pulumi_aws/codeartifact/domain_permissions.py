@@ -176,6 +176,9 @@ class _DomainPermissionsState:
 
 
 class DomainPermissions(pulumi.CustomResource):
+
+    pulumi_type = "aws:codeartifact/domainPermissions:DomainPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

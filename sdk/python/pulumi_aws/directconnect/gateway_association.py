@@ -285,6 +285,9 @@ class _GatewayAssociationState:
 
 
 class GatewayAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/gatewayAssociation:GatewayAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

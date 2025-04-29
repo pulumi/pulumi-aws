@@ -167,6 +167,9 @@ class _ProvisionedConcurrencyConfigState:
 
 
 class ProvisionedConcurrencyConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -208,6 +208,9 @@ class _PullThroughCacheRuleState:
 
 
 class PullThroughCacheRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecr/pullThroughCacheRule:PullThroughCacheRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

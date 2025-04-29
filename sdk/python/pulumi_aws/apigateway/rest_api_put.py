@@ -226,6 +226,9 @@ class _RestApiPutState:
 
 
 class RestApiPut(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/restApiPut:RestApiPut"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

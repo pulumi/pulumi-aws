@@ -462,6 +462,9 @@ class _ParameterState:
 
 
 class Parameter(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/parameter:Parameter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

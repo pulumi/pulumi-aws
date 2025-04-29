@@ -342,6 +342,9 @@ class _CustomDataIdentifierState:
 
 
 class CustomDataIdentifier(pulumi.CustomResource):
+
+    pulumi_type = "aws:macie/customDataIdentifier:CustomDataIdentifier"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

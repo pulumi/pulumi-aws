@@ -312,6 +312,9 @@ class _RoutingProfileState:
 
 
 class RoutingProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/routingProfile:RoutingProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

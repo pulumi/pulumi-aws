@@ -246,6 +246,9 @@ class _ProfilesResourceAssociationState:
 
 
 class ProfilesResourceAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/profilesResourceAssociation:ProfilesResourceAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

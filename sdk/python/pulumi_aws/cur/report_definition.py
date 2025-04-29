@@ -447,6 +447,9 @@ class _ReportDefinitionState:
 
 
 class ReportDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws:cur/reportDefinition:ReportDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

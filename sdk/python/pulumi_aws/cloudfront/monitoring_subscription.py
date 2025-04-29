@@ -98,6 +98,9 @@ class _MonitoringSubscriptionState:
 
 
 class MonitoringSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/monitoringSubscription:MonitoringSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

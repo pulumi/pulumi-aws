@@ -144,6 +144,9 @@ class _SigningCertificateState:
 
 
 class SigningCertificate(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/signingCertificate:SigningCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

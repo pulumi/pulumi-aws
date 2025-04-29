@@ -322,6 +322,9 @@ class _StatementState:
 
 
 class Statement(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshiftdata/statement:Statement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

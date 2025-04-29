@@ -112,6 +112,9 @@ class _ResourceState:
 
 
 class Resource(pulumi.CustomResource):
+
+    pulumi_type = "aws:resourcegroups/resource:Resource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

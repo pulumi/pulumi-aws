@@ -276,6 +276,9 @@ class _TrustStoreState:
 
 
 class TrustStore(pulumi.CustomResource):
+
+    pulumi_type = "aws:lb/trustStore:TrustStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

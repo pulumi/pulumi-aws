@@ -345,6 +345,9 @@ class _CaCertificateState:
 
 
 class CaCertificate(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/caCertificate:CaCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

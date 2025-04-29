@@ -360,6 +360,9 @@ class _CatalogDatabaseState:
 
 
 class CatalogDatabase(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/catalogDatabase:CatalogDatabase"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

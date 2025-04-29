@@ -189,6 +189,9 @@ class _BucketReplicationConfigState:
 
 
 class BucketReplicationConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketReplicationConfig:BucketReplicationConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

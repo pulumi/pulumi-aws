@@ -112,6 +112,9 @@ class _QueryLogState:
 
 
 class QueryLog(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/queryLog:QueryLog"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

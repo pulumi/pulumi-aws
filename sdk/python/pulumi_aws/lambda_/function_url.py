@@ -242,6 +242,9 @@ class _FunctionUrlState:
 
 
 class FunctionUrl(pulumi.CustomResource):
+
+    pulumi_type = "aws:lambda/functionUrl:FunctionUrl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

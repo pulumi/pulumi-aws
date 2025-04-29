@@ -214,6 +214,9 @@ class _AccountPublicAccessBlockState:
 
 
 class AccountPublicAccessBlock(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

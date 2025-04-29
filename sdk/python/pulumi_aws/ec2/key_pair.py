@@ -245,6 +245,9 @@ class _KeyPairState:
 
 
 class KeyPair(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/keyPair:KeyPair"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

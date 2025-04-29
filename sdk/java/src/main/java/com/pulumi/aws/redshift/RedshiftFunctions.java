@@ -1216,7 +1216,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }
@@ -1301,7 +1301,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }
@@ -1386,7 +1386,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }
@@ -1471,7 +1471,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }
@@ -1556,7 +1556,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }
@@ -1641,7 +1641,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }
@@ -1726,7 +1726,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
+     *             .policy(allowAuditLogging.json())
      *             .build());
      * 
      *     }

@@ -207,6 +207,9 @@ class _AnalyzerState:
 
 
 class Analyzer(pulumi.CustomResource):
+
+    pulumi_type = "aws:accessanalyzer/analyzer:Analyzer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

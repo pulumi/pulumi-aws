@@ -331,6 +331,9 @@ class _ApplicationVersionState:
 
 
 class ApplicationVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:elasticbeanstalk/applicationVersion:ApplicationVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _UserGroupMembershipState:
 
 
 class UserGroupMembership(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/userGroupMembership:UserGroupMembership"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

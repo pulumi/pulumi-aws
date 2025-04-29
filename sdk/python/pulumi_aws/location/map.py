@@ -238,6 +238,9 @@ class _MapState:
 
 
 class Map(pulumi.CustomResource):
+
+    pulumi_type = "aws:location/map:Map"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

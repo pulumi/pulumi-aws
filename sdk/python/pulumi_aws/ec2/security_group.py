@@ -348,6 +348,9 @@ class _SecurityGroupState:
 
 
 class SecurityGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/securityGroup:SecurityGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

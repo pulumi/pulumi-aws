@@ -392,6 +392,9 @@ class _EventDataStoreState:
 
 
 class EventDataStore(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudtrail/eventDataStore:EventDataStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

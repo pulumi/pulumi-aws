@@ -195,6 +195,9 @@ class _SourceCredentialState:
 
 
 class SourceCredential(pulumi.CustomResource):
+
+    pulumi_type = "aws:codebuild/sourceCredential:SourceCredential"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

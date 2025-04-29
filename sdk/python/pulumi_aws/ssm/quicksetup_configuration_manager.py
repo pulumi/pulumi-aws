@@ -248,6 +248,9 @@ class _QuicksetupConfigurationManagerState:
 
 
 class QuicksetupConfigurationManager(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

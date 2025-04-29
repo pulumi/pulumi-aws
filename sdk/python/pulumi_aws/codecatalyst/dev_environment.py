@@ -287,6 +287,9 @@ class _DevEnvironmentState:
 
 
 class DevEnvironment(pulumi.CustomResource):
+
+    pulumi_type = "aws:codecatalyst/devEnvironment:DevEnvironment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

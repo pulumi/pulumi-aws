@@ -100,6 +100,9 @@ class _ByteMatchSetState:
 
 
 class ByteMatchSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:wafregional/byteMatchSet:ByteMatchSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

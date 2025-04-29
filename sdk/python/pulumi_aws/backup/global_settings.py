@@ -65,6 +65,9 @@ class _GlobalSettingsState:
 
 
 class GlobalSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/globalSettings:GlobalSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

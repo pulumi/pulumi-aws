@@ -115,6 +115,9 @@ class _TopicRuleDestinationState:
 
 
 class TopicRuleDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/topicRuleDestination:TopicRuleDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

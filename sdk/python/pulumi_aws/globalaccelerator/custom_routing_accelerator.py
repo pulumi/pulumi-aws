@@ -316,6 +316,9 @@ class _CustomRoutingAcceleratorState:
 
 
 class CustomRoutingAccelerator(pulumi.CustomResource):
+
+    pulumi_type = "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

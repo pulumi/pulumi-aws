@@ -98,6 +98,9 @@ class _VoiceConnectorTerminationCredentialsState:
 
 
 class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
+
+    pulumi_type = "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

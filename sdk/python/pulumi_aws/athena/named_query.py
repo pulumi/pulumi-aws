@@ -192,6 +192,9 @@ class _NamedQueryState:
 
 
 class NamedQuery(pulumi.CustomResource):
+
+    pulumi_type = "aws:athena/namedQuery:NamedQuery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

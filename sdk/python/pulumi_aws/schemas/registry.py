@@ -166,6 +166,9 @@ class _RegistryState:
 
 
 class Registry(pulumi.CustomResource):
+
+    pulumi_type = "aws:schemas/registry:Registry"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

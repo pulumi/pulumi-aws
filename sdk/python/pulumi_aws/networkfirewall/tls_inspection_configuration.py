@@ -332,6 +332,9 @@ class _TlsInspectionConfigurationState:
 
 
 class TlsInspectionConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

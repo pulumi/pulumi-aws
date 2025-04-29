@@ -273,6 +273,9 @@ class _DeviceFleetState:
 
 
 class DeviceFleet(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/deviceFleet:DeviceFleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

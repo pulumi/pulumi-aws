@@ -279,6 +279,9 @@ class _BgpPeerState:
 
 
 class BgpPeer(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/bgpPeer:BgpPeer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

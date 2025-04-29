@@ -177,6 +177,9 @@ class _GcmChannelState:
 
 
 class GcmChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/gcmChannel:GcmChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

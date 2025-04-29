@@ -215,6 +215,9 @@ class _MedicalVocabularyState:
 
 
 class MedicalVocabulary(pulumi.CustomResource):
+
+    pulumi_type = "aws:transcribe/medicalVocabulary:MedicalVocabulary"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

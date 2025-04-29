@@ -592,6 +592,9 @@ class _VpcIpamPoolState:
 
 
 class VpcIpamPool(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpamPool:VpcIpamPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

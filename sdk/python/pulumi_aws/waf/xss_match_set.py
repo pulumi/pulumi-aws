@@ -116,6 +116,9 @@ class _XssMatchSetState:
 
 
 class XssMatchSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:waf/xssMatchSet:XssMatchSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

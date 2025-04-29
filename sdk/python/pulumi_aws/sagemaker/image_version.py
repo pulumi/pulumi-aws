@@ -380,6 +380,9 @@ class _ImageVersionState:
 
 
 class ImageVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/imageVersion:ImageVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

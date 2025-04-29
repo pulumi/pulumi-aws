@@ -236,6 +236,9 @@ class _RouteCalculationState:
 
 
 class RouteCalculation(pulumi.CustomResource):
+
+    pulumi_type = "aws:location/routeCalculation:RouteCalculation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

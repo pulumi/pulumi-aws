@@ -96,6 +96,9 @@ class _RolePolicyAttachmentState:
 
 
 class RolePolicyAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/rolePolicyAttachment:RolePolicyAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

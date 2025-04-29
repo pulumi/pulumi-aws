@@ -240,6 +240,9 @@ class _CrossAccountAttachmentState:
 
 
 class CrossAccountAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

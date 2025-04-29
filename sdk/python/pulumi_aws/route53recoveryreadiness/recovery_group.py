@@ -173,6 +173,9 @@ class _RecoveryGroupState:
 
 
 class RecoveryGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

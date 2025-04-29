@@ -420,6 +420,9 @@ class _SlackChannelConfigurationState:
 
 
 class SlackChannelConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

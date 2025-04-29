@@ -363,6 +363,9 @@ class _PresetState:
 
 
 class Preset(pulumi.CustomResource):
+
+    pulumi_type = "aws:elastictranscoder/preset:Preset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

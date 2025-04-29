@@ -192,6 +192,9 @@ class _ResponseState:
 
 
 class Response(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/response:Response"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

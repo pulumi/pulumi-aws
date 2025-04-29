@@ -428,6 +428,9 @@ class _V2modelsSlotState:
 
 
 class V2modelsSlot(pulumi.CustomResource):
+
+    pulumi_type = "aws:lex/v2modelsSlot:V2modelsSlot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -144,6 +144,9 @@ class _WebsiteCertificateAuthorityAssociationState:
 
 
 class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -358,6 +358,9 @@ class _CompositeAlarmState:
 
 
 class CompositeAlarm(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/compositeAlarm:CompositeAlarm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

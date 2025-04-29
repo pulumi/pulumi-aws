@@ -91,6 +91,9 @@ class _DomainDkimState:
 
 
 class DomainDkim(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/domainDkim:DomainDkim"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

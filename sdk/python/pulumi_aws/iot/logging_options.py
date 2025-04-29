@@ -128,6 +128,9 @@ class _LoggingOptionsState:
 
 
 class LoggingOptions(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/loggingOptions:LoggingOptions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

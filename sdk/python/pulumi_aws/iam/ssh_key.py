@@ -191,6 +191,9 @@ class _SshKeyState:
 
 
 class SshKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/sshKey:SshKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

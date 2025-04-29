@@ -1112,6 +1112,9 @@ class _ClusterState:
 
 
 class Cluster(pulumi.CustomResource):
+
+    pulumi_type = "aws:neptune/cluster:Cluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

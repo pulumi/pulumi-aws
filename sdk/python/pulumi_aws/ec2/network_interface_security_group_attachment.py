@@ -96,6 +96,9 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
 
 
 class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

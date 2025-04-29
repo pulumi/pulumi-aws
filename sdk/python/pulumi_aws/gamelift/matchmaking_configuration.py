@@ -583,6 +583,9 @@ warnings.warn("""This resource will be removed in the next major version. Consid
 class MatchmakingConfiguration(pulumi.CustomResource):
     warnings.warn("""This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead""", DeprecationWarning)
 
+
+    pulumi_type = "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

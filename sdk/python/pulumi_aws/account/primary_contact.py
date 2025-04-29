@@ -444,6 +444,9 @@ class _PrimaryContactState:
 
 
 class PrimaryContact(pulumi.CustomResource):
+
+    pulumi_type = "aws:account/primaryContact:PrimaryContact"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

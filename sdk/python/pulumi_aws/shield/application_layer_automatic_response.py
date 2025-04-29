@@ -122,6 +122,9 @@ class _ApplicationLayerAutomaticResponseState:
 
 
 class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
+
+    pulumi_type = "aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

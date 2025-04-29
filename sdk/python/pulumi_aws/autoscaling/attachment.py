@@ -129,6 +129,9 @@ class _AttachmentState:
 
 
 class Attachment(pulumi.CustomResource):
+
+    pulumi_type = "aws:autoscaling/attachment:Attachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -203,13 +203,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+//				Text:    arn,
+//				Search:  current.Name,
+//				Replace: alternate.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = dynamodb.NewTag(ctx, "example", &dynamodb.TagArgs{
 //				ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
-//					return std.ReplaceResult(interface{}(std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
-//						Text:    arn,
-//						Search:  current.Name,
-//						Replace: alternate.Name,
-//					}, nil))), nil
+//					return std.ReplaceResult(invokeReplace), nil
 //				}).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
 //					return invoke.Result, nil
 //				}).(pulumi.StringPtrOutput)),

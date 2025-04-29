@@ -350,6 +350,9 @@ class _HostedConnectionState:
 
 
 class HostedConnection(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/hostedConnection:HostedConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

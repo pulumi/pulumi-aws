@@ -646,7 +646,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }
@@ -754,7 +754,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }
@@ -862,7 +862,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }
@@ -970,7 +970,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }
@@ -1078,7 +1078,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }
@@ -1186,7 +1186,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }
@@ -1294,7 +1294,7 @@ public final class OrganizationsFunctions {
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
+     *             .policy(snsTopicPolicy.json())
      *             .build());
      * 
      *     }

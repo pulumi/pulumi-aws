@@ -190,6 +190,9 @@ class _AccessGrantsInstanceState:
 
 
 class AccessGrantsInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3control/accessGrantsInstance:AccessGrantsInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

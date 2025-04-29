@@ -169,6 +169,9 @@ class _NetworkInterfacePermissionState:
 
 
 class NetworkInterfacePermission(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/networkInterfacePermission:NetworkInterfacePermission"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

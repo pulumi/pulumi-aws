@@ -105,6 +105,9 @@ class _HostedZoneDnsSecState:
 
 
 class HostedZoneDnsSec(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/hostedZoneDnsSec:HostedZoneDnsSec"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

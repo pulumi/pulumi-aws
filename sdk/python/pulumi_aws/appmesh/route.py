@@ -309,6 +309,9 @@ class _RouteState:
 
 
 class Route(pulumi.CustomResource):
+
+    pulumi_type = "aws:appmesh/route:Route"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

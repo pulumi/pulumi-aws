@@ -328,6 +328,9 @@ class _KeySigningKeyState:
 
 
 class KeySigningKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/keySigningKey:KeySigningKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,6 +129,9 @@ class _EmailIdentityMailFromAttributesState:
 
 
 class EmailIdentityMailFromAttributes(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

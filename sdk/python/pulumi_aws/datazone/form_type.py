@@ -334,6 +334,9 @@ class _FormTypeState:
 
 
 class FormType(pulumi.CustomResource):
+
+    pulumi_type = "aws:datazone/formType:FormType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -477,6 +477,9 @@ class _StageState:
 
 
 class Stage(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/stage:Stage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

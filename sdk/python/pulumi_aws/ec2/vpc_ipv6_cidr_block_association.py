@@ -257,6 +257,9 @@ class _VpcIpv6CidrBlockAssociationState:
 
 
 class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

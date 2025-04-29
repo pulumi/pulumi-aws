@@ -104,6 +104,9 @@ class _ProxyProtocolPolicyState:
 
 
 class ProxyProtocolPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

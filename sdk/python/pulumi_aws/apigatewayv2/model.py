@@ -191,6 +191,9 @@ class _ModelState:
 
 
 class Model(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/model:Model"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

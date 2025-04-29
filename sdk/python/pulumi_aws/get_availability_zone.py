@@ -254,7 +254,7 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
     # Create a subnet for the AZ within the regional VPC
     example_subnet = aws.ec2.Subnet("example",
         vpc_id=example_vpc.id,
-        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
             newbits=4,
             netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
     ```
@@ -349,7 +349,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     # Create a subnet for the AZ within the regional VPC
     example_subnet = aws.ec2.Subnet("example",
         vpc_id=example_vpc.id,
-        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
             newbits=4,
             netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
     ```

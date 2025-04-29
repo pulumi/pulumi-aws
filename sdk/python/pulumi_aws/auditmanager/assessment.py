@@ -330,6 +330,9 @@ class _AssessmentState:
 
 
 class Assessment(pulumi.CustomResource):
+
+    pulumi_type = "aws:auditmanager/assessment:Assessment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -160,6 +160,9 @@ class _SchedulingPolicyState:
 
 
 class SchedulingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:batch/schedulingPolicy:SchedulingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

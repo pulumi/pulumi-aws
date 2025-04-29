@@ -115,6 +115,9 @@ class _RegistryScanningConfigurationState:
 
 
 class RegistryScanningConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

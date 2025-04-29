@@ -108,6 +108,9 @@ class _NotificationChannelState:
 
 
 class NotificationChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws:devopsguru/notificationChannel:NotificationChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

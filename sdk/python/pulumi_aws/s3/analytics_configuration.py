@@ -163,6 +163,9 @@ class _AnalyticsConfigurationState:
 
 
 class AnalyticsConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/analyticsConfiguration:AnalyticsConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

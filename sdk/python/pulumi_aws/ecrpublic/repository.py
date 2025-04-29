@@ -223,6 +223,9 @@ class _RepositoryState:
 
 
 class Repository(pulumi.CustomResource):
+
+    pulumi_type = "aws:ecrpublic/repository:Repository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -229,6 +229,9 @@ class _ListenerRuleState:
 
 
 class ListenerRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:alb/listenerRule:ListenerRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

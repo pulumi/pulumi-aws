@@ -239,6 +239,9 @@ class _LicenseGrantState:
 
 
 class LicenseGrant(pulumi.CustomResource):
+
+    pulumi_type = "aws:licensemanager/licenseGrant:LicenseGrant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

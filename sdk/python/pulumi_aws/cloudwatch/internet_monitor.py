@@ -335,6 +335,9 @@ class _InternetMonitorState:
 
 
 class InternetMonitor(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/internetMonitor:InternetMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

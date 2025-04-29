@@ -285,6 +285,9 @@ class _FargateProfileState:
 
 
 class FargateProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:eks/fargateProfile:FargateProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

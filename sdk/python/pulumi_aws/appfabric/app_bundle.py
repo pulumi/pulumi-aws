@@ -134,6 +134,9 @@ class _AppBundleState:
 
 
 class AppBundle(pulumi.CustomResource):
+
+    pulumi_type = "aws:appfabric/appBundle:AppBundle"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

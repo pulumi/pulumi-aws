@@ -164,6 +164,9 @@ class _HostedTransitVirtualInterfaceAcceptorState:
 
 
 class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

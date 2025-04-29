@@ -66,6 +66,9 @@ class _AdminAccountState:
 
 
 class AdminAccount(pulumi.CustomResource):
+
+    pulumi_type = "aws:fms/adminAccount:AdminAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

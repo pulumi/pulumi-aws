@@ -277,6 +277,9 @@ class _HoursOfOperationState:
 
 
 class HoursOfOperation(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/hoursOfOperation:HoursOfOperation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

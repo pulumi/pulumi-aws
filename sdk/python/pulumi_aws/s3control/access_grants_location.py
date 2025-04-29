@@ -208,6 +208,9 @@ class _AccessGrantsLocationState:
 
 
 class AccessGrantsLocation(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3control/accessGrantsLocation:AccessGrantsLocation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

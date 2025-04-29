@@ -196,6 +196,9 @@ class _LogDestinationState:
 
 
 class LogDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/logDestination:LogDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

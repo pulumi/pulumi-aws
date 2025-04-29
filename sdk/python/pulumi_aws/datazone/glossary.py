@@ -192,6 +192,9 @@ class _GlossaryState:
 
 
 class Glossary(pulumi.CustomResource):
+
+    pulumi_type = "aws:datazone/glossary:Glossary"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

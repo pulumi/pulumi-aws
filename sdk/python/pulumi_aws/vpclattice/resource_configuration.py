@@ -392,6 +392,9 @@ class _ResourceConfigurationState:
 
 
 class ResourceConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpclattice/resourceConfiguration:ResourceConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

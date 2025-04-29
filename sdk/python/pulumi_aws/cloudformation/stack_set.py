@@ -536,6 +536,9 @@ class _StackSetState:
 
 
 class StackSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudformation/stackSet:StackSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

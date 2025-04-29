@@ -429,6 +429,9 @@ class _TableState:
 
 
 class Table(pulumi.CustomResource):
+
+    pulumi_type = "aws:keyspaces/table:Table"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

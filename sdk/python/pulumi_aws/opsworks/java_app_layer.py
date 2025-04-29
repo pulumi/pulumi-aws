@@ -927,6 +927,9 @@ class _JavaAppLayerState:
 
 
 class JavaAppLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/javaAppLayer:JavaAppLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

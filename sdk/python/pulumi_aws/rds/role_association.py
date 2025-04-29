@@ -127,6 +127,9 @@ class _RoleAssociationState:
 
 
 class RoleAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/roleAssociation:RoleAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

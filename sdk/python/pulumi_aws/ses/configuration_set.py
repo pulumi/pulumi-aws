@@ -236,6 +236,9 @@ class _ConfigurationSetState:
 
 
 class ConfigurationSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/configurationSet:ConfigurationSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

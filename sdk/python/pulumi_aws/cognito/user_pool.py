@@ -1072,6 +1072,9 @@ class _UserPoolState:
 
 
 class UserPool(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/userPool:UserPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

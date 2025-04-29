@@ -265,6 +265,9 @@ class _PartitionState:
 
 
 class Partition(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/partition:Partition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

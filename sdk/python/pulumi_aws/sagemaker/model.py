@@ -327,6 +327,9 @@ class _ModelState:
 
 
 class Model(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/model:Model"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,6 +129,9 @@ class _ClusterIamRolesState:
 
 
 class ClusterIamRoles(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/clusterIamRoles:ClusterIamRoles"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

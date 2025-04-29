@@ -205,6 +205,9 @@ class _PortfolioState:
 
 
 class Portfolio(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/portfolio:Portfolio"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

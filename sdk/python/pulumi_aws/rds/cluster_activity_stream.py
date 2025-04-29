@@ -175,6 +175,9 @@ class _ClusterActivityStreamState:
 
 
 class ClusterActivityStream(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/clusterActivityStream:ClusterActivityStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

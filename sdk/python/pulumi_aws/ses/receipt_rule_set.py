@@ -81,6 +81,9 @@ class _ReceiptRuleSetState:
 
 
 class ReceiptRuleSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/receiptRuleSet:ReceiptRuleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

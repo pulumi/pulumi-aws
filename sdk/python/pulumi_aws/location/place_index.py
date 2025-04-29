@@ -270,6 +270,9 @@ class _PlaceIndexState:
 
 
 class PlaceIndex(pulumi.CustomResource):
+
+    pulumi_type = "aws:location/placeIndex:PlaceIndex"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

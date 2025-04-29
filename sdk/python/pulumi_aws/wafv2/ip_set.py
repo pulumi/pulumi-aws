@@ -304,6 +304,9 @@ class _IpSetState:
 
 
 class IpSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:wafv2/ipSet:IpSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

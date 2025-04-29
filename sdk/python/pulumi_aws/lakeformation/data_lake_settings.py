@@ -396,6 +396,9 @@ class _DataLakeSettingsState:
 
 
 class DataLakeSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws:lakeformation/dataLakeSettings:DataLakeSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

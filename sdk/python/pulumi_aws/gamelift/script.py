@@ -232,6 +232,9 @@ class _ScriptState:
 
 
 class Script(pulumi.CustomResource):
+
+    pulumi_type = "aws:gamelift/script:Script"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

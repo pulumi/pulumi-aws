@@ -145,6 +145,9 @@ class _KeyGroupState:
 
 
 class KeyGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/keyGroup:KeyGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

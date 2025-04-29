@@ -98,6 +98,9 @@ class _RegexPatternSetState:
 
 
 class RegexPatternSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:wafregional/regexPatternSet:RegexPatternSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

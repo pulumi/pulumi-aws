@@ -747,6 +747,9 @@ class _ProfileState:
 
 
 class Profile(pulumi.CustomResource):
+
+    pulumi_type = "aws:customerprofiles/profile:Profile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

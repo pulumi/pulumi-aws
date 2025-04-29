@@ -332,6 +332,9 @@ class _AcceleratorState:
 
 
 class Accelerator(pulumi.CustomResource):
+
+    pulumi_type = "aws:globalaccelerator/accelerator:Accelerator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

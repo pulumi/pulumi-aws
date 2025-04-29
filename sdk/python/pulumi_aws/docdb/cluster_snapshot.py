@@ -264,6 +264,9 @@ class _ClusterSnapshotState:
 
 
 class ClusterSnapshot(pulumi.CustomResource):
+
+    pulumi_type = "aws:docdb/clusterSnapshot:ClusterSnapshot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

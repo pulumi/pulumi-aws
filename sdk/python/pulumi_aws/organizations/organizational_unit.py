@@ -183,6 +183,9 @@ class _OrganizationalUnitState:
 
 
 class OrganizationalUnit(pulumi.CustomResource):
+
+    pulumi_type = "aws:organizations/organizationalUnit:OrganizationalUnit"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _AlertManagerDefinitionState:
 
 
 class AlertManagerDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws:amp/alertManagerDefinition:AlertManagerDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

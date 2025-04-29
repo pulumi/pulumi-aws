@@ -799,6 +799,9 @@ class _MemcachedLayerState:
 
 
 class MemcachedLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/memcachedLayer:MemcachedLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

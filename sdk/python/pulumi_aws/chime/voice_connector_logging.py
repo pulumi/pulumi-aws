@@ -129,6 +129,9 @@ class _VoiceConnectorLoggingState:
 
 
 class VoiceConnectorLogging(pulumi.CustomResource):
+
+    pulumi_type = "aws:chime/voiceConnectorLogging:VoiceConnectorLogging"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

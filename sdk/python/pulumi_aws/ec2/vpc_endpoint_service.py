@@ -439,6 +439,9 @@ class _VpcEndpointServiceState:
 
 
 class VpcEndpointService(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcEndpointService:VpcEndpointService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

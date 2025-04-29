@@ -291,6 +291,9 @@ class _GlobalClusterState:
 
 
 class GlobalCluster(pulumi.CustomResource):
+
+    pulumi_type = "aws:neptune/globalCluster:GlobalCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

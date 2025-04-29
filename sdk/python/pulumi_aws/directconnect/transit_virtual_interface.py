@@ -497,6 +497,9 @@ class _TransitVirtualInterfaceState:
 
 
 class TransitVirtualInterface(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/transitVirtualInterface:TransitVirtualInterface"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

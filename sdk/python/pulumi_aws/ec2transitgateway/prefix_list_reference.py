@@ -180,6 +180,9 @@ class _PrefixListReferenceState:
 
 
 class PrefixListReference(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2transitgateway/prefixListReference:PrefixListReference"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

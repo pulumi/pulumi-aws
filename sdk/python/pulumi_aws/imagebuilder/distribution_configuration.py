@@ -239,6 +239,9 @@ class _DistributionConfigurationState:
 
 
 class DistributionConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:imagebuilder/distributionConfiguration:DistributionConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

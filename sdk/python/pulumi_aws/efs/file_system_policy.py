@@ -136,6 +136,9 @@ class _FileSystemPolicyState:
 
 
 class FileSystemPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:efs/fileSystemPolicy:FileSystemPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

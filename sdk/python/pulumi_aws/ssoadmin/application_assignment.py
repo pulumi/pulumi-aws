@@ -127,6 +127,9 @@ class _ApplicationAssignmentState:
 
 
 class ApplicationAssignment(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssoadmin/applicationAssignment:ApplicationAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

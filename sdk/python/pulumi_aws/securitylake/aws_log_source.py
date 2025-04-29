@@ -68,6 +68,9 @@ class _AwsLogSourceState:
 
 
 class AwsLogSource(pulumi.CustomResource):
+
+    pulumi_type = "aws:securitylake/awsLogSource:AwsLogSource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

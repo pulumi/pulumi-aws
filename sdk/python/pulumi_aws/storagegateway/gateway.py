@@ -694,6 +694,9 @@ class _GatewayState:
 
 
 class Gateway(pulumi.CustomResource):
+
+    pulumi_type = "aws:storagegateway/gateway:Gateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

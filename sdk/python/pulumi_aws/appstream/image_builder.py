@@ -527,6 +527,9 @@ class _ImageBuilderState:
 
 
 class ImageBuilder(pulumi.CustomResource):
+
+    pulumi_type = "aws:appstream/imageBuilder:ImageBuilder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -97,6 +97,9 @@ class _CertificateValidationState:
 
 
 class CertificateValidation(pulumi.CustomResource):
+
+    pulumi_type = "aws:acm/certificateValidation:CertificateValidation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
