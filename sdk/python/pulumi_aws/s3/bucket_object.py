@@ -869,6 +869,9 @@ class _BucketObjectState:
 
 
 class BucketObject(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketObject:BucketObject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

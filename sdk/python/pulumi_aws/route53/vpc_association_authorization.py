@@ -128,6 +128,9 @@ class _VpcAssociationAuthorizationState:
 
 
 class VpcAssociationAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

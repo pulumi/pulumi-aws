@@ -430,6 +430,9 @@ class _RouteState:
 
 
 class Route(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/route:Route"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -288,6 +288,9 @@ class _UserDefinedFunctionState:
 
 
 class UserDefinedFunction(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/userDefinedFunction:UserDefinedFunction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

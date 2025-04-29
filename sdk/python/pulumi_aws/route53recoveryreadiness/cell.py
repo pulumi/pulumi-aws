@@ -189,6 +189,9 @@ class _CellState:
 
 
 class Cell(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53recoveryreadiness/cell:Cell"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

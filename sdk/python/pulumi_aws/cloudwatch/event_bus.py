@@ -238,6 +238,9 @@ class _EventBusState:
 
 
 class EventBus(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/eventBus:EventBus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

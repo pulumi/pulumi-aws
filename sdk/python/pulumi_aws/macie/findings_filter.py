@@ -294,6 +294,9 @@ class _FindingsFilterState:
 
 
 class FindingsFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws:macie/findingsFilter:FindingsFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

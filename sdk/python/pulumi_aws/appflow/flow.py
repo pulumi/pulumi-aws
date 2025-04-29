@@ -372,6 +372,9 @@ class _FlowState:
 
 
 class Flow(pulumi.CustomResource):
+
+    pulumi_type = "aws:appflow/flow:Flow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

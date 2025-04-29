@@ -311,6 +311,9 @@ class _OntapStorageVirtualMachineState:
 
 
 class OntapStorageVirtualMachine(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

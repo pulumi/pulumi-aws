@@ -175,6 +175,9 @@ class _TypeState:
 
 
 class Type(pulumi.CustomResource):
+
+    pulumi_type = "aws:appsync/type:Type"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

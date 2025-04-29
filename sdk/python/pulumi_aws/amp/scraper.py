@@ -299,6 +299,9 @@ class _ScraperState:
 
 
 class Scraper(pulumi.CustomResource):
+
+    pulumi_type = "aws:amp/scraper:Scraper"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

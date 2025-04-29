@@ -219,6 +219,9 @@ class _RouteTableState:
 
 
 class RouteTable(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/routeTable:RouteTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

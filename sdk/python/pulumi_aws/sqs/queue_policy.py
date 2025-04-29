@@ -88,6 +88,9 @@ class _QueuePolicyState:
 
 
 class QueuePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:sqs/queuePolicy:QueuePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

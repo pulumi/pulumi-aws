@@ -161,6 +161,9 @@ class _MemberState:
 
 
 class Member(pulumi.CustomResource):
+
+    pulumi_type = "aws:securityhub/member:Member"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

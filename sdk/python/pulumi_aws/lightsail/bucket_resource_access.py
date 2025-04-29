@@ -96,6 +96,9 @@ class _BucketResourceAccessState:
 
 
 class BucketResourceAccess(pulumi.CustomResource):
+
+    pulumi_type = "aws:lightsail/bucketResourceAccess:BucketResourceAccess"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

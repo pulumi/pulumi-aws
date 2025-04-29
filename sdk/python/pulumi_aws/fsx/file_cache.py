@@ -488,6 +488,9 @@ class _FileCacheState:
 
 
 class FileCache(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/fileCache:FileCache"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

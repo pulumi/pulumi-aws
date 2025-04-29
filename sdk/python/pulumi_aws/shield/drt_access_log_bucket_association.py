@@ -122,6 +122,9 @@ class _DrtAccessLogBucketAssociationState:
 
 
 class DrtAccessLogBucketAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

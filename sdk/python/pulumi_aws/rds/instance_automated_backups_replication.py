@@ -161,6 +161,9 @@ class _InstanceAutomatedBackupsReplicationState:
 
 
 class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

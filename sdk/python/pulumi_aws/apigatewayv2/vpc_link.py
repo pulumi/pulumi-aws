@@ -196,6 +196,9 @@ class _VpcLinkState:
 
 
 class VpcLink(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigatewayv2/vpcLink:VpcLink"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

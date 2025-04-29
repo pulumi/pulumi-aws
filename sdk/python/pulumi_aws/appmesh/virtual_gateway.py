@@ -278,6 +278,9 @@ class _VirtualGatewayState:
 
 
 class VirtualGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws:appmesh/virtualGateway:VirtualGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

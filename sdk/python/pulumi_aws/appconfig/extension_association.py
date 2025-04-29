@@ -160,6 +160,9 @@ class _ExtensionAssociationState:
 
 
 class ExtensionAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:appconfig/extensionAssociation:ExtensionAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

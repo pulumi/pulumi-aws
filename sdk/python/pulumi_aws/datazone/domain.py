@@ -335,6 +335,9 @@ class _DomainState:
 
 
 class Domain(pulumi.CustomResource):
+
+    pulumi_type = "aws:datazone/domain:Domain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

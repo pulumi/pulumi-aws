@@ -159,6 +159,9 @@ class _CustomerGatewayAssociationState:
 
 
 class CustomerGatewayAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

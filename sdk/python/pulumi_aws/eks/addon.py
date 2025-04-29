@@ -518,6 +518,9 @@ class _AddonState:
 
 
 class Addon(pulumi.CustomResource):
+
+    pulumi_type = "aws:eks/addon:Addon"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

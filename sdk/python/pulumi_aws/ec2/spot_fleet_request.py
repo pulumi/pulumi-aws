@@ -994,6 +994,9 @@ class _SpotFleetRequestState:
 
 
 class SpotFleetRequest(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/spotFleetRequest:SpotFleetRequest"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

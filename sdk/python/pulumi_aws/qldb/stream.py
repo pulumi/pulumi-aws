@@ -291,6 +291,9 @@ class _StreamState:
 
 
 class Stream(pulumi.CustomResource):
+
+    pulumi_type = "aws:qldb/stream:Stream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

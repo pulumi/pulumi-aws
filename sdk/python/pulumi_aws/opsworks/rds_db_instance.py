@@ -158,6 +158,9 @@ class _RdsDbInstanceState:
 
 
 class RdsDbInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/rdsDbInstance:RdsDbInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

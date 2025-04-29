@@ -527,6 +527,9 @@ class _InfrastructureConfigurationState:
 
 
 class InfrastructureConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

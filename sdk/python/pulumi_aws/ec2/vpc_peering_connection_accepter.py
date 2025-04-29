@@ -303,6 +303,9 @@ class _VpcPeeringConnectionAccepterState:
 
 
 class VpcPeeringConnectionAccepter(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

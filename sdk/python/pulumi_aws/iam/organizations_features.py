@@ -65,6 +65,9 @@ class _OrganizationsFeaturesState:
 
 
 class OrganizationsFeatures(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/organizationsFeatures:OrganizationsFeatures"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

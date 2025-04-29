@@ -132,6 +132,9 @@ class _ExportState:
 
 
 class Export(pulumi.CustomResource):
+
+    pulumi_type = "aws:bcmdata/export:Export"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

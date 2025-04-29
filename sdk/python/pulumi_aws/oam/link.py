@@ -281,6 +281,9 @@ class _LinkState:
 
 
 class Link(pulumi.CustomResource):
+
+    pulumi_type = "aws:oam/link:Link"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

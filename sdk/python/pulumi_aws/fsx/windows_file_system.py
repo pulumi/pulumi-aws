@@ -846,6 +846,9 @@ class _WindowsFileSystemState:
 
 
 class WindowsFileSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/windowsFileSystem:WindowsFileSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

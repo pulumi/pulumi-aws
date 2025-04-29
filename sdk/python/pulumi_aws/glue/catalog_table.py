@@ -539,6 +539,9 @@ class _CatalogTableState:
 
 
 class CatalogTable(pulumi.CustomResource):
+
+    pulumi_type = "aws:glue/catalogTable:CatalogTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

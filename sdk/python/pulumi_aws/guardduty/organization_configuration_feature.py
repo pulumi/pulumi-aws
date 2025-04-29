@@ -162,6 +162,9 @@ class _OrganizationConfigurationFeatureState:
 
 
 class OrganizationConfigurationFeature(pulumi.CustomResource):
+
+    pulumi_type = "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

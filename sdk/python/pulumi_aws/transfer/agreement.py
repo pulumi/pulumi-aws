@@ -313,6 +313,9 @@ class _AgreementState:
 
 
 class Agreement(pulumi.CustomResource):
+
+    pulumi_type = "aws:transfer/agreement:Agreement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

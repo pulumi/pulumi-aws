@@ -145,6 +145,9 @@ class _InstanceStorageConfigState:
 
 
 class InstanceStorageConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/instanceStorageConfig:InstanceStorageConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

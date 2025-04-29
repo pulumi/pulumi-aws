@@ -196,6 +196,9 @@ class _DataSetState:
 
 
 class DataSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:dataexchange/dataSet:DataSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

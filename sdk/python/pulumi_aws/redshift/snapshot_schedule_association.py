@@ -96,6 +96,9 @@ class _SnapshotScheduleAssociationState:
 
 
 class SnapshotScheduleAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

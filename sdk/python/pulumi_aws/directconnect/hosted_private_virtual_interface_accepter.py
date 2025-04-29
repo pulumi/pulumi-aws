@@ -197,6 +197,9 @@ class _HostedPrivateVirtualInterfaceAccepterState:
 
 
 class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
+
+    pulumi_type = "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

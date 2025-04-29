@@ -187,6 +187,9 @@ class _SdkvoiceVoiceProfileDomainState:
 
 
 class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
+
+    pulumi_type = "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

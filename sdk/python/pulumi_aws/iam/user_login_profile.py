@@ -209,6 +209,9 @@ class _UserLoginProfileState:
 
 
 class UserLoginProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:iam/userLoginProfile:UserLoginProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

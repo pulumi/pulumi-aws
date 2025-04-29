@@ -540,6 +540,9 @@ class _RestApiState:
 
 
 class RestApi(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/restApi:RestApi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

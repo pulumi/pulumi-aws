@@ -422,6 +422,9 @@ class _LaunchState:
 
 
 class Launch(pulumi.CustomResource):
+
+    pulumi_type = "aws:evidently/launch:Launch"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

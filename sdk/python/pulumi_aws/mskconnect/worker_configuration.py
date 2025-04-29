@@ -221,6 +221,9 @@ class _WorkerConfigurationState:
 
 
 class WorkerConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:mskconnect/workerConfiguration:WorkerConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

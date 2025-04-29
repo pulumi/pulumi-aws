@@ -205,6 +205,9 @@ class _ResolverQueryLogConfigState:
 
 
 class ResolverQueryLogConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

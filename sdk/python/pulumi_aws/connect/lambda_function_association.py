@@ -96,6 +96,9 @@ class _LambdaFunctionAssociationState:
 
 
 class LambdaFunctionAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

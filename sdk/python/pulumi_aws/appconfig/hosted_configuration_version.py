@@ -222,6 +222,9 @@ class _HostedConfigurationVersionState:
 
 
 class HostedConfigurationVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _FunctionRecursionConfigState:
 
 
 class FunctionRecursionConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:lambda/functionRecursionConfig:FunctionRecursionConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

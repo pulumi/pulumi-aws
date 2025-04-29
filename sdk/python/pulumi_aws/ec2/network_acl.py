@@ -247,6 +247,9 @@ class _NetworkAclState:
 
 
 class NetworkAcl(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/networkAcl:NetworkAcl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

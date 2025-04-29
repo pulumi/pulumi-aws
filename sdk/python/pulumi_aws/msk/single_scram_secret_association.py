@@ -96,6 +96,9 @@ class _SingleScramSecretAssociationState:
 
 
 class SingleScramSecretAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

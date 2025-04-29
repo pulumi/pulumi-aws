@@ -261,6 +261,9 @@ class _RateBasedRuleState:
 
 
 class RateBasedRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:waf/rateBasedRule:RateBasedRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

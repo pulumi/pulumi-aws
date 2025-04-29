@@ -198,6 +198,9 @@ class _LandingZoneState:
 
 
 class LandingZone(pulumi.CustomResource):
+
+    pulumi_type = "aws:controltower/landingZone:LandingZone"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

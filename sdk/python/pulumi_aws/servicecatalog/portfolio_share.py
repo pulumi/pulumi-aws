@@ -279,6 +279,9 @@ class _PortfolioShareState:
 
 
 class PortfolioShare(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/portfolioShare:PortfolioShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -128,6 +128,9 @@ class _NetworkAssociationState:
 
 
 class NetworkAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2clientvpn/networkAssociation:NetworkAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

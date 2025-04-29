@@ -386,6 +386,9 @@ class _CloudFormationTypeState:
 
 
 class CloudFormationType(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudformation/cloudFormationType:CloudFormationType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

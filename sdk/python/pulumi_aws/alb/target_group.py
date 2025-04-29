@@ -892,6 +892,9 @@ class _TargetGroupState:
 
 
 class TargetGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:alb/targetGroup:TargetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

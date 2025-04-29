@@ -467,6 +467,9 @@ class _CoreNetworkState:
 
 
 class CoreNetwork(pulumi.CustomResource):
+
+    pulumi_type = "aws:networkmanager/coreNetwork:CoreNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

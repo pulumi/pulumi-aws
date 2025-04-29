@@ -178,6 +178,9 @@ class _ContainerServiceDeploymentVersionState:
 
 
 class ContainerServiceDeploymentVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -862,6 +862,9 @@ class _GangliaLayerState:
 
 
 class GangliaLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/gangliaLayer:GangliaLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

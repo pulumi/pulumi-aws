@@ -122,6 +122,9 @@ class _InstanceDesiredStateState:
 
 
 class InstanceDesiredState(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/instanceDesiredState:InstanceDesiredState"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

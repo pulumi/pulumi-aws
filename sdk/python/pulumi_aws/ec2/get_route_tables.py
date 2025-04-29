@@ -114,11 +114,14 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
             "values": ["private*"],
         }])
     r = []
-    for range in [{"value": i} for i in range(0, len(rts.ids))]:
-        r.append(aws.ec2.Route(f"r-{range['value']}",
-            route_table_id=rts.ids[range["value"]],
-            destination_cidr_block="10.0.0.0/22",
-            vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
+    def create_r(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            r.append(aws.ec2.Route(f"r-{range['value']}",
+                route_table_id=rts.ids[range["value"]],
+                destination_cidr_block="10.0.0.0/22",
+                vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
+
+    (len(rts.ids)).apply(create_r)
     ```
 
 
@@ -166,11 +169,14 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
             "values": ["private*"],
         }])
     r = []
-    for range in [{"value": i} for i in range(0, len(rts.ids))]:
-        r.append(aws.ec2.Route(f"r-{range['value']}",
-            route_table_id=rts.ids[range["value"]],
-            destination_cidr_block="10.0.0.0/22",
-            vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
+    def create_r(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            r.append(aws.ec2.Route(f"r-{range['value']}",
+                route_table_id=rts.ids[range["value"]],
+                destination_cidr_block="10.0.0.0/22",
+                vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
+
+    (len(rts.ids)).apply(create_r)
     ```
 
 

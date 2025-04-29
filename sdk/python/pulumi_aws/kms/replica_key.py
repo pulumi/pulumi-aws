@@ -373,6 +373,9 @@ class _ReplicaKeyState:
 
 
 class ReplicaKey(pulumi.CustomResource):
+
+    pulumi_type = "aws:kms/replicaKey:ReplicaKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

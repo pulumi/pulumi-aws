@@ -122,6 +122,9 @@ class _InstanceAccessControlAttributesState:
 
 
 class InstanceAccessControlAttributes(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

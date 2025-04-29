@@ -289,6 +289,9 @@ class _ScheduledActionState:
 
 
 class ScheduledAction(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/scheduledAction:ScheduledAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

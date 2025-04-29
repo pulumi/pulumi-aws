@@ -814,6 +814,9 @@ class _CustomLayerState:
 
 
 class CustomLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/customLayer:CustomLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

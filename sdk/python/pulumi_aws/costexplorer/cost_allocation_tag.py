@@ -112,6 +112,9 @@ class _CostAllocationTagState:
 
 
 class CostAllocationTag(pulumi.CustomResource):
+
+    pulumi_type = "aws:costexplorer/costAllocationTag:CostAllocationTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

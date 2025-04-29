@@ -192,6 +192,9 @@ class _BillingGroupState:
 
 
 class BillingGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/billingGroup:BillingGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

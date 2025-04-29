@@ -269,6 +269,9 @@ class _TableReplicaState:
 
 
 class TableReplica(pulumi.CustomResource):
+
+    pulumi_type = "aws:dynamodb/tableReplica:TableReplica"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

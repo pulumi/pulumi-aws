@@ -216,6 +216,9 @@ class _LanguageModelState:
 
 
 class LanguageModel(pulumi.CustomResource):
+
+    pulumi_type = "aws:transcribe/languageModel:LanguageModel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

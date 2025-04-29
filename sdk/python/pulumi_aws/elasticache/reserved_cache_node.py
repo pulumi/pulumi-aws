@@ -351,6 +351,9 @@ class _ReservedCacheNodeState:
 
 
 class ReservedCacheNode(pulumi.CustomResource):
+
+    pulumi_type = "aws:elasticache/reservedCacheNode:ReservedCacheNode"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

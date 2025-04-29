@@ -135,6 +135,9 @@ class _RecordsExclusiveState:
 
 
 class RecordsExclusive(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/recordsExclusive:RecordsExclusive"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

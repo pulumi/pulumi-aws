@@ -128,6 +128,9 @@ class _LfTagState:
 
 
 class LfTag(pulumi.CustomResource):
+
+    pulumi_type = "aws:lakeformation/lfTag:LfTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

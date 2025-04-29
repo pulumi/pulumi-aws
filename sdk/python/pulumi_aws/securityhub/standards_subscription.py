@@ -113,6 +113,9 @@ class _StandardsSubscriptionState:
 
 
 class StandardsSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws:securityhub/standardsSubscription:StandardsSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

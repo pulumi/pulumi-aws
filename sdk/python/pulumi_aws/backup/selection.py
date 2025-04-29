@@ -258,6 +258,9 @@ class _SelectionState:
 
 
 class Selection(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/selection:Selection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

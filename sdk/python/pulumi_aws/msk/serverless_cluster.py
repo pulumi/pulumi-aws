@@ -214,6 +214,9 @@ class _ServerlessClusterState:
 
 
 class ServerlessCluster(pulumi.CustomResource):
+
+    pulumi_type = "aws:msk/serverlessCluster:ServerlessCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

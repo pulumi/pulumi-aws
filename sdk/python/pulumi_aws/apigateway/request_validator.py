@@ -161,6 +161,9 @@ class _RequestValidatorState:
 
 
 class RequestValidator(pulumi.CustomResource):
+
+    pulumi_type = "aws:apigateway/requestValidator:RequestValidator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

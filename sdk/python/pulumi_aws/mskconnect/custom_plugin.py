@@ -270,6 +270,9 @@ class _CustomPluginState:
 
 
 class CustomPlugin(pulumi.CustomResource):
+
+    pulumi_type = "aws:mskconnect/customPlugin:CustomPlugin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

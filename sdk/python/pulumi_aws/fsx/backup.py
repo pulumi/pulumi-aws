@@ -214,6 +214,9 @@ class _BackupState:
 
 
 class Backup(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/backup:Backup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

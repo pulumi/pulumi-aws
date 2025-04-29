@@ -327,6 +327,9 @@ class _SigningProfileState:
 
 
 class SigningProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:signer/signingProfile:SigningProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

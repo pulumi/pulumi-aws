@@ -194,6 +194,9 @@ class _BucketIntelligentTieringConfigurationState:
 
 
 class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

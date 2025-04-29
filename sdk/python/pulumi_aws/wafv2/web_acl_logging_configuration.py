@@ -162,6 +162,9 @@ class _WebAclLoggingConfigurationState:
 
 
 class WebAclLoggingConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

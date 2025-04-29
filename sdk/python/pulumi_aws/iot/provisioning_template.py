@@ -342,6 +342,9 @@ class _ProvisioningTemplateState:
 
 
 class ProvisioningTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws:iot/provisioningTemplate:ProvisioningTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

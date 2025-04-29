@@ -282,6 +282,9 @@ class _EventDestinationState:
 
 
 class EventDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/eventDestination:EventDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

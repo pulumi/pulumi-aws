@@ -465,6 +465,9 @@ class _ResolverState:
 
 
 class Resolver(pulumi.CustomResource):
+
+    pulumi_type = "aws:appsync/resolver:Resolver"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

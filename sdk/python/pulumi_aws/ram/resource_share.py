@@ -198,6 +198,9 @@ class _ResourceShareState:
 
 
 class ResourceShare(pulumi.CustomResource):
+
+    pulumi_type = "aws:ram/resourceShare:ResourceShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

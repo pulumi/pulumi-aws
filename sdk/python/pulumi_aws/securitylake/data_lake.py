@@ -207,6 +207,9 @@ class _DataLakeState:
 
 
 class DataLake(pulumi.CustomResource):
+
+    pulumi_type = "aws:securitylake/dataLake:DataLake"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

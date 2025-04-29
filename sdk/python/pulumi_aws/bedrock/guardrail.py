@@ -514,6 +514,9 @@ class _GuardrailState:
 
 
 class Guardrail(pulumi.CustomResource):
+
+    pulumi_type = "aws:bedrock/guardrail:Guardrail"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

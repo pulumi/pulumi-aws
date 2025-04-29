@@ -799,6 +799,9 @@ class _NodejsAppLayerState:
 
 
 class NodejsAppLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/nodejsAppLayer:NodejsAppLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

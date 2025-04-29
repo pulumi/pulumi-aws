@@ -96,6 +96,9 @@ class _ProtectionHealthCheckAssociationState:
 
 
 class ProtectionHealthCheckAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

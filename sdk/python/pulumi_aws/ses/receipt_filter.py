@@ -144,6 +144,9 @@ class _ReceiptFilterState:
 
 
 class ReceiptFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws:ses/receiptFilter:ReceiptFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

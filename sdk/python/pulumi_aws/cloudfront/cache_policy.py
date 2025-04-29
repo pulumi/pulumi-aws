@@ -259,6 +259,9 @@ class _CachePolicyState:
 
 
 class CachePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/cachePolicy:CachePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

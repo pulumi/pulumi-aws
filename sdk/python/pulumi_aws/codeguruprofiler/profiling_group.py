@@ -208,6 +208,9 @@ class _ProfilingGroupState:
 
 
 class ProfilingGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:codeguruprofiler/profilingGroup:ProfilingGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -626,6 +626,9 @@ class _NotebookInstanceState:
 
 
 class NotebookInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:sagemaker/notebookInstance:NotebookInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

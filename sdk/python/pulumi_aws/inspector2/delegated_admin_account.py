@@ -81,6 +81,9 @@ class _DelegatedAdminAccountState:
 
 
 class DelegatedAdminAccount(pulumi.CustomResource):
+
+    pulumi_type = "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

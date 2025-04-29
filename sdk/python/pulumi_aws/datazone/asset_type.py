@@ -274,6 +274,9 @@ class _AssetTypeState:
 
 
 class AssetType(pulumi.CustomResource):
+
+    pulumi_type = "aws:datazone/assetType:AssetType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

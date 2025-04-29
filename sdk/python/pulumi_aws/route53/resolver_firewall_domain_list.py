@@ -166,6 +166,9 @@ class _ResolverFirewallDomainListState:
 
 
 class ResolverFirewallDomainList(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -492,6 +492,9 @@ class _KxDataviewState:
 
 
 class KxDataview(pulumi.CustomResource):
+
+    pulumi_type = "aws:finspace/kxDataview:KxDataview"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

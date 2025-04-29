@@ -249,6 +249,9 @@ class _ServiceQuotaState:
 
 
 class ServiceQuota(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicequotas/serviceQuota:ServiceQuota"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

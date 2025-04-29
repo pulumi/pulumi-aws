@@ -131,6 +131,9 @@ class _NotificationState:
 
 
 class Notification(pulumi.CustomResource):
+
+    pulumi_type = "aws:autoscaling/notification:Notification"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

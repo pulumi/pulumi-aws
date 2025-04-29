@@ -111,10 +111,13 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
     import pulumi_aws as aws
 
     foo = aws.ec2.get_vpcs()
-    foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in range(len(foo.ids))]
+    foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in len(foo.ids).apply(lambda length: range(length))]
     test_flow_log = []
-    for range in [{"value": i} for i in range(0, len(foo.ids))]:
-        test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc[range["value"]].id))
+    def create_test_flow_log(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc.apply(lambda foo_get_vpc: foo_get_vpc[range["value"]].id)))
+
+    (len(foo.ids)).apply(create_test_flow_log)
     pulumi.export("foo", foo.ids)
     ```
 
@@ -166,10 +169,13 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetV
     import pulumi_aws as aws
 
     foo = aws.ec2.get_vpcs()
-    foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in range(len(foo.ids))]
+    foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in len(foo.ids).apply(lambda length: range(length))]
     test_flow_log = []
-    for range in [{"value": i} for i in range(0, len(foo.ids))]:
-        test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc[range["value"]].id))
+    def create_test_flow_log(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc.apply(lambda foo_get_vpc: foo_get_vpc[range["value"]].id)))
+
+    (len(foo.ids)).apply(create_test_flow_log)
     pulumi.export("foo", foo.ids)
     ```
 

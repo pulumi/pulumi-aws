@@ -263,6 +263,9 @@ class _InstanceFleetState:
 
 
 class InstanceFleet(pulumi.CustomResource):
+
+    pulumi_type = "aws:emr/instanceFleet:InstanceFleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -262,6 +262,9 @@ class _LogDeliveryState:
 
 
 class LogDelivery(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudwatch/logDelivery:LogDelivery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

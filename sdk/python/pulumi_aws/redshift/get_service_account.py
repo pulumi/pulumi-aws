@@ -90,7 +90,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     bucket = aws.s3.BucketV2("bucket",
         bucket="tf-redshift-logging-test-bucket",
         force_destroy=True)
-    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
+    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
         {
             "sid": "Put bucket policy needed for audit logging",
             "effect": "Allow",
@@ -149,7 +149,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     bucket = aws.s3.BucketV2("bucket",
         bucket="tf-redshift-logging-test-bucket",
         force_destroy=True)
-    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
+    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
         {
             "sid": "Put bucket policy needed for audit logging",
             "effect": "Allow",

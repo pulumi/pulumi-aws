@@ -183,6 +183,9 @@ class _FrameworkShareState:
 
 
 class FrameworkShare(pulumi.CustomResource):
+
+    pulumi_type = "aws:auditmanager/frameworkShare:FrameworkShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

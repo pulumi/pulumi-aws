@@ -167,6 +167,9 @@ class _PublishingDestinationState:
 
 
 class PublishingDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws:guardduty/publishingDestination:PublishingDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

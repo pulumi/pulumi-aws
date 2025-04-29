@@ -683,6 +683,9 @@ class _AmiFromInstanceState:
 
 
 class AmiFromInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/amiFromInstance:AmiFromInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

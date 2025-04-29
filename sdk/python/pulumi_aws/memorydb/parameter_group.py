@@ -271,6 +271,9 @@ class _ParameterGroupState:
 
 
 class ParameterGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:memorydb/parameterGroup:ParameterGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

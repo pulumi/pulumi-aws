@@ -297,6 +297,9 @@ class _CustomerGatewayState:
 
 
 class CustomerGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/customerGateway:CustomerGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

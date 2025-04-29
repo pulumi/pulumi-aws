@@ -480,6 +480,9 @@ class _UserState:
 
 
 class User(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/user:User"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

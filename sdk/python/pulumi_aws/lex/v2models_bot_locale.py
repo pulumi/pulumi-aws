@@ -288,6 +288,9 @@ class _V2modelsBotLocaleState:
 
 
 class V2modelsBotLocale(pulumi.CustomResource):
+
+    pulumi_type = "aws:lex/v2modelsBotLocale:V2modelsBotLocale"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -113,6 +113,9 @@ class _ResolverFirewallConfigState:
 
 
 class ResolverFirewallConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:route53/resolverFirewallConfig:ResolverFirewallConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

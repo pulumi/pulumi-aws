@@ -29,13 +29,12 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = Aws.Ec2.GetInstances.Invoke(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -60,12 +59,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = test.Ids[range.Value],
+        ///             Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
         ///         }));
         ///     }
         /// });
@@ -92,13 +91,12 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = Aws.Ec2.GetInstances.Invoke(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -123,12 +121,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = test.Ids[range.Value],
+        ///             Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
         ///         }));
         ///     }
         /// });
@@ -155,13 +153,12 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     var test = Aws.Ec2.GetInstances.Invoke(new()
         ///     {
         ///         InstanceTags = 
         ///         {
@@ -186,12 +183,12 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
         ///         {
-        ///             Instance = test.Ids[range.Value],
+        ///             Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
         ///         }));
         ///     }
         /// });

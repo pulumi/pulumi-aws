@@ -98,6 +98,9 @@ class _UserHierarchyStructureState:
 
 
 class UserHierarchyStructure(pulumi.CustomResource):
+
+    pulumi_type = "aws:connect/userHierarchyStructure:UserHierarchyStructure"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

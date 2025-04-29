@@ -186,6 +186,9 @@ class _AppAuthorizationConnectionState:
 
 
 class AppAuthorizationConnection(pulumi.CustomResource):
+
+    pulumi_type = "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

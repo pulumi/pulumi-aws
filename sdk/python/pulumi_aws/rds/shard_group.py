@@ -349,6 +349,9 @@ class _ShardGroupState:
 
 
 class ShardGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/shardGroup:ShardGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

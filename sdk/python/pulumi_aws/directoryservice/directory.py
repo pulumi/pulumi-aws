@@ -518,6 +518,9 @@ class _DirectoryState:
 
 
 class Directory(pulumi.CustomResource):
+
+    pulumi_type = "aws:directoryservice/directory:Directory"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

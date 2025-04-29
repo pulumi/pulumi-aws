@@ -201,6 +201,9 @@ class _LoggingState:
 
 
 class Logging(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/logging:Logging"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

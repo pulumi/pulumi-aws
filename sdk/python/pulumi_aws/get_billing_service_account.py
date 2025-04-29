@@ -81,7 +81,7 @@ def get_billing_service_account(id: Optional[builtins.str] = None,
     allow_billing_logging = pulumi.Output.all(
         billingLogsArn=billing_logs.arn,
         billingLogsArn1=billing_logs.arn
-    ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
+    ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[
         {
             "effect": "Allow",
             "principals": [{
@@ -140,7 +140,7 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[builti
     allow_billing_logging = pulumi.Output.all(
         billingLogsArn=billing_logs.arn,
         billingLogsArn1=billing_logs.arn
-    ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
+    ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[
         {
             "effect": "Allow",
             "principals": [{

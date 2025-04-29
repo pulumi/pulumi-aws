@@ -240,6 +240,9 @@ class _InvocationState:
 
 
 class Invocation(pulumi.CustomResource):
+
+    pulumi_type = "aws:lambda/invocation:Invocation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -241,6 +241,9 @@ class _OutboundConnectionState:
 
 
 class OutboundConnection(pulumi.CustomResource):
+
+    pulumi_type = "aws:opensearch/outboundConnection:OutboundConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

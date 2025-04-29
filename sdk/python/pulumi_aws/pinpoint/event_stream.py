@@ -127,6 +127,9 @@ class _EventStreamState:
 
 
 class EventStream(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/eventStream:EventStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -293,6 +293,9 @@ class _ActivationState:
 
 
 class Activation(pulumi.CustomResource):
+
+    pulumi_type = "aws:ssm/activation:Activation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

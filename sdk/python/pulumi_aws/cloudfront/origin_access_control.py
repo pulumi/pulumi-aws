@@ -223,6 +223,9 @@ class _OriginAccessControlState:
 
 
 class OriginAccessControl(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudfront/originAccessControl:OriginAccessControl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

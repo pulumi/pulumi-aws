@@ -128,6 +128,9 @@ class _LoadBalancerBackendServerPolicyState:
 
 
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

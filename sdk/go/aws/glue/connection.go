@@ -350,8 +350,8 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"credentials": std.Base64encode(ctx, &std.Base64encodeArgs{
-//					Input: `{
+//				"credentials": std.Base64encode(ctx, map[string]interface{}{
+//					"input": `{
 //	  "type": "service_account",
 //	  "project_id": "example-project",
 //	  "private_key_id": "example-key",

@@ -160,6 +160,9 @@ class _UserProfileState:
 
 
 class UserProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/userProfile:UserProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

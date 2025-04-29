@@ -374,6 +374,9 @@ class _ConfigurationProfileState:
 
 
 class ConfigurationProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:appconfig/configurationProfile:ConfigurationProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

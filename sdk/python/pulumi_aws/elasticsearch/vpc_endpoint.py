@@ -114,6 +114,9 @@ class _VpcEndpointState:
 
 
 class VpcEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:elasticsearch/vpcEndpoint:VpcEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

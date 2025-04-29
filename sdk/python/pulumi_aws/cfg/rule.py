@@ -343,6 +343,9 @@ class _RuleState:
 
 
 class Rule(pulumi.CustomResource):
+
+    pulumi_type = "aws:cfg/rule:Rule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

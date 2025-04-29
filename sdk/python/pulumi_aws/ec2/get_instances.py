@@ -158,8 +158,11 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
             "stopped",
         ])
     test_eip = []
-    for range in [{"value": i} for i in range(0, len(test.ids))]:
-        test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
+    def create_test(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
+
+    (len(test.ids)).apply(create_test)
     ```
 
 
@@ -217,8 +220,11 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
             "stopped",
         ])
     test_eip = []
-    for range in [{"value": i} for i in range(0, len(test.ids))]:
-        test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
+    def create_test(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
+
+    (len(test.ids)).apply(create_test)
     ```
 
 

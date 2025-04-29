@@ -138,6 +138,9 @@ class _EipDomainNameState:
 
 
 class EipDomainName(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/eipDomainName:EipDomainName"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

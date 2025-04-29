@@ -331,6 +331,9 @@ class _StackInstancesState:
 
 
 class StackInstances(pulumi.CustomResource):
+
+    pulumi_type = "aws:cloudformation/stackInstances:StackInstances"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

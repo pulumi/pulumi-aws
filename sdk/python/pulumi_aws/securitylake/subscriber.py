@@ -384,6 +384,9 @@ class _SubscriberState:
 
 
 class Subscriber(pulumi.CustomResource):
+
+    pulumi_type = "aws:securitylake/subscriber:Subscriber"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

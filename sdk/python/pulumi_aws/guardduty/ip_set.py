@@ -258,6 +258,9 @@ class _IPSetState:
 
 
 class IPSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:guardduty/iPSet:IPSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

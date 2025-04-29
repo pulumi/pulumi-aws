@@ -148,6 +148,9 @@ class _ResourceSetState:
 
 
 class ResourceSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:fms/resourceSet:ResourceSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

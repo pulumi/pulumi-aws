@@ -96,6 +96,9 @@ class _AuthenticationProfileState:
 
 
 class AuthenticationProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/authenticationProfile:AuthenticationProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

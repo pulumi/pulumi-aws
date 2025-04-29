@@ -735,6 +735,9 @@ class _OntapVolumeState:
 
 
 class OntapVolume(pulumi.CustomResource):
+
+    pulumi_type = "aws:fsx/ontapVolume:OntapVolume"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

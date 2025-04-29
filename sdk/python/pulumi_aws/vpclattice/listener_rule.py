@@ -315,6 +315,9 @@ class _ListenerRuleState:
 
 
 class ListenerRule(pulumi.CustomResource):
+
+    pulumi_type = "aws:vpclattice/listenerRule:ListenerRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

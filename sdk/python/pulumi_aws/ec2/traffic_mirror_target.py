@@ -254,6 +254,9 @@ class _TrafficMirrorTargetState:
 
 
 class TrafficMirrorTarget(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

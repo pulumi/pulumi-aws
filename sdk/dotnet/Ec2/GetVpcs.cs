@@ -48,28 +48,27 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = await Aws.Ec2.GetVpcs.InvokeAsync();
+        ///     var foo = Aws.Ec2.GetVpcs.Invoke();
         /// 
         ///     var fooGetVpc = ;
         /// 
         ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
         ///         {
-        ///             VpcId = fooGetVpc[range.Value].Id,
+        ///             VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
         ///         }));
         ///     }
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = foo.Ids,
+        ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
         ///     };
         /// });
         /// ```
@@ -114,28 +113,27 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = await Aws.Ec2.GetVpcs.InvokeAsync();
+        ///     var foo = Aws.Ec2.GetVpcs.Invoke();
         /// 
         ///     var fooGetVpc = ;
         /// 
         ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
         ///         {
-        ///             VpcId = fooGetVpc[range.Value].Id,
+        ///             VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
         ///         }));
         ///     }
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = foo.Ids,
+        ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
         ///     };
         /// });
         /// ```
@@ -180,28 +178,27 @@ namespace Pulumi.Aws.Ec2
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
-        /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = await Aws.Ec2.GetVpcs.InvokeAsync();
+        ///     var foo = Aws.Ec2.GetVpcs.Invoke();
         /// 
         ///     var fooGetVpc = ;
         /// 
         ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Ids.Length; rangeIndex++)
+        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length; rangeIndex++)
         ///     {
         ///         var range = new { Value = rangeIndex };
         ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
         ///         {
-        ///             VpcId = fooGetVpc[range.Value].Id,
+        ///             VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
         ///         }));
         ///     }
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["foo"] = foo.Ids,
+        ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
         ///     };
         /// });
         /// ```

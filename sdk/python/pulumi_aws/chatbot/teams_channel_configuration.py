@@ -483,6 +483,9 @@ class _TeamsChannelConfigurationState:
 
 
 class TeamsChannelConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

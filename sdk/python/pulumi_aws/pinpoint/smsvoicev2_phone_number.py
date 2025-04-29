@@ -468,6 +468,9 @@ class _Smsvoicev2PhoneNumberState:
 
 
 class Smsvoicev2PhoneNumber(pulumi.CustomResource):
+
+    pulumi_type = "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

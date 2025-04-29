@@ -213,6 +213,9 @@ class _PrivateDnsNamespaceState:
 
 
 class PrivateDnsNamespace(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

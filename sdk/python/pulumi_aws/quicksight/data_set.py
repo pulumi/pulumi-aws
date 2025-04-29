@@ -570,6 +570,9 @@ class _DataSetState:
 
 
 class DataSet(pulumi.CustomResource):
+
+    pulumi_type = "aws:quicksight/dataSet:DataSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

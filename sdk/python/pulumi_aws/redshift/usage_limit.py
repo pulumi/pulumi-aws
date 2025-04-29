@@ -290,6 +290,9 @@ class _UsageLimitState:
 
 
 class UsageLimit(pulumi.CustomResource):
+
+    pulumi_type = "aws:redshift/usageLimit:UsageLimit"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

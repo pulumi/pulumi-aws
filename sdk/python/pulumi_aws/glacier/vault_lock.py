@@ -159,6 +159,9 @@ class _VaultLockState:
 
 
 class VaultLock(pulumi.CustomResource):
+
+    pulumi_type = "aws:glacier/vaultLock:VaultLock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

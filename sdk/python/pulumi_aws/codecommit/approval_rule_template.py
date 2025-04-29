@@ -209,6 +209,9 @@ class _ApprovalRuleTemplateState:
 
 
 class ApprovalRuleTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

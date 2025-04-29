@@ -96,6 +96,9 @@ class _DomainNameApiAssociationState:
 
 
 class DomainNameApiAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws:appsync/domainNameApiAssociation:DomainNameApiAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

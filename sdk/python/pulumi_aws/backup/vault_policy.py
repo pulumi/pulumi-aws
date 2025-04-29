@@ -112,6 +112,9 @@ class _VaultPolicyState:
 
 
 class VaultPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws:backup/vaultPolicy:VaultPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,7 +133,7 @@ class VaultPolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example_vault = aws.backup.Vault("example", name="example")
-        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
@@ -183,7 +186,7 @@ class VaultPolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example_vault = aws.backup.Vault("example", name="example")
-        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",

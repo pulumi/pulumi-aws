@@ -182,6 +182,9 @@ class _ChannelGroupState:
 
 
 class ChannelGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:mediapackagev2/channelGroup:ChannelGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

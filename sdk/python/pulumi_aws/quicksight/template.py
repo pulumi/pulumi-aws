@@ -382,6 +382,9 @@ class _TemplateState:
 
 
 class Template(pulumi.CustomResource):
+
+    pulumi_type = "aws:quicksight/template:Template"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -318,6 +318,9 @@ class _AccessGrantState:
 
 
 class AccessGrant(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3control/accessGrant:AccessGrant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

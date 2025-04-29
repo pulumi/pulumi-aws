@@ -303,6 +303,9 @@ class _ProxyEndpointState:
 
 
 class ProxyEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws:rds/proxyEndpoint:ProxyEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

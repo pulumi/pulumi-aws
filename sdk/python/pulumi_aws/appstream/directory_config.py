@@ -145,6 +145,9 @@ class _DirectoryConfigState:
 
 
 class DirectoryConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws:appstream/directoryConfig:DirectoryConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

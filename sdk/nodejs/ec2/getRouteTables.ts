@@ -20,23 +20,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * export = async () => {
- *     const rts = await aws.ec2.getRouteTables({
- *         vpcId: vpcId,
- *         filters: [{
- *             name: "tag:kubernetes.io/kops/role",
- *             values: ["private*"],
- *         }],
- *     });
- *     const r: aws.ec2.Route[] = [];
- *     for (const range = {value: 0}; range.value < rts.ids.length; range.value++) {
+ * const rts = aws.ec2.getRouteTables({
+ *     vpcId: vpcId,
+ *     filters: [{
+ *         name: "tag:kubernetes.io/kops/role",
+ *         values: ["private*"],
+ *     }],
+ * });
+ * const r: aws.ec2.Route[] = [];
+ * rts.then(rts => rts.ids).length.apply(rangeBody => {
+ *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
  *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: rts.ids[range.value],
+ *             routeTableId: rts.then(rts => rts.ids[range.value]),
  *             destinationCidrBlock: "10.0.0.0/22",
  *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
  *         }));
  *     }
- * }
+ * });
  * ```
  */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
@@ -100,23 +100,23 @@ export interface GetRouteTablesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * export = async () => {
- *     const rts = await aws.ec2.getRouteTables({
- *         vpcId: vpcId,
- *         filters: [{
- *             name: "tag:kubernetes.io/kops/role",
- *             values: ["private*"],
- *         }],
- *     });
- *     const r: aws.ec2.Route[] = [];
- *     for (const range = {value: 0}; range.value < rts.ids.length; range.value++) {
+ * const rts = aws.ec2.getRouteTables({
+ *     vpcId: vpcId,
+ *     filters: [{
+ *         name: "tag:kubernetes.io/kops/role",
+ *         values: ["private*"],
+ *     }],
+ * });
+ * const r: aws.ec2.Route[] = [];
+ * rts.then(rts => rts.ids).length.apply(rangeBody => {
+ *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
  *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: rts.ids[range.value],
+ *             routeTableId: rts.then(rts => rts.ids[range.value]),
  *             destinationCidrBlock: "10.0.0.0/22",
  *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
  *         }));
  *     }
- * }
+ * });
  * ```
  */
 export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteTablesResult> {

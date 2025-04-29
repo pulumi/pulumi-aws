@@ -831,6 +831,9 @@ class _MysqlLayerState:
 
 
 class MysqlLayer(pulumi.CustomResource):
+
+    pulumi_type = "aws:opsworks/mysqlLayer:MysqlLayer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -230,6 +230,9 @@ class _AssessmentDelegationState:
 
 
 class AssessmentDelegation(pulumi.CustomResource):
+
+    pulumi_type = "aws:auditmanager/assessmentDelegation:AssessmentDelegation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

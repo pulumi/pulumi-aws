@@ -231,6 +231,9 @@ class _ContactListState:
 
 
 class ContactList(pulumi.CustomResource):
+
+    pulumi_type = "aws:sesv2/contactList:ContactList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

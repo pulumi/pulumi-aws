@@ -205,6 +205,9 @@ class _AppregistryAttributeGroupState:
 
 
 class AppregistryAttributeGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

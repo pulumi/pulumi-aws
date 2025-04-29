@@ -224,6 +224,9 @@ class _UploadState:
 
 
 class Upload(pulumi.CustomResource):
+
+    pulumi_type = "aws:devicefarm/upload:Upload"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

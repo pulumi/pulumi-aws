@@ -572,6 +572,9 @@ class _FlowLogState:
 
 
 class FlowLog(pulumi.CustomResource):
+
+    pulumi_type = "aws:ec2/flowLog:FlowLog"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -90,7 +90,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }
@@ -178,7 +178,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }
@@ -266,7 +266,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }
@@ -354,7 +354,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }
@@ -442,7 +442,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }
@@ -530,7 +530,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }
@@ -618,7 +618,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
+     *             .policy(allowCloudtrailLogging.json())
      *             .build());
      * 
      *     }

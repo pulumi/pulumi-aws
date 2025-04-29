@@ -127,6 +127,9 @@ class _UserInGroupState:
 
 
 class UserInGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws:cognito/userInGroup:UserInGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

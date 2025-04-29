@@ -229,6 +229,9 @@ class _AnomalyMonitorState:
 
 
 class AnomalyMonitor(pulumi.CustomResource):
+
+    pulumi_type = "aws:costexplorer/anomalyMonitor:AnomalyMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

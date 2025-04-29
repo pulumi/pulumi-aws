@@ -216,6 +216,9 @@ class _DetectorState:
 
 
 class Detector(pulumi.CustomResource):
+
+    pulumi_type = "aws:guardduty/detector:Detector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

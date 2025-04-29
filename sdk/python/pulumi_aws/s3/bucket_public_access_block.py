@@ -213,6 +213,9 @@ class _BucketPublicAccessBlockState:
 
 
 class BucketPublicAccessBlock(pulumi.CustomResource):
+
+    pulumi_type = "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
