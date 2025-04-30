@@ -20,11 +20,11 @@ index 717d7f2f54..e571e489a4 100644
  					}
  				} else {
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index 063f30cd17..73fba162eb 100644
+index 1e7b516880..a0e509ab99 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
-@@ -82,7 +82,7 @@ func (r *scraperResource) Schema(ctx context.Context, request resource.SchemaReq
- 				},
+@@ -76,7 +76,7 @@ func (r *scraperResource) Schema(ctx context.Context, request resource.SchemaReq
+ 				Required: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
@@ -553,10 +553,10 @@ index 75afcdc027..1f054798ed 100644
  				Computed: true,
  			},
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index 9cf3b004ac..efb90c5a09 100644
+index cc5c312598..f453619c2c 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
-@@ -177,7 +177,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
+@@ -181,7 +181,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -981,6 +981,19 @@ index ab15481439..5326cc21cd 100644
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/service/redshift/integration.go b/internal/service/redshift/integration.go
+index 691478c7af..e0745b2847 100644
+--- a/internal/service/redshift/integration.go
++++ b/internal/service/redshift/integration.go
+@@ -81,7 +81,7 @@ func (r *integrationResource) Schema(ctx context.Context, req resource.SchemaReq
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrTargetARN: schema.StringAttribute{
+ 				CustomType: fwtypes.ARNType,
+ 				Required:   true,
 diff --git a/internal/service/rekognition/collection.go b/internal/service/rekognition/collection.go
 index 5561f7ecff..07a3c8d32d 100644
 --- a/internal/service/rekognition/collection.go
