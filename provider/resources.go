@@ -490,6 +490,7 @@ var moduleMap = map[string]string{
 	"transfer":                        transferMod,
 	"verifiedaccess":                  verifiedaccessMod,
 	"verifiedpermissions":             verifiedpermissionsMod,
+	"vpc_endpoint_associations":       "VpcEndpointAssociations",
 	"vpclattice":                      vpclatticeMod,
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
