@@ -57,6 +57,11 @@ public final class EndpointKinesisSettings {
      * 
      */
     private @Nullable String streamArn;
+    /**
+     * @return Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+     * 
+     */
+    private @Nullable Boolean useLargeIntegerValue;
 
     private EndpointKinesisSettings() {}
     /**
@@ -122,6 +127,13 @@ public final class EndpointKinesisSettings {
     public Optional<String> streamArn() {
         return Optional.ofNullable(this.streamArn);
     }
+    /**
+     * @return Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+     * 
+     */
+    public Optional<Boolean> useLargeIntegerValue() {
+        return Optional.ofNullable(this.useLargeIntegerValue);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -141,6 +153,7 @@ public final class EndpointKinesisSettings {
         private @Nullable Boolean partitionIncludeSchemaTable;
         private @Nullable String serviceAccessRoleArn;
         private @Nullable String streamArn;
+        private @Nullable Boolean useLargeIntegerValue;
         public Builder() {}
         public Builder(EndpointKinesisSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -153,6 +166,7 @@ public final class EndpointKinesisSettings {
     	      this.partitionIncludeSchemaTable = defaults.partitionIncludeSchemaTable;
     	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
     	      this.streamArn = defaults.streamArn;
+    	      this.useLargeIntegerValue = defaults.useLargeIntegerValue;
         }
 
         @CustomType.Setter
@@ -209,6 +223,12 @@ public final class EndpointKinesisSettings {
             this.streamArn = streamArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder useLargeIntegerValue(@Nullable Boolean useLargeIntegerValue) {
+
+            this.useLargeIntegerValue = useLargeIntegerValue;
+            return this;
+        }
         public EndpointKinesisSettings build() {
             final var _resultValue = new EndpointKinesisSettings();
             _resultValue.includeControlDetails = includeControlDetails;
@@ -220,6 +240,7 @@ public final class EndpointKinesisSettings {
             _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
             _resultValue.streamArn = streamArn;
+            _resultValue.useLargeIntegerValue = useLargeIntegerValue;
             return _resultValue;
         }
     }

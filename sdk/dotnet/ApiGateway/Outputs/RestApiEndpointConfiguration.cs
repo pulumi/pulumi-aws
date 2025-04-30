@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class RestApiEndpointConfiguration
     {
+        public readonly string? IpAddressType;
         /// <summary>
         /// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.Aws.ApiGateway.Outputs
 
         [OutputConstructor]
         private RestApiEndpointConfiguration(
+            string? ipAddressType,
+
             string types,
 
             ImmutableArray<string> vpcEndpointIds)
         {
+            IpAddressType = ipAddressType;
             Types = types;
             VpcEndpointIds = vpcEndpointIds;
         }

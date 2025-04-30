@@ -577,6 +577,10 @@ if not MYPY:
         """
         ARN of the Kinesis data stream.
         """
+        use_large_integer_value: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        """
 elif False:
     EndpointKinesisSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -591,7 +595,8 @@ class EndpointKinesisSettingsArgs:
                  message_format: Optional[pulumi.Input[builtins.str]] = None,
                  partition_include_schema_table: Optional[pulumi.Input[builtins.bool]] = None,
                  service_access_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 use_large_integer_value: Optional[pulumi.Input[builtins.bool]] = None):
         """
         :param pulumi.Input[builtins.bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         :param pulumi.Input[builtins.bool] include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
@@ -602,6 +607,7 @@ class EndpointKinesisSettingsArgs:
         :param pulumi.Input[builtins.bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         :param pulumi.Input[builtins.str] service_access_role_arn: ARN of the IAM Role with permissions to write to the Kinesis data stream.
         :param pulumi.Input[builtins.str] stream_arn: ARN of the Kinesis data stream.
+        :param pulumi.Input[builtins.bool] use_large_integer_value: Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
         """
         if include_control_details is not None:
             pulumi.set(__self__, "include_control_details", include_control_details)
@@ -621,6 +627,8 @@ class EndpointKinesisSettingsArgs:
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
+        if use_large_integer_value is not None:
+            pulumi.set(__self__, "use_large_integer_value", use_large_integer_value)
 
     @property
     @pulumi.getter(name="includeControlDetails")
@@ -729,6 +737,18 @@ class EndpointKinesisSettingsArgs:
     @stream_arn.setter
     def stream_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "stream_arn", value)
+
+    @property
+    @pulumi.getter(name="useLargeIntegerValue")
+    def use_large_integer_value(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        """
+        return pulumi.get(self, "use_large_integer_value")
+
+    @use_large_integer_value.setter
+    def use_large_integer_value(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "use_large_integer_value", value)
 
 
 if not MYPY:

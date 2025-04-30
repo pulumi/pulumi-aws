@@ -14,13 +14,21 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class GetDomainNameEndpointConfigurationResult
     {
         /// <summary>
+        /// The IP address types that can invoke an API (RestApi).
+        /// </summary>
+        public readonly string IpAddressType;
+        /// <summary>
         /// List of endpoint types.
         /// </summary>
         public readonly ImmutableArray<string> Types;
 
         [OutputConstructor]
-        private GetDomainNameEndpointConfigurationResult(ImmutableArray<string> types)
+        private GetDomainNameEndpointConfigurationResult(
+            string ipAddressType,
+
+            ImmutableArray<string> types)
         {
+            IpAddressType = ipAddressType;
             Types = types;
         }
     }

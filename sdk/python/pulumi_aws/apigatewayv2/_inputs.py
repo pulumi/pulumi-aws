@@ -242,6 +242,10 @@ if not MYPY:
         """
         Amazon Route 53 Hosted Zone ID of the endpoint.
         """
+        ip_address_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+        """
         ownership_verification_certificate_arn: NotRequired[pulumi.Input[builtins.str]]
         """
         ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
@@ -260,6 +264,7 @@ class DomainNameDomainNameConfigurationArgs:
                  endpoint_type: pulumi.Input[builtins.str],
                  security_policy: pulumi.Input[builtins.str],
                  hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  target_domain_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -267,6 +272,7 @@ class DomainNameDomainNameConfigurationArgs:
         :param pulumi.Input[builtins.str] endpoint_type: Endpoint type. Valid values: `REGIONAL`.
         :param pulumi.Input[builtins.str] security_policy: Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         :param pulumi.Input[builtins.str] hosted_zone_id: Amazon Route 53 Hosted Zone ID of the endpoint.
+        :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
         :param pulumi.Input[builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         :param pulumi.Input[builtins.str] target_domain_name: Target domain name.
         """
@@ -275,6 +281,8 @@ class DomainNameDomainNameConfigurationArgs:
         pulumi.set(__self__, "security_policy", security_policy)
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ownership_verification_certificate_arn is not None:
             pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if target_domain_name is not None:
@@ -327,6 +335,18 @@ class DomainNameDomainNameConfigurationArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="ownershipVerificationCertificateArn")

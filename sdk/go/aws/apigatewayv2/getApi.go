@@ -78,7 +78,8 @@ type LookupApiResult struct {
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn string `pulumi:"executionArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id            string `pulumi:"id"`
+	IpAddressType string `pulumi:"ipAddressType"`
 	// Name of the API.
 	Name string `pulumi:"name"`
 	// API protocol.
@@ -173,6 +174,10 @@ func (o LookupApiResultOutput) ExecutionArn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupApiResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupApiResultOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // Name of the API.

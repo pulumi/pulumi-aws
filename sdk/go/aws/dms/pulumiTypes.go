@@ -724,6 +724,8 @@ type EndpointKinesisSettings struct {
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// ARN of the Kinesis data stream.
 	StreamArn *string `pulumi:"streamArn"`
+	// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+	UseLargeIntegerValue *bool `pulumi:"useLargeIntegerValue"`
 }
 
 // EndpointKinesisSettingsInput is an input type that accepts EndpointKinesisSettingsArgs and EndpointKinesisSettingsOutput values.
@@ -756,6 +758,8 @@ type EndpointKinesisSettingsArgs struct {
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 	// ARN of the Kinesis data stream.
 	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
+	// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+	UseLargeIntegerValue pulumi.BoolPtrInput `pulumi:"useLargeIntegerValue"`
 }
 
 func (EndpointKinesisSettingsArgs) ElementType() reflect.Type {
@@ -880,6 +884,11 @@ func (o EndpointKinesisSettingsOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
+// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+func (o EndpointKinesisSettingsOutput) UseLargeIntegerValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.UseLargeIntegerValue }).(pulumi.BoolPtrOutput)
+}
+
 type EndpointKinesisSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointKinesisSettingsPtrOutput) ElementType() reflect.Type {
@@ -992,6 +1001,16 @@ func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 		}
 		return v.StreamArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) UseLargeIntegerValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLargeIntegerValue
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EndpointMongodbSettings struct {
@@ -3585,6 +3604,7 @@ type GetEndpointKinesisSetting struct {
 	PartitionIncludeSchemaTable bool   `pulumi:"partitionIncludeSchemaTable"`
 	ServiceAccessRoleArn        string `pulumi:"serviceAccessRoleArn"`
 	StreamArn                   string `pulumi:"streamArn"`
+	UseLargeIntegerValue        bool   `pulumi:"useLargeIntegerValue"`
 }
 
 // GetEndpointKinesisSettingInput is an input type that accepts GetEndpointKinesisSettingArgs and GetEndpointKinesisSettingOutput values.
@@ -3608,6 +3628,7 @@ type GetEndpointKinesisSettingArgs struct {
 	PartitionIncludeSchemaTable pulumi.BoolInput   `pulumi:"partitionIncludeSchemaTable"`
 	ServiceAccessRoleArn        pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
 	StreamArn                   pulumi.StringInput `pulumi:"streamArn"`
+	UseLargeIntegerValue        pulumi.BoolInput   `pulumi:"useLargeIntegerValue"`
 }
 
 func (GetEndpointKinesisSettingArgs) ElementType() reflect.Type {
@@ -3695,6 +3716,10 @@ func (o GetEndpointKinesisSettingOutput) ServiceAccessRoleArn() pulumi.StringOut
 
 func (o GetEndpointKinesisSettingOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) UseLargeIntegerValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.UseLargeIntegerValue }).(pulumi.BoolOutput)
 }
 
 type GetEndpointKinesisSettingArrayOutput struct{ *pulumi.OutputState }

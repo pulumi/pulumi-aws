@@ -8,10 +8,12 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class RestApiEndpointConfiguration {
+    private @Nullable String ipAddressType;
     /**
      * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
      * 
@@ -24,6 +26,9 @@ public final class RestApiEndpointConfiguration {
     private @Nullable List<String> vpcEndpointIds;
 
     private RestApiEndpointConfiguration() {}
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
     /**
      * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
      * 
@@ -48,15 +53,23 @@ public final class RestApiEndpointConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String ipAddressType;
         private String types;
         private @Nullable List<String> vpcEndpointIds;
         public Builder() {}
         public Builder(RestApiEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.types = defaults.types;
     	      this.vpcEndpointIds = defaults.vpcEndpointIds;
         }
 
+        @CustomType.Setter
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
         @CustomType.Setter
         public Builder types(String types) {
             if (types == null) {
@@ -76,6 +89,7 @@ public final class RestApiEndpointConfiguration {
         }
         public RestApiEndpointConfiguration build() {
             final var _resultValue = new RestApiEndpointConfiguration();
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.types = types;
             _resultValue.vpcEndpointIds = vpcEndpointIds;
             return _resultValue;

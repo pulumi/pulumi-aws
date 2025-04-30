@@ -17,6 +17,13 @@ public final class RestApiEndpointConfigurationArgs extends com.pulumi.resources
 
     public static final RestApiEndpointConfigurationArgs Empty = new RestApiEndpointConfigurationArgs();
 
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
     /**
      * List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
      * 
@@ -50,6 +57,7 @@ public final class RestApiEndpointConfigurationArgs extends com.pulumi.resources
     private RestApiEndpointConfigurationArgs() {}
 
     private RestApiEndpointConfigurationArgs(RestApiEndpointConfigurationArgs $) {
+        this.ipAddressType = $.ipAddressType;
         this.types = $.types;
         this.vpcEndpointIds = $.vpcEndpointIds;
     }
@@ -70,6 +78,15 @@ public final class RestApiEndpointConfigurationArgs extends com.pulumi.resources
 
         public Builder(RestApiEndpointConfigurationArgs defaults) {
             $ = new RestApiEndpointConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

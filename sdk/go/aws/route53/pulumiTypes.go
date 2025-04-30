@@ -2504,8 +2504,9 @@ func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) LocalZon
 }
 
 type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates struct {
+	// A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
+	Latitude string `pulumi:"latitude"`
 	// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-	Latitude  string `pulumi:"latitude"`
 	Longitude string `pulumi:"longitude"`
 }
 
@@ -2521,8 +2522,9 @@ type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesInput inter
 }
 
 type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs struct {
+	// A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
+	Latitude pulumi.StringInput `pulumi:"latitude"`
 	// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-	Latitude  pulumi.StringInput `pulumi:"latitude"`
 	Longitude pulumi.StringInput `pulumi:"longitude"`
 }
 
@@ -2603,11 +2605,12 @@ func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) 
 	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput)
 }
 
-// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+// A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
 func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) Latitude() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) string { return v.Latitude }).(pulumi.StringOutput)
 }
 
+// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
 func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) Longitude() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) string { return v.Longitude }).(pulumi.StringOutput)
 }
@@ -2636,7 +2639,7 @@ func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutpu
 	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput)
 }
 
-// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+// A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
 func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) *string {
 		if v == nil {
@@ -2646,6 +2649,7 @@ func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
 func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) *string {
 		if v == nil {

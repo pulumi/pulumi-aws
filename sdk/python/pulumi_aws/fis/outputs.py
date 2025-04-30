@@ -21,6 +21,11 @@ __all__ = [
     'ExperimentTemplateActionParameter',
     'ExperimentTemplateActionTarget',
     'ExperimentTemplateExperimentOptions',
+    'ExperimentTemplateExperimentReportConfiguration',
+    'ExperimentTemplateExperimentReportConfigurationDataSources',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard',
+    'ExperimentTemplateExperimentReportConfigurationOutputs',
+    'ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration',
     'ExperimentTemplateLogConfiguration',
     'ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration',
     'ExperimentTemplateLogConfigurationS3Configuration',
@@ -236,6 +241,237 @@ class ExperimentTemplateExperimentOptions(dict):
         Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
         """
         return pulumi.get(self, "empty_target_resolution_mode")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSources":
+            suggest = "data_sources"
+        elif key == "postExperimentDuration":
+            suggest = "post_experiment_duration"
+        elif key == "preExperimentDuration":
+            suggest = "pre_experiment_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_sources: Optional['outputs.ExperimentTemplateExperimentReportConfigurationDataSources'] = None,
+                 outputs: Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputs'] = None,
+                 post_experiment_duration: Optional[builtins.str] = None,
+                 pre_experiment_duration: Optional[builtins.str] = None):
+        """
+        :param 'ExperimentTemplateExperimentReportConfigurationDataSourcesArgs' data_sources: The data sources for the experiment report. See below.
+        :param 'ExperimentTemplateExperimentReportConfigurationOutputsArgs' outputs: The outputs for the experiment report. See below.
+        :param builtins.str post_experiment_duration: The duration of the post-experiment period. Defaults to `PT20M`.
+        :param builtins.str pre_experiment_duration: The duration of the pre-experiment period. Defaults to `PT20M`.
+        """
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if post_experiment_duration is not None:
+            pulumi.set(__self__, "post_experiment_duration", post_experiment_duration)
+        if pre_experiment_duration is not None:
+            pulumi.set(__self__, "pre_experiment_duration", pre_experiment_duration)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationDataSources']:
+        """
+        The data sources for the experiment report. See below.
+        """
+        return pulumi.get(self, "data_sources")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputs']:
+        """
+        The outputs for the experiment report. See below.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="postExperimentDuration")
+    def post_experiment_duration(self) -> Optional[builtins.str]:
+        """
+        The duration of the post-experiment period. Defaults to `PT20M`.
+        """
+        return pulumi.get(self, "post_experiment_duration")
+
+    @property
+    @pulumi.getter(name="preExperimentDuration")
+    def pre_experiment_duration(self) -> Optional[builtins.str]:
+        """
+        The duration of the pre-experiment period. Defaults to `PT20M`.
+        """
+        return pulumi.get(self, "pre_experiment_duration")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationDataSources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchDashboards":
+            suggest = "cloudwatch_dashboards"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationDataSources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationDataSources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationDataSources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_dashboards: Optional[Sequence['outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard']] = None):
+        """
+        :param Sequence['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs'] cloudwatch_dashboards: The data sources for the experiment report. See below.
+        """
+        if cloudwatch_dashboards is not None:
+            pulumi.set(__self__, "cloudwatch_dashboards", cloudwatch_dashboards)
+
+    @property
+    @pulumi.getter(name="cloudwatchDashboards")
+    def cloudwatch_dashboards(self) -> Optional[Sequence['outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard']]:
+        """
+        The data sources for the experiment report. See below.
+        """
+        return pulumi.get(self, "cloudwatch_dashboards")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashboardArn":
+            suggest = "dashboard_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dashboard_arn: Optional[builtins.str] = None):
+        """
+        :param builtins.str dashboard_arn: The ARN of the CloudWatch dashboard.
+        """
+        if dashboard_arn is not None:
+            pulumi.set(__self__, "dashboard_arn", dashboard_arn)
+
+    @property
+    @pulumi.getter(name="dashboardArn")
+    def dashboard_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the CloudWatch dashboard.
+        """
+        return pulumi.get(self, "dashboard_arn")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationOutputs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationOutputs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_configuration: Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration'] = None):
+        """
+        :param 'ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs' s3_configuration: The data sources for the experiment report. See below.
+        """
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration']:
+        """
+        The data sources for the experiment report. See below.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: builtins.str,
+                 prefix: Optional[builtins.str] = None):
+        """
+        :param builtins.str bucket_name: The name of the destination bucket.
+        :param builtins.str prefix: The bucket prefix.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> builtins.str:
+        """
+        The name of the destination bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type
