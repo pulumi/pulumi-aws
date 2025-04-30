@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RestApiEndpointConfiguration {
+    /**
+     * @return The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+     * 
+     */
     private @Nullable String ipAddressType;
     /**
      * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
@@ -26,6 +30,10 @@ public final class RestApiEndpointConfiguration {
     private @Nullable List<String> vpcEndpointIds;
 
     private RestApiEndpointConfiguration() {}
+    /**
+     * @return The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+     * 
+     */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }

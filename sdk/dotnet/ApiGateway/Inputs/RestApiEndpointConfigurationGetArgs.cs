@@ -12,6 +12,9 @@ namespace Pulumi.Aws.ApiGateway.Inputs
 
     public sealed class RestApiEndpointConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
