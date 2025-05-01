@@ -197,7 +197,6 @@ const (
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
 	oamMod                      = "Oam"                      // Observability Access Manager
 	opensearchMod               = "OpenSearch"               // OpenSearch
-	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
 	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
 	outpostsMod                 = "Outposts"                 // Outposts
@@ -244,7 +243,6 @@ const (
 	servicequotasMod            = "ServiceQuotas"            // Service Quotas
 	sfnMod                      = "Sfn"                      // Step Functions (SFN)
 	shieldMod                   = "Shield"                   // Shield
-	simpledbMod                 = "SimpleDB"                 // Simple DB
 	snsMod                      = "Sns"                      // Simple Notification Service (SNS)
 	sqsMod                      = "Sqs"                      // Simple Queueing Service (SQS)
 	ssoAdminMod                 = "SsoAdmin"                 // SSO Admin
@@ -262,7 +260,6 @@ const (
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
-	worklinkMod                 = "WorkLink"                 // Worklink
 	workspacesMod               = "Workspaces"               // Workspaces
 	xrayMod                     = "Xray"                     // X-Ray
 
@@ -426,7 +423,6 @@ var moduleMap = map[string]string{
 	"networkmonitor":                  networkMonitorMod,
 	"oam":                             oamMod,
 	"opensearch":                      opensearchMod,
-	"opsworks":                        opsworksMod,
 	"organizations":                   organizationsMod,
 	"osis":                            osisMod,
 	"outposts":                        outpostsMod,
@@ -474,7 +470,6 @@ var moduleMap = map[string]string{
 	"sfn":                             sfnMod,
 	"shield":                          shieldMod,
 	"signer":                          signerMod,
-	"simpledb":                        simpledbMod,
 	"sns":                             snsMod,
 	"sqs":                             sqsMod,
 	"ssm":                             ssmMod,
@@ -494,7 +489,6 @@ var moduleMap = map[string]string{
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
 	"wafv2":                           wafV2Mod,
-	"worklink":                        worklinkMod,
 	"workspaces":                      workspacesMod,
 	"xray":                            xrayMod,
 }
@@ -1816,7 +1810,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"bucket": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "BucketV2")},
 					},
 				},
 			},
@@ -2421,18 +2415,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
 			"aws_gamelift_game_server_group":  {Tok: awsResource(gameliftMod, "GameServerGroup")},
 			"aws_gamelift_script":             {Tok: awsResource(gameliftMod, "Script")},
-
-			"aws_gamelift_matchmaking_configuration": {
-				Tok: awsResource(gameliftMod, "MatchmakingConfiguration"),
-				DeprecationMessage: "This resource will be removed in the next major version. " +
-					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead",
-			},
-
-			"aws_gamelift_matchmaking_rule_set": {
-				Tok: awsResource(gameliftMod, "MatchmakingRuleSet"),
-				DeprecationMessage: "This resource will be removed in the next major version." +
-					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead",
-			},
 
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
@@ -3116,32 +3098,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_opensearch_inbound_connection_accepter": {Tok: awsResource(opensearchMod, "InboundConnectionAccepter")},
 			"aws_opensearch_outbound_connection":         {Tok: awsResource(opensearchMod, "OutboundConnection")},
 
-			// OpsWorks
-			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack": {
-				Tok: awsResource(opsworksMod, "Stack"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"custom_cookbooks_source": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "customCookbooksSources",
-					},
-				},
-			},
-			"aws_opsworks_java_app_layer":    {Tok: awsResource(opsworksMod, "JavaAppLayer")},
-			"aws_opsworks_haproxy_layer":     {Tok: awsResource(opsworksMod, "HaproxyLayer")},
-			"aws_opsworks_static_web_layer":  {Tok: awsResource(opsworksMod, "StaticWebLayer")},
-			"aws_opsworks_php_app_layer":     {Tok: awsResource(opsworksMod, "PhpAppLayer")},
-			"aws_opsworks_rails_app_layer":   {Tok: awsResource(opsworksMod, "RailsAppLayer")},
-			"aws_opsworks_nodejs_app_layer":  {Tok: awsResource(opsworksMod, "NodejsAppLayer")},
-			"aws_opsworks_memcached_layer":   {Tok: awsResource(opsworksMod, "MemcachedLayer")},
-			"aws_opsworks_mysql_layer":       {Tok: awsResource(opsworksMod, "MysqlLayer")},
-			"aws_opsworks_ganglia_layer":     {Tok: awsResource(opsworksMod, "GangliaLayer")},
-			"aws_opsworks_custom_layer":      {Tok: awsResource(opsworksMod, "CustomLayer")},
-			"aws_opsworks_instance":          {Tok: awsResource(opsworksMod, "Instance")},
-			"aws_opsworks_user_profile":      {Tok: awsResource(opsworksMod, "UserProfile")},
-			"aws_opsworks_permission":        {Tok: awsResource(opsworksMod, "Permission")},
-			"aws_opsworks_rds_db_instance":   {Tok: awsResource(opsworksMod, "RdsDbInstance")},
-			"aws_opsworks_ecs_cluster_layer": {Tok: awsResource(opsworksMod, "EcsClusterLayer")},
 			// Organizations
 			"aws_organizations_account":                 {Tok: awsResource(organizationsMod, "Account")},
 			"aws_organizations_organization":            {Tok: awsResource(organizationsMod, "Organization")},
@@ -3766,7 +3722,7 @@ compatibility shim in favor of the new "name" field.`)
 						// Prefer a strongly typed Bucket reference.
 						Type: "string",
 						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "BucketV2")},
 					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
@@ -3790,40 +3746,6 @@ compatibility shim in favor of the new "name" field.`)
 					},
 				},
 			},
-			"aws_s3_bucket_legacy": {
-				Tok: awsResource(s3Mod, "Bucket"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"acl": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl", "CannedAcl")},
-					},
-					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
-						return strings.ToLower(name)
-					}),
-					// Website only accepts a single value in the AWS
-					// API but is not marked MaxItems==1 in the TF
-					// provider.
-					"website": {
-						Name: "website",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"routing_rules": {
-									Name:      "routingRules",
-									Type:      "string",
-									AltTypes:  []tokens.Type{awsType(s3Mod, "routingRules", "RoutingRule[]")},
-									Transform: tfbridge.TransformJSONDocument,
-								},
-							},
-						},
-					},
-					"policy": {
-						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-						Transform: tfbridge.TransformJSONDocument,
-					},
-				},
-				Docs: &tfbridge.DocInfo{Markdown: maybeReadFile("docs/resource/aws_s3_bucket_legacy.md")},
-			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
 			"aws_s3_bucket_notification": {Tok: awsResource(s3Mod, "BucketNotification")},
@@ -3835,7 +3757,7 @@ compatibility shim in favor of the new "name" field.`)
 						// Prefer a strongly typed Bucket reference.
 						Type: "string",
 						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "BucketV2")},
 					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
@@ -3953,28 +3875,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_ssmcontacts_contact_channel": {Tok: awsResource(ssmContactsMod, "ContactChannel")},
 			"aws_ssmcontacts_plan":            {Tok: awsResource(ssmContactsMod, "Plan")},
 
-			// SimpleDB
-			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
-			// Simple Queuing Service (SQS)
-			"aws_sqs_queue": {
-				Tok: awsResource(sqsMod, "Queue"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
-						Separator: "-",
-						Maxlen:    80,
-						Randlen:   7,
-						// If this is a FIFO Queue, it's name must end with `.fifo`
-						PostTransform: func(res *tfbridge.PulumiResource, name string) (string, error) {
-							if fifo, hasfifo := res.Properties["fifoQueue"]; hasfifo {
-								if fifo.IsBool() && fifo.BoolValue() {
-									return name + ".fifo", nil
-								}
-							}
-							return name, nil
-						},
-					}),
-				},
-			},
 			"aws_sqs_queue_policy": {
 				Tok: awsResource(sqsMod, "QueuePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -4129,11 +4029,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_wafregional_web_acl":                 {Tok: awsResource(wafregionalMod, "WebAcl")},
 			"aws_wafregional_web_acl_association":     {Tok: awsResource(wafregionalMod, "WebAclAssociation")},
 			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
-			// Worklink
-			"aws_worklink_fleet": {Tok: awsResource(worklinkMod, "Fleet")},
-			"aws_worklink_website_certificate_authority_association": {
-				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
-			},
 			// Xray
 			"aws_xray_sampling_rule":     {Tok: awsResource(xrayMod, "SamplingRule")},
 			"aws_xray_encryption_config": {Tok: awsResource(xrayMod, "EncryptionConfig")},
@@ -4478,6 +4373,9 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			"aws_vpc_security_group_rules": {
 				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+			},
+			"aws_vpc_endpoint_associations": {
+				Tok: awsDataSource("Vpc", "getEndpointAssociations"),
 			},
 
 			// AWS
@@ -5561,9 +5459,6 @@ compatibility shim in favor of the new "name" field.`)
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group_attachment.html.markdown"},
 		})
 
-	// Add a CSharp-specific override for aws_s3_bucket.bucket.
-	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
-
 	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
 		"aws_auditmanager_account_registration": {
 			Tok: awsResource(auditmanagerMod, "AccountRegistration"),
@@ -5796,16 +5691,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		"aws_wafv2_web_acl_logging_configuration":
 		return false
 	case "aws_medialive_channel",
-		"aws_opsworks_custom_layer",
-		"aws_opsworks_ecs_cluster_layer",
-		"aws_opsworks_ganglia_layer",
-		"aws_opsworks_haproxy_layer",
-		"aws_opsworks_java_app_layer",
-		"aws_opsworks_memcached_layer",
-		"aws_opsworks_mysql_layer",
-		"aws_opsworks_nodejs_app_layer",
-		"aws_opsworks_php_app_layer",
-		"aws_opsworks_rails_app_layer",
 		"aws_quicksight_analysis",
 		"aws_quicksight_dashboard",
 		"aws_quicksight_data_set",
@@ -5816,8 +5701,7 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		"aws_wafv2_regex_pattern_set",
 		"aws_wafv2_rule_group",
 		"aws_wafv2_web_acl",
-		"aws_kinesis_firehose_delivery_stream",
-		"aws_opsworks_static_web_layer":
+		"aws_kinesis_firehose_delivery_stream":
 		return true
 	}
 	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
@@ -5828,17 +5712,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
 	switch tfResourceName {
 	case "aws_kinesis_firehose_delivery_stream",
-		"aws_opsworks_custom_layer",
-		"aws_opsworks_ecs_cluster_layer",
-		"aws_opsworks_ganglia_layer",
-		"aws_opsworks_haproxy_layer",
-		"aws_opsworks_java_app_layer",
-		"aws_opsworks_memcached_layer",
-		"aws_opsworks_mysql_layer",
-		"aws_opsworks_nodejs_app_layer",
-		"aws_opsworks_php_app_layer",
-		"aws_opsworks_rails_app_layer",
-		"aws_opsworks_static_web_layer",
 		"aws_quicksight_analysis",
 		"aws_quicksight_dashboard",
 		"aws_quicksight_data_set",
