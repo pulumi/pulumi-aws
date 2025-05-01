@@ -990,6 +990,36 @@ class Distribution(pulumi.CustomResource):
             })
         ```
 
+        ### With V2 logging to S3
+
+        The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.Distribution("example")
+        example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            name="example",
+            log_type="ACCESS_LOGS",
+            resource_arn=example.arn)
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="testbucket",
+            force_destroy=True)
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            name="s3-destination",
+            output_format="parquet",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix"),
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            s3_delivery_configurations=[{
+                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
@@ -1244,6 +1274,36 @@ class Distribution(pulumi.CustomResource):
             viewer_certificate={
                 "cloudfront_default_certificate": True,
             })
+        ```
+
+        ### With V2 logging to S3
+
+        The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.Distribution("example")
+        example_log_delivery_source = aws.cloudwatch.LogDeliverySource("example",
+            name="example",
+            log_type="ACCESS_LOGS",
+            resource_arn=example.arn)
+        example_bucket_v2 = aws.s3.BucketV2("example",
+            bucket="testbucket",
+            force_destroy=True)
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            name="s3-destination",
+            output_format="parquet",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix"),
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            s3_delivery_configurations=[{
+                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+            }])
         ```
 
         ## Import

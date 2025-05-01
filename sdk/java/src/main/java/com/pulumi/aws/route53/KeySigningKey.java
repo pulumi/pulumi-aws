@@ -272,7 +272,7 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
         return this.keyTag;
     }
     /**
-     * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     * Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
      * 
      * The following arguments are optional:
      * 
@@ -281,7 +281,7 @@ public class KeySigningKey extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     * @return Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
      * 
      * The following arguments are optional:
      * 

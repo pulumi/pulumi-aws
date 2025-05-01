@@ -431,6 +431,8 @@ class EndpointKinesisSettings(dict):
             suggest = "service_access_role_arn"
         elif key == "streamArn":
             suggest = "stream_arn"
+        elif key == "useLargeIntegerValue":
+            suggest = "use_large_integer_value"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointKinesisSettings. Access the value via the '{suggest}' property getter instead.")
@@ -452,7 +454,8 @@ class EndpointKinesisSettings(dict):
                  message_format: Optional[builtins.str] = None,
                  partition_include_schema_table: Optional[builtins.bool] = None,
                  service_access_role_arn: Optional[builtins.str] = None,
-                 stream_arn: Optional[builtins.str] = None):
+                 stream_arn: Optional[builtins.str] = None,
+                 use_large_integer_value: Optional[builtins.bool] = None):
         """
         :param builtins.bool include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         :param builtins.bool include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
@@ -463,6 +466,7 @@ class EndpointKinesisSettings(dict):
         :param builtins.bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         :param builtins.str service_access_role_arn: ARN of the IAM Role with permissions to write to the Kinesis data stream.
         :param builtins.str stream_arn: ARN of the Kinesis data stream.
+        :param builtins.bool use_large_integer_value: Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
         """
         if include_control_details is not None:
             pulumi.set(__self__, "include_control_details", include_control_details)
@@ -482,6 +486,8 @@ class EndpointKinesisSettings(dict):
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
+        if use_large_integer_value is not None:
+            pulumi.set(__self__, "use_large_integer_value", use_large_integer_value)
 
     @property
     @pulumi.getter(name="includeControlDetails")
@@ -554,6 +560,14 @@ class EndpointKinesisSettings(dict):
         ARN of the Kinesis data stream.
         """
         return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter(name="useLargeIntegerValue")
+    def use_large_integer_value(self) -> Optional[builtins.bool]:
+        """
+        Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        """
+        return pulumi.get(self, "use_large_integer_value")
 
 
 @pulumi.output_type
@@ -2006,7 +2020,8 @@ class GetEndpointKinesisSettingResult(dict):
                  message_format: builtins.str,
                  partition_include_schema_table: builtins.bool,
                  service_access_role_arn: builtins.str,
-                 stream_arn: builtins.str):
+                 stream_arn: builtins.str,
+                 use_large_integer_value: builtins.bool):
         pulumi.set(__self__, "include_control_details", include_control_details)
         pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
         pulumi.set(__self__, "include_partition_value", include_partition_value)
@@ -2016,6 +2031,7 @@ class GetEndpointKinesisSettingResult(dict):
         pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
         pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         pulumi.set(__self__, "stream_arn", stream_arn)
+        pulumi.set(__self__, "use_large_integer_value", use_large_integer_value)
 
     @property
     @pulumi.getter(name="includeControlDetails")
@@ -2061,6 +2077,11 @@ class GetEndpointKinesisSettingResult(dict):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> builtins.str:
         return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter(name="useLargeIntegerValue")
+    def use_large_integer_value(self) -> builtins.bool:
+        return pulumi.get(self, "use_large_integer_value")
 
 
 @pulumi.output_type

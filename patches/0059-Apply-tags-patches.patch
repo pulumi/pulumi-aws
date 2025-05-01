@@ -397,10 +397,10 @@ index b4e1a4de14..ff346c07ec 100644
  	}
  }
 diff --git a/internal/service/codeconnections/connection.go b/internal/service/codeconnections/connection.go
-index 8a1b018661..e33d5d3cc0 100644
+index df5fb0bc14..8d249e28b0 100644
 --- a/internal/service/codeconnections/connection.go
 +++ b/internal/service/codeconnections/connection.go
-@@ -103,7 +103,7 @@ func (r *connectionResource) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -104,7 +104,7 @@ func (r *connectionResource) Schema(ctx context.Context, req resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -410,10 +410,10 @@ index 8a1b018661..e33d5d3cc0 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/codeconnections/host.go b/internal/service/codeconnections/host.go
-index 1e11b70cc0..fed0a12029 100644
+index 1a07f8a48f..487966f1d2 100644
 --- a/internal/service/codeconnections/host.go
 +++ b/internal/service/codeconnections/host.go
-@@ -82,7 +82,7 @@ func (r *hostResource) Schema(ctx context.Context, req resource.SchemaRequest, r
+@@ -83,7 +83,7 @@ func (r *hostResource) Schema(ctx context.Context, req resource.SchemaRequest, r
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -592,10 +592,10 @@ index 98d394572c..efa2142397 100644
  		Blocks: map[string]schema.Block{
  			"resource": schema.SetNestedBlock{
 diff --git a/internal/service/guardduty/malware_protection_plan.go b/internal/service/guardduty/malware_protection_plan.go
-index ba5ded4f58..43e658b1dc 100644
+index 3d58b61b78..9fc9eeb030 100644
 --- a/internal/service/guardduty/malware_protection_plan.go
 +++ b/internal/service/guardduty/malware_protection_plan.go
-@@ -83,7 +83,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource
+@@ -85,7 +85,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource
  				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

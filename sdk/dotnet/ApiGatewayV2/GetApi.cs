@@ -178,6 +178,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string IpAddressType;
         /// <summary>
         /// Name of the API.
         /// </summary>
@@ -219,6 +220,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
             string id,
 
+            string ipAddressType,
+
             string name,
 
             string protocolType,
@@ -238,6 +241,7 @@ namespace Pulumi.Aws.ApiGatewayV2
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
             ExecutionArn = executionArn;
             Id = id;
+            IpAddressType = ipAddressType;
             Name = name;
             ProtocolType = protocolType;
             RouteSelectionExpression = routeSelectionExpression;

@@ -84,6 +84,7 @@ export interface GetApiResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ipAddressType: string;
     /**
      * Name of the API.
      */

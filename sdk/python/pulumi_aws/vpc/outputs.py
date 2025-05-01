@@ -14,12 +14,16 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'EndpointServicePrivateDnsVerificationTimeouts',
     'SecurityGroupVpcAssociationTimeouts',
     'GetSecurityGroupRuleFilterResult',
     'GetSecurityGroupRulesFilterResult',
+    'GetVpcEndpointAssociationsAssociationResult',
+    'GetVpcEndpointAssociationsAssociationDnsEntryResult',
+    'GetVpcEndpointAssociationsAssociationPrivateDnsEntryResult',
 ]
 
 @pulumi.output_type
@@ -132,5 +136,165 @@ class GetSecurityGroupRulesFilterResult(dict):
         Security group rule IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcEndpointAssociationsAssociationResult(dict):
+    def __init__(__self__, *,
+                 associated_resource_accessibility: builtins.str,
+                 associated_resource_arn: builtins.str,
+                 dns_entries: Sequence['outputs.GetVpcEndpointAssociationsAssociationDnsEntryResult'],
+                 id: builtins.str,
+                 private_dns_entries: Sequence['outputs.GetVpcEndpointAssociationsAssociationPrivateDnsEntryResult'],
+                 resource_configuration_group_arn: builtins.str,
+                 service_network_arn: builtins.str,
+                 service_network_name: builtins.str,
+                 tags: Mapping[str, builtins.str]):
+        """
+        :param builtins.str associated_resource_accessibility: Accessibility of the resource.
+        :param builtins.str associated_resource_arn: ARN of the resource for this association.
+        :param Sequence['GetVpcEndpointAssociationsAssociationDnsEntryArgs'] dns_entries: DNS entries for the Association. DNS entry blocks are documented below.
+        :param Sequence['GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs'] private_dns_entries: DNS entries for the Association. Private DNS entry blocks are documented below.
+        :param builtins.str resource_configuration_group_arn: ARN of the Resource Group if the Resource is a member of a group.
+        :param builtins.str service_network_arn: Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
+        :param builtins.str service_network_name: Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
+        :param Mapping[str, builtins.str] tags: Tags of the association.
+        """
+        pulumi.set(__self__, "associated_resource_accessibility", associated_resource_accessibility)
+        pulumi.set(__self__, "associated_resource_arn", associated_resource_arn)
+        pulumi.set(__self__, "dns_entries", dns_entries)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "private_dns_entries", private_dns_entries)
+        pulumi.set(__self__, "resource_configuration_group_arn", resource_configuration_group_arn)
+        pulumi.set(__self__, "service_network_arn", service_network_arn)
+        pulumi.set(__self__, "service_network_name", service_network_name)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="associatedResourceAccessibility")
+    def associated_resource_accessibility(self) -> builtins.str:
+        """
+        Accessibility of the resource.
+        """
+        return pulumi.get(self, "associated_resource_accessibility")
+
+    @property
+    @pulumi.getter(name="associatedResourceArn")
+    def associated_resource_arn(self) -> builtins.str:
+        """
+        ARN of the resource for this association.
+        """
+        return pulumi.get(self, "associated_resource_arn")
+
+    @property
+    @pulumi.getter(name="dnsEntries")
+    def dns_entries(self) -> Sequence['outputs.GetVpcEndpointAssociationsAssociationDnsEntryResult']:
+        """
+        DNS entries for the Association. DNS entry blocks are documented below.
+        """
+        return pulumi.get(self, "dns_entries")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="privateDnsEntries")
+    def private_dns_entries(self) -> Sequence['outputs.GetVpcEndpointAssociationsAssociationPrivateDnsEntryResult']:
+        """
+        DNS entries for the Association. Private DNS entry blocks are documented below.
+        """
+        return pulumi.get(self, "private_dns_entries")
+
+    @property
+    @pulumi.getter(name="resourceConfigurationGroupArn")
+    def resource_configuration_group_arn(self) -> builtins.str:
+        """
+        ARN of the Resource Group if the Resource is a member of a group.
+        """
+        return pulumi.get(self, "resource_configuration_group_arn")
+
+    @property
+    @pulumi.getter(name="serviceNetworkArn")
+    def service_network_arn(self) -> builtins.str:
+        """
+        Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
+        """
+        return pulumi.get(self, "service_network_arn")
+
+    @property
+    @pulumi.getter(name="serviceNetworkName")
+    def service_network_name(self) -> builtins.str:
+        """
+        Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
+        """
+        return pulumi.get(self, "service_network_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, builtins.str]:
+        """
+        Tags of the association.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetVpcEndpointAssociationsAssociationDnsEntryResult(dict):
+    def __init__(__self__, *,
+                 dns_name: builtins.str,
+                 hosted_zone_id: builtins.str):
+        """
+        :param builtins.str dns_name: DNS name.
+        :param builtins.str hosted_zone_id: ID of the private hosted zone.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> builtins.str:
+        """
+        DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> builtins.str:
+        """
+        ID of the private hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class GetVpcEndpointAssociationsAssociationPrivateDnsEntryResult(dict):
+    def __init__(__self__, *,
+                 dns_name: builtins.str,
+                 hosted_zone_id: builtins.str):
+        """
+        :param builtins.str dns_name: DNS name.
+        :param builtins.str hosted_zone_id: ID of the private hosted zone.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> builtins.str:
+        """
+        DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> builtins.str:
+        """
+        ID of the private hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
 
 

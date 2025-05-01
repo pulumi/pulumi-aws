@@ -50,10 +50,14 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 type LookupDetectorArgs struct {
 	// ID of the detector.
 	Id *string `pulumi:"id"`
+	// Map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDetector.
 type LookupDetectorResult struct {
+	// ARN of the detector.
+	Arn string `pulumi:"arn"`
 	// Current configuration of the detector features.
 	Features []GetDetectorFeatureType `pulumi:"features"`
 	// The frequency of notifications sent about subsequent finding occurrences.
@@ -63,6 +67,8 @@ type LookupDetectorResult struct {
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// Current status of the detector.
 	Status string `pulumi:"status"`
+	// Map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -78,6 +84,8 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 type LookupDetectorOutputArgs struct {
 	// ID of the detector.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Map of tags for the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDetectorOutputArgs) ElementType() reflect.Type {
@@ -97,6 +105,11 @@ func (o LookupDetectorResultOutput) ToLookupDetectorResultOutput() LookupDetecto
 
 func (o LookupDetectorResultOutput) ToLookupDetectorResultOutputWithContext(ctx context.Context) LookupDetectorResultOutput {
 	return o
+}
+
+// ARN of the detector.
+func (o LookupDetectorResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDetectorResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Current configuration of the detector features.
@@ -121,6 +134,11 @@ func (o LookupDetectorResultOutput) ServiceRoleArn() pulumi.StringOutput {
 // Current status of the detector.
 func (o LookupDetectorResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Map of tags for the resource.
+func (o LookupDetectorResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDetectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

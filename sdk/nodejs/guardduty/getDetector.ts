@@ -24,6 +24,7 @@ export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions)
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:guardduty/getDetector:getDetector", {
         "id": args.id,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -35,12 +36,20 @@ export interface GetDetectorArgs {
      * ID of the detector.
      */
     id?: string;
+    /**
+     * Map of tags for the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getDetector.
  */
 export interface GetDetectorResult {
+    /**
+     * ARN of the detector.
+     */
+    readonly arn: string;
     /**
      * Current configuration of the detector features.
      */
@@ -58,6 +67,10 @@ export interface GetDetectorResult {
      * Current status of the detector.
      */
     readonly status: string;
+    /**
+     * Map of tags for the resource.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Retrieve information about a GuardDuty detector.
@@ -76,6 +89,7 @@ export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:guardduty/getDetector:getDetector", {
         "id": args.id,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -87,4 +101,8 @@ export interface GetDetectorOutputArgs {
      * ID of the detector.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Map of tags for the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

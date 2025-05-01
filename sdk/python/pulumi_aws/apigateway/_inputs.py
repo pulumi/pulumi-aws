@@ -289,17 +289,21 @@ if not MYPY:
         """
         A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
+        ip_address_type: NotRequired[pulumi.Input[builtins.str]]
 elif False:
     DomainNameEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
-                 types: pulumi.Input[builtins.str]):
+                 types: pulumi.Input[builtins.str],
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] types: A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
         pulumi.set(__self__, "types", types)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter
@@ -312,6 +316,15 @@ class DomainNameEndpointConfigurationArgs:
     @types.setter
     def types(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "types", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
 
 if not MYPY:
@@ -615,6 +628,10 @@ if not MYPY:
         """
         List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         """
+        ip_address_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+        """
         vpc_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
@@ -626,12 +643,16 @@ elif False:
 class RestApiEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: pulumi.Input[builtins.str],
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         :param pulumi.Input[builtins.str] types: List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_endpoint_ids: Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
         """
         pulumi.set(__self__, "types", types)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if vpc_endpoint_ids is not None:
             pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
 
@@ -646,6 +667,18 @@ class RestApiEndpointConfigurationArgs:
     @types.setter
     def types(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "types", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="vpcEndpointIds")

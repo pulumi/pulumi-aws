@@ -250,6 +250,40 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With V2 logging to S3
+ *
+ * The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.Distribution("example", {});
+ * const exampleLogDeliverySource = new aws.cloudwatch.LogDeliverySource("example", {
+ *     name: "example",
+ *     logType: "ACCESS_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "testbucket",
+ *     forceDestroy: true,
+ * });
+ * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
+ *     name: "s3-destination",
+ *     outputFormat: "parquet",
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: pulumi.interpolate`${exampleBucketV2.arn}/prefix`,
+ *     },
+ * });
+ * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
+ *     deliverySourceName: exampleLogDeliverySource.name,
+ *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
+ *     s3DeliveryConfigurations: [{
+ *         suffixPath: "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:

@@ -508,6 +508,7 @@ func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainNameEndpointConfiguration struct {
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 	Types string `pulumi:"types"`
 }
@@ -524,6 +525,7 @@ type DomainNameEndpointConfigurationInput interface {
 }
 
 type DomainNameEndpointConfigurationArgs struct {
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 	Types pulumi.StringInput `pulumi:"types"`
 }
@@ -605,6 +607,10 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
 
+func (o DomainNameEndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameEndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
@@ -632,6 +638,15 @@ func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfi
 		var ret DomainNameEndpointConfiguration
 		return ret
 	}).(DomainNameEndpointConfigurationOutput)
+}
+
+func (o DomainNameEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
@@ -1246,6 +1261,8 @@ func (o MethodSettingsSettingsPtrOutput) UnauthorizedCacheControlHeaderStrategy(
 }
 
 type RestApiEndpointConfiguration struct {
+	// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types string `pulumi:"types"`
 	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
@@ -1264,6 +1281,8 @@ type RestApiEndpointConfigurationInput interface {
 }
 
 type RestApiEndpointConfigurationArgs struct {
+	// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types pulumi.StringInput `pulumi:"types"`
 	// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
@@ -1347,6 +1366,11 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
 
+// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+func (o RestApiEndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiEndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
@@ -1379,6 +1403,16 @@ func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurati
 		var ret RestApiEndpointConfiguration
 		return ret
 	}).(RestApiEndpointConfigurationOutput)
+}
+
+// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+func (o RestApiEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
@@ -2621,6 +2655,8 @@ func (o GetApiKeysItemArrayOutput) Index(i pulumi.IntInput) GetApiKeysItemOutput
 }
 
 type GetDomainNameEndpointConfiguration struct {
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType string `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types []string `pulumi:"types"`
 }
@@ -2637,6 +2673,8 @@ type GetDomainNameEndpointConfigurationInput interface {
 }
 
 type GetDomainNameEndpointConfigurationArgs struct {
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
@@ -2692,6 +2730,11 @@ func (o GetDomainNameEndpointConfigurationOutput) ToGetDomainNameEndpointConfigu
 	return o
 }
 
+// The IP address types that can invoke an API (RestApi).
+func (o GetDomainNameEndpointConfigurationOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainNameEndpointConfiguration) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
 // List of endpoint types.
 func (o GetDomainNameEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDomainNameEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
@@ -2718,7 +2761,11 @@ func (o GetDomainNameEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRestApiEndpointConfiguration struct {
-	Types          []string `pulumi:"types"`
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType string `pulumi:"ipAddressType"`
+	// List of endpoint types.
+	Types []string `pulumi:"types"`
+	// Set of VPC Endpoint identifiers.
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
 }
 
@@ -2734,7 +2781,11 @@ type GetRestApiEndpointConfigurationInput interface {
 }
 
 type GetRestApiEndpointConfigurationArgs struct {
-	Types          pulumi.StringArrayInput `pulumi:"types"`
+	// The IP address types that can invoke an API (RestApi).
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
+	// List of endpoint types.
+	Types pulumi.StringArrayInput `pulumi:"types"`
+	// Set of VPC Endpoint identifiers.
 	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
 }
 
@@ -2789,10 +2840,17 @@ func (o GetRestApiEndpointConfigurationOutput) ToGetRestApiEndpointConfiguration
 	return o
 }
 
+// The IP address types that can invoke an API (RestApi).
+func (o GetRestApiEndpointConfigurationOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestApiEndpointConfiguration) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+// List of endpoint types.
 func (o GetRestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
+// Set of VPC Endpoint identifiers.
 func (o GetRestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }

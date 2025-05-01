@@ -70,7 +70,7 @@ index a64cbd8e18..595ca6d58d 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index e3c7656607..898f8598dd 100644
+index 02aebaf728..832d6ec476 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -69,7 +69,7 @@ func resourceSecurityGroup() *schema.Resource {
@@ -226,7 +226,7 @@ index 754ee6f35e..a15765d76c 100644
  			names.AttrSkipDestroy: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 681065b45b..b466c60178 100644
+index e78bfef367..f956205156 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -52,7 +52,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -252,7 +252,7 @@ index 59aac340a1..22e59d5705 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index acb8ea0ce4..71c48a97cf 100644
+index b712d3ec4b..8c9f92ef8b 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
 @@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
