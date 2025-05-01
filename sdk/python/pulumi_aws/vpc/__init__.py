@@ -10,6 +10,7 @@ from .endpoint_private_dns import *
 from .endpoint_service_private_dns_verification import *
 from .get_security_group_rule import *
 from .get_security_group_rules import *
+from .get_vpc_endpoint_associations import *
 from .security_group_egress_rule import *
 from .security_group_ingress_rule import *
 from .security_group_vpc_association import *

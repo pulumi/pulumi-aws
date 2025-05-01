@@ -25,6 +25,11 @@ export const getSecurityGroupRules: typeof import("./getSecurityGroupRules").get
 export const getSecurityGroupRulesOutput: typeof import("./getSecurityGroupRules").getSecurityGroupRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupRules","getSecurityGroupRulesOutput"], () => require("./getSecurityGroupRules"));
 
+export { GetVpcEndpointAssociationsArgs, GetVpcEndpointAssociationsResult, GetVpcEndpointAssociationsOutputArgs } from "./getVpcEndpointAssociations";
+export const getVpcEndpointAssociations: typeof import("./getVpcEndpointAssociations").getVpcEndpointAssociations = null as any;
+export const getVpcEndpointAssociationsOutput: typeof import("./getVpcEndpointAssociations").getVpcEndpointAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEndpointAssociations","getVpcEndpointAssociationsOutput"], () => require("./getVpcEndpointAssociations"));
+
 export { SecurityGroupEgressRuleArgs, SecurityGroupEgressRuleState } from "./securityGroupEgressRule";
 export type SecurityGroupEgressRule = import("./securityGroupEgressRule").SecurityGroupEgressRule;
 export const SecurityGroupEgressRule: typeof import("./securityGroupEgressRule").SecurityGroupEgressRule = null as any;

@@ -380,11 +380,6 @@ export const getVpcEndpoint: typeof import("./getVpcEndpoint").getVpcEndpoint = 
 export const getVpcEndpointOutput: typeof import("./getVpcEndpoint").getVpcEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcEndpoint","getVpcEndpointOutput"], () => require("./getVpcEndpoint"));
 
-export { GetVpcEndpointAssociationsArgs, GetVpcEndpointAssociationsResult, GetVpcEndpointAssociationsOutputArgs } from "./getVpcEndpointAssociations";
-export const getVpcEndpointAssociations: typeof import("./getVpcEndpointAssociations").getVpcEndpointAssociations = null as any;
-export const getVpcEndpointAssociationsOutput: typeof import("./getVpcEndpointAssociations").getVpcEndpointAssociationsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcEndpointAssociations","getVpcEndpointAssociationsOutput"], () => require("./getVpcEndpointAssociations"));
-
 export { GetVpcEndpointServiceArgs, GetVpcEndpointServiceResult, GetVpcEndpointServiceOutputArgs } from "./getVpcEndpointService";
 export const getVpcEndpointService: typeof import("./getVpcEndpointService").getVpcEndpointService = null as any;
 export const getVpcEndpointServiceOutput: typeof import("./getVpcEndpointService").getVpcEndpointServiceOutput = null as any;

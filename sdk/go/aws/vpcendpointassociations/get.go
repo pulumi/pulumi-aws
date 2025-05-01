@@ -22,14 +22,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpcendpointassociations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpcendpointassociations.Get(ctx, &vpcendpointassociations.GetArgs{
+//			_, err := vpc.GetVpcEndpointAssociations(ctx, &vpc.GetVpcEndpointAssociationsArgs{
 //				VpcEndpointId: exampleAwsVpcEndpoint.Id,
 //			}, nil)
 //			if err != nil {
@@ -40,6 +40,8 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
 func Get(ctx *pulumi.Context, args *GetArgs, opts ...pulumi.InvokeOption) (*GetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResult

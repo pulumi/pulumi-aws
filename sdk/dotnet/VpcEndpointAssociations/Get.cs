@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpcendpointassociations
 {
-    [Obsolete(@"aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations")]
+    [Obsolete(@"aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations")]
     public static class Get
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Vpcendpointassociations
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Ec2.GetVpcEndpointAssociations.Invoke(new()
+        ///     var example = Aws.Vpc.GetVpcEndpointAssociations.Invoke(new()
         ///     {
         ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
         ///     });
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Vpcendpointassociations
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Ec2.GetVpcEndpointAssociations.Invoke(new()
+        ///     var example = Aws.Vpc.GetVpcEndpointAssociations.Invoke(new()
         ///     {
         ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
         ///     });
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Vpcendpointassociations
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Ec2.GetVpcEndpointAssociations.Invoke(new()
+        ///     var example = Aws.Vpc.GetVpcEndpointAssociations.Invoke(new()
         ///     {
         ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
         ///     });

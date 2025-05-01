@@ -258,6 +258,7 @@ const (
 	transferMod                 = "Transfer"                 // Transfer Service
 	verifiedpermissionsMod      = "VerifiedPermissions"      // Verified Permissions
 	verifiedaccessMod           = "VerifiedAccess"           // Verified Access
+	vpcMod                      = "Vpc"                      // VPC
 	vpclatticeMod               = "VpcLattice"               // VPC Lattice
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
@@ -2095,7 +2096,7 @@ compatibility shim in favor of the new "name" field.`)
 				},
 			},
 			"aws_default_vpc":  {Tok: awsResource(ec2Mod, "DefaultVpc")},
-			"aws_vpc":          {Tok: awsResource(ec2Mod, "Vpc")},
+			"aws_vpc":          {Tok: awsResource(ec2Mod, vpcMod)},
 			"aws_vpc_endpoint": {Tok: awsResource(ec2Mod, "VpcEndpoint")},
 			"aws_vpc_endpoint_connection_notification":        {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
 			"aws_vpc_endpoint_route_table_association":        {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
@@ -4467,6 +4468,8 @@ compatibility shim in favor of the new "name" field.`)
 		ExtraResources: resourceOverlays,
 		ExtraTypes:     extraTypes,
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+
+			// Vpc
 			"aws_auditmanager_control": {
 				Tok: awsDataSource(auditmanagerMod, "getControl"),
 			},
@@ -4474,10 +4477,13 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsDataSource(auditmanagerMod, "getFramework"),
 			},
 			"aws_vpc_security_group_rule": {
-				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
+				Tok: awsDataSource(vpcMod, "getSecurityGroupRule"),
 			},
 			"aws_vpc_security_group_rules": {
-				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+				Tok: awsDataSource(vpcMod, "getSecurityGroupRules"),
+			},
+			"aws_vpc_endpoint_associations": {
+				Tok: awsDataSource(vpcMod, "getVpcEndpointAssociations"),
 			},
 
 			// AWS
@@ -5293,10 +5299,6 @@ compatibility shim in favor of the new "name" field.`)
 				},
 			},
 
-			"aws_vpc_endpoint_associations": {
-				Tok: awsDataSource(ec2Mod, "getVpcEndpointAssociations"),
-			},
-
 			// VpcLattice
 			"aws_vpclattice_service":  {Tok: awsDataSource(vpclatticeMod, "getService")},
 			"aws_vpclattice_listener": {Tok: awsDataSource(vpclatticeMod, "getListener")},
@@ -5630,19 +5632,19 @@ compatibility shim in favor of the new "name" field.`)
 			Tok: awsResource(route53Mod, "CidrLocation"),
 		},
 		"aws_vpc_security_group_egress_rule": {
-			Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+			Tok: awsResource(vpcMod, "SecurityGroupEgressRule"),
 		},
 		"aws_vpc_security_group_ingress_rule": {
-			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+			Tok: awsResource(vpcMod, "SecurityGroupIngressRule"),
 		},
 		"aws_vpc_security_group_vpc_association": {
-			Tok: awsResource("Vpc", "SecurityGroupVpcAssociation"),
+			Tok: awsResource(vpcMod, "SecurityGroupVpcAssociation"),
 		},
 		"aws_vpc_endpoint_private_dns": {
-			Tok: awsResource("Vpc", "EndpointPrivateDns"),
+			Tok: awsResource(vpcMod, "EndpointPrivateDns"),
 		},
 		"aws_vpc_endpoint_service_private_dns_verification": {
-			Tok: awsResource("Vpc", "EndpointServicePrivateDnsVerification"),
+			Tok: awsResource(vpcMod, "EndpointServicePrivateDnsVerification"),
 		},
 		"aws_quicksight_iam_policy_assignment": {
 			Tok: awsResource("QuickSight", "IamPolicyAssignment"),

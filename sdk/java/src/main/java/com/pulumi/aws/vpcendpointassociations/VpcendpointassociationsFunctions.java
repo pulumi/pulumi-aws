@@ -30,8 +30,8 @@ public final class VpcendpointassociationsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpcendpointassociations.VpcendpointassociationsFunctions;
-     * import com.pulumi.aws.vpcendpointassociations.inputs.GetArgs;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetVpcEndpointAssociationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -45,7 +45,7 @@ public final class VpcendpointassociationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpcendpointassociationsFunctions.get(GetArgs.builder()
+     *         final var example = VpcFunctions.getVpcEndpointAssociations(GetVpcEndpointAssociationsArgs.builder()
      *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
      *             .build());
      * 
@@ -55,7 +55,11 @@ public final class VpcendpointassociationsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * @deprecated
+     * aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
+     * 
      */
+    @Deprecated /* aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
     public static Output<GetResult> get(GetArgs args) {
         return get(args, InvokeOptions.Empty);
     }
@@ -74,8 +78,8 @@ public final class VpcendpointassociationsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpcendpointassociations.VpcendpointassociationsFunctions;
-     * import com.pulumi.aws.vpcendpointassociations.inputs.GetArgs;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetVpcEndpointAssociationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -89,7 +93,7 @@ public final class VpcendpointassociationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpcendpointassociationsFunctions.get(GetArgs.builder()
+     *         final var example = VpcFunctions.getVpcEndpointAssociations(GetVpcEndpointAssociationsArgs.builder()
      *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
      *             .build());
      * 
@@ -99,7 +103,11 @@ public final class VpcendpointassociationsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * @deprecated
+     * aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
+     * 
      */
+    @Deprecated /* aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args) {
         return getPlain(args, InvokeOptions.Empty);
     }
@@ -118,8 +126,8 @@ public final class VpcendpointassociationsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpcendpointassociations.VpcendpointassociationsFunctions;
-     * import com.pulumi.aws.vpcendpointassociations.inputs.GetArgs;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetVpcEndpointAssociationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -133,7 +141,7 @@ public final class VpcendpointassociationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpcendpointassociationsFunctions.get(GetArgs.builder()
+     *         final var example = VpcFunctions.getVpcEndpointAssociations(GetVpcEndpointAssociationsArgs.builder()
      *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
      *             .build());
      * 
@@ -143,7 +151,11 @@ public final class VpcendpointassociationsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * @deprecated
+     * aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
+     * 
      */
+    @Deprecated /* aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
     public static Output<GetResult> get(GetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:vpcendpointassociations/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
     }
@@ -162,8 +174,8 @@ public final class VpcendpointassociationsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpcendpointassociations.VpcendpointassociationsFunctions;
-     * import com.pulumi.aws.vpcendpointassociations.inputs.GetArgs;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetVpcEndpointAssociationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -177,7 +189,7 @@ public final class VpcendpointassociationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpcendpointassociationsFunctions.get(GetArgs.builder()
+     *         final var example = VpcFunctions.getVpcEndpointAssociations(GetVpcEndpointAssociationsArgs.builder()
      *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
      *             .build());
      * 
@@ -187,7 +199,11 @@ public final class VpcendpointassociationsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * @deprecated
+     * aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
+     * 
      */
+    @Deprecated /* aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
     public static Output<GetResult> get(GetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:vpcendpointassociations/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
     }
@@ -206,8 +222,8 @@ public final class VpcendpointassociationsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpcendpointassociations.VpcendpointassociationsFunctions;
-     * import com.pulumi.aws.vpcendpointassociations.inputs.GetArgs;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetVpcEndpointAssociationsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -221,7 +237,7 @@ public final class VpcendpointassociationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpcendpointassociationsFunctions.get(GetArgs.builder()
+     *         final var example = VpcFunctions.getVpcEndpointAssociations(GetVpcEndpointAssociationsArgs.builder()
      *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
      *             .build());
      * 
@@ -231,7 +247,11 @@ public final class VpcendpointassociationsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * @deprecated
+     * aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations
+     * 
      */
+    @Deprecated /* aws.vpcendpointassociations/get.get has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:vpcendpointassociations/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
     }
