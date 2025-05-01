@@ -51,7 +51,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -601,62 +600,6 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 	}
 
 	steps := []tagsTestStep{
-		// Pulumi maintains it's own version of aws:s3:Bucket in
-		// `s3legacy/bucket_legacy.go`. Because we don't have any
-		// terraform-provider-aws maintainers to ensure our tagging works the same
-		// way as other resource's tagging, we give our own bucket special testing
-		// to make sure that tags work.
-		{
-			name: "legacy", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
-			tags: map[string]interface{}{
-				"LocalTag": "foo",
-			},
-			defaultTags: map[string]interface{}{
-				"GlobalTag": "bar",
-			},
-			postUpHook: func(t *testing.T, outputs auto.OutputMap) {
-				validateOutputTags(outputs, map[string]interface{}{
-					"LocalTag":  "foo",
-					"GlobalTag": "bar",
-				})
-				bucketName := outputs["id"].Value.(string)
-				tags := getBucketTagging(context.Background(), bucketName)
-				assert.Equal(t, tags, []types.Tag{
-					{
-						Key:   pulumi.StringRef("LocalTag"),
-						Value: pulumi.StringRef("foo"),
-					},
-					{
-						Key:   pulumi.StringRef("GlobalTag"),
-						Value: pulumi.StringRef("bar"),
-					},
-				})
-			},
-		},
-		{
-			name: "legacy_ignore_tags", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
-			tags: map[string]interface{}{
-				"LocalTag": "foo",
-			},
-			ignoreTagKeys: []string{"IgnoreKey"},
-			preImportHook: func(t *testing.T, outputs auto.OutputMap) {
-				t.Helper()
-				resArn := outputs["resArn"].Value.(string)
-				addResourceTags(context.Background(), resArn, map[string]string{
-					"IgnoreKey": "foo",
-				})
-			},
-			defaultTags: map[string]interface{}{
-				"GlobalTag": "bar",
-			},
-			postUpHook: func(t *testing.T, outputs auto.OutputMap) {
-				validateOutputTags(outputs, map[string]interface{}{
-					"LocalTag":  "foo",
-					"GlobalTag": "bar",
-				})
-			},
-		},
-
 		// Both aws:cognito:UserPool and aws:s3:BucketV2 are full SDKv2 resources managed
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.
@@ -1117,15 +1060,6 @@ type tagsStep struct {
 
 func TestAccDefaultTags(t *testing.T) {
 	types := []tagsType{
-		// Pulumi maintains it's own version of aws:s3:Bucket in
-		// `s3legacy/bucket_legacy.go`. Because we don't have any
-		// terraform-provider-aws maintainers to ensure our tagging works the same
-		// way as other resource's tagging, we give our own bucket special testing
-		// to make sure that tags work.
-		{
-			name: "legacy", token: "aws:s3:Bucket",
-		},
-
 		// Both aws:cognito:UserPool and aws:s3:BucketV2 are full SDKv2 resources managed
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.

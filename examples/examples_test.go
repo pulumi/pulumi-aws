@@ -75,7 +75,7 @@ func validateAPITest(isValid func(body string)) func(t *testing.T, stack integra
 func init() {
 	// This is necessary for gRPC testing. It doesn't effect integration tests, since
 	// they use their own binary.
-	version.Version = "6.0.0"
+	version.Version = "7.0.0"
 }
 
 func replay(t *testing.T, sequence string) {

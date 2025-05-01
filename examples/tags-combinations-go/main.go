@@ -56,13 +56,6 @@ func main() {
 			return err
 		}
 
-		legacyBucket, err := s3.NewBucket(ctx, "bucketlegacy"+testIdent, &s3.BucketArgs{
-			Tags: tagsMap,
-		}, pulumi.Provider(p))
-		if err != nil {
-			return err
-		}
-
 		app, err := appconfig.NewApplication(ctx, "testappconfigapp"+testIdent,
 			&appconfig.ApplicationArgs{
 				Tags: tagsMap,
@@ -84,23 +77,14 @@ func main() {
 			return err
 		}
 
-		// TODO: uncomment when https://github.com/pulumi/pulumi-aws/issues/4258 is fixed
-		// refresh doesn't work for `forceDelete` & `acl`
-		// getBucket, err := s3.GetBucketV2(ctx, "get-bucketv2"+testIdent, bucket.ID(), &s3.BucketV2State{}, pulumi.Provider(p), pulumi.IgnoreChanges([]string{"forceDestroy", "acl"}))
-		// if err != nil {
-		// 	return err
-		// }
-		// getLegacyBucket, err := s3.GetBucket(ctx, "get-legacybucket"+testIdent, legacyBucket.ID(), &s3.BucketState{}, pulumi.Provider(p), pulumi.IgnoreChanges([]string{"forceDestroy", "acl"}))
-		// if err != nil {
-		// 	return err
-		// }
+		getBucket, err := s3.GetBucketV2(ctx, "get-bucketv2"+testIdent, bucket.ID(), &s3.BucketV2State{}, pulumi.Provider(p), pulumi.IgnoreChanges([]string{"forceDestroy", "acl"}))
+		if err != nil {
+			return err
+		}
 
 		ctx.Export("bucket", exportTags(bucket.Tags))
-		// ctx.Export("get-bucket", exportTags(getBucket.Tags))
-		ctx.Export("legacy-bucket", exportTags(legacyBucket.Tags))
-		// ctx.Export("get-legacy-bucket", exportTags(getLegacyBucket.Tags))
+		ctx.Export("get-bucket", exportTags(getBucket.Tags))
 		ctx.Export("bucket-name", bucket.Bucket)
-		ctx.Export("legacy-bucket-name", legacyBucket.Bucket)
 		ctx.Export("appconfig-app", exportTags(app.Tags))
 		ctx.Export("appconfig-app-arn", app.Arn)
 		ctx.Export("appconfig-env", exportTags(env.Tags))

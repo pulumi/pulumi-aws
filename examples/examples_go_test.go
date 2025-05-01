@@ -26,7 +26,7 @@ func TestAccWebserverGo(t *testing.T) {
 	test := integration.ProgramTestOptions{
 		Dir: filepath.Join(getCwd(t), "webserver-go"),
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-aws/sdk/v6",
+			"github.com/pulumi/pulumi-aws/sdk/v7",
 		},
 		Config: map[string]string{"aws:region": getEnvRegion(t)},
 	}
@@ -244,7 +244,7 @@ func (st tagsState) validateStateResult(phase int) func(
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		for k, v := range stack.Outputs {
 			switch k {
-			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn", "appconfig-env-arn", "get-appconfig-env":
+			case "bucket-name", "get-bucket", "appconfig-app-arn", "appconfig-env-arn", "get-appconfig-env":
 				continue
 			}
 
@@ -258,22 +258,12 @@ func (st tagsState) validateStateResult(phase int) func(
 			t.Logf("key=%s tags are as expected: %v", k, actualTagsJSON)
 
 			if k == "bucket" {
-				// TODO: uncomment when https://github.com/pulumi/pulumi-aws/issues/4258 is fixed
-				// getTags := stack.Outputs["get-bucket"].(string)
-				// assert.Equal(t, v.(string), getTags)
+				getTags := stack.Outputs["get-bucket"].(string)
+				assert.Equal(t, v.(string), getTags)
 				bucketName := stack.Outputs["bucket-name"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchBucketTags(bucketName),
 					"bad bucket tags")
-			}
-			if k == "legacy-bucket" {
-				// TODO: uncomment when https://github.com/pulumi/pulumi-aws/issues/4258 is fixed
-				// getTags := stack.Outputs["get-legacy-bucket"].(string)
-				// assert.Equal(t, v.(string), getTags)
-				bucketName := stack.Outputs["legacy-bucket-name"].(string)
-				st.assertTagsEqualWithRetry(t,
-					fetchBucketTags(bucketName),
-					"bad legacy bucket tags")
 			}
 			if k == "appconfig-app" {
 				arn := stack.Outputs["appconfig-app-arn"].(string)
