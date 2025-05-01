@@ -181,19 +181,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("test", snapshot_copy={
-            "destination_region": "us-east-2",
-            "grant_name": test.snapshot_copy_grant_name,
-        })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
@@ -218,19 +205,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("test", snapshot_copy={
-            "destination_region": "us-east-2",
-            "grant_name": test.snapshot_copy_grant_name,
-        })
-        ```
 
         ## Import
 

@@ -27,7 +27,6 @@ class AssociationArgs:
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -45,7 +44,6 @@ class AssociationArgs:
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
@@ -69,11 +67,6 @@ class AssociationArgs:
             pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
-        if instance_id is not None:
-            warnings.warn("""instance_id is deprecated. Use targets instead.""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: instance_id is deprecated. Use targets instead.""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if max_concurrency is not None:
             pulumi.set(__self__, "max_concurrency", max_concurrency)
         if max_errors is not None:
@@ -154,19 +147,6 @@ class AssociationArgs:
     @document_version.setter
     def document_version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "document_version", value)
-
-    @property
-    @pulumi.getter(name="instanceId")
-    @_utilities.deprecated("""instance_id is deprecated. Use targets instead.""")
-    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "instance_id", value)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -301,7 +281,6 @@ class _AssociationState:
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -322,7 +301,6 @@ class _AssociationState:
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
@@ -351,11 +329,6 @@ class _AssociationState:
             pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
-        if instance_id is not None:
-            warnings.warn("""instance_id is deprecated. Use targets instead.""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: instance_id is deprecated. Use targets instead.""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if max_concurrency is not None:
             pulumi.set(__self__, "max_concurrency", max_concurrency)
         if max_errors is not None:
@@ -465,19 +438,6 @@ class _AssociationState:
     @document_version.setter
     def document_version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "document_version", value)
-
-    @property
-    @pulumi.getter(name="instanceId")
-    @_utilities.deprecated("""instance_id is deprecated. Use targets instead.""")
-    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "instance_id", value)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -628,7 +588,6 @@ class Association(pulumi.CustomResource):
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -723,7 +682,6 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
@@ -839,7 +797,6 @@ class Association(pulumi.CustomResource):
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -864,7 +821,6 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
             __props__.__dict__["compliance_severity"] = compliance_severity
             __props__.__dict__["document_version"] = document_version
-            __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
@@ -895,7 +851,6 @@ class Association(pulumi.CustomResource):
             automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
             compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
             document_version: Optional[pulumi.Input[builtins.str]] = None,
-            instance_id: Optional[pulumi.Input[builtins.str]] = None,
             max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
             max_errors: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
@@ -921,7 +876,6 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
@@ -947,7 +901,6 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
         __props__.__dict__["compliance_severity"] = compliance_severity
         __props__.__dict__["document_version"] = document_version
-        __props__.__dict__["instance_id"] = instance_id
         __props__.__dict__["max_concurrency"] = max_concurrency
         __props__.__dict__["max_errors"] = max_errors
         __props__.__dict__["name"] = name
@@ -1016,15 +969,6 @@ class Association(pulumi.CustomResource):
         The document version you want to associate with the target(s). Can be a specific version or the default version.
         """
         return pulumi.get(self, "document_version")
-
-    @property
-    @pulumi.getter(name="instanceId")
-    @_utilities.deprecated("""instance_id is deprecated. Use targets instead.""")
-    def instance_id(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        """
-        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="maxConcurrency")

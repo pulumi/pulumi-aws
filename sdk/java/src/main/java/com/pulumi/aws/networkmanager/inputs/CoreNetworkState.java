@@ -51,29 +51,6 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     * 
-     * @deprecated
-     * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
-     * 
-     */
-    @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-    @Import(name="basePolicyRegion")
-    private @Nullable Output<String> basePolicyRegion;
-
-    /**
-     * @return The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-     * 
-     * @deprecated
-     * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
-     * 
-     */
-    @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-    public Optional<Output<String>> basePolicyRegion() {
-        return Optional.ofNullable(this.basePolicyRegion);
-    }
-
-    /**
      * A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      */
@@ -236,7 +213,6 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
     private CoreNetworkState(CoreNetworkState $) {
         this.arn = $.arn;
         this.basePolicyDocument = $.basePolicyDocument;
-        this.basePolicyRegion = $.basePolicyRegion;
         this.basePolicyRegions = $.basePolicyRegions;
         this.createBasePolicy = $.createBasePolicy;
         this.createdAt = $.createdAt;
@@ -307,35 +283,6 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder basePolicyDocument(String basePolicyDocument) {
             return basePolicyDocument(Output.of(basePolicyDocument));
-        }
-
-        /**
-         * @param basePolicyRegion The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
-         * 
-         */
-        @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-        public Builder basePolicyRegion(@Nullable Output<String> basePolicyRegion) {
-            $.basePolicyRegion = basePolicyRegion;
-            return this;
-        }
-
-        /**
-         * @param basePolicyRegion The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
-         * 
-         */
-        @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-        public Builder basePolicyRegion(String basePolicyRegion) {
-            return basePolicyRegion(Output.of(basePolicyRegion));
         }
 
         /**

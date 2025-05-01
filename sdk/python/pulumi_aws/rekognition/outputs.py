@@ -347,15 +347,22 @@ class StreamProcessorRegionsOfInterest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 polygons: Sequence['outputs.StreamProcessorRegionsOfInterestPolygon'],
-                 bounding_box: Optional['outputs.StreamProcessorRegionsOfInterestBoundingBox'] = None):
+                 bounding_box: 'outputs.StreamProcessorRegionsOfInterestBoundingBox',
+                 polygons: Sequence['outputs.StreamProcessorRegionsOfInterestPolygon']):
         """
-        :param Sequence['StreamProcessorRegionsOfInterestPolygonArgs'] polygons: Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         :param 'StreamProcessorRegionsOfInterestBoundingBoxArgs' bounding_box: Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        :param Sequence['StreamProcessorRegionsOfInterestPolygonArgs'] polygons: Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         """
+        pulumi.set(__self__, "bounding_box", bounding_box)
         pulumi.set(__self__, "polygons", polygons)
-        if bounding_box is not None:
-            pulumi.set(__self__, "bounding_box", bounding_box)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> 'outputs.StreamProcessorRegionsOfInterestBoundingBox':
+        """
+        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        """
+        return pulumi.get(self, "bounding_box")
 
     @property
     @pulumi.getter
@@ -364,14 +371,6 @@ class StreamProcessorRegionsOfInterest(dict):
         Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         """
         return pulumi.get(self, "polygons")
-
-    @property
-    @pulumi.getter(name="boundingBox")
-    def bounding_box(self) -> Optional['outputs.StreamProcessorRegionsOfInterestBoundingBox']:
-        """
-        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
-        """
-        return pulumi.get(self, "bounding_box")
 
 
 @pulumi.output_type

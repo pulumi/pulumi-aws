@@ -14,6 +14,60 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const example = new aws.s3.BucketV2("example", {
+ *     bucket: "example",
+ *     forceDestroy: true,
+ * });
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ *     bucket: example.bucket,
+ *     policy: pulumi.all([example.arn, current, current]).apply(([arn, current, current1]) => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "bedrock.amazonaws.com"
+ *       },
+ *       "Action": [
+ *         "s3:*"
+ *       ],
+ *       "Resource": [
+ *         "${arn}/*"
+ *       ],
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "aws:SourceAccount": "${current.accountId}"
+ *         },
+ *         "ArnLike": {
+ *           "aws:SourceArn": "arn:aws:bedrock:us-east-1:${current1.accountId}:*"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * `),
+ * });
+ * const exampleInvocationLoggingConfiguration = new aws.bedrockmodel.InvocationLoggingConfiguration("example", {loggingConfig: {
+ *     embeddingDataDeliveryEnabled: true,
+ *     imageDataDeliveryEnabled: true,
+ *     textDataDeliveryEnabled: true,
+ *     videoDataDeliveryEnabled: true,
+ *     s3Config: {
+ *         bucketName: example.id,
+ *         keyPrefix: "bedrock",
+ *     },
+ * }}, {
+ *     dependsOn: [exampleBucketPolicy],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:

@@ -139,7 +139,6 @@ class AwaitableGetAcceleratorResult(GetAcceleratorResult):
 
 
 def get_accelerator(arn: Optional[builtins.str] = None,
-                    id: Optional[builtins.str] = None,
                     name: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAcceleratorResult:
     """
@@ -170,7 +169,6 @@ def get_accelerator(arn: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    __args__['id'] = id
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:globalaccelerator/getAccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult).value
@@ -188,7 +186,6 @@ def get_accelerator(arn: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_accelerator_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
-                           id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
@@ -219,7 +216,6 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] =
     """
     __args__ = dict()
     __args__['arn'] = arn
-    __args__['id'] = id
     __args__['name'] = name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:globalaccelerator/getAccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult)

@@ -5,6 +5,7 @@ package com.pulumi.aws.fis;
 
 import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentOptionsArgs;
+import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateLogConfigurationArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
@@ -66,6 +67,21 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<ExperimentTemplateExperimentOptionsArgs>> experimentOptions() {
         return Optional.ofNullable(this.experimentOptions);
+    }
+
+    /**
+     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * 
+     */
+    @Import(name="experimentReportConfiguration")
+    private @Nullable Output<ExperimentTemplateExperimentReportConfigurationArgs> experimentReportConfiguration;
+
+    /**
+     * @return The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * 
+     */
+    public Optional<Output<ExperimentTemplateExperimentReportConfigurationArgs>> experimentReportConfiguration() {
+        return Optional.ofNullable(this.experimentReportConfiguration);
     }
 
     /**
@@ -153,6 +169,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         this.actions = $.actions;
         this.description = $.description;
         this.experimentOptions = $.experimentOptions;
+        this.experimentReportConfiguration = $.experimentReportConfiguration;
         this.logConfiguration = $.logConfiguration;
         this.roleArn = $.roleArn;
         this.stopConditions = $.stopConditions;
@@ -249,6 +266,27 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
          */
         public Builder experimentOptions(ExperimentTemplateExperimentOptionsArgs experimentOptions) {
             return experimentOptions(Output.of(experimentOptions));
+        }
+
+        /**
+         * @param experimentReportConfiguration The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentReportConfiguration(@Nullable Output<ExperimentTemplateExperimentReportConfigurationArgs> experimentReportConfiguration) {
+            $.experimentReportConfiguration = experimentReportConfiguration;
+            return this;
+        }
+
+        /**
+         * @param experimentReportConfiguration The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentReportConfiguration(ExperimentTemplateExperimentReportConfigurationArgs experimentReportConfiguration) {
+            return experimentReportConfiguration(Output.of(experimentReportConfiguration));
         }
 
         /**

@@ -441,6 +441,8 @@ class Launch(pulumi.CustomResource):
         """
         Provides a CloudWatch Evidently Launch resource.
 
+        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+
         ## Example Usage
 
         ### Basic
@@ -721,6 +723,8 @@ class Launch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Evidently Launch resource.
+
+        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
 
         ## Example Usage
 

@@ -22,22 +22,13 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
-                 cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None):
+                 cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
         """
         if cloudwatch_role_arn is not None:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
-        if reset_on_delete is not None:
-            warnings.warn("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""reset_on_delete is deprecated: The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-        if reset_on_delete is not None:
-            pulumi.set(__self__, "reset_on_delete", reset_on_delete)
 
     @property
     @pulumi.getter(name="cloudwatchRoleArn")
@@ -51,21 +42,6 @@ class AccountArgs:
     def cloudwatch_role_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "cloudwatch_role_arn", value)
 
-    @property
-    @pulumi.getter(name="resetOnDelete")
-    @_utilities.deprecated("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-    def reset_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        Defaults to `false`.
-        Will be removed in a future major version of the provider.
-        """
-        return pulumi.get(self, "reset_on_delete")
-
-    @reset_on_delete.setter
-    def reset_on_delete(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "reset_on_delete", value)
-
 
 @pulumi.input_type
 class _AccountState:
@@ -73,16 +49,12 @@ class _AccountState:
                  api_key_version: Optional[pulumi.Input[builtins.str]] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[builtins.str] api_key_version: The version of the API keys used for the account.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] features: A list of features supported for the account.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         if api_key_version is not None:
@@ -91,11 +63,6 @@ class _AccountState:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
         if features is not None:
             pulumi.set(__self__, "features", features)
-        if reset_on_delete is not None:
-            warnings.warn("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""reset_on_delete is deprecated: The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-        if reset_on_delete is not None:
-            pulumi.set(__self__, "reset_on_delete", reset_on_delete)
         if throttle_settings is not None:
             pulumi.set(__self__, "throttle_settings", throttle_settings)
 
@@ -136,21 +103,6 @@ class _AccountState:
         pulumi.set(self, "features", value)
 
     @property
-    @pulumi.getter(name="resetOnDelete")
-    @_utilities.deprecated("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-    def reset_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        Defaults to `false`.
-        Will be removed in a future major version of the provider.
-        """
-        return pulumi.get(self, "reset_on_delete")
-
-    @reset_on_delete.setter
-    def reset_on_delete(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "reset_on_delete", value)
-
-    @property
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]:
         """
@@ -172,7 +124,6 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
         Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
@@ -227,9 +178,6 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
         """
         ...
     @overload
@@ -303,7 +251,6 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,7 +261,6 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
-            __props__.__dict__["reset_on_delete"] = reset_on_delete
             __props__.__dict__["api_key_version"] = None
             __props__.__dict__["features"] = None
             __props__.__dict__["throttle_settings"] = None
@@ -331,7 +277,6 @@ class Account(pulumi.CustomResource):
             api_key_version: Optional[pulumi.Input[builtins.str]] = None,
             cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
             throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -343,9 +288,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key_version: The version of the API keys used for the account.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] features: A list of features supported for the account.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -355,7 +297,6 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["api_key_version"] = api_key_version
         __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
         __props__.__dict__["features"] = features
-        __props__.__dict__["reset_on_delete"] = reset_on_delete
         __props__.__dict__["throttle_settings"] = throttle_settings
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -382,17 +323,6 @@ class Account(pulumi.CustomResource):
         A list of features supported for the account.
         """
         return pulumi.get(self, "features")
-
-    @property
-    @pulumi.getter(name="resetOnDelete")
-    @_utilities.deprecated("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-    def reset_on_delete(self) -> pulumi.Output[Optional[builtins.bool]]:
-        """
-        If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        Defaults to `false`.
-        Will be removed in a future major version of the provider.
-        """
-        return pulumi.get(self, "reset_on_delete")
 
     @property
     @pulumi.getter(name="throttleSettings")

@@ -677,6 +677,40 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
 
+        ### Job Definition of type EKS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name=" tf_test_batch_job_definition_eks",
+            type="container",
+            eks_properties={
+                "pod_properties": {
+                    "host_network": True,
+                    "containers": [{
+                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                        "commands": [
+                            "sleep",
+                            "60",
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "1024Mi",
+                            },
+                        },
+                    }],
+                    "metadata": {
+                        "labels": {
+                            "environment": "test",
+                        },
+                    },
+                },
+            })
+        ```
+
         ### Fargate Platform Capability
 
         ```python
@@ -932,6 +966,40 @@ class JobDefinition(pulumi.CustomResource):
                 ],
                 "numNodes": 2,
             }))
+        ```
+
+        ### Job Definition of type EKS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name=" tf_test_batch_job_definition_eks",
+            type="container",
+            eks_properties={
+                "pod_properties": {
+                    "host_network": True,
+                    "containers": [{
+                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                        "commands": [
+                            "sleep",
+                            "60",
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "1024Mi",
+                            },
+                        },
+                    }],
+                    "metadata": {
+                        "labels": {
+                            "environment": "test",
+                        },
+                    },
+                },
+            })
         ```
 
         ### Fargate Platform Capability

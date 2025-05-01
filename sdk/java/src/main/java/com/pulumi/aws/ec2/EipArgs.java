@@ -5,7 +5,6 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -169,41 +168,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     * 
-     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     * 
-     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     * 
-     * @deprecated
-     * vpc is deprecated. Use domain instead.
-     * 
-     */
-    @Deprecated /* vpc is deprecated. Use domain instead. */
-    @Import(name="vpc")
-    private @Nullable Output<Boolean> vpc;
-
-    /**
-     * @return Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     * 
-     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     * 
-     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     * 
-     * @deprecated
-     * vpc is deprecated. Use domain instead.
-     * 
-     */
-    @Deprecated /* vpc is deprecated. Use domain instead. */
-    public Optional<Output<Boolean>> vpc() {
-        return Optional.ofNullable(this.vpc);
-    }
-
     private EipArgs() {}
 
     private EipArgs(EipArgs $) {
@@ -217,7 +181,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         this.networkInterface = $.networkInterface;
         this.publicIpv4Pool = $.publicIpv4Pool;
         this.tags = $.tags;
-        this.vpc = $.vpc;
     }
 
     public static Builder builder() {
@@ -448,47 +411,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param vpc Boolean if the EIP is in a VPC or not. Use `domain` instead.
-         * Defaults to `true` unless the region supports EC2-Classic.
-         * 
-         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-         * 
-         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-         * case both options are defined as the api only requires one or the other.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * vpc is deprecated. Use domain instead.
-         * 
-         */
-        @Deprecated /* vpc is deprecated. Use domain instead. */
-        public Builder vpc(@Nullable Output<Boolean> vpc) {
-            $.vpc = vpc;
-            return this;
-        }
-
-        /**
-         * @param vpc Boolean if the EIP is in a VPC or not. Use `domain` instead.
-         * Defaults to `true` unless the region supports EC2-Classic.
-         * 
-         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-         * 
-         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-         * case both options are defined as the api only requires one or the other.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * vpc is deprecated. Use domain instead.
-         * 
-         */
-        @Deprecated /* vpc is deprecated. Use domain instead. */
-        public Builder vpc(Boolean vpc) {
-            return vpc(Output.of(vpc));
         }
 
         public EipArgs build() {

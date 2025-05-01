@@ -17,14 +17,14 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
     public static final FlowLogDestinationOptionsArgs Empty = new FlowLogDestinationOptionsArgs();
 
     /**
-     * The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+     * File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
      */
     @Import(name="fileFormat")
     private @Nullable Output<String> fileFormat;
 
     /**
-     * @return The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+     * @return File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
      */
     public Optional<Output<String>> fileFormat() {
@@ -88,7 +88,7 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileFormat The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+         * @param fileFormat File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileFormat The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+         * @param fileFormat File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
          * 
          * @return builder
          * 

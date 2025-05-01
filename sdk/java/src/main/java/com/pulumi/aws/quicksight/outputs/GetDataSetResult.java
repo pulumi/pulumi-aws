@@ -41,13 +41,6 @@ public final class GetDataSetResult {
     private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
     private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
     private Map<String,String> tags;
-    /**
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    private Map<String,String> tagsAll;
 
     private GetDataSetResult() {}
     public String arn() {
@@ -102,15 +95,6 @@ public final class GetDataSetResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    public Map<String,String> tagsAll() {
-        return this.tagsAll;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -137,7 +121,6 @@ public final class GetDataSetResult {
         private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
         private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
         private Map<String,String> tags;
-        private Map<String,String> tagsAll;
         public Builder() {}
         public Builder(GetDataSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -157,7 +140,6 @@ public final class GetDataSetResult {
     	      this.rowLevelPermissionDataSets = defaults.rowLevelPermissionDataSets;
     	      this.rowLevelPermissionTagConfigurations = defaults.rowLevelPermissionTagConfigurations;
     	      this.tags = defaults.tags;
-    	      this.tagsAll = defaults.tagsAll;
         }
 
         @CustomType.Setter
@@ -315,14 +297,6 @@ public final class GetDataSetResult {
             this.tags = tags;
             return this;
         }
-        @CustomType.Setter
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            if (tagsAll == null) {
-              throw new MissingRequiredPropertyException("GetDataSetResult", "tagsAll");
-            }
-            this.tagsAll = tagsAll;
-            return this;
-        }
         public GetDataSetResult build() {
             final var _resultValue = new GetDataSetResult();
             _resultValue.arn = arn;
@@ -341,7 +315,6 @@ public final class GetDataSetResult {
             _resultValue.rowLevelPermissionDataSets = rowLevelPermissionDataSets;
             _resultValue.rowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             _resultValue.tags = tags;
-            _resultValue.tagsAll = tagsAll;
             return _resultValue;
         }
     }

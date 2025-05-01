@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.apigateway;
 
-import com.pulumi.aws.apigateway.inputs.DeploymentCanarySettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,41 +18,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentArgs Empty = new DeploymentArgs();
 
     /**
-     * Input configuration for the canary deployment when the deployment is a canary release deployment.
-     * See `canary_settings below.
-     * Has no effect when `stage_name` is not set.
-     * 
-     * @deprecated
-     * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Import(name="canarySettings")
-    private @Nullable Output<DeploymentCanarySettingsArgs> canarySettings;
-
-    /**
-     * @return Input configuration for the canary deployment when the deployment is a canary release deployment.
-     * See `canary_settings below.
-     * Has no effect when `stage_name` is not set.
-     * 
-     * @deprecated
-     * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-    public Optional<Output<DeploymentCanarySettingsArgs>> canarySettings() {
-        return Optional.ofNullable(this.canarySettings);
-    }
-
-    /**
-     * Description of the deployment
+     * Description of the deployment.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the deployment
+     * @return Description of the deployment.
      * 
      */
     public Optional<Output<String>> description() {
@@ -76,58 +48,6 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description to set on the stage managed by the `stage_name` argument.
-     * Has no effect when `stage_name` is not set.
-     * 
-     * @deprecated
-     * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Import(name="stageDescription")
-    private @Nullable Output<String> stageDescription;
-
-    /**
-     * @return Description to set on the stage managed by the `stage_name` argument.
-     * Has no effect when `stage_name` is not set.
-     * 
-     * @deprecated
-     * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-    public Optional<Output<String>> stageDescription() {
-        return Optional.ofNullable(this.stageDescription);
-    }
-
-    /**
-     * Name of the stage to create with this deployment.
-     * If the specified stage already exists, it will be updated to point to the new deployment.
-     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-     * 
-     * @deprecated
-     * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Import(name="stageName")
-    private @Nullable Output<String> stageName;
-
-    /**
-     * @return Name of the stage to create with this deployment.
-     * If the specified stage already exists, it will be updated to point to the new deployment.
-     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-     * 
-     * @deprecated
-     * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-    public Optional<Output<String>> stageName() {
-        return Optional.ofNullable(this.stageName);
-    }
-
-    /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
@@ -143,14 +63,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map to set on the stage managed by the `stage_name` argument.
+     * Map to set on the related stage.
      * 
      */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
     /**
-     * @return Map to set on the stage managed by the `stage_name` argument.
+     * @return Map to set on the related stage.
      * 
      */
     public Optional<Output<Map<String,String>>> variables() {
@@ -160,11 +80,8 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     private DeploymentArgs() {}
 
     private DeploymentArgs(DeploymentArgs $) {
-        this.canarySettings = $.canarySettings;
         this.description = $.description;
         this.restApi = $.restApi;
-        this.stageDescription = $.stageDescription;
-        this.stageName = $.stageName;
         this.triggers = $.triggers;
         this.variables = $.variables;
     }
@@ -188,40 +105,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param canarySettings Input configuration for the canary deployment when the deployment is a canary release deployment.
-         * See `canary_settings below.
-         * Has no effect when `stage_name` is not set.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
-         * 
-         */
-        @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-        public Builder canarySettings(@Nullable Output<DeploymentCanarySettingsArgs> canarySettings) {
-            $.canarySettings = canarySettings;
-            return this;
-        }
-
-        /**
-         * @param canarySettings Input configuration for the canary deployment when the deployment is a canary release deployment.
-         * See `canary_settings below.
-         * Has no effect when `stage_name` is not set.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
-         * 
-         */
-        @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-        public Builder canarySettings(DeploymentCanarySettingsArgs canarySettings) {
-            return canarySettings(Output.of(canarySettings));
-        }
-
-        /**
-         * @param description Description of the deployment
+         * @param description Description of the deployment.
          * 
          * @return builder
          * 
@@ -232,7 +116,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the deployment
+         * @param description Description of the deployment.
          * 
          * @return builder
          * 
@@ -263,70 +147,6 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageDescription Description to set on the stage managed by the `stage_name` argument.
-         * Has no effect when `stage_name` is not set.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
-         * 
-         */
-        @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-        public Builder stageDescription(@Nullable Output<String> stageDescription) {
-            $.stageDescription = stageDescription;
-            return this;
-        }
-
-        /**
-         * @param stageDescription Description to set on the stage managed by the `stage_name` argument.
-         * Has no effect when `stage_name` is not set.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
-         * 
-         */
-        @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-        public Builder stageDescription(String stageDescription) {
-            return stageDescription(Output.of(stageDescription));
-        }
-
-        /**
-         * @param stageName Name of the stage to create with this deployment.
-         * If the specified stage already exists, it will be updated to point to the new deployment.
-         * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
-         * 
-         */
-        @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-        public Builder stageName(@Nullable Output<String> stageName) {
-            $.stageName = stageName;
-            return this;
-        }
-
-        /**
-         * @param stageName Name of the stage to create with this deployment.
-         * If the specified stage already exists, it will be updated to point to the new deployment.
-         * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
-         * 
-         */
-        @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-        public Builder stageName(String stageName) {
-            return stageName(Output.of(stageName));
-        }
-
-        /**
          * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
          * 
          * @return builder
@@ -348,7 +168,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map to set on the stage managed by the `stage_name` argument.
+         * @param variables Map to set on the related stage.
          * 
          * @return builder
          * 
@@ -359,7 +179,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map to set on the stage managed by the `stage_name` argument.
+         * @param variables Map to set on the related stage.
          * 
          * @return builder
          * 

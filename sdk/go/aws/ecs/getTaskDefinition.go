@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,8 +114,6 @@ type LookupTaskDefinitionResult struct {
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators []GetTaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode string `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -221,13 +219,6 @@ func (o LookupTaskDefinitionResultOutput) Family() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Configuration block(s) with Inference Accelerators settings. Detailed below.
-func (o LookupTaskDefinitionResultOutput) InferenceAccelerators() GetTaskDefinitionInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionInferenceAccelerator {
-		return v.InferenceAccelerators
-	}).(GetTaskDefinitionInferenceAcceleratorArrayOutput)
 }
 
 // IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.

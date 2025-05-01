@@ -172,6 +172,60 @@ import javax.annotation.Nullable;
  * ### Job Definition of type EKS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
+ *             .name(" tf_test_batch_job_definition_eks")
+ *             .type("container")
+ *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
+ *                 .podProperties(JobDefinitionEksPropertiesPodPropertiesArgs.builder()
+ *                     .hostNetwork(true)
+ *                     .containers(JobDefinitionEksPropertiesPodPropertiesContainerArgs.builder()
+ *                         .image("public.ecr.aws/amazonlinux/amazonlinux:1")
+ *                         .commands(                        
+ *                             "sleep",
+ *                             "60")
+ *                         .resources(JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs.builder()
+ *                             .limits(Map.ofEntries(
+ *                                 Map.entry("cpu", "1"),
+ *                                 Map.entry("memory", "1024Mi")
+ *                             ))
+ *                             .build())
+ *                         .build())
+ *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
+ *                         .labels(Map.of("environment", "test"))
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Fargate Platform Capability

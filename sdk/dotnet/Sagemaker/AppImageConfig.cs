@@ -14,6 +14,63 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
+    ///     {
+    ///         AppImageConfigName = "example",
+    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///         {
+    ///             KernelSpecs = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Default File System Config
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
+    ///     {
+    ///         AppImageConfigName = "example",
+    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///         {
+    ///             KernelSpecs = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                 },
+    ///             },
+    ///             FileSystemConfig = null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:

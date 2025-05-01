@@ -331,7 +331,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -344,7 +344,6 @@ export class Cluster extends pulumi.CustomResource {
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly defaultAddonsToRemoves!: pulumi.Output<string[] | undefined>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -447,7 +446,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["defaultAddonsToRemoves"] = state ? state.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
@@ -478,7 +476,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
@@ -529,7 +526,7 @@ export interface ClusterState {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    certificateAuthority?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -542,7 +539,6 @@ export interface ClusterState {
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     createdAt?: pulumi.Input<string>;
-    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -641,7 +637,6 @@ export interface ClusterArgs {
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
-    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */

@@ -10,7 +10,6 @@ from ._enums import *
 from .access_point import *
 from .account_public_access_block import *
 from .analytics_configuration import *
-from .bucket import *
 from .bucket_accelerate_configuration_v2 import *
 from .bucket_acl_v2 import *
 from .bucket_cors_configuration_v2 import *

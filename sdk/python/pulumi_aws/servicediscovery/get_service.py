@@ -28,7 +28,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, description=None, dns_configs=None, health_check_configs=None, health_check_custom_configs=None, id=None, name=None, namespace_id=None, tags=None, tags_all=None):
+    def __init__(__self__, arn=None, description=None, dns_configs=None, health_check_configs=None, health_check_custom_configs=None, id=None, name=None, namespace_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,9 +56,6 @@ class GetServiceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if tags_all and not isinstance(tags_all, dict):
-            raise TypeError("Expected argument 'tags_all' to be a dict")
-        pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -129,15 +126,6 @@ class GetServiceResult:
         """
         return pulumi.get(self, "tags")
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""tags_all is deprecated. This argument will be removed in a future major version.""")
-    def tags_all(self) -> Mapping[str, builtins.str]:
-        """
-        (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -153,14 +141,12 @@ class AwaitableGetServiceResult(GetServiceResult):
             id=self.id,
             name=self.name,
             namespace_id=self.namespace_id,
-            tags=self.tags,
-            tags_all=self.tags_all)
+            tags=self.tags)
 
 
 def get_service(name: Optional[builtins.str] = None,
                 namespace_id: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
-                tags_all: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Retrieves information about a Service Discovery Service.
@@ -179,13 +165,11 @@ def get_service(name: Optional[builtins.str] = None,
     :param builtins.str name: Name of the service.
     :param builtins.str namespace_id: ID of the namespace that the service belongs to.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-    :param Mapping[str, builtins.str] tags_all: (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
     __args__['tags'] = tags
-    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
@@ -198,12 +182,10 @@ def get_service(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
-        tags=pulumi.get(__ret__, 'tags'),
-        tags_all=pulumi.get(__ret__, 'tags_all'))
+        tags=pulumi.get(__ret__, 'tags'))
 def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
                        namespace_id: Optional[pulumi.Input[builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
-                       tags_all: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Retrieves information about a Service Discovery Service.
@@ -222,13 +204,11 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str name: Name of the service.
     :param builtins.str namespace_id: ID of the namespace that the service belongs to.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-    :param Mapping[str, builtins.str] tags_all: (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
     __args__['tags'] = tags
-    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
@@ -240,5 +220,4 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        tags_all=pulumi.get(__response__, 'tags_all')))
+        tags=pulumi.get(__response__, 'tags')))

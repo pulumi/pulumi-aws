@@ -63,7 +63,7 @@ public final class GetFileSystemResult {
      * 
      */
     @Deprecated /* Use `lifecycle_policies` instead. This field will be removed in the next major version. */
-    private GetFileSystemLifecyclePolicy lifecyclePolicy;
+    private List<GetFileSystemLifecyclePolicy> lifecyclePolicy;
     /**
      * @return The value of the file system&#39;s `Name` tag.
      * 
@@ -163,7 +163,7 @@ public final class GetFileSystemResult {
      * 
      */
     @Deprecated /* Use `lifecycle_policies` instead. This field will be removed in the next major version. */
-    public GetFileSystemLifecyclePolicy lifecyclePolicy() {
+    public List<GetFileSystemLifecyclePolicy> lifecyclePolicy() {
         return this.lifecyclePolicy;
     }
     /**
@@ -231,7 +231,7 @@ public final class GetFileSystemResult {
         private String id;
         private String kmsKeyId;
         private List<GetFileSystemLifecyclePolicy> lifecyclePolicies;
-        private GetFileSystemLifecyclePolicy lifecyclePolicy;
+        private List<GetFileSystemLifecyclePolicy> lifecyclePolicy;
         private String name;
         private String performanceMode;
         private List<GetFileSystemProtection> protections;
@@ -346,12 +346,15 @@ public final class GetFileSystemResult {
             return lifecyclePolicies(List.of(lifecyclePolicies));
         }
         @CustomType.Setter
-        public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
+        public Builder lifecyclePolicy(List<GetFileSystemLifecyclePolicy> lifecyclePolicy) {
             if (lifecyclePolicy == null) {
               throw new MissingRequiredPropertyException("GetFileSystemResult", "lifecyclePolicy");
             }
             this.lifecyclePolicy = lifecyclePolicy;
             return this;
+        }
+        public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy... lifecyclePolicy) {
+            return lifecyclePolicy(List.of(lifecyclePolicy));
         }
         @CustomType.Setter
         public Builder name(String name) {

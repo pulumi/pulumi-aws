@@ -181,6 +181,21 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
@@ -327,6 +342,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         this.disableExecuteApiEndpoint = $.disableExecuteApiEndpoint;
         this.executionArn = $.executionArn;
         this.failOnWarnings = $.failOnWarnings;
+        this.ipAddressType = $.ipAddressType;
         this.name = $.name;
         this.protocolType = $.protocolType;
         this.routeKey = $.routeKey;
@@ -575,6 +591,27 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder failOnWarnings(Boolean failOnWarnings) {
             return failOnWarnings(Output.of(failOnWarnings));
+        }
+
+        /**
+         * @param ipAddressType The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

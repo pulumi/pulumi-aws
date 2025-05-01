@@ -21,15 +21,15 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
      * Name of the Batch Compute Environment
      * 
      */
-    @Import(name="computeEnvironmentName", required=true)
-    private Output<String> computeEnvironmentName;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the Batch Compute Environment
      * 
      */
-    public Output<String> computeEnvironmentName() {
-        return this.computeEnvironmentName;
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -50,7 +50,7 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
     private GetComputeEnvironmentArgs() {}
 
     private GetComputeEnvironmentArgs(GetComputeEnvironmentArgs $) {
-        this.computeEnvironmentName = $.computeEnvironmentName;
+        this.name = $.name;
         this.tags = $.tags;
     }
 
@@ -73,24 +73,24 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * @param name Name of the Batch Compute Environment
          * 
          * @return builder
          * 
          */
-        public Builder computeEnvironmentName(Output<String> computeEnvironmentName) {
-            $.computeEnvironmentName = computeEnvironmentName;
+        public Builder name(Output<String> name) {
+            $.name = name;
             return this;
         }
 
         /**
-         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * @param name Name of the Batch Compute Environment
          * 
          * @return builder
          * 
          */
-        public Builder computeEnvironmentName(String computeEnvironmentName) {
-            return computeEnvironmentName(Output.of(computeEnvironmentName));
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**
@@ -115,8 +115,8 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         public GetComputeEnvironmentArgs build() {
-            if ($.computeEnvironmentName == null) {
-                throw new MissingRequiredPropertyException("GetComputeEnvironmentArgs", "computeEnvironmentName");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetComputeEnvironmentArgs", "name");
             }
             return $;
         }

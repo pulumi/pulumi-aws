@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1057,7 +1057,7 @@ type AppImageConfigKernelGatewayImageConfig struct {
 	// The URL where the Git repository is located. See File System Config details below.
 	FileSystemConfig *AppImageConfigKernelGatewayImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
 	// The default branch for the Git repository. See Kernel Spec details below.
-	KernelSpec AppImageConfigKernelGatewayImageConfigKernelSpec `pulumi:"kernelSpec"`
+	KernelSpecs []AppImageConfigKernelGatewayImageConfigKernelSpec `pulumi:"kernelSpecs"`
 }
 
 // AppImageConfigKernelGatewayImageConfigInput is an input type that accepts AppImageConfigKernelGatewayImageConfigArgs and AppImageConfigKernelGatewayImageConfigOutput values.
@@ -1075,7 +1075,7 @@ type AppImageConfigKernelGatewayImageConfigArgs struct {
 	// The URL where the Git repository is located. See File System Config details below.
 	FileSystemConfig AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
 	// The default branch for the Git repository. See Kernel Spec details below.
-	KernelSpec AppImageConfigKernelGatewayImageConfigKernelSpecInput `pulumi:"kernelSpec"`
+	KernelSpecs AppImageConfigKernelGatewayImageConfigKernelSpecArrayInput `pulumi:"kernelSpecs"`
 }
 
 func (AppImageConfigKernelGatewayImageConfigArgs) ElementType() reflect.Type {
@@ -1163,10 +1163,10 @@ func (o AppImageConfigKernelGatewayImageConfigOutput) FileSystemConfig() AppImag
 }
 
 // The default branch for the Git repository. See Kernel Spec details below.
-func (o AppImageConfigKernelGatewayImageConfigOutput) KernelSpec() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
-	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfigKernelSpec {
-		return v.KernelSpec
-	}).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
+func (o AppImageConfigKernelGatewayImageConfigOutput) KernelSpecs() AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) []AppImageConfigKernelGatewayImageConfigKernelSpec {
+		return v.KernelSpecs
+	}).(AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput)
 }
 
 type AppImageConfigKernelGatewayImageConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1204,13 +1204,13 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppI
 }
 
 // The default branch for the Git repository. See Kernel Spec details below.
-func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpec() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigKernelSpec {
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpecs() AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) []AppImageConfigKernelGatewayImageConfigKernelSpec {
 		if v == nil {
 			return nil
 		}
-		return &v.KernelSpec
-	}).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
+		return v.KernelSpecs
+	}).(AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput)
 }
 
 type AppImageConfigKernelGatewayImageConfigFileSystemConfig struct {
@@ -1433,45 +1433,29 @@ func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKe
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
 }
 
-func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return i.ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Background())
-}
-
-func (i AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput).ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx)
-}
-
-// AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput is an input type that accepts AppImageConfigKernelGatewayImageConfigKernelSpecArgs, AppImageConfigKernelGatewayImageConfigKernelSpecPtr and AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput values.
-// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput` via:
+// AppImageConfigKernelGatewayImageConfigKernelSpecArrayInput is an input type that accepts AppImageConfigKernelGatewayImageConfigKernelSpecArray and AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigKernelSpecArrayInput` via:
 //
-//	        AppImageConfigKernelGatewayImageConfigKernelSpecArgs{...}
-//
-//	or:
-//
-//	        nil
-type AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput interface {
+//	AppImageConfigKernelGatewayImageConfigKernelSpecArray{ AppImageConfigKernelGatewayImageConfigKernelSpecArgs{...} }
+type AppImageConfigKernelGatewayImageConfigKernelSpecArrayInput interface {
 	pulumi.Input
 
-	ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput
-	ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput
+	ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput() AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput
+	ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput
 }
 
-type appImageConfigKernelGatewayImageConfigKernelSpecPtrType AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+type AppImageConfigKernelGatewayImageConfigKernelSpecArray []AppImageConfigKernelGatewayImageConfigKernelSpecInput
 
-func AppImageConfigKernelGatewayImageConfigKernelSpecPtr(v *AppImageConfigKernelGatewayImageConfigKernelSpecArgs) AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput {
-	return (*appImageConfigKernelGatewayImageConfigKernelSpecPtrType)(v)
+func (AppImageConfigKernelGatewayImageConfigKernelSpecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
 }
 
-func (*appImageConfigKernelGatewayImageConfigKernelSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
+func (i AppImageConfigKernelGatewayImageConfigKernelSpecArray) ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput() AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutputWithContext(context.Background())
 }
 
-func (i *appImageConfigKernelGatewayImageConfigKernelSpecPtrType) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return i.ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Background())
-}
-
-func (i *appImageConfigKernelGatewayImageConfigKernelSpecPtrType) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
+func (i AppImageConfigKernelGatewayImageConfigKernelSpecArray) ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput)
 }
 
 type AppImageConfigKernelGatewayImageConfigKernelSpecOutput struct{ *pulumi.OutputState }
@@ -1488,16 +1472,6 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfig
 	return o
 }
 
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return o.ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(context.Background())
-}
-
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigKernelGatewayImageConfigKernelSpec) *AppImageConfigKernelGatewayImageConfigKernelSpec {
-		return &v
-	}).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
-}
-
 // The display name of the kernel.
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
@@ -1508,48 +1482,24 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) Name() pulumi.St
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput struct{ *pulumi.OutputState }
+type AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput struct{ *pulumi.OutputState }
 
-func (AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
+func (AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppImageConfigKernelGatewayImageConfigKernelSpec)(nil)).Elem()
 }
 
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput() AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput {
 	return o
 }
 
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecArrayOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput {
 	return o
 }
 
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
-	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) AppImageConfigKernelGatewayImageConfigKernelSpec {
-		if v != nil {
-			return *v
-		}
-		var ret AppImageConfigKernelGatewayImageConfigKernelSpec
-		return ret
+func (o AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput) Index(i pulumi.IntInput) AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppImageConfigKernelGatewayImageConfigKernelSpec {
+		return vs[0].([]AppImageConfigKernelGatewayImageConfigKernelSpec)[vs[1].(int)]
 	}).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
-}
-
-// The display name of the kernel.
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the kernel.
-func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type AppResourceSpec struct {
@@ -39762,7 +39712,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigFileSystemConfigInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigKernelSpecInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigKernelSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigKernelSpecPtrInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigKernelSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigKernelSpecArrayInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigKernelSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
@@ -40239,7 +40189,7 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecOutput{})
-	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})

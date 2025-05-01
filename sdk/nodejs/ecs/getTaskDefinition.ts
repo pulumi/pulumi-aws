@@ -107,10 +107,6 @@ export interface GetTaskDefinitionResult {
      */
     readonly id: string;
     /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    readonly inferenceAccelerators: outputs.ecs.GetTaskDefinitionInferenceAccelerator[];
-    /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
     readonly ipcMode: string;

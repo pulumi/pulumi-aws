@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Route53
         public Output<int> KeyTag { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Route53
         public Input<string> KeyManagementServiceArn { get; set; } = null!;
 
         /// <summary>
-        /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? KeyTag { get; set; }
 
         /// <summary>
-        /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
         /// 
         /// The following arguments are optional:
         /// </summary>

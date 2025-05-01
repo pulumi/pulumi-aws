@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,8 +116,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,8 +152,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -195,32 +195,27 @@ import (
 type FlowLog struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Flow Log.
+	// ARN of the Flow Log.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrOutput `pulumi:"destinationOptions"`
-	// Elastic Network Interface ID to attach to
+	// Elastic Network Interface ID to attach to.
 	EniId pulumi.StringPtrOutput `pulumi:"eniId"`
-	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
-	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
+	// ARN of the logging destination.
 	LogDestination pulumi.StringOutput `pulumi:"logDestination"`
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+	// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
-	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
-	//
-	// Deprecated: log_group_name is deprecated. Use logDestination instead.
-	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
-	// The maximum interval of time
-	// during which a flow of packets is captured and aggregated into a flow
-	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -230,11 +225,11 @@ type FlowLog struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrOutput `pulumi:"trafficType"`
-	// Transit Gateway Attachment ID to attach to
+	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
-	// Transit Gateway ID to attach to
+	// Transit Gateway ID to attach to.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
-	// VPC ID to attach to
+	// VPC ID to attach to.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
@@ -268,32 +263,27 @@ func GetFlowLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlowLog resources.
 type flowLogState struct {
-	// The ARN of the Flow Log.
+	// ARN of the Flow Log.
 	Arn *string `pulumi:"arn"`
 	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
-	// Elastic Network Interface ID to attach to
+	// Elastic Network Interface ID to attach to.
 	EniId *string `pulumi:"eniId"`
-	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
+	// ARN of the logging destination.
 	LogDestination *string `pulumi:"logDestination"`
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+	// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
 	LogFormat *string `pulumi:"logFormat"`
-	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
-	//
-	// Deprecated: log_group_name is deprecated. Use logDestination instead.
-	LogGroupName *string `pulumi:"logGroupName"`
-	// The maximum interval of time
-	// during which a flow of packets is captured and aggregated into a flow
-	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -303,41 +293,36 @@ type flowLogState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
-	// Transit Gateway Attachment ID to attach to
+	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Transit Gateway ID to attach to
+	// Transit Gateway ID to attach to.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// VPC ID to attach to
+	// VPC ID to attach to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type FlowLogState struct {
-	// The ARN of the Flow Log.
+	// ARN of the Flow Log.
 	Arn pulumi.StringPtrInput
 	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
-	// Elastic Network Interface ID to attach to
+	// Elastic Network Interface ID to attach to.
 	EniId pulumi.StringPtrInput
-	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 	IamRoleArn pulumi.StringPtrInput
-	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
+	// ARN of the logging destination.
 	LogDestination pulumi.StringPtrInput
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+	// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
 	LogFormat pulumi.StringPtrInput
-	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
-	//
-	// Deprecated: log_group_name is deprecated. Use logDestination instead.
-	LogGroupName pulumi.StringPtrInput
-	// The maximum interval of time
-	// during which a flow of packets is captured and aggregated into a flow
-	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -347,11 +332,11 @@ type FlowLogState struct {
 	TagsAll pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
-	// Transit Gateway Attachment ID to attach to
+	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Transit Gateway ID to attach to
+	// Transit Gateway ID to attach to.
 	TransitGatewayId pulumi.StringPtrInput
-	// VPC ID to attach to
+	// VPC ID to attach to.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -364,36 +349,31 @@ type flowLogArgs struct {
 	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
-	// Elastic Network Interface ID to attach to
+	// Elastic Network Interface ID to attach to.
 	EniId *string `pulumi:"eniId"`
-	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
+	// ARN of the logging destination.
 	LogDestination *string `pulumi:"logDestination"`
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+	// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
 	LogFormat *string `pulumi:"logFormat"`
-	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
-	//
-	// Deprecated: log_group_name is deprecated. Use logDestination instead.
-	LogGroupName *string `pulumi:"logGroupName"`
-	// The maximum interval of time
-	// during which a flow of packets is captured and aggregated into a flow
-	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
-	// Transit Gateway Attachment ID to attach to
+	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Transit Gateway ID to attach to
+	// Transit Gateway ID to attach to.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// VPC ID to attach to
+	// VPC ID to attach to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -403,36 +383,31 @@ type FlowLogArgs struct {
 	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
-	// Elastic Network Interface ID to attach to
+	// Elastic Network Interface ID to attach to.
 	EniId pulumi.StringPtrInput
-	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+	// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 	IamRoleArn pulumi.StringPtrInput
-	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
+	// ARN of the logging destination.
 	LogDestination pulumi.StringPtrInput
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+	// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
 	LogFormat pulumi.StringPtrInput
-	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
-	//
-	// Deprecated: log_group_name is deprecated. Use logDestination instead.
-	LogGroupName pulumi.StringPtrInput
-	// The maximum interval of time
-	// during which a flow of packets is captured and aggregated into a flow
-	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
-	// Subnet ID to attach to
+	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
-	// Transit Gateway Attachment ID to attach to
+	// Transit Gateway Attachment ID to attach to.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Transit Gateway ID to attach to
+	// Transit Gateway ID to attach to.
 	TransitGatewayId pulumi.StringPtrInput
-	// VPC ID to attach to
+	// VPC ID to attach to.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -523,7 +498,7 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 	return o
 }
 
-// The ARN of the Flow Log.
+// ARN of the Flow Log.
 func (o FlowLogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -538,22 +513,22 @@ func (o FlowLogOutput) DestinationOptions() FlowLogDestinationOptionsPtrOutput {
 	return o.ApplyT(func(v *FlowLog) FlowLogDestinationOptionsPtrOutput { return v.DestinationOptions }).(FlowLogDestinationOptionsPtrOutput)
 }
 
-// Elastic Network Interface ID to attach to
+// Elastic Network Interface ID to attach to.
 func (o FlowLogOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.EniId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+// ARN of the IAM role that's used to post flow logs to a CloudWatch Logs log group.
 func (o FlowLogOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
+// ARN of the logging destination.
 func (o FlowLogOutput) LogDestination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogDestination }).(pulumi.StringOutput)
 }
 
-// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+// Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 func (o FlowLogOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }
@@ -563,22 +538,14 @@ func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
-//
-// Deprecated: log_group_name is deprecated. Use logDestination instead.
-func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
-}
-
-// The maximum interval of time
-// during which a flow of packets is captured and aggregated into a flow
-// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 func (o FlowLogOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.IntPtrOutput { return v.MaxAggregationInterval }).(pulumi.IntPtrOutput)
 }
 
-// Subnet ID to attach to
+// Subnet ID to attach to.
 func (o FlowLogOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -600,17 +567,17 @@ func (o FlowLogOutput) TrafficType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TrafficType }).(pulumi.StringPtrOutput)
 }
 
-// Transit Gateway Attachment ID to attach to
+// Transit Gateway Attachment ID to attach to.
 func (o FlowLogOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
-// Transit Gateway ID to attach to
+// Transit Gateway ID to attach to.
 func (o FlowLogOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// VPC ID to attach to
+// VPC ID to attach to.
 func (o FlowLogOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

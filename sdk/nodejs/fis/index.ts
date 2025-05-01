@@ -10,6 +10,11 @@ export type ExperimentTemplate = import("./experimentTemplate").ExperimentTempla
 export const ExperimentTemplate: typeof import("./experimentTemplate").ExperimentTemplate = null as any;
 utilities.lazyLoad(exports, ["ExperimentTemplate"], () => require("./experimentTemplate"));
 
+export { GetExperimentTemplatesArgs, GetExperimentTemplatesResult, GetExperimentTemplatesOutputArgs } from "./getExperimentTemplates";
+export const getExperimentTemplates: typeof import("./getExperimentTemplates").getExperimentTemplates = null as any;
+export const getExperimentTemplatesOutput: typeof import("./getExperimentTemplates").getExperimentTemplatesOutput = null as any;
+utilities.lazyLoad(exports, ["getExperimentTemplates","getExperimentTemplatesOutput"], () => require("./getExperimentTemplates"));
+
 
 const _module = {
     version: utilities.getVersion(),

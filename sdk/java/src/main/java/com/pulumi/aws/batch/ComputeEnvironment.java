@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sampleComputeEnvironment = new ComputeEnvironment("sampleComputeEnvironment", ComputeEnvironmentArgs.builder()
- *             .computeEnvironmentName("sample")
+ *             .name("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .instanceRole(ecsInstanceRoleInstanceProfile.arn())
  *                 .instanceTypes("c4.large")
@@ -196,7 +196,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()
- *             .computeEnvironmentName("sample")
+ *             .name("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .maxVcpus(16)
  *                 .securityGroupIds(sampleAwsSecurityGroup.id())
@@ -243,7 +243,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()
- *             .computeEnvironmentName("sample")
+ *             .name("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .allocationStrategy("BEST_FIT_PROGRESSIVE")
  *                 .instanceRole(ecsInstance.arn())
@@ -269,7 +269,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
+ * Using `pulumi import`, import AWS Batch compute using the `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
@@ -291,34 +291,6 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
-    }
-    /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     * 
-     */
-    @Export(name="computeEnvironmentName", refs={String.class}, tree="[0]")
-    private Output<String> computeEnvironmentName;
-
-    /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     * 
-     */
-    public Output<String> computeEnvironmentName() {
-        return this.computeEnvironmentName;
-    }
-    /**
-     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-     * 
-     */
-    @Export(name="computeEnvironmentNamePrefix", refs={String.class}, tree="[0]")
-    private Output<String> computeEnvironmentNamePrefix;
-
-    /**
-     * @return Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-     * 
-     */
-    public Output<String> computeEnvironmentNamePrefix() {
-        return this.computeEnvironmentNamePrefix;
     }
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -361,6 +333,34 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ComputeEnvironmentEksConfiguration>> eksConfiguration() {
         return Codegen.optional(this.eksConfiguration);
+    }
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
+    }
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
+    private Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

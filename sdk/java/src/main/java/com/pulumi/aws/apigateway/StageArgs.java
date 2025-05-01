@@ -126,14 +126,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      * 
      */
     @Import(name="documentationVersion")
     private @Nullable Output<String> documentationVersion;
 
     /**
-     * @return Version of the associated API documentation
+     * @return Version of the associated API documentation.
      * 
      */
     public Optional<Output<String>> documentationVersion() {
@@ -186,14 +186,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      * 
      */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
     /**
-     * @return Map that defines the stage variables
+     * @return Map that defines the stage variables.
      * 
      */
     public Optional<Output<Map<String,String>>> variables() {
@@ -399,7 +399,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion Version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion Version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map that defines the stage variables
+         * @param variables Map that defines the stage variables.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map that defines the stage variables
+         * @param variables Map that defines the stage variables.
          * 
          * @return builder
          * 

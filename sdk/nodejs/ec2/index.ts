@@ -385,21 +385,6 @@ export const getVpcEndpointService: typeof import("./getVpcEndpointService").get
 export const getVpcEndpointServiceOutput: typeof import("./getVpcEndpointService").getVpcEndpointServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcEndpointService","getVpcEndpointServiceOutput"], () => require("./getVpcEndpointService"));
 
-export { GetVpcIamPoolArgs, GetVpcIamPoolResult, GetVpcIamPoolOutputArgs } from "./getVpcIamPool";
-export const getVpcIamPool: typeof import("./getVpcIamPool").getVpcIamPool = null as any;
-export const getVpcIamPoolOutput: typeof import("./getVpcIamPool").getVpcIamPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcIamPool","getVpcIamPoolOutput"], () => require("./getVpcIamPool"));
-
-export { GetVpcIamPoolCidrsArgs, GetVpcIamPoolCidrsResult, GetVpcIamPoolCidrsOutputArgs } from "./getVpcIamPoolCidrs";
-export const getVpcIamPoolCidrs: typeof import("./getVpcIamPoolCidrs").getVpcIamPoolCidrs = null as any;
-export const getVpcIamPoolCidrsOutput: typeof import("./getVpcIamPoolCidrs").getVpcIamPoolCidrsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcIamPoolCidrs","getVpcIamPoolCidrsOutput"], () => require("./getVpcIamPoolCidrs"));
-
-export { GetVpcIamPoolsArgs, GetVpcIamPoolsResult, GetVpcIamPoolsOutputArgs } from "./getVpcIamPools";
-export const getVpcIamPools: typeof import("./getVpcIamPools").getVpcIamPools = null as any;
-export const getVpcIamPoolsOutput: typeof import("./getVpcIamPools").getVpcIamPoolsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcIamPools","getVpcIamPoolsOutput"], () => require("./getVpcIamPools"));
-
 export { GetVpcIpamArgs, GetVpcIpamResult, GetVpcIpamOutputArgs } from "./getVpcIpam";
 export const getVpcIpam: typeof import("./getVpcIpam").getVpcIpam = null as any;
 export const getVpcIpamOutput: typeof import("./getVpcIpam").getVpcIpamOutput = null as any;

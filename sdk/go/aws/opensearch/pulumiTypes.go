@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -7991,7 +7991,7 @@ func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOpti
 	}).(GetDomainVpcOptionOutput)
 }
 
-type GetServerlessSecurityConfigSamlOptions struct {
+type GetServerlessSecurityConfigSamlOption struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute string `pulumi:"groupAttribute"`
 	// The XML IdP metadata file generated from your identity provider.
@@ -8002,18 +8002,18 @@ type GetServerlessSecurityConfigSamlOptions struct {
 	UserAttribute string `pulumi:"userAttribute"`
 }
 
-// GetServerlessSecurityConfigSamlOptionsInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs and GetServerlessSecurityConfigSamlOptionsOutput values.
-// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionsInput` via:
+// GetServerlessSecurityConfigSamlOptionInput is an input type that accepts GetServerlessSecurityConfigSamlOptionArgs and GetServerlessSecurityConfigSamlOptionOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionInput` via:
 //
-//	GetServerlessSecurityConfigSamlOptionsArgs{...}
-type GetServerlessSecurityConfigSamlOptionsInput interface {
+//	GetServerlessSecurityConfigSamlOptionArgs{...}
+type GetServerlessSecurityConfigSamlOptionInput interface {
 	pulumi.Input
 
-	ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput
-	ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionsOutput
+	ToGetServerlessSecurityConfigSamlOptionOutput() GetServerlessSecurityConfigSamlOptionOutput
+	ToGetServerlessSecurityConfigSamlOptionOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionOutput
 }
 
-type GetServerlessSecurityConfigSamlOptionsArgs struct {
+type GetServerlessSecurityConfigSamlOptionArgs struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
 	// The XML IdP metadata file generated from your identity provider.
@@ -8024,165 +8024,95 @@ type GetServerlessSecurityConfigSamlOptionsArgs struct {
 	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
 }
 
-func (GetServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+func (GetServerlessSecurityConfigSamlOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOption)(nil)).Elem()
 }
 
-func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput {
-	return i.ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(context.Background())
+func (i GetServerlessSecurityConfigSamlOptionArgs) ToGetServerlessSecurityConfigSamlOptionOutput() GetServerlessSecurityConfigSamlOptionOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionOutputWithContext(context.Background())
 }
 
-func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsOutput)
+func (i GetServerlessSecurityConfigSamlOptionArgs) ToGetServerlessSecurityConfigSamlOptionOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionOutput)
 }
 
-func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsOutput).ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx)
-}
-
-// GetServerlessSecurityConfigSamlOptionsPtrInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs, GetServerlessSecurityConfigSamlOptionsPtr and GetServerlessSecurityConfigSamlOptionsPtrOutput values.
-// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionsPtrInput` via:
+// GetServerlessSecurityConfigSamlOptionArrayInput is an input type that accepts GetServerlessSecurityConfigSamlOptionArray and GetServerlessSecurityConfigSamlOptionArrayOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionArrayInput` via:
 //
-//	        GetServerlessSecurityConfigSamlOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetServerlessSecurityConfigSamlOptionsPtrInput interface {
+//	GetServerlessSecurityConfigSamlOptionArray{ GetServerlessSecurityConfigSamlOptionArgs{...} }
+type GetServerlessSecurityConfigSamlOptionArrayInput interface {
 	pulumi.Input
 
-	ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput
-	ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput
+	ToGetServerlessSecurityConfigSamlOptionArrayOutput() GetServerlessSecurityConfigSamlOptionArrayOutput
+	ToGetServerlessSecurityConfigSamlOptionArrayOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionArrayOutput
 }
 
-type getServerlessSecurityConfigSamlOptionsPtrType GetServerlessSecurityConfigSamlOptionsArgs
+type GetServerlessSecurityConfigSamlOptionArray []GetServerlessSecurityConfigSamlOptionInput
 
-func GetServerlessSecurityConfigSamlOptionsPtr(v *GetServerlessSecurityConfigSamlOptionsArgs) GetServerlessSecurityConfigSamlOptionsPtrInput {
-	return (*getServerlessSecurityConfigSamlOptionsPtrType)(v)
+func (GetServerlessSecurityConfigSamlOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessSecurityConfigSamlOption)(nil)).Elem()
 }
 
-func (*getServerlessSecurityConfigSamlOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+func (i GetServerlessSecurityConfigSamlOptionArray) ToGetServerlessSecurityConfigSamlOptionArrayOutput() GetServerlessSecurityConfigSamlOptionArrayOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionArrayOutputWithContext(context.Background())
 }
 
-func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+func (i GetServerlessSecurityConfigSamlOptionArray) ToGetServerlessSecurityConfigSamlOptionArrayOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionArrayOutput)
 }
 
-func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+type GetServerlessSecurityConfigSamlOptionOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigSamlOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOption)(nil)).Elem()
 }
 
-type GetServerlessSecurityConfigSamlOptionsOutput struct{ *pulumi.OutputState }
-
-func (GetServerlessSecurityConfigSamlOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
-}
-
-func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput {
+func (o GetServerlessSecurityConfigSamlOptionOutput) ToGetServerlessSecurityConfigSamlOptionOutput() GetServerlessSecurityConfigSamlOptionOutput {
 	return o
 }
 
-func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsOutput {
+func (o GetServerlessSecurityConfigSamlOptionOutput) ToGetServerlessSecurityConfigSamlOptionOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionOutput {
 	return o
-}
-
-func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return o.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServerlessSecurityConfigSamlOptions) *GetServerlessSecurityConfigSamlOptions {
-		return &v
-	}).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
 }
 
 // Group attribute for this SAML integration.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.GroupAttribute }).(pulumi.StringOutput)
+func (o GetServerlessSecurityConfigSamlOptionOutput) GroupAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOption) string { return v.GroupAttribute }).(pulumi.StringOutput)
 }
 
 // The XML IdP metadata file generated from your identity provider.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+func (o GetServerlessSecurityConfigSamlOptionOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOption) string { return v.Metadata }).(pulumi.StringOutput)
 }
 
 // Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) int { return v.SessionTimeout }).(pulumi.IntOutput)
+func (o GetServerlessSecurityConfigSamlOptionOutput) SessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOption) int { return v.SessionTimeout }).(pulumi.IntOutput)
 }
 
 // User attribute for this SAML integration.
-func (o GetServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.UserAttribute }).(pulumi.StringOutput)
+func (o GetServerlessSecurityConfigSamlOptionOutput) UserAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOption) string { return v.UserAttribute }).(pulumi.StringOutput)
 }
 
-type GetServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+type GetServerlessSecurityConfigSamlOptionArrayOutput struct{ *pulumi.OutputState }
 
-func (GetServerlessSecurityConfigSamlOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+func (GetServerlessSecurityConfigSamlOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessSecurityConfigSamlOption)(nil)).Elem()
 }
 
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+func (o GetServerlessSecurityConfigSamlOptionArrayOutput) ToGetServerlessSecurityConfigSamlOptionArrayOutput() GetServerlessSecurityConfigSamlOptionArrayOutput {
 	return o
 }
 
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+func (o GetServerlessSecurityConfigSamlOptionArrayOutput) ToGetServerlessSecurityConfigSamlOptionArrayOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionArrayOutput {
 	return o
 }
 
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Elem() GetServerlessSecurityConfigSamlOptionsOutput {
-	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) GetServerlessSecurityConfigSamlOptions {
-		if v != nil {
-			return *v
-		}
-		var ret GetServerlessSecurityConfigSamlOptions
-		return ret
-	}).(GetServerlessSecurityConfigSamlOptionsOutput)
-}
-
-// Group attribute for this SAML integration.
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.GroupAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// The XML IdP metadata file generated from your identity provider.
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Metadata
-	}).(pulumi.StringPtrOutput)
-}
-
-// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.SessionTimeout
-	}).(pulumi.IntPtrOutput)
-}
-
-// User attribute for this SAML integration.
-func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UserAttribute
-	}).(pulumi.StringPtrOutput)
+func (o GetServerlessSecurityConfigSamlOptionArrayOutput) Index(i pulumi.IntInput) GetServerlessSecurityConfigSamlOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerlessSecurityConfigSamlOption {
+		return vs[0].([]GetServerlessSecurityConfigSamlOption)[vs[1].(int)]
+	}).(GetServerlessSecurityConfigSamlOptionOutput)
 }
 
 func init() {
@@ -8293,8 +8223,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSoftwareUpdateOptionArrayInput)(nil)).Elem(), GetDomainSoftwareUpdateOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionInput)(nil)).Elem(), GetDomainVpcOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionArrayInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArray{})
 	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput{})
 	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
@@ -8402,6 +8332,6 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainSoftwareUpdateOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionArrayOutput{})
-	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsOutput{})
-	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionArrayOutput{})
 }

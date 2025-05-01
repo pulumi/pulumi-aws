@@ -12,13 +12,8 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("customPayloads")]
-        private InputList<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadGetArgs>? _customPayloads;
-        public InputList<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadGetArgs> CustomPayloads
-        {
-            get => _customPayloads ?? (_customPayloads = new InputList<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadGetArgs>());
-            set => _customPayloads = value;
-        }
+        [Input("customPayload")]
+        public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadGetArgs>? CustomPayload { get; set; }
 
         [Input("imageResponseCard")]
         public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardGetArgs>? ImageResponseCard { get; set; }

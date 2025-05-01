@@ -554,12 +554,6 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string?> BasePolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-        /// </summary>
-        [Output("basePolicyRegion")]
-        public Output<string?> BasePolicyRegion { get; private set; } = null!;
-
-        /// <summary>
         /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         /// </summary>
         [Output("basePolicyRegions")]
@@ -696,12 +690,6 @@ namespace Pulumi.Aws.NetworkManager
         [Input("basePolicyDocument")]
         public Input<string>? BasePolicyDocument { get; set; }
 
-        /// <summary>
-        /// The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-        /// </summary>
-        [Input("basePolicyRegion")]
-        public Input<string>? BasePolicyRegion { get; set; }
-
         [Input("basePolicyRegions")]
         private InputList<string>? _basePolicyRegions;
 
@@ -788,12 +776,6 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         [Input("basePolicyDocument")]
         public Input<string>? BasePolicyDocument { get; set; }
-
-        /// <summary>
-        /// The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-        /// </summary>
-        [Input("basePolicyRegion")]
-        public Input<string>? BasePolicyRegion { get; set; }
 
         [Input("basePolicyRegions")]
         private InputList<string>? _basePolicyRegions;

@@ -23,46 +23,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.SnapshotCopyGrant;
- * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
- * import com.pulumi.aws.redshift.Cluster;
- * import com.pulumi.aws.redshift.ClusterArgs;
- * import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()
- *             .snapshotCopyGrantName("my-grant")
- *             .build());
- * 
- *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
- *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
- *                 .destinationRegion("us-east-2")
- *                 .grantName(test.snapshotCopyGrantName())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,11 +26,86 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
+ *             .appImageConfigName("example")
+ *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
+ *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
+ *                     .name("example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Default File System Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
+ *             .appImageConfigName("example")
+ *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
+ *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
+ *                     .name("example")
+ *                     .build())
+ *                 .fileSystemConfig(AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

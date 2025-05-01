@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.paymentcryptography;
 
-import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributesArgs;
+import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
 import com.pulumi.aws.paymentcryptography.inputs.KeyTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -11,6 +11,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -65,7 +66,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="keyAttributes")
-    private @Nullable Output<KeyKeyAttributesArgs> keyAttributes;
+    private @Nullable Output<List<KeyKeyAttributeArgs>> keyAttributes;
 
     /**
      * @return Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -73,7 +74,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<KeyKeyAttributesArgs>> keyAttributes() {
+    public Optional<Output<List<KeyKeyAttributeArgs>>> keyAttributes() {
         return Optional.ofNullable(this.keyAttributes);
     }
 
@@ -203,7 +204,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder keyAttributes(@Nullable Output<KeyKeyAttributesArgs> keyAttributes) {
+        public Builder keyAttributes(@Nullable Output<List<KeyKeyAttributeArgs>> keyAttributes) {
             $.keyAttributes = keyAttributes;
             return this;
         }
@@ -216,8 +217,20 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder keyAttributes(KeyKeyAttributesArgs keyAttributes) {
+        public Builder keyAttributes(List<KeyKeyAttributeArgs> keyAttributes) {
             return keyAttributes(Output.of(keyAttributes));
+        }
+
+        /**
+         * @param keyAttributes Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyAttributes(KeyKeyAttributeArgs... keyAttributes) {
+            return keyAttributes(List.of(keyAttributes));
         }
 
         /**

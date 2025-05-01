@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Evidently
     /// <summary>
     /// Provides a CloudWatch Evidently Segment resource.
     /// 
+    /// &gt; **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic

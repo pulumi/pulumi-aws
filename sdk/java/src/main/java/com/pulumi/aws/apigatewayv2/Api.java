@@ -261,6 +261,20 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.failOnWarnings);
     }
     /**
+     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * 
+     */
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
+    private Output<String> ipAddressType;
+
+    /**
+     * @return The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */

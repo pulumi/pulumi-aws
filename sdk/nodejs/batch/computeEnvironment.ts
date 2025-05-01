@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     strategy: aws.ec2.PlacementStrategy.Cluster,
  * });
  * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sample", {
- *     computeEnvironmentName: "sample",
+ *     name: "sample",
  *     computeResources: {
  *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
  *         instanceTypes: ["c4.large"],
@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sample = new aws.batch.ComputeEnvironment("sample", {
- *     computeEnvironmentName: "sample",
+ *     name: "sample",
  *     computeResources: {
  *         maxVcpus: 16,
  *         securityGroupIds: [sampleAwsSecurityGroup.id],
@@ -129,7 +129,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sample = new aws.batch.ComputeEnvironment("sample", {
- *     computeEnvironmentName: "sample",
+ *     name: "sample",
  *     computeResources: {
  *         allocationStrategy: "BEST_FIT_PROGRESSIVE",
  *         instanceRole: ecsInstance.arn,
@@ -150,7 +150,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
+ * Using `pulumi import`, import AWS Batch compute using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
@@ -189,14 +189,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     */
-    public readonly computeEnvironmentName!: pulumi.Output<string>;
-    /**
-     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
-     */
-    public readonly computeEnvironmentNamePrefix!: pulumi.Output<string>;
-    /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
@@ -208,6 +200,14 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      */
     public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     */
+    public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
@@ -257,11 +257,11 @@ export class ComputeEnvironment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ComputeEnvironmentState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
-            resourceInputs["computeEnvironmentNamePrefix"] = state ? state.computeEnvironmentNamePrefix : undefined;
             resourceInputs["computeResources"] = state ? state.computeResources : undefined;
             resourceInputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
             resourceInputs["eksConfiguration"] = state ? state.eksConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -275,10 +275,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
-            resourceInputs["computeEnvironmentNamePrefix"] = args ? args.computeEnvironmentNamePrefix : undefined;
             resourceInputs["computeResources"] = args ? args.computeResources : undefined;
             resourceInputs["eksConfiguration"] = args ? args.eksConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -304,14 +304,6 @@ export interface ComputeEnvironmentState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     */
-    computeEnvironmentName?: pulumi.Input<string>;
-    /**
-     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
-     */
-    computeEnvironmentNamePrefix?: pulumi.Input<string>;
-    /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
@@ -323,6 +315,14 @@ export interface ComputeEnvironmentState {
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
@@ -364,14 +364,6 @@ export interface ComputeEnvironmentState {
  */
 export interface ComputeEnvironmentArgs {
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     */
-    computeEnvironmentName?: pulumi.Input<string>;
-    /**
-     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
-     */
-    computeEnvironmentNamePrefix?: pulumi.Input<string>;
-    /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
@@ -379,6 +371,14 @@ export interface ComputeEnvironmentArgs {
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */

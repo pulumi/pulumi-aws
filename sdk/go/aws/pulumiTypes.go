@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1094,8 +1094,6 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Opensearchservice *string `pulumi:"opensearchservice"`
 	// Use this to override the default service endpoint URL
-	Opsworks *string `pulumi:"opsworks"`
-	// Use this to override the default service endpoint URL
 	Organizations *string `pulumi:"organizations"`
 	// Use this to override the default service endpoint URL
 	Osis *string `pulumi:"osis"`
@@ -1188,8 +1186,6 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Schemas *string `pulumi:"schemas"`
 	// Use this to override the default service endpoint URL
-	Sdb *string `pulumi:"sdb"`
-	// Use this to override the default service endpoint URL
 	Secretsmanager *string `pulumi:"secretsmanager"`
 	// Use this to override the default service endpoint URL
 	Securityhub *string `pulumi:"securityhub"`
@@ -1219,8 +1215,6 @@ type ProviderEndpoint struct {
 	Shield *string `pulumi:"shield"`
 	// Use this to override the default service endpoint URL
 	Signer *string `pulumi:"signer"`
-	// Use this to override the default service endpoint URL
-	Simpledb *string `pulumi:"simpledb"`
 	// Use this to override the default service endpoint URL
 	Sns *string `pulumi:"sns"`
 	// Use this to override the default service endpoint URL
@@ -1275,8 +1269,6 @@ type ProviderEndpoint struct {
 	Wafv2 *string `pulumi:"wafv2"`
 	// Use this to override the default service endpoint URL
 	Wellarchitected *string `pulumi:"wellarchitected"`
-	// Use this to override the default service endpoint URL
-	Worklink *string `pulumi:"worklink"`
 	// Use this to override the default service endpoint URL
 	Workspaces *string `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
@@ -1708,8 +1700,6 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Opensearchservice pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	// Use this to override the default service endpoint URL
-	Opsworks pulumi.StringPtrInput `pulumi:"opsworks"`
-	// Use this to override the default service endpoint URL
 	Organizations pulumi.StringPtrInput `pulumi:"organizations"`
 	// Use this to override the default service endpoint URL
 	Osis pulumi.StringPtrInput `pulumi:"osis"`
@@ -1802,8 +1792,6 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Schemas pulumi.StringPtrInput `pulumi:"schemas"`
 	// Use this to override the default service endpoint URL
-	Sdb pulumi.StringPtrInput `pulumi:"sdb"`
-	// Use this to override the default service endpoint URL
 	Secretsmanager pulumi.StringPtrInput `pulumi:"secretsmanager"`
 	// Use this to override the default service endpoint URL
 	Securityhub pulumi.StringPtrInput `pulumi:"securityhub"`
@@ -1833,8 +1821,6 @@ type ProviderEndpointArgs struct {
 	Shield pulumi.StringPtrInput `pulumi:"shield"`
 	// Use this to override the default service endpoint URL
 	Signer pulumi.StringPtrInput `pulumi:"signer"`
-	// Use this to override the default service endpoint URL
-	Simpledb pulumi.StringPtrInput `pulumi:"simpledb"`
 	// Use this to override the default service endpoint URL
 	Sns pulumi.StringPtrInput `pulumi:"sns"`
 	// Use this to override the default service endpoint URL
@@ -1889,8 +1875,6 @@ type ProviderEndpointArgs struct {
 	Wafv2 pulumi.StringPtrInput `pulumi:"wafv2"`
 	// Use this to override the default service endpoint URL
 	Wellarchitected pulumi.StringPtrInput `pulumi:"wellarchitected"`
-	// Use this to override the default service endpoint URL
-	Worklink pulumi.StringPtrInput `pulumi:"worklink"`
 	// Use this to override the default service endpoint URL
 	Workspaces pulumi.StringPtrInput `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
@@ -2976,11 +2960,6 @@ func (o ProviderEndpointOutput) Opensearchservice() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Opsworks() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opsworks }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Organizations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Organizations }).(pulumi.StringPtrOutput)
 }
@@ -3211,11 +3190,6 @@ func (o ProviderEndpointOutput) Schemas() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Sdb() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Sdb }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Secretsmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Secretsmanager }).(pulumi.StringPtrOutput)
 }
@@ -3288,11 +3262,6 @@ func (o ProviderEndpointOutput) Shield() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Signer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Signer }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Simpledb() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Simpledb }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -3428,11 +3397,6 @@ func (o ProviderEndpointOutput) Wafv2() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Wellarchitected() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Wellarchitected }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Worklink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Worklink }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

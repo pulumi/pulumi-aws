@@ -75,11 +75,6 @@ export const getProducerDataShares: typeof import("./getProducerDataShares").get
 export const getProducerDataSharesOutput: typeof import("./getProducerDataShares").getProducerDataSharesOutput = null as any;
 utilities.lazyLoad(exports, ["getProducerDataShares","getProducerDataSharesOutput"], () => require("./getProducerDataShares"));
 
-export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
-export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
-export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
-
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;

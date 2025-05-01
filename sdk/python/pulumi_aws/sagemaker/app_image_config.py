@@ -249,6 +249,37 @@ class AppImageConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+            })
+        ```
+
+        ### Default File System Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+                "file_system_config": {},
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
@@ -275,6 +306,37 @@ class AppImageConfig(pulumi.CustomResource):
         Provides a SageMaker AI App Image Config resource.
 
         ## Example Usage
+
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+            })
+        ```
+
+        ### Default File System Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+                "file_system_config": {},
+            })
+        ```
 
         ## Import
 

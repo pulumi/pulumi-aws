@@ -108,7 +108,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the associated API documentation
+        /// Version of the associated API documentation.
         /// </summary>
         [Output("documentationVersion")]
         public Output<string?> DocumentationVersion { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Map that defines the stage variables
+        /// Map that defines the stage variables.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version of the associated API documentation
+        /// Version of the associated API documentation.
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map that defines the stage variables
+        /// Map that defines the stage variables.
         /// </summary>
         public InputMap<string> Variables
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version of the associated API documentation
+        /// Version of the associated API documentation.
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map that defines the stage variables
+        /// Map that defines the stage variables.
         /// </summary>
         public InputMap<string> Variables
         {

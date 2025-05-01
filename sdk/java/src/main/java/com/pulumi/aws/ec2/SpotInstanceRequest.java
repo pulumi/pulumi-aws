@@ -148,27 +148,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.availabilityZone;
     }
     /**
-     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
-     * 
-     */
-    @Export(name="blockDurationMinutes", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> blockDurationMinutes;
-
-    /**
-     * @return The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
-     * 
-     */
-    public Output<Optional<Integer>> blockDurationMinutes() {
-        return Codegen.optional(this.blockDurationMinutes);
-    }
-    /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-     * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     @Export(name="capacityReservationSpecification", refs={SpotInstanceRequestCapacityReservationSpecification.class}, tree="[0]")
@@ -177,29 +157,9 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-     * 
      */
     public Output<SpotInstanceRequestCapacityReservationSpecification> capacityReservationSpecification() {
         return this.capacityReservationSpecification;
-    }
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     * @deprecated
-     * cpu_core_count is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuCoreCount;
-
-    /**
-     * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     */
-    public Output<Integer> cpuCoreCount() {
-        return this.cpuCoreCount;
     }
     /**
      * The CPU options for the instance. See CPU Options below for more details.
@@ -214,24 +174,6 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      */
     public Output<SpotInstanceRequestCpuOptions> cpuOptions() {
         return this.cpuOptions;
-    }
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * @deprecated
-     * cpu_threads_per_core is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuThreadsPerCore;
-
-    /**
-     * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     */
-    public Output<Integer> cpuThreadsPerCore() {
-        return this.cpuThreadsPerCore;
     }
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -920,14 +862,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userData", refs={String.class}, tree="[0]")
-    private Output<String> userData;
+    private Output</* @Nullable */ String> userData;
 
     /**
      * @return User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    public Output<String> userData() {
-        return this.userData;
+    public Output<Optional<String>> userData() {
+        return Codegen.optional(this.userData);
     }
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.

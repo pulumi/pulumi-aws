@@ -345,6 +345,37 @@ class ResiliencyPolicy(pulumi.CustomResource):
         """
         Resource for managing an AWS Resilience Hub Resiliency Policy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.ResiliencyPolicy("example",
+            name="testexample",
+            description="testexample",
+            tier="NonCritical",
+            data_location_constraint="AnyLocation",
+            policy={
+                "region": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "az": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "hardware": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "software": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
@@ -376,6 +407,37 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Resilience Hub Resiliency Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.ResiliencyPolicy("example",
+            name="testexample",
+            description="testexample",
+            tier="NonCritical",
+            data_location_constraint="AnyLocation",
+            policy={
+                "region": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "az": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "hardware": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+                "software": {
+                    "rpo": "24h",
+                    "rto": "24h",
+                },
+            })
+        ```
 
         ## Import
 

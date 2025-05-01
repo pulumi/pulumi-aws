@@ -11,6 +11,48 @@ namespace Pulumi.Aws.VerifiedPermissions
 {
     /// <summary>
     /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VerifiedPermissions.Schema("example", new()
+    ///     {
+    ///         PolicyStoreId = exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId,
+    ///         Definition = new Aws.VerifiedPermissions.Inputs.SchemaDefinitionArgs
+    ///         {
+    ///             Value = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Namespace"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["entityTypes"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                     ["actions"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+    /// 
+    /// console
+    /// 
+    ///  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
     /// </summary>
     [AwsResourceType("aws:verifiedpermissions/schema:Schema")]
     public partial class Schema : global::Pulumi.CustomResource

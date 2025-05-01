@@ -227,18 +227,6 @@ export class Eip extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     *
-     * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     *
-     * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     *
-     * @deprecated vpc is deprecated. Use domain instead.
-     */
-    public readonly vpc!: pulumi.Output<boolean>;
 
     /**
      * Create a Eip resource with the given unique name, arguments, and options.
@@ -274,7 +262,6 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["vpc"] = state ? state.vpc : undefined;
         } else {
             const args = argsOrState as EipArgs | undefined;
             resourceInputs["address"] = args ? args.address : undefined;
@@ -287,7 +274,6 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
             resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
@@ -393,18 +379,6 @@ export interface EipState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     *
-     * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     *
-     * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     *
-     * @deprecated vpc is deprecated. Use domain instead.
-     */
-    vpc?: pulumi.Input<boolean>;
 }
 
 /**
@@ -452,16 +426,4 @@ export interface EipArgs {
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     *
-     * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     *
-     * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     *
-     * @deprecated vpc is deprecated. Use domain instead.
-     */
-    vpc?: pulumi.Input<boolean>;
 }

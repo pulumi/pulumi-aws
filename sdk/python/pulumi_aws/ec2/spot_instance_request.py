@@ -25,11 +25,8 @@ class SpotInstanceRequestArgs:
                  ami: Optional[pulumi.Input[builtins.str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
-                 block_duration_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input['SpotInstanceRequestCpuOptionsArgs']] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -81,15 +78,8 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[builtins.int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-               The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-               Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['SpotInstanceRequestCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -151,22 +141,10 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
-        if block_duration_minutes is not None:
-            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
-        if cpu_core_count is not None:
-            warnings.warn("""cpu_core_count is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_core_count is deprecated: cpu_core_count is deprecated. Use cpu_options instead.""")
-        if cpu_core_count is not None:
-            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
-        if cpu_threads_per_core is not None:
-            warnings.warn("""cpu_threads_per_core is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_threads_per_core is deprecated: cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-        if cpu_threads_per_core is not None:
-            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
         if disable_api_stop is not None:
@@ -297,45 +275,16 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "availability_zone", value)
 
     @property
-    @pulumi.getter(name="blockDurationMinutes")
-    def block_duration_minutes(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-        The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-        """
-        return pulumi.get(self, "block_duration_minutes")
-
-    @block_duration_minutes.setter
-    def block_duration_minutes(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "block_duration_minutes", value)
-
-    @property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-
-        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
     def capacity_reservation_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
-
-    @property
-    @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
-    def cpu_core_count(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        """
-        return pulumi.get(self, "cpu_core_count")
-
-    @cpu_core_count.setter
-    def cpu_core_count(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_core_count", value)
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -348,19 +297,6 @@ class SpotInstanceRequestArgs:
     @cpu_options.setter
     def cpu_options(self, value: Optional[pulumi.Input['SpotInstanceRequestCpuOptionsArgs']]):
         pulumi.set(self, "cpu_options", value)
-
-    @property
-    @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-    def cpu_threads_per_core(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        """
-        return pulumi.get(self, "cpu_threads_per_core")
-
-    @cpu_threads_per_core.setter
-    def cpu_threads_per_core(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_threads_per_core", value)
 
     @property
     @pulumi.getter(name="creditSpecification")
@@ -930,11 +866,8 @@ class _SpotInstanceRequestState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
-                 block_duration_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input['SpotInstanceRequestCpuOptionsArgs']] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -997,15 +930,8 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[builtins.int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-               The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-               Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['SpotInstanceRequestCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -1084,22 +1010,10 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
-        if block_duration_minutes is not None:
-            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
-        if cpu_core_count is not None:
-            warnings.warn("""cpu_core_count is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_core_count is deprecated: cpu_core_count is deprecated. Use cpu_options instead.""")
-        if cpu_core_count is not None:
-            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
-        if cpu_threads_per_core is not None:
-            warnings.warn("""cpu_threads_per_core is deprecated. Use cpu_options instead.""", DeprecationWarning)
-            pulumi.log.warn("""cpu_threads_per_core is deprecated: cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-        if cpu_threads_per_core is not None:
-            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
         if disable_api_stop is not None:
@@ -1264,45 +1178,16 @@ class _SpotInstanceRequestState:
         pulumi.set(self, "availability_zone", value)
 
     @property
-    @pulumi.getter(name="blockDurationMinutes")
-    def block_duration_minutes(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-        The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-        """
-        return pulumi.get(self, "block_duration_minutes")
-
-    @block_duration_minutes.setter
-    def block_duration_minutes(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "block_duration_minutes", value)
-
-    @property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-
-        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
     def capacity_reservation_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
-
-    @property
-    @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
-    def cpu_core_count(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        """
-        return pulumi.get(self, "cpu_core_count")
-
-    @cpu_core_count.setter
-    def cpu_core_count(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_core_count", value)
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -1315,19 +1200,6 @@ class _SpotInstanceRequestState:
     @cpu_options.setter
     def cpu_options(self, value: Optional[pulumi.Input['SpotInstanceRequestCpuOptionsArgs']]):
         pulumi.set(self, "cpu_options", value)
-
-    @property
-    @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-    def cpu_threads_per_core(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        """
-        return pulumi.get(self, "cpu_threads_per_core")
-
-    @cpu_threads_per_core.setter
-    def cpu_threads_per_core(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "cpu_threads_per_core", value)
 
     @property
     @pulumi.getter(name="creditSpecification")
@@ -2030,11 +1902,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ami: Optional[pulumi.Input[builtins.str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
-                 block_duration_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']]] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']]] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2130,15 +1999,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[builtins.int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-               The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-               Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -2261,11 +2123,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ami: Optional[pulumi.Input[builtins.str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
-                 block_duration_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
                  cpu_options: Optional[pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']]] = None,
-                 cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  credit_specification: Optional[pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']]] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2324,11 +2183,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["ami"] = ami
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
-            __props__.__dict__["block_duration_minutes"] = block_duration_minutes
             __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
-            __props__.__dict__["cpu_core_count"] = cpu_core_count
             __props__.__dict__["cpu_options"] = cpu_options
-            __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
             __props__.__dict__["credit_specification"] = credit_specification
             __props__.__dict__["disable_api_stop"] = disable_api_stop
             __props__.__dict__["disable_api_termination"] = disable_api_termination
@@ -2401,11 +2257,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             associate_public_ip_address: Optional[pulumi.Input[builtins.bool]] = None,
             availability_zone: Optional[pulumi.Input[builtins.str]] = None,
-            block_duration_minutes: Optional[pulumi.Input[builtins.int]] = None,
             capacity_reservation_specification: Optional[pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']]] = None,
-            cpu_core_count: Optional[pulumi.Input[builtins.int]] = None,
             cpu_options: Optional[pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']]] = None,
-            cpu_threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
             credit_specification: Optional[pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']]] = None,
             disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
             disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2473,15 +2326,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[builtins.int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-               The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-               Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-               
-               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-        :param pulumi.Input[builtins.int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[builtins.int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -2560,11 +2406,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
         __props__.__dict__["availability_zone"] = availability_zone
-        __props__.__dict__["block_duration_minutes"] = block_duration_minutes
         __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
-        __props__.__dict__["cpu_core_count"] = cpu_core_count
         __props__.__dict__["cpu_options"] = cpu_options
-        __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
         __props__.__dict__["credit_specification"] = credit_specification
         __props__.__dict__["disable_api_stop"] = disable_api_stop
         __props__.__dict__["disable_api_termination"] = disable_api_termination
@@ -2654,33 +2497,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
         return pulumi.get(self, "availability_zone")
 
     @property
-    @pulumi.getter(name="blockDurationMinutes")
-    def block_duration_minutes(self) -> pulumi.Output[Optional[builtins.int]]:
-        """
-        The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-        The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-        """
-        return pulumi.get(self, "block_duration_minutes")
-
-    @property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> pulumi.Output['outputs.SpotInstanceRequestCapacityReservationSpecification']:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-
-        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
-
-    @property
-    @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
-    def cpu_core_count(self) -> pulumi.Output[builtins.int]:
-        """
-        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        """
-        return pulumi.get(self, "cpu_core_count")
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -2689,15 +2511,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         The CPU options for the instance. See CPU Options below for more details.
         """
         return pulumi.get(self, "cpu_options")
-
-    @property
-    @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
-    def cpu_threads_per_core(self) -> pulumi.Output[builtins.int]:
-        """
-        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        """
-        return pulumi.get(self, "cpu_threads_per_core")
 
     @property
     @pulumi.getter(name="creditSpecification")
@@ -3094,7 +2907,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> pulumi.Output[builtins.str]:
+    def user_data(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         """

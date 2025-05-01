@@ -66,21 +66,6 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The current version of the response headers policy.
-     * 
-     */
-    @Import(name="etag")
-    private @Nullable Output<String> etag;
-
-    /**
-     * @return The current version of the response headers policy.
-     * 
-     */
-    public Optional<Output<String>> etag() {
-        return Optional.ofNullable(this.etag);
-    }
-
-    /**
      * A unique name to identify the response headers policy.
      * 
      */
@@ -146,7 +131,6 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
         this.comment = $.comment;
         this.corsConfig = $.corsConfig;
         this.customHeadersConfig = $.customHeadersConfig;
-        this.etag = $.etag;
         this.name = $.name;
         this.removeHeadersConfig = $.removeHeadersConfig;
         this.securityHeadersConfig = $.securityHeadersConfig;
@@ -232,27 +216,6 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
          */
         public Builder customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs customHeadersConfig) {
             return customHeadersConfig(Output.of(customHeadersConfig));
-        }
-
-        /**
-         * @param etag The current version of the response headers policy.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder etag(@Nullable Output<String> etag) {
-            $.etag = etag;
-            return this;
-        }
-
-        /**
-         * @param etag The current version of the response headers policy.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder etag(String etag) {
-            return etag(Output.of(etag));
         }
 
         /**

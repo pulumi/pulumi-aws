@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.batch.outputs;
 
-import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesContainers;
+import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesContainer;
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret;
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesInitContainer;
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesMetadata;
@@ -23,7 +23,7 @@ public final class JobDefinitionEksPropertiesPodProperties {
      * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
-    private JobDefinitionEksPropertiesPodPropertiesContainers containers;
+    private List<JobDefinitionEksPropertiesPodPropertiesContainer> containers;
     /**
      * @return DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
      * 
@@ -70,7 +70,7 @@ public final class JobDefinitionEksPropertiesPodProperties {
      * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
-    public JobDefinitionEksPropertiesPodPropertiesContainers containers() {
+    public List<JobDefinitionEksPropertiesPodPropertiesContainer> containers() {
         return this.containers;
     }
     /**
@@ -139,7 +139,7 @@ public final class JobDefinitionEksPropertiesPodProperties {
     }
     @CustomType.Builder
     public static final class Builder {
-        private JobDefinitionEksPropertiesPodPropertiesContainers containers;
+        private List<JobDefinitionEksPropertiesPodPropertiesContainer> containers;
         private @Nullable String dnsPolicy;
         private @Nullable Boolean hostNetwork;
         private @Nullable List<JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets;
@@ -163,12 +163,15 @@ public final class JobDefinitionEksPropertiesPodProperties {
         }
 
         @CustomType.Setter
-        public Builder containers(JobDefinitionEksPropertiesPodPropertiesContainers containers) {
+        public Builder containers(List<JobDefinitionEksPropertiesPodPropertiesContainer> containers) {
             if (containers == null) {
               throw new MissingRequiredPropertyException("JobDefinitionEksPropertiesPodProperties", "containers");
             }
             this.containers = containers;
             return this;
+        }
+        public Builder containers(JobDefinitionEksPropertiesPodPropertiesContainer... containers) {
+            return containers(List.of(containers));
         }
         @CustomType.Setter
         public Builder dnsPolicy(@Nullable String dnsPolicy) {

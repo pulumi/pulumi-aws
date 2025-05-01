@@ -42,7 +42,7 @@ export interface GetServerlessSecurityConfigArgs {
     /**
      * SAML options for the security configuration.
      */
-    samlOptions?: inputs.opensearch.GetServerlessSecurityConfigSamlOptions;
+    samlOptions?: inputs.opensearch.GetServerlessSecurityConfigSamlOption[];
 }
 
 /**
@@ -69,7 +69,7 @@ export interface GetServerlessSecurityConfigResult {
     /**
      * SAML options for the security configuration.
      */
-    readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOptions;
+    readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOption[];
     /**
      * The type of security configuration.
      */
@@ -110,5 +110,5 @@ export interface GetServerlessSecurityConfigOutputArgs {
     /**
      * SAML options for the security configuration.
      */
-    samlOptions?: pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigSamlOptionsArgs>;
+    samlOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigSamlOptionArgs>[]>;
 }

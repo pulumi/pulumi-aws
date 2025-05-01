@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +61,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,10 +123,6 @@ type JobQueue struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrders"`
-	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-	//
-	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
-	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
 	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayOutput `pulumi:"jobStateTimeLimitActions"`
 	// Specifies the name of the job queue.
@@ -187,10 +183,6 @@ type jobQueueState struct {
 	Arn *string `pulumi:"arn"`
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
-	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-	//
-	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
-	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
 	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
 	// Specifies the name of the job queue.
@@ -216,10 +208,6 @@ type JobQueueState struct {
 	Arn pulumi.StringPtrInput
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayInput
-	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-	//
-	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
-	ComputeEnvironments pulumi.StringArrayInput
 	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
 	// Specifies the name of the job queue.
@@ -247,10 +235,6 @@ func (JobQueueState) ElementType() reflect.Type {
 type jobQueueArgs struct {
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
-	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-	//
-	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
-	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
 	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
 	// Specifies the name of the job queue.
@@ -271,10 +255,6 @@ type jobQueueArgs struct {
 type JobQueueArgs struct {
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayInput
-	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-	//
-	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
-	ComputeEnvironments pulumi.StringArrayInput
 	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
 	// Specifies the name of the job queue.
@@ -386,13 +366,6 @@ func (o JobQueueOutput) Arn() pulumi.StringOutput {
 // The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 func (o JobQueueOutput) ComputeEnvironmentOrders() JobQueueComputeEnvironmentOrderArrayOutput {
 	return o.ApplyT(func(v *JobQueue) JobQueueComputeEnvironmentOrderArrayOutput { return v.ComputeEnvironmentOrders }).(JobQueueComputeEnvironmentOrderArrayOutput)
-}
-
-// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-//
-// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
-func (o JobQueueOutput) ComputeEnvironments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *JobQueue) pulumi.StringArrayOutput { return v.ComputeEnvironments }).(pulumi.StringArrayOutput)
 }
 
 // The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.

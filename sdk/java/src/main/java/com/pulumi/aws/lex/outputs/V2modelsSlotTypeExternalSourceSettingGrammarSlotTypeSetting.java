@@ -5,8 +5,8 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,7 +16,7 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
      * See `source` argument reference below.
      * 
      */
-    private @Nullable V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource source;
+    private @Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> sources;
 
     private V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting() {}
     /**
@@ -24,8 +24,8 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
      * See `source` argument reference below.
      * 
      */
-    public Optional<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> source() {
-        return Optional.ofNullable(this.source);
+    public List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> sources() {
+        return this.sources == null ? List.of() : this.sources;
     }
 
     public static Builder builder() {
@@ -37,22 +37,25 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource source;
+        private @Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> sources;
         public Builder() {}
         public Builder(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.source = defaults.source;
+    	      this.sources = defaults.sources;
         }
 
         @CustomType.Setter
-        public Builder source(@Nullable V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource source) {
+        public Builder sources(@Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> sources) {
 
-            this.source = source;
+            this.sources = sources;
             return this;
+        }
+        public Builder sources(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource... sources) {
+            return sources(List.of(sources));
         }
         public V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting build() {
             final var _resultValue = new V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting();
-            _resultValue.source = source;
+            _resultValue.sources = sources;
             return _resultValue;
         }
     }

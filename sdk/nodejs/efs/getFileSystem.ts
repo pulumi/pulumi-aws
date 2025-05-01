@@ -96,7 +96,7 @@ export interface GetFileSystemResult {
      *
      * @deprecated Use `lifecyclePolicies` instead. This field will be removed in the next major version.
      */
-    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
+    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy[];
     /**
      * The value of the file system's `Name` tag.
      */

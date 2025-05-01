@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage
     {
-        public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload> CustomPayloads;
+        public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload? CustomPayload;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard? ImageResponseCard;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage? PlainTextMessage;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage? SsmlMessage;
 
         [OutputConstructor]
         private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage(
-            ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload> customPayloads,
+            Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload? customPayload,
 
             Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard? imageResponseCard,
 
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage? ssmlMessage)
         {
-            CustomPayloads = customPayloads;
+            CustomPayload = customPayload;
             ImageResponseCard = imageResponseCard;
             PlainTextMessage = plainTextMessage;
             SsmlMessage = ssmlMessage;

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,10 +32,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -168,7 +168,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -207,7 +207,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -248,15 +248,15 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			important_bucket, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			important_bucket, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
 //				Bucket: "important-bucket",
 //			}, nil)
 //			if err != nil {
@@ -296,21 +296,21 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			not_important_bucket_1, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			not_important_bucket_1, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
 //				Bucket: "not-important-bucket-1",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			not_important_bucket_2, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			not_important_bucket_2, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
 //				Bucket: "not-important-bucket-2",
 //			}, nil)
 //			if err != nil {
@@ -373,27 +373,27 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			important_bucket_1, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			important_bucket_1, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
 //				Bucket: "important-bucket-1",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			important_bucket_2, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			important_bucket_2, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
 //				Bucket: "important-bucket-2",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			important_bucket_3, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//			important_bucket_3, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
 //				Bucket: "important-bucket-3",
 //			}, nil)
 //			if err != nil {
@@ -493,8 +493,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Eks
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
         [Output("certificateAuthority")]
-        public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -485,9 +485,6 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
-
-        [Output("defaultAddonsToRemoves")]
-        public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
 
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -669,14 +666,6 @@ namespace Pulumi.Aws.Eks
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
 
-        [Input("defaultAddonsToRemoves")]
-        private InputList<string>? _defaultAddonsToRemoves;
-        public InputList<string> DefaultAddonsToRemoves
-        {
-            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
-            set => _defaultAddonsToRemoves = value;
-        }
-
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
 
@@ -809,11 +798,17 @@ namespace Pulumi.Aws.Eks
             set => _certificateAuthorities = value;
         }
 
+        [Input("certificateAuthority")]
+        private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthority;
+
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Input("certificateAuthority")]
-        public Input<Inputs.ClusterCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
+        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthority
+        {
+            get => _certificateAuthority ?? (_certificateAuthority = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
+            set => _certificateAuthority = value;
+        }
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -832,14 +827,6 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
-
-        [Input("defaultAddonsToRemoves")]
-        private InputList<string>? _defaultAddonsToRemoves;
-        public InputList<string> DefaultAddonsToRemoves
-        {
-            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
-            set => _defaultAddonsToRemoves = value;
-        }
 
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;

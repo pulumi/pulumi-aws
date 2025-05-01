@@ -218,14 +218,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/flowLog:FlowLog")
 public class FlowLog extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Flow Log.
+     * ARN of the Flow Log.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Flow Log.
+     * @return ARN of the Flow Log.
      * 
      */
     public Output<String> arn() {
@@ -260,56 +260,56 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.destinationOptions);
     }
     /**
-     * Elastic Network Interface ID to attach to
+     * Elastic Network Interface ID to attach to.
      * 
      */
     @Export(name="eniId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eniId;
 
     /**
-     * @return Elastic Network Interface ID to attach to
+     * @return Elastic Network Interface ID to attach to.
      * 
      */
     public Output<Optional<String>> eniId() {
         return Codegen.optional(this.eniId);
     }
     /**
-     * The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+     * ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
      * 
      */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamRoleArn;
 
     /**
-     * @return The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+     * @return ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
      * 
      */
     public Output<Optional<String>> iamRoleArn() {
         return Codegen.optional(this.iamRoleArn);
     }
     /**
-     * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+     * ARN of the logging destination.
      * 
      */
     @Export(name="logDestination", refs={String.class}, tree="[0]")
     private Output<String> logDestination;
 
     /**
-     * @return The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+     * @return ARN of the logging destination.
      * 
      */
     public Output<String> logDestination() {
         return this.logDestination;
     }
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+     * Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     @Export(name="logDestinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logDestinationType;
 
     /**
-     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+     * @return Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     public Output<Optional<String>> logDestinationType() {
@@ -330,52 +330,32 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.logFormat;
     }
     /**
-     * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-     * 
-     * @deprecated
-     * log_group_name is deprecated. Use log_destination instead.
-     * 
-     */
-    @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-    @Export(name="logGroupName", refs={String.class}, tree="[0]")
-    private Output<String> logGroupName;
-
-    /**
-     * @return **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-     * 
-     */
-    public Output<String> logGroupName() {
-        return this.logGroupName;
-    }
-    /**
-     * The maximum interval of time
-     * during which a flow of packets is captured and aggregated into a flow
-     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+     * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+     * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     @Export(name="maxAggregationInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAggregationInterval;
 
     /**
-     * @return The maximum interval of time
-     * during which a flow of packets is captured and aggregated into a flow
-     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+     * @return The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+     * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     public Output<Optional<Integer>> maxAggregationInterval() {
         return Codegen.optional(this.maxAggregationInterval);
     }
     /**
-     * Subnet ID to attach to
+     * Subnet ID to attach to.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return Subnet ID to attach to
+     * @return Subnet ID to attach to.
      * 
      */
     public Output<Optional<String>> subnetId() {
@@ -428,42 +408,42 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.trafficType);
     }
     /**
-     * Transit Gateway Attachment ID to attach to
+     * Transit Gateway Attachment ID to attach to.
      * 
      */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
     /**
-     * @return Transit Gateway Attachment ID to attach to
+     * @return Transit Gateway Attachment ID to attach to.
      * 
      */
     public Output<Optional<String>> transitGatewayAttachmentId() {
         return Codegen.optional(this.transitGatewayAttachmentId);
     }
     /**
-     * Transit Gateway ID to attach to
+     * Transit Gateway ID to attach to.
      * 
      */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayId;
 
     /**
-     * @return Transit Gateway ID to attach to
+     * @return Transit Gateway ID to attach to.
      * 
      */
     public Output<Optional<String>> transitGatewayId() {
         return Codegen.optional(this.transitGatewayId);
     }
     /**
-     * VPC ID to attach to
+     * VPC ID to attach to.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
     /**
-     * @return VPC ID to attach to
+     * @return VPC ID to attach to.
      * 
      */
     public Output<Optional<String>> vpcId() {

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,15 +46,6 @@ type LaunchTemplate struct {
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrOutput `pulumi:"ebsOptimized"`
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayOutput `pulumi:"elasticGpuSpecifications"`
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrOutput `pulumi:"elasticInferenceAccelerator"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrOutput `pulumi:"enclaveOptions"`
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -173,15 +164,6 @@ type launchTemplateState struct {
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *string `pulumi:"ebsOptimized"`
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator *LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerator"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -271,15 +253,6 @@ type LaunchTemplateState struct {
 	DisableApiTermination pulumi.BoolPtrInput
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrInput
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -371,15 +344,6 @@ type launchTemplateArgs struct {
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *string `pulumi:"ebsOptimized"`
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator *LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerator"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -462,15 +426,6 @@ type LaunchTemplateArgs struct {
 	DisableApiTermination pulumi.BoolPtrInput
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrInput
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -670,25 +625,6 @@ func (o LaunchTemplateOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 // If `true`, the launched EC2 instance will be EBS-optimized.
 func (o LaunchTemplateOutput) EbsOptimized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.EbsOptimized }).(pulumi.StringPtrOutput)
-}
-
-// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-// below for more details.
-//
-// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-func (o LaunchTemplateOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateElasticGpuSpecificationArrayOutput {
-		return v.ElasticGpuSpecifications
-	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-//
-// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-func (o LaunchTemplateOutput) ElasticInferenceAccelerator() LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-		return v.ElasticInferenceAccelerator
-	}).(LaunchTemplateElasticInferenceAcceleratorPtrOutput)
 }
 
 // Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.

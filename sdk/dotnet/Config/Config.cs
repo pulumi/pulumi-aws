@@ -1262,10 +1262,6 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
-                public string? Opsworks { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
                 public string? Organizations { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1450,10 +1446,6 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
-                public string? Sdb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
                 public string? Secretsmanager { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1511,10 +1503,6 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Signer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
-                public string? Simpledb { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
@@ -1623,10 +1611,6 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Wellarchitected { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
-                public string? Worklink { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

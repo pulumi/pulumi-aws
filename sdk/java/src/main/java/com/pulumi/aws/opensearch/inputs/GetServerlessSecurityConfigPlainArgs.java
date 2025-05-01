@@ -3,10 +3,11 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
-import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOptions;
+import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOption;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -36,13 +37,13 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
      * 
      */
     @Import(name="samlOptions")
-    private @Nullable GetServerlessSecurityConfigSamlOptions samlOptions;
+    private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
 
     /**
      * @return SAML options for the security configuration.
      * 
      */
-    public Optional<GetServerlessSecurityConfigSamlOptions> samlOptions() {
+    public Optional<List<GetServerlessSecurityConfigSamlOption>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
 
@@ -88,9 +89,19 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder samlOptions(@Nullable GetServerlessSecurityConfigSamlOptions samlOptions) {
+        public Builder samlOptions(@Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
+        }
+
+        /**
+         * @param samlOptions SAML options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlOptions(GetServerlessSecurityConfigSamlOption... samlOptions) {
+            return samlOptions(List.of(samlOptions));
         }
 
         public GetServerlessSecurityConfigPlainArgs build() {

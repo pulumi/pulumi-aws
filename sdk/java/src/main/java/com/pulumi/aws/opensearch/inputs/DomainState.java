@@ -324,29 +324,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    @Import(name="kibanaEndpoint")
-    private @Nullable Output<String> kibanaEndpoint;
-
-    /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    public Optional<Output<String>> kibanaEndpoint() {
-        return Optional.ofNullable(this.kibanaEndpoint);
-    }
-
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
@@ -496,7 +473,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.endpointV2 = $.endpointV2;
         this.engineVersion = $.engineVersion;
         this.ipAddressType = $.ipAddressType;
-        this.kibanaEndpoint = $.kibanaEndpoint;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
         this.offPeakWindowOptions = $.offPeakWindowOptions;
@@ -930,35 +906,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
-        }
-
-        /**
-         * @param kibanaEndpoint (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-         * 
-         */
-        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-        public Builder kibanaEndpoint(@Nullable Output<String> kibanaEndpoint) {
-            $.kibanaEndpoint = kibanaEndpoint;
-            return this;
-        }
-
-        /**
-         * @param kibanaEndpoint (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-         * 
-         */
-        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-        public Builder kibanaEndpoint(String kibanaEndpoint) {
-            return kibanaEndpoint(Output.of(kibanaEndpoint));
         }
 
         /**

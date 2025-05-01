@@ -8,48 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
 //
 // Note that the grant must exist in the destination region, and not in the region of the cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := redshift.NewSnapshotCopyGrant(ctx, "test", &redshift.SnapshotCopyGrantArgs{
-//				SnapshotCopyGrantName: pulumi.String("my-grant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewCluster(ctx, "test", &redshift.ClusterArgs{
-//				SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
-//					DestinationRegion: pulumi.String("us-east-2"),
-//					GrantName:         test.SnapshotCopyGrantName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

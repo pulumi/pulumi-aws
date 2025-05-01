@@ -355,6 +355,77 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With V2 logging to S3
+ * 
+ * The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySource;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
+ * import com.pulumi.aws.cloudwatch.LogDelivery;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryS3DeliveryConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Distribution("example");
+ * 
+ *         var exampleLogDeliverySource = new LogDeliverySource("exampleLogDeliverySource", LogDeliverySourceArgs.builder()
+ *             .name("example")
+ *             .logType("ACCESS_LOGS")
+ *             .resourceArn(example.arn())
+ *             .build());
+ * 
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *             .bucket("testbucket")
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .name("s3-destination")
+ *             .outputFormat("parquet")
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/prefix", _arn)))
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()
+ *             .deliverySourceName(exampleLogDeliverySource.name())
+ *             .deliveryDestinationArn(exampleLogDeliveryDestination.arn())
+ *             .s3DeliveryConfigurations(LogDeliveryS3DeliveryConfigurationArgs.builder()
+ *                 .suffixPath("/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:

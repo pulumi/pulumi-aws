@@ -11,20 +11,28 @@ import java.util.Objects;
 @CustomType
 public final class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates {
     /**
-     * @return A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * @return A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
      * 
      */
     private String latitude;
+    /**
+     * @return A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * 
+     */
     private String longitude;
 
     private RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates() {}
     /**
-     * @return A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * @return A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
      * 
      */
     public String latitude() {
         return this.latitude;
     }
+    /**
+     * @return A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+     * 
+     */
     public String longitude() {
         return this.longitude;
     }

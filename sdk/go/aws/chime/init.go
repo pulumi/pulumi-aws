@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,8 +35,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VoiceConnectorGroup{}
 	case "aws:chime/voiceConnectorLogging:VoiceConnectorLogging":
 		r = &VoiceConnectorLogging{}
-	case "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization":
-		r = &VoiceConnectorOrganization{}
 	case "aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination":
 		r = &VoiceConnectorOrigination{}
 	case "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming":
@@ -91,11 +89,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"chime/voiceConnectorLogging",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"chime/voiceConnectorOrganization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

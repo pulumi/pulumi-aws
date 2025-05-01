@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// Properties of the container that's used on the Amazon EKS pod. See containers below.
         /// </summary>
-        public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesContainers Containers;
+        public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainer> Containers;
         /// <summary>
         /// DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Batch.Outputs
 
         [OutputConstructor]
         private JobDefinitionEksPropertiesPodProperties(
-            Outputs.JobDefinitionEksPropertiesPodPropertiesContainers containers,
+            ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainer> containers,
 
             string? dnsPolicy,
 

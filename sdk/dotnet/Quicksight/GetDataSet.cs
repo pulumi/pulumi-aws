@@ -115,15 +115,6 @@ namespace Pulumi.Aws.Quicksight
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private Dictionary<string, string>? _tagsAll;
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public Dictionary<string, string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
-            set => _tagsAll = value;
-        }
-
         public GetDataSetArgs()
         {
         }
@@ -152,15 +143,6 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public GetDataSetInvokeArgs()
@@ -192,7 +174,6 @@ namespace Pulumi.Aws.Quicksight
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionDataSetResult> RowLevelPermissionDataSets;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> RowLevelPermissionTagConfigurations;
         public readonly ImmutableDictionary<string, string> Tags;
-        public readonly ImmutableDictionary<string, string> TagsAll;
 
         [OutputConstructor]
         private GetDataSetResult(
@@ -226,9 +207,7 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> rowLevelPermissionTagConfigurations,
 
-            ImmutableDictionary<string, string> tags,
-
-            ImmutableDictionary<string, string> tagsAll)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;
@@ -246,7 +225,6 @@ namespace Pulumi.Aws.Quicksight
             RowLevelPermissionDataSets = rowLevelPermissionDataSets;
             RowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             Tags = tags;
-            TagsAll = tagsAll;
         }
     }
 }

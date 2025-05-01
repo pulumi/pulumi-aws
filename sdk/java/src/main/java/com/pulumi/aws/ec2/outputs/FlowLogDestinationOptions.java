@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowLogDestinationOptions {
     /**
-     * @return The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+     * @return File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
      */
     private @Nullable String fileFormat;
@@ -30,7 +30,7 @@ public final class FlowLogDestinationOptions {
 
     private FlowLogDestinationOptions() {}
     /**
-     * @return The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+     * @return File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
      */
     public Optional<String> fileFormat() {

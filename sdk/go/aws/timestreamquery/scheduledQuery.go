@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamquery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamquery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,11 +132,11 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamwrite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -320,7 +320,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamquery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamquery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

@@ -151,6 +151,21 @@ public final class EndpointKinesisSettingsArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.streamArn);
     }
 
+    /**
+     * Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+     * 
+     */
+    @Import(name="useLargeIntegerValue")
+    private @Nullable Output<Boolean> useLargeIntegerValue;
+
+    /**
+     * @return Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> useLargeIntegerValue() {
+        return Optional.ofNullable(this.useLargeIntegerValue);
+    }
+
     private EndpointKinesisSettingsArgs() {}
 
     private EndpointKinesisSettingsArgs(EndpointKinesisSettingsArgs $) {
@@ -163,6 +178,7 @@ public final class EndpointKinesisSettingsArgs extends com.pulumi.resources.Reso
         this.partitionIncludeSchemaTable = $.partitionIncludeSchemaTable;
         this.serviceAccessRoleArn = $.serviceAccessRoleArn;
         this.streamArn = $.streamArn;
+        this.useLargeIntegerValue = $.useLargeIntegerValue;
     }
 
     public static Builder builder() {
@@ -370,6 +386,27 @@ public final class EndpointKinesisSettingsArgs extends com.pulumi.resources.Reso
          */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
+        }
+
+        /**
+         * @param useLargeIntegerValue Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useLargeIntegerValue(@Nullable Output<Boolean> useLargeIntegerValue) {
+            $.useLargeIntegerValue = useLargeIntegerValue;
+            return this;
+        }
+
+        /**
+         * @param useLargeIntegerValue Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useLargeIntegerValue(Boolean useLargeIntegerValue) {
+            return useLargeIntegerValue(Output.of(useLargeIntegerValue));
         }
 
         public EndpointKinesisSettingsArgs build() {

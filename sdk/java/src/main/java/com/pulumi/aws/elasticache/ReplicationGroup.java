@@ -429,14 +429,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authToken);
     }
     /**
-     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
      * 
      */
     @Export(name="authTokenUpdateStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `auth_token` is set.
      * 
      */
     public Output<Optional<String>> authTokenUpdateStrategy() {

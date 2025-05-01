@@ -323,8 +323,6 @@ if typing.TYPE_CHECKING:
     opensearch = __opensearch
     import pulumi_aws.opensearchingest as __opensearchingest
     opensearchingest = __opensearchingest
-    import pulumi_aws.opsworks as __opsworks
-    opsworks = __opsworks
     import pulumi_aws.organizations as __organizations
     organizations = __organizations
     import pulumi_aws.outposts as __outposts
@@ -417,8 +415,6 @@ if typing.TYPE_CHECKING:
     shield = __shield
     import pulumi_aws.signer as __signer
     signer = __signer
-    import pulumi_aws.simpledb as __simpledb
-    simpledb = __simpledb
     import pulumi_aws.sns as __sns
     sns = __sns
     import pulumi_aws.sqs as __sqs
@@ -461,8 +457,6 @@ if typing.TYPE_CHECKING:
     wafregional = __wafregional
     import pulumi_aws.wafv2 as __wafv2
     wafv2 = __wafv2
-    import pulumi_aws.worklink as __worklink
-    worklink = __worklink
     import pulumi_aws.workspaces as __workspaces
     workspaces = __workspaces
     import pulumi_aws.xray as __xray
@@ -617,7 +611,6 @@ else:
     oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
-    opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
     paymentcryptography = _utilities.lazy_import('pulumi_aws.paymentcryptography')
@@ -664,7 +657,6 @@ else:
     sfn = _utilities.lazy_import('pulumi_aws.sfn')
     shield = _utilities.lazy_import('pulumi_aws.shield')
     signer = _utilities.lazy_import('pulumi_aws.signer')
-    simpledb = _utilities.lazy_import('pulumi_aws.simpledb')
     sns = _utilities.lazy_import('pulumi_aws.sns')
     sqs = _utilities.lazy_import('pulumi_aws.sqs')
     ssm = _utilities.lazy_import('pulumi_aws.ssm')
@@ -686,7 +678,6 @@ else:
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws.wafv2')
-    worklink = _utilities.lazy_import('pulumi_aws.worklink')
     workspaces = _utilities.lazy_import('pulumi_aws.workspaces')
     xray = _utilities.lazy_import('pulumi_aws.xray')
 
@@ -2267,14 +2258,6 @@ _utilities.register(
   "fqn": "pulumi_aws.chime",
   "classes": {
    "aws:chime/voiceConnectorLogging:VoiceConnectorLogging": "VoiceConnectorLogging"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "chime/voiceConnectorOrganization",
-  "fqn": "pulumi_aws.chime",
-  "classes": {
-   "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization": "VoiceConnectorOrganization"
   }
  },
  {
@@ -3975,14 +3958,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "directoryservice/conditionalForwader",
-  "fqn": "pulumi_aws.directoryservice",
-  "classes": {
-   "aws:directoryservice/conditionalForwader:ConditionalForwader": "ConditionalForwader"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "directoryservice/conditionalForwarder",
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
@@ -3995,14 +3970,6 @@ _utilities.register(
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
    "aws:directoryservice/directory:Directory": "Directory"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "directoryservice/logService",
-  "fqn": "pulumi_aws.directoryservice",
-  "classes": {
-   "aws:directoryservice/logService:LogService": "LogService"
   }
  },
  {
@@ -6155,22 +6122,6 @@ _utilities.register(
   "fqn": "pulumi_aws.gamelift",
   "classes": {
    "aws:gamelift/gameSessionQueue:GameSessionQueue": "GameSessionQueue"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "gamelift/matchmakingConfiguration",
-  "fqn": "pulumi_aws.gamelift",
-  "classes": {
-   "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration": "MatchmakingConfiguration"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "gamelift/matchmakingRuleSet",
-  "fqn": "pulumi_aws.gamelift",
-  "classes": {
-   "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet": "MatchmakingRuleSet"
   }
  },
  {
@@ -8759,142 +8710,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "opsworks/application",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/application:Application": "Application"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/customLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/customLayer:CustomLayer": "CustomLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/ecsClusterLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/ecsClusterLayer:EcsClusterLayer": "EcsClusterLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/gangliaLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/gangliaLayer:GangliaLayer": "GangliaLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/haproxyLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/haproxyLayer:HaproxyLayer": "HaproxyLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/instance",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/instance:Instance": "Instance"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/javaAppLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/javaAppLayer:JavaAppLayer": "JavaAppLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/memcachedLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/memcachedLayer:MemcachedLayer": "MemcachedLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/mysqlLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/mysqlLayer:MysqlLayer": "MysqlLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/nodejsAppLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/nodejsAppLayer:NodejsAppLayer": "NodejsAppLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/permission",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/permission:Permission": "Permission"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/phpAppLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/phpAppLayer:PhpAppLayer": "PhpAppLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/railsAppLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/railsAppLayer:RailsAppLayer": "RailsAppLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/rdsDbInstance",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/rdsDbInstance:RdsDbInstance": "RdsDbInstance"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/stack",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/stack:Stack": "Stack"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/staticWebLayer",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/staticWebLayer:StaticWebLayer": "StaticWebLayer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "opsworks/userProfile",
-  "fqn": "pulumi_aws.opsworks",
-  "classes": {
-   "aws:opsworks/userProfile:UserProfile": "UserProfile"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "organizations/account",
   "fqn": "pulumi_aws.organizations",
   "classes": {
@@ -10239,14 +10054,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "s3/bucket",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/bucket:Bucket": "Bucket"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "s3/bucketAccelerateConfigurationV2",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -11575,14 +11382,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "simpledb/domain",
-  "fqn": "pulumi_aws.simpledb",
-  "classes": {
-   "aws:simpledb/domain:Domain": "Domain"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "sns/dataProtectionPolicy",
   "fqn": "pulumi_aws.sns",
   "classes": {
@@ -12651,22 +12450,6 @@ _utilities.register(
   "fqn": "pulumi_aws.wafv2",
   "classes": {
    "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration": "WebAclLoggingConfiguration"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "worklink/fleet",
-  "fqn": "pulumi_aws.worklink",
-  "classes": {
-   "aws:worklink/fleet:Fleet": "Fleet"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "worklink/websiteCertificateAuthorityAssociation",
-  "fqn": "pulumi_aws.worklink",
-  "classes": {
-   "aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation": "WebsiteCertificateAuthorityAssociation"
   }
  },
  {

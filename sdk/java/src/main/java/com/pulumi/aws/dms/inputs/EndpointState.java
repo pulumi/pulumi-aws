@@ -10,7 +10,6 @@ import com.pulumi.aws.dms.inputs.EndpointMongodbSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointPostgresSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedshiftSettingsArgs;
-import com.pulumi.aws.dms.inputs.EndpointS3SettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -177,7 +176,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      * 
      * The following arguments are optional:
      * 
@@ -186,7 +185,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+     * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      * 
      * The following arguments are optional:
      * 
@@ -282,21 +281,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<EndpointRedshiftSettingsArgs>> redshiftSettings() {
         return Optional.ofNullable(this.redshiftSettings);
-    }
-
-    /**
-     * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-     * 
-     */
-    @Import(name="s3Settings")
-    private @Nullable Output<EndpointS3SettingsArgs> s3Settings;
-
-    /**
-     * @return (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-     * 
-     */
-    public Optional<Output<EndpointS3SettingsArgs>> s3Settings() {
-        return Optional.ofNullable(this.s3Settings);
     }
 
     /**
@@ -452,7 +436,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.postgresSettings = $.postgresSettings;
         this.redisSettings = $.redisSettings;
         this.redshiftSettings = $.redshiftSettings;
-        this.s3Settings = $.s3Settings;
         this.secretsManagerAccessRoleArn = $.secretsManagerAccessRoleArn;
         this.secretsManagerArn = $.secretsManagerArn;
         this.serverName = $.serverName;
@@ -692,7 +675,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+         * @param kmsKeyArn ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
          * 
          * The following arguments are optional:
          * 
@@ -705,7 +688,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+         * @param kmsKeyArn ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
          * 
          * The following arguments are optional:
          * 
@@ -837,27 +820,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder redshiftSettings(EndpointRedshiftSettingsArgs redshiftSettings) {
             return redshiftSettings(Output.of(redshiftSettings));
-        }
-
-        /**
-         * @param s3Settings (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder s3Settings(@Nullable Output<EndpointS3SettingsArgs> s3Settings) {
-            $.s3Settings = s3Settings;
-            return this;
-        }
-
-        /**
-         * @param s3Settings (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder s3Settings(EndpointS3SettingsArgs s3Settings) {
-            return s3Settings(Output.of(s3Settings));
         }
 
         /**

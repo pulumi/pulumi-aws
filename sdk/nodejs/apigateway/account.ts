@@ -104,14 +104,6 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly features!: pulumi.Output<string[]>;
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     *
-     * @deprecated The "resetOnDelete" attribute will be removed in a future version of the provider
-     */
-    public readonly resetOnDelete!: pulumi.Output<boolean | undefined>;
-    /**
      * Account-Level throttle settings. See exported fields below.
      */
     public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSetting[]>;
@@ -132,12 +124,10 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["apiKeyVersion"] = state ? state.apiKeyVersion : undefined;
             resourceInputs["cloudwatchRoleArn"] = state ? state.cloudwatchRoleArn : undefined;
             resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["resetOnDelete"] = state ? state.resetOnDelete : undefined;
             resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             resourceInputs["cloudwatchRoleArn"] = args ? args.cloudwatchRoleArn : undefined;
-            resourceInputs["resetOnDelete"] = args ? args.resetOnDelete : undefined;
             resourceInputs["apiKeyVersion"] = undefined /*out*/;
             resourceInputs["features"] = undefined /*out*/;
             resourceInputs["throttleSettings"] = undefined /*out*/;
@@ -164,14 +154,6 @@ export interface AccountState {
      */
     features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     *
-     * @deprecated The "resetOnDelete" attribute will be removed in a future version of the provider
-     */
-    resetOnDelete?: pulumi.Input<boolean>;
-    /**
      * Account-Level throttle settings. See exported fields below.
      */
     throttleSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.AccountThrottleSetting>[]>;
@@ -185,12 +167,4 @@ export interface AccountArgs {
      * ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
     cloudwatchRoleArn?: pulumi.Input<string>;
-    /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     *
-     * @deprecated The "resetOnDelete" attribute will be removed in a future version of the provider
-     */
-    resetOnDelete?: pulumi.Input<boolean>;
 }

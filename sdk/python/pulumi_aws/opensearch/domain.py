@@ -361,7 +361,6 @@ class _DomainState:
                  endpoint_v2: Optional[pulumi.Input[builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
-                 kibana_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
@@ -395,7 +394,6 @@ class _DomainState:
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[builtins.str] kibana_endpoint: (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
@@ -443,11 +441,6 @@ class _DomainState:
             pulumi.set(__self__, "engine_version", engine_version)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
-        if kibana_endpoint is not None:
-            warnings.warn("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""", DeprecationWarning)
-            pulumi.log.warn("""kibana_endpoint is deprecated: kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-        if kibana_endpoint is not None:
-            pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options is not None:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
         if node_to_node_encryption is not None:
@@ -699,19 +692,6 @@ class _DomainState:
     @ip_address_type.setter
     def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
-
-    @property
-    @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-    def kibana_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        """
-        return pulumi.get(self, "kibana_endpoint")
-
-    @kibana_endpoint.setter
-    def kibana_endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "kibana_endpoint", value)
 
     @property
     @pulumi.getter(name="logPublishingOptions")
@@ -1452,7 +1432,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["endpoint_v2"] = None
-            __props__.__dict__["kibana_endpoint"] = None
             __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
             'aws:opensearch/domain:Domain',
@@ -1483,7 +1462,6 @@ class Domain(pulumi.CustomResource):
             endpoint_v2: Optional[pulumi.Input[builtins.str]] = None,
             engine_version: Optional[pulumi.Input[builtins.str]] = None,
             ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
-            kibana_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
             node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
             off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
@@ -1522,7 +1500,6 @@ class Domain(pulumi.CustomResource):
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[builtins.str] kibana_endpoint: (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
@@ -1555,7 +1532,6 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["endpoint_v2"] = endpoint_v2
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["ip_address_type"] = ip_address_type
-        __props__.__dict__["kibana_endpoint"] = kibana_endpoint
         __props__.__dict__["log_publishing_options"] = log_publishing_options
         __props__.__dict__["node_to_node_encryption"] = node_to_node_encryption
         __props__.__dict__["off_peak_window_options"] = off_peak_window_options
@@ -1721,15 +1697,6 @@ class Domain(pulumi.CustomResource):
         The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         """
         return pulumi.get(self, "ip_address_type")
-
-    @property
-    @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-    def kibana_endpoint(self) -> pulumi.Output[builtins.str]:
-        """
-        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        """
-        return pulumi.get(self, "kibana_endpoint")
 
     @property
     @pulumi.getter(name="logPublishingOptions")

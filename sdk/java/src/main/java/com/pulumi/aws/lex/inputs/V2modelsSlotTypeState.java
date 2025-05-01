@@ -5,12 +5,13 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeExternalSourceSettingArgs;
-import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesArgs;
+import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValueArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeTimeoutsArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeValueSelectionSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -55,16 +56,16 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
      * See `composite_slot_type_setting` argument reference below.
      * 
      */
-    @Import(name="compositeSlotTypeSetting")
-    private @Nullable Output<V2modelsSlotTypeCompositeSlotTypeSettingArgs> compositeSlotTypeSetting;
+    @Import(name="compositeSlotTypeSettings")
+    private @Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingArgs>> compositeSlotTypeSettings;
 
     /**
      * @return Specifications for a composite slot type.
      * See `composite_slot_type_setting` argument reference below.
      * 
      */
-    public Optional<Output<V2modelsSlotTypeCompositeSlotTypeSettingArgs>> compositeSlotTypeSetting() {
-        return Optional.ofNullable(this.compositeSlotTypeSetting);
+    public Optional<Output<List<V2modelsSlotTypeCompositeSlotTypeSettingArgs>>> compositeSlotTypeSettings() {
+        return Optional.ofNullable(this.compositeSlotTypeSettings);
     }
 
     /**
@@ -87,16 +88,16 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
      * See `external_source_setting` argument reference below.
      * 
      */
-    @Import(name="externalSourceSetting")
-    private @Nullable Output<V2modelsSlotTypeExternalSourceSettingArgs> externalSourceSetting;
+    @Import(name="externalSourceSettings")
+    private @Nullable Output<List<V2modelsSlotTypeExternalSourceSettingArgs>> externalSourceSettings;
 
     /**
      * @return Type of external information used to create the slot type.
      * See `external_source_setting` argument reference below.
      * 
      */
-    public Optional<Output<V2modelsSlotTypeExternalSourceSettingArgs>> externalSourceSetting() {
-        return Optional.ofNullable(this.externalSourceSetting);
+    public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingArgs>>> externalSourceSettings() {
+        return Optional.ofNullable(this.externalSourceSettings);
     }
 
     /**
@@ -176,7 +177,7 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="slotTypeValues")
-    private @Nullable Output<V2modelsSlotTypeSlotTypeValuesArgs> slotTypeValues;
+    private @Nullable Output<List<V2modelsSlotTypeSlotTypeValueArgs>> slotTypeValues;
 
     /**
      * @return List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -184,7 +185,7 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
      * See `slot_type_values` argument reference below.
      * 
      */
-    public Optional<Output<V2modelsSlotTypeSlotTypeValuesArgs>> slotTypeValues() {
+    public Optional<Output<List<V2modelsSlotTypeSlotTypeValueArgs>>> slotTypeValues() {
         return Optional.ofNullable(this.slotTypeValues);
     }
 
@@ -217,9 +218,9 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
     private V2modelsSlotTypeState(V2modelsSlotTypeState $) {
         this.botId = $.botId;
         this.botVersion = $.botVersion;
-        this.compositeSlotTypeSetting = $.compositeSlotTypeSetting;
+        this.compositeSlotTypeSettings = $.compositeSlotTypeSettings;
         this.description = $.description;
-        this.externalSourceSetting = $.externalSourceSetting;
+        this.externalSourceSettings = $.externalSourceSettings;
         this.localeId = $.localeId;
         this.name = $.name;
         this.parentSlotTypeSignature = $.parentSlotTypeSignature;
@@ -290,26 +291,37 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param compositeSlotTypeSetting Specifications for a composite slot type.
+         * @param compositeSlotTypeSettings Specifications for a composite slot type.
          * See `composite_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder compositeSlotTypeSetting(@Nullable Output<V2modelsSlotTypeCompositeSlotTypeSettingArgs> compositeSlotTypeSetting) {
-            $.compositeSlotTypeSetting = compositeSlotTypeSetting;
+        public Builder compositeSlotTypeSettings(@Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingArgs>> compositeSlotTypeSettings) {
+            $.compositeSlotTypeSettings = compositeSlotTypeSettings;
             return this;
         }
 
         /**
-         * @param compositeSlotTypeSetting Specifications for a composite slot type.
+         * @param compositeSlotTypeSettings Specifications for a composite slot type.
          * See `composite_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder compositeSlotTypeSetting(V2modelsSlotTypeCompositeSlotTypeSettingArgs compositeSlotTypeSetting) {
-            return compositeSlotTypeSetting(Output.of(compositeSlotTypeSetting));
+        public Builder compositeSlotTypeSettings(List<V2modelsSlotTypeCompositeSlotTypeSettingArgs> compositeSlotTypeSettings) {
+            return compositeSlotTypeSettings(Output.of(compositeSlotTypeSettings));
+        }
+
+        /**
+         * @param compositeSlotTypeSettings Specifications for a composite slot type.
+         * See `composite_slot_type_setting` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compositeSlotTypeSettings(V2modelsSlotTypeCompositeSlotTypeSettingArgs... compositeSlotTypeSettings) {
+            return compositeSlotTypeSettings(List.of(compositeSlotTypeSettings));
         }
 
         /**
@@ -334,26 +346,37 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param externalSourceSetting Type of external information used to create the slot type.
+         * @param externalSourceSettings Type of external information used to create the slot type.
          * See `external_source_setting` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder externalSourceSetting(@Nullable Output<V2modelsSlotTypeExternalSourceSettingArgs> externalSourceSetting) {
-            $.externalSourceSetting = externalSourceSetting;
+        public Builder externalSourceSettings(@Nullable Output<List<V2modelsSlotTypeExternalSourceSettingArgs>> externalSourceSettings) {
+            $.externalSourceSettings = externalSourceSettings;
             return this;
         }
 
         /**
-         * @param externalSourceSetting Type of external information used to create the slot type.
+         * @param externalSourceSettings Type of external information used to create the slot type.
          * See `external_source_setting` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder externalSourceSetting(V2modelsSlotTypeExternalSourceSettingArgs externalSourceSetting) {
-            return externalSourceSetting(Output.of(externalSourceSetting));
+        public Builder externalSourceSettings(List<V2modelsSlotTypeExternalSourceSettingArgs> externalSourceSettings) {
+            return externalSourceSettings(Output.of(externalSourceSettings));
+        }
+
+        /**
+         * @param externalSourceSettings Type of external information used to create the slot type.
+         * See `external_source_setting` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSourceSettings(V2modelsSlotTypeExternalSourceSettingArgs... externalSourceSettings) {
+            return externalSourceSettings(List.of(externalSourceSettings));
         }
 
         /**
@@ -458,7 +481,7 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder slotTypeValues(@Nullable Output<V2modelsSlotTypeSlotTypeValuesArgs> slotTypeValues) {
+        public Builder slotTypeValues(@Nullable Output<List<V2modelsSlotTypeSlotTypeValueArgs>> slotTypeValues) {
             $.slotTypeValues = slotTypeValues;
             return this;
         }
@@ -471,8 +494,20 @@ public final class V2modelsSlotTypeState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValuesArgs slotTypeValues) {
+        public Builder slotTypeValues(List<V2modelsSlotTypeSlotTypeValueArgs> slotTypeValues) {
             return slotTypeValues(Output.of(slotTypeValues));
+        }
+
+        /**
+         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take.
+         * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+         * See `slot_type_values` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValueArgs... slotTypeValues) {
+            return slotTypeValues(List.of(slotTypeValues));
         }
 
         public Builder timeouts(@Nullable Output<V2modelsSlotTypeTimeoutsArgs> timeouts) {

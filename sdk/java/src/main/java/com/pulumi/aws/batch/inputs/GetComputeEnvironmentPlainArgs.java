@@ -20,15 +20,15 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
      * Name of the Batch Compute Environment
      * 
      */
-    @Import(name="computeEnvironmentName", required=true)
-    private String computeEnvironmentName;
+    @Import(name="name", required=true)
+    private String name;
 
     /**
      * @return Name of the Batch Compute Environment
      * 
      */
-    public String computeEnvironmentName() {
-        return this.computeEnvironmentName;
+    public String name() {
+        return this.name;
     }
 
     /**
@@ -49,7 +49,7 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
     private GetComputeEnvironmentPlainArgs() {}
 
     private GetComputeEnvironmentPlainArgs(GetComputeEnvironmentPlainArgs $) {
-        this.computeEnvironmentName = $.computeEnvironmentName;
+        this.name = $.name;
         this.tags = $.tags;
     }
 
@@ -72,13 +72,13 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * @param name Name of the Batch Compute Environment
          * 
          * @return builder
          * 
          */
-        public Builder computeEnvironmentName(String computeEnvironmentName) {
-            $.computeEnvironmentName = computeEnvironmentName;
+        public Builder name(String name) {
+            $.name = name;
             return this;
         }
 
@@ -94,8 +94,8 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
         }
 
         public GetComputeEnvironmentPlainArgs build() {
-            if ($.computeEnvironmentName == null) {
-                throw new MissingRequiredPropertyException("GetComputeEnvironmentPlainArgs", "computeEnvironmentName");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetComputeEnvironmentPlainArgs", "name");
             }
             return $;
         }
