@@ -453,8 +453,6 @@ if typing.TYPE_CHECKING:
     verifiedpermissions = __verifiedpermissions
     import pulumi_aws.vpc as __vpc
     vpc = __vpc
-    import pulumi_aws.vpcendpointassociations as __vpcendpointassociations
-    vpcendpointassociations = __vpcendpointassociations
     import pulumi_aws.vpclattice as __vpclattice
     vpclattice = __vpclattice
     import pulumi_aws.waf as __waf
@@ -684,7 +682,6 @@ else:
     verifiedaccess = _utilities.lazy_import('pulumi_aws.verifiedaccess')
     verifiedpermissions = _utilities.lazy_import('pulumi_aws.verifiedpermissions')
     vpc = _utilities.lazy_import('pulumi_aws.vpc')
-    vpcendpointassociations = _utilities.lazy_import('pulumi_aws.vpcendpointassociations')
     vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')

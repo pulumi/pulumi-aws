@@ -2323,8 +2323,6 @@
         "vpc/securityGroupEgressRule.ts",
         "vpc/securityGroupIngressRule.ts",
         "vpc/securityGroupVpcAssociation.ts",
-        "vpcendpointassociations/get.ts",
-        "vpcendpointassociations/index.ts",
         "vpclattice/accessLogSubscription.ts",
         "vpclattice/authPolicy.ts",
         "vpclattice/getAuthPolicy.ts",

@@ -294,7 +294,6 @@ import * as types from "./types";
 import * as verifiedaccess from "./verifiedaccess";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpc from "./vpc";
-import * as vpcendpointassociations from "./vpcendpointassociations";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
@@ -519,7 +518,6 @@ export {
     verifiedaccess,
     verifiedpermissions,
     vpc,
-    vpcendpointassociations,
     vpclattice,
     waf,
     wafregional,
