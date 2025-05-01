@@ -1959,3 +1959,15 @@ func TestSecurityGroupPreviewWarning(t *testing.T) {
 	assert.NotContains(t, prev.StdOut, "warning: Failed to calculate preview for element")
 	assert.NotContains(t, prev.StdErr, "warning: Failed to calculate preview for element")
 }
+
+func TestBucketToBucketV2Alias(t *testing.T) {
+	t.Parallel()
+
+	pt := pulumiTest(t, "bucket-to-bucketv2")
+	pt.Up(t)
+
+	pt.UpdateSource(t, filepath.Join("bucket-to-bucketv2", "step1"))
+
+	prev := pt.Preview(t, optpreview.Diff())
+	assertpreview.HasNoChanges(t, prev)
+}
