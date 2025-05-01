@@ -490,7 +490,6 @@ var moduleMap = map[string]string{
 	"transfer":                        transferMod,
 	"verifiedaccess":                  verifiedaccessMod,
 	"verifiedpermissions":             verifiedpermissionsMod,
-	"vpc_endpoint_associations":       "VpcEndpointAssociations",
 	"vpclattice":                      vpclatticeMod,
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
@@ -5292,6 +5291,10 @@ compatibility shim in favor of the new "name" field.`)
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
 					"definition": {Omit: true},
 				},
+			},
+
+			"aws_vpc_endpoint_associations": {
+				Tok: awsDataSource(ec2Mod, "getVpcEndpointAssociations"),
 			},
 
 			// VpcLattice

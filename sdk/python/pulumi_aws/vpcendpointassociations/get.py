@@ -23,6 +23,8 @@ __all__ = [
     'get_output',
 ]
 
+warnings.warn("""aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations""", DeprecationWarning)
+
 @pulumi.output_type
 class GetResult:
     """
@@ -85,12 +87,13 @@ def get(vpc_endpoint_id: Optional[builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpcendpointassociations.get(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
+    example = aws.ec2.get_vpc_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
     ```
 
 
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
+    pulumi.log.warn("""get is deprecated: aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations""")
     __args__ = dict()
     __args__['vpcEndpointId'] = vpc_endpoint_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -113,12 +116,13 @@ def get_output(vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpcendpointassociations.get(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
+    example = aws.ec2.get_vpc_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
     ```
 
 
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
+    pulumi.log.warn("""get is deprecated: aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations""")
     __args__ = dict()
     __args__['vpcEndpointId'] = vpc_endpoint_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

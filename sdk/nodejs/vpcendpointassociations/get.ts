@@ -18,12 +18,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.vpcendpointassociations.get({
+ * const example = aws.ec2.getVpcEndpointAssociations({
  *     vpcEndpointId: exampleAwsVpcEndpoint.id,
  * });
  * ```
  */
+/** @deprecated aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations */
 export function get(args: GetArgs, opts?: pulumi.InvokeOptions): Promise<GetResult> {
+    pulumi.log.warn("get is deprecated: aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpcendpointassociations/get:get", {
         "vpcEndpointId": args.vpcEndpointId,
@@ -65,12 +67,14 @@ export interface GetResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.vpcendpointassociations.get({
+ * const example = aws.ec2.getVpcEndpointAssociations({
  *     vpcEndpointId: exampleAwsVpcEndpoint.id,
  * });
  * ```
  */
+/** @deprecated aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResult> {
+    pulumi.log.warn("get is deprecated: aws.vpcendpointassociations/get.get has been deprecated in favor of aws.ec2/getvpcendpointassociations.getVpcEndpointAssociations")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpcendpointassociations/get:get", {
         "vpcEndpointId": args.vpcEndpointId,

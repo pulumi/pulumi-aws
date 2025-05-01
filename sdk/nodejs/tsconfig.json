@@ -784,6 +784,7 @@
         "ec2/getVpc.ts",
         "ec2/getVpcDhcpOptions.ts",
         "ec2/getVpcEndpoint.ts",
+        "ec2/getVpcEndpointAssociations.ts",
         "ec2/getVpcEndpointService.ts",
         "ec2/getVpcIamPool.ts",
         "ec2/getVpcIamPoolCidrs.ts",
