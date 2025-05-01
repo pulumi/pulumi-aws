@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/aws",
-    "version": "6.0.0-alpha.0+dev",
+    "version": "7.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
     "keywords": [
         "pulumi",
@@ -24,6 +24,6 @@
     "pulumi": {
         "resource": true,
         "name": "aws",
-        "version": "6.0.0-alpha.0+dev"
+        "version": "7.0.0-alpha.0+dev"
     }
 }

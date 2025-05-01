@@ -27,8 +27,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v6"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	aws "github.com/pulumi/pulumi-aws/provider/v7"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func TestUpgradeCoverage(t *testing.T) {

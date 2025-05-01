@@ -25,7 +25,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"

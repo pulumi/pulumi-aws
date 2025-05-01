@@ -33,9 +33,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/batch"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/batch"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
