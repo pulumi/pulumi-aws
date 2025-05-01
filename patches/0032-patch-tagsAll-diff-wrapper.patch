@@ -5,10 +5,10 @@ Subject: [PATCH] patch tagsAll diff wrapper
 
 
 diff --git a/internal/provider/tags_interceptor.go b/internal/provider/tags_interceptor.go
-index 2371af6730..7367830872 100644
+index 937cbac6c6..86554b92dc 100644
 --- a/internal/provider/tags_interceptor.go
 +++ b/internal/provider/tags_interceptor.go
-@@ -265,6 +265,10 @@ func (r tagsInterceptor) getIdentifier(d schemaResourceData) string {
+@@ -266,6 +266,10 @@ func (r tagsInterceptor) getIdentifier(d schemaResourceData) string {
  
  // setTagsAll is a CustomizeDiff function that calculates the new value for the `tags_all` attribute.
  func setTagsAll(ctx context.Context, d *schema.ResourceDiff, meta any) error {

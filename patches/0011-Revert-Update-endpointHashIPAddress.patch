@@ -9,15 +9,15 @@ This commit causes never-converging diffs due to incorrect use of
 a computed property in hashing.
 
 diff --git a/internal/service/route53resolver/endpoint.go b/internal/service/route53resolver/endpoint.go
-index 23ff33c34d..ad553eb55a 100644
+index c1da405006..64fe64cdd0 100644
 --- a/internal/service/route53resolver/endpoint.go
 +++ b/internal/service/route53resolver/endpoint.go
 @@ -436,7 +436,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Client, id s
  func endpointHashIPAddress(v any) int {
  	var buf bytes.Buffer
  	m := v.(map[string]any)
--	buf.WriteString(fmt.Sprintf("%s-%s-", m[names.AttrSubnetID].(string), m["ip"].(string)))
-+	buf.WriteString(fmt.Sprintf("%s-", m[names.AttrSubnetID].(string)))
+-	fmt.Fprintf(&buf, "%s-%s-", m[names.AttrSubnetID].(string), m["ip"].(string))
++	fmt.Fprintf(&buf, "%s-", m[names.AttrSubnetID].(string))
  	return create.StringHashcode(buf.String())
  }
  

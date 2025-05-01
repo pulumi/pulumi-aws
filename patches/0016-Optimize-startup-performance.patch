@@ -5,22 +5,22 @@ Subject: [PATCH] Optimize startup performance
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index e275f61b55..f92b95e508 100644
+index b85a3800ed..cdaf113a98 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -307,7 +307,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -295,7 +295,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  
  			interceptors := interceptorItems{}
- 			if v.Tags != nil {
+ 			if !tfunique.IsHandleNil(v.Tags) {
 -				schema := r.SchemaMap()
 +				schema := schemaMapForTagsChecking(ctx, r, true)
  
  				// The data source has opted in to transparent tagging.
  				// Ensure that the schema look OK.
-@@ -378,7 +378,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -366,7 +366,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			var customizeDiffFuncs []schema.CustomizeDiffFunc
  			interceptors := interceptorItems{}
- 			if v.Tags != nil {
+ 			if !tfunique.IsHandleNil(v.Tags) {
 -				schema := r.SchemaMap()
 +				schema := schemaMapForTagsChecking(ctx, r, false)
  

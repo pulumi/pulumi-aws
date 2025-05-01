@@ -5,10 +5,10 @@ Subject: [PATCH] update apn info
 
 
 diff --git a/internal/conns/config.go b/internal/conns/config.go
-index 0613c797f8..9db7b383b2 100644
+index aeb0b31a2a..b91aa0d304 100644
 --- a/internal/conns/config.go
 +++ b/internal/conns/config.go
-@@ -23,7 +23,6 @@ import (
+@@ -22,7 +22,6 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/names"
@@ -16,7 +16,7 @@ index 0613c797f8..9db7b383b2 100644
  )
  
  type Config struct {
-@@ -77,10 +76,10 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
+@@ -76,10 +75,10 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
  		AccessKey:         c.AccessKey,
  		AllowedAccountIds: c.AllowedAccountIds,
  		APNInfo: &awsbase.APNInfo{

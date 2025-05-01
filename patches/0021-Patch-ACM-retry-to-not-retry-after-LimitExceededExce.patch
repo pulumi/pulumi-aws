@@ -33,10 +33,10 @@ index 0000000000..b432bed386
 +	}
 +}
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index 9bf8139df9..8f4f6f52a7 100644
+index 093b67ebcb..33c5302c24 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
-@@ -64,6 +64,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+@@ -65,6 +65,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
  		acm.WithEndpointResolverV2(newEndpointResolverV2()),
  		withBaseEndpoint(config[names.AttrEndpoint].(string)),
  		withExtraOptions(ctx, p, config),
