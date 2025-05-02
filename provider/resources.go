@@ -855,7 +855,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
-	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider)
+	up := upstreamProvider.SDKV2Provider
+	up.TerraformVersion = "1.0.0+compatible"
+	v2p := shimv2.NewProvider(up)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
 
