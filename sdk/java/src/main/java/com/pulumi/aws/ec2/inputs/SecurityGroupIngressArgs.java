@@ -5,7 +5,6 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.core.internal.Codegen;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -433,7 +432,6 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         public SecurityGroupIngressArgs build() {
-            $.description = Codegen.stringProp("description").output().arg($.description).def("").getNullable();
             if ($.fromPort == null) {
                 throw new MissingRequiredPropertyException("SecurityGroupIngressArgs", "fromPort");
             }
