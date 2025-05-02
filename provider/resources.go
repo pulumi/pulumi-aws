@@ -5519,61 +5519,6 @@ compatibility shim in favor of the new "name" field.`)
 			return awsResource(mod, name).String(), nil
 		}))
 
-	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
-		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
-			return true
-		}
-
-		// We have ensured that this resource is using upstream's generic tagging
-		// mechanism, so override check so it works.
-		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
-			prov.Resources[key].PreCheckCallback = func(
-				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
-			) (resource.PropertyMap, error) {
-				config, err := callback(ctx, config, meta)
-				if err != nil {
-					return nil, err
-				}
-				return applyTags(ctx, config, meta)
-			}
-		} else {
-			prov.Resources[key].PreCheckCallback = applyTags
-		}
-
-		// also override read so that it works during import
-		// as a side effect this will also run during create and update, but since
-		// `tags` and `defaultTags` should always be equal then it doesn't really matter.
-		// One extra place that we make sure `tags=defaultTags` is fine.
-		if transform := prov.Resources[key].TransformOutputs; transform != nil {
-			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-				config, err := transform(ctx, pm)
-				if err != nil {
-					return nil, err
-				}
-				return applyTagsOutputs(ctx, config)
-			}
-		} else {
-			prov.Resources[key].TransformOutputs = applyTagsOutputs
-		}
-
-		if prov.Resources[key].GetFields() == nil {
-			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
-		}
-		fields := prov.Resources[key].GetFields()
-
-		if _, ok := fields["tags_all"]; !ok {
-			fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// Upstream provider is edited to unmark tags_all as computed internally so that
-		// Pulumi provider internals can set it, but the user should not be able to set it.
-		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-		fields["tags_all"].MarkAsOptional = tfbridge.False()
-
-		return true
-	})
-
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// These examples hang on Go generation. Issue tracking to unblock:
 		// https://github.com/pulumi/pulumi-aws/issues/2598
@@ -5666,53 +5611,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		return true
 	}
 	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
-}
-
-// Like hasNonComputedTagsAndTagsAll but optimized with an ad-hoc cache to avoid calling
-// SchemaFunc() and allocating memory at startup.
-func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
-	switch tfResourceName {
-	case "aws_kinesis_firehose_delivery_stream",
-		"aws_quicksight_analysis",
-		"aws_quicksight_dashboard",
-		"aws_quicksight_data_set",
-		"aws_quicksight_data_source",
-		"aws_quicksight_template",
-		"aws_quicksight_theme",
-		"aws_wafv2_ip_set",
-		"aws_wafv2_regex_pattern_set",
-		"aws_wafv2_rule_group",
-		"aws_wafv2_web_acl",
-		"aws_medialive_channel":
-		return true
-	case "aws_quicksight_user",
-		"aws_wafv2_web_acl_logging_configuration",
-		"aws_quicksight_group_membership",
-		"aws_wafv2_web_acl_association",
-		"aws_quicksight_group",
-		"aws_quicksight_account_subscription":
-		return false
-	}
-
-	return hasNonComputedTagsAndTagsAll(tfResourceName, res)
-}
-
-func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool {
-	// Skip resources that don't have tags.
-	tagsF, ok := res.Schema().GetOk("tags")
-	if !ok {
-		return false
-	}
-	// Skip resources that don't have tags_all.
-	_, ok = res.Schema().GetOk("tags_all")
-	if !ok {
-		return false
-	}
-	// tags must be non-computed.
-	if tagsF.Computed() {
-		return false
-	}
-	return true
 }
 
 func setupComputedIDs(prov *tfbridge.ProviderInfo) {
