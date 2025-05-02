@@ -4468,7 +4468,6 @@ compatibility shim in favor of the new "name" field.`)
 		ExtraResources: resourceOverlays,
 		ExtraTypes:     extraTypes,
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-
 			// Vpc
 			"aws_auditmanager_control": {
 				Tok: awsDataSource(auditmanagerMod, "getControl"),
