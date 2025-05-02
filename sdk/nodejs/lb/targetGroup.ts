@@ -238,10 +238,8 @@ export class TargetGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
@@ -333,6 +331,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["slowStart"] = args ? args.slowStart : undefined;
             resourceInputs["stickiness"] = args ? args.stickiness : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetFailovers"] = args ? args.targetFailovers : undefined;
             resourceInputs["targetGroupHealth"] = args ? args.targetGroupHealth : undefined;
             resourceInputs["targetHealthStates"] = args ? args.targetHealthStates : undefined;
@@ -341,7 +340,6 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnSuffix"] = undefined /*out*/;
             resourceInputs["loadBalancerArns"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/targetGroup:TargetGroup" }] };
@@ -443,8 +441,6 @@ export interface TargetGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -558,6 +554,10 @@ export interface TargetGroupArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */

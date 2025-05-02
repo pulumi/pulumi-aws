@@ -159,8 +159,6 @@ type ClusterInstance struct {
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
@@ -273,8 +271,6 @@ type clusterInstanceState struct {
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
@@ -349,8 +345,6 @@ type ClusterInstanceState struct {
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
@@ -412,6 +406,8 @@ type clusterInstanceArgs struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ClusterInstance resource.
@@ -467,6 +463,8 @@ type ClusterInstanceArgs struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterInstanceArgs) ElementType() reflect.Type {
@@ -723,8 +721,6 @@ func (o ClusterInstanceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ClusterInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

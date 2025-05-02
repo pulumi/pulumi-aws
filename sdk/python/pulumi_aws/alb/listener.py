@@ -50,6 +50,7 @@ class ListenerArgs:
                  routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[builtins.str]] = None,
                  ssl_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tcp_idle_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a Listener resource.
@@ -85,6 +86,7 @@ class ListenerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] tcp_idle_timeout_seconds: TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         """
         pulumi.set(__self__, "default_actions", default_actions)
@@ -141,6 +143,8 @@ class ListenerArgs:
             pulumi.set(__self__, "ssl_policy", ssl_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tcp_idle_timeout_seconds is not None:
             pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
 
@@ -485,6 +489,18 @@ class ListenerArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tcpIdleTimeoutSeconds")
     def tcp_idle_timeout_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -627,9 +643,6 @@ class _ListenerState:
             pulumi.set(__self__, "ssl_policy", ssl_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tcp_idle_timeout_seconds is not None:
@@ -989,7 +1002,6 @@ class _ListenerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1049,6 +1061,7 @@ class Listener(pulumi.CustomResource):
                  routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[builtins.str]] = None,
                  ssl_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tcp_idle_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
@@ -1292,6 +1305,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] tcp_idle_timeout_seconds: TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         """
         ...
@@ -1550,6 +1564,7 @@ class Listener(pulumi.CustomResource):
                  routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[builtins.str]] = None,
                  ssl_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tcp_idle_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1592,9 +1607,9 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["routing_http_response_x_frame_options_header_value"] = routing_http_response_x_frame_options_header_value
             __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tcp_idle_timeout_seconds"] = tcp_idle_timeout_seconds
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/listener:Listener")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Listener, __self__).__init__(
@@ -1956,7 +1971,6 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

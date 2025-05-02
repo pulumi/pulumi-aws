@@ -25,6 +25,7 @@ class ScriptArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input['ScriptStorageLocationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  zip_file: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -32,6 +33,7 @@ class ScriptArgs:
         :param pulumi.Input[builtins.str] name: Name of the script
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version: Version that is associated with this script.
         :param pulumi.Input[builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
@@ -41,6 +43,8 @@ class ScriptArgs:
             pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if zip_file is not None:
@@ -81,6 +85,18 @@ class ScriptArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -135,9 +151,6 @@ class _ScriptState:
             pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -195,7 +208,6 @@ class _ScriptState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -242,6 +254,7 @@ class Script(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  zip_file: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -276,6 +289,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the script
         :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version: Version that is associated with this script.
         :param pulumi.Input[builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
@@ -329,6 +343,7 @@ class Script(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  zip_file: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -343,10 +358,10 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["version"] = version
             __props__.__dict__["zip_file"] = zip_file
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Script, __self__).__init__(
             'aws:gamelift/script:Script',
             resource_name,
@@ -426,7 +441,6 @@ class Script(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

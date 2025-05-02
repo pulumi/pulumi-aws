@@ -178,10 +178,8 @@ export class KxEnvironment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
@@ -223,6 +221,7 @@ export class KxEnvironment extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayConfiguration"] = args ? args.transitGatewayConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
@@ -230,7 +229,6 @@ export class KxEnvironment extends pulumi.CustomResource {
             resourceInputs["infrastructureAccountId"] = undefined /*out*/;
             resourceInputs["lastModifiedTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KxEnvironment.__pulumiType, name, resourceInputs, opts);
@@ -289,8 +287,6 @@ export interface KxEnvironmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -325,6 +321,10 @@ export interface KxEnvironmentArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */

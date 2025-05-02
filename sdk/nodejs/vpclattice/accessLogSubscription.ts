@@ -80,10 +80,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      */
     public readonly serviceNetworkLogType!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AccessLogSubscription resource with the given unique name, arguments, and options.
@@ -117,9 +114,9 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessLogSubscription.__pulumiType, name, resourceInputs, opts);
@@ -153,9 +150,6 @@ export interface AccessLogSubscriptionState {
      */
     serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -178,4 +172,5 @@ export interface AccessLogSubscriptionArgs {
      */
     serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

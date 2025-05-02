@@ -21,7 +21,8 @@ __all__ = ['DefaultVpcDhcpOptionsArgs', 'DefaultVpcDhcpOptions']
 class DefaultVpcDhcpOptionsArgs:
     def __init__(__self__, *,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpcDhcpOptions resource.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
@@ -31,6 +32,8 @@ class DefaultVpcDhcpOptionsArgs:
             pulumi.set(__self__, "owner_id", owner_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="ownerId")
@@ -55,6 +58,15 @@ class DefaultVpcDhcpOptionsArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -96,9 +108,6 @@ class _DefaultVpcDhcpOptionsState:
             pulumi.set(__self__, "owner_id", owner_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -200,7 +209,6 @@ class _DefaultVpcDhcpOptionsState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -219,6 +227,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
@@ -314,6 +323,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,6 +335,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
             __props__.__dict__["owner_id"] = owner_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None
             __props__.__dict__["domain_name_servers"] = None
@@ -332,7 +343,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             __props__.__dict__["netbios_name_servers"] = None
             __props__.__dict__["netbios_node_type"] = None
             __props__.__dict__["ntp_servers"] = None
-            __props__.__dict__["tags_all"] = None
         super(DefaultVpcDhcpOptions, __self__).__init__(
             'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions',
             resource_name,
@@ -444,7 +454,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

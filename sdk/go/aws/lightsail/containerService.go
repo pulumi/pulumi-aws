@@ -204,8 +204,6 @@ type ContainerService struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -293,8 +291,6 @@ type containerServiceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -347,8 +343,6 @@ type ContainerServiceState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -385,6 +379,9 @@ type containerServiceArgs struct {
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider
+	// `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ContainerService resource.
@@ -414,6 +411,9 @@ type ContainerServiceArgs struct {
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider
+	// `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ContainerServiceArgs) ElementType() reflect.Type {
@@ -593,8 +593,6 @@ func (o ContainerServiceOutput) Tags() pulumi.StringMapOutput {
 
 // A map of tags assigned to the resource, including those inherited from the provider
 // `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ContainerServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

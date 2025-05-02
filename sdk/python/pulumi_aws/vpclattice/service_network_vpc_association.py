@@ -23,7 +23,8 @@ class ServiceNetworkVpcAssociationArgs:
                  service_network_identifier: pulumi.Input[builtins.str],
                  vpc_identifier: pulumi.Input[builtins.str],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
         :param pulumi.Input[builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -31,6 +32,7 @@ class ServiceNetworkVpcAssociationArgs:
         :param pulumi.Input[builtins.str] vpc_identifier: The ID of the VPC.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of the security groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
@@ -38,6 +40,8 @@ class ServiceNetworkVpcAssociationArgs:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="serviceNetworkIdentifier")
@@ -88,6 +92,18 @@ class ServiceNetworkVpcAssociationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ServiceNetworkVpcAssociationState:
@@ -124,9 +140,6 @@ class _ServiceNetworkVpcAssociationState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_identifier is not None:
@@ -207,7 +220,6 @@ class _ServiceNetworkVpcAssociationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -242,6 +254,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -275,6 +288,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_identifier: The ID of the VPC.
         """
         ...
@@ -326,6 +340,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -341,13 +356,13 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_network_identifier'")
             __props__.__dict__["service_network_identifier"] = service_network_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if vpc_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_identifier'")
             __props__.__dict__["vpc_identifier"] = vpc_identifier
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(ServiceNetworkVpcAssociation, __self__).__init__(
             'aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation',
             resource_name,
@@ -448,7 +463,6 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

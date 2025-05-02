@@ -27,13 +27,15 @@ class ThesaurusArgs:
                  source_s3_path: pulumi.Input['ThesaurusSourceS3PathArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Thesaurus resource.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -44,6 +46,8 @@ class ThesaurusArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="indexId")
@@ -111,6 +115,18 @@ class ThesaurusArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ThesaurusState:
@@ -151,9 +167,6 @@ class _ThesaurusState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if thesaurus_id is not None:
@@ -251,7 +264,6 @@ class _ThesaurusState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -286,6 +298,7 @@ class Thesaurus(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Kendra Thesaurus.
@@ -323,6 +336,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -381,6 +395,7 @@ class Thesaurus(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,9 +417,9 @@ class Thesaurus(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_s3_path'")
             __props__.__dict__["source_s3_path"] = source_s3_path
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["thesaurus_id"] = None
         super(Thesaurus, __self__).__init__(
             'aws:kendra/thesaurus:Thesaurus',
@@ -517,7 +532,6 @@ class Thesaurus(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -99,8 +99,7 @@ type ServerlessCollection struct {
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput                `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	Timeouts ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
@@ -154,8 +153,7 @@ type serverlessCollectionState struct {
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas *string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string             `pulumi:"tags"`
 	TagsAll  map[string]string             `pulumi:"tagsAll"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
@@ -180,8 +178,7 @@ type ServerlessCollectionState struct {
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
@@ -354,7 +351,6 @@ func (o ServerlessCollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ServerlessCollectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

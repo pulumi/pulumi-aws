@@ -76,8 +76,6 @@ type SiteToSiteVpnAttachment struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the site-to-site VPN connection.
 	//
@@ -144,8 +142,6 @@ type siteToSiteVpnAttachmentState struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the site-to-site VPN connection.
 	//
@@ -177,8 +173,6 @@ type SiteToSiteVpnAttachmentState struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the site-to-site VPN connection.
 	//
@@ -195,6 +189,8 @@ type siteToSiteVpnAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the site-to-site VPN connection.
 	//
 	// The following arguments are optional:
@@ -207,6 +203,8 @@ type SiteToSiteVpnAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The ARN of the site-to-site VPN connection.
 	//
 	// The following arguments are optional:
@@ -356,8 +354,6 @@ func (o SiteToSiteVpnAttachmentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SiteToSiteVpnAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -40,6 +40,7 @@ class DomainArgs:
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -65,6 +66,7 @@ class DomainArgs:
         :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         if access_policies is not None:
@@ -103,6 +105,8 @@ class DomainArgs:
             pulumi.set(__self__, "software_update_options", software_update_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_options is not None:
             pulumi.set(__self__, "vpc_options", vpc_options)
 
@@ -327,6 +331,18 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
         """
@@ -453,9 +469,6 @@ class _DomainState:
             pulumi.set(__self__, "software_update_options", software_update_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_options is not None:
@@ -767,7 +780,6 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -817,6 +829,7 @@ class Domain(pulumi.CustomResource):
                  snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_options: Optional[pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
@@ -1099,6 +1112,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         ...
@@ -1396,6 +1410,7 @@ class Domain(pulumi.CustomResource):
                  snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_options: Optional[pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1424,6 +1439,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["snapshot_options"] = snapshot_options
             __props__.__dict__["software_update_options"] = software_update_options
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["dashboard_endpoint"] = None
@@ -1432,7 +1448,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["endpoint_v2"] = None
-            __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
             'aws:opensearch/domain:Domain',
             resource_name,
@@ -1748,7 +1763,6 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

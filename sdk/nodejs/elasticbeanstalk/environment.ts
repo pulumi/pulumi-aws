@@ -194,10 +194,8 @@ export class Environment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -276,6 +274,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -289,7 +288,6 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["launchConfigurations"] = undefined /*out*/;
             resourceInputs["loadBalancers"] = undefined /*out*/;
             resourceInputs["queues"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["triggers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -384,8 +382,6 @@ export interface EnvironmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -466,6 +462,10 @@ export interface EnvironmentArgs {
      * A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment

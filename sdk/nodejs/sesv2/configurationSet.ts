@@ -107,10 +107,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      */
@@ -154,10 +151,10 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
             resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
             resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
@@ -196,9 +193,6 @@ export interface ConfigurationSetState {
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
@@ -238,6 +232,7 @@ export interface ConfigurationSetArgs {
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      */

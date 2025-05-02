@@ -39,6 +39,7 @@ class NodeGroupArgs:
                  release_version: Optional[pulumi.Input[builtins.str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
                  update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
@@ -63,6 +64,7 @@ class NodeGroupArgs:
         :param pulumi.Input[builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
@@ -97,6 +99,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "remote_access", remote_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if taints is not None:
             pulumi.set(__self__, "taints", taints)
         if update_config is not None:
@@ -311,6 +315,18 @@ class NodeGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
         """
@@ -443,9 +459,6 @@ class _NodeGroupState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if taints is not None:
@@ -699,7 +712,6 @@ class _NodeGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -772,6 +784,7 @@ class NodeGroup(pulumi.CustomResource):
                  scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
                  update_config: Optional[pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -895,6 +908,7 @@ class NodeGroup(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         :param pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
@@ -1035,6 +1049,7 @@ class NodeGroup(pulumi.CustomResource):
                  scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
                  update_config: Optional[pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -1072,13 +1087,13 @@ class NodeGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["taints"] = taints
             __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["resources"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(NodeGroup, __self__).__init__(
             'aws:eks/nodeGroup:NodeGroup',
             resource_name,
@@ -1341,7 +1356,6 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

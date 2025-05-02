@@ -45,7 +45,8 @@ class ClusterInstanceArgs:
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  promotion_tier: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
         :param pulumi.Input[builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
@@ -74,6 +75,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "engine", engine)
@@ -122,6 +124,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -424,6 +428,18 @@ class ClusterInstanceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ClusterInstanceState:
@@ -568,9 +584,6 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if writer is not None:
@@ -975,7 +988,6 @@ class _ClusterInstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1032,6 +1044,7 @@ class ClusterInstance(pulumi.CustomResource):
                  promotion_tier: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
@@ -1113,6 +1126,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1212,6 +1226,7 @@ class ClusterInstance(pulumi.CustomResource):
                  promotion_tier: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1252,6 +1267,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["promotion_tier"] = promotion_tier
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
             __props__.__dict__["endpoint"] = None
@@ -1260,7 +1276,6 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["network_type"] = None
             __props__.__dict__["port"] = None
             __props__.__dict__["storage_encrypted"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["writer"] = None
         super(ClusterInstance, __self__).__init__(
             'aws:rds/clusterInstance:ClusterInstance',
@@ -1659,7 +1674,6 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

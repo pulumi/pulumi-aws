@@ -74,8 +74,6 @@ type CustomActionType struct {
 	Settings     CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
 	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Version pulumi.StringOutput    `pulumi:"version"`
 }
@@ -139,8 +137,6 @@ type customActionTypeState struct {
 	Settings     *CustomActionTypeSettings `pulumi:"settings"`
 	Tags         map[string]string         `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Version *string           `pulumi:"version"`
 }
@@ -160,8 +156,6 @@ type CustomActionTypeState struct {
 	Settings     CustomActionTypeSettingsPtrInput
 	Tags         pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	Version pulumi.StringPtrInput
 }
@@ -180,7 +174,9 @@ type customActionTypeArgs struct {
 	ProviderName            string                                  `pulumi:"providerName"`
 	Settings                *CustomActionTypeSettings               `pulumi:"settings"`
 	Tags                    map[string]string                       `pulumi:"tags"`
-	Version                 string                                  `pulumi:"version"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	Version string            `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CustomActionType resource.
@@ -194,7 +190,9 @@ type CustomActionTypeArgs struct {
 	ProviderName            pulumi.StringInput
 	Settings                CustomActionTypeSettingsPtrInput
 	Tags                    pulumi.StringMapInput
-	Version                 pulumi.StringInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	Version pulumi.StringInput
 }
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {
@@ -327,8 +325,6 @@ func (o CustomActionTypeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CustomActionTypeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

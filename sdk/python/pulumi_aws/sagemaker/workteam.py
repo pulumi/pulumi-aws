@@ -27,6 +27,7 @@ class WorkteamArgs:
                  workteam_name: pulumi.Input[builtins.str],
                  notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  worker_access_configuration: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']] = None,
                  workforce_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -36,6 +37,7 @@ class WorkteamArgs:
         :param pulumi.Input[builtins.str] workteam_name: The name of the Workteam (must be unique).
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['WorkteamWorkerAccessConfigurationArgs'] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         :param pulumi.Input[builtins.str] workforce_name: The name of the workforce.
         """
@@ -46,6 +48,8 @@ class WorkteamArgs:
             pulumi.set(__self__, "notification_configuration", notification_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if worker_access_configuration is not None:
             pulumi.set(__self__, "worker_access_configuration", worker_access_configuration)
         if workforce_name is not None:
@@ -112,6 +116,18 @@ class WorkteamArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="workerAccessConfiguration")
     def worker_access_configuration(self) -> Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']]:
         """
@@ -174,9 +190,6 @@ class _WorkteamState:
             pulumi.set(__self__, "subdomain", subdomain)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if worker_access_configuration is not None:
@@ -260,7 +273,6 @@ class _WorkteamState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -320,6 +332,7 @@ class Workteam(pulumi.CustomResource):
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  worker_access_configuration: Optional[pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
                  workforce_name: Optional[pulumi.Input[builtins.str]] = None,
                  workteam_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -379,6 +392,7 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         :param pulumi.Input[builtins.str] workforce_name: The name of the workforce.
         :param pulumi.Input[builtins.str] workteam_name: The name of the Workteam (must be unique).
@@ -457,6 +471,7 @@ class Workteam(pulumi.CustomResource):
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  worker_access_configuration: Optional[pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
                  workforce_name: Optional[pulumi.Input[builtins.str]] = None,
                  workteam_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -477,6 +492,7 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["member_definitions"] = member_definitions
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["worker_access_configuration"] = worker_access_configuration
             __props__.__dict__["workforce_name"] = workforce_name
             if workteam_name is None and not opts.urn:
@@ -484,7 +500,6 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["workteam_name"] = workteam_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["subdomain"] = None
-            __props__.__dict__["tags_all"] = None
         super(Workteam, __self__).__init__(
             'aws:sagemaker/workteam:Workteam',
             resource_name,
@@ -589,7 +604,6 @@ class Workteam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

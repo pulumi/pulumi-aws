@@ -82,8 +82,6 @@ type Authorizer struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
@@ -146,8 +144,6 @@ type authorizerState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName *string `pulumi:"tokenKeyName"`
@@ -171,8 +167,6 @@ type AuthorizerState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName pulumi.StringPtrInput
@@ -197,6 +191,8 @@ type authorizerArgs struct {
 	Status *string `pulumi:"status"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName *string `pulumi:"tokenKeyName"`
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -217,6 +213,8 @@ type AuthorizerArgs struct {
 	Status pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName pulumi.StringPtrInput
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -346,8 +344,6 @@ func (o AuthorizerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o AuthorizerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

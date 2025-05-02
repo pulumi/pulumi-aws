@@ -108,10 +108,8 @@ export class Template extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier for the template.
      */
@@ -167,6 +165,7 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["templateId"] = args ? args.templateId : undefined;
             resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -174,7 +173,6 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["sourceEntityArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -228,8 +226,6 @@ export interface TemplateState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -272,6 +268,10 @@ export interface TemplateArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier for the template.
      */

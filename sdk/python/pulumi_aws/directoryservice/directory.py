@@ -33,6 +33,7 @@ class DirectoryArgs:
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
         """
@@ -48,6 +49,7 @@ class DirectoryArgs:
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
         """
@@ -71,6 +73,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "size", size)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if vpc_settings is not None:
@@ -209,6 +213,18 @@ class DirectoryArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -301,9 +317,6 @@ class _DirectoryState:
             pulumi.set(__self__, "size", size)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -481,7 +494,6 @@ class _DirectoryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -536,6 +548,7 @@ class Directory(pulumi.CustomResource):
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_settings: Optional[pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']]] = None,
                  __props__=None):
@@ -659,6 +672,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
@@ -801,6 +815,7 @@ class Directory(pulumi.CustomResource):
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_settings: Optional[pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']]] = None,
                  __props__=None):
@@ -827,12 +842,12 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["short_name"] = short_name
             __props__.__dict__["size"] = size
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["access_url"] = None
             __props__.__dict__["dns_ip_addresses"] = None
             __props__.__dict__["security_group_id"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Directory, __self__).__init__(
@@ -1024,7 +1039,6 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

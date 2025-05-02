@@ -276,10 +276,8 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
      */
@@ -351,12 +349,12 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["terminationHookEnabled"] = args ? args.terminationHookEnabled : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["computePlatform"] = undefined /*out*/;
             resourceInputs["deploymentGroupId"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DeploymentGroup.__pulumiType, name, resourceInputs, opts);
@@ -445,8 +443,6 @@ export interface DeploymentGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -527,6 +523,10 @@ export interface DeploymentGroupArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
      */

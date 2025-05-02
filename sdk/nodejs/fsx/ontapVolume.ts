@@ -165,10 +165,8 @@ export class OntapVolume extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      */
@@ -244,13 +242,13 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["storageEfficiencyEnabled"] = args ? args.storageEfficiencyEnabled : undefined;
             resourceInputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
             resourceInputs["volumeStyle"] = args ? args.volumeStyle : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["flexcacheEndpointType"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -342,8 +340,6 @@ export interface OntapVolumeState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -434,6 +430,10 @@ export interface OntapVolumeArgs {
      * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      */

@@ -90,8 +90,6 @@ type ReplicationTask struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringOutput `pulumi:"targetEndpointArn"`
@@ -172,8 +170,6 @@ type replicationTaskState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
@@ -207,8 +203,6 @@ type ReplicationTaskState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringPtrInput
@@ -241,6 +235,8 @@ type replicationTaskArgs struct {
 	TableMappings string `pulumi:"tableMappings"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn string `pulumi:"targetEndpointArn"`
 }
@@ -269,6 +265,8 @@ type ReplicationTaskArgs struct {
 	TableMappings pulumi.StringInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringInput
 }
@@ -426,8 +424,6 @@ func (o ReplicationTaskOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReplicationTaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

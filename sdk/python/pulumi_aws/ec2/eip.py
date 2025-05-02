@@ -29,7 +29,8 @@ class EipArgs:
                  network_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Eip resource.
         :param pulumi.Input[builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -43,6 +44,7 @@ class EipArgs:
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -64,6 +66,8 @@ class EipArgs:
             pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -186,6 +190,18 @@ class EipArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _EipState:
@@ -275,9 +291,6 @@ class _EipState:
             pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -521,7 +534,6 @@ class _EipState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -551,6 +563,7 @@ class Eip(pulumi.CustomResource):
                  network_interface: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Elastic IP resource.
@@ -664,6 +677,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -795,6 +809,7 @@ class Eip(pulumi.CustomResource):
                  network_interface: Optional[pulumi.Input[builtins.str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -814,6 +829,7 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
@@ -824,7 +840,6 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["ptr_record"] = None
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
-            __props__.__dict__["tags_all"] = None
         super(Eip, __self__).__init__(
             'aws:ec2/eip:Eip',
             resource_name,
@@ -1072,7 +1087,6 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

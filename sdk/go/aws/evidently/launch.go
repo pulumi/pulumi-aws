@@ -440,8 +440,6 @@ type Launch struct {
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of launch.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -512,8 +510,6 @@ type launchState struct {
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of launch.
 	Type *string `pulumi:"type"`
@@ -549,8 +545,6 @@ type LaunchState struct {
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The type of launch.
 	Type pulumi.StringPtrInput
@@ -577,6 +571,8 @@ type launchArgs struct {
 	ScheduledSplitsConfig *LaunchScheduledSplitsConfig `pulumi:"scheduledSplitsConfig"`
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Launch resource.
@@ -597,6 +593,8 @@ type LaunchArgs struct {
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrInput
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (LaunchArgs) ElementType() reflect.Type {
@@ -757,8 +755,6 @@ func (o LaunchOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LaunchOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

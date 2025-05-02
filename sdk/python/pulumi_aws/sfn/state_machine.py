@@ -30,6 +30,7 @@ class StateMachineArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -42,6 +43,7 @@ class StateMachineArgs:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
@@ -59,6 +61,8 @@ class StateMachineArgs:
             pulumi.set(__self__, "publish", publish)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tracing_configuration is not None:
             pulumi.set(__self__, "tracing_configuration", tracing_configuration)
         if type is not None:
@@ -161,6 +165,18 @@ class StateMachineArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
         """
@@ -252,9 +268,6 @@ class _StateMachineState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tracing_configuration is not None:
@@ -428,7 +441,6 @@ class _StateMachineState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -489,6 +501,7 @@ class StateMachine(pulumi.CustomResource):
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -652,6 +665,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
@@ -834,6 +848,7 @@ class StateMachine(pulumi.CustomResource):
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -857,6 +872,7 @@ class StateMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tracing_configuration"] = tracing_configuration
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
@@ -865,7 +881,6 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["revision_id"] = None
             __props__.__dict__["state_machine_version_arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_description"] = None
         super(StateMachine, __self__).__init__(
             'aws:sfn/stateMachine:StateMachine',
@@ -1050,7 +1065,6 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

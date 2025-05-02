@@ -204,6 +204,21 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      * 
      */
@@ -233,6 +248,7 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         this.outpostArn = $.outpostArn;
         this.placementGroupArn = $.placementGroupArn;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.tenancy = $.tenancy;
     }
 
@@ -544,6 +560,27 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

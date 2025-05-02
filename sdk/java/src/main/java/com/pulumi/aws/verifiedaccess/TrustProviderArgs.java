@@ -133,6 +133,13 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * The type of trust provider can be either user or device-based.
      * 
@@ -178,6 +185,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.policyReferenceName = $.policyReferenceName;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.trustProviderType = $.trustProviderType;
         this.userTrustProviderType = $.userTrustProviderType;
     }
@@ -354,6 +362,15 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

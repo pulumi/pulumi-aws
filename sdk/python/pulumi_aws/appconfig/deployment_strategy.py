@@ -27,7 +27,8 @@ class DeploymentStrategyArgs:
                  final_bake_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  growth_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
         :param pulumi.Input[builtins.int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
@@ -38,6 +39,7 @@ class DeploymentStrategyArgs:
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "deployment_duration_in_minutes", deployment_duration_in_minutes)
         pulumi.set(__self__, "growth_factor", growth_factor)
@@ -52,6 +54,8 @@ class DeploymentStrategyArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="deploymentDurationInMinutes")
@@ -149,6 +153,18 @@ class DeploymentStrategyArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _DeploymentStrategyState:
@@ -194,9 +210,6 @@ class _DeploymentStrategyState:
             pulumi.set(__self__, "replicate_to", replicate_to)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -310,7 +323,6 @@ class _DeploymentStrategyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -338,6 +350,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_to: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AppConfig Deployment Strategy resource.
@@ -379,6 +392,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -439,6 +453,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_to: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -462,8 +477,8 @@ class DeploymentStrategy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'replicate_to'")
             __props__.__dict__["replicate_to"] = replicate_to
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(DeploymentStrategy, __self__).__init__(
             'aws:appconfig/deploymentStrategy:DeploymentStrategy',
             resource_name,
@@ -592,7 +607,6 @@ class DeploymentStrategy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

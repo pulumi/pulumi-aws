@@ -58,6 +58,7 @@ class ReplicationGroupArgs:
                  snapshot_window: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_encryption_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -127,6 +128,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[builtins.str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[builtins.str] subnet_group_name: Name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Whether to enable encryption in transit.
                Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
                Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
@@ -207,6 +209,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
         if transit_encryption_mode is not None:
@@ -675,6 +679,18 @@ class ReplicationGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -935,9 +951,6 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
@@ -1493,7 +1506,6 @@ class _ReplicationGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1590,6 +1602,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_window: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_encryption_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1846,6 +1859,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[builtins.str] subnet_group_name: Name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Whether to enable encryption in transit.
                Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
                Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
@@ -2098,6 +2112,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_window: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_encryption_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -2148,6 +2163,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["snapshot_window"] = snapshot_window
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["transit_encryption_mode"] = transit_encryption_mode
             __props__.__dict__["user_group_ids"] = user_group_ids
@@ -2158,7 +2174,6 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["member_clusters"] = None
             __props__.__dict__["primary_endpoint_address"] = None
             __props__.__dict__["reader_endpoint_address"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicationGroup, __self__).__init__(
@@ -2733,7 +2748,6 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -28,6 +28,7 @@ class ReplicaExternalKeyArgs:
                  key_material_base64: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicaExternalKey resource.
@@ -43,6 +44,7 @@ class ReplicaExternalKeyArgs:
         :param pulumi.Input[builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
         :param pulumi.Input[builtins.str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         pulumi.set(__self__, "primary_key_arn", primary_key_arn)
@@ -60,6 +62,8 @@ class ReplicaExternalKeyArgs:
             pulumi.set(__self__, "policy", policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if valid_to is not None:
             pulumi.set(__self__, "valid_to", valid_to)
 
@@ -164,6 +168,18 @@ class ReplicaExternalKeyArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="validTo")
     def valid_to(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -242,9 +258,6 @@ class _ReplicaExternalKeyState:
             pulumi.set(__self__, "primary_key_arn", primary_key_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if valid_to is not None:
@@ -412,7 +425,6 @@ class _ReplicaExternalKeyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -452,6 +464,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  primary_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -499,6 +512,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         :param pulumi.Input[builtins.str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         ...
@@ -561,6 +575,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  primary_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -581,13 +596,13 @@ class ReplicaExternalKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'primary_key_arn'")
             __props__.__dict__["primary_key_arn"] = primary_key_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["valid_to"] = valid_to
             __props__.__dict__["arn"] = None
             __props__.__dict__["expiration_model"] = None
             __props__.__dict__["key_id"] = None
             __props__.__dict__["key_state"] = None
             __props__.__dict__["key_usage"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicaExternalKey, __self__).__init__(
@@ -773,7 +788,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

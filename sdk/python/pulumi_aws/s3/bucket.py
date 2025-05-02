@@ -38,6 +38,7 @@ class BucketArgs:
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  versioning: Optional[pulumi.Input['BucketVersioningArgs']] = None,
                  website: Optional[pulumi.Input['BucketWebsiteArgs']] = None):
         """
@@ -74,6 +75,7 @@ class BucketArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                The following arguments are deprecated, and will be removed in a future major version:
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['BucketVersioningArgs'] versioning: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
         :param pulumi.Input['BucketWebsiteArgs'] website: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfiguration` instead.
@@ -143,6 +145,8 @@ class BucketArgs:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if versioning is not None:
             warnings.warn("""versioning is deprecated. Use the s3.BucketVersioning resource instead.""", DeprecationWarning)
             pulumi.log.warn("""versioning is deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.""")
@@ -374,6 +378,18 @@ class BucketArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     @_utilities.deprecated("""versioning is deprecated. Use the s3.BucketVersioning resource instead.""")
     def versioning(self) -> Optional[pulumi.Input['BucketVersioningArgs']]:
@@ -551,9 +567,6 @@ class _BucketState:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if versioning is not None:
@@ -858,7 +871,6 @@ class _BucketState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -947,6 +959,7 @@ class Bucket(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['BucketServerSideEncryptionConfigurationArgs', 'BucketServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  versioning: Optional[pulumi.Input[Union['BucketVersioningArgs', 'BucketVersioningArgsDict']]] = None,
                  website: Optional[pulumi.Input[Union['BucketWebsiteArgs', 'BucketWebsiteArgsDict']]] = None,
                  __props__=None):
@@ -1015,6 +1028,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                The following arguments are deprecated, and will be removed in a future major version:
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['BucketVersioningArgs', 'BucketVersioningArgsDict']] versioning: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
         :param pulumi.Input[Union['BucketWebsiteArgs', 'BucketWebsiteArgsDict']] website: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfiguration` instead.
@@ -1087,6 +1101,7 @@ class Bucket(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['BucketServerSideEncryptionConfigurationArgs', 'BucketServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  versioning: Optional[pulumi.Input[Union['BucketVersioningArgs', 'BucketVersioningArgsDict']]] = None,
                  website: Optional[pulumi.Input[Union['BucketWebsiteArgs', 'BucketWebsiteArgsDict']]] = None,
                  __props__=None):
@@ -1114,6 +1129,7 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["request_payer"] = request_payer
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["versioning"] = versioning
             __props__.__dict__["website"] = website
             __props__.__dict__["arn"] = None
@@ -1121,7 +1137,6 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["bucket_regional_domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["region"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketV2:BucketV2"), pulumi.Alias(type_="aws:s3/bucketV2:BucketV2")])
@@ -1442,7 +1457,6 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

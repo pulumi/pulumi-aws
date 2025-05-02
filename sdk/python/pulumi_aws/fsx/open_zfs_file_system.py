@@ -43,6 +43,7 @@ class OpenZfsFileSystemArgs:
                  storage_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OpenZfsFileSystem resource.
@@ -69,6 +70,7 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -110,6 +112,8 @@ class OpenZfsFileSystemArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
@@ -368,6 +372,18 @@ class OpenZfsFileSystemArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -500,9 +516,6 @@ class _OpenZfsFileSystemState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if throughput_capacity is not None:
@@ -826,7 +839,6 @@ class _OpenZfsFileSystemState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -904,6 +916,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -955,6 +968,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
                
                The following arguments are optional:
@@ -1027,6 +1041,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -1062,6 +1077,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if throughput_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'throughput_capacity'")
             __props__.__dict__["throughput_capacity"] = throughput_capacity
@@ -1072,7 +1088,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["network_interface_ids"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["root_volume_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(OpenZfsFileSystem, __self__).__init__(
             'aws:fsx/openZfsFileSystem:OpenZfsFileSystem',
@@ -1400,7 +1415,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

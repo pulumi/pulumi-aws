@@ -309,6 +309,21 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
      * 
      * The following arguments are optional:
@@ -364,6 +379,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.throughputCapacity = $.throughputCapacity;
         this.weeklyMaintenanceStartTime = $.weeklyMaintenanceStartTime;
     }
@@ -813,6 +829,27 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

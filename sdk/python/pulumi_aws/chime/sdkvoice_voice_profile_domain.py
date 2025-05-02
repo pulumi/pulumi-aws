@@ -25,7 +25,8 @@ class SdkvoiceVoiceProfileDomainArgs:
                  server_side_encryption_configuration: pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SdkvoiceVoiceProfileDomain resource.
         :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
@@ -39,6 +40,8 @@ class SdkvoiceVoiceProfileDomainArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
@@ -85,6 +88,15 @@ class SdkvoiceVoiceProfileDomainArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _SdkvoiceVoiceProfileDomainState:
@@ -112,9 +124,6 @@ class _SdkvoiceVoiceProfileDomainState:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -177,7 +186,6 @@ class _SdkvoiceVoiceProfileDomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -198,6 +206,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Chime SDK Voice Profile Domain.
@@ -296,6 +305,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,8 +321,8 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_side_encryption_configuration'")
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(SdkvoiceVoiceProfileDomain, __self__).__init__(
             'aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain',
             resource_name,
@@ -392,7 +402,6 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

@@ -87,8 +87,7 @@ type DefaultVpc struct {
 	MainRouteTableId                pulumi.StringOutput    `pulumi:"mainRouteTableId"`
 	OwnerId                         pulumi.StringOutput    `pulumi:"ownerId"`
 	Tags                            pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDefaultVpc registers a new resource with the given unique name, arguments, and options.
@@ -145,8 +144,7 @@ type defaultVpcState struct {
 	MainRouteTableId                *string           `pulumi:"mainRouteTableId"`
 	OwnerId                         *string           `pulumi:"ownerId"`
 	Tags                            map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                         map[string]string `pulumi:"tagsAll"`
 }
 
 type DefaultVpcState struct {
@@ -174,8 +172,7 @@ type DefaultVpcState struct {
 	MainRouteTableId                pulumi.StringPtrInput
 	OwnerId                         pulumi.StringPtrInput
 	Tags                            pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
 }
 
 func (DefaultVpcState) ElementType() reflect.Type {
@@ -194,6 +191,7 @@ type defaultVpcArgs struct {
 	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
 	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
 	Tags                            map[string]string `pulumi:"tags"`
+	TagsAll                         map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultVpc resource.
@@ -209,6 +207,7 @@ type DefaultVpcArgs struct {
 	Ipv6IpamPoolId                  pulumi.StringPtrInput
 	Ipv6NetmaskLength               pulumi.IntPtrInput
 	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
 }
 
 func (DefaultVpcArgs) ElementType() reflect.Type {
@@ -385,7 +384,6 @@ func (o DefaultVpcOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o DefaultVpcOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

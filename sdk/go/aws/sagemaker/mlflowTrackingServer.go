@@ -69,8 +69,6 @@ type MlflowTrackingServer struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
 	TrackingServerName pulumi.StringOutput `pulumi:"trackingServerName"`
@@ -134,8 +132,6 @@ type mlflowTrackingServerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
 	TrackingServerName *string `pulumi:"trackingServerName"`
@@ -161,8 +157,6 @@ type MlflowTrackingServerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
 	TrackingServerName pulumi.StringPtrInput
@@ -189,6 +183,8 @@ type mlflowTrackingServerArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
 	TrackingServerName string `pulumi:"trackingServerName"`
 	// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
@@ -209,6 +205,8 @@ type MlflowTrackingServerArgs struct {
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
 	TrackingServerName pulumi.StringInput
 	// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
@@ -335,8 +333,6 @@ func (o MlflowTrackingServerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o MlflowTrackingServerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MlflowTrackingServer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -37,6 +37,7 @@ class AmiArgs:
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tpm_support: Optional[pulumi.Input[builtins.str]] = None,
                  uefi_data: Optional[pulumi.Input[builtins.str]] = None,
                  virtualization_type: Optional[pulumi.Input[builtins.str]] = None):
@@ -55,6 +56,7 @@ class AmiArgs:
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[builtins.str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[builtins.str] virtualization_type: Keyword to choose what virtualization mode created instances
@@ -91,6 +93,8 @@ class AmiArgs:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
             pulumi.set(__self__, "tpm_support", tpm_support)
         if uefi_data is not None:
@@ -269,6 +273,18 @@ class AmiArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -426,9 +442,6 @@ class _AmiState:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
@@ -741,7 +754,6 @@ class _AmiState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -826,6 +838,7 @@ class Ami(pulumi.CustomResource):
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tpm_support: Optional[pulumi.Input[builtins.str]] = None,
                  uefi_data: Optional[pulumi.Input[builtins.str]] = None,
                  virtualization_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -884,6 +897,7 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[builtins.str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[builtins.str] virtualization_type: Keyword to choose what virtualization mode created instances
@@ -965,6 +979,7 @@ class Ami(pulumi.CustomResource):
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tpm_support: Optional[pulumi.Input[builtins.str]] = None,
                  uefi_data: Optional[pulumi.Input[builtins.str]] = None,
                  virtualization_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -992,6 +1007,7 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["root_device_name"] = root_device_name
             __props__.__dict__["sriov_net_support"] = sriov_net_support
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tpm_support"] = tpm_support
             __props__.__dict__["uefi_data"] = uefi_data
             __props__.__dict__["virtualization_type"] = virtualization_type
@@ -1006,7 +1022,6 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["platform_details"] = None
             __props__.__dict__["public"] = None
             __props__.__dict__["root_snapshot_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["usage_operation"] = None
         super(Ami, __self__).__init__(
             'aws:ec2/ami:Ami',
@@ -1321,7 +1336,6 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

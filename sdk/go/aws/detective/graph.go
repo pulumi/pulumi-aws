@@ -56,8 +56,7 @@ type Graph struct {
 	// ARN of the Detective Graph.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -96,8 +95,7 @@ type graphState struct {
 	// ARN of the Detective Graph.
 	GraphArn *string `pulumi:"graphArn"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -107,8 +105,7 @@ type GraphState struct {
 	// ARN of the Detective Graph.
 	GraphArn pulumi.StringPtrInput
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -118,13 +115,15 @@ func (GraphState) ElementType() reflect.Type {
 
 type graphArgs struct {
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (GraphArgs) ElementType() reflect.Type {
@@ -229,7 +228,6 @@ func (o GraphOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o GraphOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

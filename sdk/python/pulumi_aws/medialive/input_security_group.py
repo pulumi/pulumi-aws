@@ -23,7 +23,8 @@ __all__ = ['InputSecurityGroupArgs', 'InputSecurityGroup']
 class InputSecurityGroupArgs:
     def __init__(__self__, *,
                  whitelist_rules: pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a InputSecurityGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
@@ -34,6 +35,8 @@ class InputSecurityGroupArgs:
         pulumi.set(__self__, "whitelist_rules", whitelist_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="whitelistRules")
@@ -61,6 +64,15 @@ class InputSecurityGroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _InputSecurityGroupState:
@@ -85,9 +97,6 @@ class _InputSecurityGroupState:
             pulumi.set(__self__, "inputs", inputs)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if whitelist_rules is not None:
@@ -131,7 +140,6 @@ class _InputSecurityGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -163,6 +171,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -250,6 +259,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -261,12 +271,12 @@ class InputSecurityGroup(pulumi.CustomResource):
             __props__ = InputSecurityGroupArgs.__new__(InputSecurityGroupArgs)
 
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if whitelist_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'whitelist_rules'")
             __props__.__dict__["whitelist_rules"] = whitelist_rules
             __props__.__dict__["arn"] = None
             __props__.__dict__["inputs"] = None
-            __props__.__dict__["tags_all"] = None
         super(InputSecurityGroup, __self__).__init__(
             'aws:medialive/inputSecurityGroup:InputSecurityGroup',
             resource_name,
@@ -333,7 +343,6 @@ class InputSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

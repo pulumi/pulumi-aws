@@ -34,6 +34,7 @@ class ChannelArgs:
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None):
         """
         The set of arguments for constructing a Channel resource.
@@ -72,6 +73,8 @@ class ChannelArgs:
             pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -222,6 +225,15 @@ class ChannelArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input['ChannelVpcArgs']]:
         """
@@ -301,9 +313,6 @@ class _ChannelState:
             pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
@@ -481,7 +490,6 @@ class _ChannelState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -522,6 +530,7 @@ class Channel(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc: Optional[pulumi.Input[Union['ChannelVpcArgs', 'ChannelVpcArgsDict']]] = None,
                  __props__=None):
         """
@@ -743,6 +752,7 @@ class Channel(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc: Optional[pulumi.Input[Union['ChannelVpcArgs', 'ChannelVpcArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -775,10 +785,10 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["start_channel"] = start_channel
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
             __props__.__dict__["channel_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(Channel, __self__).__init__(
             'aws:medialive/channel:Channel',
             resource_name,
@@ -968,7 +978,6 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

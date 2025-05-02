@@ -53,6 +53,7 @@ class FunctionArgs:
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
@@ -94,6 +95,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
@@ -157,6 +159,8 @@ class FunctionArgs:
             pulumi.set(__self__, "source_code_hash", source_code_hash)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if tracing_config is not None:
@@ -531,6 +535,18 @@ class FunctionArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -745,9 +761,6 @@ class _FunctionState:
             pulumi.set(__self__, "source_code_size", source_code_size)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
@@ -1235,7 +1248,6 @@ class _FunctionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1333,6 +1345,7 @@ class Function(pulumi.CustomResource):
                  snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
                  source_code_hash: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
@@ -1574,6 +1587,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']] vpc_config: Configuration block. Detailed below.
@@ -1828,6 +1842,7 @@ class Function(pulumi.CustomResource):
                  snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
                  source_code_hash: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
@@ -1872,6 +1887,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["source_code_hash"] = source_code_hash
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["vpc_config"] = vpc_config
@@ -1884,7 +1900,6 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["signing_job_arn"] = None
             __props__.__dict__["signing_profile_version_arn"] = None
             __props__.__dict__["source_code_size"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
@@ -2368,7 +2383,6 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

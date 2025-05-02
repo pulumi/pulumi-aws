@@ -270,6 +270,21 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     @Import(name="timestreams")
     private @Nullable Output<List<TopicRuleTimestreamArgs>> timestreams;
 
@@ -305,6 +320,7 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.sqs = $.sqs;
         this.stepFunctions = $.stepFunctions;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.timestreams = $.timestreams;
     }
 
@@ -705,6 +721,27 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public Builder timestreams(@Nullable Output<List<TopicRuleTimestreamArgs>> timestreams) {

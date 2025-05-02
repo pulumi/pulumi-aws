@@ -33,6 +33,21 @@ public final class EgressOnlyInternetGatewayArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The VPC ID to create in.
      * 
      */
@@ -51,6 +66,7 @@ public final class EgressOnlyInternetGatewayArgs extends com.pulumi.resources.Re
 
     private EgressOnlyInternetGatewayArgs(EgressOnlyInternetGatewayArgs $) {
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.vpcId = $.vpcId;
     }
 
@@ -91,6 +107,27 @@ public final class EgressOnlyInternetGatewayArgs extends com.pulumi.resources.Re
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -94,8 +94,6 @@ type OpenIdConnectProvider struct {
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	ThumbprintLists pulumi.StringArrayOutput `pulumi:"thumbprintLists"`
 	// URL of the identity provider, corresponding to the `iss` claim.
@@ -145,8 +143,6 @@ type openIdConnectProviderState struct {
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll         map[string]string `pulumi:"tagsAll"`
 	ThumbprintLists []string          `pulumi:"thumbprintLists"`
 	// URL of the identity provider, corresponding to the `iss` claim.
@@ -161,8 +157,6 @@ type OpenIdConnectProviderState struct {
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll         pulumi.StringMapInput
 	ThumbprintLists pulumi.StringArrayInput
 	// URL of the identity provider, corresponding to the `iss` claim.
@@ -177,7 +171,9 @@ type openIdConnectProviderArgs struct {
 	// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
 	ClientIdLists []string `pulumi:"clientIdLists"`
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags            map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 	ThumbprintLists []string          `pulumi:"thumbprintLists"`
 	// URL of the identity provider, corresponding to the `iss` claim.
 	Url string `pulumi:"url"`
@@ -188,7 +184,9 @@ type OpenIdConnectProviderArgs struct {
 	// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
 	ClientIdLists pulumi.StringArrayInput
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags            pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll         pulumi.StringMapInput
 	ThumbprintLists pulumi.StringArrayInput
 	// URL of the identity provider, corresponding to the `iss` claim.
 	Url pulumi.StringInput
@@ -297,8 +295,6 @@ func (o OpenIdConnectProviderOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o OpenIdConnectProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

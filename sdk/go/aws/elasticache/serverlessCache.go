@@ -230,8 +230,7 @@ type ServerlessCache struct {
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput           `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts ServerlessCacheTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
@@ -309,8 +308,7 @@ type serverlessCacheState struct {
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string        `pulumi:"tags"`
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *ServerlessCacheTimeouts `pulumi:"timeouts"`
 	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
@@ -356,8 +354,7 @@ type ServerlessCacheState struct {
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCacheTimeoutsPtrInput
 	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
@@ -615,7 +612,6 @@ func (o ServerlessCacheOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ServerlessCacheOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

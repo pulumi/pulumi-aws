@@ -143,6 +143,13 @@ public final class InputArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      * 
@@ -188,6 +195,7 @@ public final class InputArgs extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.sources = $.sources;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.type = $.type;
         this.vpc = $.vpc;
     }
@@ -426,6 +434,15 @@ public final class InputArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -93,9 +93,6 @@ export class AppAuthorization extends pulumi.CustomResource {
      */
     public /*out*/ readonly persona!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
@@ -195,9 +192,6 @@ export interface AppAuthorizationState {
      */
     persona?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.

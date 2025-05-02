@@ -38,7 +38,8 @@ class LoadBalancerArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_security_group: Optional[pulumi.Input[builtins.str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]] listeners: A list of listener blocks. Listeners documented below.
@@ -65,6 +66,7 @@ class LoadBalancerArgs:
                
                Exactly one of `availability_zones` or `subnets` must be specified: this
                determines if the ELB exists in a VPC or in EC2-classic.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "listeners", listeners)
         if access_logs is not None:
@@ -99,6 +101,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -311,6 +315,18 @@ class LoadBalancerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _LoadBalancerState:
@@ -411,9 +427,6 @@ class _LoadBalancerState:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if zone_id is not None:
@@ -670,7 +683,6 @@ class _LoadBalancerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -719,6 +731,7 @@ class LoadBalancer(pulumi.CustomResource):
                  source_security_group: Optional[pulumi.Input[builtins.str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Elastic Load Balancer resource, also known as a "Classic
@@ -825,6 +838,7 @@ class LoadBalancer(pulumi.CustomResource):
                
                Exactly one of `availability_zones` or `subnets` must be specified: this
                determines if the ELB exists in a VPC or in EC2-classic.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -943,6 +957,7 @@ class LoadBalancer(pulumi.CustomResource):
                  source_security_group: Optional[pulumi.Input[builtins.str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -971,10 +986,10 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["source_security_group"] = source_security_group
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["source_security_group_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["zone_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancer:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -1248,7 +1263,6 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

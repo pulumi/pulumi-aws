@@ -372,8 +372,6 @@ type Pipe struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target resource of the pipe (typically an ARN).
 	//
@@ -449,8 +447,6 @@ type pipeState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target resource of the pipe (typically an ARN).
 	//
@@ -488,8 +484,6 @@ type PipeState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Target resource of the pipe (typically an ARN).
 	//
@@ -528,6 +522,8 @@ type pipeArgs struct {
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target resource of the pipe (typically an ARN).
 	//
 	// The following arguments are optional:
@@ -562,6 +558,8 @@ type PipeArgs struct {
 	SourceParameters PipeSourceParametersPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Target resource of the pipe (typically an ARN).
 	//
 	// The following arguments are optional:
@@ -723,8 +721,6 @@ func (o PipeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o PipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

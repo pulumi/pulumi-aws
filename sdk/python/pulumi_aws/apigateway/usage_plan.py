@@ -28,6 +28,7 @@ class UsagePlanArgs:
                  product_code: Optional[pulumi.Input[builtins.str]] = None,
                  quota_settings: Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throttle_settings: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None):
         """
         The set of arguments for constructing a UsagePlan resource.
@@ -36,6 +37,7 @@ class UsagePlanArgs:
         :param pulumi.Input[builtins.str] name: Name of the usage plan.
         :param pulumi.Input[builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: Quota of the usage plan.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: Throttling limits of the usage plan.
         """
         if api_stages is not None:
@@ -50,6 +52,8 @@ class UsagePlanArgs:
             pulumi.set(__self__, "quota_settings", quota_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throttle_settings is not None:
             pulumi.set(__self__, "throttle_settings", throttle_settings)
 
@@ -123,6 +127,18 @@ class UsagePlanArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']]:
         """
@@ -172,9 +188,6 @@ class _UsagePlanState:
             pulumi.set(__self__, "quota_settings", quota_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if throttle_settings is not None:
@@ -263,7 +276,6 @@ class _UsagePlanState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -301,6 +313,7 @@ class UsagePlan(pulumi.CustomResource):
                  product_code: Optional[pulumi.Input[builtins.str]] = None,
                  quota_settings: Optional[pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throttle_settings: Optional[pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None,
                  __props__=None):
         """
@@ -321,6 +334,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the usage plan.
         :param pulumi.Input[builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']] quota_settings: Quota of the usage plan.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']] throttle_settings: Throttling limits of the usage plan.
         """
         ...
@@ -361,6 +375,7 @@ class UsagePlan(pulumi.CustomResource):
                  product_code: Optional[pulumi.Input[builtins.str]] = None,
                  quota_settings: Optional[pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throttle_settings: Optional[pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -377,9 +392,9 @@ class UsagePlan(pulumi.CustomResource):
             __props__.__dict__["product_code"] = product_code
             __props__.__dict__["quota_settings"] = quota_settings
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["throttle_settings"] = throttle_settings
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(UsagePlan, __self__).__init__(
             'aws:apigateway/usagePlan:UsagePlan',
             resource_name,
@@ -485,7 +500,6 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

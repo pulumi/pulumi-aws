@@ -35,6 +35,7 @@ class ImagePipelineArgs:
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
@@ -53,6 +54,7 @@ class ImagePipelineArgs:
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
@@ -80,6 +82,8 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if workflows is not None:
             pulumi.set(__self__, "workflows", workflows)
 
@@ -242,6 +246,18 @@ class ImagePipelineArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]:
         """
@@ -342,9 +358,6 @@ class _ImagePipelineState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if workflows is not None:
@@ -582,7 +595,6 @@ class _ImagePipelineState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -627,6 +639,7 @@ class ImagePipeline(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -659,6 +672,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         ...
@@ -708,6 +722,7 @@ class ImagePipeline(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -733,6 +748,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["workflows"] = workflows
             __props__.__dict__["arn"] = None
             __props__.__dict__["date_created"] = None
@@ -740,7 +756,6 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["date_next_run"] = None
             __props__.__dict__["date_updated"] = None
             __props__.__dict__["platform"] = None
-            __props__.__dict__["tags_all"] = None
         super(ImagePipeline, __self__).__init__(
             'aws:imagebuilder/imagePipeline:ImagePipeline',
             resource_name,
@@ -986,7 +1001,6 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

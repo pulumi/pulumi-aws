@@ -148,10 +148,8 @@ export class Api extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -213,12 +211,12 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["routeKey"] = args ? args.routeKey : undefined;
             resourceInputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["apiEndpoint"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["executionArn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Api.__pulumiType, name, resourceInputs, opts);
@@ -302,8 +300,6 @@ export interface ApiState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -379,6 +375,10 @@ export interface ApiArgs {
      * Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.

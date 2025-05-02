@@ -126,6 +126,21 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
@@ -165,6 +180,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         this.serviceRole = $.serviceRole;
         this.state = $.state;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.type = $.type;
         this.updatePolicy = $.updatePolicy;
     }
@@ -332,6 +348,27 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

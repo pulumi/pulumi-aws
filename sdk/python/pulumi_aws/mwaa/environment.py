@@ -45,6 +45,7 @@ class EnvironmentArgs:
                  startup_script_s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
                  startup_script_s3_path: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -72,6 +73,7 @@ class EnvironmentArgs:
         :param pulumi.Input[builtins.str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         :param pulumi.Input[builtins.str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[builtins.str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
@@ -117,6 +119,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "startup_script_s3_path", startup_script_s3_path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if webserver_access_mode is not None:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if weekly_maintenance_window_start is not None:
@@ -399,6 +403,18 @@ class EnvironmentArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -555,9 +571,6 @@ class _EnvironmentState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if webserver_access_mode is not None:
@@ -917,7 +930,6 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1008,6 +1020,7 @@ class Environment(pulumi.CustomResource):
                  startup_script_s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
                  startup_script_s3_path: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -1151,6 +1164,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         :param pulumi.Input[builtins.str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[builtins.str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
@@ -1313,6 +1327,7 @@ class Environment(pulumi.CustomResource):
                  startup_script_s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
                  startup_script_s3_path: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -1355,6 +1370,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["startup_script_s3_object_version"] = startup_script_s3_object_version
             __props__.__dict__["startup_script_s3_path"] = startup_script_s3_path
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
@@ -1363,7 +1379,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["last_updateds"] = None
             __props__.__dict__["service_role_arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["webserver_url"] = None
             __props__.__dict__["webserver_vpc_endpoint_service"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["airflowConfigurationOptions"])
@@ -1726,7 +1741,6 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

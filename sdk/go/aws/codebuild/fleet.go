@@ -119,8 +119,7 @@ type Fleet struct {
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses FleetStatusArrayOutput `pulumi:"statuses"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayOutput `pulumi:"vpcConfigs"`
@@ -194,8 +193,7 @@ type fleetState struct {
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses []FleetStatus `pulumi:"statuses"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
@@ -231,8 +229,7 @@ type FleetState struct {
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses FleetStatusArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayInput
@@ -264,7 +261,8 @@ type fleetArgs struct {
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
 }
@@ -292,7 +290,8 @@ type FleetArgs struct {
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayInput
 }
@@ -456,7 +455,6 @@ func (o FleetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

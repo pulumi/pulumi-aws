@@ -63,8 +63,7 @@ type BillingGroup struct {
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrOutput `pulumi:"properties"`
 	// Key-value mapping of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the Billing Group record in the registry.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -108,8 +107,7 @@ type billingGroupState struct {
 	// The Billing Group properties. Defined below.
 	Properties *BillingGroupProperties `pulumi:"properties"`
 	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current version of the Billing Group record in the registry.
 	Version *int `pulumi:"version"`
@@ -124,8 +122,7 @@ type BillingGroupState struct {
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrInput
 	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The current version of the Billing Group record in the registry.
 	Version pulumi.IntPtrInput
@@ -265,7 +262,6 @@ func (o BillingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o BillingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

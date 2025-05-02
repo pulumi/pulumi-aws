@@ -63,8 +63,7 @@ type Sink struct {
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringOutput `pulumi:"sinkId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -107,8 +106,7 @@ type sinkState struct {
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId *string `pulumi:"sinkId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -122,8 +120,7 @@ type SinkState struct {
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -137,7 +134,8 @@ type sinkArgs struct {
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Sink resource.
@@ -147,7 +145,8 @@ type SinkArgs struct {
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (SinkArgs) ElementType() reflect.Type {
@@ -259,7 +258,6 @@ func (o SinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o SinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

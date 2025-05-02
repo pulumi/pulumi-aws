@@ -27,13 +27,15 @@ class QuerySuggestionsBlockListArgs:
                  source_s3_path: pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a QuerySuggestionsBlockList resource.
         :param pulumi.Input[builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[builtins.str] name: Name for the block list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -44,6 +46,8 @@ class QuerySuggestionsBlockListArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="indexId")
@@ -111,6 +115,18 @@ class QuerySuggestionsBlockListArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _QuerySuggestionsBlockListState:
@@ -153,9 +169,6 @@ class _QuerySuggestionsBlockListState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -260,7 +273,6 @@ class _QuerySuggestionsBlockListState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
@@ -286,6 +298,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
@@ -325,6 +338,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the block list.
         :param pulumi.Input[builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         ...
     @overload
@@ -385,6 +399,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -406,10 +421,10 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_s3_path'")
             __props__.__dict__["source_s3_path"] = source_s3_path
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["query_suggestions_block_list_id"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(QuerySuggestionsBlockList, __self__).__init__(
             'aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList',
             resource_name,
@@ -526,7 +541,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.

@@ -28,6 +28,7 @@ class DirectoryArgs:
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
                  workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None):
         """
@@ -38,6 +39,7 @@ class DirectoryArgs:
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs'] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
@@ -52,6 +54,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if workspace_access_properties is not None:
             pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
         if workspace_creation_properties is not None:
@@ -128,6 +132,18 @@ class DirectoryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="workspaceAccessProperties")
@@ -220,9 +236,6 @@ class _DirectoryState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if workspace_access_properties is not None:
@@ -390,7 +403,6 @@ class _DirectoryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -452,6 +464,7 @@ class Directory(pulumi.CustomResource):
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
                  workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
                  __props__=None):
@@ -581,6 +594,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
@@ -729,6 +743,7 @@ class Directory(pulumi.CustomResource):
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
                  workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
                  __props__=None):
@@ -748,6 +763,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["workspace_access_properties"] = workspace_access_properties
             __props__.__dict__["workspace_creation_properties"] = workspace_creation_properties
             __props__.__dict__["alias"] = None
@@ -757,7 +773,6 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["dns_ip_addresses"] = None
             __props__.__dict__["iam_role_id"] = None
             __props__.__dict__["registration_code"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["workspace_security_group_id"] = None
         super(Directory, __self__).__init__(
             'aws:workspaces/directory:Directory',
@@ -940,7 +955,6 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

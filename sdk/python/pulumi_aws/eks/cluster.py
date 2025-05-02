@@ -36,6 +36,7 @@ class ClusterArgs:
                  remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
                  storage_config: Optional[pulumi.Input['ClusterStorageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  zonal_shift_config: Optional[pulumi.Input['ClusterZonalShiftConfigArgs']] = None):
@@ -57,6 +58,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input['ClusterStorageConfigArgs'] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[builtins.str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input['ClusterZonalShiftConfigArgs'] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
@@ -87,6 +89,8 @@ class ClusterArgs:
             pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if upgrade_policy is not None:
             pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if version is not None:
@@ -265,6 +269,18 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="upgradePolicy")
     def upgrade_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
         """
@@ -406,9 +422,6 @@ class _ClusterState:
             pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if upgrade_policy is not None:
@@ -683,7 +696,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -766,6 +778,7 @@ class Cluster(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
@@ -1045,6 +1058,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[builtins.str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -1345,6 +1359,7 @@ class Cluster(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
@@ -1373,6 +1388,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["storage_config"] = storage_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["version"] = version
             if vpc_config is None and not opts.urn:
@@ -1388,7 +1404,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["identities"] = None
             __props__.__dict__["platform_version"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(Cluster, __self__).__init__(
             'aws:eks/cluster:Cluster',
             resource_name,
@@ -1670,7 +1685,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

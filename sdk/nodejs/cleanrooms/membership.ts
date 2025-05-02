@@ -122,9 +122,6 @@ export class Membership extends pulumi.CustomResource {
      * Key value pairs which tag the membership.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time the membership was last updated.
@@ -241,9 +238,6 @@ export interface MembershipState {
      * Key value pairs which tag the membership.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The date and time the membership was last updated.

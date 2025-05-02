@@ -25,7 +25,8 @@ class ResourceSetArgs:
                  resource_set_name: pulumi.Input[builtins.str],
                  resource_set_type: pulumi.Input[builtins.str],
                  resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
         :param pulumi.Input[builtins.str] resource_set_name: Unique name describing the resource set.
@@ -34,12 +35,15 @@ class ResourceSetArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "resource_set_name", resource_set_name)
         pulumi.set(__self__, "resource_set_type", resource_set_type)
         pulumi.set(__self__, "resources", resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="resourceSetName")
@@ -91,6 +95,18 @@ class ResourceSetArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ResourceSetState:
@@ -123,9 +139,6 @@ class _ResourceSetState:
             pulumi.set(__self__, "resources", resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -194,7 +207,6 @@ class _ResourceSetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -218,6 +230,7 @@ class ResourceSet(pulumi.CustomResource):
                  resource_set_type: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Route 53 Recovery Readiness Resource Set.
@@ -252,6 +265,7 @@ class ResourceSet(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -303,6 +317,7 @@ class ResourceSet(pulumi.CustomResource):
                  resource_set_type: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,8 +337,8 @@ class ResourceSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resources'")
             __props__.__dict__["resources"] = resources
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(ResourceSet, __self__).__init__(
             'aws:route53recoveryreadiness/resourceSet:ResourceSet',
             resource_name,
@@ -414,7 +429,6 @@ class ResourceSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

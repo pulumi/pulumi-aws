@@ -72,8 +72,6 @@ type LocationFsxWindows struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -147,8 +145,6 @@ type locationFsxWindowsState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
 	Uri *string `pulumi:"uri"`
@@ -174,8 +170,6 @@ type LocationFsxWindowsState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL of the FSx for Windows location that was described.
 	Uri pulumi.StringPtrInput
@@ -200,6 +194,8 @@ type locationFsxWindowsArgs struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The user who has the permissions to access files and folders in the FSx for Windows file system.
 	User string `pulumi:"user"`
 }
@@ -218,6 +214,8 @@ type LocationFsxWindowsArgs struct {
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The user who has the permissions to access files and folders in the FSx for Windows file system.
 	User pulumi.StringInput
 }
@@ -350,8 +348,6 @@ func (o LocationFsxWindowsOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LocationFsxWindowsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

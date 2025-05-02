@@ -84,8 +84,6 @@ type VpcOrigin struct {
 	Etag pulumi.StringOutput    `pulumi:"etag"`
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll                 pulumi.StringMapOutput                    `pulumi:"tagsAll"`
 	Timeouts                VpcOriginTimeoutsPtrOutput                `pulumi:"timeouts"`
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrOutput `pulumi:"vpcOriginEndpointConfig"`
@@ -127,8 +125,6 @@ type vpcOriginState struct {
 	Etag *string           `pulumi:"etag"`
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll                 map[string]string                 `pulumi:"tagsAll"`
 	Timeouts                *VpcOriginTimeouts                `pulumi:"timeouts"`
 	VpcOriginEndpointConfig *VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
@@ -141,8 +137,6 @@ type VpcOriginState struct {
 	Etag pulumi.StringPtrInput
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll                 pulumi.StringMapInput
 	Timeouts                VpcOriginTimeoutsPtrInput
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrInput
@@ -267,8 +261,6 @@ func (o VpcOriginOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcOriginOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

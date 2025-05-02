@@ -28,7 +28,8 @@ class ConnectPeerArgs:
                  core_network_address: Optional[pulumi.Input[builtins.str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
         :param pulumi.Input[builtins.str] connect_attachment_id: The ID of the connection attachment.
@@ -40,6 +41,7 @@ class ConnectPeerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[builtins.str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
         pulumi.set(__self__, "peer_address", peer_address)
@@ -53,6 +55,8 @@ class ConnectPeerArgs:
             pulumi.set(__self__, "subnet_arn", subnet_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="connectAttachmentId")
@@ -140,6 +144,18 @@ class ConnectPeerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ConnectPeerState:
@@ -205,9 +221,6 @@ class _ConnectPeerState:
             pulumi.set(__self__, "subnet_arn", subnet_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -377,7 +390,6 @@ class _ConnectPeerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -404,6 +416,7 @@ class ConnectPeer(pulumi.CustomResource):
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Network Manager Connect Peer.
@@ -515,6 +528,7 @@ class ConnectPeer(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -643,6 +657,7 @@ class ConnectPeer(pulumi.CustomResource):
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -663,6 +678,7 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["peer_address"] = peer_address
             __props__.__dict__["subnet_arn"] = subnet_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["configurations"] = None
             __props__.__dict__["connect_peer_id"] = None
@@ -670,7 +686,6 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["state"] = None
-            __props__.__dict__["tags_all"] = None
         super(ConnectPeer, __self__).__init__(
             'aws:networkmanager/connectPeer:ConnectPeer',
             resource_name,
@@ -850,7 +865,6 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

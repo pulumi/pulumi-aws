@@ -31,6 +31,7 @@ class InputArgs:
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
         """
         The set of arguments for constructing a Input resource.
@@ -64,6 +65,8 @@ class InputArgs:
             pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -178,6 +181,15 @@ class InputArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input['InputVpcArgs']]:
         """
@@ -255,9 +267,6 @@ class _InputState:
             pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -423,7 +432,6 @@ class _InputState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -474,6 +482,7 @@ class Input(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vpc: Optional[pulumi.Input[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None,
                  __props__=None):
@@ -591,6 +600,7 @@ class Input(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vpc: Optional[pulumi.Input[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None,
                  __props__=None):
@@ -610,6 +620,7 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -619,7 +630,6 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["input_class"] = None
             __props__.__dict__["input_partner_ids"] = None
             __props__.__dict__["input_source_type"] = None
-            __props__.__dict__["tags_all"] = None
         super(Input, __self__).__init__(
             'aws:medialive/input:Input',
             resource_name,
@@ -799,7 +809,6 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

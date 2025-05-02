@@ -26,6 +26,7 @@ class MlflowTrackingServerArgs:
                  automatic_model_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracking_server_size: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -36,6 +37,7 @@ class MlflowTrackingServerArgs:
         :param pulumi.Input[builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
         :param pulumi.Input[builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         :param pulumi.Input[builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
@@ -48,6 +50,8 @@ class MlflowTrackingServerArgs:
             pulumi.set(__self__, "mlflow_version", mlflow_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tracking_server_size is not None:
             pulumi.set(__self__, "tracking_server_size", tracking_server_size)
         if weekly_maintenance_window_start is not None:
@@ -126,6 +130,18 @@ class MlflowTrackingServerArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="trackingServerSize")
     def tracking_server_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -190,9 +206,6 @@ class _MlflowTrackingServerState:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tracking_server_name is not None:
@@ -278,7 +291,6 @@ class _MlflowTrackingServerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -351,6 +363,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracking_server_name: Optional[pulumi.Input[builtins.str]] = None,
                  tracking_server_size: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
@@ -387,6 +400,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         :param pulumi.Input[builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         :param pulumi.Input[builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
@@ -442,6 +456,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracking_server_name: Optional[pulumi.Input[builtins.str]] = None,
                  tracking_server_size: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
@@ -463,13 +478,13 @@ class MlflowTrackingServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if tracking_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tracking_server_name'")
             __props__.__dict__["tracking_server_name"] = tracking_server_name
             __props__.__dict__["tracking_server_size"] = tracking_server_size
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["tracking_server_url"] = None
         super(MlflowTrackingServer, __self__).__init__(
             'aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer',
@@ -578,7 +593,6 @@ class MlflowTrackingServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

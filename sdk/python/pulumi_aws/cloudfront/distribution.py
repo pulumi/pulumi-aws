@@ -41,11 +41,13 @@ class DistributionArgs:
                  retain_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  wait_for_deployment: Optional[pulumi.Input[builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
@@ -80,6 +82,8 @@ class DistributionArgs:
             pulumi.set(__self__, "staging", staging)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if wait_for_deployment is not None:
             pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
@@ -260,6 +264,18 @@ class DistributionArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "wait_for_deployment")
@@ -380,9 +396,6 @@ class _DistributionState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if trusted_key_groups is not None:
@@ -659,7 +672,6 @@ class _DistributionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -748,6 +760,7 @@ class Distribution(pulumi.CustomResource):
                  retain_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1031,6 +1044,7 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1347,6 +1361,7 @@ class Distribution(pulumi.CustomResource):
                  retain_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[builtins.bool]] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1385,6 +1400,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["retain_on_delete"] = retain_on_delete
             __props__.__dict__["staging"] = staging
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
@@ -1398,7 +1414,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["in_progress_validation_batches"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["trusted_key_groups"] = None
             __props__.__dict__["trusted_signers"] = None
         super(Distribution, __self__).__init__(
@@ -1660,7 +1675,6 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

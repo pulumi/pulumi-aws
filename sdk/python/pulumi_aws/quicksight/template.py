@@ -28,7 +28,8 @@ class TemplateArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
         :param pulumi.Input[builtins.str] template_id: Identifier for the template.
@@ -40,6 +41,7 @@ class TemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "template_id", template_id)
         pulumi.set(__self__, "version_description", version_description)
@@ -53,6 +55,8 @@ class TemplateArgs:
             pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="templateId")
@@ -140,6 +144,18 @@ class TemplateArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _TemplateState:
@@ -197,9 +213,6 @@ class _TemplateState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if template_id is not None:
@@ -331,7 +344,6 @@ class _TemplateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -394,6 +406,7 @@ class Template(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]]] = None,
                  source_entity: Optional[pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
                  version_description: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -434,6 +447,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] template_id: Identifier for the template.
         :param pulumi.Input[builtins.str] version_description: A description of the current template version being created/updated.
                
@@ -495,6 +509,7 @@ class Template(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]]] = None,
                  source_entity: Optional[pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
                  version_description: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -511,6 +526,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'template_id'")
             __props__.__dict__["template_id"] = template_id
@@ -522,7 +538,6 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["source_entity_arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_number"] = None
         super(Template, __self__).__init__(
             'aws:quicksight/template:Template',
@@ -674,7 +689,6 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

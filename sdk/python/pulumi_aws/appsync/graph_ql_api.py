@@ -36,6 +36,7 @@ class GraphQLApiArgs:
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
                  visibility: Optional[pulumi.Input[builtins.str]] = None,
                  xray_enabled: Optional[pulumi.Input[builtins.bool]] = None):
@@ -59,6 +60,7 @@ class GraphQLApiArgs:
         :param pulumi.Input[builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         :param pulumi.Input[builtins.str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[builtins.bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
@@ -90,6 +92,8 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_pool_config is not None:
             pulumi.set(__self__, "user_pool_config", user_pool_config)
         if visibility is not None:
@@ -270,6 +274,18 @@ class GraphQLApiArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
         """
@@ -386,9 +402,6 @@ class _GraphQLApiState:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uris is not None:
@@ -586,7 +599,6 @@ class _GraphQLApiState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -668,6 +680,7 @@ class GraphQLApi(pulumi.CustomResource):
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict']]] = None,
                  visibility: Optional[pulumi.Input[builtins.str]] = None,
                  xray_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -694,6 +707,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict']] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         :param pulumi.Input[builtins.str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[builtins.bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
@@ -735,6 +749,7 @@ class GraphQLApi(pulumi.CustomResource):
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict']]] = None,
                  visibility: Optional[pulumi.Input[builtins.str]] = None,
                  xray_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -763,11 +778,11 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["resolver_count_limit"] = resolver_count_limit
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["user_pool_config"] = user_pool_config
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["xray_enabled"] = xray_enabled
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["uris"] = None
         super(GraphQLApi, __self__).__init__(
             'aws:appsync/graphQLApi:GraphQLApi',
@@ -983,7 +998,6 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

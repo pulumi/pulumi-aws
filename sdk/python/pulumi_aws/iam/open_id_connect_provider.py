@@ -23,17 +23,21 @@ class OpenIdConnectProviderArgs:
                  client_id_lists: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  url: pulumi.Input[builtins.str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbprint_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[builtins.str] url: URL of the identity provider, corresponding to the `iss` claim.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "client_id_lists", client_id_lists)
         pulumi.set(__self__, "url", url)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if thumbprint_lists is not None:
             pulumi.set(__self__, "thumbprint_lists", thumbprint_lists)
 
@@ -74,6 +78,18 @@ class OpenIdConnectProviderArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="thumbprintLists")
     def thumbprint_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "thumbprint_lists")
@@ -106,9 +122,6 @@ class _OpenIdConnectProviderState:
             pulumi.set(__self__, "client_id_lists", client_id_lists)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if thumbprint_lists is not None:
@@ -154,7 +167,6 @@ class _OpenIdConnectProviderState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -197,6 +209,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbprint_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -240,6 +253,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] url: URL of the identity provider, corresponding to the `iss` claim.
         """
         ...
@@ -301,6 +315,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbprint_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -316,12 +331,12 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_id_lists'")
             __props__.__dict__["client_id_lists"] = client_id_lists
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["thumbprint_lists"] = thumbprint_lists
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(OpenIdConnectProvider, __self__).__init__(
             'aws:iam/openIdConnectProvider:OpenIdConnectProvider',
             resource_name,
@@ -389,7 +404,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

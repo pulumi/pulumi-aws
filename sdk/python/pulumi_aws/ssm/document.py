@@ -29,6 +29,7 @@ class DocumentArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_type: Optional[pulumi.Input[builtins.str]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -40,6 +41,7 @@ class DocumentArgs:
         :param pulumi.Input[builtins.str] name: The name of the document.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] target_type: The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         :param pulumi.Input[builtins.str] version_name: The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         """
@@ -55,6 +57,8 @@ class DocumentArgs:
             pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_type is not None:
             pulumi.set(__self__, "target_type", target_type)
         if version_name is not None:
@@ -143,6 +147,18 @@ class DocumentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetType")
@@ -261,9 +277,6 @@ class _DocumentState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_type is not None:
@@ -513,7 +526,6 @@ class _DocumentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -564,6 +576,7 @@ class Document(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_type: Optional[pulumi.Input[builtins.str]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -644,6 +657,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the document.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] target_type: The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         :param pulumi.Input[builtins.str] version_name: The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         """
@@ -743,6 +757,7 @@ class Document(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_type: Optional[pulumi.Input[builtins.str]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -765,6 +780,7 @@ class Document(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["arn"] = None
@@ -780,7 +796,6 @@ class Document(pulumi.CustomResource):
             __props__.__dict__["platform_types"] = None
             __props__.__dict__["schema_version"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(Document, __self__).__init__(
             'aws:ssm/document:Document',
             resource_name,
@@ -1036,7 +1051,6 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

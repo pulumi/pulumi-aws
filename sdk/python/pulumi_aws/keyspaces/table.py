@@ -32,6 +32,7 @@ class TableArgs:
                  encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
@@ -47,6 +48,7 @@ class TableArgs:
         :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
         pulumi.set(__self__, "keyspace_name", keyspace_name)
@@ -66,6 +68,8 @@ class TableArgs:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
 
@@ -192,6 +196,18 @@ class TableArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
         """
@@ -260,9 +276,6 @@ class _TableState:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
@@ -404,7 +417,6 @@ class _TableState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -446,6 +458,7 @@ class Table(pulumi.CustomResource):
                  schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  __props__=None):
         """
@@ -495,6 +508,7 @@ class Table(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
         ...
@@ -561,6 +575,7 @@ class Table(pulumi.CustomResource):
                  schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -587,9 +602,9 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Table, __self__).__init__(
             'aws:keyspaces/table:Table',
             resource_name,
@@ -747,7 +762,6 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

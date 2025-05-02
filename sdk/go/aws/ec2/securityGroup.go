@@ -357,8 +357,6 @@ type SecurityGroup struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -416,8 +414,6 @@ type securityGroupState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -443,8 +439,6 @@ type SecurityGroupState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId pulumi.StringPtrInput
@@ -469,6 +463,8 @@ type securityGroupArgs struct {
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -489,6 +485,8 @@ type SecurityGroupArgs struct {
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId pulumi.StringPtrInput
 }
@@ -626,8 +624,6 @@ func (o SecurityGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

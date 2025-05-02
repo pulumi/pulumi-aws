@@ -63,6 +63,13 @@ public final class ProxyEndpointArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
@@ -114,6 +121,7 @@ public final class ProxyEndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.dbProxyEndpointName = $.dbProxyEndpointName;
         this.dbProxyName = $.dbProxyName;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.targetRole = $.targetRole;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
         this.vpcSubnetIds = $.vpcSubnetIds;
@@ -198,6 +206,15 @@ public final class ProxyEndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

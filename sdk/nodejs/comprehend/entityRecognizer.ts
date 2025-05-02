@@ -117,10 +117,8 @@ export class EntityRecognizer extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name for the version of the Entity Recognizer.
      * Each version must have a unique name within the Entity Recognizer.
@@ -190,12 +188,12 @@ export class EntityRecognizer extends pulumi.CustomResource {
             resourceInputs["modelKmsKeyId"] = args ? args.modelKmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["versionNamePrefix"] = args ? args.versionNamePrefix : undefined;
             resourceInputs["volumeKmsKeyId"] = args ? args.volumeKmsKeyId : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EntityRecognizer.__pulumiType, name, resourceInputs, opts);
@@ -242,8 +240,6 @@ export interface EntityRecognizerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -308,6 +304,10 @@ export interface EntityRecognizerArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name for the version of the Entity Recognizer.
      * Each version must have a unique name within the Entity Recognizer.

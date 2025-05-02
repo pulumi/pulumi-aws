@@ -325,10 +325,8 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Unique version ID value for the object, if bucket versioning is enabled.
      */
@@ -419,6 +417,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksumCrc32"] = undefined /*out*/;
@@ -426,7 +425,6 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["checksumCrc64nvme"] = undefined /*out*/;
             resourceInputs["checksumSha1"] = undefined /*out*/;
             resourceInputs["checksumSha256"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -568,8 +566,6 @@ export interface BucketObjectv2State {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -692,6 +688,10 @@ export interface BucketObjectv2Args {
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *

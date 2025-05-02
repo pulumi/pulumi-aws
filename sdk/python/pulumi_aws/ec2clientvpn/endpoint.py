@@ -36,6 +36,7 @@ class EndpointArgs:
                  session_timeout_hours: Optional[pulumi.Input[builtins.int]] = None,
                  split_tunnel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[builtins.int]] = None):
@@ -55,6 +56,7 @@ class EndpointArgs:
         :param pulumi.Input[builtins.int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[builtins.bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         :param pulumi.Input[builtins.int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
@@ -83,6 +85,8 @@ class EndpointArgs:
             pulumi.set(__self__, "split_tunnel", split_tunnel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transport_protocol is not None:
             pulumi.set(__self__, "transport_protocol", transport_protocol)
         if vpc_id is not None:
@@ -259,6 +263,18 @@ class EndpointArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -377,9 +393,6 @@ class _EndpointState:
             pulumi.set(__self__, "split_tunnel", split_tunnel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transport_protocol is not None:
@@ -595,7 +608,6 @@ class _EndpointState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -665,6 +677,7 @@ class Endpoint(pulumi.CustomResource):
                  session_timeout_hours: Optional[pulumi.Input[builtins.int]] = None,
                  split_tunnel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[builtins.int]] = None,
@@ -718,6 +731,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[builtins.bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         :param pulumi.Input[builtins.int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
@@ -790,6 +804,7 @@ class Endpoint(pulumi.CustomResource):
                  session_timeout_hours: Optional[pulumi.Input[builtins.int]] = None,
                  split_tunnel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[builtins.int]] = None,
@@ -824,13 +839,13 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["session_timeout_hours"] = session_timeout_hours
             __props__.__dict__["split_tunnel"] = split_tunnel
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transport_protocol"] = transport_protocol
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["vpn_port"] = vpn_port
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["self_service_portal_url"] = None
-            __props__.__dict__["tags_all"] = None
         super(Endpoint, __self__).__init__(
             'aws:ec2clientvpn/endpoint:Endpoint',
             resource_name,
@@ -1056,7 +1071,6 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

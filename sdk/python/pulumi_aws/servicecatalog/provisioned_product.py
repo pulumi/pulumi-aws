@@ -35,7 +35,8 @@ class ProvisionedProductArgs:
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedProduct resource.
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -54,6 +55,7 @@ class ProvisionedProductArgs:
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -83,6 +85,8 @@ class ProvisionedProductArgs:
             pulumi.set(__self__, "stack_set_provisioning_preferences", stack_set_provisioning_preferences)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -254,6 +258,18 @@ class ProvisionedProductArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ProvisionedProductState:
@@ -363,9 +379,6 @@ class _ProvisionedProductState:
             pulumi.set(__self__, "status_message", status_message)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -663,7 +676,6 @@ class _ProvisionedProductState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -709,6 +721,7 @@ class ProvisionedProduct(pulumi.CustomResource):
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         This resource provisions and manages a Service Catalog provisioned product.
@@ -768,6 +781,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -844,6 +858,7 @@ class ProvisionedProduct(pulumi.CustomResource):
                  retain_physical_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -867,6 +882,7 @@ class ProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["retain_physical_resources"] = retain_physical_resources
             __props__.__dict__["stack_set_provisioning_preferences"] = stack_set_provisioning_preferences
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["cloudwatch_dashboard_names"] = None
             __props__.__dict__["created_time"] = None
@@ -877,7 +893,6 @@ class ProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["outputs"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
         super(ProvisionedProduct, __self__).__init__(
             'aws:servicecatalog/provisionedProduct:ProvisionedProduct',
@@ -1179,7 +1194,6 @@ class ProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

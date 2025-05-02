@@ -35,6 +35,7 @@ class JobDefinitionArgs:
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
@@ -53,6 +54,7 @@ class JobDefinitionArgs:
         :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         """
         pulumi.set(__self__, "type", type)
@@ -80,6 +82,8 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "scheduling_priority", scheduling_priority)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -242,6 +246,18 @@ class JobDefinitionArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input['JobDefinitionTimeoutArgs']]:
         """
@@ -328,9 +344,6 @@ class _JobDefinitionState:
             pulumi.set(__self__, "scheduling_priority", scheduling_priority)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
@@ -520,7 +533,6 @@ class _JobDefinitionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -578,6 +590,7 @@ class JobDefinition(pulumi.CustomResource):
                  retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[Union['JobDefinitionTimeoutArgs', 'JobDefinitionTimeoutArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -861,6 +874,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['JobDefinitionTimeoutArgs', 'JobDefinitionTimeoutArgsDict']] timeout: Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[builtins.str] type: Type of job definition. Must be `container` or `multinode`.
                
@@ -1165,6 +1179,7 @@ class JobDefinition(pulumi.CustomResource):
                  retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
                  scheduling_priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[Union['JobDefinitionTimeoutArgs', 'JobDefinitionTimeoutArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -1188,6 +1203,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["scheduling_priority"] = scheduling_priority
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timeout"] = timeout
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -1195,7 +1211,6 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_prefix"] = None
             __props__.__dict__["revision"] = None
-            __props__.__dict__["tags_all"] = None
         super(JobDefinition, __self__).__init__(
             'aws:batch/jobDefinition:JobDefinition',
             resource_name,
@@ -1398,7 +1413,6 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
