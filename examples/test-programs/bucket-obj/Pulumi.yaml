@@ -5,7 +5,7 @@ resources:
     properties:
       website:
         indexDocument: index.html
-    type: aws:s3:Bucket
+    type: aws:s3:BucketV2
   myBucketIndex:
     properties:
       bucket: ${myBucket.id}

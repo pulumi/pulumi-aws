@@ -53,7 +53,7 @@ resources:
           Repository: "my-org/my-repo"
 
   myTestBucket:
-    type: aws:s3:Bucket
+    type: aws:s3:BucketV2
     options:
       provider: ${provider}
 

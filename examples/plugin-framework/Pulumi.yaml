@@ -4,7 +4,7 @@ description: Check that Plugin Framework based resources can deploy alongside SD
 outputs: {}
 resources:
   bucket-example:
-    type: aws:s3:Bucket
+    type: aws:s3:BucketV2
 
   # cidrcollection also tests auto-naming, it should get a random-suffixed name such as below, without specifying one:
   #     "name": "cidrcollection-example-8eb4b3b"

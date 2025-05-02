@@ -3,7 +3,7 @@ runtime: yaml
 description: A minimal Pulumi YAML program
 resources:
   bucket:
-    type: aws:s3:Bucket
+    type: aws:s3:BucketV2
     properties:
       tags:
         Environment: Dev

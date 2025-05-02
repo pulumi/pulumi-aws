@@ -41,6 +41,7 @@ import (
 	tagsdk "github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi"
 	s3sdk "github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
@@ -184,6 +185,15 @@ func TestSecretVersionUpgrade(t *testing.T) {
 
 func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "elasticache-replication-group"), nil)
+}
+
+func TestS3BucketToBucketV2Upgrade(t *testing.T) {
+	testProviderUpgrade(t, "bucket-to-bucketv2",
+		&testProviderUpgradeOptions{
+			baselineVersion: "6.78.0",
+		},
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucketv2", "step1")),
+	)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
@@ -1892,16 +1902,4 @@ func TestSecurityGroupPreviewWarning(t *testing.T) {
 
 	assert.NotContains(t, prev.StdOut, "warning: Failed to calculate preview for element")
 	assert.NotContains(t, prev.StdErr, "warning: Failed to calculate preview for element")
-}
-
-func TestBucketToBucketV2Alias(t *testing.T) {
-	t.Parallel()
-
-	pt := pulumiTest(t, "bucket-to-bucketv2")
-	pt.Up(t)
-
-	pt.UpdateSource(t, filepath.Join("bucket-to-bucketv2", "step1"))
-
-	prev := pt.Preview(t, optpreview.Diff())
-	assertpreview.HasNoChanges(t, prev)
 }
