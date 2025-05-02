@@ -721,7 +721,7 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 		t.Run(step.name, func(t *testing.T) {
 			t.Parallel()
 			if reason := step.skip; reason != "" {
-				t.Skipf(reason)
+				t.Skip(reason)
 			}
 			testTagsPulumiLifecycle(t, step)
 		})
@@ -1191,7 +1191,7 @@ func TestAccDefaultTags(t *testing.T) {
 		typ := typ
 		t.Run(typ.name, func(t *testing.T) {
 			if reason := typ.skip; reason != "" {
-				t.Skipf(reason)
+				t.Skip(reason)
 			}
 			dir := filepath.Join(getCwd(t), typ.name+"-default-tags-yaml")
 			testTags(t, dir, steps)
