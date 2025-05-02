@@ -2027,19 +2027,9 @@ compatibility shim in favor of the new "name" field.`)
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {
 						Name: "ingress",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"description": {Default: &info.Default{Value: ""}},
-							},
-						},
 					},
 					"egress": {
 						Name: "egress",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"description": {Default: &info.Default{Value: ""}},
-							},
-						},
 					},
 				},
 			},
