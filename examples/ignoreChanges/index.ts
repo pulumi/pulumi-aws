@@ -6,6 +6,6 @@ import * as pulumi from "@pulumi/pulumi";
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
-const bucket = new aws.s3.BucketV2("mybucket", {
+const bucket = new aws.s3.Bucket("mybucket", {
     bucketPrefix: "foo"
 }, { ignoreChanges: ["bucketPrefix"], provider: providerOpts.provider });

@@ -13,4 +13,4 @@ outputs:
 resources:
   # Create an AWS resource (S3 Bucket)
   my-bucket:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket

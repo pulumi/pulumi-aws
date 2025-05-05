@@ -49,7 +49,7 @@ func main() {
 			return err
 		}
 
-		bucket, err := s3.NewBucketV2(ctx, "bucketv2"+testIdent, &s3.BucketV2Args{
+		bucket, err := s3.NewBucket(ctx, "bucketv2"+testIdent, &s3.BucketArgs{
 			Tags: tagsMap,
 		}, pulumi.Provider(p))
 		if err != nil {
@@ -77,7 +77,7 @@ func main() {
 			return err
 		}
 
-		getBucket, err := s3.GetBucketV2(ctx, "get-bucketv2"+testIdent, bucket.ID(), &s3.BucketV2State{}, pulumi.Provider(p), pulumi.IgnoreChanges([]string{"forceDestroy", "acl"}))
+		getBucket, err := s3.GetBucket(ctx, "get-bucketv2"+testIdent, bucket.ID(), &s3.BucketState{}, pulumi.Provider(p), pulumi.IgnoreChanges([]string{"forceDestroy", "acl"}))
 		if err != nil {
 			return err
 		}

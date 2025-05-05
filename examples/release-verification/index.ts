@@ -15,7 +15,7 @@
 import * as aws from "@pulumi/aws";
 import * as s3 from "@aws-sdk/client-s3";
 
-const bucket = new aws.s3.BucketV2("testbucket", {
+const bucket = new aws.s3.Bucket("testbucket", {
     serverSideEncryptionConfigurations: [{
         rules: [{
             applyServerSideEncryptionByDefaults: [{
@@ -50,7 +50,7 @@ bucket.onObjectCreated("bucket-callback", async (event) => {
 });
 
 // Another bucket with some strongly-typed routingRules.
-const websiteBucket = new aws.s3.BucketV2("websiteBucket", {
+const websiteBucket = new aws.s3.Bucket("websiteBucket", {
     website: {
         indexDocument: "index.html",
         routingRules: [{

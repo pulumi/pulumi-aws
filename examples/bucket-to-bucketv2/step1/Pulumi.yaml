@@ -67,13 +67,13 @@ resources:
       role: ${replication.name}
       policyArn: ${replicationPolicy.arn}
   destinationBucket:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
     properties:
       forceDestroy: true
       versionings:
         - enabled: true
   loggingBucket:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
     properties:
       forceDestroy: true
   exampleBucketOwnershipControls:
@@ -92,7 +92,7 @@ resources:
         - ${exampleBucketOwnershipControls}
 
   migrationBucket:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
     properties:
       forceDestroy: true
       serverSideEncryptionConfigurations:

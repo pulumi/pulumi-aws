@@ -21,7 +21,7 @@ import * as pulumi from '@pulumi/pulumi'
 import * as aws from '@pulumi/aws'
 
 // Dummy bucket to generate unknowns.
-const b = new aws.s3.BucketV2('bucket', {});
+const b = new aws.s3.Bucket('bucket', {});
 
 // Pass an unknown into assumeRole.roleArn.
 const provider = new aws.Provider("provider", {
@@ -29,4 +29,4 @@ const provider = new aws.Provider("provider", {
 });
 
 // If the bug is active, this fails because `pulumi preview` panics when trying to create the provider.
-new aws.s3.BucketV2('bucket2', {}, { provider })
+new aws.s3.Bucket('bucket2', {}, { provider })

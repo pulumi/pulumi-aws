@@ -19,7 +19,7 @@ import * as s3 from "@aws-sdk/client-s3";
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
-const bucket = new aws.s3.BucketV2("testbucket", {
+const bucket = new aws.s3.Bucket("testbucket", {
     serverSideEncryptionConfigurations: [{
         rules: [{
             applyServerSideEncryptionByDefaults: [{
@@ -54,7 +54,7 @@ bucket.onObjectCreated("bucket-callback", async (event) => {
 });
 
 // Another bucket with some strongly-typed routingRules.
-const websiteBucket = new aws.s3.BucketV2("websiteBucket", {
+const websiteBucket = new aws.s3.Bucket("websiteBucket", {
     websites: [{
         indexDocument: "index.html",
         routingRules: [{

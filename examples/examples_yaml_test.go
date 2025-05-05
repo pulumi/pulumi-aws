@@ -614,7 +614,7 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.
 		{
-			name: "bucket", token: "aws:s3:BucketV2", typ: "aws:s3/bucketV2:BucketV2",
+			name: "bucket", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
 			tags: map[string]interface{}{
 				"LocalTag": "foo",
 			},
@@ -629,7 +629,7 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 			},
 		},
 		{
-			name: "bucket_ignore_tags", token: "aws:s3:BucketV2", typ: "aws:s3/bucketV2:BucketV2",
+			name: "bucket_ignore_tags", token: "aws:s3:Bucket", typ: "aws:s3/bucket:Bucket",
 			tags: map[string]interface{}{
 				"LocalTag": "foo",
 			},
@@ -1074,7 +1074,7 @@ func TestAccDefaultTags(t *testing.T) {
 		// by Terraform, but they have different requirements for successful tag
 		// interactions. That is why we have tests for both resources.
 		{
-			name: "bucket", token: "aws:s3:BucketV2",
+			name: "bucket", token: "aws:s3:Bucket",
 		},
 		{
 			skip: "This doesn't work correctly in TF. Tracked in " +
