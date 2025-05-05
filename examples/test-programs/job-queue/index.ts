@@ -78,6 +78,7 @@ const computeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnviro
 const jobQueue = new aws.batch.JobQueue("testQueue", {
     computeEnvironmentOrders: [{
         computeEnvironment: computeEnvironment.arn,
+        order: 1,
     }],
     priority: 1,
     state: "ENABLED",

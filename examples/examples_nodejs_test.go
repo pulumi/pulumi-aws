@@ -23,6 +23,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
@@ -238,7 +239,7 @@ func TestAccLogGroup(t *testing.T) {
 func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "queue"),
+			Dir:           filepath.Join(getCwd(t), "queue", "step2"),
 			RunUpdateTest: true,
 		})
 	skipRefresh(&test)
@@ -810,7 +811,7 @@ func TestLogGroupUpgrade(t *testing.T) {
 }
 
 func TestQueueUpgrade(t *testing.T) {
-	testProviderUpgrade(t, filepath.Join("queue"), nodeProviderUpgradeOpts())
+	testProviderUpgrade(t, filepath.Join("queue"), nodeProviderUpgradeOpts(), optproviderupgrade.NewSourcePath(filepath.Join("queue", "step2")))
 }
 
 func TestRoute53Upgrade(t *testing.T) {

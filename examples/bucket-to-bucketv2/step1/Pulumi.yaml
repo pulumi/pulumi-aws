@@ -83,7 +83,7 @@ resources:
       rule:
         objectOwnership: BucketOwnerPreferred
   exampleBucketAclV2:
-    type: aws:s3:BucketAclV2
+    type: aws:s3:BucketAcl
     properties:
       bucket: ${loggingBucket.id}
       acl: log-delivery-write

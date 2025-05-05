@@ -16,13 +16,13 @@ import * as aws from "@pulumi/aws";
 import * as s3 from "@aws-sdk/client-s3";
 
 const bucket = new aws.s3.BucketV2("testbucket", {
-    serverSideEncryptionConfiguration: {
-        rule: {
-            applyServerSideEncryptionByDefault: {
+    serverSideEncryptionConfigurations: [{
+        rules: [{
+            applyServerSideEncryptionByDefaults: [{
                 sseAlgorithm: "AES256",
-            },
-        },
-    },
+            }],
+        }],
+    }],
     forceDestroy: true,
 });
 

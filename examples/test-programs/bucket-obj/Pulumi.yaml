@@ -2,10 +2,7 @@ name: bucket-obj
 runtime: yaml
 resources:
   myBucket:
-    properties:
-      websites:
-        - indexDocument: index.html
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
   myBucketIndex:
     properties:
       bucket: ${myBucket.id}
@@ -34,6 +31,12 @@ resources:
   #         ]
   #       }
   #   type: aws:s3:BucketPolicy
+  myBucketWebsiteConfig:
+    type: aws:s3:BucketWebsiteConfiguration
+    properties:
+      bucket: ${myBucket.id}
+      indexDocument: 
+        suffix: index.html
   myBucketPublicAccessBlock:
     properties:
       blockPublicAcls: true
