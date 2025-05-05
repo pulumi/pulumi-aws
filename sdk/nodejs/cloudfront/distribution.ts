@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         Name: "My bucket",
  *     },
  * });
- * const bAcl = new aws.s3.BucketAclV2("b_acl", {
+ * const bAcl = new aws.s3.BucketAcl("b_acl", {
  *     bucket: b.id,
  *     acl: "private",
  * });

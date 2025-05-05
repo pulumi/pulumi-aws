@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
  *         grants: [{
@@ -89,7 +89,7 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
  *         grants: [{

@@ -130,25 +130,25 @@ namespace Pulumi.Aws.S3
     ///         PolicyArn = replicationPolicy.Arn,
     ///     });
     /// 
-    ///     var destinationBucketVersioningV2 = new Aws.S3.BucketVersioningV2("destination", new()
+    ///     var destinationBucketVersioning = new Aws.S3.BucketVersioning("destination", new()
     ///     {
     ///         Bucket = destination.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    ///     var sourceBucketAcl = new Aws.S3.BucketAclV2("source_bucket_acl", new()
+    ///     var sourceBucketAcl = new Aws.S3.BucketAcl("source_bucket_acl", new()
     ///     {
     ///         Bucket = source.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var sourceBucketVersioningV2 = new Aws.S3.BucketVersioningV2("source", new()
+    ///     var sourceBucketVersioning = new Aws.S3.BucketVersioning("source", new()
     ///     {
     ///         Bucket = source.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             sourceBucketVersioningV2,
+    ///             sourceBucketVersioning,
     ///         },
     ///     });
     /// 
@@ -202,10 +202,10 @@ namespace Pulumi.Aws.S3
     ///         BucketName = "tf-test-bucket-east-12345",
     ///     });
     /// 
-    ///     var eastBucketVersioningV2 = new Aws.S3.BucketVersioningV2("east", new()
+    ///     var eastBucketVersioning = new Aws.S3.BucketVersioning("east", new()
     ///     {
     ///         Bucket = east.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -216,10 +216,10 @@ namespace Pulumi.Aws.S3
     ///         BucketName = "tf-test-bucket-west-12345",
     ///     });
     /// 
-    ///     var westBucketVersioningV2 = new Aws.S3.BucketVersioningV2("west", new()
+    ///     var westBucketVersioning = new Aws.S3.BucketVersioning("west", new()
     ///     {
     ///         Bucket = west.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             eastBucketVersioningV2,
+    ///             eastBucketVersioning,
     ///         },
     ///     });
     /// 
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             westBucketVersioningV2,
+    ///             westBucketVersioning,
     ///         },
     ///     });
     /// 

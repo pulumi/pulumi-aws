@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     bucket: "example",
  *     forceDestroy: true,
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: exampleBucket.id,
  *     acl: "private",
  * });

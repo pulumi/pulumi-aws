@@ -39,7 +39,7 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///     });
     /// 
-    ///     var bAcl = new Aws.S3.BucketAclV2("b_acl", new()
+    ///     var bAcl = new Aws.S3.BucketAcl("b_acl", new()
     ///     {
     ///         Bucket = b.Id,
     ///         Acl = "private",

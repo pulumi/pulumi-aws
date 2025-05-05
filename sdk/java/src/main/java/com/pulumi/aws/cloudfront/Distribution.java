@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "My bucket"))
  *             .build());
  * 
- *         var bAcl = new BucketAclV2("bAcl", BucketAclV2Args.builder()
+ *         var bAcl = new BucketAcl("bAcl", BucketAclArgs.builder()
  *             .bucket(b.id())
  *             .acl("private")
  *             .build());

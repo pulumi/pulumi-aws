@@ -369,7 +369,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.Bucket("example", bucket="my-bucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private")
         example_lustre_file_system = aws.fsx.LustreFileSystem("example",
@@ -437,7 +437,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.Bucket("example", bucket="my-bucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private")
         example_lustre_file_system = aws.fsx.LustreFileSystem("example",

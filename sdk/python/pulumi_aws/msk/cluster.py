@@ -728,7 +728,7 @@ class Cluster(pulumi.CustomResource):
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
         bucket = aws.s3.Bucket("bucket", bucket="msk-broker-logs-bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -897,7 +897,7 @@ class Cluster(pulumi.CustomResource):
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test", name="msk_broker_logs")
         bucket = aws.s3.Bucket("bucket", bucket="msk-broker-logs-bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{

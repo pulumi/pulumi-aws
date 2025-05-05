@@ -1162,271 +1162,269 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketAclV2AccessControlPolicy struct {
+type BucketAclAccessControlPolicy struct {
 	// Set of `grant` configuration blocks. See below.
-	Grants []BucketAclV2AccessControlPolicyGrant `pulumi:"grants"`
+	Grants []BucketAclAccessControlPolicyGrant `pulumi:"grants"`
 	// Configuration block for the bucket owner's display name and ID. See below.
-	Owner BucketAclV2AccessControlPolicyOwner `pulumi:"owner"`
+	Owner BucketAclAccessControlPolicyOwner `pulumi:"owner"`
 }
 
-// BucketAclV2AccessControlPolicyInput is an input type that accepts BucketAclV2AccessControlPolicyArgs and BucketAclV2AccessControlPolicyOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyInput` via:
+// BucketAclAccessControlPolicyInput is an input type that accepts BucketAclAccessControlPolicyArgs and BucketAclAccessControlPolicyOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyInput` via:
 //
-//	BucketAclV2AccessControlPolicyArgs{...}
-type BucketAclV2AccessControlPolicyInput interface {
+//	BucketAclAccessControlPolicyArgs{...}
+type BucketAclAccessControlPolicyInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyOutput() BucketAclV2AccessControlPolicyOutput
-	ToBucketAclV2AccessControlPolicyOutputWithContext(context.Context) BucketAclV2AccessControlPolicyOutput
+	ToBucketAclAccessControlPolicyOutput() BucketAclAccessControlPolicyOutput
+	ToBucketAclAccessControlPolicyOutputWithContext(context.Context) BucketAclAccessControlPolicyOutput
 }
 
-type BucketAclV2AccessControlPolicyArgs struct {
+type BucketAclAccessControlPolicyArgs struct {
 	// Set of `grant` configuration blocks. See below.
-	Grants BucketAclV2AccessControlPolicyGrantArrayInput `pulumi:"grants"`
+	Grants BucketAclAccessControlPolicyGrantArrayInput `pulumi:"grants"`
 	// Configuration block for the bucket owner's display name and ID. See below.
-	Owner BucketAclV2AccessControlPolicyOwnerInput `pulumi:"owner"`
+	Owner BucketAclAccessControlPolicyOwnerInput `pulumi:"owner"`
 }
 
-func (BucketAclV2AccessControlPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicy)(nil)).Elem()
+func (BucketAclAccessControlPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicy)(nil)).Elem()
 }
 
-func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyOutput() BucketAclV2AccessControlPolicyOutput {
-	return i.ToBucketAclV2AccessControlPolicyOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyArgs) ToBucketAclAccessControlPolicyOutput() BucketAclAccessControlPolicyOutput {
+	return i.ToBucketAclAccessControlPolicyOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOutput)
+func (i BucketAclAccessControlPolicyArgs) ToBucketAclAccessControlPolicyOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyOutput)
 }
 
-func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyPtrOutput() BucketAclV2AccessControlPolicyPtrOutput {
-	return i.ToBucketAclV2AccessControlPolicyPtrOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyArgs) ToBucketAclAccessControlPolicyPtrOutput() BucketAclAccessControlPolicyPtrOutput {
+	return i.ToBucketAclAccessControlPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOutput).ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx)
+func (i BucketAclAccessControlPolicyArgs) ToBucketAclAccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyOutput).ToBucketAclAccessControlPolicyPtrOutputWithContext(ctx)
 }
 
-// BucketAclV2AccessControlPolicyPtrInput is an input type that accepts BucketAclV2AccessControlPolicyArgs, BucketAclV2AccessControlPolicyPtr and BucketAclV2AccessControlPolicyPtrOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyPtrInput` via:
+// BucketAclAccessControlPolicyPtrInput is an input type that accepts BucketAclAccessControlPolicyArgs, BucketAclAccessControlPolicyPtr and BucketAclAccessControlPolicyPtrOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyPtrInput` via:
 //
-//	        BucketAclV2AccessControlPolicyArgs{...}
+//	        BucketAclAccessControlPolicyArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketAclV2AccessControlPolicyPtrInput interface {
+type BucketAclAccessControlPolicyPtrInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyPtrOutput() BucketAclV2AccessControlPolicyPtrOutput
-	ToBucketAclV2AccessControlPolicyPtrOutputWithContext(context.Context) BucketAclV2AccessControlPolicyPtrOutput
+	ToBucketAclAccessControlPolicyPtrOutput() BucketAclAccessControlPolicyPtrOutput
+	ToBucketAclAccessControlPolicyPtrOutputWithContext(context.Context) BucketAclAccessControlPolicyPtrOutput
 }
 
-type bucketAclV2AccessControlPolicyPtrType BucketAclV2AccessControlPolicyArgs
+type bucketAclAccessControlPolicyPtrType BucketAclAccessControlPolicyArgs
 
-func BucketAclV2AccessControlPolicyPtr(v *BucketAclV2AccessControlPolicyArgs) BucketAclV2AccessControlPolicyPtrInput {
-	return (*bucketAclV2AccessControlPolicyPtrType)(v)
+func BucketAclAccessControlPolicyPtr(v *BucketAclAccessControlPolicyArgs) BucketAclAccessControlPolicyPtrInput {
+	return (*bucketAclAccessControlPolicyPtrType)(v)
 }
 
-func (*bucketAclV2AccessControlPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketAclV2AccessControlPolicy)(nil)).Elem()
+func (*bucketAclAccessControlPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAclAccessControlPolicy)(nil)).Elem()
 }
 
-func (i *bucketAclV2AccessControlPolicyPtrType) ToBucketAclV2AccessControlPolicyPtrOutput() BucketAclV2AccessControlPolicyPtrOutput {
-	return i.ToBucketAclV2AccessControlPolicyPtrOutputWithContext(context.Background())
+func (i *bucketAclAccessControlPolicyPtrType) ToBucketAclAccessControlPolicyPtrOutput() BucketAclAccessControlPolicyPtrOutput {
+	return i.ToBucketAclAccessControlPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketAclV2AccessControlPolicyPtrType) ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyPtrOutput)
+func (i *bucketAclAccessControlPolicyPtrType) ToBucketAclAccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyPtrOutput)
 }
 
-type BucketAclV2AccessControlPolicyOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicy)(nil)).Elem()
+func (BucketAclAccessControlPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicy)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyOutput) ToBucketAclV2AccessControlPolicyOutput() BucketAclV2AccessControlPolicyOutput {
+func (o BucketAclAccessControlPolicyOutput) ToBucketAclAccessControlPolicyOutput() BucketAclAccessControlPolicyOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyOutput) ToBucketAclV2AccessControlPolicyOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOutput {
+func (o BucketAclAccessControlPolicyOutput) ToBucketAclAccessControlPolicyOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyOutput) ToBucketAclV2AccessControlPolicyPtrOutput() BucketAclV2AccessControlPolicyPtrOutput {
-	return o.ToBucketAclV2AccessControlPolicyPtrOutputWithContext(context.Background())
+func (o BucketAclAccessControlPolicyOutput) ToBucketAclAccessControlPolicyPtrOutput() BucketAclAccessControlPolicyPtrOutput {
+	return o.ToBucketAclAccessControlPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o BucketAclV2AccessControlPolicyOutput) ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclV2AccessControlPolicy) *BucketAclV2AccessControlPolicy {
+func (o BucketAclAccessControlPolicyOutput) ToBucketAclAccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclAccessControlPolicy) *BucketAclAccessControlPolicy {
 		return &v
-	}).(BucketAclV2AccessControlPolicyPtrOutput)
+	}).(BucketAclAccessControlPolicyPtrOutput)
 }
 
 // Set of `grant` configuration blocks. See below.
-func (o BucketAclV2AccessControlPolicyOutput) Grants() BucketAclV2AccessControlPolicyGrantArrayOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicy) []BucketAclV2AccessControlPolicyGrant { return v.Grants }).(BucketAclV2AccessControlPolicyGrantArrayOutput)
+func (o BucketAclAccessControlPolicyOutput) Grants() BucketAclAccessControlPolicyGrantArrayOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicy) []BucketAclAccessControlPolicyGrant { return v.Grants }).(BucketAclAccessControlPolicyGrantArrayOutput)
 }
 
 // Configuration block for the bucket owner's display name and ID. See below.
-func (o BucketAclV2AccessControlPolicyOutput) Owner() BucketAclV2AccessControlPolicyOwnerOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicy) BucketAclV2AccessControlPolicyOwner { return v.Owner }).(BucketAclV2AccessControlPolicyOwnerOutput)
+func (o BucketAclAccessControlPolicyOutput) Owner() BucketAclAccessControlPolicyOwnerOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicy) BucketAclAccessControlPolicyOwner { return v.Owner }).(BucketAclAccessControlPolicyOwnerOutput)
 }
 
-type BucketAclV2AccessControlPolicyPtrOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketAclV2AccessControlPolicy)(nil)).Elem()
+func (BucketAclAccessControlPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAclAccessControlPolicy)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyPtrOutput) ToBucketAclV2AccessControlPolicyPtrOutput() BucketAclV2AccessControlPolicyPtrOutput {
+func (o BucketAclAccessControlPolicyPtrOutput) ToBucketAclAccessControlPolicyPtrOutput() BucketAclAccessControlPolicyPtrOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyPtrOutput) ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyPtrOutput {
+func (o BucketAclAccessControlPolicyPtrOutput) ToBucketAclAccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyPtrOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyPtrOutput) Elem() BucketAclV2AccessControlPolicyOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicy) BucketAclV2AccessControlPolicy {
+func (o BucketAclAccessControlPolicyPtrOutput) Elem() BucketAclAccessControlPolicyOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicy) BucketAclAccessControlPolicy {
 		if v != nil {
 			return *v
 		}
-		var ret BucketAclV2AccessControlPolicy
+		var ret BucketAclAccessControlPolicy
 		return ret
-	}).(BucketAclV2AccessControlPolicyOutput)
+	}).(BucketAclAccessControlPolicyOutput)
 }
 
 // Set of `grant` configuration blocks. See below.
-func (o BucketAclV2AccessControlPolicyPtrOutput) Grants() BucketAclV2AccessControlPolicyGrantArrayOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicy) []BucketAclV2AccessControlPolicyGrant {
+func (o BucketAclAccessControlPolicyPtrOutput) Grants() BucketAclAccessControlPolicyGrantArrayOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicy) []BucketAclAccessControlPolicyGrant {
 		if v == nil {
 			return nil
 		}
 		return v.Grants
-	}).(BucketAclV2AccessControlPolicyGrantArrayOutput)
+	}).(BucketAclAccessControlPolicyGrantArrayOutput)
 }
 
 // Configuration block for the bucket owner's display name and ID. See below.
-func (o BucketAclV2AccessControlPolicyPtrOutput) Owner() BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicy) *BucketAclV2AccessControlPolicyOwner {
+func (o BucketAclAccessControlPolicyPtrOutput) Owner() BucketAclAccessControlPolicyOwnerPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicy) *BucketAclAccessControlPolicyOwner {
 		if v == nil {
 			return nil
 		}
 		return &v.Owner
-	}).(BucketAclV2AccessControlPolicyOwnerPtrOutput)
+	}).(BucketAclAccessControlPolicyOwnerPtrOutput)
 }
 
-type BucketAclV2AccessControlPolicyGrant struct {
+type BucketAclAccessControlPolicyGrant struct {
 	// Configuration block for the person being granted permissions. See below.
-	Grantee *BucketAclV2AccessControlPolicyGrantGrantee `pulumi:"grantee"`
+	Grantee *BucketAclAccessControlPolicyGrantGrantee `pulumi:"grantee"`
 	// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
 	Permission string `pulumi:"permission"`
 }
 
-// BucketAclV2AccessControlPolicyGrantInput is an input type that accepts BucketAclV2AccessControlPolicyGrantArgs and BucketAclV2AccessControlPolicyGrantOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantInput` via:
+// BucketAclAccessControlPolicyGrantInput is an input type that accepts BucketAclAccessControlPolicyGrantArgs and BucketAclAccessControlPolicyGrantOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyGrantInput` via:
 //
-//	BucketAclV2AccessControlPolicyGrantArgs{...}
-type BucketAclV2AccessControlPolicyGrantInput interface {
+//	BucketAclAccessControlPolicyGrantArgs{...}
+type BucketAclAccessControlPolicyGrantInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyGrantOutput() BucketAclV2AccessControlPolicyGrantOutput
-	ToBucketAclV2AccessControlPolicyGrantOutputWithContext(context.Context) BucketAclV2AccessControlPolicyGrantOutput
+	ToBucketAclAccessControlPolicyGrantOutput() BucketAclAccessControlPolicyGrantOutput
+	ToBucketAclAccessControlPolicyGrantOutputWithContext(context.Context) BucketAclAccessControlPolicyGrantOutput
 }
 
-type BucketAclV2AccessControlPolicyGrantArgs struct {
+type BucketAclAccessControlPolicyGrantArgs struct {
 	// Configuration block for the person being granted permissions. See below.
-	Grantee BucketAclV2AccessControlPolicyGrantGranteePtrInput `pulumi:"grantee"`
+	Grantee BucketAclAccessControlPolicyGrantGranteePtrInput `pulumi:"grantee"`
 	// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
 	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
-func (BucketAclV2AccessControlPolicyGrantArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicyGrant)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicyGrant)(nil)).Elem()
 }
 
-func (i BucketAclV2AccessControlPolicyGrantArgs) ToBucketAclV2AccessControlPolicyGrantOutput() BucketAclV2AccessControlPolicyGrantOutput {
-	return i.ToBucketAclV2AccessControlPolicyGrantOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyGrantArgs) ToBucketAclAccessControlPolicyGrantOutput() BucketAclAccessControlPolicyGrantOutput {
+	return i.ToBucketAclAccessControlPolicyGrantOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyGrantArgs) ToBucketAclV2AccessControlPolicyGrantOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantOutput)
+func (i BucketAclAccessControlPolicyGrantArgs) ToBucketAclAccessControlPolicyGrantOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyGrantOutput)
 }
 
-// BucketAclV2AccessControlPolicyGrantArrayInput is an input type that accepts BucketAclV2AccessControlPolicyGrantArray and BucketAclV2AccessControlPolicyGrantArrayOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantArrayInput` via:
+// BucketAclAccessControlPolicyGrantArrayInput is an input type that accepts BucketAclAccessControlPolicyGrantArray and BucketAclAccessControlPolicyGrantArrayOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyGrantArrayInput` via:
 //
-//	BucketAclV2AccessControlPolicyGrantArray{ BucketAclV2AccessControlPolicyGrantArgs{...} }
-type BucketAclV2AccessControlPolicyGrantArrayInput interface {
+//	BucketAclAccessControlPolicyGrantArray{ BucketAclAccessControlPolicyGrantArgs{...} }
+type BucketAclAccessControlPolicyGrantArrayInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyGrantArrayOutput() BucketAclV2AccessControlPolicyGrantArrayOutput
-	ToBucketAclV2AccessControlPolicyGrantArrayOutputWithContext(context.Context) BucketAclV2AccessControlPolicyGrantArrayOutput
+	ToBucketAclAccessControlPolicyGrantArrayOutput() BucketAclAccessControlPolicyGrantArrayOutput
+	ToBucketAclAccessControlPolicyGrantArrayOutputWithContext(context.Context) BucketAclAccessControlPolicyGrantArrayOutput
 }
 
-type BucketAclV2AccessControlPolicyGrantArray []BucketAclV2AccessControlPolicyGrantInput
+type BucketAclAccessControlPolicyGrantArray []BucketAclAccessControlPolicyGrantInput
 
-func (BucketAclV2AccessControlPolicyGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketAclV2AccessControlPolicyGrant)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketAclAccessControlPolicyGrant)(nil)).Elem()
 }
 
-func (i BucketAclV2AccessControlPolicyGrantArray) ToBucketAclV2AccessControlPolicyGrantArrayOutput() BucketAclV2AccessControlPolicyGrantArrayOutput {
-	return i.ToBucketAclV2AccessControlPolicyGrantArrayOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyGrantArray) ToBucketAclAccessControlPolicyGrantArrayOutput() BucketAclAccessControlPolicyGrantArrayOutput {
+	return i.ToBucketAclAccessControlPolicyGrantArrayOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyGrantArray) ToBucketAclV2AccessControlPolicyGrantArrayOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantArrayOutput)
+func (i BucketAclAccessControlPolicyGrantArray) ToBucketAclAccessControlPolicyGrantArrayOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyGrantArrayOutput)
 }
 
-type BucketAclV2AccessControlPolicyGrantOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyGrantOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicyGrant)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicyGrant)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyGrantOutput) ToBucketAclV2AccessControlPolicyGrantOutput() BucketAclV2AccessControlPolicyGrantOutput {
+func (o BucketAclAccessControlPolicyGrantOutput) ToBucketAclAccessControlPolicyGrantOutput() BucketAclAccessControlPolicyGrantOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantOutput) ToBucketAclV2AccessControlPolicyGrantOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantOutput {
+func (o BucketAclAccessControlPolicyGrantOutput) ToBucketAclAccessControlPolicyGrantOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantOutput {
 	return o
 }
 
 // Configuration block for the person being granted permissions. See below.
-func (o BucketAclV2AccessControlPolicyGrantOutput) Grantee() BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrant) *BucketAclV2AccessControlPolicyGrantGrantee {
-		return v.Grantee
-	}).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
+func (o BucketAclAccessControlPolicyGrantOutput) Grantee() BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrant) *BucketAclAccessControlPolicyGrantGrantee { return v.Grantee }).(BucketAclAccessControlPolicyGrantGranteePtrOutput)
 }
 
 // Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
-func (o BucketAclV2AccessControlPolicyGrantOutput) Permission() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrant) string { return v.Permission }).(pulumi.StringOutput)
+func (o BucketAclAccessControlPolicyGrantOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrant) string { return v.Permission }).(pulumi.StringOutput)
 }
 
-type BucketAclV2AccessControlPolicyGrantArrayOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyGrantArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketAclV2AccessControlPolicyGrant)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketAclAccessControlPolicyGrant)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyGrantArrayOutput) ToBucketAclV2AccessControlPolicyGrantArrayOutput() BucketAclV2AccessControlPolicyGrantArrayOutput {
+func (o BucketAclAccessControlPolicyGrantArrayOutput) ToBucketAclAccessControlPolicyGrantArrayOutput() BucketAclAccessControlPolicyGrantArrayOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantArrayOutput) ToBucketAclV2AccessControlPolicyGrantArrayOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantArrayOutput {
+func (o BucketAclAccessControlPolicyGrantArrayOutput) ToBucketAclAccessControlPolicyGrantArrayOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantArrayOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput) BucketAclV2AccessControlPolicyGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketAclV2AccessControlPolicyGrant {
-		return vs[0].([]BucketAclV2AccessControlPolicyGrant)[vs[1].(int)]
-	}).(BucketAclV2AccessControlPolicyGrantOutput)
+func (o BucketAclAccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput) BucketAclAccessControlPolicyGrantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketAclAccessControlPolicyGrant {
+		return vs[0].([]BucketAclAccessControlPolicyGrant)[vs[1].(int)]
+	}).(BucketAclAccessControlPolicyGrantOutput)
 }
 
-type BucketAclV2AccessControlPolicyGrantGrantee struct {
+type BucketAclAccessControlPolicyGrantGrantee struct {
 	// Display name of the owner.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -1439,18 +1437,18 @@ type BucketAclV2AccessControlPolicyGrantGrantee struct {
 	Uri *string `pulumi:"uri"`
 }
 
-// BucketAclV2AccessControlPolicyGrantGranteeInput is an input type that accepts BucketAclV2AccessControlPolicyGrantGranteeArgs and BucketAclV2AccessControlPolicyGrantGranteeOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantGranteeInput` via:
+// BucketAclAccessControlPolicyGrantGranteeInput is an input type that accepts BucketAclAccessControlPolicyGrantGranteeArgs and BucketAclAccessControlPolicyGrantGranteeOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyGrantGranteeInput` via:
 //
-//	BucketAclV2AccessControlPolicyGrantGranteeArgs{...}
-type BucketAclV2AccessControlPolicyGrantGranteeInput interface {
+//	BucketAclAccessControlPolicyGrantGranteeArgs{...}
+type BucketAclAccessControlPolicyGrantGranteeInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyGrantGranteeOutput() BucketAclV2AccessControlPolicyGrantGranteeOutput
-	ToBucketAclV2AccessControlPolicyGrantGranteeOutputWithContext(context.Context) BucketAclV2AccessControlPolicyGrantGranteeOutput
+	ToBucketAclAccessControlPolicyGrantGranteeOutput() BucketAclAccessControlPolicyGrantGranteeOutput
+	ToBucketAclAccessControlPolicyGrantGranteeOutputWithContext(context.Context) BucketAclAccessControlPolicyGrantGranteeOutput
 }
 
-type BucketAclV2AccessControlPolicyGrantGranteeArgs struct {
+type BucketAclAccessControlPolicyGrantGranteeArgs struct {
 	// Display name of the owner.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -1463,135 +1461,135 @@ type BucketAclV2AccessControlPolicyGrantGranteeArgs struct {
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
-func (BucketAclV2AccessControlPolicyGrantGranteeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicyGrantGrantee)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantGranteeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicyGrantGrantee)(nil)).Elem()
 }
 
-func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessControlPolicyGrantGranteeOutput() BucketAclV2AccessControlPolicyGrantGranteeOutput {
-	return i.ToBucketAclV2AccessControlPolicyGrantGranteeOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyGrantGranteeArgs) ToBucketAclAccessControlPolicyGrantGranteeOutput() BucketAclAccessControlPolicyGrantGranteeOutput {
+	return i.ToBucketAclAccessControlPolicyGrantGranteeOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessControlPolicyGrantGranteeOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantGranteeOutput)
+func (i BucketAclAccessControlPolicyGrantGranteeArgs) ToBucketAclAccessControlPolicyGrantGranteeOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantGranteeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyGrantGranteeOutput)
 }
 
-func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutput() BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return i.ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyGrantGranteeArgs) ToBucketAclAccessControlPolicyGrantGranteePtrOutput() BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return i.ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantGranteeOutput).ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx)
+func (i BucketAclAccessControlPolicyGrantGranteeArgs) ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyGrantGranteeOutput).ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(ctx)
 }
 
-// BucketAclV2AccessControlPolicyGrantGranteePtrInput is an input type that accepts BucketAclV2AccessControlPolicyGrantGranteeArgs, BucketAclV2AccessControlPolicyGrantGranteePtr and BucketAclV2AccessControlPolicyGrantGranteePtrOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantGranteePtrInput` via:
+// BucketAclAccessControlPolicyGrantGranteePtrInput is an input type that accepts BucketAclAccessControlPolicyGrantGranteeArgs, BucketAclAccessControlPolicyGrantGranteePtr and BucketAclAccessControlPolicyGrantGranteePtrOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyGrantGranteePtrInput` via:
 //
-//	        BucketAclV2AccessControlPolicyGrantGranteeArgs{...}
+//	        BucketAclAccessControlPolicyGrantGranteeArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketAclV2AccessControlPolicyGrantGranteePtrInput interface {
+type BucketAclAccessControlPolicyGrantGranteePtrInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyGrantGranteePtrOutput() BucketAclV2AccessControlPolicyGrantGranteePtrOutput
-	ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(context.Context) BucketAclV2AccessControlPolicyGrantGranteePtrOutput
+	ToBucketAclAccessControlPolicyGrantGranteePtrOutput() BucketAclAccessControlPolicyGrantGranteePtrOutput
+	ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(context.Context) BucketAclAccessControlPolicyGrantGranteePtrOutput
 }
 
-type bucketAclV2AccessControlPolicyGrantGranteePtrType BucketAclV2AccessControlPolicyGrantGranteeArgs
+type bucketAclAccessControlPolicyGrantGranteePtrType BucketAclAccessControlPolicyGrantGranteeArgs
 
-func BucketAclV2AccessControlPolicyGrantGranteePtr(v *BucketAclV2AccessControlPolicyGrantGranteeArgs) BucketAclV2AccessControlPolicyGrantGranteePtrInput {
-	return (*bucketAclV2AccessControlPolicyGrantGranteePtrType)(v)
+func BucketAclAccessControlPolicyGrantGranteePtr(v *BucketAclAccessControlPolicyGrantGranteeArgs) BucketAclAccessControlPolicyGrantGranteePtrInput {
+	return (*bucketAclAccessControlPolicyGrantGranteePtrType)(v)
 }
 
-func (*bucketAclV2AccessControlPolicyGrantGranteePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketAclV2AccessControlPolicyGrantGrantee)(nil)).Elem()
+func (*bucketAclAccessControlPolicyGrantGranteePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAclAccessControlPolicyGrantGrantee)(nil)).Elem()
 }
 
-func (i *bucketAclV2AccessControlPolicyGrantGranteePtrType) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutput() BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return i.ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
+func (i *bucketAclAccessControlPolicyGrantGranteePtrType) ToBucketAclAccessControlPolicyGrantGranteePtrOutput() BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return i.ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
 }
 
-func (i *bucketAclV2AccessControlPolicyGrantGranteePtrType) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
+func (i *bucketAclAccessControlPolicyGrantGranteePtrType) ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyGrantGranteePtrOutput)
 }
 
-type BucketAclV2AccessControlPolicyGrantGranteeOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyGrantGranteeOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyGrantGranteeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicyGrantGrantee)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantGranteeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicyGrantGrantee)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessControlPolicyGrantGranteeOutput() BucketAclV2AccessControlPolicyGrantGranteeOutput {
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) ToBucketAclAccessControlPolicyGrantGranteeOutput() BucketAclAccessControlPolicyGrantGranteeOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessControlPolicyGrantGranteeOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteeOutput {
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) ToBucketAclAccessControlPolicyGrantGranteeOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantGranteeOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutput() BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return o.ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) ToBucketAclAccessControlPolicyGrantGranteePtrOutput() BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return o.ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclV2AccessControlPolicyGrantGrantee) *BucketAclV2AccessControlPolicyGrantGrantee {
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantGranteePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclAccessControlPolicyGrantGrantee) *BucketAclAccessControlPolicyGrantGrantee {
 		return &v
-	}).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
+	}).(BucketAclAccessControlPolicyGrantGranteePtrOutput)
 }
 
 // Display name of the owner.
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrantGrantee) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
 // Canonical user ID of the grantee.
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrantGrantee) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) string { return v.Type }).(pulumi.StringOutput)
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrantGrantee) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // URI of the grantee group.
-func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) *string { return v.Uri }).(pulumi.StringPtrOutput)
+func (o BucketAclAccessControlPolicyGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyGrantGrantee) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-type BucketAclV2AccessControlPolicyGrantGranteePtrOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyGrantGranteePtrOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyGrantGranteePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketAclV2AccessControlPolicyGrantGrantee)(nil)).Elem()
+func (BucketAclAccessControlPolicyGrantGranteePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAclAccessControlPolicyGrantGrantee)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutput() BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) ToBucketAclAccessControlPolicyGrantGranteePtrOutput() BucketAclAccessControlPolicyGrantGranteePtrOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) ToBucketAclAccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyGrantGranteePtrOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Elem() BucketAclV2AccessControlPolicyGrantGranteeOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) BucketAclV2AccessControlPolicyGrantGrantee {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) Elem() BucketAclAccessControlPolicyGrantGranteeOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) BucketAclAccessControlPolicyGrantGrantee {
 		if v != nil {
 			return *v
 		}
-		var ret BucketAclV2AccessControlPolicyGrantGrantee
+		var ret BucketAclAccessControlPolicyGrantGrantee
 		return ret
-	}).(BucketAclV2AccessControlPolicyGrantGranteeOutput)
+	}).(BucketAclAccessControlPolicyGrantGranteeOutput)
 }
 
 // Display name of the owner.
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
 			return nil
 		}
@@ -1600,8 +1598,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) DisplayName() pulum
 }
 
 // Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
 			return nil
 		}
@@ -1610,8 +1608,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) EmailAddress() pulu
 }
 
 // Canonical user ID of the grantee.
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
 			return nil
 		}
@@ -1620,8 +1618,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Id() pulumi.StringP
 }
 
 // Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
 			return nil
 		}
@@ -1630,8 +1628,8 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Type() pulumi.Strin
 }
 
 // URI of the grantee group.
-func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
+func (o BucketAclAccessControlPolicyGrantGranteePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
 			return nil
 		}
@@ -1639,145 +1637,145 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Uri() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketAclV2AccessControlPolicyOwner struct {
+type BucketAclAccessControlPolicyOwner struct {
 	// Display name of the owner.
 	DisplayName *string `pulumi:"displayName"`
 	// ID of the owner.
 	Id string `pulumi:"id"`
 }
 
-// BucketAclV2AccessControlPolicyOwnerInput is an input type that accepts BucketAclV2AccessControlPolicyOwnerArgs and BucketAclV2AccessControlPolicyOwnerOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyOwnerInput` via:
+// BucketAclAccessControlPolicyOwnerInput is an input type that accepts BucketAclAccessControlPolicyOwnerArgs and BucketAclAccessControlPolicyOwnerOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyOwnerInput` via:
 //
-//	BucketAclV2AccessControlPolicyOwnerArgs{...}
-type BucketAclV2AccessControlPolicyOwnerInput interface {
+//	BucketAclAccessControlPolicyOwnerArgs{...}
+type BucketAclAccessControlPolicyOwnerInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyOwnerOutput() BucketAclV2AccessControlPolicyOwnerOutput
-	ToBucketAclV2AccessControlPolicyOwnerOutputWithContext(context.Context) BucketAclV2AccessControlPolicyOwnerOutput
+	ToBucketAclAccessControlPolicyOwnerOutput() BucketAclAccessControlPolicyOwnerOutput
+	ToBucketAclAccessControlPolicyOwnerOutputWithContext(context.Context) BucketAclAccessControlPolicyOwnerOutput
 }
 
-type BucketAclV2AccessControlPolicyOwnerArgs struct {
+type BucketAclAccessControlPolicyOwnerArgs struct {
 	// Display name of the owner.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// ID of the owner.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (BucketAclV2AccessControlPolicyOwnerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicyOwner)(nil)).Elem()
+func (BucketAclAccessControlPolicyOwnerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicyOwner)(nil)).Elem()
 }
 
-func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolicyOwnerOutput() BucketAclV2AccessControlPolicyOwnerOutput {
-	return i.ToBucketAclV2AccessControlPolicyOwnerOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyOwnerArgs) ToBucketAclAccessControlPolicyOwnerOutput() BucketAclAccessControlPolicyOwnerOutput {
+	return i.ToBucketAclAccessControlPolicyOwnerOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolicyOwnerOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOwnerOutput)
+func (i BucketAclAccessControlPolicyOwnerArgs) ToBucketAclAccessControlPolicyOwnerOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOwnerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyOwnerOutput)
 }
 
-func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolicyOwnerPtrOutput() BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return i.ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(context.Background())
+func (i BucketAclAccessControlPolicyOwnerArgs) ToBucketAclAccessControlPolicyOwnerPtrOutput() BucketAclAccessControlPolicyOwnerPtrOutput {
+	return i.ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(context.Background())
 }
 
-func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOwnerOutput).ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx)
+func (i BucketAclAccessControlPolicyOwnerArgs) ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOwnerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyOwnerOutput).ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(ctx)
 }
 
-// BucketAclV2AccessControlPolicyOwnerPtrInput is an input type that accepts BucketAclV2AccessControlPolicyOwnerArgs, BucketAclV2AccessControlPolicyOwnerPtr and BucketAclV2AccessControlPolicyOwnerPtrOutput values.
-// You can construct a concrete instance of `BucketAclV2AccessControlPolicyOwnerPtrInput` via:
+// BucketAclAccessControlPolicyOwnerPtrInput is an input type that accepts BucketAclAccessControlPolicyOwnerArgs, BucketAclAccessControlPolicyOwnerPtr and BucketAclAccessControlPolicyOwnerPtrOutput values.
+// You can construct a concrete instance of `BucketAclAccessControlPolicyOwnerPtrInput` via:
 //
-//	        BucketAclV2AccessControlPolicyOwnerArgs{...}
+//	        BucketAclAccessControlPolicyOwnerArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketAclV2AccessControlPolicyOwnerPtrInput interface {
+type BucketAclAccessControlPolicyOwnerPtrInput interface {
 	pulumi.Input
 
-	ToBucketAclV2AccessControlPolicyOwnerPtrOutput() BucketAclV2AccessControlPolicyOwnerPtrOutput
-	ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(context.Context) BucketAclV2AccessControlPolicyOwnerPtrOutput
+	ToBucketAclAccessControlPolicyOwnerPtrOutput() BucketAclAccessControlPolicyOwnerPtrOutput
+	ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(context.Context) BucketAclAccessControlPolicyOwnerPtrOutput
 }
 
-type bucketAclV2AccessControlPolicyOwnerPtrType BucketAclV2AccessControlPolicyOwnerArgs
+type bucketAclAccessControlPolicyOwnerPtrType BucketAclAccessControlPolicyOwnerArgs
 
-func BucketAclV2AccessControlPolicyOwnerPtr(v *BucketAclV2AccessControlPolicyOwnerArgs) BucketAclV2AccessControlPolicyOwnerPtrInput {
-	return (*bucketAclV2AccessControlPolicyOwnerPtrType)(v)
+func BucketAclAccessControlPolicyOwnerPtr(v *BucketAclAccessControlPolicyOwnerArgs) BucketAclAccessControlPolicyOwnerPtrInput {
+	return (*bucketAclAccessControlPolicyOwnerPtrType)(v)
 }
 
-func (*bucketAclV2AccessControlPolicyOwnerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketAclV2AccessControlPolicyOwner)(nil)).Elem()
+func (*bucketAclAccessControlPolicyOwnerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAclAccessControlPolicyOwner)(nil)).Elem()
 }
 
-func (i *bucketAclV2AccessControlPolicyOwnerPtrType) ToBucketAclV2AccessControlPolicyOwnerPtrOutput() BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return i.ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(context.Background())
+func (i *bucketAclAccessControlPolicyOwnerPtrType) ToBucketAclAccessControlPolicyOwnerPtrOutput() BucketAclAccessControlPolicyOwnerPtrOutput {
+	return i.ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketAclV2AccessControlPolicyOwnerPtrType) ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOwnerPtrOutput)
+func (i *bucketAclAccessControlPolicyOwnerPtrType) ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOwnerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAclAccessControlPolicyOwnerPtrOutput)
 }
 
-type BucketAclV2AccessControlPolicyOwnerOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyOwnerOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyOwnerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketAclV2AccessControlPolicyOwner)(nil)).Elem()
+func (BucketAclAccessControlPolicyOwnerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAclAccessControlPolicyOwner)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerOutput) ToBucketAclV2AccessControlPolicyOwnerOutput() BucketAclV2AccessControlPolicyOwnerOutput {
+func (o BucketAclAccessControlPolicyOwnerOutput) ToBucketAclAccessControlPolicyOwnerOutput() BucketAclAccessControlPolicyOwnerOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerOutput) ToBucketAclV2AccessControlPolicyOwnerOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerOutput {
+func (o BucketAclAccessControlPolicyOwnerOutput) ToBucketAclAccessControlPolicyOwnerOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOwnerOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerOutput) ToBucketAclV2AccessControlPolicyOwnerPtrOutput() BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return o.ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(context.Background())
+func (o BucketAclAccessControlPolicyOwnerOutput) ToBucketAclAccessControlPolicyOwnerPtrOutput() BucketAclAccessControlPolicyOwnerPtrOutput {
+	return o.ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(context.Background())
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerOutput) ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclV2AccessControlPolicyOwner) *BucketAclV2AccessControlPolicyOwner {
+func (o BucketAclAccessControlPolicyOwnerOutput) ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOwnerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclAccessControlPolicyOwner) *BucketAclAccessControlPolicyOwner {
 		return &v
-	}).(BucketAclV2AccessControlPolicyOwnerPtrOutput)
+	}).(BucketAclAccessControlPolicyOwnerPtrOutput)
 }
 
 // Display name of the owner.
-func (o BucketAclV2AccessControlPolicyOwnerOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o BucketAclAccessControlPolicyOwnerOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // ID of the owner.
-func (o BucketAclV2AccessControlPolicyOwnerOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketAclV2AccessControlPolicyOwner) string { return v.Id }).(pulumi.StringOutput)
+func (o BucketAclAccessControlPolicyOwnerOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAclAccessControlPolicyOwner) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type BucketAclV2AccessControlPolicyOwnerPtrOutput struct{ *pulumi.OutputState }
+type BucketAclAccessControlPolicyOwnerPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketAclV2AccessControlPolicyOwnerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketAclV2AccessControlPolicyOwner)(nil)).Elem()
+func (BucketAclAccessControlPolicyOwnerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAclAccessControlPolicyOwner)(nil)).Elem()
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) ToBucketAclV2AccessControlPolicyOwnerPtrOutput() BucketAclV2AccessControlPolicyOwnerPtrOutput {
+func (o BucketAclAccessControlPolicyOwnerPtrOutput) ToBucketAclAccessControlPolicyOwnerPtrOutput() BucketAclAccessControlPolicyOwnerPtrOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerPtrOutput {
+func (o BucketAclAccessControlPolicyOwnerPtrOutput) ToBucketAclAccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclAccessControlPolicyOwnerPtrOutput {
 	return o
 }
 
-func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) Elem() BucketAclV2AccessControlPolicyOwnerOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyOwner) BucketAclV2AccessControlPolicyOwner {
+func (o BucketAclAccessControlPolicyOwnerPtrOutput) Elem() BucketAclAccessControlPolicyOwnerOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyOwner) BucketAclAccessControlPolicyOwner {
 		if v != nil {
 			return *v
 		}
-		var ret BucketAclV2AccessControlPolicyOwner
+		var ret BucketAclAccessControlPolicyOwner
 		return ret
-	}).(BucketAclV2AccessControlPolicyOwnerOutput)
+	}).(BucketAclAccessControlPolicyOwnerOutput)
 }
 
 // Display name of the owner.
-func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyOwner) *string {
+func (o BucketAclAccessControlPolicyOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyOwner) *string {
 		if v == nil {
 			return nil
 		}
@@ -1786,8 +1784,8 @@ func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) DisplayName() pulumi.Strin
 }
 
 // ID of the owner.
-func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyOwner) *string {
+func (o BucketAclAccessControlPolicyOwnerPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAclAccessControlPolicyOwner) *string {
 		if v == nil {
 			return nil
 		}
@@ -1795,7 +1793,7 @@ func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketCorsConfigurationV2CorsRule struct {
+type BucketCorsConfigurationCorsRule struct {
 	// Set of Headers that are specified in the `Access-Control-Request-Headers` header.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
 	// Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
@@ -1810,18 +1808,18 @@ type BucketCorsConfigurationV2CorsRule struct {
 	MaxAgeSeconds *int `pulumi:"maxAgeSeconds"`
 }
 
-// BucketCorsConfigurationV2CorsRuleInput is an input type that accepts BucketCorsConfigurationV2CorsRuleArgs and BucketCorsConfigurationV2CorsRuleOutput values.
-// You can construct a concrete instance of `BucketCorsConfigurationV2CorsRuleInput` via:
+// BucketCorsConfigurationCorsRuleInput is an input type that accepts BucketCorsConfigurationCorsRuleArgs and BucketCorsConfigurationCorsRuleOutput values.
+// You can construct a concrete instance of `BucketCorsConfigurationCorsRuleInput` via:
 //
-//	BucketCorsConfigurationV2CorsRuleArgs{...}
-type BucketCorsConfigurationV2CorsRuleInput interface {
+//	BucketCorsConfigurationCorsRuleArgs{...}
+type BucketCorsConfigurationCorsRuleInput interface {
 	pulumi.Input
 
-	ToBucketCorsConfigurationV2CorsRuleOutput() BucketCorsConfigurationV2CorsRuleOutput
-	ToBucketCorsConfigurationV2CorsRuleOutputWithContext(context.Context) BucketCorsConfigurationV2CorsRuleOutput
+	ToBucketCorsConfigurationCorsRuleOutput() BucketCorsConfigurationCorsRuleOutput
+	ToBucketCorsConfigurationCorsRuleOutputWithContext(context.Context) BucketCorsConfigurationCorsRuleOutput
 }
 
-type BucketCorsConfigurationV2CorsRuleArgs struct {
+type BucketCorsConfigurationCorsRuleArgs struct {
 	// Set of Headers that are specified in the `Access-Control-Request-Headers` header.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
 	// Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
@@ -1836,105 +1834,105 @@ type BucketCorsConfigurationV2CorsRuleArgs struct {
 	MaxAgeSeconds pulumi.IntPtrInput `pulumi:"maxAgeSeconds"`
 }
 
-func (BucketCorsConfigurationV2CorsRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketCorsConfigurationV2CorsRule)(nil)).Elem()
+func (BucketCorsConfigurationCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsConfigurationCorsRule)(nil)).Elem()
 }
 
-func (i BucketCorsConfigurationV2CorsRuleArgs) ToBucketCorsConfigurationV2CorsRuleOutput() BucketCorsConfigurationV2CorsRuleOutput {
-	return i.ToBucketCorsConfigurationV2CorsRuleOutputWithContext(context.Background())
+func (i BucketCorsConfigurationCorsRuleArgs) ToBucketCorsConfigurationCorsRuleOutput() BucketCorsConfigurationCorsRuleOutput {
+	return i.ToBucketCorsConfigurationCorsRuleOutputWithContext(context.Background())
 }
 
-func (i BucketCorsConfigurationV2CorsRuleArgs) ToBucketCorsConfigurationV2CorsRuleOutputWithContext(ctx context.Context) BucketCorsConfigurationV2CorsRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2CorsRuleOutput)
+func (i BucketCorsConfigurationCorsRuleArgs) ToBucketCorsConfigurationCorsRuleOutputWithContext(ctx context.Context) BucketCorsConfigurationCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationCorsRuleOutput)
 }
 
-// BucketCorsConfigurationV2CorsRuleArrayInput is an input type that accepts BucketCorsConfigurationV2CorsRuleArray and BucketCorsConfigurationV2CorsRuleArrayOutput values.
-// You can construct a concrete instance of `BucketCorsConfigurationV2CorsRuleArrayInput` via:
+// BucketCorsConfigurationCorsRuleArrayInput is an input type that accepts BucketCorsConfigurationCorsRuleArray and BucketCorsConfigurationCorsRuleArrayOutput values.
+// You can construct a concrete instance of `BucketCorsConfigurationCorsRuleArrayInput` via:
 //
-//	BucketCorsConfigurationV2CorsRuleArray{ BucketCorsConfigurationV2CorsRuleArgs{...} }
-type BucketCorsConfigurationV2CorsRuleArrayInput interface {
+//	BucketCorsConfigurationCorsRuleArray{ BucketCorsConfigurationCorsRuleArgs{...} }
+type BucketCorsConfigurationCorsRuleArrayInput interface {
 	pulumi.Input
 
-	ToBucketCorsConfigurationV2CorsRuleArrayOutput() BucketCorsConfigurationV2CorsRuleArrayOutput
-	ToBucketCorsConfigurationV2CorsRuleArrayOutputWithContext(context.Context) BucketCorsConfigurationV2CorsRuleArrayOutput
+	ToBucketCorsConfigurationCorsRuleArrayOutput() BucketCorsConfigurationCorsRuleArrayOutput
+	ToBucketCorsConfigurationCorsRuleArrayOutputWithContext(context.Context) BucketCorsConfigurationCorsRuleArrayOutput
 }
 
-type BucketCorsConfigurationV2CorsRuleArray []BucketCorsConfigurationV2CorsRuleInput
+type BucketCorsConfigurationCorsRuleArray []BucketCorsConfigurationCorsRuleInput
 
-func (BucketCorsConfigurationV2CorsRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketCorsConfigurationV2CorsRule)(nil)).Elem()
+func (BucketCorsConfigurationCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketCorsConfigurationCorsRule)(nil)).Elem()
 }
 
-func (i BucketCorsConfigurationV2CorsRuleArray) ToBucketCorsConfigurationV2CorsRuleArrayOutput() BucketCorsConfigurationV2CorsRuleArrayOutput {
-	return i.ToBucketCorsConfigurationV2CorsRuleArrayOutputWithContext(context.Background())
+func (i BucketCorsConfigurationCorsRuleArray) ToBucketCorsConfigurationCorsRuleArrayOutput() BucketCorsConfigurationCorsRuleArrayOutput {
+	return i.ToBucketCorsConfigurationCorsRuleArrayOutputWithContext(context.Background())
 }
 
-func (i BucketCorsConfigurationV2CorsRuleArray) ToBucketCorsConfigurationV2CorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsConfigurationV2CorsRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2CorsRuleArrayOutput)
+func (i BucketCorsConfigurationCorsRuleArray) ToBucketCorsConfigurationCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsConfigurationCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationCorsRuleArrayOutput)
 }
 
-type BucketCorsConfigurationV2CorsRuleOutput struct{ *pulumi.OutputState }
+type BucketCorsConfigurationCorsRuleOutput struct{ *pulumi.OutputState }
 
-func (BucketCorsConfigurationV2CorsRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketCorsConfigurationV2CorsRule)(nil)).Elem()
+func (BucketCorsConfigurationCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsConfigurationCorsRule)(nil)).Elem()
 }
 
-func (o BucketCorsConfigurationV2CorsRuleOutput) ToBucketCorsConfigurationV2CorsRuleOutput() BucketCorsConfigurationV2CorsRuleOutput {
+func (o BucketCorsConfigurationCorsRuleOutput) ToBucketCorsConfigurationCorsRuleOutput() BucketCorsConfigurationCorsRuleOutput {
 	return o
 }
 
-func (o BucketCorsConfigurationV2CorsRuleOutput) ToBucketCorsConfigurationV2CorsRuleOutputWithContext(ctx context.Context) BucketCorsConfigurationV2CorsRuleOutput {
+func (o BucketCorsConfigurationCorsRuleOutput) ToBucketCorsConfigurationCorsRuleOutputWithContext(ctx context.Context) BucketCorsConfigurationCorsRuleOutput {
 	return o
 }
 
 // Set of Headers that are specified in the `Access-Control-Request-Headers` header.
-func (o BucketCorsConfigurationV2CorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BucketCorsConfigurationV2CorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+func (o BucketCorsConfigurationCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsConfigurationCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
 // Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
-func (o BucketCorsConfigurationV2CorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BucketCorsConfigurationV2CorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+func (o BucketCorsConfigurationCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsConfigurationCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Set of origins you want customers to be able to access the bucket from.
-func (o BucketCorsConfigurationV2CorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BucketCorsConfigurationV2CorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+func (o BucketCorsConfigurationCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsConfigurationCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
 // Set of headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
-func (o BucketCorsConfigurationV2CorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BucketCorsConfigurationV2CorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+func (o BucketCorsConfigurationCorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsConfigurationCorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
 // Unique identifier for the rule. The value cannot be longer than 255 characters.
-func (o BucketCorsConfigurationV2CorsRuleOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketCorsConfigurationV2CorsRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o BucketCorsConfigurationCorsRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketCorsConfigurationCorsRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Time in seconds that your browser is to cache the preflight response for the specified resource.
-func (o BucketCorsConfigurationV2CorsRuleOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketCorsConfigurationV2CorsRule) *int { return v.MaxAgeSeconds }).(pulumi.IntPtrOutput)
+func (o BucketCorsConfigurationCorsRuleOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketCorsConfigurationCorsRule) *int { return v.MaxAgeSeconds }).(pulumi.IntPtrOutput)
 }
 
-type BucketCorsConfigurationV2CorsRuleArrayOutput struct{ *pulumi.OutputState }
+type BucketCorsConfigurationCorsRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketCorsConfigurationV2CorsRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketCorsConfigurationV2CorsRule)(nil)).Elem()
+func (BucketCorsConfigurationCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketCorsConfigurationCorsRule)(nil)).Elem()
 }
 
-func (o BucketCorsConfigurationV2CorsRuleArrayOutput) ToBucketCorsConfigurationV2CorsRuleArrayOutput() BucketCorsConfigurationV2CorsRuleArrayOutput {
+func (o BucketCorsConfigurationCorsRuleArrayOutput) ToBucketCorsConfigurationCorsRuleArrayOutput() BucketCorsConfigurationCorsRuleArrayOutput {
 	return o
 }
 
-func (o BucketCorsConfigurationV2CorsRuleArrayOutput) ToBucketCorsConfigurationV2CorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsConfigurationV2CorsRuleArrayOutput {
+func (o BucketCorsConfigurationCorsRuleArrayOutput) ToBucketCorsConfigurationCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsConfigurationCorsRuleArrayOutput {
 	return o
 }
 
-func (o BucketCorsConfigurationV2CorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsConfigurationV2CorsRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketCorsConfigurationV2CorsRule {
-		return vs[0].([]BucketCorsConfigurationV2CorsRule)[vs[1].(int)]
-	}).(BucketCorsConfigurationV2CorsRuleOutput)
+func (o BucketCorsConfigurationCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsConfigurationCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketCorsConfigurationCorsRule {
+		return vs[0].([]BucketCorsConfigurationCorsRule)[vs[1].(int)]
+	}).(BucketCorsConfigurationCorsRuleOutput)
 }
 
 type BucketCorsRule struct {
@@ -2456,22 +2454,22 @@ func (o BucketIntelligentTieringConfigurationTieringArrayOutput) Index(i pulumi.
 	}).(BucketIntelligentTieringConfigurationTieringOutput)
 }
 
-type BucketLifecycleConfigurationV2Rule struct {
+type BucketLifecycleConfigurationRule struct {
 	// Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
-	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
+	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-	Expiration *BucketLifecycleConfigurationV2RuleExpiration `pulumi:"expiration"`
+	Expiration *BucketLifecycleConfigurationRuleExpiration `pulumi:"expiration"`
 	// Configuration block used to identify objects that a Lifecycle Rule applies to.
 	// See below.
 	// If not specified, the `rule` will default to using `prefix`.
 	// One of `filter` or `prefix` should be specified.
-	Filter *BucketLifecycleConfigurationV2RuleFilter `pulumi:"filter"`
+	Filter *BucketLifecycleConfigurationRuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id string `pulumi:"id"`
 	// Configuration block that specifies when noncurrent object versions expire. See below.
-	NoncurrentVersionExpiration *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
+	NoncurrentVersionExpiration *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
-	NoncurrentVersionTransitions []BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
+	NoncurrentVersionTransitions []BucketLifecycleConfigurationRuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
 	// **DEPRECATED** Use `filter` instead.
 	// This has been deprecated by Amazon S3.
 	// Prefix identifying one or more objects to which the rule applies.
@@ -2483,36 +2481,36 @@ type BucketLifecycleConfigurationV2Rule struct {
 	// Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
 	Status string `pulumi:"status"`
 	// Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
-	Transitions []BucketLifecycleConfigurationV2RuleTransition `pulumi:"transitions"`
+	Transitions []BucketLifecycleConfigurationRuleTransition `pulumi:"transitions"`
 }
 
-// BucketLifecycleConfigurationV2RuleInput is an input type that accepts BucketLifecycleConfigurationV2RuleArgs and BucketLifecycleConfigurationV2RuleOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleInput` via:
+// BucketLifecycleConfigurationRuleInput is an input type that accepts BucketLifecycleConfigurationRuleArgs and BucketLifecycleConfigurationRuleOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleArgs{...}
-type BucketLifecycleConfigurationV2RuleInput interface {
+//	BucketLifecycleConfigurationRuleArgs{...}
+type BucketLifecycleConfigurationRuleInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleOutput() BucketLifecycleConfigurationV2RuleOutput
-	ToBucketLifecycleConfigurationV2RuleOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleOutput
+	ToBucketLifecycleConfigurationRuleOutput() BucketLifecycleConfigurationRuleOutput
+	ToBucketLifecycleConfigurationRuleOutputWithContext(context.Context) BucketLifecycleConfigurationRuleOutput
 }
 
-type BucketLifecycleConfigurationV2RuleArgs struct {
+type BucketLifecycleConfigurationRuleArgs struct {
 	// Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
-	AbortIncompleteMultipartUpload BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
+	AbortIncompleteMultipartUpload BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-	Expiration BucketLifecycleConfigurationV2RuleExpirationPtrInput `pulumi:"expiration"`
+	Expiration BucketLifecycleConfigurationRuleExpirationPtrInput `pulumi:"expiration"`
 	// Configuration block used to identify objects that a Lifecycle Rule applies to.
 	// See below.
 	// If not specified, the `rule` will default to using `prefix`.
 	// One of `filter` or `prefix` should be specified.
-	Filter BucketLifecycleConfigurationV2RuleFilterPtrInput `pulumi:"filter"`
+	Filter BucketLifecycleConfigurationRuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Configuration block that specifies when noncurrent object versions expire. See below.
-	NoncurrentVersionExpiration BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
+	NoncurrentVersionExpiration BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
-	NoncurrentVersionTransitions BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
+	NoncurrentVersionTransitions BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
 	// **DEPRECATED** Use `filter` instead.
 	// This has been deprecated by Amazon S3.
 	// Prefix identifying one or more objects to which the rule applies.
@@ -2524,99 +2522,99 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	// Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
 	// Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
-	Transitions BucketLifecycleConfigurationV2RuleTransitionArrayInput `pulumi:"transitions"`
+	Transitions BucketLifecycleConfigurationRuleTransitionArrayInput `pulumi:"transitions"`
 }
 
-func (BucketLifecycleConfigurationV2RuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2Rule)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRule)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleArgs) ToBucketLifecycleConfigurationV2RuleOutput() BucketLifecycleConfigurationV2RuleOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleArgs) ToBucketLifecycleConfigurationRuleOutput() BucketLifecycleConfigurationRuleOutput {
+	return i.ToBucketLifecycleConfigurationRuleOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleArgs) ToBucketLifecycleConfigurationV2RuleOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleOutput)
+func (i BucketLifecycleConfigurationRuleArgs) ToBucketLifecycleConfigurationRuleOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleOutput)
 }
 
-// BucketLifecycleConfigurationV2RuleArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleArray and BucketLifecycleConfigurationV2RuleArrayOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleArrayInput` via:
+// BucketLifecycleConfigurationRuleArrayInput is an input type that accepts BucketLifecycleConfigurationRuleArray and BucketLifecycleConfigurationRuleArrayOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleArrayInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleArray{ BucketLifecycleConfigurationV2RuleArgs{...} }
-type BucketLifecycleConfigurationV2RuleArrayInput interface {
+//	BucketLifecycleConfigurationRuleArray{ BucketLifecycleConfigurationRuleArgs{...} }
+type BucketLifecycleConfigurationRuleArrayInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleArrayOutput() BucketLifecycleConfigurationV2RuleArrayOutput
-	ToBucketLifecycleConfigurationV2RuleArrayOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleArrayOutput
+	ToBucketLifecycleConfigurationRuleArrayOutput() BucketLifecycleConfigurationRuleArrayOutput
+	ToBucketLifecycleConfigurationRuleArrayOutputWithContext(context.Context) BucketLifecycleConfigurationRuleArrayOutput
 }
 
-type BucketLifecycleConfigurationV2RuleArray []BucketLifecycleConfigurationV2RuleInput
+type BucketLifecycleConfigurationRuleArray []BucketLifecycleConfigurationRuleInput
 
-func (BucketLifecycleConfigurationV2RuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLifecycleConfigurationV2Rule)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfigurationRule)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleArray) ToBucketLifecycleConfigurationV2RuleArrayOutput() BucketLifecycleConfigurationV2RuleArrayOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleArrayOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleArray) ToBucketLifecycleConfigurationRuleArrayOutput() BucketLifecycleConfigurationRuleArrayOutput {
+	return i.ToBucketLifecycleConfigurationRuleArrayOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleArray) ToBucketLifecycleConfigurationV2RuleArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleArrayOutput)
+func (i BucketLifecycleConfigurationRuleArray) ToBucketLifecycleConfigurationRuleArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleArrayOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2Rule)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRule)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleOutput) ToBucketLifecycleConfigurationV2RuleOutput() BucketLifecycleConfigurationV2RuleOutput {
+func (o BucketLifecycleConfigurationRuleOutput) ToBucketLifecycleConfigurationRuleOutput() BucketLifecycleConfigurationRuleOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleOutput) ToBucketLifecycleConfigurationV2RuleOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleOutput {
+func (o BucketLifecycleConfigurationRuleOutput) ToBucketLifecycleConfigurationRuleOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleOutput {
 	return o
 }
 
 // Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
-func (o BucketLifecycleConfigurationV2RuleOutput) AbortIncompleteMultipartUpload() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload {
+func (o BucketLifecycleConfigurationRuleOutput) AbortIncompleteMultipartUpload() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
 		return v.AbortIncompleteMultipartUpload
-	}).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput)
+	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
 // Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-func (o BucketLifecycleConfigurationV2RuleOutput) Expiration() BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleExpiration {
+func (o BucketLifecycleConfigurationRuleOutput) Expiration() BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleExpiration {
 		return v.Expiration
-	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
+	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
 // Configuration block used to identify objects that a Lifecycle Rule applies to.
 // See below.
 // If not specified, the `rule` will default to using `prefix`.
 // One of `filter` or `prefix` should be specified.
-func (o BucketLifecycleConfigurationV2RuleOutput) Filter() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleFilter { return v.Filter }).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
+func (o BucketLifecycleConfigurationRuleOutput) Filter() BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleFilter { return v.Filter }).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
 // Unique identifier for the rule. The value cannot be longer than 255 characters.
-func (o BucketLifecycleConfigurationV2RuleOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) string { return v.Id }).(pulumi.StringOutput)
+func (o BucketLifecycleConfigurationRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Configuration block that specifies when noncurrent object versions expire. See below.
-func (o BucketLifecycleConfigurationV2RuleOutput) NoncurrentVersionExpiration() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration {
+func (o BucketLifecycleConfigurationRuleOutput) NoncurrentVersionExpiration() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration {
 		return v.NoncurrentVersionExpiration
-	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput)
+	}).(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput)
 }
 
 // Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
-func (o BucketLifecycleConfigurationV2RuleOutput) NoncurrentVersionTransitions() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) []BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition {
+func (o BucketLifecycleConfigurationRuleOutput) NoncurrentVersionTransitions() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) []BucketLifecycleConfigurationRuleNoncurrentVersionTransition {
 		return v.NoncurrentVersionTransitions
-	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput)
+	}).(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput)
 }
 
 // **DEPRECATED** Use `filter` instead.
@@ -2626,174 +2624,174 @@ func (o BucketLifecycleConfigurationV2RuleOutput) NoncurrentVersionTransitions()
 // One of `prefix` or `filter` should be specified.
 //
 // Deprecated: Specify a prefix using 'filter' instead
-func (o BucketLifecycleConfigurationV2RuleOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationRuleOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 // Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-func (o BucketLifecycleConfigurationV2RuleOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) string { return v.Status }).(pulumi.StringOutput)
+func (o BucketLifecycleConfigurationRuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
-func (o BucketLifecycleConfigurationV2RuleOutput) Transitions() BucketLifecycleConfigurationV2RuleTransitionArrayOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) []BucketLifecycleConfigurationV2RuleTransition {
+func (o BucketLifecycleConfigurationRuleOutput) Transitions() BucketLifecycleConfigurationRuleTransitionArrayOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRule) []BucketLifecycleConfigurationRuleTransition {
 		return v.Transitions
-	}).(BucketLifecycleConfigurationV2RuleTransitionArrayOutput)
+	}).(BucketLifecycleConfigurationRuleTransitionArrayOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleArrayOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLifecycleConfigurationV2Rule)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfigurationRule)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleArrayOutput) ToBucketLifecycleConfigurationV2RuleArrayOutput() BucketLifecycleConfigurationV2RuleArrayOutput {
+func (o BucketLifecycleConfigurationRuleArrayOutput) ToBucketLifecycleConfigurationRuleArrayOutput() BucketLifecycleConfigurationRuleArrayOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleArrayOutput) ToBucketLifecycleConfigurationV2RuleArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleArrayOutput {
+func (o BucketLifecycleConfigurationRuleArrayOutput) ToBucketLifecycleConfigurationRuleArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleArrayOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2RuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationV2Rule {
-		return vs[0].([]BucketLifecycleConfigurationV2Rule)[vs[1].(int)]
-	}).(BucketLifecycleConfigurationV2RuleOutput)
+func (o BucketLifecycleConfigurationRuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationRule {
+		return vs[0].([]BucketLifecycleConfigurationRule)[vs[1].(int)]
+	}).(BucketLifecycleConfigurationRuleOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload struct {
+type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload struct {
 	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 	DaysAfterInitiation *int `pulumi:"daysAfterInitiation"`
 }
 
-// BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput is an input type that accepts BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs and BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput` via:
+// BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput is an input type that accepts BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs and BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{...}
-type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput interface {
+//	BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{...}
+type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput
-	ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput
+	ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput
+	ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutputWithContext(context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput
 }
 
-type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs struct {
+type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs struct {
 	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 	DaysAfterInitiation pulumi.IntPtrInput `pulumi:"daysAfterInitiation"`
 }
 
-func (BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
+	return i.ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput)
+func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput)
 }
 
-func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput).ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput).ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs, BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtr and BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput` via:
+// BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput is an input type that accepts BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs, BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtr and BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{...}
+//	        BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput interface {
+type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput
-	ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput
+	ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput
+	ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput
 }
 
-type bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs
+type bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs
 
-func BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtr(v *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput {
-	return (*bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType)(v)
+func BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtr(v *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput {
+	return (*bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload)(nil)).Elem()
+func (*bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput)
+func (i *bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return o.ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
 		return &v
-	}).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput)
+	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
 // Number of days after which Amazon S3 aborts an incomplete multipart upload.
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *int {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *int {
 		return v.DaysAfterInitiation
 	}).(pulumi.IntPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) Elem() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) Elem() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload
+		var ret BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload
 		return ret
-	}).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput)
+	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput)
 }
 
 // Number of days after which Amazon S3 aborts an incomplete multipart upload.
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *int {
+func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *int {
 		if v == nil {
 			return nil
 		}
@@ -2801,7 +2799,7 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleExpiration struct {
+type BucketLifecycleConfigurationRuleExpiration struct {
 	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
@@ -2810,18 +2808,18 @@ type BucketLifecycleConfigurationV2RuleExpiration struct {
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
 }
 
-// BucketLifecycleConfigurationV2RuleExpirationInput is an input type that accepts BucketLifecycleConfigurationV2RuleExpirationArgs and BucketLifecycleConfigurationV2RuleExpirationOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleExpirationInput` via:
+// BucketLifecycleConfigurationRuleExpirationInput is an input type that accepts BucketLifecycleConfigurationRuleExpirationArgs and BucketLifecycleConfigurationRuleExpirationOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleExpirationInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleExpirationArgs{...}
-type BucketLifecycleConfigurationV2RuleExpirationInput interface {
+//	BucketLifecycleConfigurationRuleExpirationArgs{...}
+type BucketLifecycleConfigurationRuleExpirationInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleExpirationOutput() BucketLifecycleConfigurationV2RuleExpirationOutput
-	ToBucketLifecycleConfigurationV2RuleExpirationOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleExpirationOutput
+	ToBucketLifecycleConfigurationRuleExpirationOutput() BucketLifecycleConfigurationRuleExpirationOutput
+	ToBucketLifecycleConfigurationRuleExpirationOutputWithContext(context.Context) BucketLifecycleConfigurationRuleExpirationOutput
 }
 
-type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
+type BucketLifecycleConfigurationRuleExpirationArgs struct {
 	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
@@ -2830,125 +2828,125 @@ type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
 }
 
-func (BucketLifecycleConfigurationV2RuleExpirationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleExpiration)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleExpirationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleExpiration)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfigurationV2RuleExpirationOutput() BucketLifecycleConfigurationV2RuleExpirationOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleExpirationOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigurationRuleExpirationOutput() BucketLifecycleConfigurationRuleExpirationOutput {
+	return i.ToBucketLifecycleConfigurationRuleExpirationOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfigurationV2RuleExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleExpirationOutput)
+func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigurationRuleExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
-func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutput() BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigurationRuleExpirationPtrOutput() BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleExpirationOutput).ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleExpirationOutput).ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2RuleExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleExpirationArgs, BucketLifecycleConfigurationV2RuleExpirationPtr and BucketLifecycleConfigurationV2RuleExpirationPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleExpirationPtrInput` via:
+// BucketLifecycleConfigurationRuleExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationRuleExpirationArgs, BucketLifecycleConfigurationRuleExpirationPtr and BucketLifecycleConfigurationRuleExpirationPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleExpirationPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2RuleExpirationArgs{...}
+//	        BucketLifecycleConfigurationRuleExpirationArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2RuleExpirationPtrInput interface {
+type BucketLifecycleConfigurationRuleExpirationPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleExpirationPtrOutput() BucketLifecycleConfigurationV2RuleExpirationPtrOutput
-	ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleExpirationPtrOutput
+	ToBucketLifecycleConfigurationRuleExpirationPtrOutput() BucketLifecycleConfigurationRuleExpirationPtrOutput
+	ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput
 }
 
-type bucketLifecycleConfigurationV2RuleExpirationPtrType BucketLifecycleConfigurationV2RuleExpirationArgs
+type bucketLifecycleConfigurationRuleExpirationPtrType BucketLifecycleConfigurationRuleExpirationArgs
 
-func BucketLifecycleConfigurationV2RuleExpirationPtr(v *BucketLifecycleConfigurationV2RuleExpirationArgs) BucketLifecycleConfigurationV2RuleExpirationPtrInput {
-	return (*bucketLifecycleConfigurationV2RuleExpirationPtrType)(v)
+func BucketLifecycleConfigurationRuleExpirationPtr(v *BucketLifecycleConfigurationRuleExpirationArgs) BucketLifecycleConfigurationRuleExpirationPtrInput {
+	return (*bucketLifecycleConfigurationRuleExpirationPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2RuleExpirationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleExpiration)(nil)).Elem()
+func (*bucketLifecycleConfigurationRuleExpirationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleExpiration)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2RuleExpirationPtrType) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutput() BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationRuleExpirationPtrType) ToBucketLifecycleConfigurationRuleExpirationPtrOutput() BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2RuleExpirationPtrType) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
+func (i *bucketLifecycleConfigurationRuleExpirationPtrType) ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleExpirationOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleExpirationOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleExpirationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleExpiration)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleExpirationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleExpiration)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleConfigurationV2RuleExpirationOutput() BucketLifecycleConfigurationV2RuleExpirationOutput {
+func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfigurationRuleExpirationOutput() BucketLifecycleConfigurationRuleExpirationOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleConfigurationV2RuleExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationOutput {
+func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfigurationRuleExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutput() BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfigurationRuleExpirationPtrOutput() BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return o.ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleExpiration) *BucketLifecycleConfigurationV2RuleExpiration {
+func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleExpiration) *BucketLifecycleConfigurationRuleExpiration {
 		return &v
-	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
+	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
 // Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationRuleExpirationOutput) Date() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
 // Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationRuleExpirationOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
+func (o BucketLifecycleConfigurationRuleExpirationOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleExpirationPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleExpirationPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleExpiration)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleExpirationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleExpiration)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutput() BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
+func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ToBucketLifecycleConfigurationRuleExpirationPtrOutput() BucketLifecycleConfigurationRuleExpirationPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
+func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Elem() BucketLifecycleConfigurationV2RuleExpirationOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) BucketLifecycleConfigurationV2RuleExpiration {
+func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Elem() BucketLifecycleConfigurationRuleExpirationOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) BucketLifecycleConfigurationRuleExpiration {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2RuleExpiration
+		var ret BucketLifecycleConfigurationRuleExpiration
 		return ret
-	}).(BucketLifecycleConfigurationV2RuleExpirationOutput)
+	}).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
 // Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *string {
+func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *string {
 		if v == nil {
 			return nil
 		}
@@ -2957,8 +2955,8 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Date() pulumi.Str
 }
 
 // Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *int {
+func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *int {
 		if v == nil {
 			return nil
 		}
@@ -2967,8 +2965,8 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Days() pulumi.Int
 }
 
 // Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *bool {
+func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2976,9 +2974,9 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ExpiredObjectDele
 	}).(pulumi.BoolPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilter struct {
+type BucketLifecycleConfigurationRuleFilter struct {
 	// Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-	And *BucketLifecycleConfigurationV2RuleFilterAnd `pulumi:"and"`
+	And *BucketLifecycleConfigurationRuleFilterAnd `pulumi:"and"`
 	// Minimum object size (in bytes) to which the rule applies.
 	ObjectSizeGreaterThan *int `pulumi:"objectSizeGreaterThan"`
 	// Maximum object size (in bytes) to which the rule applies.
@@ -2986,23 +2984,23 @@ type BucketLifecycleConfigurationV2RuleFilter struct {
 	// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
 	Prefix *string `pulumi:"prefix"`
 	// Configuration block for specifying a tag key and value. See below.
-	Tag *BucketLifecycleConfigurationV2RuleFilterTag `pulumi:"tag"`
+	Tag *BucketLifecycleConfigurationRuleFilterTag `pulumi:"tag"`
 }
 
-// BucketLifecycleConfigurationV2RuleFilterInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterArgs and BucketLifecycleConfigurationV2RuleFilterOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterInput` via:
+// BucketLifecycleConfigurationRuleFilterInput is an input type that accepts BucketLifecycleConfigurationRuleFilterArgs and BucketLifecycleConfigurationRuleFilterOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleFilterArgs{...}
-type BucketLifecycleConfigurationV2RuleFilterInput interface {
+//	BucketLifecycleConfigurationRuleFilterArgs{...}
+type BucketLifecycleConfigurationRuleFilterInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleFilterOutput() BucketLifecycleConfigurationV2RuleFilterOutput
-	ToBucketLifecycleConfigurationV2RuleFilterOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleFilterOutput
+	ToBucketLifecycleConfigurationRuleFilterOutput() BucketLifecycleConfigurationRuleFilterOutput
+	ToBucketLifecycleConfigurationRuleFilterOutputWithContext(context.Context) BucketLifecycleConfigurationRuleFilterOutput
 }
 
-type BucketLifecycleConfigurationV2RuleFilterArgs struct {
+type BucketLifecycleConfigurationRuleFilterArgs struct {
 	// Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-	And BucketLifecycleConfigurationV2RuleFilterAndPtrInput `pulumi:"and"`
+	And BucketLifecycleConfigurationRuleFilterAndPtrInput `pulumi:"and"`
 	// Minimum object size (in bytes) to which the rule applies.
 	ObjectSizeGreaterThan pulumi.IntPtrInput `pulumi:"objectSizeGreaterThan"`
 	// Maximum object size (in bytes) to which the rule applies.
@@ -3010,152 +3008,152 @@ type BucketLifecycleConfigurationV2RuleFilterArgs struct {
 	// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Configuration block for specifying a tag key and value. See below.
-	Tag BucketLifecycleConfigurationV2RuleFilterTagPtrInput `pulumi:"tag"`
+	Tag BucketLifecycleConfigurationRuleFilterTagPtrInput `pulumi:"tag"`
 }
 
-func (BucketLifecycleConfigurationV2RuleFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilter)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleFilter)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigurationV2RuleFilterOutput() BucketLifecycleConfigurationV2RuleFilterOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurationRuleFilterOutput() BucketLifecycleConfigurationRuleFilterOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigurationV2RuleFilterOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterOutput)
+func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurationRuleFilterOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterOutput)
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigurationV2RuleFilterPtrOutput() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurationRuleFilterPtrOutput() BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterOutput).ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterOutput).ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2RuleFilterPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterArgs, BucketLifecycleConfigurationV2RuleFilterPtr and BucketLifecycleConfigurationV2RuleFilterPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterPtrInput` via:
+// BucketLifecycleConfigurationRuleFilterPtrInput is an input type that accepts BucketLifecycleConfigurationRuleFilterArgs, BucketLifecycleConfigurationRuleFilterPtr and BucketLifecycleConfigurationRuleFilterPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2RuleFilterArgs{...}
+//	        BucketLifecycleConfigurationRuleFilterArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2RuleFilterPtrInput interface {
+type BucketLifecycleConfigurationRuleFilterPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleFilterPtrOutput() BucketLifecycleConfigurationV2RuleFilterPtrOutput
-	ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleFilterPtrOutput
+	ToBucketLifecycleConfigurationRuleFilterPtrOutput() BucketLifecycleConfigurationRuleFilterPtrOutput
+	ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput
 }
 
-type bucketLifecycleConfigurationV2RuleFilterPtrType BucketLifecycleConfigurationV2RuleFilterArgs
+type bucketLifecycleConfigurationRuleFilterPtrType BucketLifecycleConfigurationRuleFilterArgs
 
-func BucketLifecycleConfigurationV2RuleFilterPtr(v *BucketLifecycleConfigurationV2RuleFilterArgs) BucketLifecycleConfigurationV2RuleFilterPtrInput {
-	return (*bucketLifecycleConfigurationV2RuleFilterPtrType)(v)
+func BucketLifecycleConfigurationRuleFilterPtr(v *BucketLifecycleConfigurationRuleFilterArgs) BucketLifecycleConfigurationRuleFilterPtrInput {
+	return (*bucketLifecycleConfigurationRuleFilterPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2RuleFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleFilter)(nil)).Elem()
+func (*bucketLifecycleConfigurationRuleFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleFilter)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2RuleFilterPtrType) ToBucketLifecycleConfigurationV2RuleFilterPtrOutput() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationRuleFilterPtrType) ToBucketLifecycleConfigurationRuleFilterPtrOutput() BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2RuleFilterPtrType) ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
+func (i *bucketLifecycleConfigurationRuleFilterPtrType) ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleFilterOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilter)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleFilter)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToBucketLifecycleConfigurationV2RuleFilterOutput() BucketLifecycleConfigurationV2RuleFilterOutput {
+func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigurationRuleFilterOutput() BucketLifecycleConfigurationRuleFilterOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToBucketLifecycleConfigurationV2RuleFilterOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterOutput {
+func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigurationRuleFilterOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToBucketLifecycleConfigurationV2RuleFilterPtrOutput() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigurationRuleFilterPtrOutput() BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return o.ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilter {
+func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilter {
 		return &v
-	}).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
 // Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) And() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilterAnd {
+func (o BucketLifecycleConfigurationRuleFilterOutput) And() BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilterAnd {
 		return v.And
-	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterAndPtrOutput)
 }
 
 // Minimum object size (in bytes) to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationRuleFilterOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
 }
 
 // Maximum object size (in bytes) to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationRuleFilterOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
 }
 
 // Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationRuleFilterOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for specifying a tag key and value. See below.
-func (o BucketLifecycleConfigurationV2RuleFilterOutput) Tag() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilterTag {
+func (o BucketLifecycleConfigurationRuleFilterOutput) Tag() BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilterTag {
 		return v.Tag
-	}).(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterTagPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleFilterPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleFilter)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleFilter)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterPtrOutput() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ToBucketLifecycleConfigurationRuleFilterPtrOutput() BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterPtrOutput {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Elem() BucketLifecycleConfigurationV2RuleFilterOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) BucketLifecycleConfigurationV2RuleFilter {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Elem() BucketLifecycleConfigurationRuleFilterOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) BucketLifecycleConfigurationRuleFilter {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2RuleFilter
+		var ret BucketLifecycleConfigurationRuleFilter
 		return ret
-	}).(BucketLifecycleConfigurationV2RuleFilterOutput)
+	}).(BucketLifecycleConfigurationRuleFilterOutput)
 }
 
 // Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) And() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilterAnd {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) And() BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilterAnd {
 		if v == nil {
 			return nil
 		}
 		return v.And
-	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterAndPtrOutput)
 }
 
 // Minimum object size (in bytes) to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *int {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *int {
 		if v == nil {
 			return nil
 		}
@@ -3164,8 +3162,8 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeGreaterThan
 }
 
 // Maximum object size (in bytes) to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *int {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *int {
 		if v == nil {
 			return nil
 		}
@@ -3174,8 +3172,8 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ObjectSizeLessThan() 
 }
 
 // Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *string {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *string {
 		if v == nil {
 			return nil
 		}
@@ -3184,16 +3182,16 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Prefix() pulumi.Strin
 }
 
 // Configuration block for specifying a tag key and value. See below.
-func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Tag() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilterTag {
+func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tag() BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilterTag {
 		if v == nil {
 			return nil
 		}
 		return v.Tag
-	}).(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterTagPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterAnd struct {
+type BucketLifecycleConfigurationRuleFilterAnd struct {
 	// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
 	ObjectSizeGreaterThan *int `pulumi:"objectSizeGreaterThan"`
 	// Maximum object size to which the rule applies. Value must be at least `1` if specified.
@@ -3206,18 +3204,18 @@ type BucketLifecycleConfigurationV2RuleFilterAnd struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// BucketLifecycleConfigurationV2RuleFilterAndInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterAndArgs and BucketLifecycleConfigurationV2RuleFilterAndOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterAndInput` via:
+// BucketLifecycleConfigurationRuleFilterAndInput is an input type that accepts BucketLifecycleConfigurationRuleFilterAndArgs and BucketLifecycleConfigurationRuleFilterAndOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterAndInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleFilterAndArgs{...}
-type BucketLifecycleConfigurationV2RuleFilterAndInput interface {
+//	BucketLifecycleConfigurationRuleFilterAndArgs{...}
+type BucketLifecycleConfigurationRuleFilterAndInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleFilterAndOutput() BucketLifecycleConfigurationV2RuleFilterAndOutput
-	ToBucketLifecycleConfigurationV2RuleFilterAndOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleFilterAndOutput
+	ToBucketLifecycleConfigurationRuleFilterAndOutput() BucketLifecycleConfigurationRuleFilterAndOutput
+	ToBucketLifecycleConfigurationRuleFilterAndOutputWithContext(context.Context) BucketLifecycleConfigurationRuleFilterAndOutput
 }
 
-type BucketLifecycleConfigurationV2RuleFilterAndArgs struct {
+type BucketLifecycleConfigurationRuleFilterAndArgs struct {
 	// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
 	ObjectSizeGreaterThan pulumi.IntPtrInput `pulumi:"objectSizeGreaterThan"`
 	// Maximum object size to which the rule applies. Value must be at least `1` if specified.
@@ -3230,132 +3228,132 @@ type BucketLifecycleConfigurationV2RuleFilterAndArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
-func (BucketLifecycleConfigurationV2RuleFilterAndArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterAnd)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterAnd)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfigurationV2RuleFilterAndOutput() BucketLifecycleConfigurationV2RuleFilterAndOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterAndOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleFilterAndArgs) ToBucketLifecycleConfigurationRuleFilterAndOutput() BucketLifecycleConfigurationRuleFilterAndOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterAndOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfigurationV2RuleFilterAndOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterAndOutput)
+func (i BucketLifecycleConfigurationRuleFilterAndArgs) ToBucketLifecycleConfigurationRuleFilterAndOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterAndOutput)
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutput() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleFilterAndArgs) ToBucketLifecycleConfigurationRuleFilterAndPtrOutput() BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterAndOutput).ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationRuleFilterAndArgs) ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterAndOutput).ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2RuleFilterAndPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterAndArgs, BucketLifecycleConfigurationV2RuleFilterAndPtr and BucketLifecycleConfigurationV2RuleFilterAndPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterAndPtrInput` via:
+// BucketLifecycleConfigurationRuleFilterAndPtrInput is an input type that accepts BucketLifecycleConfigurationRuleFilterAndArgs, BucketLifecycleConfigurationRuleFilterAndPtr and BucketLifecycleConfigurationRuleFilterAndPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterAndPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2RuleFilterAndArgs{...}
+//	        BucketLifecycleConfigurationRuleFilterAndArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2RuleFilterAndPtrInput interface {
+type BucketLifecycleConfigurationRuleFilterAndPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutput() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput
-	ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleFilterAndPtrOutput
+	ToBucketLifecycleConfigurationRuleFilterAndPtrOutput() BucketLifecycleConfigurationRuleFilterAndPtrOutput
+	ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(context.Context) BucketLifecycleConfigurationRuleFilterAndPtrOutput
 }
 
-type bucketLifecycleConfigurationV2RuleFilterAndPtrType BucketLifecycleConfigurationV2RuleFilterAndArgs
+type bucketLifecycleConfigurationRuleFilterAndPtrType BucketLifecycleConfigurationRuleFilterAndArgs
 
-func BucketLifecycleConfigurationV2RuleFilterAndPtr(v *BucketLifecycleConfigurationV2RuleFilterAndArgs) BucketLifecycleConfigurationV2RuleFilterAndPtrInput {
-	return (*bucketLifecycleConfigurationV2RuleFilterAndPtrType)(v)
+func BucketLifecycleConfigurationRuleFilterAndPtr(v *BucketLifecycleConfigurationRuleFilterAndArgs) BucketLifecycleConfigurationRuleFilterAndPtrInput {
+	return (*bucketLifecycleConfigurationRuleFilterAndPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2RuleFilterAndPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleFilterAnd)(nil)).Elem()
+func (*bucketLifecycleConfigurationRuleFilterAndPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleFilterAnd)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2RuleFilterAndPtrType) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutput() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationRuleFilterAndPtrType) ToBucketLifecycleConfigurationRuleFilterAndPtrOutput() BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2RuleFilterAndPtrType) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
+func (i *bucketLifecycleConfigurationRuleFilterAndPtrType) ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterAndPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterAndOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleFilterAndOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleFilterAndOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterAnd)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterAnd)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConfigurationV2RuleFilterAndOutput() BucketLifecycleConfigurationV2RuleFilterAndOutput {
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) ToBucketLifecycleConfigurationRuleFilterAndOutput() BucketLifecycleConfigurationRuleFilterAndOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConfigurationV2RuleFilterAndOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndOutput {
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) ToBucketLifecycleConfigurationRuleFilterAndOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterAndOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutput() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) ToBucketLifecycleConfigurationRuleFilterAndPtrOutput() BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return o.ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleFilterAnd) *BucketLifecycleConfigurationV2RuleFilterAnd {
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterAndPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleFilterAnd) *BucketLifecycleConfigurationRuleFilterAnd {
 		return &v
-	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterAndPtrOutput)
 }
 
 // Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterAnd) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
 }
 
 // Maximum object size to which the rule applies. Value must be at least `1` if specified.
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterAnd) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
 }
 
 // Prefix identifying one or more objects to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags.
 // All of these tags must exist in the object's tag set in order for the rule to apply.
 // If set, must contain at least one key-value pair.
-func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o BucketLifecycleConfigurationRuleFilterAndOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterAnd) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterAndPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleFilterAndPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleFilterAnd)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterAndPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleFilterAnd)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutput() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) ToBucketLifecycleConfigurationRuleFilterAndPtrOutput() BucketLifecycleConfigurationRuleFilterAndPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) ToBucketLifecycleConfigurationRuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterAndPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Elem() BucketLifecycleConfigurationV2RuleFilterAndOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) BucketLifecycleConfigurationV2RuleFilterAnd {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) Elem() BucketLifecycleConfigurationRuleFilterAndOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterAnd) BucketLifecycleConfigurationRuleFilterAnd {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2RuleFilterAnd
+		var ret BucketLifecycleConfigurationRuleFilterAnd
 		return ret
-	}).(BucketLifecycleConfigurationV2RuleFilterAndOutput)
+	}).(BucketLifecycleConfigurationRuleFilterAndOutput)
 }
 
 // Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *int {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterAnd) *int {
 		if v == nil {
 			return nil
 		}
@@ -3364,8 +3362,8 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeGreaterT
 }
 
 // Maximum object size to which the rule applies. Value must be at least `1` if specified.
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *int {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterAnd) *int {
 		if v == nil {
 			return nil
 		}
@@ -3374,8 +3372,8 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeLessThan
 }
 
 // Prefix identifying one or more objects to which the rule applies.
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *string {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterAnd) *string {
 		if v == nil {
 			return nil
 		}
@@ -3386,8 +3384,8 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Prefix() pulumi.St
 // Key-value map of resource tags.
 // All of these tags must exist in the object's tag set in order for the rule to apply.
 // If set, must contain at least one key-value pair.
-func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string {
+func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterAnd) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -3395,145 +3393,145 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Tags() pulumi.Stri
 	}).(pulumi.StringMapOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterTag struct {
+type BucketLifecycleConfigurationRuleFilterTag struct {
 	// Name of the object key.
 	Key string `pulumi:"key"`
 	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 
-// BucketLifecycleConfigurationV2RuleFilterTagInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterTagArgs and BucketLifecycleConfigurationV2RuleFilterTagOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterTagInput` via:
+// BucketLifecycleConfigurationRuleFilterTagInput is an input type that accepts BucketLifecycleConfigurationRuleFilterTagArgs and BucketLifecycleConfigurationRuleFilterTagOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterTagInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleFilterTagArgs{...}
-type BucketLifecycleConfigurationV2RuleFilterTagInput interface {
+//	BucketLifecycleConfigurationRuleFilterTagArgs{...}
+type BucketLifecycleConfigurationRuleFilterTagInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleFilterTagOutput() BucketLifecycleConfigurationV2RuleFilterTagOutput
-	ToBucketLifecycleConfigurationV2RuleFilterTagOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleFilterTagOutput
+	ToBucketLifecycleConfigurationRuleFilterTagOutput() BucketLifecycleConfigurationRuleFilterTagOutput
+	ToBucketLifecycleConfigurationRuleFilterTagOutputWithContext(context.Context) BucketLifecycleConfigurationRuleFilterTagOutput
 }
 
-type BucketLifecycleConfigurationV2RuleFilterTagArgs struct {
+type BucketLifecycleConfigurationRuleFilterTagArgs struct {
 	// Name of the object key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Value of the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (BucketLifecycleConfigurationV2RuleFilterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterTag)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterTag)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfigurationV2RuleFilterTagOutput() BucketLifecycleConfigurationV2RuleFilterTagOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterTagOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleFilterTagArgs) ToBucketLifecycleConfigurationRuleFilterTagOutput() BucketLifecycleConfigurationRuleFilterTagOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterTagOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfigurationV2RuleFilterTagOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterTagOutput)
+func (i BucketLifecycleConfigurationRuleFilterTagArgs) ToBucketLifecycleConfigurationRuleFilterTagOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterTagOutput)
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutput() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleFilterTagArgs) ToBucketLifecycleConfigurationRuleFilterTagPtrOutput() BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterTagOutput).ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationRuleFilterTagArgs) ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterTagOutput).ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2RuleFilterTagPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterTagArgs, BucketLifecycleConfigurationV2RuleFilterTagPtr and BucketLifecycleConfigurationV2RuleFilterTagPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterTagPtrInput` via:
+// BucketLifecycleConfigurationRuleFilterTagPtrInput is an input type that accepts BucketLifecycleConfigurationRuleFilterTagArgs, BucketLifecycleConfigurationRuleFilterTagPtr and BucketLifecycleConfigurationRuleFilterTagPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterTagPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2RuleFilterTagArgs{...}
+//	        BucketLifecycleConfigurationRuleFilterTagArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2RuleFilterTagPtrInput interface {
+type BucketLifecycleConfigurationRuleFilterTagPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutput() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput
-	ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleFilterTagPtrOutput
+	ToBucketLifecycleConfigurationRuleFilterTagPtrOutput() BucketLifecycleConfigurationRuleFilterTagPtrOutput
+	ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(context.Context) BucketLifecycleConfigurationRuleFilterTagPtrOutput
 }
 
-type bucketLifecycleConfigurationV2RuleFilterTagPtrType BucketLifecycleConfigurationV2RuleFilterTagArgs
+type bucketLifecycleConfigurationRuleFilterTagPtrType BucketLifecycleConfigurationRuleFilterTagArgs
 
-func BucketLifecycleConfigurationV2RuleFilterTagPtr(v *BucketLifecycleConfigurationV2RuleFilterTagArgs) BucketLifecycleConfigurationV2RuleFilterTagPtrInput {
-	return (*bucketLifecycleConfigurationV2RuleFilterTagPtrType)(v)
+func BucketLifecycleConfigurationRuleFilterTagPtr(v *BucketLifecycleConfigurationRuleFilterTagArgs) BucketLifecycleConfigurationRuleFilterTagPtrInput {
+	return (*bucketLifecycleConfigurationRuleFilterTagPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2RuleFilterTagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleFilterTag)(nil)).Elem()
+func (*bucketLifecycleConfigurationRuleFilterTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleFilterTag)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2RuleFilterTagPtrType) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutput() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationRuleFilterTagPtrType) ToBucketLifecycleConfigurationRuleFilterTagPtrOutput() BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2RuleFilterTagPtrType) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput)
+func (i *bucketLifecycleConfigurationRuleFilterTagPtrType) ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterTagPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterTagOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleFilterTagOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleFilterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterTag)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterTag)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) ToBucketLifecycleConfigurationV2RuleFilterTagOutput() BucketLifecycleConfigurationV2RuleFilterTagOutput {
+func (o BucketLifecycleConfigurationRuleFilterTagOutput) ToBucketLifecycleConfigurationRuleFilterTagOutput() BucketLifecycleConfigurationRuleFilterTagOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) ToBucketLifecycleConfigurationV2RuleFilterTagOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagOutput {
+func (o BucketLifecycleConfigurationRuleFilterTagOutput) ToBucketLifecycleConfigurationRuleFilterTagOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterTagOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutput() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationRuleFilterTagOutput) ToBucketLifecycleConfigurationRuleFilterTagPtrOutput() BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return o.ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleFilterTag) *BucketLifecycleConfigurationV2RuleFilterTag {
+func (o BucketLifecycleConfigurationRuleFilterTagOutput) ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleFilterTag) *BucketLifecycleConfigurationRuleFilterTag {
 		return &v
-	}).(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput)
+	}).(BucketLifecycleConfigurationRuleFilterTagPtrOutput)
 }
 
 // Name of the object key.
-func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
+func (o BucketLifecycleConfigurationRuleFilterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // Value of the tag.
-func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterTag) string { return v.Value }).(pulumi.StringOutput)
+func (o BucketLifecycleConfigurationRuleFilterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleFilterTagPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleFilterTagPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleFilterTag)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleFilterTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleFilterTag)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutput() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
+func (o BucketLifecycleConfigurationRuleFilterTagPtrOutput) ToBucketLifecycleConfigurationRuleFilterTagPtrOutput() BucketLifecycleConfigurationRuleFilterTagPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
+func (o BucketLifecycleConfigurationRuleFilterTagPtrOutput) ToBucketLifecycleConfigurationRuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterTagPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Elem() BucketLifecycleConfigurationV2RuleFilterTagOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterTag) BucketLifecycleConfigurationV2RuleFilterTag {
+func (o BucketLifecycleConfigurationRuleFilterTagPtrOutput) Elem() BucketLifecycleConfigurationRuleFilterTagOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterTag) BucketLifecycleConfigurationRuleFilterTag {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2RuleFilterTag
+		var ret BucketLifecycleConfigurationRuleFilterTag
 		return ret
-	}).(BucketLifecycleConfigurationV2RuleFilterTagOutput)
+	}).(BucketLifecycleConfigurationRuleFilterTagOutput)
 }
 
 // Name of the object key.
-func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterTag) *string {
+func (o BucketLifecycleConfigurationRuleFilterTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterTag) *string {
 		if v == nil {
 			return nil
 		}
@@ -3542,8 +3540,8 @@ func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Key() pulumi.Strin
 }
 
 // Value of the tag.
-func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterTag) *string {
+func (o BucketLifecycleConfigurationRuleFilterTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterTag) *string {
 		if v == nil {
 			return nil
 		}
@@ -3551,147 +3549,147 @@ func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Value() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration struct {
+type BucketLifecycleConfigurationRuleNoncurrentVersionExpiration struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
 	NoncurrentDays int `pulumi:"noncurrentDays"`
 }
 
-// BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs and BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput` via:
+// BucketLifecycleConfigurationRuleNoncurrentVersionExpirationInput is an input type that accepts BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs and BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleNoncurrentVersionExpirationInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{...}
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput interface {
+//	BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs{...}
+type BucketLifecycleConfigurationRuleNoncurrentVersionExpirationInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutputWithContext(context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs struct {
+type BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
 	NoncurrentDays pulumi.IntInput `pulumi:"noncurrentDays"`
 }
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionExpiration)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput {
+	return i.ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput)
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput)
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput).ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput).ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs, BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtr and BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput` via:
+// BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs, BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtr and BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{...}
+//	        BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput interface {
+type BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput
 }
 
-type bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs
+type bucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrType BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs
 
-func BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtr(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput {
-	return (*bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType)(v)
+func BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtr(v *BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput {
+	return (*bucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration)(nil)).Elem()
+func (*bucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleNoncurrentVersionExpiration)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrType) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return i.ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput)
+func (i *bucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrType) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionExpiration)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return o.ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleNoncurrentVersionExpiration) *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration {
 		return &v
-	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput)
+	}).(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput)
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleNoncurrentVersionExpiration) *int {
 		return v.NewerNoncurrentVersions
 	}).(pulumi.IntPtrOutput)
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.IntOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) int { return v.NoncurrentDays }).(pulumi.IntOutput)
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleNoncurrentVersionExpiration) int { return v.NoncurrentDays }).(pulumi.IntOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationRuleNoncurrentVersionExpiration)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration) BucketLifecycleConfigurationRuleNoncurrentVersionExpiration {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
+		var ret BucketLifecycleConfigurationRuleNoncurrentVersionExpiration
 		return ret
-	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput)
+	}).(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput)
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration) *int {
 		if v == nil {
 			return nil
 		}
@@ -3700,8 +3698,8 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NoncurrentDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput) NoncurrentDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration) *int {
 		if v == nil {
 			return nil
 		}
@@ -3709,7 +3707,7 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 	}).(pulumi.IntPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition struct {
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransition struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
@@ -3718,18 +3716,18 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition struct {
 	StorageClass string `pulumi:"storageClass"`
 }
 
-// BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs and BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput` via:
+// BucketLifecycleConfigurationRuleNoncurrentVersionTransitionInput is an input type that accepts BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs and BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleNoncurrentVersionTransitionInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{...}
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput interface {
+//	BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs{...}
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransitionInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutputWithContext(context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs struct {
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
@@ -3738,95 +3736,95 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs struct {
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionTransition)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput {
+	return i.ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput)
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput)
 }
 
-// BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray and BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput` via:
+// BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray and BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{ BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{...} }
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput interface {
+//	BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray{ BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs{...} }
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput
-	ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput
+	ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutputWithContext(context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray []BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray []BucketLifecycleConfigurationRuleNoncurrentVersionTransitionInput
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfigurationRuleNoncurrentVersionTransition)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput {
+	return i.ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput)
+func (i BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionTransition)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput {
 	return o
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *int {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleNoncurrentVersionTransition) *int {
 		return v.NewerNoncurrentVersions
 	}).(pulumi.IntPtrOutput)
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NoncurrentDays() pulumi.IntOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) int { return v.NoncurrentDays }).(pulumi.IntOutput)
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput) NoncurrentDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleNoncurrentVersionTransition) int { return v.NoncurrentDays }).(pulumi.IntOutput)
 }
 
 // Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfigurationRuleNoncurrentVersionTransition)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput() BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput {
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput) ToBucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition {
-		return vs[0].([]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition)[vs[1].(int)]
-	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput)
+func (o BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationRuleNoncurrentVersionTransition {
+		return vs[0].([]BucketLifecycleConfigurationRuleNoncurrentVersionTransition)[vs[1].(int)]
+	}).(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleTransition struct {
+type BucketLifecycleConfigurationRuleTransition struct {
 	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
@@ -3835,18 +3833,18 @@ type BucketLifecycleConfigurationV2RuleTransition struct {
 	StorageClass string `pulumi:"storageClass"`
 }
 
-// BucketLifecycleConfigurationV2RuleTransitionInput is an input type that accepts BucketLifecycleConfigurationV2RuleTransitionArgs and BucketLifecycleConfigurationV2RuleTransitionOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleTransitionInput` via:
+// BucketLifecycleConfigurationRuleTransitionInput is an input type that accepts BucketLifecycleConfigurationRuleTransitionArgs and BucketLifecycleConfigurationRuleTransitionOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleTransitionInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleTransitionArgs{...}
-type BucketLifecycleConfigurationV2RuleTransitionInput interface {
+//	BucketLifecycleConfigurationRuleTransitionArgs{...}
+type BucketLifecycleConfigurationRuleTransitionInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleTransitionOutput() BucketLifecycleConfigurationV2RuleTransitionOutput
-	ToBucketLifecycleConfigurationV2RuleTransitionOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleTransitionOutput
+	ToBucketLifecycleConfigurationRuleTransitionOutput() BucketLifecycleConfigurationRuleTransitionOutput
+	ToBucketLifecycleConfigurationRuleTransitionOutputWithContext(context.Context) BucketLifecycleConfigurationRuleTransitionOutput
 }
 
-type BucketLifecycleConfigurationV2RuleTransitionArgs struct {
+type BucketLifecycleConfigurationRuleTransitionArgs struct {
 	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
@@ -3855,231 +3853,231 @@ type BucketLifecycleConfigurationV2RuleTransitionArgs struct {
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
-func (BucketLifecycleConfigurationV2RuleTransitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleTransitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleTransition)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleTransitionArgs) ToBucketLifecycleConfigurationV2RuleTransitionOutput() BucketLifecycleConfigurationV2RuleTransitionOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleTransitionOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleTransitionArgs) ToBucketLifecycleConfigurationRuleTransitionOutput() BucketLifecycleConfigurationRuleTransitionOutput {
+	return i.ToBucketLifecycleConfigurationRuleTransitionOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleTransitionArgs) ToBucketLifecycleConfigurationV2RuleTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleTransitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleTransitionOutput)
+func (i BucketLifecycleConfigurationRuleTransitionArgs) ToBucketLifecycleConfigurationRuleTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleTransitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleTransitionOutput)
 }
 
-// BucketLifecycleConfigurationV2RuleTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleTransitionArray and BucketLifecycleConfigurationV2RuleTransitionArrayOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleTransitionArrayInput` via:
+// BucketLifecycleConfigurationRuleTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationRuleTransitionArray and BucketLifecycleConfigurationRuleTransitionArrayOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationRuleTransitionArrayInput` via:
 //
-//	BucketLifecycleConfigurationV2RuleTransitionArray{ BucketLifecycleConfigurationV2RuleTransitionArgs{...} }
-type BucketLifecycleConfigurationV2RuleTransitionArrayInput interface {
+//	BucketLifecycleConfigurationRuleTransitionArray{ BucketLifecycleConfigurationRuleTransitionArgs{...} }
+type BucketLifecycleConfigurationRuleTransitionArrayInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2RuleTransitionArrayOutput() BucketLifecycleConfigurationV2RuleTransitionArrayOutput
-	ToBucketLifecycleConfigurationV2RuleTransitionArrayOutputWithContext(context.Context) BucketLifecycleConfigurationV2RuleTransitionArrayOutput
+	ToBucketLifecycleConfigurationRuleTransitionArrayOutput() BucketLifecycleConfigurationRuleTransitionArrayOutput
+	ToBucketLifecycleConfigurationRuleTransitionArrayOutputWithContext(context.Context) BucketLifecycleConfigurationRuleTransitionArrayOutput
 }
 
-type BucketLifecycleConfigurationV2RuleTransitionArray []BucketLifecycleConfigurationV2RuleTransitionInput
+type BucketLifecycleConfigurationRuleTransitionArray []BucketLifecycleConfigurationRuleTransitionInput
 
-func (BucketLifecycleConfigurationV2RuleTransitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLifecycleConfigurationV2RuleTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleTransitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfigurationRuleTransition)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2RuleTransitionArray) ToBucketLifecycleConfigurationV2RuleTransitionArrayOutput() BucketLifecycleConfigurationV2RuleTransitionArrayOutput {
-	return i.ToBucketLifecycleConfigurationV2RuleTransitionArrayOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationRuleTransitionArray) ToBucketLifecycleConfigurationRuleTransitionArrayOutput() BucketLifecycleConfigurationRuleTransitionArrayOutput {
+	return i.ToBucketLifecycleConfigurationRuleTransitionArrayOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2RuleTransitionArray) ToBucketLifecycleConfigurationV2RuleTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleTransitionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleTransitionArrayOutput)
+func (i BucketLifecycleConfigurationRuleTransitionArray) ToBucketLifecycleConfigurationRuleTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleTransitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleTransitionArrayOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleTransitionOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleTransitionOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleTransitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2RuleTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleTransitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationRuleTransition)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleTransitionOutput) ToBucketLifecycleConfigurationV2RuleTransitionOutput() BucketLifecycleConfigurationV2RuleTransitionOutput {
+func (o BucketLifecycleConfigurationRuleTransitionOutput) ToBucketLifecycleConfigurationRuleTransitionOutput() BucketLifecycleConfigurationRuleTransitionOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleTransitionOutput) ToBucketLifecycleConfigurationV2RuleTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleTransitionOutput {
+func (o BucketLifecycleConfigurationRuleTransitionOutput) ToBucketLifecycleConfigurationRuleTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleTransitionOutput {
 	return o
 }
 
 // Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationRuleTransitionOutput) Date() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
 // Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
-func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationRuleTransitionOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 // Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
-func (o BucketLifecycleConfigurationV2RuleTransitionOutput) StorageClass() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
+func (o BucketLifecycleConfigurationRuleTransitionOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationRuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
 
-type BucketLifecycleConfigurationV2RuleTransitionArrayOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationRuleTransitionArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2RuleTransitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLifecycleConfigurationV2RuleTransition)(nil)).Elem()
+func (BucketLifecycleConfigurationRuleTransitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLifecycleConfigurationRuleTransition)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) ToBucketLifecycleConfigurationV2RuleTransitionArrayOutput() BucketLifecycleConfigurationV2RuleTransitionArrayOutput {
+func (o BucketLifecycleConfigurationRuleTransitionArrayOutput) ToBucketLifecycleConfigurationRuleTransitionArrayOutput() BucketLifecycleConfigurationRuleTransitionArrayOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) ToBucketLifecycleConfigurationV2RuleTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleTransitionArrayOutput {
+func (o BucketLifecycleConfigurationRuleTransitionArrayOutput) ToBucketLifecycleConfigurationRuleTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleTransitionArrayOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2RuleTransitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationV2RuleTransition {
-		return vs[0].([]BucketLifecycleConfigurationV2RuleTransition)[vs[1].(int)]
-	}).(BucketLifecycleConfigurationV2RuleTransitionOutput)
+func (o BucketLifecycleConfigurationRuleTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationRuleTransitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationRuleTransition {
+		return vs[0].([]BucketLifecycleConfigurationRuleTransition)[vs[1].(int)]
+	}).(BucketLifecycleConfigurationRuleTransitionOutput)
 }
 
-type BucketLifecycleConfigurationV2Timeouts struct {
+type BucketLifecycleConfigurationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Update *string `pulumi:"update"`
 }
 
-// BucketLifecycleConfigurationV2TimeoutsInput is an input type that accepts BucketLifecycleConfigurationV2TimeoutsArgs and BucketLifecycleConfigurationV2TimeoutsOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2TimeoutsInput` via:
+// BucketLifecycleConfigurationTimeoutsInput is an input type that accepts BucketLifecycleConfigurationTimeoutsArgs and BucketLifecycleConfigurationTimeoutsOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationTimeoutsInput` via:
 //
-//	BucketLifecycleConfigurationV2TimeoutsArgs{...}
-type BucketLifecycleConfigurationV2TimeoutsInput interface {
+//	BucketLifecycleConfigurationTimeoutsArgs{...}
+type BucketLifecycleConfigurationTimeoutsInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2TimeoutsOutput() BucketLifecycleConfigurationV2TimeoutsOutput
-	ToBucketLifecycleConfigurationV2TimeoutsOutputWithContext(context.Context) BucketLifecycleConfigurationV2TimeoutsOutput
+	ToBucketLifecycleConfigurationTimeoutsOutput() BucketLifecycleConfigurationTimeoutsOutput
+	ToBucketLifecycleConfigurationTimeoutsOutputWithContext(context.Context) BucketLifecycleConfigurationTimeoutsOutput
 }
 
-type BucketLifecycleConfigurationV2TimeoutsArgs struct {
+type BucketLifecycleConfigurationTimeoutsArgs struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
-func (BucketLifecycleConfigurationV2TimeoutsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2Timeouts)(nil)).Elem()
+func (BucketLifecycleConfigurationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationTimeouts)(nil)).Elem()
 }
 
-func (i BucketLifecycleConfigurationV2TimeoutsArgs) ToBucketLifecycleConfigurationV2TimeoutsOutput() BucketLifecycleConfigurationV2TimeoutsOutput {
-	return i.ToBucketLifecycleConfigurationV2TimeoutsOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationTimeoutsArgs) ToBucketLifecycleConfigurationTimeoutsOutput() BucketLifecycleConfigurationTimeoutsOutput {
+	return i.ToBucketLifecycleConfigurationTimeoutsOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2TimeoutsArgs) ToBucketLifecycleConfigurationV2TimeoutsOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2TimeoutsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2TimeoutsOutput)
+func (i BucketLifecycleConfigurationTimeoutsArgs) ToBucketLifecycleConfigurationTimeoutsOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationTimeoutsOutput)
 }
 
-func (i BucketLifecycleConfigurationV2TimeoutsArgs) ToBucketLifecycleConfigurationV2TimeoutsPtrOutput() BucketLifecycleConfigurationV2TimeoutsPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(context.Background())
+func (i BucketLifecycleConfigurationTimeoutsArgs) ToBucketLifecycleConfigurationTimeoutsPtrOutput() BucketLifecycleConfigurationTimeoutsPtrOutput {
+	return i.ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLifecycleConfigurationV2TimeoutsArgs) ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2TimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2TimeoutsOutput).ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(ctx)
+func (i BucketLifecycleConfigurationTimeoutsArgs) ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationTimeoutsOutput).ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(ctx)
 }
 
-// BucketLifecycleConfigurationV2TimeoutsPtrInput is an input type that accepts BucketLifecycleConfigurationV2TimeoutsArgs, BucketLifecycleConfigurationV2TimeoutsPtr and BucketLifecycleConfigurationV2TimeoutsPtrOutput values.
-// You can construct a concrete instance of `BucketLifecycleConfigurationV2TimeoutsPtrInput` via:
+// BucketLifecycleConfigurationTimeoutsPtrInput is an input type that accepts BucketLifecycleConfigurationTimeoutsArgs, BucketLifecycleConfigurationTimeoutsPtr and BucketLifecycleConfigurationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationTimeoutsPtrInput` via:
 //
-//	        BucketLifecycleConfigurationV2TimeoutsArgs{...}
+//	        BucketLifecycleConfigurationTimeoutsArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLifecycleConfigurationV2TimeoutsPtrInput interface {
+type BucketLifecycleConfigurationTimeoutsPtrInput interface {
 	pulumi.Input
 
-	ToBucketLifecycleConfigurationV2TimeoutsPtrOutput() BucketLifecycleConfigurationV2TimeoutsPtrOutput
-	ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(context.Context) BucketLifecycleConfigurationV2TimeoutsPtrOutput
+	ToBucketLifecycleConfigurationTimeoutsPtrOutput() BucketLifecycleConfigurationTimeoutsPtrOutput
+	ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(context.Context) BucketLifecycleConfigurationTimeoutsPtrOutput
 }
 
-type bucketLifecycleConfigurationV2TimeoutsPtrType BucketLifecycleConfigurationV2TimeoutsArgs
+type bucketLifecycleConfigurationTimeoutsPtrType BucketLifecycleConfigurationTimeoutsArgs
 
-func BucketLifecycleConfigurationV2TimeoutsPtr(v *BucketLifecycleConfigurationV2TimeoutsArgs) BucketLifecycleConfigurationV2TimeoutsPtrInput {
-	return (*bucketLifecycleConfigurationV2TimeoutsPtrType)(v)
+func BucketLifecycleConfigurationTimeoutsPtr(v *BucketLifecycleConfigurationTimeoutsArgs) BucketLifecycleConfigurationTimeoutsPtrInput {
+	return (*bucketLifecycleConfigurationTimeoutsPtrType)(v)
 }
 
-func (*bucketLifecycleConfigurationV2TimeoutsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2Timeouts)(nil)).Elem()
+func (*bucketLifecycleConfigurationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationTimeouts)(nil)).Elem()
 }
 
-func (i *bucketLifecycleConfigurationV2TimeoutsPtrType) ToBucketLifecycleConfigurationV2TimeoutsPtrOutput() BucketLifecycleConfigurationV2TimeoutsPtrOutput {
-	return i.ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(context.Background())
+func (i *bucketLifecycleConfigurationTimeoutsPtrType) ToBucketLifecycleConfigurationTimeoutsPtrOutput() BucketLifecycleConfigurationTimeoutsPtrOutput {
+	return i.ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLifecycleConfigurationV2TimeoutsPtrType) ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2TimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2TimeoutsPtrOutput)
+func (i *bucketLifecycleConfigurationTimeoutsPtrType) ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationTimeoutsPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2TimeoutsOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationTimeoutsOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2TimeoutsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLifecycleConfigurationV2Timeouts)(nil)).Elem()
+func (BucketLifecycleConfigurationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationTimeouts)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsOutput) ToBucketLifecycleConfigurationV2TimeoutsOutput() BucketLifecycleConfigurationV2TimeoutsOutput {
+func (o BucketLifecycleConfigurationTimeoutsOutput) ToBucketLifecycleConfigurationTimeoutsOutput() BucketLifecycleConfigurationTimeoutsOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsOutput) ToBucketLifecycleConfigurationV2TimeoutsOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2TimeoutsOutput {
+func (o BucketLifecycleConfigurationTimeoutsOutput) ToBucketLifecycleConfigurationTimeoutsOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTimeoutsOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsOutput) ToBucketLifecycleConfigurationV2TimeoutsPtrOutput() BucketLifecycleConfigurationV2TimeoutsPtrOutput {
-	return o.ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(context.Background())
+func (o BucketLifecycleConfigurationTimeoutsOutput) ToBucketLifecycleConfigurationTimeoutsPtrOutput() BucketLifecycleConfigurationTimeoutsPtrOutput {
+	return o.ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsOutput) ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2TimeoutsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2Timeouts) *BucketLifecycleConfigurationV2Timeouts {
+func (o BucketLifecycleConfigurationTimeoutsOutput) ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationTimeouts) *BucketLifecycleConfigurationTimeouts {
 		return &v
-	}).(BucketLifecycleConfigurationV2TimeoutsPtrOutput)
+	}).(BucketLifecycleConfigurationTimeoutsPtrOutput)
 }
 
 // A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o BucketLifecycleConfigurationV2TimeoutsOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Timeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
 // A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o BucketLifecycleConfigurationV2TimeoutsOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2Timeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
 
-type BucketLifecycleConfigurationV2TimeoutsPtrOutput struct{ *pulumi.OutputState }
+type BucketLifecycleConfigurationTimeoutsPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLifecycleConfigurationV2TimeoutsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLifecycleConfigurationV2Timeouts)(nil)).Elem()
+func (BucketLifecycleConfigurationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationTimeouts)(nil)).Elem()
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) ToBucketLifecycleConfigurationV2TimeoutsPtrOutput() BucketLifecycleConfigurationV2TimeoutsPtrOutput {
+func (o BucketLifecycleConfigurationTimeoutsPtrOutput) ToBucketLifecycleConfigurationTimeoutsPtrOutput() BucketLifecycleConfigurationTimeoutsPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) ToBucketLifecycleConfigurationV2TimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2TimeoutsPtrOutput {
+func (o BucketLifecycleConfigurationTimeoutsPtrOutput) ToBucketLifecycleConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTimeoutsPtrOutput {
 	return o
 }
 
-func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) Elem() BucketLifecycleConfigurationV2TimeoutsOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2Timeouts) BucketLifecycleConfigurationV2Timeouts {
+func (o BucketLifecycleConfigurationTimeoutsPtrOutput) Elem() BucketLifecycleConfigurationTimeoutsOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationTimeouts) BucketLifecycleConfigurationTimeouts {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLifecycleConfigurationV2Timeouts
+		var ret BucketLifecycleConfigurationTimeouts
 		return ret
-	}).(BucketLifecycleConfigurationV2TimeoutsOutput)
+	}).(BucketLifecycleConfigurationTimeoutsOutput)
 }
 
 // A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2Timeouts) *string {
+func (o BucketLifecycleConfigurationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationTimeouts) *string {
 		if v == nil {
 			return nil
 		}
@@ -4088,8 +4086,8 @@ func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) Create() pulumi.StringP
 }
 
 // A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2Timeouts) *string {
+func (o BucketLifecycleConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationTimeouts) *string {
 		if v == nil {
 			return nil
 		}
@@ -4703,219 +4701,219 @@ func (o BucketLifecycleRuleTransitionArrayOutput) Index(i pulumi.IntInput) Bucke
 	}).(BucketLifecycleRuleTransitionOutput)
 }
 
-type BucketLogging struct {
+type BucketLoggingType struct {
 	// Name of the bucket that will receive the log objects.
 	TargetBucket string `pulumi:"targetBucket"`
 	// To specify a key prefix for log objects.
 	TargetPrefix *string `pulumi:"targetPrefix"`
 }
 
-// BucketLoggingInput is an input type that accepts BucketLoggingArgs and BucketLoggingOutput values.
-// You can construct a concrete instance of `BucketLoggingInput` via:
+// BucketLoggingTypeInput is an input type that accepts BucketLoggingTypeArgs and BucketLoggingTypeOutput values.
+// You can construct a concrete instance of `BucketLoggingTypeInput` via:
 //
-//	BucketLoggingArgs{...}
-type BucketLoggingInput interface {
+//	BucketLoggingTypeArgs{...}
+type BucketLoggingTypeInput interface {
 	pulumi.Input
 
-	ToBucketLoggingOutput() BucketLoggingOutput
-	ToBucketLoggingOutputWithContext(context.Context) BucketLoggingOutput
+	ToBucketLoggingTypeOutput() BucketLoggingTypeOutput
+	ToBucketLoggingTypeOutputWithContext(context.Context) BucketLoggingTypeOutput
 }
 
-type BucketLoggingArgs struct {
+type BucketLoggingTypeArgs struct {
 	// Name of the bucket that will receive the log objects.
 	TargetBucket pulumi.StringInput `pulumi:"targetBucket"`
 	// To specify a key prefix for log objects.
 	TargetPrefix pulumi.StringPtrInput `pulumi:"targetPrefix"`
 }
 
-func (BucketLoggingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLogging)(nil)).Elem()
+func (BucketLoggingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingType)(nil)).Elem()
 }
 
-func (i BucketLoggingArgs) ToBucketLoggingOutput() BucketLoggingOutput {
-	return i.ToBucketLoggingOutputWithContext(context.Background())
+func (i BucketLoggingTypeArgs) ToBucketLoggingTypeOutput() BucketLoggingTypeOutput {
+	return i.ToBucketLoggingTypeOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingArgs) ToBucketLoggingOutputWithContext(ctx context.Context) BucketLoggingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingOutput)
+func (i BucketLoggingTypeArgs) ToBucketLoggingTypeOutputWithContext(ctx context.Context) BucketLoggingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTypeOutput)
 }
 
-// BucketLoggingArrayInput is an input type that accepts BucketLoggingArray and BucketLoggingArrayOutput values.
-// You can construct a concrete instance of `BucketLoggingArrayInput` via:
+// BucketLoggingTypeArrayInput is an input type that accepts BucketLoggingTypeArray and BucketLoggingTypeArrayOutput values.
+// You can construct a concrete instance of `BucketLoggingTypeArrayInput` via:
 //
-//	BucketLoggingArray{ BucketLoggingArgs{...} }
-type BucketLoggingArrayInput interface {
+//	BucketLoggingTypeArray{ BucketLoggingTypeArgs{...} }
+type BucketLoggingTypeArrayInput interface {
 	pulumi.Input
 
-	ToBucketLoggingArrayOutput() BucketLoggingArrayOutput
-	ToBucketLoggingArrayOutputWithContext(context.Context) BucketLoggingArrayOutput
+	ToBucketLoggingTypeArrayOutput() BucketLoggingTypeArrayOutput
+	ToBucketLoggingTypeArrayOutputWithContext(context.Context) BucketLoggingTypeArrayOutput
 }
 
-type BucketLoggingArray []BucketLoggingInput
+type BucketLoggingTypeArray []BucketLoggingTypeInput
 
-func (BucketLoggingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLogging)(nil)).Elem()
+func (BucketLoggingTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLoggingType)(nil)).Elem()
 }
 
-func (i BucketLoggingArray) ToBucketLoggingArrayOutput() BucketLoggingArrayOutput {
-	return i.ToBucketLoggingArrayOutputWithContext(context.Background())
+func (i BucketLoggingTypeArray) ToBucketLoggingTypeArrayOutput() BucketLoggingTypeArrayOutput {
+	return i.ToBucketLoggingTypeArrayOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingArray) ToBucketLoggingArrayOutputWithContext(ctx context.Context) BucketLoggingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingArrayOutput)
+func (i BucketLoggingTypeArray) ToBucketLoggingTypeArrayOutputWithContext(ctx context.Context) BucketLoggingTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTypeArrayOutput)
 }
 
-type BucketLoggingOutput struct{ *pulumi.OutputState }
+type BucketLoggingTypeOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLogging)(nil)).Elem()
+func (BucketLoggingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingType)(nil)).Elem()
 }
 
-func (o BucketLoggingOutput) ToBucketLoggingOutput() BucketLoggingOutput {
+func (o BucketLoggingTypeOutput) ToBucketLoggingTypeOutput() BucketLoggingTypeOutput {
 	return o
 }
 
-func (o BucketLoggingOutput) ToBucketLoggingOutputWithContext(ctx context.Context) BucketLoggingOutput {
+func (o BucketLoggingTypeOutput) ToBucketLoggingTypeOutputWithContext(ctx context.Context) BucketLoggingTypeOutput {
 	return o
 }
 
 // Name of the bucket that will receive the log objects.
-func (o BucketLoggingOutput) TargetBucket() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLogging) string { return v.TargetBucket }).(pulumi.StringOutput)
+func (o BucketLoggingTypeOutput) TargetBucket() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLoggingType) string { return v.TargetBucket }).(pulumi.StringOutput)
 }
 
 // To specify a key prefix for log objects.
-func (o BucketLoggingOutput) TargetPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLogging) *string { return v.TargetPrefix }).(pulumi.StringPtrOutput)
+func (o BucketLoggingTypeOutput) TargetPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingType) *string { return v.TargetPrefix }).(pulumi.StringPtrOutput)
 }
 
-type BucketLoggingArrayOutput struct{ *pulumi.OutputState }
+type BucketLoggingTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLogging)(nil)).Elem()
+func (BucketLoggingTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLoggingType)(nil)).Elem()
 }
 
-func (o BucketLoggingArrayOutput) ToBucketLoggingArrayOutput() BucketLoggingArrayOutput {
+func (o BucketLoggingTypeArrayOutput) ToBucketLoggingTypeArrayOutput() BucketLoggingTypeArrayOutput {
 	return o
 }
 
-func (o BucketLoggingArrayOutput) ToBucketLoggingArrayOutputWithContext(ctx context.Context) BucketLoggingArrayOutput {
+func (o BucketLoggingTypeArrayOutput) ToBucketLoggingTypeArrayOutputWithContext(ctx context.Context) BucketLoggingTypeArrayOutput {
 	return o
 }
 
-func (o BucketLoggingArrayOutput) Index(i pulumi.IntInput) BucketLoggingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLogging {
-		return vs[0].([]BucketLogging)[vs[1].(int)]
-	}).(BucketLoggingOutput)
+func (o BucketLoggingTypeArrayOutput) Index(i pulumi.IntInput) BucketLoggingTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLoggingType {
+		return vs[0].([]BucketLoggingType)[vs[1].(int)]
+	}).(BucketLoggingTypeOutput)
 }
 
-type BucketLoggingV2TargetGrant struct {
+type BucketLoggingTargetGrant struct {
 	// Configuration block for the person being granted permissions. See below.
-	Grantee BucketLoggingV2TargetGrantGrantee `pulumi:"grantee"`
+	Grantee BucketLoggingTargetGrantGrantee `pulumi:"grantee"`
 	// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
 	Permission string `pulumi:"permission"`
 }
 
-// BucketLoggingV2TargetGrantInput is an input type that accepts BucketLoggingV2TargetGrantArgs and BucketLoggingV2TargetGrantOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetGrantInput` via:
+// BucketLoggingTargetGrantInput is an input type that accepts BucketLoggingTargetGrantArgs and BucketLoggingTargetGrantOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetGrantInput` via:
 //
-//	BucketLoggingV2TargetGrantArgs{...}
-type BucketLoggingV2TargetGrantInput interface {
+//	BucketLoggingTargetGrantArgs{...}
+type BucketLoggingTargetGrantInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetGrantOutput() BucketLoggingV2TargetGrantOutput
-	ToBucketLoggingV2TargetGrantOutputWithContext(context.Context) BucketLoggingV2TargetGrantOutput
+	ToBucketLoggingTargetGrantOutput() BucketLoggingTargetGrantOutput
+	ToBucketLoggingTargetGrantOutputWithContext(context.Context) BucketLoggingTargetGrantOutput
 }
 
-type BucketLoggingV2TargetGrantArgs struct {
+type BucketLoggingTargetGrantArgs struct {
 	// Configuration block for the person being granted permissions. See below.
-	Grantee BucketLoggingV2TargetGrantGranteeInput `pulumi:"grantee"`
+	Grantee BucketLoggingTargetGrantGranteeInput `pulumi:"grantee"`
 	// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
 	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
-func (BucketLoggingV2TargetGrantArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetGrant)(nil)).Elem()
+func (BucketLoggingTargetGrantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetGrant)(nil)).Elem()
 }
 
-func (i BucketLoggingV2TargetGrantArgs) ToBucketLoggingV2TargetGrantOutput() BucketLoggingV2TargetGrantOutput {
-	return i.ToBucketLoggingV2TargetGrantOutputWithContext(context.Background())
+func (i BucketLoggingTargetGrantArgs) ToBucketLoggingTargetGrantOutput() BucketLoggingTargetGrantOutput {
+	return i.ToBucketLoggingTargetGrantOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetGrantArgs) ToBucketLoggingV2TargetGrantOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetGrantOutput)
+func (i BucketLoggingTargetGrantArgs) ToBucketLoggingTargetGrantOutputWithContext(ctx context.Context) BucketLoggingTargetGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetGrantOutput)
 }
 
-// BucketLoggingV2TargetGrantArrayInput is an input type that accepts BucketLoggingV2TargetGrantArray and BucketLoggingV2TargetGrantArrayOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetGrantArrayInput` via:
+// BucketLoggingTargetGrantArrayInput is an input type that accepts BucketLoggingTargetGrantArray and BucketLoggingTargetGrantArrayOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetGrantArrayInput` via:
 //
-//	BucketLoggingV2TargetGrantArray{ BucketLoggingV2TargetGrantArgs{...} }
-type BucketLoggingV2TargetGrantArrayInput interface {
+//	BucketLoggingTargetGrantArray{ BucketLoggingTargetGrantArgs{...} }
+type BucketLoggingTargetGrantArrayInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetGrantArrayOutput() BucketLoggingV2TargetGrantArrayOutput
-	ToBucketLoggingV2TargetGrantArrayOutputWithContext(context.Context) BucketLoggingV2TargetGrantArrayOutput
+	ToBucketLoggingTargetGrantArrayOutput() BucketLoggingTargetGrantArrayOutput
+	ToBucketLoggingTargetGrantArrayOutputWithContext(context.Context) BucketLoggingTargetGrantArrayOutput
 }
 
-type BucketLoggingV2TargetGrantArray []BucketLoggingV2TargetGrantInput
+type BucketLoggingTargetGrantArray []BucketLoggingTargetGrantInput
 
-func (BucketLoggingV2TargetGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLoggingV2TargetGrant)(nil)).Elem()
+func (BucketLoggingTargetGrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLoggingTargetGrant)(nil)).Elem()
 }
 
-func (i BucketLoggingV2TargetGrantArray) ToBucketLoggingV2TargetGrantArrayOutput() BucketLoggingV2TargetGrantArrayOutput {
-	return i.ToBucketLoggingV2TargetGrantArrayOutputWithContext(context.Background())
+func (i BucketLoggingTargetGrantArray) ToBucketLoggingTargetGrantArrayOutput() BucketLoggingTargetGrantArrayOutput {
+	return i.ToBucketLoggingTargetGrantArrayOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetGrantArray) ToBucketLoggingV2TargetGrantArrayOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetGrantArrayOutput)
+func (i BucketLoggingTargetGrantArray) ToBucketLoggingTargetGrantArrayOutputWithContext(ctx context.Context) BucketLoggingTargetGrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetGrantArrayOutput)
 }
 
-type BucketLoggingV2TargetGrantOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetGrantOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetGrant)(nil)).Elem()
+func (BucketLoggingTargetGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetGrant)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetGrantOutput) ToBucketLoggingV2TargetGrantOutput() BucketLoggingV2TargetGrantOutput {
+func (o BucketLoggingTargetGrantOutput) ToBucketLoggingTargetGrantOutput() BucketLoggingTargetGrantOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetGrantOutput) ToBucketLoggingV2TargetGrantOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantOutput {
+func (o BucketLoggingTargetGrantOutput) ToBucketLoggingTargetGrantOutputWithContext(ctx context.Context) BucketLoggingTargetGrantOutput {
 	return o
 }
 
 // Configuration block for the person being granted permissions. See below.
-func (o BucketLoggingV2TargetGrantOutput) Grantee() BucketLoggingV2TargetGrantGranteeOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrant) BucketLoggingV2TargetGrantGrantee { return v.Grantee }).(BucketLoggingV2TargetGrantGranteeOutput)
+func (o BucketLoggingTargetGrantOutput) Grantee() BucketLoggingTargetGrantGranteeOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrant) BucketLoggingTargetGrantGrantee { return v.Grantee }).(BucketLoggingTargetGrantGranteeOutput)
 }
 
 // Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-func (o BucketLoggingV2TargetGrantOutput) Permission() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrant) string { return v.Permission }).(pulumi.StringOutput)
+func (o BucketLoggingTargetGrantOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrant) string { return v.Permission }).(pulumi.StringOutput)
 }
 
-type BucketLoggingV2TargetGrantArrayOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetGrantArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketLoggingV2TargetGrant)(nil)).Elem()
+func (BucketLoggingTargetGrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLoggingTargetGrant)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetGrantArrayOutput) ToBucketLoggingV2TargetGrantArrayOutput() BucketLoggingV2TargetGrantArrayOutput {
+func (o BucketLoggingTargetGrantArrayOutput) ToBucketLoggingTargetGrantArrayOutput() BucketLoggingTargetGrantArrayOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetGrantArrayOutput) ToBucketLoggingV2TargetGrantArrayOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantArrayOutput {
+func (o BucketLoggingTargetGrantArrayOutput) ToBucketLoggingTargetGrantArrayOutputWithContext(ctx context.Context) BucketLoggingTargetGrantArrayOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetGrantArrayOutput) Index(i pulumi.IntInput) BucketLoggingV2TargetGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLoggingV2TargetGrant {
-		return vs[0].([]BucketLoggingV2TargetGrant)[vs[1].(int)]
-	}).(BucketLoggingV2TargetGrantOutput)
+func (o BucketLoggingTargetGrantArrayOutput) Index(i pulumi.IntInput) BucketLoggingTargetGrantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLoggingTargetGrant {
+		return vs[0].([]BucketLoggingTargetGrant)[vs[1].(int)]
+	}).(BucketLoggingTargetGrantOutput)
 }
 
-type BucketLoggingV2TargetGrantGrantee struct {
+type BucketLoggingTargetGrantGrantee struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -4927,18 +4925,18 @@ type BucketLoggingV2TargetGrantGrantee struct {
 	Uri *string `pulumi:"uri"`
 }
 
-// BucketLoggingV2TargetGrantGranteeInput is an input type that accepts BucketLoggingV2TargetGrantGranteeArgs and BucketLoggingV2TargetGrantGranteeOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetGrantGranteeInput` via:
+// BucketLoggingTargetGrantGranteeInput is an input type that accepts BucketLoggingTargetGrantGranteeArgs and BucketLoggingTargetGrantGranteeOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetGrantGranteeInput` via:
 //
-//	BucketLoggingV2TargetGrantGranteeArgs{...}
-type BucketLoggingV2TargetGrantGranteeInput interface {
+//	BucketLoggingTargetGrantGranteeArgs{...}
+type BucketLoggingTargetGrantGranteeInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetGrantGranteeOutput() BucketLoggingV2TargetGrantGranteeOutput
-	ToBucketLoggingV2TargetGrantGranteeOutputWithContext(context.Context) BucketLoggingV2TargetGrantGranteeOutput
+	ToBucketLoggingTargetGrantGranteeOutput() BucketLoggingTargetGrantGranteeOutput
+	ToBucketLoggingTargetGrantGranteeOutputWithContext(context.Context) BucketLoggingTargetGrantGranteeOutput
 }
 
-type BucketLoggingV2TargetGrantGranteeArgs struct {
+type BucketLoggingTargetGrantGranteeArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -4950,346 +4948,346 @@ type BucketLoggingV2TargetGrantGranteeArgs struct {
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
-func (BucketLoggingV2TargetGrantGranteeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetGrantGrantee)(nil)).Elem()
+func (BucketLoggingTargetGrantGranteeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetGrantGrantee)(nil)).Elem()
 }
 
-func (i BucketLoggingV2TargetGrantGranteeArgs) ToBucketLoggingV2TargetGrantGranteeOutput() BucketLoggingV2TargetGrantGranteeOutput {
-	return i.ToBucketLoggingV2TargetGrantGranteeOutputWithContext(context.Background())
+func (i BucketLoggingTargetGrantGranteeArgs) ToBucketLoggingTargetGrantGranteeOutput() BucketLoggingTargetGrantGranteeOutput {
+	return i.ToBucketLoggingTargetGrantGranteeOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetGrantGranteeArgs) ToBucketLoggingV2TargetGrantGranteeOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantGranteeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetGrantGranteeOutput)
+func (i BucketLoggingTargetGrantGranteeArgs) ToBucketLoggingTargetGrantGranteeOutputWithContext(ctx context.Context) BucketLoggingTargetGrantGranteeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetGrantGranteeOutput)
 }
 
-type BucketLoggingV2TargetGrantGranteeOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetGrantGranteeOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetGrantGranteeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetGrantGrantee)(nil)).Elem()
+func (BucketLoggingTargetGrantGranteeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetGrantGrantee)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetGrantGranteeOutput) ToBucketLoggingV2TargetGrantGranteeOutput() BucketLoggingV2TargetGrantGranteeOutput {
+func (o BucketLoggingTargetGrantGranteeOutput) ToBucketLoggingTargetGrantGranteeOutput() BucketLoggingTargetGrantGranteeOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetGrantGranteeOutput) ToBucketLoggingV2TargetGrantGranteeOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantGranteeOutput {
+func (o BucketLoggingTargetGrantGranteeOutput) ToBucketLoggingTargetGrantGranteeOutputWithContext(ctx context.Context) BucketLoggingTargetGrantGranteeOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o BucketLoggingTargetGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-func (o BucketLoggingV2TargetGrantGranteeOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+func (o BucketLoggingTargetGrantGranteeOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrantGrantee) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
 // Canonical user ID of the grantee.
-func (o BucketLoggingV2TargetGrantGranteeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o BucketLoggingTargetGrantGranteeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrantGrantee) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-func (o BucketLoggingV2TargetGrantGranteeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) string { return v.Type }).(pulumi.StringOutput)
+func (o BucketLoggingTargetGrantGranteeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrantGrantee) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // URI of the grantee group.
-func (o BucketLoggingV2TargetGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) *string { return v.Uri }).(pulumi.StringPtrOutput)
+func (o BucketLoggingTargetGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingTargetGrantGrantee) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormat struct {
+type BucketLoggingTargetObjectKeyFormat struct {
 	// Partitioned S3 key for log objects. See below.
-	PartitionedPrefix *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix `pulumi:"partitionedPrefix"`
+	PartitionedPrefix *BucketLoggingTargetObjectKeyFormatPartitionedPrefix `pulumi:"partitionedPrefix"`
 	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
-	SimplePrefix *BucketLoggingV2TargetObjectKeyFormatSimplePrefix `pulumi:"simplePrefix"`
+	SimplePrefix *BucketLoggingTargetObjectKeyFormatSimplePrefix `pulumi:"simplePrefix"`
 }
 
-// BucketLoggingV2TargetObjectKeyFormatInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatArgs and BucketLoggingV2TargetObjectKeyFormatOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatInput` via:
+// BucketLoggingTargetObjectKeyFormatInput is an input type that accepts BucketLoggingTargetObjectKeyFormatArgs and BucketLoggingTargetObjectKeyFormatOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetObjectKeyFormatInput` via:
 //
-//	BucketLoggingV2TargetObjectKeyFormatArgs{...}
-type BucketLoggingV2TargetObjectKeyFormatInput interface {
+//	BucketLoggingTargetObjectKeyFormatArgs{...}
+type BucketLoggingTargetObjectKeyFormatInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetObjectKeyFormatOutput() BucketLoggingV2TargetObjectKeyFormatOutput
-	ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatOutput
+	ToBucketLoggingTargetObjectKeyFormatOutput() BucketLoggingTargetObjectKeyFormatOutput
+	ToBucketLoggingTargetObjectKeyFormatOutputWithContext(context.Context) BucketLoggingTargetObjectKeyFormatOutput
 }
 
-type BucketLoggingV2TargetObjectKeyFormatArgs struct {
+type BucketLoggingTargetObjectKeyFormatArgs struct {
 	// Partitioned S3 key for log objects. See below.
-	PartitionedPrefix BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput `pulumi:"partitionedPrefix"`
+	PartitionedPrefix BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput `pulumi:"partitionedPrefix"`
 	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
-	SimplePrefix BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput `pulumi:"simplePrefix"`
+	SimplePrefix BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput `pulumi:"simplePrefix"`
 }
 
-func (BucketLoggingV2TargetObjectKeyFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetObjectKeyFormat)(nil)).Elem()
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatOutput() BucketLoggingV2TargetObjectKeyFormatOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(context.Background())
+func (i BucketLoggingTargetObjectKeyFormatArgs) ToBucketLoggingTargetObjectKeyFormatOutput() BucketLoggingTargetObjectKeyFormatOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatOutput)
+func (i BucketLoggingTargetObjectKeyFormatArgs) ToBucketLoggingTargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatOutput)
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Background())
+func (i BucketLoggingTargetObjectKeyFormatArgs) ToBucketLoggingTargetObjectKeyFormatPtrOutput() BucketLoggingTargetObjectKeyFormatPtrOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatOutput).ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx)
+func (i BucketLoggingTargetObjectKeyFormatArgs) ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatOutput).ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(ctx)
 }
 
-// BucketLoggingV2TargetObjectKeyFormatPtrInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatArgs, BucketLoggingV2TargetObjectKeyFormatPtr and BucketLoggingV2TargetObjectKeyFormatPtrOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatPtrInput` via:
+// BucketLoggingTargetObjectKeyFormatPtrInput is an input type that accepts BucketLoggingTargetObjectKeyFormatArgs, BucketLoggingTargetObjectKeyFormatPtr and BucketLoggingTargetObjectKeyFormatPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetObjectKeyFormatPtrInput` via:
 //
-//	        BucketLoggingV2TargetObjectKeyFormatArgs{...}
+//	        BucketLoggingTargetObjectKeyFormatArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLoggingV2TargetObjectKeyFormatPtrInput interface {
+type BucketLoggingTargetObjectKeyFormatPtrInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput
-	ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput
+	ToBucketLoggingTargetObjectKeyFormatPtrOutput() BucketLoggingTargetObjectKeyFormatPtrOutput
+	ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(context.Context) BucketLoggingTargetObjectKeyFormatPtrOutput
 }
 
-type bucketLoggingV2TargetObjectKeyFormatPtrType BucketLoggingV2TargetObjectKeyFormatArgs
+type bucketLoggingTargetObjectKeyFormatPtrType BucketLoggingTargetObjectKeyFormatArgs
 
-func BucketLoggingV2TargetObjectKeyFormatPtr(v *BucketLoggingV2TargetObjectKeyFormatArgs) BucketLoggingV2TargetObjectKeyFormatPtrInput {
-	return (*bucketLoggingV2TargetObjectKeyFormatPtrType)(v)
+func BucketLoggingTargetObjectKeyFormatPtr(v *BucketLoggingTargetObjectKeyFormatArgs) BucketLoggingTargetObjectKeyFormatPtrInput {
+	return (*bucketLoggingTargetObjectKeyFormatPtrType)(v)
 }
 
-func (*bucketLoggingV2TargetObjectKeyFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+func (*bucketLoggingTargetObjectKeyFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingTargetObjectKeyFormat)(nil)).Elem()
 }
 
-func (i *bucketLoggingV2TargetObjectKeyFormatPtrType) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Background())
+func (i *bucketLoggingTargetObjectKeyFormatPtrType) ToBucketLoggingTargetObjectKeyFormatPtrOutput() BucketLoggingTargetObjectKeyFormatPtrOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLoggingV2TargetObjectKeyFormatPtrType) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
+func (i *bucketLoggingTargetObjectKeyFormatPtrType) ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetObjectKeyFormatOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetObjectKeyFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetObjectKeyFormat)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatOutput() BucketLoggingV2TargetObjectKeyFormatOutput {
+func (o BucketLoggingTargetObjectKeyFormatOutput) ToBucketLoggingTargetObjectKeyFormatOutput() BucketLoggingTargetObjectKeyFormatOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatOutput {
+func (o BucketLoggingTargetObjectKeyFormatOutput) ToBucketLoggingTargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
-	return o.ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Background())
+func (o BucketLoggingTargetObjectKeyFormatOutput) ToBucketLoggingTargetObjectKeyFormatPtrOutput() BucketLoggingTargetObjectKeyFormatPtrOutput {
+	return o.ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormat {
+func (o BucketLoggingTargetObjectKeyFormatOutput) ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormat {
 		return &v
-	}).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatPtrOutput)
 }
 
 // Partitioned S3 key for log objects. See below.
-func (o BucketLoggingV2TargetObjectKeyFormatOutput) PartitionedPrefix() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+func (o BucketLoggingTargetObjectKeyFormatOutput) PartitionedPrefix() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
 		return v.PartitionedPrefix
-	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
 // Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
-func (o BucketLoggingV2TargetObjectKeyFormatOutput) SimplePrefix() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+func (o BucketLoggingTargetObjectKeyFormatOutput) SimplePrefix() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ApplyT(func(v BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatSimplePrefix {
 		return v.SimplePrefix
-	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatPtrOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetObjectKeyFormatPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetObjectKeyFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingTargetObjectKeyFormat)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+func (o BucketLoggingTargetObjectKeyFormatPtrOutput) ToBucketLoggingTargetObjectKeyFormatPtrOutput() BucketLoggingTargetObjectKeyFormatPtrOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+func (o BucketLoggingTargetObjectKeyFormatPtrOutput) ToBucketLoggingTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPtrOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) Elem() BucketLoggingV2TargetObjectKeyFormatOutput {
-	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) BucketLoggingV2TargetObjectKeyFormat {
+func (o BucketLoggingTargetObjectKeyFormatPtrOutput) Elem() BucketLoggingTargetObjectKeyFormatOutput {
+	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormat) BucketLoggingTargetObjectKeyFormat {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLoggingV2TargetObjectKeyFormat
+		var ret BucketLoggingTargetObjectKeyFormat
 		return ret
-	}).(BucketLoggingV2TargetObjectKeyFormatOutput)
+	}).(BucketLoggingTargetObjectKeyFormatOutput)
 }
 
 // Partitioned S3 key for log objects. See below.
-func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+func (o BucketLoggingTargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
 		if v == nil {
 			return nil
 		}
 		return v.PartitionedPrefix
-	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
 // Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
-func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+func (o BucketLoggingTargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormat) *BucketLoggingTargetObjectKeyFormatSimplePrefix {
 		if v == nil {
 			return nil
 		}
 		return v.SimplePrefix
-	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix struct {
+type BucketLoggingTargetObjectKeyFormatPartitionedPrefix struct {
 	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 	PartitionDateSource string `pulumi:"partitionDateSource"`
 }
 
-// BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs and BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput` via:
+// BucketLoggingTargetObjectKeyFormatPartitionedPrefixInput is an input type that accepts BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs and BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetObjectKeyFormatPartitionedPrefixInput` via:
 //
-//	BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{...}
-type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput interface {
+//	BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{...}
+type BucketLoggingTargetObjectKeyFormatPartitionedPrefixInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput
-	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput
+	ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput
+	ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutputWithContext(context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput
 }
 
-type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs struct {
+type BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs struct {
 	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 	PartitionDateSource pulumi.StringInput `pulumi:"partitionDateSource"`
 }
 
-func (BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(context.Background())
+func (i BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput)
+func (i BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput)
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
+func (i BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput).ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx)
+func (i BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput).ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx)
 }
 
-// BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs, BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtr and BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput` via:
+// BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput is an input type that accepts BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs, BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtr and BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput` via:
 //
-//	        BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{...}
+//	        BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput interface {
+type BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput
-	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput
+	ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput
+	ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput
 }
 
-type bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs
+type bucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrType BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs
 
-func BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtr(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput {
-	return (*bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType)(v)
+func BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtr(v *BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs) BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput {
+	return (*bucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrType)(v)
 }
 
-func (*bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+func (*bucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingTargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
 }
 
-func (i *bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
+func (i *bucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrType) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+func (i *bucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrType) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return o.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingTargetObjectKeyFormatPartitionedPrefix) *BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
 		return &v
-	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
 // Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) PartitionDateSource() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) string { return v.PartitionDateSource }).(pulumi.StringOutput)
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) PartitionDateSource() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLoggingTargetObjectKeyFormatPartitionedPrefix) string { return v.PartitionDateSource }).(pulumi.StringOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingTargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) ToBucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) Elem() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
-	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) Elem() BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput {
+	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormatPartitionedPrefix) BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix
+		var ret BucketLoggingTargetObjectKeyFormatPartitionedPrefix
 		return ret
-	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput)
+	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput)
 }
 
 // Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) PartitionDateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) *string {
+func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) PartitionDateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormatPartitionedPrefix) *string {
 		if v == nil {
 			return nil
 		}
@@ -5297,122 +5295,122 @@ func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) Partitio
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatSimplePrefix struct {
+type BucketLoggingTargetObjectKeyFormatSimplePrefix struct {
 }
 
-// BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs and BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput` via:
+// BucketLoggingTargetObjectKeyFormatSimplePrefixInput is an input type that accepts BucketLoggingTargetObjectKeyFormatSimplePrefixArgs and BucketLoggingTargetObjectKeyFormatSimplePrefixOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetObjectKeyFormatSimplePrefixInput` via:
 //
-//	BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{...}
-type BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput interface {
+//	BucketLoggingTargetObjectKeyFormatSimplePrefixArgs{...}
+type BucketLoggingTargetObjectKeyFormatSimplePrefixInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput
-	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput
+	ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixOutput
+	ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutputWithContext(context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixOutput
 }
 
-type BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs struct {
+type BucketLoggingTargetObjectKeyFormatSimplePrefixArgs struct {
 }
 
-func (BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatSimplePrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatSimplePrefix)(nil)).Elem()
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(context.Background())
+func (i BucketLoggingTargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput)
+func (i BucketLoggingTargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatSimplePrefixOutput)
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
+func (i BucketLoggingTargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
 }
 
-func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput).ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx)
+func (i BucketLoggingTargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatSimplePrefixOutput).ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx)
 }
 
-// BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs, BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtr and BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput values.
-// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput` via:
+// BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput is an input type that accepts BucketLoggingTargetObjectKeyFormatSimplePrefixArgs, BucketLoggingTargetObjectKeyFormatSimplePrefixPtr and BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput` via:
 //
-//	        BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{...}
+//	        BucketLoggingTargetObjectKeyFormatSimplePrefixArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput interface {
+type BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput interface {
 	pulumi.Input
 
-	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput
-	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput
+	ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput
+	ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput
 }
 
-type bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs
+type bucketLoggingTargetObjectKeyFormatSimplePrefixPtrType BucketLoggingTargetObjectKeyFormatSimplePrefixArgs
 
-func BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtr(v *BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput {
-	return (*bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType)(v)
+func BucketLoggingTargetObjectKeyFormatSimplePrefixPtr(v *BucketLoggingTargetObjectKeyFormatSimplePrefixArgs) BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput {
+	return (*bucketLoggingTargetObjectKeyFormatSimplePrefixPtrType)(v)
 }
 
-func (*bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+func (*bucketLoggingTargetObjectKeyFormatSimplePrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingTargetObjectKeyFormatSimplePrefix)(nil)).Elem()
 }
 
-func (i *bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return i.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
+func (i *bucketLoggingTargetObjectKeyFormatSimplePrefixPtrType) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return i.ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+func (i *bucketLoggingTargetObjectKeyFormatSimplePrefixPtrType) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetObjectKeyFormatSimplePrefixOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatSimplePrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatSimplePrefix)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingTargetObjectKeyFormatSimplePrefixOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return o.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingV2TargetObjectKeyFormatSimplePrefix) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingTargetObjectKeyFormatSimplePrefix) *BucketLoggingTargetObjectKeyFormatSimplePrefix {
 		return &v
-	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+	}).(BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput)
 }
 
-type BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput struct{ *pulumi.OutputState }
+type BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+func (BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingTargetObjectKeyFormatSimplePrefix)(nil)).Elem()
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput) ToBucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput {
 	return o
 }
 
-func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) Elem() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
-	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatSimplePrefix) BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+func (o BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput) Elem() BucketLoggingTargetObjectKeyFormatSimplePrefixOutput {
+	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormatSimplePrefix) BucketLoggingTargetObjectKeyFormatSimplePrefix {
 		if v != nil {
 			return *v
 		}
-		var ret BucketLoggingV2TargetObjectKeyFormatSimplePrefix
+		var ret BucketLoggingTargetObjectKeyFormatSimplePrefix
 		return ret
-	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput)
+	}).(BucketLoggingTargetObjectKeyFormatSimplePrefixOutput)
 }
 
 type BucketMetricFilter struct {
@@ -5989,159 +5987,159 @@ func (o BucketNotificationTopicArrayOutput) Index(i pulumi.IntInput) BucketNotif
 	}).(BucketNotificationTopicOutput)
 }
 
-type BucketObjectLockConfiguration struct {
+type BucketObjectLockConfigurationType struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
 	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
+	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rules []BucketObjectLockConfigurationRule `pulumi:"rules"`
 }
 
-// BucketObjectLockConfigurationInput is an input type that accepts BucketObjectLockConfigurationArgs and BucketObjectLockConfigurationOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationInput` via:
+// BucketObjectLockConfigurationTypeInput is an input type that accepts BucketObjectLockConfigurationTypeArgs and BucketObjectLockConfigurationTypeOutput values.
+// You can construct a concrete instance of `BucketObjectLockConfigurationTypeInput` via:
 //
-//	BucketObjectLockConfigurationArgs{...}
-type BucketObjectLockConfigurationInput interface {
+//	BucketObjectLockConfigurationTypeArgs{...}
+type BucketObjectLockConfigurationTypeInput interface {
 	pulumi.Input
 
-	ToBucketObjectLockConfigurationOutput() BucketObjectLockConfigurationOutput
-	ToBucketObjectLockConfigurationOutputWithContext(context.Context) BucketObjectLockConfigurationOutput
+	ToBucketObjectLockConfigurationTypeOutput() BucketObjectLockConfigurationTypeOutput
+	ToBucketObjectLockConfigurationTypeOutputWithContext(context.Context) BucketObjectLockConfigurationTypeOutput
 }
 
-type BucketObjectLockConfigurationArgs struct {
+type BucketObjectLockConfigurationTypeArgs struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
 	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
+	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rules BucketObjectLockConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
-func (BucketObjectLockConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketObjectLockConfiguration)(nil)).Elem()
+func (BucketObjectLockConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectLockConfigurationType)(nil)).Elem()
 }
 
-func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationOutput() BucketObjectLockConfigurationOutput {
-	return i.ToBucketObjectLockConfigurationOutputWithContext(context.Background())
+func (i BucketObjectLockConfigurationTypeArgs) ToBucketObjectLockConfigurationTypeOutput() BucketObjectLockConfigurationTypeOutput {
+	return i.ToBucketObjectLockConfigurationTypeOutputWithContext(context.Background())
 }
 
-func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationOutputWithContext(ctx context.Context) BucketObjectLockConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationOutput)
+func (i BucketObjectLockConfigurationTypeArgs) ToBucketObjectLockConfigurationTypeOutputWithContext(ctx context.Context) BucketObjectLockConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationTypeOutput)
 }
 
-func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
-	return i.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
+func (i BucketObjectLockConfigurationTypeArgs) ToBucketObjectLockConfigurationTypePtrOutput() BucketObjectLockConfigurationTypePtrOutput {
+	return i.ToBucketObjectLockConfigurationTypePtrOutputWithContext(context.Background())
 }
 
-func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationOutput).ToBucketObjectLockConfigurationPtrOutputWithContext(ctx)
+func (i BucketObjectLockConfigurationTypeArgs) ToBucketObjectLockConfigurationTypePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationTypeOutput).ToBucketObjectLockConfigurationTypePtrOutputWithContext(ctx)
 }
 
-// BucketObjectLockConfigurationPtrInput is an input type that accepts BucketObjectLockConfigurationArgs, BucketObjectLockConfigurationPtr and BucketObjectLockConfigurationPtrOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationPtrInput` via:
+// BucketObjectLockConfigurationTypePtrInput is an input type that accepts BucketObjectLockConfigurationTypeArgs, BucketObjectLockConfigurationTypePtr and BucketObjectLockConfigurationTypePtrOutput values.
+// You can construct a concrete instance of `BucketObjectLockConfigurationTypePtrInput` via:
 //
-//	        BucketObjectLockConfigurationArgs{...}
+//	        BucketObjectLockConfigurationTypeArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketObjectLockConfigurationPtrInput interface {
+type BucketObjectLockConfigurationTypePtrInput interface {
 	pulumi.Input
 
-	ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput
-	ToBucketObjectLockConfigurationPtrOutputWithContext(context.Context) BucketObjectLockConfigurationPtrOutput
+	ToBucketObjectLockConfigurationTypePtrOutput() BucketObjectLockConfigurationTypePtrOutput
+	ToBucketObjectLockConfigurationTypePtrOutputWithContext(context.Context) BucketObjectLockConfigurationTypePtrOutput
 }
 
-type bucketObjectLockConfigurationPtrType BucketObjectLockConfigurationArgs
+type bucketObjectLockConfigurationTypePtrType BucketObjectLockConfigurationTypeArgs
 
-func BucketObjectLockConfigurationPtr(v *BucketObjectLockConfigurationArgs) BucketObjectLockConfigurationPtrInput {
-	return (*bucketObjectLockConfigurationPtrType)(v)
+func BucketObjectLockConfigurationTypePtr(v *BucketObjectLockConfigurationTypeArgs) BucketObjectLockConfigurationTypePtrInput {
+	return (*bucketObjectLockConfigurationTypePtrType)(v)
 }
 
-func (*bucketObjectLockConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketObjectLockConfiguration)(nil)).Elem()
+func (*bucketObjectLockConfigurationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfigurationType)(nil)).Elem()
 }
 
-func (i *bucketObjectLockConfigurationPtrType) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
-	return i.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
+func (i *bucketObjectLockConfigurationTypePtrType) ToBucketObjectLockConfigurationTypePtrOutput() BucketObjectLockConfigurationTypePtrOutput {
+	return i.ToBucketObjectLockConfigurationTypePtrOutputWithContext(context.Background())
 }
 
-func (i *bucketObjectLockConfigurationPtrType) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationPtrOutput)
+func (i *bucketObjectLockConfigurationTypePtrType) ToBucketObjectLockConfigurationTypePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationTypePtrOutput)
 }
 
-type BucketObjectLockConfigurationOutput struct{ *pulumi.OutputState }
+type BucketObjectLockConfigurationTypeOutput struct{ *pulumi.OutputState }
 
-func (BucketObjectLockConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketObjectLockConfiguration)(nil)).Elem()
+func (BucketObjectLockConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectLockConfigurationType)(nil)).Elem()
 }
 
-func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationOutput() BucketObjectLockConfigurationOutput {
+func (o BucketObjectLockConfigurationTypeOutput) ToBucketObjectLockConfigurationTypeOutput() BucketObjectLockConfigurationTypeOutput {
 	return o
 }
 
-func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationOutputWithContext(ctx context.Context) BucketObjectLockConfigurationOutput {
+func (o BucketObjectLockConfigurationTypeOutput) ToBucketObjectLockConfigurationTypeOutputWithContext(ctx context.Context) BucketObjectLockConfigurationTypeOutput {
 	return o
 }
 
-func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
-	return o.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
+func (o BucketObjectLockConfigurationTypeOutput) ToBucketObjectLockConfigurationTypePtrOutput() BucketObjectLockConfigurationTypePtrOutput {
+	return o.ToBucketObjectLockConfigurationTypePtrOutputWithContext(context.Background())
 }
 
-func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfiguration) *BucketObjectLockConfiguration {
+func (o BucketObjectLockConfigurationTypeOutput) ToBucketObjectLockConfigurationTypePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationType) *BucketObjectLockConfigurationType {
 		return &v
-	}).(BucketObjectLockConfigurationPtrOutput)
+	}).(BucketObjectLockConfigurationTypePtrOutput)
 }
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
 // Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
-func (o BucketObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
+func (o BucketObjectLockConfigurationTypeOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketObjectLockConfigurationType) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
-func (o BucketObjectLockConfigurationOutput) Rules() BucketObjectLockConfigurationRuleArrayOutput {
-	return o.ApplyT(func(v BucketObjectLockConfiguration) []BucketObjectLockConfigurationRule { return v.Rules }).(BucketObjectLockConfigurationRuleArrayOutput)
+// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
+func (o BucketObjectLockConfigurationTypeOutput) Rules() BucketObjectLockConfigurationRuleArrayOutput {
+	return o.ApplyT(func(v BucketObjectLockConfigurationType) []BucketObjectLockConfigurationRule { return v.Rules }).(BucketObjectLockConfigurationRuleArrayOutput)
 }
 
-type BucketObjectLockConfigurationPtrOutput struct{ *pulumi.OutputState }
+type BucketObjectLockConfigurationTypePtrOutput struct{ *pulumi.OutputState }
 
-func (BucketObjectLockConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketObjectLockConfiguration)(nil)).Elem()
+func (BucketObjectLockConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfigurationType)(nil)).Elem()
 }
 
-func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
+func (o BucketObjectLockConfigurationTypePtrOutput) ToBucketObjectLockConfigurationTypePtrOutput() BucketObjectLockConfigurationTypePtrOutput {
 	return o
 }
 
-func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
+func (o BucketObjectLockConfigurationTypePtrOutput) ToBucketObjectLockConfigurationTypePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationTypePtrOutput {
 	return o
 }
 
-func (o BucketObjectLockConfigurationPtrOutput) Elem() BucketObjectLockConfigurationOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfiguration) BucketObjectLockConfiguration {
+func (o BucketObjectLockConfigurationTypePtrOutput) Elem() BucketObjectLockConfigurationTypeOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationType) BucketObjectLockConfigurationType {
 		if v != nil {
 			return *v
 		}
-		var ret BucketObjectLockConfiguration
+		var ret BucketObjectLockConfigurationType
 		return ret
-	}).(BucketObjectLockConfigurationOutput)
+	}).(BucketObjectLockConfigurationTypeOutput)
 }
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
 // Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
-func (o BucketObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfiguration) *string {
+func (o BucketObjectLockConfigurationTypePtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationType) *string {
 		if v == nil {
 			return nil
 		}
@@ -6151,9 +6149,9 @@ func (o BucketObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.Strin
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
-func (o BucketObjectLockConfigurationPtrOutput) Rules() BucketObjectLockConfigurationRuleArrayOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfiguration) []BucketObjectLockConfigurationRule {
+// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
+func (o BucketObjectLockConfigurationTypePtrOutput) Rules() BucketObjectLockConfigurationRuleArrayOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationType) []BucketObjectLockConfigurationRule {
 		if v == nil {
 			return nil
 		}
@@ -6162,8 +6160,8 @@ func (o BucketObjectLockConfigurationPtrOutput) Rules() BucketObjectLockConfigur
 }
 
 type BucketObjectLockConfigurationRule struct {
-	// Default retention period that you want to apply to new objects placed in this bucket (documented below).
-	DefaultRetentions []BucketObjectLockConfigurationRuleDefaultRetention `pulumi:"defaultRetentions"`
+	// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
+	DefaultRetention BucketObjectLockConfigurationRuleDefaultRetention `pulumi:"defaultRetention"`
 }
 
 // BucketObjectLockConfigurationRuleInput is an input type that accepts BucketObjectLockConfigurationRuleArgs and BucketObjectLockConfigurationRuleOutput values.
@@ -6178,8 +6176,8 @@ type BucketObjectLockConfigurationRuleInput interface {
 }
 
 type BucketObjectLockConfigurationRuleArgs struct {
-	// Default retention period that you want to apply to new objects placed in this bucket (documented below).
-	DefaultRetentions BucketObjectLockConfigurationRuleDefaultRetentionArrayInput `pulumi:"defaultRetentions"`
+	// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
+	DefaultRetention BucketObjectLockConfigurationRuleDefaultRetentionInput `pulumi:"defaultRetention"`
 }
 
 func (BucketObjectLockConfigurationRuleArgs) ElementType() reflect.Type {
@@ -6192,6 +6190,47 @@ func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRu
 
 func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRuleOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleOutput)
+}
+
+func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRulePtrOutput() BucketObjectLockConfigurationRulePtrOutput {
+	return i.ToBucketObjectLockConfigurationRulePtrOutputWithContext(context.Background())
+}
+
+func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleOutput).ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx)
+}
+
+// BucketObjectLockConfigurationRulePtrInput is an input type that accepts BucketObjectLockConfigurationRuleArgs, BucketObjectLockConfigurationRulePtr and BucketObjectLockConfigurationRulePtrOutput values.
+// You can construct a concrete instance of `BucketObjectLockConfigurationRulePtrInput` via:
+//
+//	        BucketObjectLockConfigurationRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketObjectLockConfigurationRulePtrInput interface {
+	pulumi.Input
+
+	ToBucketObjectLockConfigurationRulePtrOutput() BucketObjectLockConfigurationRulePtrOutput
+	ToBucketObjectLockConfigurationRulePtrOutputWithContext(context.Context) BucketObjectLockConfigurationRulePtrOutput
+}
+
+type bucketObjectLockConfigurationRulePtrType BucketObjectLockConfigurationRuleArgs
+
+func BucketObjectLockConfigurationRulePtr(v *BucketObjectLockConfigurationRuleArgs) BucketObjectLockConfigurationRulePtrInput {
+	return (*bucketObjectLockConfigurationRulePtrType)(v)
+}
+
+func (*bucketObjectLockConfigurationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfigurationRule)(nil)).Elem()
+}
+
+func (i *bucketObjectLockConfigurationRulePtrType) ToBucketObjectLockConfigurationRulePtrOutput() BucketObjectLockConfigurationRulePtrOutput {
+	return i.ToBucketObjectLockConfigurationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectLockConfigurationRulePtrType) ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRulePtrOutput)
 }
 
 // BucketObjectLockConfigurationRuleArrayInput is an input type that accepts BucketObjectLockConfigurationRuleArray and BucketObjectLockConfigurationRuleArrayOutput values.
@@ -6233,11 +6272,55 @@ func (o BucketObjectLockConfigurationRuleOutput) ToBucketObjectLockConfiguration
 	return o
 }
 
-// Default retention period that you want to apply to new objects placed in this bucket (documented below).
-func (o BucketObjectLockConfigurationRuleOutput) DefaultRetentions() BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationRule) []BucketObjectLockConfigurationRuleDefaultRetention {
-		return v.DefaultRetentions
-	}).(BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput)
+func (o BucketObjectLockConfigurationRuleOutput) ToBucketObjectLockConfigurationRulePtrOutput() BucketObjectLockConfigurationRulePtrOutput {
+	return o.ToBucketObjectLockConfigurationRulePtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectLockConfigurationRuleOutput) ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationRule) *BucketObjectLockConfigurationRule {
+		return &v
+	}).(BucketObjectLockConfigurationRulePtrOutput)
+}
+
+// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
+func (o BucketObjectLockConfigurationRuleOutput) DefaultRetention() BucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return o.ApplyT(func(v BucketObjectLockConfigurationRule) BucketObjectLockConfigurationRuleDefaultRetention {
+		return v.DefaultRetention
+	}).(BucketObjectLockConfigurationRuleDefaultRetentionOutput)
+}
+
+type BucketObjectLockConfigurationRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectLockConfigurationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfigurationRule)(nil)).Elem()
+}
+
+func (o BucketObjectLockConfigurationRulePtrOutput) ToBucketObjectLockConfigurationRulePtrOutput() BucketObjectLockConfigurationRulePtrOutput {
+	return o
+}
+
+func (o BucketObjectLockConfigurationRulePtrOutput) ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRulePtrOutput {
+	return o
+}
+
+func (o BucketObjectLockConfigurationRulePtrOutput) Elem() BucketObjectLockConfigurationRuleOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRule) BucketObjectLockConfigurationRule {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockConfigurationRule
+		return ret
+	}).(BucketObjectLockConfigurationRuleOutput)
+}
+
+// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
+func (o BucketObjectLockConfigurationRulePtrOutput) DefaultRetention() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRule) *BucketObjectLockConfigurationRuleDefaultRetention {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRetention
+	}).(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput)
 }
 
 type BucketObjectLockConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
@@ -6263,8 +6346,8 @@ func (o BucketObjectLockConfigurationRuleArrayOutput) Index(i pulumi.IntInput) B
 type BucketObjectLockConfigurationRuleDefaultRetention struct {
 	// Number of days that you want to specify for the default retention period.
 	Days *int `pulumi:"days"`
-	// Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-	Mode string `pulumi:"mode"`
+	// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+	Mode *string `pulumi:"mode"`
 	// Number of years that you want to specify for the default retention period.
 	Years *int `pulumi:"years"`
 }
@@ -6283,8 +6366,8 @@ type BucketObjectLockConfigurationRuleDefaultRetentionInput interface {
 type BucketObjectLockConfigurationRuleDefaultRetentionArgs struct {
 	// Number of days that you want to specify for the default retention period.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-	Mode pulumi.StringInput `pulumi:"mode"`
+	// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Number of years that you want to specify for the default retention period.
 	Years pulumi.IntPtrInput `pulumi:"years"`
 }
@@ -6301,29 +6384,45 @@ func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketObjectLoc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleDefaultRetentionOutput)
 }
 
-// BucketObjectLockConfigurationRuleDefaultRetentionArrayInput is an input type that accepts BucketObjectLockConfigurationRuleDefaultRetentionArray and BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationRuleDefaultRetentionArrayInput` via:
+func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return i.ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleDefaultRetentionOutput).ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx)
+}
+
+// BucketObjectLockConfigurationRuleDefaultRetentionPtrInput is an input type that accepts BucketObjectLockConfigurationRuleDefaultRetentionArgs, BucketObjectLockConfigurationRuleDefaultRetentionPtr and BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput values.
+// You can construct a concrete instance of `BucketObjectLockConfigurationRuleDefaultRetentionPtrInput` via:
 //
-//	BucketObjectLockConfigurationRuleDefaultRetentionArray{ BucketObjectLockConfigurationRuleDefaultRetentionArgs{...} }
-type BucketObjectLockConfigurationRuleDefaultRetentionArrayInput interface {
+//	        BucketObjectLockConfigurationRuleDefaultRetentionArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketObjectLockConfigurationRuleDefaultRetentionPtrInput interface {
 	pulumi.Input
 
-	ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput() BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput
-	ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(context.Context) BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput
+	ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput
+	ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput
 }
 
-type BucketObjectLockConfigurationRuleDefaultRetentionArray []BucketObjectLockConfigurationRuleDefaultRetentionInput
+type bucketObjectLockConfigurationRuleDefaultRetentionPtrType BucketObjectLockConfigurationRuleDefaultRetentionArgs
 
-func (BucketObjectLockConfigurationRuleDefaultRetentionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
+func BucketObjectLockConfigurationRuleDefaultRetentionPtr(v *BucketObjectLockConfigurationRuleDefaultRetentionArgs) BucketObjectLockConfigurationRuleDefaultRetentionPtrInput {
+	return (*bucketObjectLockConfigurationRuleDefaultRetentionPtrType)(v)
 }
 
-func (i BucketObjectLockConfigurationRuleDefaultRetentionArray) ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput() BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
-	return i.ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(context.Background())
+func (*bucketObjectLockConfigurationRuleDefaultRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
 }
 
-func (i BucketObjectLockConfigurationRuleDefaultRetentionArray) ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput)
+func (i *bucketObjectLockConfigurationRuleDefaultRetentionPtrType) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return i.ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectLockConfigurationRuleDefaultRetentionPtrType) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput)
 }
 
 type BucketObjectLockConfigurationRuleDefaultRetentionOutput struct{ *pulumi.OutputState }
@@ -6340,14 +6439,24 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketObjectL
 	return o
 }
 
+func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return o.ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationRuleDefaultRetention) *BucketObjectLockConfigurationRuleDefaultRetention {
+		return &v
+	}).(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput)
+}
+
 // Number of days that you want to specify for the default retention period.
 func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketObjectLockConfigurationRuleDefaultRetention) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationRuleDefaultRetention) string { return v.Mode }).(pulumi.StringOutput)
+// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketObjectLockConfigurationRuleDefaultRetention) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 // Number of years that you want to specify for the default retention period.
@@ -6355,313 +6464,33 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) Years() pulumi.
 	return o.ApplyT(func(v BucketObjectLockConfigurationRuleDefaultRetention) *int { return v.Years }).(pulumi.IntPtrOutput)
 }
 
-type BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput struct{ *pulumi.OutputState }
+type BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
+func (BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
 }
 
-func (o BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput() BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
 	return o
 }
 
-func (o BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
 	return o
 }
 
-func (o BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) Index(i pulumi.IntInput) BucketObjectLockConfigurationRuleDefaultRetentionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketObjectLockConfigurationRuleDefaultRetention {
-		return vs[0].([]BucketObjectLockConfigurationRuleDefaultRetention)[vs[1].(int)]
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Elem() BucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRuleDefaultRetention) BucketObjectLockConfigurationRuleDefaultRetention {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockConfigurationRuleDefaultRetention
+		return ret
 	}).(BucketObjectLockConfigurationRuleDefaultRetentionOutput)
 }
 
-type BucketObjectLockConfigurationV2Rule struct {
-	// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-	DefaultRetention BucketObjectLockConfigurationV2RuleDefaultRetention `pulumi:"defaultRetention"`
-}
-
-// BucketObjectLockConfigurationV2RuleInput is an input type that accepts BucketObjectLockConfigurationV2RuleArgs and BucketObjectLockConfigurationV2RuleOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationV2RuleInput` via:
-//
-//	BucketObjectLockConfigurationV2RuleArgs{...}
-type BucketObjectLockConfigurationV2RuleInput interface {
-	pulumi.Input
-
-	ToBucketObjectLockConfigurationV2RuleOutput() BucketObjectLockConfigurationV2RuleOutput
-	ToBucketObjectLockConfigurationV2RuleOutputWithContext(context.Context) BucketObjectLockConfigurationV2RuleOutput
-}
-
-type BucketObjectLockConfigurationV2RuleArgs struct {
-	// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-	DefaultRetention BucketObjectLockConfigurationV2RuleDefaultRetentionInput `pulumi:"defaultRetention"`
-}
-
-func (BucketObjectLockConfigurationV2RuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketObjectLockConfigurationV2Rule)(nil)).Elem()
-}
-
-func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfigurationV2RuleOutput() BucketObjectLockConfigurationV2RuleOutput {
-	return i.ToBucketObjectLockConfigurationV2RuleOutputWithContext(context.Background())
-}
-
-func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfigurationV2RuleOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleOutput)
-}
-
-func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfigurationV2RulePtrOutput() BucketObjectLockConfigurationV2RulePtrOutput {
-	return i.ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(context.Background())
-}
-
-func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleOutput).ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx)
-}
-
-// BucketObjectLockConfigurationV2RulePtrInput is an input type that accepts BucketObjectLockConfigurationV2RuleArgs, BucketObjectLockConfigurationV2RulePtr and BucketObjectLockConfigurationV2RulePtrOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationV2RulePtrInput` via:
-//
-//	        BucketObjectLockConfigurationV2RuleArgs{...}
-//
-//	or:
-//
-//	        nil
-type BucketObjectLockConfigurationV2RulePtrInput interface {
-	pulumi.Input
-
-	ToBucketObjectLockConfigurationV2RulePtrOutput() BucketObjectLockConfigurationV2RulePtrOutput
-	ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(context.Context) BucketObjectLockConfigurationV2RulePtrOutput
-}
-
-type bucketObjectLockConfigurationV2RulePtrType BucketObjectLockConfigurationV2RuleArgs
-
-func BucketObjectLockConfigurationV2RulePtr(v *BucketObjectLockConfigurationV2RuleArgs) BucketObjectLockConfigurationV2RulePtrInput {
-	return (*bucketObjectLockConfigurationV2RulePtrType)(v)
-}
-
-func (*bucketObjectLockConfigurationV2RulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketObjectLockConfigurationV2Rule)(nil)).Elem()
-}
-
-func (i *bucketObjectLockConfigurationV2RulePtrType) ToBucketObjectLockConfigurationV2RulePtrOutput() BucketObjectLockConfigurationV2RulePtrOutput {
-	return i.ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(context.Background())
-}
-
-func (i *bucketObjectLockConfigurationV2RulePtrType) ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RulePtrOutput)
-}
-
-type BucketObjectLockConfigurationV2RuleOutput struct{ *pulumi.OutputState }
-
-func (BucketObjectLockConfigurationV2RuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketObjectLockConfigurationV2Rule)(nil)).Elem()
-}
-
-func (o BucketObjectLockConfigurationV2RuleOutput) ToBucketObjectLockConfigurationV2RuleOutput() BucketObjectLockConfigurationV2RuleOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RuleOutput) ToBucketObjectLockConfigurationV2RuleOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RuleOutput) ToBucketObjectLockConfigurationV2RulePtrOutput() BucketObjectLockConfigurationV2RulePtrOutput {
-	return o.ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(context.Background())
-}
-
-func (o BucketObjectLockConfigurationV2RuleOutput) ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationV2Rule) *BucketObjectLockConfigurationV2Rule {
-		return &v
-	}).(BucketObjectLockConfigurationV2RulePtrOutput)
-}
-
-// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-func (o BucketObjectLockConfigurationV2RuleOutput) DefaultRetention() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationV2Rule) BucketObjectLockConfigurationV2RuleDefaultRetention {
-		return v.DefaultRetention
-	}).(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput)
-}
-
-type BucketObjectLockConfigurationV2RulePtrOutput struct{ *pulumi.OutputState }
-
-func (BucketObjectLockConfigurationV2RulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketObjectLockConfigurationV2Rule)(nil)).Elem()
-}
-
-func (o BucketObjectLockConfigurationV2RulePtrOutput) ToBucketObjectLockConfigurationV2RulePtrOutput() BucketObjectLockConfigurationV2RulePtrOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RulePtrOutput) ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RulePtrOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RulePtrOutput) Elem() BucketObjectLockConfigurationV2RuleOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationV2Rule) BucketObjectLockConfigurationV2Rule {
-		if v != nil {
-			return *v
-		}
-		var ret BucketObjectLockConfigurationV2Rule
-		return ret
-	}).(BucketObjectLockConfigurationV2RuleOutput)
-}
-
-// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-func (o BucketObjectLockConfigurationV2RulePtrOutput) DefaultRetention() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationV2Rule) *BucketObjectLockConfigurationV2RuleDefaultRetention {
-		if v == nil {
-			return nil
-		}
-		return &v.DefaultRetention
-	}).(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput)
-}
-
-type BucketObjectLockConfigurationV2RuleDefaultRetention struct {
-	// Number of days that you want to specify for the default retention period.
-	Days *int `pulumi:"days"`
-	// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
-	Mode *string `pulumi:"mode"`
-	// Number of years that you want to specify for the default retention period.
-	Years *int `pulumi:"years"`
-}
-
-// BucketObjectLockConfigurationV2RuleDefaultRetentionInput is an input type that accepts BucketObjectLockConfigurationV2RuleDefaultRetentionArgs and BucketObjectLockConfigurationV2RuleDefaultRetentionOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationV2RuleDefaultRetentionInput` via:
-//
-//	BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{...}
-type BucketObjectLockConfigurationV2RuleDefaultRetentionInput interface {
-	pulumi.Input
-
-	ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput
-	ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutputWithContext(context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionOutput
-}
-
-type BucketObjectLockConfigurationV2RuleDefaultRetentionArgs struct {
-	// Number of days that you want to specify for the default retention period.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Number of years that you want to specify for the default retention period.
-	Years pulumi.IntPtrInput `pulumi:"years"`
-}
-
-func (BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketObjectLockConfigurationV2RuleDefaultRetention)(nil)).Elem()
-}
-
-func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
-	return i.ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutputWithContext(context.Background())
-}
-
-func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput)
-}
-
-func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return i.ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(context.Background())
-}
-
-func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput).ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx)
-}
-
-// BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput is an input type that accepts BucketObjectLockConfigurationV2RuleDefaultRetentionArgs, BucketObjectLockConfigurationV2RuleDefaultRetentionPtr and BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput values.
-// You can construct a concrete instance of `BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput` via:
-//
-//	        BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{...}
-//
-//	or:
-//
-//	        nil
-type BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput interface {
-	pulumi.Input
-
-	ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput
-	ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput
-}
-
-type bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
-
-func BucketObjectLockConfigurationV2RuleDefaultRetentionPtr(v *BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput {
-	return (*bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType)(v)
-}
-
-func (*bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketObjectLockConfigurationV2RuleDefaultRetention)(nil)).Elem()
-}
-
-func (i *bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return i.ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput)
-}
-
-type BucketObjectLockConfigurationV2RuleDefaultRetentionOutput struct{ *pulumi.OutputState }
-
-func (BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketObjectLockConfigurationV2RuleDefaultRetention)(nil)).Elem()
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return o.ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(context.Background())
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationV2RuleDefaultRetention) *BucketObjectLockConfigurationV2RuleDefaultRetention {
-		return &v
-	}).(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput)
-}
-
 // Number of days that you want to specify for the default retention period.
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationV2RuleDefaultRetention) *int { return v.Days }).(pulumi.IntPtrOutput)
-}
-
-// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationV2RuleDefaultRetention) *string { return v.Mode }).(pulumi.StringPtrOutput)
-}
-
-// Number of years that you want to specify for the default retention period.
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) Years() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationV2RuleDefaultRetention) *int { return v.Years }).(pulumi.IntPtrOutput)
-}
-
-type BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketObjectLockConfigurationV2RuleDefaultRetention)(nil)).Elem()
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
-	return o
-}
-
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Elem() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationV2RuleDefaultRetention) BucketObjectLockConfigurationV2RuleDefaultRetention {
-		if v != nil {
-			return *v
-		}
-		var ret BucketObjectLockConfigurationV2RuleDefaultRetention
-		return ret
-	}).(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput)
-}
-
-// Number of days that you want to specify for the default retention period.
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationV2RuleDefaultRetention) *int {
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRuleDefaultRetention) *int {
 		if v == nil {
 			return nil
 		}
@@ -6670,8 +6499,8 @@ func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Days() pul
 }
 
 // Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationV2RuleDefaultRetention) *string {
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRuleDefaultRetention) *string {
 		if v == nil {
 			return nil
 		}
@@ -6680,8 +6509,8 @@ func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Mode() pul
 }
 
 // Number of years that you want to specify for the default retention period.
-func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Years() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationV2RuleDefaultRetention) *int {
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Years() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRuleDefaultRetention) *int {
 		if v == nil {
 			return nil
 		}
@@ -10521,108 +10350,108 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput)
 }
 
-type BucketServerSideEncryptionConfiguration struct {
+type BucketServerSideEncryptionConfigurationType struct {
 	// Single object for server-side encryption by default configuration. (documented below)
 	Rules []BucketServerSideEncryptionConfigurationRule `pulumi:"rules"`
 }
 
-// BucketServerSideEncryptionConfigurationInput is an input type that accepts BucketServerSideEncryptionConfigurationArgs and BucketServerSideEncryptionConfigurationOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationInput` via:
+// BucketServerSideEncryptionConfigurationTypeInput is an input type that accepts BucketServerSideEncryptionConfigurationTypeArgs and BucketServerSideEncryptionConfigurationTypeOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationTypeInput` via:
 //
-//	BucketServerSideEncryptionConfigurationArgs{...}
-type BucketServerSideEncryptionConfigurationInput interface {
+//	BucketServerSideEncryptionConfigurationTypeArgs{...}
+type BucketServerSideEncryptionConfigurationTypeInput interface {
 	pulumi.Input
 
-	ToBucketServerSideEncryptionConfigurationOutput() BucketServerSideEncryptionConfigurationOutput
-	ToBucketServerSideEncryptionConfigurationOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationOutput
+	ToBucketServerSideEncryptionConfigurationTypeOutput() BucketServerSideEncryptionConfigurationTypeOutput
+	ToBucketServerSideEncryptionConfigurationTypeOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationTypeOutput
 }
 
-type BucketServerSideEncryptionConfigurationArgs struct {
+type BucketServerSideEncryptionConfigurationTypeArgs struct {
 	// Single object for server-side encryption by default configuration. (documented below)
 	Rules BucketServerSideEncryptionConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
-func (BucketServerSideEncryptionConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionConfiguration)(nil)).Elem()
+func (BucketServerSideEncryptionConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionConfigurationType)(nil)).Elem()
 }
 
-func (i BucketServerSideEncryptionConfigurationArgs) ToBucketServerSideEncryptionConfigurationOutput() BucketServerSideEncryptionConfigurationOutput {
-	return i.ToBucketServerSideEncryptionConfigurationOutputWithContext(context.Background())
+func (i BucketServerSideEncryptionConfigurationTypeArgs) ToBucketServerSideEncryptionConfigurationTypeOutput() BucketServerSideEncryptionConfigurationTypeOutput {
+	return i.ToBucketServerSideEncryptionConfigurationTypeOutputWithContext(context.Background())
 }
 
-func (i BucketServerSideEncryptionConfigurationArgs) ToBucketServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationOutput)
+func (i BucketServerSideEncryptionConfigurationTypeArgs) ToBucketServerSideEncryptionConfigurationTypeOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationTypeOutput)
 }
 
-// BucketServerSideEncryptionConfigurationArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationArray and BucketServerSideEncryptionConfigurationArrayOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationArrayInput` via:
+// BucketServerSideEncryptionConfigurationTypeArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationTypeArray and BucketServerSideEncryptionConfigurationTypeArrayOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationTypeArrayInput` via:
 //
-//	BucketServerSideEncryptionConfigurationArray{ BucketServerSideEncryptionConfigurationArgs{...} }
-type BucketServerSideEncryptionConfigurationArrayInput interface {
+//	BucketServerSideEncryptionConfigurationTypeArray{ BucketServerSideEncryptionConfigurationTypeArgs{...} }
+type BucketServerSideEncryptionConfigurationTypeArrayInput interface {
 	pulumi.Input
 
-	ToBucketServerSideEncryptionConfigurationArrayOutput() BucketServerSideEncryptionConfigurationArrayOutput
-	ToBucketServerSideEncryptionConfigurationArrayOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationArrayOutput
+	ToBucketServerSideEncryptionConfigurationTypeArrayOutput() BucketServerSideEncryptionConfigurationTypeArrayOutput
+	ToBucketServerSideEncryptionConfigurationTypeArrayOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationTypeArrayOutput
 }
 
-type BucketServerSideEncryptionConfigurationArray []BucketServerSideEncryptionConfigurationInput
+type BucketServerSideEncryptionConfigurationTypeArray []BucketServerSideEncryptionConfigurationTypeInput
 
-func (BucketServerSideEncryptionConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketServerSideEncryptionConfiguration)(nil)).Elem()
+func (BucketServerSideEncryptionConfigurationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketServerSideEncryptionConfigurationType)(nil)).Elem()
 }
 
-func (i BucketServerSideEncryptionConfigurationArray) ToBucketServerSideEncryptionConfigurationArrayOutput() BucketServerSideEncryptionConfigurationArrayOutput {
-	return i.ToBucketServerSideEncryptionConfigurationArrayOutputWithContext(context.Background())
+func (i BucketServerSideEncryptionConfigurationTypeArray) ToBucketServerSideEncryptionConfigurationTypeArrayOutput() BucketServerSideEncryptionConfigurationTypeArrayOutput {
+	return i.ToBucketServerSideEncryptionConfigurationTypeArrayOutputWithContext(context.Background())
 }
 
-func (i BucketServerSideEncryptionConfigurationArray) ToBucketServerSideEncryptionConfigurationArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationArrayOutput)
+func (i BucketServerSideEncryptionConfigurationTypeArray) ToBucketServerSideEncryptionConfigurationTypeArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationTypeArrayOutput)
 }
 
-type BucketServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+type BucketServerSideEncryptionConfigurationTypeOutput struct{ *pulumi.OutputState }
 
-func (BucketServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionConfiguration)(nil)).Elem()
+func (BucketServerSideEncryptionConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionConfigurationType)(nil)).Elem()
 }
 
-func (o BucketServerSideEncryptionConfigurationOutput) ToBucketServerSideEncryptionConfigurationOutput() BucketServerSideEncryptionConfigurationOutput {
+func (o BucketServerSideEncryptionConfigurationTypeOutput) ToBucketServerSideEncryptionConfigurationTypeOutput() BucketServerSideEncryptionConfigurationTypeOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionConfigurationOutput) ToBucketServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationOutput {
+func (o BucketServerSideEncryptionConfigurationTypeOutput) ToBucketServerSideEncryptionConfigurationTypeOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationTypeOutput {
 	return o
 }
 
 // Single object for server-side encryption by default configuration. (documented below)
-func (o BucketServerSideEncryptionConfigurationOutput) Rules() BucketServerSideEncryptionConfigurationRuleArrayOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfiguration) []BucketServerSideEncryptionConfigurationRule {
+func (o BucketServerSideEncryptionConfigurationTypeOutput) Rules() BucketServerSideEncryptionConfigurationRuleArrayOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationType) []BucketServerSideEncryptionConfigurationRule {
 		return v.Rules
 	}).(BucketServerSideEncryptionConfigurationRuleArrayOutput)
 }
 
-type BucketServerSideEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+type BucketServerSideEncryptionConfigurationTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketServerSideEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketServerSideEncryptionConfiguration)(nil)).Elem()
+func (BucketServerSideEncryptionConfigurationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketServerSideEncryptionConfigurationType)(nil)).Elem()
 }
 
-func (o BucketServerSideEncryptionConfigurationArrayOutput) ToBucketServerSideEncryptionConfigurationArrayOutput() BucketServerSideEncryptionConfigurationArrayOutput {
+func (o BucketServerSideEncryptionConfigurationTypeArrayOutput) ToBucketServerSideEncryptionConfigurationTypeArrayOutput() BucketServerSideEncryptionConfigurationTypeArrayOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionConfigurationArrayOutput) ToBucketServerSideEncryptionConfigurationArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationArrayOutput {
+func (o BucketServerSideEncryptionConfigurationTypeArrayOutput) ToBucketServerSideEncryptionConfigurationTypeArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationTypeArrayOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketServerSideEncryptionConfiguration {
-		return vs[0].([]BucketServerSideEncryptionConfiguration)[vs[1].(int)]
-	}).(BucketServerSideEncryptionConfigurationOutput)
+func (o BucketServerSideEncryptionConfigurationTypeArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionConfigurationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketServerSideEncryptionConfigurationType {
+		return vs[0].([]BucketServerSideEncryptionConfigurationType)[vs[1].(int)]
+	}).(BucketServerSideEncryptionConfigurationTypeOutput)
 }
 
 type BucketServerSideEncryptionConfigurationRule struct {
-	// Single object for setting server-side encryption by default. (documented below)
-	ApplyServerSideEncryptionByDefaults []BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefaults"`
+	// Single object for setting server-side encryption by default. See below.
+	ApplyServerSideEncryptionByDefault *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 }
@@ -10639,8 +10468,8 @@ type BucketServerSideEncryptionConfigurationRuleInput interface {
 }
 
 type BucketServerSideEncryptionConfigurationRuleArgs struct {
-	// Single object for setting server-side encryption by default. (documented below)
-	ApplyServerSideEncryptionByDefaults BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput `pulumi:"applyServerSideEncryptionByDefaults"`
+	// Single object for setting server-side encryption by default. See below.
+	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput `pulumi:"applyServerSideEncryptionByDefault"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
 }
@@ -10696,11 +10525,11 @@ func (o BucketServerSideEncryptionConfigurationRuleOutput) ToBucketServerSideEnc
 	return o
 }
 
-// Single object for setting server-side encryption by default. (documented below)
-func (o BucketServerSideEncryptionConfigurationRuleOutput) ApplyServerSideEncryptionByDefaults() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) []BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
-		return v.ApplyServerSideEncryptionByDefaults
-	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput)
+// Single object for setting server-side encryption by default. See below.
+func (o BucketServerSideEncryptionConfigurationRuleOutput) ApplyServerSideEncryptionByDefault() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
+		return v.ApplyServerSideEncryptionByDefault
+	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
 // Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -10731,7 +10560,7 @@ func (o BucketServerSideEncryptionConfigurationRuleArrayOutput) Index(i pulumi.I
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault struct {
 	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 	SseAlgorithm string `pulumi:"sseAlgorithm"`
 }
 
@@ -10749,7 +10578,7 @@ type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefau
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs struct {
 	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
 }
 
@@ -10765,29 +10594,45 @@ func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
-// BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray and BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput` via:
+func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return i.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput).ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx)
+}
+
+// BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs, BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtr and BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput` via:
 //
-//	BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{ BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...} }
-type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput interface {
+//	        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput interface {
 	pulumi.Input
 
-	ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput
-	ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput
+	ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput
+	ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput
 }
 
-type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray []BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput
+type bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrType BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs
 
-func (BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault)(nil)).Elem()
+func BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtr(v *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput {
+	return (*bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrType)(v)
 }
 
-func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
-	return i.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutputWithContext(context.Background())
+func (*bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault)(nil)).Elem()
 }
 
-func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput)
+func (i *bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return i.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
@@ -10804,6 +10649,16 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	return o
 }
 
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return o.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
+}
+
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
+		return &v
+	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
 // AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *string {
@@ -10811,284 +10666,40 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) SseAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) string {
 		return v.SseAlgorithm
 	}).(pulumi.StringOutput)
 }
 
-type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput struct{ *pulumi.OutputState }
+type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault)(nil)).Elem()
+func (BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault)(nil)).Elem()
 }
 
-func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
 	return o
 }
 
-func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
-		return vs[0].([]BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault)[vs[1].(int)]
-	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
-}
-
-type BucketServerSideEncryptionConfigurationV2Rule struct {
-	// Single object for setting server-side encryption by default. See below.
-	ApplyServerSideEncryptionByDefault *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefault"`
-	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
-}
-
-// BucketServerSideEncryptionConfigurationV2RuleInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleArgs and BucketServerSideEncryptionConfigurationV2RuleOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleInput` via:
-//
-//	BucketServerSideEncryptionConfigurationV2RuleArgs{...}
-type BucketServerSideEncryptionConfigurationV2RuleInput interface {
-	pulumi.Input
-
-	ToBucketServerSideEncryptionConfigurationV2RuleOutput() BucketServerSideEncryptionConfigurationV2RuleOutput
-	ToBucketServerSideEncryptionConfigurationV2RuleOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationV2RuleOutput
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleArgs struct {
-	// Single object for setting server-side encryption by default. See below.
-	ApplyServerSideEncryptionByDefault BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput `pulumi:"applyServerSideEncryptionByDefault"`
-	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
-}
-
-func (BucketServerSideEncryptionConfigurationV2RuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2Rule)(nil)).Elem()
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleArgs) ToBucketServerSideEncryptionConfigurationV2RuleOutput() BucketServerSideEncryptionConfigurationV2RuleOutput {
-	return i.ToBucketServerSideEncryptionConfigurationV2RuleOutputWithContext(context.Background())
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleArgs) ToBucketServerSideEncryptionConfigurationV2RuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleOutput)
-}
-
-// BucketServerSideEncryptionConfigurationV2RuleArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleArray and BucketServerSideEncryptionConfigurationV2RuleArrayOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleArrayInput` via:
-//
-//	BucketServerSideEncryptionConfigurationV2RuleArray{ BucketServerSideEncryptionConfigurationV2RuleArgs{...} }
-type BucketServerSideEncryptionConfigurationV2RuleArrayInput interface {
-	pulumi.Input
-
-	ToBucketServerSideEncryptionConfigurationV2RuleArrayOutput() BucketServerSideEncryptionConfigurationV2RuleArrayOutput
-	ToBucketServerSideEncryptionConfigurationV2RuleArrayOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationV2RuleArrayOutput
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleArray []BucketServerSideEncryptionConfigurationV2RuleInput
-
-func (BucketServerSideEncryptionConfigurationV2RuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketServerSideEncryptionConfigurationV2Rule)(nil)).Elem()
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleArray) ToBucketServerSideEncryptionConfigurationV2RuleArrayOutput() BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
-	return i.ToBucketServerSideEncryptionConfigurationV2RuleArrayOutputWithContext(context.Background())
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleArray) ToBucketServerSideEncryptionConfigurationV2RuleArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleArrayOutput)
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleOutput struct{ *pulumi.OutputState }
-
-func (BucketServerSideEncryptionConfigurationV2RuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2Rule)(nil)).Elem()
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ToBucketServerSideEncryptionConfigurationV2RuleOutput() BucketServerSideEncryptionConfigurationV2RuleOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ToBucketServerSideEncryptionConfigurationV2RuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleOutput {
-	return o
-}
-
-// Single object for setting server-side encryption by default. See below.
-func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ApplyServerSideEncryptionByDefault() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2Rule) *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault {
-		return v.ApplyServerSideEncryptionByDefault
-	}).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
-}
-
-// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-func (o BucketServerSideEncryptionConfigurationV2RuleOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2Rule) *bool { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleArrayOutput struct{ *pulumi.OutputState }
-
-func (BucketServerSideEncryptionConfigurationV2RuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketServerSideEncryptionConfigurationV2Rule)(nil)).Elem()
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) ToBucketServerSideEncryptionConfigurationV2RuleArrayOutput() BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) ToBucketServerSideEncryptionConfigurationV2RuleArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionConfigurationV2RuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketServerSideEncryptionConfigurationV2Rule {
-		return vs[0].([]BucketServerSideEncryptionConfigurationV2Rule)[vs[1].(int)]
-	}).(BucketServerSideEncryptionConfigurationV2RuleOutput)
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault struct {
-	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
-	SseAlgorithm string `pulumi:"sseAlgorithm"`
-}
-
-// BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs and BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput` via:
-//
-//	BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{...}
-type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput interface {
-	pulumi.Input
-
-	ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput
-	ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs struct {
-	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
-	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
-}
-
-func (BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault)(nil)).Elem()
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
-	return i.ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutputWithContext(context.Background())
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput)
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return i.ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput).ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx)
-}
-
-// BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs, BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtr and BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput` via:
-//
-//	        BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{...}
-//
-//	or:
-//
-//	        nil
-type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput interface {
-	pulumi.Input
-
-	ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput
-	ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput
-}
-
-type bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrType BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
-
-func BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtr(v *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput {
-	return (*bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrType)(v)
-}
-
-func (*bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault)(nil)).Elem()
-}
-
-func (i *bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return i.ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
-
-func (BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault)(nil)).Elem()
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return o.ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault {
-		return &v
-	}).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
-}
-
-// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *string {
-		return v.KmsMasterKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) SseAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) string {
-		return v.SseAlgorithm
-	}).(pulumi.StringOutput)
-}
-
-type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault)(nil)).Elem()
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return o
-}
-
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
-	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault {
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
 		if v != nil {
 			return *v
 		}
-		var ret BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault
+		var ret BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault
 		return ret
-	}).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput)
+	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
 // AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *string {
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *string {
 		if v == nil {
 			return nil
 		}
@@ -11097,8 +10708,8 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 }
 
 // Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
-func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *string {
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *string {
 		if v == nil {
 			return nil
 		}
@@ -12082,7 +11693,7 @@ type BucketV2ObjectLockConfiguration struct {
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
+	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rules []BucketV2ObjectLockConfigurationRule `pulumi:"rules"`
 }
 
@@ -12104,7 +11715,7 @@ type BucketV2ObjectLockConfigurationArgs struct {
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
+	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rules BucketV2ObjectLockConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -12194,7 +11805,7 @@ func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.String
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
+// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 func (o BucketV2ObjectLockConfigurationOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) []BucketV2ObjectLockConfigurationRule { return v.Rules }).(BucketV2ObjectLockConfigurationRuleArrayOutput)
 }
@@ -12237,7 +11848,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.Str
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
+// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 func (o BucketV2ObjectLockConfigurationPtrOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *BucketV2ObjectLockConfiguration) []BucketV2ObjectLockConfigurationRule {
 		if v == nil {
@@ -14062,251 +13673,251 @@ func (o BucketV2WebsiteArrayOutput) Index(i pulumi.IntInput) BucketV2WebsiteOutp
 	}).(BucketV2WebsiteOutput)
 }
 
-type BucketVersioning struct {
+type BucketVersioningType struct {
 	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
 	MfaDelete *bool `pulumi:"mfaDelete"`
 }
 
-// BucketVersioningInput is an input type that accepts BucketVersioningArgs and BucketVersioningOutput values.
-// You can construct a concrete instance of `BucketVersioningInput` via:
+// BucketVersioningTypeInput is an input type that accepts BucketVersioningTypeArgs and BucketVersioningTypeOutput values.
+// You can construct a concrete instance of `BucketVersioningTypeInput` via:
 //
-//	BucketVersioningArgs{...}
-type BucketVersioningInput interface {
+//	BucketVersioningTypeArgs{...}
+type BucketVersioningTypeInput interface {
 	pulumi.Input
 
-	ToBucketVersioningOutput() BucketVersioningOutput
-	ToBucketVersioningOutputWithContext(context.Context) BucketVersioningOutput
+	ToBucketVersioningTypeOutput() BucketVersioningTypeOutput
+	ToBucketVersioningTypeOutputWithContext(context.Context) BucketVersioningTypeOutput
 }
 
-type BucketVersioningArgs struct {
+type BucketVersioningTypeArgs struct {
 	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
 	MfaDelete pulumi.BoolPtrInput `pulumi:"mfaDelete"`
 }
 
-func (BucketVersioningArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketVersioning)(nil)).Elem()
+func (BucketVersioningTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketVersioningType)(nil)).Elem()
 }
 
-func (i BucketVersioningArgs) ToBucketVersioningOutput() BucketVersioningOutput {
-	return i.ToBucketVersioningOutputWithContext(context.Background())
+func (i BucketVersioningTypeArgs) ToBucketVersioningTypeOutput() BucketVersioningTypeOutput {
+	return i.ToBucketVersioningTypeOutputWithContext(context.Background())
 }
 
-func (i BucketVersioningArgs) ToBucketVersioningOutputWithContext(ctx context.Context) BucketVersioningOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningOutput)
+func (i BucketVersioningTypeArgs) ToBucketVersioningTypeOutputWithContext(ctx context.Context) BucketVersioningTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningTypeOutput)
 }
 
-// BucketVersioningArrayInput is an input type that accepts BucketVersioningArray and BucketVersioningArrayOutput values.
-// You can construct a concrete instance of `BucketVersioningArrayInput` via:
+// BucketVersioningTypeArrayInput is an input type that accepts BucketVersioningTypeArray and BucketVersioningTypeArrayOutput values.
+// You can construct a concrete instance of `BucketVersioningTypeArrayInput` via:
 //
-//	BucketVersioningArray{ BucketVersioningArgs{...} }
-type BucketVersioningArrayInput interface {
+//	BucketVersioningTypeArray{ BucketVersioningTypeArgs{...} }
+type BucketVersioningTypeArrayInput interface {
 	pulumi.Input
 
-	ToBucketVersioningArrayOutput() BucketVersioningArrayOutput
-	ToBucketVersioningArrayOutputWithContext(context.Context) BucketVersioningArrayOutput
+	ToBucketVersioningTypeArrayOutput() BucketVersioningTypeArrayOutput
+	ToBucketVersioningTypeArrayOutputWithContext(context.Context) BucketVersioningTypeArrayOutput
 }
 
-type BucketVersioningArray []BucketVersioningInput
+type BucketVersioningTypeArray []BucketVersioningTypeInput
 
-func (BucketVersioningArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketVersioning)(nil)).Elem()
+func (BucketVersioningTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketVersioningType)(nil)).Elem()
 }
 
-func (i BucketVersioningArray) ToBucketVersioningArrayOutput() BucketVersioningArrayOutput {
-	return i.ToBucketVersioningArrayOutputWithContext(context.Background())
+func (i BucketVersioningTypeArray) ToBucketVersioningTypeArrayOutput() BucketVersioningTypeArrayOutput {
+	return i.ToBucketVersioningTypeArrayOutputWithContext(context.Background())
 }
 
-func (i BucketVersioningArray) ToBucketVersioningArrayOutputWithContext(ctx context.Context) BucketVersioningArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningArrayOutput)
+func (i BucketVersioningTypeArray) ToBucketVersioningTypeArrayOutputWithContext(ctx context.Context) BucketVersioningTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningTypeArrayOutput)
 }
 
-type BucketVersioningOutput struct{ *pulumi.OutputState }
+type BucketVersioningTypeOutput struct{ *pulumi.OutputState }
 
-func (BucketVersioningOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketVersioning)(nil)).Elem()
+func (BucketVersioningTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketVersioningType)(nil)).Elem()
 }
 
-func (o BucketVersioningOutput) ToBucketVersioningOutput() BucketVersioningOutput {
+func (o BucketVersioningTypeOutput) ToBucketVersioningTypeOutput() BucketVersioningTypeOutput {
 	return o
 }
 
-func (o BucketVersioningOutput) ToBucketVersioningOutputWithContext(ctx context.Context) BucketVersioningOutput {
+func (o BucketVersioningTypeOutput) ToBucketVersioningTypeOutputWithContext(ctx context.Context) BucketVersioningTypeOutput {
 	return o
 }
 
 // Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
-func (o BucketVersioningOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BucketVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o BucketVersioningTypeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketVersioningType) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
-func (o BucketVersioningOutput) MfaDelete() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BucketVersioning) *bool { return v.MfaDelete }).(pulumi.BoolPtrOutput)
+func (o BucketVersioningTypeOutput) MfaDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketVersioningType) *bool { return v.MfaDelete }).(pulumi.BoolPtrOutput)
 }
 
-type BucketVersioningArrayOutput struct{ *pulumi.OutputState }
+type BucketVersioningTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketVersioningArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketVersioning)(nil)).Elem()
+func (BucketVersioningTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketVersioningType)(nil)).Elem()
 }
 
-func (o BucketVersioningArrayOutput) ToBucketVersioningArrayOutput() BucketVersioningArrayOutput {
+func (o BucketVersioningTypeArrayOutput) ToBucketVersioningTypeArrayOutput() BucketVersioningTypeArrayOutput {
 	return o
 }
 
-func (o BucketVersioningArrayOutput) ToBucketVersioningArrayOutputWithContext(ctx context.Context) BucketVersioningArrayOutput {
+func (o BucketVersioningTypeArrayOutput) ToBucketVersioningTypeArrayOutputWithContext(ctx context.Context) BucketVersioningTypeArrayOutput {
 	return o
 }
 
-func (o BucketVersioningArrayOutput) Index(i pulumi.IntInput) BucketVersioningOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketVersioning {
-		return vs[0].([]BucketVersioning)[vs[1].(int)]
-	}).(BucketVersioningOutput)
+func (o BucketVersioningTypeArrayOutput) Index(i pulumi.IntInput) BucketVersioningTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketVersioningType {
+		return vs[0].([]BucketVersioningType)[vs[1].(int)]
+	}).(BucketVersioningTypeOutput)
 }
 
-type BucketVersioningV2VersioningConfiguration struct {
+type BucketVersioningVersioningConfiguration struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete *string `pulumi:"mfaDelete"`
 	// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status string `pulumi:"status"`
 }
 
-// BucketVersioningV2VersioningConfigurationInput is an input type that accepts BucketVersioningV2VersioningConfigurationArgs and BucketVersioningV2VersioningConfigurationOutput values.
-// You can construct a concrete instance of `BucketVersioningV2VersioningConfigurationInput` via:
+// BucketVersioningVersioningConfigurationInput is an input type that accepts BucketVersioningVersioningConfigurationArgs and BucketVersioningVersioningConfigurationOutput values.
+// You can construct a concrete instance of `BucketVersioningVersioningConfigurationInput` via:
 //
-//	BucketVersioningV2VersioningConfigurationArgs{...}
-type BucketVersioningV2VersioningConfigurationInput interface {
+//	BucketVersioningVersioningConfigurationArgs{...}
+type BucketVersioningVersioningConfigurationInput interface {
 	pulumi.Input
 
-	ToBucketVersioningV2VersioningConfigurationOutput() BucketVersioningV2VersioningConfigurationOutput
-	ToBucketVersioningV2VersioningConfigurationOutputWithContext(context.Context) BucketVersioningV2VersioningConfigurationOutput
+	ToBucketVersioningVersioningConfigurationOutput() BucketVersioningVersioningConfigurationOutput
+	ToBucketVersioningVersioningConfigurationOutputWithContext(context.Context) BucketVersioningVersioningConfigurationOutput
 }
 
-type BucketVersioningV2VersioningConfigurationArgs struct {
+type BucketVersioningVersioningConfigurationArgs struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete pulumi.StringPtrInput `pulumi:"mfaDelete"`
 	// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
-func (BucketVersioningV2VersioningConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketVersioningV2VersioningConfiguration)(nil)).Elem()
+func (BucketVersioningVersioningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketVersioningVersioningConfiguration)(nil)).Elem()
 }
 
-func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2VersioningConfigurationOutput() BucketVersioningV2VersioningConfigurationOutput {
-	return i.ToBucketVersioningV2VersioningConfigurationOutputWithContext(context.Background())
+func (i BucketVersioningVersioningConfigurationArgs) ToBucketVersioningVersioningConfigurationOutput() BucketVersioningVersioningConfigurationOutput {
+	return i.ToBucketVersioningVersioningConfigurationOutputWithContext(context.Background())
 }
 
-func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2VersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2VersioningConfigurationOutput)
+func (i BucketVersioningVersioningConfigurationArgs) ToBucketVersioningVersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningVersioningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningVersioningConfigurationOutput)
 }
 
-func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2VersioningConfigurationPtrOutput() BucketVersioningV2VersioningConfigurationPtrOutput {
-	return i.ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(context.Background())
+func (i BucketVersioningVersioningConfigurationArgs) ToBucketVersioningVersioningConfigurationPtrOutput() BucketVersioningVersioningConfigurationPtrOutput {
+	return i.ToBucketVersioningVersioningConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2VersioningConfigurationOutput).ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx)
+func (i BucketVersioningVersioningConfigurationArgs) ToBucketVersioningVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningVersioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningVersioningConfigurationOutput).ToBucketVersioningVersioningConfigurationPtrOutputWithContext(ctx)
 }
 
-// BucketVersioningV2VersioningConfigurationPtrInput is an input type that accepts BucketVersioningV2VersioningConfigurationArgs, BucketVersioningV2VersioningConfigurationPtr and BucketVersioningV2VersioningConfigurationPtrOutput values.
-// You can construct a concrete instance of `BucketVersioningV2VersioningConfigurationPtrInput` via:
+// BucketVersioningVersioningConfigurationPtrInput is an input type that accepts BucketVersioningVersioningConfigurationArgs, BucketVersioningVersioningConfigurationPtr and BucketVersioningVersioningConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketVersioningVersioningConfigurationPtrInput` via:
 //
-//	        BucketVersioningV2VersioningConfigurationArgs{...}
+//	        BucketVersioningVersioningConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketVersioningV2VersioningConfigurationPtrInput interface {
+type BucketVersioningVersioningConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToBucketVersioningV2VersioningConfigurationPtrOutput() BucketVersioningV2VersioningConfigurationPtrOutput
-	ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(context.Context) BucketVersioningV2VersioningConfigurationPtrOutput
+	ToBucketVersioningVersioningConfigurationPtrOutput() BucketVersioningVersioningConfigurationPtrOutput
+	ToBucketVersioningVersioningConfigurationPtrOutputWithContext(context.Context) BucketVersioningVersioningConfigurationPtrOutput
 }
 
-type bucketVersioningV2VersioningConfigurationPtrType BucketVersioningV2VersioningConfigurationArgs
+type bucketVersioningVersioningConfigurationPtrType BucketVersioningVersioningConfigurationArgs
 
-func BucketVersioningV2VersioningConfigurationPtr(v *BucketVersioningV2VersioningConfigurationArgs) BucketVersioningV2VersioningConfigurationPtrInput {
-	return (*bucketVersioningV2VersioningConfigurationPtrType)(v)
+func BucketVersioningVersioningConfigurationPtr(v *BucketVersioningVersioningConfigurationArgs) BucketVersioningVersioningConfigurationPtrInput {
+	return (*bucketVersioningVersioningConfigurationPtrType)(v)
 }
 
-func (*bucketVersioningV2VersioningConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketVersioningV2VersioningConfiguration)(nil)).Elem()
+func (*bucketVersioningVersioningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketVersioningVersioningConfiguration)(nil)).Elem()
 }
 
-func (i *bucketVersioningV2VersioningConfigurationPtrType) ToBucketVersioningV2VersioningConfigurationPtrOutput() BucketVersioningV2VersioningConfigurationPtrOutput {
-	return i.ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(context.Background())
+func (i *bucketVersioningVersioningConfigurationPtrType) ToBucketVersioningVersioningConfigurationPtrOutput() BucketVersioningVersioningConfigurationPtrOutput {
+	return i.ToBucketVersioningVersioningConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketVersioningV2VersioningConfigurationPtrType) ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2VersioningConfigurationPtrOutput)
+func (i *bucketVersioningVersioningConfigurationPtrType) ToBucketVersioningVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningVersioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningVersioningConfigurationPtrOutput)
 }
 
-type BucketVersioningV2VersioningConfigurationOutput struct{ *pulumi.OutputState }
+type BucketVersioningVersioningConfigurationOutput struct{ *pulumi.OutputState }
 
-func (BucketVersioningV2VersioningConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketVersioningV2VersioningConfiguration)(nil)).Elem()
+func (BucketVersioningVersioningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketVersioningVersioningConfiguration)(nil)).Elem()
 }
 
-func (o BucketVersioningV2VersioningConfigurationOutput) ToBucketVersioningV2VersioningConfigurationOutput() BucketVersioningV2VersioningConfigurationOutput {
+func (o BucketVersioningVersioningConfigurationOutput) ToBucketVersioningVersioningConfigurationOutput() BucketVersioningVersioningConfigurationOutput {
 	return o
 }
 
-func (o BucketVersioningV2VersioningConfigurationOutput) ToBucketVersioningV2VersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationOutput {
+func (o BucketVersioningVersioningConfigurationOutput) ToBucketVersioningVersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningVersioningConfigurationOutput {
 	return o
 }
 
-func (o BucketVersioningV2VersioningConfigurationOutput) ToBucketVersioningV2VersioningConfigurationPtrOutput() BucketVersioningV2VersioningConfigurationPtrOutput {
-	return o.ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(context.Background())
+func (o BucketVersioningVersioningConfigurationOutput) ToBucketVersioningVersioningConfigurationPtrOutput() BucketVersioningVersioningConfigurationPtrOutput {
+	return o.ToBucketVersioningVersioningConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o BucketVersioningV2VersioningConfigurationOutput) ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketVersioningV2VersioningConfiguration) *BucketVersioningV2VersioningConfiguration {
+func (o BucketVersioningVersioningConfigurationOutput) ToBucketVersioningVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningVersioningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketVersioningVersioningConfiguration) *BucketVersioningVersioningConfiguration {
 		return &v
-	}).(BucketVersioningV2VersioningConfigurationPtrOutput)
+	}).(BucketVersioningVersioningConfigurationPtrOutput)
 }
 
 // Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-func (o BucketVersioningV2VersioningConfigurationOutput) MfaDelete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketVersioningV2VersioningConfiguration) *string { return v.MfaDelete }).(pulumi.StringPtrOutput)
+func (o BucketVersioningVersioningConfigurationOutput) MfaDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketVersioningVersioningConfiguration) *string { return v.MfaDelete }).(pulumi.StringPtrOutput)
 }
 
 // Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-func (o BucketVersioningV2VersioningConfigurationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketVersioningV2VersioningConfiguration) string { return v.Status }).(pulumi.StringOutput)
+func (o BucketVersioningVersioningConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketVersioningVersioningConfiguration) string { return v.Status }).(pulumi.StringOutput)
 }
 
-type BucketVersioningV2VersioningConfigurationPtrOutput struct{ *pulumi.OutputState }
+type BucketVersioningVersioningConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketVersioningV2VersioningConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketVersioningV2VersioningConfiguration)(nil)).Elem()
+func (BucketVersioningVersioningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketVersioningVersioningConfiguration)(nil)).Elem()
 }
 
-func (o BucketVersioningV2VersioningConfigurationPtrOutput) ToBucketVersioningV2VersioningConfigurationPtrOutput() BucketVersioningV2VersioningConfigurationPtrOutput {
+func (o BucketVersioningVersioningConfigurationPtrOutput) ToBucketVersioningVersioningConfigurationPtrOutput() BucketVersioningVersioningConfigurationPtrOutput {
 	return o
 }
 
-func (o BucketVersioningV2VersioningConfigurationPtrOutput) ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationPtrOutput {
+func (o BucketVersioningVersioningConfigurationPtrOutput) ToBucketVersioningVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningVersioningConfigurationPtrOutput {
 	return o
 }
 
-func (o BucketVersioningV2VersioningConfigurationPtrOutput) Elem() BucketVersioningV2VersioningConfigurationOutput {
-	return o.ApplyT(func(v *BucketVersioningV2VersioningConfiguration) BucketVersioningV2VersioningConfiguration {
+func (o BucketVersioningVersioningConfigurationPtrOutput) Elem() BucketVersioningVersioningConfigurationOutput {
+	return o.ApplyT(func(v *BucketVersioningVersioningConfiguration) BucketVersioningVersioningConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret BucketVersioningV2VersioningConfiguration
+		var ret BucketVersioningVersioningConfiguration
 		return ret
-	}).(BucketVersioningV2VersioningConfigurationOutput)
+	}).(BucketVersioningVersioningConfigurationOutput)
 }
 
 // Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-func (o BucketVersioningV2VersioningConfigurationPtrOutput) MfaDelete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketVersioningV2VersioningConfiguration) *string {
+func (o BucketVersioningVersioningConfigurationPtrOutput) MfaDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketVersioningVersioningConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -14315,8 +13926,8 @@ func (o BucketVersioningV2VersioningConfigurationPtrOutput) MfaDelete() pulumi.S
 }
 
 // Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-func (o BucketVersioningV2VersioningConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketVersioningV2VersioningConfiguration) *string {
+func (o BucketVersioningVersioningConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketVersioningVersioningConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -14451,136 +14062,136 @@ func (o BucketWebsiteArrayOutput) Index(i pulumi.IntInput) BucketWebsiteOutput {
 	}).(BucketWebsiteOutput)
 }
 
-type BucketWebsiteConfigurationV2ErrorDocument struct {
+type BucketWebsiteConfigurationErrorDocument struct {
 	// Object key name to use when a 4XX class error occurs.
 	Key string `pulumi:"key"`
 }
 
-// BucketWebsiteConfigurationV2ErrorDocumentInput is an input type that accepts BucketWebsiteConfigurationV2ErrorDocumentArgs and BucketWebsiteConfigurationV2ErrorDocumentOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2ErrorDocumentInput` via:
+// BucketWebsiteConfigurationErrorDocumentInput is an input type that accepts BucketWebsiteConfigurationErrorDocumentArgs and BucketWebsiteConfigurationErrorDocumentOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationErrorDocumentInput` via:
 //
-//	BucketWebsiteConfigurationV2ErrorDocumentArgs{...}
-type BucketWebsiteConfigurationV2ErrorDocumentInput interface {
+//	BucketWebsiteConfigurationErrorDocumentArgs{...}
+type BucketWebsiteConfigurationErrorDocumentInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2ErrorDocumentOutput() BucketWebsiteConfigurationV2ErrorDocumentOutput
-	ToBucketWebsiteConfigurationV2ErrorDocumentOutputWithContext(context.Context) BucketWebsiteConfigurationV2ErrorDocumentOutput
+	ToBucketWebsiteConfigurationErrorDocumentOutput() BucketWebsiteConfigurationErrorDocumentOutput
+	ToBucketWebsiteConfigurationErrorDocumentOutputWithContext(context.Context) BucketWebsiteConfigurationErrorDocumentOutput
 }
 
-type BucketWebsiteConfigurationV2ErrorDocumentArgs struct {
+type BucketWebsiteConfigurationErrorDocumentArgs struct {
 	// Object key name to use when a 4XX class error occurs.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
-func (BucketWebsiteConfigurationV2ErrorDocumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2ErrorDocument)(nil)).Elem()
+func (BucketWebsiteConfigurationErrorDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationErrorDocument)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurationV2ErrorDocumentOutput() BucketWebsiteConfigurationV2ErrorDocumentOutput {
-	return i.ToBucketWebsiteConfigurationV2ErrorDocumentOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationErrorDocumentArgs) ToBucketWebsiteConfigurationErrorDocumentOutput() BucketWebsiteConfigurationErrorDocumentOutput {
+	return i.ToBucketWebsiteConfigurationErrorDocumentOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurationV2ErrorDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2ErrorDocumentOutput)
+func (i BucketWebsiteConfigurationErrorDocumentArgs) ToBucketWebsiteConfigurationErrorDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationErrorDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationErrorDocumentOutput)
 }
 
-func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutput() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationErrorDocumentArgs) ToBucketWebsiteConfigurationErrorDocumentPtrOutput() BucketWebsiteConfigurationErrorDocumentPtrOutput {
+	return i.ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2ErrorDocumentOutput).ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx)
+func (i BucketWebsiteConfigurationErrorDocumentArgs) ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationErrorDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationErrorDocumentOutput).ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(ctx)
 }
 
-// BucketWebsiteConfigurationV2ErrorDocumentPtrInput is an input type that accepts BucketWebsiteConfigurationV2ErrorDocumentArgs, BucketWebsiteConfigurationV2ErrorDocumentPtr and BucketWebsiteConfigurationV2ErrorDocumentPtrOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2ErrorDocumentPtrInput` via:
+// BucketWebsiteConfigurationErrorDocumentPtrInput is an input type that accepts BucketWebsiteConfigurationErrorDocumentArgs, BucketWebsiteConfigurationErrorDocumentPtr and BucketWebsiteConfigurationErrorDocumentPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationErrorDocumentPtrInput` via:
 //
-//	        BucketWebsiteConfigurationV2ErrorDocumentArgs{...}
+//	        BucketWebsiteConfigurationErrorDocumentArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketWebsiteConfigurationV2ErrorDocumentPtrInput interface {
+type BucketWebsiteConfigurationErrorDocumentPtrInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutput() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput
-	ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(context.Context) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput
+	ToBucketWebsiteConfigurationErrorDocumentPtrOutput() BucketWebsiteConfigurationErrorDocumentPtrOutput
+	ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(context.Context) BucketWebsiteConfigurationErrorDocumentPtrOutput
 }
 
-type bucketWebsiteConfigurationV2ErrorDocumentPtrType BucketWebsiteConfigurationV2ErrorDocumentArgs
+type bucketWebsiteConfigurationErrorDocumentPtrType BucketWebsiteConfigurationErrorDocumentArgs
 
-func BucketWebsiteConfigurationV2ErrorDocumentPtr(v *BucketWebsiteConfigurationV2ErrorDocumentArgs) BucketWebsiteConfigurationV2ErrorDocumentPtrInput {
-	return (*bucketWebsiteConfigurationV2ErrorDocumentPtrType)(v)
+func BucketWebsiteConfigurationErrorDocumentPtr(v *BucketWebsiteConfigurationErrorDocumentArgs) BucketWebsiteConfigurationErrorDocumentPtrInput {
+	return (*bucketWebsiteConfigurationErrorDocumentPtrType)(v)
 }
 
-func (*bucketWebsiteConfigurationV2ErrorDocumentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2ErrorDocument)(nil)).Elem()
+func (*bucketWebsiteConfigurationErrorDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationErrorDocument)(nil)).Elem()
 }
 
-func (i *bucketWebsiteConfigurationV2ErrorDocumentPtrType) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutput() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(context.Background())
+func (i *bucketWebsiteConfigurationErrorDocumentPtrType) ToBucketWebsiteConfigurationErrorDocumentPtrOutput() BucketWebsiteConfigurationErrorDocumentPtrOutput {
+	return i.ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketWebsiteConfigurationV2ErrorDocumentPtrType) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2ErrorDocumentPtrOutput)
+func (i *bucketWebsiteConfigurationErrorDocumentPtrType) ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationErrorDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationErrorDocumentPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2ErrorDocumentOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationErrorDocumentOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2ErrorDocumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2ErrorDocument)(nil)).Elem()
+func (BucketWebsiteConfigurationErrorDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationErrorDocument)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) ToBucketWebsiteConfigurationV2ErrorDocumentOutput() BucketWebsiteConfigurationV2ErrorDocumentOutput {
+func (o BucketWebsiteConfigurationErrorDocumentOutput) ToBucketWebsiteConfigurationErrorDocumentOutput() BucketWebsiteConfigurationErrorDocumentOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) ToBucketWebsiteConfigurationV2ErrorDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentOutput {
+func (o BucketWebsiteConfigurationErrorDocumentOutput) ToBucketWebsiteConfigurationErrorDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationErrorDocumentOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutput() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
-	return o.ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(context.Background())
+func (o BucketWebsiteConfigurationErrorDocumentOutput) ToBucketWebsiteConfigurationErrorDocumentPtrOutput() BucketWebsiteConfigurationErrorDocumentPtrOutput {
+	return o.ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(context.Background())
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationV2ErrorDocument) *BucketWebsiteConfigurationV2ErrorDocument {
+func (o BucketWebsiteConfigurationErrorDocumentOutput) ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationErrorDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationErrorDocument) *BucketWebsiteConfigurationErrorDocument {
 		return &v
-	}).(BucketWebsiteConfigurationV2ErrorDocumentPtrOutput)
+	}).(BucketWebsiteConfigurationErrorDocumentPtrOutput)
 }
 
 // Object key name to use when a 4XX class error occurs.
-func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2ErrorDocument) string { return v.Key }).(pulumi.StringOutput)
+func (o BucketWebsiteConfigurationErrorDocumentOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationErrorDocument) string { return v.Key }).(pulumi.StringOutput)
 }
 
-type BucketWebsiteConfigurationV2ErrorDocumentPtrOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationErrorDocumentPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2ErrorDocument)(nil)).Elem()
+func (BucketWebsiteConfigurationErrorDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationErrorDocument)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutput() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
+func (o BucketWebsiteConfigurationErrorDocumentPtrOutput) ToBucketWebsiteConfigurationErrorDocumentPtrOutput() BucketWebsiteConfigurationErrorDocumentPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
+func (o BucketWebsiteConfigurationErrorDocumentPtrOutput) ToBucketWebsiteConfigurationErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationErrorDocumentPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) Elem() BucketWebsiteConfigurationV2ErrorDocumentOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2ErrorDocument) BucketWebsiteConfigurationV2ErrorDocument {
+func (o BucketWebsiteConfigurationErrorDocumentPtrOutput) Elem() BucketWebsiteConfigurationErrorDocumentOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationErrorDocument) BucketWebsiteConfigurationErrorDocument {
 		if v != nil {
 			return *v
 		}
-		var ret BucketWebsiteConfigurationV2ErrorDocument
+		var ret BucketWebsiteConfigurationErrorDocument
 		return ret
-	}).(BucketWebsiteConfigurationV2ErrorDocumentOutput)
+	}).(BucketWebsiteConfigurationErrorDocumentOutput)
 }
 
 // Object key name to use when a 4XX class error occurs.
-func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2ErrorDocument) *string {
+func (o BucketWebsiteConfigurationErrorDocumentPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationErrorDocument) *string {
 		if v == nil {
 			return nil
 		}
@@ -14588,144 +14199,144 @@ func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) Key() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2IndexDocument struct {
+type BucketWebsiteConfigurationIndexDocument struct {
 	// Suffix that is appended to a request that is for a directory on the website endpoint.
 	// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 	// The suffix must not be empty and must not include a slash character.
 	Suffix string `pulumi:"suffix"`
 }
 
-// BucketWebsiteConfigurationV2IndexDocumentInput is an input type that accepts BucketWebsiteConfigurationV2IndexDocumentArgs and BucketWebsiteConfigurationV2IndexDocumentOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2IndexDocumentInput` via:
+// BucketWebsiteConfigurationIndexDocumentInput is an input type that accepts BucketWebsiteConfigurationIndexDocumentArgs and BucketWebsiteConfigurationIndexDocumentOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationIndexDocumentInput` via:
 //
-//	BucketWebsiteConfigurationV2IndexDocumentArgs{...}
-type BucketWebsiteConfigurationV2IndexDocumentInput interface {
+//	BucketWebsiteConfigurationIndexDocumentArgs{...}
+type BucketWebsiteConfigurationIndexDocumentInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2IndexDocumentOutput() BucketWebsiteConfigurationV2IndexDocumentOutput
-	ToBucketWebsiteConfigurationV2IndexDocumentOutputWithContext(context.Context) BucketWebsiteConfigurationV2IndexDocumentOutput
+	ToBucketWebsiteConfigurationIndexDocumentOutput() BucketWebsiteConfigurationIndexDocumentOutput
+	ToBucketWebsiteConfigurationIndexDocumentOutputWithContext(context.Context) BucketWebsiteConfigurationIndexDocumentOutput
 }
 
-type BucketWebsiteConfigurationV2IndexDocumentArgs struct {
+type BucketWebsiteConfigurationIndexDocumentArgs struct {
 	// Suffix that is appended to a request that is for a directory on the website endpoint.
 	// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 	// The suffix must not be empty and must not include a slash character.
 	Suffix pulumi.StringInput `pulumi:"suffix"`
 }
 
-func (BucketWebsiteConfigurationV2IndexDocumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2IndexDocument)(nil)).Elem()
+func (BucketWebsiteConfigurationIndexDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationIndexDocument)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurationV2IndexDocumentOutput() BucketWebsiteConfigurationV2IndexDocumentOutput {
-	return i.ToBucketWebsiteConfigurationV2IndexDocumentOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationIndexDocumentArgs) ToBucketWebsiteConfigurationIndexDocumentOutput() BucketWebsiteConfigurationIndexDocumentOutput {
+	return i.ToBucketWebsiteConfigurationIndexDocumentOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurationV2IndexDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2IndexDocumentOutput)
+func (i BucketWebsiteConfigurationIndexDocumentArgs) ToBucketWebsiteConfigurationIndexDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationIndexDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationIndexDocumentOutput)
 }
 
-func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutput() BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationIndexDocumentArgs) ToBucketWebsiteConfigurationIndexDocumentPtrOutput() BucketWebsiteConfigurationIndexDocumentPtrOutput {
+	return i.ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2IndexDocumentOutput).ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx)
+func (i BucketWebsiteConfigurationIndexDocumentArgs) ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationIndexDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationIndexDocumentOutput).ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(ctx)
 }
 
-// BucketWebsiteConfigurationV2IndexDocumentPtrInput is an input type that accepts BucketWebsiteConfigurationV2IndexDocumentArgs, BucketWebsiteConfigurationV2IndexDocumentPtr and BucketWebsiteConfigurationV2IndexDocumentPtrOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2IndexDocumentPtrInput` via:
+// BucketWebsiteConfigurationIndexDocumentPtrInput is an input type that accepts BucketWebsiteConfigurationIndexDocumentArgs, BucketWebsiteConfigurationIndexDocumentPtr and BucketWebsiteConfigurationIndexDocumentPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationIndexDocumentPtrInput` via:
 //
-//	        BucketWebsiteConfigurationV2IndexDocumentArgs{...}
+//	        BucketWebsiteConfigurationIndexDocumentArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketWebsiteConfigurationV2IndexDocumentPtrInput interface {
+type BucketWebsiteConfigurationIndexDocumentPtrInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2IndexDocumentPtrOutput() BucketWebsiteConfigurationV2IndexDocumentPtrOutput
-	ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(context.Context) BucketWebsiteConfigurationV2IndexDocumentPtrOutput
+	ToBucketWebsiteConfigurationIndexDocumentPtrOutput() BucketWebsiteConfigurationIndexDocumentPtrOutput
+	ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(context.Context) BucketWebsiteConfigurationIndexDocumentPtrOutput
 }
 
-type bucketWebsiteConfigurationV2IndexDocumentPtrType BucketWebsiteConfigurationV2IndexDocumentArgs
+type bucketWebsiteConfigurationIndexDocumentPtrType BucketWebsiteConfigurationIndexDocumentArgs
 
-func BucketWebsiteConfigurationV2IndexDocumentPtr(v *BucketWebsiteConfigurationV2IndexDocumentArgs) BucketWebsiteConfigurationV2IndexDocumentPtrInput {
-	return (*bucketWebsiteConfigurationV2IndexDocumentPtrType)(v)
+func BucketWebsiteConfigurationIndexDocumentPtr(v *BucketWebsiteConfigurationIndexDocumentArgs) BucketWebsiteConfigurationIndexDocumentPtrInput {
+	return (*bucketWebsiteConfigurationIndexDocumentPtrType)(v)
 }
 
-func (*bucketWebsiteConfigurationV2IndexDocumentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2IndexDocument)(nil)).Elem()
+func (*bucketWebsiteConfigurationIndexDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationIndexDocument)(nil)).Elem()
 }
 
-func (i *bucketWebsiteConfigurationV2IndexDocumentPtrType) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutput() BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(context.Background())
+func (i *bucketWebsiteConfigurationIndexDocumentPtrType) ToBucketWebsiteConfigurationIndexDocumentPtrOutput() BucketWebsiteConfigurationIndexDocumentPtrOutput {
+	return i.ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketWebsiteConfigurationV2IndexDocumentPtrType) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2IndexDocumentPtrOutput)
+func (i *bucketWebsiteConfigurationIndexDocumentPtrType) ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationIndexDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationIndexDocumentPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2IndexDocumentOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationIndexDocumentOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2IndexDocumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2IndexDocument)(nil)).Elem()
+func (BucketWebsiteConfigurationIndexDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationIndexDocument)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToBucketWebsiteConfigurationV2IndexDocumentOutput() BucketWebsiteConfigurationV2IndexDocumentOutput {
+func (o BucketWebsiteConfigurationIndexDocumentOutput) ToBucketWebsiteConfigurationIndexDocumentOutput() BucketWebsiteConfigurationIndexDocumentOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToBucketWebsiteConfigurationV2IndexDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentOutput {
+func (o BucketWebsiteConfigurationIndexDocumentOutput) ToBucketWebsiteConfigurationIndexDocumentOutputWithContext(ctx context.Context) BucketWebsiteConfigurationIndexDocumentOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutput() BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
-	return o.ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(context.Background())
+func (o BucketWebsiteConfigurationIndexDocumentOutput) ToBucketWebsiteConfigurationIndexDocumentPtrOutput() BucketWebsiteConfigurationIndexDocumentPtrOutput {
+	return o.ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(context.Background())
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationV2IndexDocument) *BucketWebsiteConfigurationV2IndexDocument {
+func (o BucketWebsiteConfigurationIndexDocumentOutput) ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationIndexDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationIndexDocument) *BucketWebsiteConfigurationIndexDocument {
 		return &v
-	}).(BucketWebsiteConfigurationV2IndexDocumentPtrOutput)
+	}).(BucketWebsiteConfigurationIndexDocumentPtrOutput)
 }
 
 // Suffix that is appended to a request that is for a directory on the website endpoint.
 // For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 // The suffix must not be empty and must not include a slash character.
-func (o BucketWebsiteConfigurationV2IndexDocumentOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2IndexDocument) string { return v.Suffix }).(pulumi.StringOutput)
+func (o BucketWebsiteConfigurationIndexDocumentOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationIndexDocument) string { return v.Suffix }).(pulumi.StringOutput)
 }
 
-type BucketWebsiteConfigurationV2IndexDocumentPtrOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationIndexDocumentPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2IndexDocumentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2IndexDocument)(nil)).Elem()
+func (BucketWebsiteConfigurationIndexDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationIndexDocument)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutput() BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
+func (o BucketWebsiteConfigurationIndexDocumentPtrOutput) ToBucketWebsiteConfigurationIndexDocumentPtrOutput() BucketWebsiteConfigurationIndexDocumentPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
+func (o BucketWebsiteConfigurationIndexDocumentPtrOutput) ToBucketWebsiteConfigurationIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationIndexDocumentPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) Elem() BucketWebsiteConfigurationV2IndexDocumentOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2IndexDocument) BucketWebsiteConfigurationV2IndexDocument {
+func (o BucketWebsiteConfigurationIndexDocumentPtrOutput) Elem() BucketWebsiteConfigurationIndexDocumentOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationIndexDocument) BucketWebsiteConfigurationIndexDocument {
 		if v != nil {
 			return *v
 		}
-		var ret BucketWebsiteConfigurationV2IndexDocument
+		var ret BucketWebsiteConfigurationIndexDocument
 		return ret
-	}).(BucketWebsiteConfigurationV2IndexDocumentOutput)
+	}).(BucketWebsiteConfigurationIndexDocumentOutput)
 }
 
 // Suffix that is appended to a request that is for a directory on the website endpoint.
 // For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 // The suffix must not be empty and must not include a slash character.
-func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2IndexDocument) *string {
+func (o BucketWebsiteConfigurationIndexDocumentPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationIndexDocument) *string {
 		if v == nil {
 			return nil
 		}
@@ -14733,145 +14344,145 @@ func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) Suffix() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RedirectAllRequestsTo struct {
+type BucketWebsiteConfigurationRedirectAllRequestsTo struct {
 	// Name of the host where requests are redirected.
 	HostName string `pulumi:"hostName"`
 	// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
 	Protocol *string `pulumi:"protocol"`
 }
 
-// BucketWebsiteConfigurationV2RedirectAllRequestsToInput is an input type that accepts BucketWebsiteConfigurationV2RedirectAllRequestsToArgs and BucketWebsiteConfigurationV2RedirectAllRequestsToOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RedirectAllRequestsToInput` via:
+// BucketWebsiteConfigurationRedirectAllRequestsToInput is an input type that accepts BucketWebsiteConfigurationRedirectAllRequestsToArgs and BucketWebsiteConfigurationRedirectAllRequestsToOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRedirectAllRequestsToInput` via:
 //
-//	BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{...}
-type BucketWebsiteConfigurationV2RedirectAllRequestsToInput interface {
+//	BucketWebsiteConfigurationRedirectAllRequestsToArgs{...}
+type BucketWebsiteConfigurationRedirectAllRequestsToInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToOutput
-	ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutputWithContext(context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToOutput
+	ToBucketWebsiteConfigurationRedirectAllRequestsToOutput() BucketWebsiteConfigurationRedirectAllRequestsToOutput
+	ToBucketWebsiteConfigurationRedirectAllRequestsToOutputWithContext(context.Context) BucketWebsiteConfigurationRedirectAllRequestsToOutput
 }
 
-type BucketWebsiteConfigurationV2RedirectAllRequestsToArgs struct {
+type BucketWebsiteConfigurationRedirectAllRequestsToArgs struct {
 	// Name of the host where requests are redirected.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
-func (BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RedirectAllRequestsTo)(nil)).Elem()
+func (BucketWebsiteConfigurationRedirectAllRequestsToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRedirectAllRequestsTo)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToOutput {
-	return i.ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRedirectAllRequestsToArgs) ToBucketWebsiteConfigurationRedirectAllRequestsToOutput() BucketWebsiteConfigurationRedirectAllRequestsToOutput {
+	return i.ToBucketWebsiteConfigurationRedirectAllRequestsToOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RedirectAllRequestsToOutput)
+func (i BucketWebsiteConfigurationRedirectAllRequestsToArgs) ToBucketWebsiteConfigurationRedirectAllRequestsToOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRedirectAllRequestsToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRedirectAllRequestsToOutput)
 }
 
-func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRedirectAllRequestsToArgs) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
+	return i.ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RedirectAllRequestsToOutput).ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx)
+func (i BucketWebsiteConfigurationRedirectAllRequestsToArgs) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRedirectAllRequestsToOutput).ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(ctx)
 }
 
-// BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput is an input type that accepts BucketWebsiteConfigurationV2RedirectAllRequestsToArgs, BucketWebsiteConfigurationV2RedirectAllRequestsToPtr and BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput` via:
+// BucketWebsiteConfigurationRedirectAllRequestsToPtrInput is an input type that accepts BucketWebsiteConfigurationRedirectAllRequestsToArgs, BucketWebsiteConfigurationRedirectAllRequestsToPtr and BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRedirectAllRequestsToPtrInput` via:
 //
-//	        BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{...}
+//	        BucketWebsiteConfigurationRedirectAllRequestsToArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput interface {
+type BucketWebsiteConfigurationRedirectAllRequestsToPtrInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput
-	ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput
+	ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput
+	ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(context.Context) BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput
 }
 
-type bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType BucketWebsiteConfigurationV2RedirectAllRequestsToArgs
+type bucketWebsiteConfigurationRedirectAllRequestsToPtrType BucketWebsiteConfigurationRedirectAllRequestsToArgs
 
-func BucketWebsiteConfigurationV2RedirectAllRequestsToPtr(v *BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput {
-	return (*bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType)(v)
+func BucketWebsiteConfigurationRedirectAllRequestsToPtr(v *BucketWebsiteConfigurationRedirectAllRequestsToArgs) BucketWebsiteConfigurationRedirectAllRequestsToPtrInput {
+	return (*bucketWebsiteConfigurationRedirectAllRequestsToPtrType)(v)
 }
 
-func (*bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2RedirectAllRequestsTo)(nil)).Elem()
+func (*bucketWebsiteConfigurationRedirectAllRequestsToPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationRedirectAllRequestsTo)(nil)).Elem()
 }
 
-func (i *bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(context.Background())
+func (i *bucketWebsiteConfigurationRedirectAllRequestsToPtrType) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
+	return i.ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput)
+func (i *bucketWebsiteConfigurationRedirectAllRequestsToPtrType) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RedirectAllRequestsToOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRedirectAllRequestsToOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RedirectAllRequestsTo)(nil)).Elem()
+func (BucketWebsiteConfigurationRedirectAllRequestsToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRedirectAllRequestsTo)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToOutput {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToOutput) ToBucketWebsiteConfigurationRedirectAllRequestsToOutput() BucketWebsiteConfigurationRedirectAllRequestsToOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToOutput {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToOutput) ToBucketWebsiteConfigurationRedirectAllRequestsToOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRedirectAllRequestsToOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
-	return o.ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(context.Background())
+func (o BucketWebsiteConfigurationRedirectAllRequestsToOutput) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
+	return o.ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(context.Background())
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationV2RedirectAllRequestsTo) *BucketWebsiteConfigurationV2RedirectAllRequestsTo {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToOutput) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationRedirectAllRequestsTo) *BucketWebsiteConfigurationRedirectAllRequestsTo {
 		return &v
-	}).(BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput)
+	}).(BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput)
 }
 
 // Name of the host where requests are redirected.
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RedirectAllRequestsTo) string { return v.HostName }).(pulumi.StringOutput)
+func (o BucketWebsiteConfigurationRedirectAllRequestsToOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRedirectAllRequestsTo) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RedirectAllRequestsTo) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRedirectAllRequestsToOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRedirectAllRequestsTo) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2RedirectAllRequestsTo)(nil)).Elem()
+func (BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationRedirectAllRequestsTo)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput) ToBucketWebsiteConfigurationRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) Elem() BucketWebsiteConfigurationV2RedirectAllRequestsToOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2RedirectAllRequestsTo) BucketWebsiteConfigurationV2RedirectAllRequestsTo {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput) Elem() BucketWebsiteConfigurationRedirectAllRequestsToOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationRedirectAllRequestsTo) BucketWebsiteConfigurationRedirectAllRequestsTo {
 		if v != nil {
 			return *v
 		}
-		var ret BucketWebsiteConfigurationV2RedirectAllRequestsTo
+		var ret BucketWebsiteConfigurationRedirectAllRequestsTo
 		return ret
-	}).(BucketWebsiteConfigurationV2RedirectAllRequestsToOutput)
+	}).(BucketWebsiteConfigurationRedirectAllRequestsToOutput)
 }
 
 // Name of the host where requests are redirected.
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2RedirectAllRequestsTo) *string {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationRedirectAllRequestsTo) *string {
 		if v == nil {
 			return nil
 		}
@@ -14880,8 +14491,8 @@ func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) HostName() p
 }
 
 // Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2RedirectAllRequestsTo) *string {
+func (o BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationRedirectAllRequestsTo) *string {
 		if v == nil {
 			return nil
 		}
@@ -14889,255 +14500,255 @@ func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) Protocol() p
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRule struct {
+type BucketWebsiteConfigurationRoutingRule struct {
 	// Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-	Condition *BucketWebsiteConfigurationV2RoutingRuleCondition `pulumi:"condition"`
+	Condition *BucketWebsiteConfigurationRoutingRuleCondition `pulumi:"condition"`
 	// Configuration block for redirect information. See below.
-	Redirect BucketWebsiteConfigurationV2RoutingRuleRedirect `pulumi:"redirect"`
+	Redirect BucketWebsiteConfigurationRoutingRuleRedirect `pulumi:"redirect"`
 }
 
-// BucketWebsiteConfigurationV2RoutingRuleInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleArgs and BucketWebsiteConfigurationV2RoutingRuleOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleInput` via:
+// BucketWebsiteConfigurationRoutingRuleInput is an input type that accepts BucketWebsiteConfigurationRoutingRuleArgs and BucketWebsiteConfigurationRoutingRuleOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRoutingRuleInput` via:
 //
-//	BucketWebsiteConfigurationV2RoutingRuleArgs{...}
-type BucketWebsiteConfigurationV2RoutingRuleInput interface {
+//	BucketWebsiteConfigurationRoutingRuleArgs{...}
+type BucketWebsiteConfigurationRoutingRuleInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RoutingRuleOutput() BucketWebsiteConfigurationV2RoutingRuleOutput
-	ToBucketWebsiteConfigurationV2RoutingRuleOutputWithContext(context.Context) BucketWebsiteConfigurationV2RoutingRuleOutput
+	ToBucketWebsiteConfigurationRoutingRuleOutput() BucketWebsiteConfigurationRoutingRuleOutput
+	ToBucketWebsiteConfigurationRoutingRuleOutputWithContext(context.Context) BucketWebsiteConfigurationRoutingRuleOutput
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleArgs struct {
+type BucketWebsiteConfigurationRoutingRuleArgs struct {
 	// Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-	Condition BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput `pulumi:"condition"`
+	Condition BucketWebsiteConfigurationRoutingRuleConditionPtrInput `pulumi:"condition"`
 	// Configuration block for redirect information. See below.
-	Redirect BucketWebsiteConfigurationV2RoutingRuleRedirectInput `pulumi:"redirect"`
+	Redirect BucketWebsiteConfigurationRoutingRuleRedirectInput `pulumi:"redirect"`
 }
 
-func (BucketWebsiteConfigurationV2RoutingRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRule)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRoutingRule)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleArgs) ToBucketWebsiteConfigurationV2RoutingRuleOutput() BucketWebsiteConfigurationV2RoutingRuleOutput {
-	return i.ToBucketWebsiteConfigurationV2RoutingRuleOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRoutingRuleArgs) ToBucketWebsiteConfigurationRoutingRuleOutput() BucketWebsiteConfigurationRoutingRuleOutput {
+	return i.ToBucketWebsiteConfigurationRoutingRuleOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleArgs) ToBucketWebsiteConfigurationV2RoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleOutput)
+func (i BucketWebsiteConfigurationRoutingRuleArgs) ToBucketWebsiteConfigurationRoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRoutingRuleOutput)
 }
 
-// BucketWebsiteConfigurationV2RoutingRuleArrayInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleArray and BucketWebsiteConfigurationV2RoutingRuleArrayOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleArrayInput` via:
+// BucketWebsiteConfigurationRoutingRuleArrayInput is an input type that accepts BucketWebsiteConfigurationRoutingRuleArray and BucketWebsiteConfigurationRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRoutingRuleArrayInput` via:
 //
-//	BucketWebsiteConfigurationV2RoutingRuleArray{ BucketWebsiteConfigurationV2RoutingRuleArgs{...} }
-type BucketWebsiteConfigurationV2RoutingRuleArrayInput interface {
+//	BucketWebsiteConfigurationRoutingRuleArray{ BucketWebsiteConfigurationRoutingRuleArgs{...} }
+type BucketWebsiteConfigurationRoutingRuleArrayInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RoutingRuleArrayOutput() BucketWebsiteConfigurationV2RoutingRuleArrayOutput
-	ToBucketWebsiteConfigurationV2RoutingRuleArrayOutputWithContext(context.Context) BucketWebsiteConfigurationV2RoutingRuleArrayOutput
+	ToBucketWebsiteConfigurationRoutingRuleArrayOutput() BucketWebsiteConfigurationRoutingRuleArrayOutput
+	ToBucketWebsiteConfigurationRoutingRuleArrayOutputWithContext(context.Context) BucketWebsiteConfigurationRoutingRuleArrayOutput
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleArray []BucketWebsiteConfigurationV2RoutingRuleInput
+type BucketWebsiteConfigurationRoutingRuleArray []BucketWebsiteConfigurationRoutingRuleInput
 
-func (BucketWebsiteConfigurationV2RoutingRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketWebsiteConfigurationV2RoutingRule)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketWebsiteConfigurationRoutingRule)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleArray) ToBucketWebsiteConfigurationV2RoutingRuleArrayOutput() BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
-	return i.ToBucketWebsiteConfigurationV2RoutingRuleArrayOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRoutingRuleArray) ToBucketWebsiteConfigurationRoutingRuleArrayOutput() BucketWebsiteConfigurationRoutingRuleArrayOutput {
+	return i.ToBucketWebsiteConfigurationRoutingRuleArrayOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleArray) ToBucketWebsiteConfigurationV2RoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleArrayOutput)
+func (i BucketWebsiteConfigurationRoutingRuleArray) ToBucketWebsiteConfigurationRoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRoutingRuleArrayOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRoutingRuleOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RoutingRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRule)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRoutingRule)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleOutput) ToBucketWebsiteConfigurationV2RoutingRuleOutput() BucketWebsiteConfigurationV2RoutingRuleOutput {
+func (o BucketWebsiteConfigurationRoutingRuleOutput) ToBucketWebsiteConfigurationRoutingRuleOutput() BucketWebsiteConfigurationRoutingRuleOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleOutput) ToBucketWebsiteConfigurationV2RoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleOutput {
+func (o BucketWebsiteConfigurationRoutingRuleOutput) ToBucketWebsiteConfigurationRoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleOutput {
 	return o
 }
 
 // Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-func (o BucketWebsiteConfigurationV2RoutingRuleOutput) Condition() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRule) *BucketWebsiteConfigurationV2RoutingRuleCondition {
+func (o BucketWebsiteConfigurationRoutingRuleOutput) Condition() BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRule) *BucketWebsiteConfigurationRoutingRuleCondition {
 		return v.Condition
-	}).(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput)
+	}).(BucketWebsiteConfigurationRoutingRuleConditionPtrOutput)
 }
 
 // Configuration block for redirect information. See below.
-func (o BucketWebsiteConfigurationV2RoutingRuleOutput) Redirect() BucketWebsiteConfigurationV2RoutingRuleRedirectOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRule) BucketWebsiteConfigurationV2RoutingRuleRedirect {
+func (o BucketWebsiteConfigurationRoutingRuleOutput) Redirect() BucketWebsiteConfigurationRoutingRuleRedirectOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRule) BucketWebsiteConfigurationRoutingRuleRedirect {
 		return v.Redirect
-	}).(BucketWebsiteConfigurationV2RoutingRuleRedirectOutput)
+	}).(BucketWebsiteConfigurationRoutingRuleRedirectOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleArrayOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRoutingRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RoutingRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketWebsiteConfigurationV2RoutingRule)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketWebsiteConfigurationRoutingRule)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) ToBucketWebsiteConfigurationV2RoutingRuleArrayOutput() BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
+func (o BucketWebsiteConfigurationRoutingRuleArrayOutput) ToBucketWebsiteConfigurationRoutingRuleArrayOutput() BucketWebsiteConfigurationRoutingRuleArrayOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) ToBucketWebsiteConfigurationV2RoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
+func (o BucketWebsiteConfigurationRoutingRuleArrayOutput) ToBucketWebsiteConfigurationRoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleArrayOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) Index(i pulumi.IntInput) BucketWebsiteConfigurationV2RoutingRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketWebsiteConfigurationV2RoutingRule {
-		return vs[0].([]BucketWebsiteConfigurationV2RoutingRule)[vs[1].(int)]
-	}).(BucketWebsiteConfigurationV2RoutingRuleOutput)
+func (o BucketWebsiteConfigurationRoutingRuleArrayOutput) Index(i pulumi.IntInput) BucketWebsiteConfigurationRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketWebsiteConfigurationRoutingRule {
+		return vs[0].([]BucketWebsiteConfigurationRoutingRule)[vs[1].(int)]
+	}).(BucketWebsiteConfigurationRoutingRuleOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleCondition struct {
+type BucketWebsiteConfigurationRoutingRuleCondition struct {
 	// HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
 	HttpErrorCodeReturnedEquals *string `pulumi:"httpErrorCodeReturnedEquals"`
 	// Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
 	KeyPrefixEquals *string `pulumi:"keyPrefixEquals"`
 }
 
-// BucketWebsiteConfigurationV2RoutingRuleConditionInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleConditionArgs and BucketWebsiteConfigurationV2RoutingRuleConditionOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleConditionInput` via:
+// BucketWebsiteConfigurationRoutingRuleConditionInput is an input type that accepts BucketWebsiteConfigurationRoutingRuleConditionArgs and BucketWebsiteConfigurationRoutingRuleConditionOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRoutingRuleConditionInput` via:
 //
-//	BucketWebsiteConfigurationV2RoutingRuleConditionArgs{...}
-type BucketWebsiteConfigurationV2RoutingRuleConditionInput interface {
+//	BucketWebsiteConfigurationRoutingRuleConditionArgs{...}
+type BucketWebsiteConfigurationRoutingRuleConditionInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RoutingRuleConditionOutput() BucketWebsiteConfigurationV2RoutingRuleConditionOutput
-	ToBucketWebsiteConfigurationV2RoutingRuleConditionOutputWithContext(context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionOutput
+	ToBucketWebsiteConfigurationRoutingRuleConditionOutput() BucketWebsiteConfigurationRoutingRuleConditionOutput
+	ToBucketWebsiteConfigurationRoutingRuleConditionOutputWithContext(context.Context) BucketWebsiteConfigurationRoutingRuleConditionOutput
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleConditionArgs struct {
+type BucketWebsiteConfigurationRoutingRuleConditionArgs struct {
 	// HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
 	HttpErrorCodeReturnedEquals pulumi.StringPtrInput `pulumi:"httpErrorCodeReturnedEquals"`
 	// Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
 	KeyPrefixEquals pulumi.StringPtrInput `pulumi:"keyPrefixEquals"`
 }
 
-func (BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleCondition)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleCondition)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteConfigurationV2RoutingRuleConditionOutput() BucketWebsiteConfigurationV2RoutingRuleConditionOutput {
-	return i.ToBucketWebsiteConfigurationV2RoutingRuleConditionOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRoutingRuleConditionArgs) ToBucketWebsiteConfigurationRoutingRuleConditionOutput() BucketWebsiteConfigurationRoutingRuleConditionOutput {
+	return i.ToBucketWebsiteConfigurationRoutingRuleConditionOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteConfigurationV2RoutingRuleConditionOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleConditionOutput)
+func (i BucketWebsiteConfigurationRoutingRuleConditionArgs) ToBucketWebsiteConfigurationRoutingRuleConditionOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRoutingRuleConditionOutput)
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRoutingRuleConditionArgs) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutput() BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return i.ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleConditionOutput).ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx)
+func (i BucketWebsiteConfigurationRoutingRuleConditionArgs) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRoutingRuleConditionOutput).ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(ctx)
 }
 
-// BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleConditionArgs, BucketWebsiteConfigurationV2RoutingRuleConditionPtr and BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput` via:
+// BucketWebsiteConfigurationRoutingRuleConditionPtrInput is an input type that accepts BucketWebsiteConfigurationRoutingRuleConditionArgs, BucketWebsiteConfigurationRoutingRuleConditionPtr and BucketWebsiteConfigurationRoutingRuleConditionPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRoutingRuleConditionPtrInput` via:
 //
-//	        BucketWebsiteConfigurationV2RoutingRuleConditionArgs{...}
+//	        BucketWebsiteConfigurationRoutingRuleConditionArgs{...}
 //
 //	or:
 //
 //	        nil
-type BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput interface {
+type BucketWebsiteConfigurationRoutingRuleConditionPtrInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput
-	ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput
+	ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutput() BucketWebsiteConfigurationRoutingRuleConditionPtrOutput
+	ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(context.Context) BucketWebsiteConfigurationRoutingRuleConditionPtrOutput
 }
 
-type bucketWebsiteConfigurationV2RoutingRuleConditionPtrType BucketWebsiteConfigurationV2RoutingRuleConditionArgs
+type bucketWebsiteConfigurationRoutingRuleConditionPtrType BucketWebsiteConfigurationRoutingRuleConditionArgs
 
-func BucketWebsiteConfigurationV2RoutingRuleConditionPtr(v *BucketWebsiteConfigurationV2RoutingRuleConditionArgs) BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput {
-	return (*bucketWebsiteConfigurationV2RoutingRuleConditionPtrType)(v)
+func BucketWebsiteConfigurationRoutingRuleConditionPtr(v *BucketWebsiteConfigurationRoutingRuleConditionArgs) BucketWebsiteConfigurationRoutingRuleConditionPtrInput {
+	return (*bucketWebsiteConfigurationRoutingRuleConditionPtrType)(v)
 }
 
-func (*bucketWebsiteConfigurationV2RoutingRuleConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2RoutingRuleCondition)(nil)).Elem()
+func (*bucketWebsiteConfigurationRoutingRuleConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationRoutingRuleCondition)(nil)).Elem()
 }
 
-func (i *bucketWebsiteConfigurationV2RoutingRuleConditionPtrType) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return i.ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(context.Background())
+func (i *bucketWebsiteConfigurationRoutingRuleConditionPtrType) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutput() BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return i.ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(context.Background())
 }
 
-func (i *bucketWebsiteConfigurationV2RoutingRuleConditionPtrType) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput)
+func (i *bucketWebsiteConfigurationRoutingRuleConditionPtrType) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRoutingRuleConditionPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleConditionOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRoutingRuleConditionOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleCondition)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleCondition)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionOutput() BucketWebsiteConfigurationV2RoutingRuleConditionOutput {
+func (o BucketWebsiteConfigurationRoutingRuleConditionOutput) ToBucketWebsiteConfigurationRoutingRuleConditionOutput() BucketWebsiteConfigurationRoutingRuleConditionOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionOutput {
+func (o BucketWebsiteConfigurationRoutingRuleConditionOutput) ToBucketWebsiteConfigurationRoutingRuleConditionOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleConditionOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return o.ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(context.Background())
+func (o BucketWebsiteConfigurationRoutingRuleConditionOutput) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutput() BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return o.ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(context.Background())
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationV2RoutingRuleCondition) *BucketWebsiteConfigurationV2RoutingRuleCondition {
+func (o BucketWebsiteConfigurationRoutingRuleConditionOutput) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfigurationRoutingRuleCondition) *BucketWebsiteConfigurationRoutingRuleCondition {
 		return &v
-	}).(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput)
+	}).(BucketWebsiteConfigurationRoutingRuleConditionPtrOutput)
 }
 
 // HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleCondition) *string { return v.HttpErrorCodeReturnedEquals }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleCondition) *string { return v.HttpErrorCodeReturnedEquals }).(pulumi.StringPtrOutput)
 }
 
 // Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleCondition) *string { return v.KeyPrefixEquals }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleConditionOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleCondition) *string { return v.KeyPrefixEquals }).(pulumi.StringPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRoutingRuleConditionPtrOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketWebsiteConfigurationV2RoutingRuleCondition)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfigurationRoutingRuleCondition)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
+func (o BucketWebsiteConfigurationRoutingRuleConditionPtrOutput) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutput() BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
+func (o BucketWebsiteConfigurationRoutingRuleConditionPtrOutput) ToBucketWebsiteConfigurationRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleConditionPtrOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) Elem() BucketWebsiteConfigurationV2RoutingRuleConditionOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2RoutingRuleCondition) BucketWebsiteConfigurationV2RoutingRuleCondition {
+func (o BucketWebsiteConfigurationRoutingRuleConditionPtrOutput) Elem() BucketWebsiteConfigurationRoutingRuleConditionOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationRoutingRuleCondition) BucketWebsiteConfigurationRoutingRuleCondition {
 		if v != nil {
 			return *v
 		}
-		var ret BucketWebsiteConfigurationV2RoutingRuleCondition
+		var ret BucketWebsiteConfigurationRoutingRuleCondition
 		return ret
-	}).(BucketWebsiteConfigurationV2RoutingRuleConditionOutput)
+	}).(BucketWebsiteConfigurationRoutingRuleConditionOutput)
 }
 
 // HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2RoutingRuleCondition) *string {
+func (o BucketWebsiteConfigurationRoutingRuleConditionPtrOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationRoutingRuleCondition) *string {
 		if v == nil {
 			return nil
 		}
@@ -15146,8 +14757,8 @@ func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) HttpErrorCode
 }
 
 // Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
-func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketWebsiteConfigurationV2RoutingRuleCondition) *string {
+func (o BucketWebsiteConfigurationRoutingRuleConditionPtrOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfigurationRoutingRuleCondition) *string {
 		if v == nil {
 			return nil
 		}
@@ -15155,7 +14766,7 @@ func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) KeyPrefixEqua
 	}).(pulumi.StringPtrOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleRedirect struct {
+type BucketWebsiteConfigurationRoutingRuleRedirect struct {
 	// Host name to use in the redirect request.
 	HostName *string `pulumi:"hostName"`
 	// HTTP redirect code to use on the response.
@@ -15168,18 +14779,18 @@ type BucketWebsiteConfigurationV2RoutingRuleRedirect struct {
 	ReplaceKeyWith *string `pulumi:"replaceKeyWith"`
 }
 
-// BucketWebsiteConfigurationV2RoutingRuleRedirectInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleRedirectArgs and BucketWebsiteConfigurationV2RoutingRuleRedirectOutput values.
-// You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleRedirectInput` via:
+// BucketWebsiteConfigurationRoutingRuleRedirectInput is an input type that accepts BucketWebsiteConfigurationRoutingRuleRedirectArgs and BucketWebsiteConfigurationRoutingRuleRedirectOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationRoutingRuleRedirectInput` via:
 //
-//	BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{...}
-type BucketWebsiteConfigurationV2RoutingRuleRedirectInput interface {
+//	BucketWebsiteConfigurationRoutingRuleRedirectArgs{...}
+type BucketWebsiteConfigurationRoutingRuleRedirectInput interface {
 	pulumi.Input
 
-	ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutput() BucketWebsiteConfigurationV2RoutingRuleRedirectOutput
-	ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutputWithContext(context.Context) BucketWebsiteConfigurationV2RoutingRuleRedirectOutput
+	ToBucketWebsiteConfigurationRoutingRuleRedirectOutput() BucketWebsiteConfigurationRoutingRuleRedirectOutput
+	ToBucketWebsiteConfigurationRoutingRuleRedirectOutputWithContext(context.Context) BucketWebsiteConfigurationRoutingRuleRedirectOutput
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleRedirectArgs struct {
+type BucketWebsiteConfigurationRoutingRuleRedirectArgs struct {
 	// Host name to use in the redirect request.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// HTTP redirect code to use on the response.
@@ -15192,55 +14803,55 @@ type BucketWebsiteConfigurationV2RoutingRuleRedirectArgs struct {
 	ReplaceKeyWith pulumi.StringPtrInput `pulumi:"replaceKeyWith"`
 }
 
-func (BucketWebsiteConfigurationV2RoutingRuleRedirectArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleRedirect)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleRedirectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleRedirect)(nil)).Elem()
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleRedirectArgs) ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutput() BucketWebsiteConfigurationV2RoutingRuleRedirectOutput {
-	return i.ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutputWithContext(context.Background())
+func (i BucketWebsiteConfigurationRoutingRuleRedirectArgs) ToBucketWebsiteConfigurationRoutingRuleRedirectOutput() BucketWebsiteConfigurationRoutingRuleRedirectOutput {
+	return i.ToBucketWebsiteConfigurationRoutingRuleRedirectOutputWithContext(context.Background())
 }
 
-func (i BucketWebsiteConfigurationV2RoutingRuleRedirectArgs) ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleRedirectOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleRedirectOutput)
+func (i BucketWebsiteConfigurationRoutingRuleRedirectArgs) ToBucketWebsiteConfigurationRoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleRedirectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationRoutingRuleRedirectOutput)
 }
 
-type BucketWebsiteConfigurationV2RoutingRuleRedirectOutput struct{ *pulumi.OutputState }
+type BucketWebsiteConfigurationRoutingRuleRedirectOutput struct{ *pulumi.OutputState }
 
-func (BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleRedirect)(nil)).Elem()
+func (BucketWebsiteConfigurationRoutingRuleRedirectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleRedirect)(nil)).Elem()
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutput() BucketWebsiteConfigurationV2RoutingRuleRedirectOutput {
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) ToBucketWebsiteConfigurationRoutingRuleRedirectOutput() BucketWebsiteConfigurationRoutingRuleRedirectOutput {
 	return o
 }
 
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleRedirectOutput {
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) ToBucketWebsiteConfigurationRoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteConfigurationRoutingRuleRedirectOutput {
 	return o
 }
 
 // Host name to use in the redirect request.
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleRedirect) *string { return v.HostName }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleRedirect) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
 // HTTP redirect code to use on the response.
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) HttpRedirectCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleRedirect) *string { return v.HttpRedirectCode }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) HttpRedirectCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleRedirect) *string { return v.HttpRedirectCode }).(pulumi.StringPtrOutput)
 }
 
 // Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleRedirect) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleRedirect) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `keyPrefixEquals` set to `docs/` and in the `redirect` set `replaceKeyPrefixWith` to `/documents`.
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleRedirect) *string { return v.ReplaceKeyPrefixWith }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleRedirect) *string { return v.ReplaceKeyPrefixWith }).(pulumi.StringPtrOutput)
 }
 
 // Specific object key to use in the redirect request. For example, redirect request to `error.html`.
-func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleRedirect) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
+func (o BucketWebsiteConfigurationRoutingRuleRedirectOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfigurationRoutingRuleRedirect) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
 }
 
 type DirectoryBucketLocation struct {
@@ -16866,16 +16477,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrInput)(nil)).Elem(), AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput)(nil)).Elem(), AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrInput)(nil)).Elem(), AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyInput)(nil)).Elem(), BucketAclV2AccessControlPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyPtrInput)(nil)).Elem(), BucketAclV2AccessControlPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyGrantInput)(nil)).Elem(), BucketAclV2AccessControlPolicyGrantArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyGrantArrayInput)(nil)).Elem(), BucketAclV2AccessControlPolicyGrantArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyGrantGranteeInput)(nil)).Elem(), BucketAclV2AccessControlPolicyGrantGranteeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyGrantGranteePtrInput)(nil)).Elem(), BucketAclV2AccessControlPolicyGrantGranteeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyOwnerInput)(nil)).Elem(), BucketAclV2AccessControlPolicyOwnerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclV2AccessControlPolicyOwnerPtrInput)(nil)).Elem(), BucketAclV2AccessControlPolicyOwnerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationV2CorsRuleInput)(nil)).Elem(), BucketCorsConfigurationV2CorsRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationV2CorsRuleArrayInput)(nil)).Elem(), BucketCorsConfigurationV2CorsRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyInput)(nil)).Elem(), BucketAclAccessControlPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyPtrInput)(nil)).Elem(), BucketAclAccessControlPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyGrantInput)(nil)).Elem(), BucketAclAccessControlPolicyGrantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyGrantArrayInput)(nil)).Elem(), BucketAclAccessControlPolicyGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyGrantGranteeInput)(nil)).Elem(), BucketAclAccessControlPolicyGrantGranteeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyGrantGranteePtrInput)(nil)).Elem(), BucketAclAccessControlPolicyGrantGranteeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyOwnerInput)(nil)).Elem(), BucketAclAccessControlPolicyOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclAccessControlPolicyOwnerPtrInput)(nil)).Elem(), BucketAclAccessControlPolicyOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationCorsRuleInput)(nil)).Elem(), BucketCorsConfigurationCorsRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationCorsRuleArrayInput)(nil)).Elem(), BucketCorsConfigurationCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleInput)(nil)).Elem(), BucketCorsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleArrayInput)(nil)).Elem(), BucketCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketGrantInput)(nil)).Elem(), BucketGrantArgs{})
@@ -16884,26 +16495,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationFilterPtrInput)(nil)).Elem(), BucketIntelligentTieringConfigurationFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationTieringInput)(nil)).Elem(), BucketIntelligentTieringConfigurationTieringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationTieringArrayInput)(nil)).Elem(), BucketIntelligentTieringConfigurationTieringArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleArrayInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleExpirationInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleExpirationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleExpirationPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleExpirationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterAndInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleFilterAndArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterAndPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleFilterAndArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterTagInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleFilterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleFilterTagPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleFilterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleTransitionInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleTransitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2RuleTransitionArrayInput)(nil)).Elem(), BucketLifecycleConfigurationV2RuleTransitionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2TimeoutsInput)(nil)).Elem(), BucketLifecycleConfigurationV2TimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationV2TimeoutsPtrInput)(nil)).Elem(), BucketLifecycleConfigurationV2TimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleArrayInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput)(nil)).Elem(), BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleExpirationInput)(nil)).Elem(), BucketLifecycleConfigurationRuleExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleExpirationPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterAndInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterAndPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterTagInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterTagPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionExpirationInput)(nil)).Elem(), BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionTransitionInput)(nil)).Elem(), BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayInput)(nil)).Elem(), BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleTransitionInput)(nil)).Elem(), BucketLifecycleConfigurationRuleTransitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleTransitionArrayInput)(nil)).Elem(), BucketLifecycleConfigurationRuleTransitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationTimeoutsInput)(nil)).Elem(), BucketLifecycleConfigurationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationTimeoutsPtrInput)(nil)).Elem(), BucketLifecycleConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleInput)(nil)).Elem(), BucketLifecycleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleArrayInput)(nil)).Elem(), BucketLifecycleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleExpirationInput)(nil)).Elem(), BucketLifecycleRuleExpirationArgs{})
@@ -16914,17 +16525,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleNoncurrentVersionTransitionArrayInput)(nil)).Elem(), BucketLifecycleRuleNoncurrentVersionTransitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleTransitionInput)(nil)).Elem(), BucketLifecycleRuleTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleTransitionArrayInput)(nil)).Elem(), BucketLifecycleRuleTransitionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingInput)(nil)).Elem(), BucketLoggingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingArrayInput)(nil)).Elem(), BucketLoggingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetGrantInput)(nil)).Elem(), BucketLoggingV2TargetGrantArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetGrantArrayInput)(nil)).Elem(), BucketLoggingV2TargetGrantArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetGrantGranteeInput)(nil)).Elem(), BucketLoggingV2TargetGrantGranteeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPtrInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTypeInput)(nil)).Elem(), BucketLoggingTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTypeArrayInput)(nil)).Elem(), BucketLoggingTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetGrantInput)(nil)).Elem(), BucketLoggingTargetGrantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetGrantArrayInput)(nil)).Elem(), BucketLoggingTargetGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetGrantGranteeInput)(nil)).Elem(), BucketLoggingTargetGrantGranteeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatInput)(nil)).Elem(), BucketLoggingTargetObjectKeyFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatPtrInput)(nil)).Elem(), BucketLoggingTargetObjectKeyFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatPartitionedPrefixInput)(nil)).Elem(), BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrInput)(nil)).Elem(), BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatSimplePrefixInput)(nil)).Elem(), BucketLoggingTargetObjectKeyFormatSimplePrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingTargetObjectKeyFormatSimplePrefixPtrInput)(nil)).Elem(), BucketLoggingTargetObjectKeyFormatSimplePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricFilterInput)(nil)).Elem(), BucketMetricFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricFilterPtrInput)(nil)).Elem(), BucketMetricFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationLambdaFunctionInput)(nil)).Elem(), BucketNotificationLambdaFunctionArgs{})
@@ -16933,16 +16544,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationQueueArrayInput)(nil)).Elem(), BucketNotificationQueueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationTopicInput)(nil)).Elem(), BucketNotificationTopicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationTopicArrayInput)(nil)).Elem(), BucketNotificationTopicArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationInput)(nil)).Elem(), BucketObjectLockConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationPtrInput)(nil)).Elem(), BucketObjectLockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationTypeInput)(nil)).Elem(), BucketObjectLockConfigurationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationTypePtrInput)(nil)).Elem(), BucketObjectLockConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleInput)(nil)).Elem(), BucketObjectLockConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRulePtrInput)(nil)).Elem(), BucketObjectLockConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleArrayInput)(nil)).Elem(), BucketObjectLockConfigurationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleDefaultRetentionInput)(nil)).Elem(), BucketObjectLockConfigurationRuleDefaultRetentionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleDefaultRetentionArrayInput)(nil)).Elem(), BucketObjectLockConfigurationRuleDefaultRetentionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RuleInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RulePtrInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RuleDefaultRetentionInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleDefaultRetentionPtrInput)(nil)).Elem(), BucketObjectLockConfigurationRuleDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderInput)(nil)).Elem(), BucketObjectv2OverrideProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderPtrInput)(nil)).Elem(), BucketObjectv2OverrideProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderDefaultTagsInput)(nil)).Elem(), BucketObjectv2OverrideProviderDefaultTagsArgs{})
@@ -16998,16 +16606,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput)(nil)).Elem(), BucketReplicationConfigurationRuleSourceSelectionCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput)(nil)).Elem(), BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput)(nil)).Elem(), BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationArrayInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationTypeInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationTypeArrayInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationRuleInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationRuleArrayInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2RuleInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationV2RuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2RuleArrayInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationV2RuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput)(nil)).Elem(), BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketV2CorsRuleInput)(nil)).Elem(), BucketV2CorsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketV2CorsRuleArrayInput)(nil)).Elem(), BucketV2CorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketV2GrantInput)(nil)).Elem(), BucketV2GrantArgs{})
@@ -17058,23 +16662,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketV2VersioningArrayInput)(nil)).Elem(), BucketV2VersioningArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketV2WebsiteInput)(nil)).Elem(), BucketV2WebsiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketV2WebsiteArrayInput)(nil)).Elem(), BucketV2WebsiteArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningInput)(nil)).Elem(), BucketVersioningArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningArrayInput)(nil)).Elem(), BucketVersioningArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningV2VersioningConfigurationInput)(nil)).Elem(), BucketVersioningV2VersioningConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningV2VersioningConfigurationPtrInput)(nil)).Elem(), BucketVersioningV2VersioningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningTypeInput)(nil)).Elem(), BucketVersioningTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningTypeArrayInput)(nil)).Elem(), BucketVersioningTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningVersioningConfigurationInput)(nil)).Elem(), BucketVersioningVersioningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningVersioningConfigurationPtrInput)(nil)).Elem(), BucketVersioningVersioningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteInput)(nil)).Elem(), BucketWebsiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteArrayInput)(nil)).Elem(), BucketWebsiteArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2ErrorDocumentInput)(nil)).Elem(), BucketWebsiteConfigurationV2ErrorDocumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2ErrorDocumentPtrInput)(nil)).Elem(), BucketWebsiteConfigurationV2ErrorDocumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2IndexDocumentInput)(nil)).Elem(), BucketWebsiteConfigurationV2IndexDocumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2IndexDocumentPtrInput)(nil)).Elem(), BucketWebsiteConfigurationV2IndexDocumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RedirectAllRequestsToInput)(nil)).Elem(), BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput)(nil)).Elem(), BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleArrayInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleConditionInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleRedirectInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationErrorDocumentInput)(nil)).Elem(), BucketWebsiteConfigurationErrorDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationErrorDocumentPtrInput)(nil)).Elem(), BucketWebsiteConfigurationErrorDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationIndexDocumentInput)(nil)).Elem(), BucketWebsiteConfigurationIndexDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationIndexDocumentPtrInput)(nil)).Elem(), BucketWebsiteConfigurationIndexDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRedirectAllRequestsToInput)(nil)).Elem(), BucketWebsiteConfigurationRedirectAllRequestsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRedirectAllRequestsToPtrInput)(nil)).Elem(), BucketWebsiteConfigurationRedirectAllRequestsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleInput)(nil)).Elem(), BucketWebsiteConfigurationRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleArrayInput)(nil)).Elem(), BucketWebsiteConfigurationRoutingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleConditionInput)(nil)).Elem(), BucketWebsiteConfigurationRoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleConditionPtrInput)(nil)).Elem(), BucketWebsiteConfigurationRoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationRoutingRuleRedirectInput)(nil)).Elem(), BucketWebsiteConfigurationRoutingRuleRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLocationInput)(nil)).Elem(), DirectoryBucketLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLocationPtrInput)(nil)).Elem(), DirectoryBucketLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationInput)(nil)).Elem(), InventoryDestinationArgs{})
@@ -17111,16 +16715,16 @@ func init() {
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyPtrOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyGrantOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyGrantArrayOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyGrantGranteeOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyGrantGranteePtrOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyOwnerOutput{})
-	pulumi.RegisterOutputType(BucketAclV2AccessControlPolicyOwnerPtrOutput{})
-	pulumi.RegisterOutputType(BucketCorsConfigurationV2CorsRuleOutput{})
-	pulumi.RegisterOutputType(BucketCorsConfigurationV2CorsRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyPtrOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyGrantOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyGrantArrayOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyGrantGranteeOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyGrantGranteePtrOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyOwnerOutput{})
+	pulumi.RegisterOutputType(BucketAclAccessControlPolicyOwnerPtrOutput{})
+	pulumi.RegisterOutputType(BucketCorsConfigurationCorsRuleOutput{})
+	pulumi.RegisterOutputType(BucketCorsConfigurationCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketGrantOutput{})
@@ -17129,26 +16733,26 @@ func init() {
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationTieringOutput{})
 	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationTieringArrayOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleArrayOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleExpirationOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleExpirationPtrOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleFilterOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleFilterPtrOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleFilterAndOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleFilterTagOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleTransitionOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2RuleTransitionArrayOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2TimeoutsOutput{})
-	pulumi.RegisterOutputType(BucketLifecycleConfigurationV2TimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleExpirationOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleExpirationPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterAndOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterAndPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterTagOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterTagPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleTransitionOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleTransitionArrayOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationTimeoutsOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleExpirationOutput{})
@@ -17159,17 +16763,17 @@ func init() {
 	pulumi.RegisterOutputType(BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleTransitionOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleTransitionArrayOutput{})
-	pulumi.RegisterOutputType(BucketLoggingOutput{})
-	pulumi.RegisterOutputType(BucketLoggingArrayOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetGrantOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetGrantArrayOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetGrantGranteeOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatPtrOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput{})
-	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTypeOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTypeArrayOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetGrantOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetGrantArrayOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetGrantGranteeOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetObjectKeyFormatOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetObjectKeyFormatPtrOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetObjectKeyFormatSimplePrefixOutput{})
+	pulumi.RegisterOutputType(BucketLoggingTargetObjectKeyFormatSimplePrefixPtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricFilterOutput{})
 	pulumi.RegisterOutputType(BucketMetricFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketNotificationLambdaFunctionOutput{})
@@ -17178,16 +16782,13 @@ func init() {
 	pulumi.RegisterOutputType(BucketNotificationQueueArrayOutput{})
 	pulumi.RegisterOutputType(BucketNotificationTopicOutput{})
 	pulumi.RegisterOutputType(BucketNotificationTopicArrayOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockConfigurationRulePtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionArrayOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RuleOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RulePtrOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput{})
-	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderOutput{})
 	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderPtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderDefaultTagsOutput{})
@@ -17243,16 +16844,12 @@ func init() {
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationTypeArrayOutput{})
 	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationV2RuleOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationV2RuleArrayOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput{})
-	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput{})
 	pulumi.RegisterOutputType(BucketV2CorsRuleOutput{})
 	pulumi.RegisterOutputType(BucketV2CorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketV2GrantOutput{})
@@ -17303,23 +16900,23 @@ func init() {
 	pulumi.RegisterOutputType(BucketV2VersioningArrayOutput{})
 	pulumi.RegisterOutputType(BucketV2WebsiteOutput{})
 	pulumi.RegisterOutputType(BucketV2WebsiteArrayOutput{})
-	pulumi.RegisterOutputType(BucketVersioningOutput{})
-	pulumi.RegisterOutputType(BucketVersioningArrayOutput{})
-	pulumi.RegisterOutputType(BucketVersioningV2VersioningConfigurationOutput{})
-	pulumi.RegisterOutputType(BucketVersioningV2VersioningConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketVersioningTypeOutput{})
+	pulumi.RegisterOutputType(BucketVersioningTypeArrayOutput{})
+	pulumi.RegisterOutputType(BucketVersioningVersioningConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketVersioningVersioningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteArrayOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2ErrorDocumentOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2ErrorDocumentPtrOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2IndexDocumentOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2IndexDocumentPtrOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RedirectAllRequestsToOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleArrayOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleConditionOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput{})
-	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleRedirectOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationErrorDocumentOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationErrorDocumentPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationIndexDocumentOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationIndexDocumentPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRedirectAllRequestsToOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRoutingRuleOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRoutingRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRoutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRoutingRuleConditionPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationRoutingRuleRedirectOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketLocationOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketLocationPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationOutput{})

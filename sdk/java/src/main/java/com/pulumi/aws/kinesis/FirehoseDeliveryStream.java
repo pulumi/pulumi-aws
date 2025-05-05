@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
+ *         var bucketAcl = new BucketAcl("bucketAcl", BucketAclArgs.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());

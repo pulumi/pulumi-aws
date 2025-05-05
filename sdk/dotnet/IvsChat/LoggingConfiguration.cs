@@ -102,7 +102,7 @@ namespace Pulumi.Aws.IvsChat
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = exampleBucket.Id,
     ///         Acl = "private",

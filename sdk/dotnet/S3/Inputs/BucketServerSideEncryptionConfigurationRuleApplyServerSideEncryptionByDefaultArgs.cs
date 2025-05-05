@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? KmsMasterKeyId { get; set; }
 
         /// <summary>
-        /// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        /// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
         /// </summary>
         [Input("sseAlgorithm", required: true)]
         public Input<string> SseAlgorithm { get; set; } = null!;

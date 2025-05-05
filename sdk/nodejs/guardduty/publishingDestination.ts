@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * const testGd = new aws.guardduty.Detector("test_gd", {enable: true});
- * const gdBucketAcl = new aws.s3.BucketAclV2("gd_bucket_acl", {
+ * const gdBucketAcl = new aws.s3.BucketAcl("gd_bucket_acl", {
  *     bucket: gdBucket.id,
  *     acl: "private",
  * });

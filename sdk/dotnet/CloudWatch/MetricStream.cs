@@ -157,7 +157,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Policy = metricStreamToFirehose.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",

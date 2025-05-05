@@ -82,8 +82,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
@@ -139,8 +139,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
@@ -191,8 +191,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
@@ -243,11 +243,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketVersioningV2;
- * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
+ * import com.pulumi.aws.s3.BucketVersioning;
+ * import com.pulumi.aws.s3.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningVersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -270,14 +270,14 @@ import javax.annotation.Nullable;
  *             .objectLockEnabled(true)
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()
+ *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
  *             .bucket(examplebucket.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
@@ -291,7 +291,7 @@ import javax.annotation.Nullable;
  *             .objectLockRetainUntilDate("2021-12-31T23:59:60Z")
  *             .forceDestroy(true)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketVersioningV2)
+ *                 .dependsOn(exampleBucketVersioning)
  *                 .build());
  * 
  *     }

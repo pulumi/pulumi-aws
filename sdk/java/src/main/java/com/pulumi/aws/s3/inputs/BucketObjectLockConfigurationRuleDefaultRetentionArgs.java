@@ -5,7 +5,6 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -33,18 +32,18 @@ public final class BucketObjectLockConfigurationRuleDefaultRetentionArgs extends
     }
 
     /**
-     * Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     * Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
      * 
      */
-    @Import(name="mode", required=true)
-    private Output<String> mode;
+    @Import(name="mode")
+    private @Nullable Output<String> mode;
 
     /**
-     * @return Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     * @return Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
      * 
      */
-    public Output<String> mode() {
-        return this.mode;
+    public Optional<Output<String>> mode() {
+        return Optional.ofNullable(this.mode);
     }
 
     /**
@@ -110,18 +109,18 @@ public final class BucketObjectLockConfigurationRuleDefaultRetentionArgs extends
         }
 
         /**
-         * @param mode Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+         * @param mode Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
          * 
          * @return builder
          * 
          */
-        public Builder mode(Output<String> mode) {
+        public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
         /**
-         * @param mode Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+         * @param mode Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
          * 
          * @return builder
          * 
@@ -152,9 +151,6 @@ public final class BucketObjectLockConfigurationRuleDefaultRetentionArgs extends
         }
 
         public BucketObjectLockConfigurationRuleDefaultRetentionArgs build() {
-            if ($.mode == null) {
-                throw new MissingRequiredPropertyException("BucketObjectLockConfigurationRuleDefaultRetentionArgs", "mode");
-            }
             return $;
         }
     }

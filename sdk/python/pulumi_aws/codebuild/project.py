@@ -945,7 +945,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket = aws.s3.Bucket("example", bucket="example")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -1213,7 +1213,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket = aws.s3.Bucket("example", bucket="example")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{

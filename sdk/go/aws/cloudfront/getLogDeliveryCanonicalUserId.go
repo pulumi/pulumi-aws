@@ -52,19 +52,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: exampleBucket.ID(),
-//				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
-//					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
-//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+//				AccessControlPolicy: &s3.BucketAclAccessControlPolicyArgs{
+//					Grants: s3.BucketAclAccessControlPolicyGrantArray{
+//						&s3.BucketAclAccessControlPolicyGrantArgs{
+//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
 //								Id:   pulumi.String(example.Id),
 //								Type: pulumi.String("CanonicalUser"),
 //							},
 //							Permission: pulumi.String("FULL_CONTROL"),
 //						},
 //					},
-//					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
+//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
 //						Id: pulumi.String(current.Id),
 //					},
 //				},

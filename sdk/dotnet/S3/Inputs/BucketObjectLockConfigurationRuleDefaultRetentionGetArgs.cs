@@ -19,10 +19,10 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        /// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
         /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
 
         /// <summary>
         /// Number of years that you want to specify for the default retention period.

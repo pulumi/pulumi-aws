@@ -143,7 +143,7 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var gdBucketAcl = new Aws.S3.BucketAclV2("gd_bucket_acl", new()
+    ///     var gdBucketAcl = new Aws.S3.BucketAcl("gd_bucket_acl", new()
     ///     {
     ///         Bucket = gdBucket.Id,
     ///         Acl = "private",

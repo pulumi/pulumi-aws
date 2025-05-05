@@ -460,7 +460,7 @@ class ExportTask(pulumi.CustomResource):
         example_bucket = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example_bucket.id,
             acl="private")
         example_role = aws.iam.Role("example",
@@ -583,7 +583,7 @@ class ExportTask(pulumi.CustomResource):
         example_bucket = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example_bucket.id,
             acl="private")
         example_role = aws.iam.Role("example",

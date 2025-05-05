@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             .policy(metricStreamToFirehose.applyValue(_metricStreamToFirehose -> _metricStreamToFirehose.json()))
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
+ *         var bucketAcl = new BucketAcl("bucketAcl", BucketAclArgs.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());

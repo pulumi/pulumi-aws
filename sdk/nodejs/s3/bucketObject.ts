@@ -39,7 +39,7 @@ import {BucketV2} from "./index";
  *     deletionWindowInDays: 7,
  * });
  * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
- * const example = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
@@ -58,7 +58,7 @@ import {BucketV2} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
- * const example = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
@@ -77,7 +77,7 @@ import {BucketV2} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
- * const example = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
@@ -99,11 +99,11 @@ import {BucketV2} from "./index";
  *     bucket: "examplebuckettftest",
  *     objectLockEnabled: true,
  * });
- * const example = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
+ * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
  *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
@@ -118,7 +118,7 @@ import {BucketV2} from "./index";
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
  *     forceDestroy: true,
  * }, {
- *     dependsOn: [exampleBucketVersioningV2],
+ *     dependsOn: [exampleBucketVersioning],
  * });
  * ```
  *

@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.kms.Key;
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *             .enable(true)
  *             .build());
  * 
- *         var gdBucketAcl = new BucketAclV2("gdBucketAcl", BucketAclV2Args.builder()
+ *         var gdBucketAcl = new BucketAcl("gdBucketAcl", BucketAclArgs.builder()
  *             .bucket(gdBucket.id())
  *             .acl("private")
  *             .build());

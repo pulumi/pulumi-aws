@@ -29,26 +29,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnalyticsConfiguration{}
 	case "aws:s3/bucket:Bucket":
 		r = &Bucket{}
-	case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
-		r = &BucketAccelerateConfigurationV2{}
-	case "aws:s3/bucketAclV2:BucketAclV2":
-		r = &BucketAclV2{}
-	case "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2":
-		r = &BucketCorsConfigurationV2{}
+	case "aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration":
+		r = &BucketAccelerateConfiguration{}
+	case "aws:s3/bucketAcl:BucketAcl":
+		r = &BucketAcl{}
+	case "aws:s3/bucketCorsConfiguration:BucketCorsConfiguration":
+		r = &BucketCorsConfiguration{}
 	case "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration":
 		r = &BucketIntelligentTieringConfiguration{}
-	case "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2":
-		r = &BucketLifecycleConfigurationV2{}
-	case "aws:s3/bucketLoggingV2:BucketLoggingV2":
-		r = &BucketLoggingV2{}
+	case "aws:s3/bucketLifecycleConfiguration:BucketLifecycleConfiguration":
+		r = &BucketLifecycleConfiguration{}
+	case "aws:s3/bucketLogging:BucketLogging":
+		r = &BucketLogging{}
 	case "aws:s3/bucketMetric:BucketMetric":
 		r = &BucketMetric{}
 	case "aws:s3/bucketNotification:BucketNotification":
 		r = &BucketNotification{}
 	case "aws:s3/bucketObject:BucketObject":
 		r = &BucketObject{}
-	case "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2":
-		r = &BucketObjectLockConfigurationV2{}
+	case "aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration":
+		r = &BucketObjectLockConfiguration{}
 	case "aws:s3/bucketObjectv2:BucketObjectv2":
 		r = &BucketObjectv2{}
 	case "aws:s3/bucketOwnershipControls:BucketOwnershipControls":
@@ -59,16 +59,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketPublicAccessBlock{}
 	case "aws:s3/bucketReplicationConfig:BucketReplicationConfig":
 		r = &BucketReplicationConfig{}
-	case "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2":
-		r = &BucketRequestPaymentConfigurationV2{}
-	case "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2":
-		r = &BucketServerSideEncryptionConfigurationV2{}
+	case "aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration":
+		r = &BucketRequestPaymentConfiguration{}
+	case "aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration":
+		r = &BucketServerSideEncryptionConfiguration{}
 	case "aws:s3/bucketV2:BucketV2":
 		r = &BucketV2{}
-	case "aws:s3/bucketVersioningV2:BucketVersioningV2":
-		r = &BucketVersioningV2{}
-	case "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2":
-		r = &BucketWebsiteConfigurationV2{}
+	case "aws:s3/bucketVersioning:BucketVersioning":
+		r = &BucketVersioning{}
+	case "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration":
+		r = &BucketWebsiteConfiguration{}
 	case "aws:s3/directoryBucket:DirectoryBucket":
 		r = &DirectoryBucket{}
 	case "aws:s3/inventory:Inventory":
@@ -110,17 +110,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketAccelerateConfigurationV2",
+		"s3/bucketAccelerateConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketAclV2",
+		"s3/bucketAcl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketCorsConfigurationV2",
+		"s3/bucketCorsConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -130,12 +130,12 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketLifecycleConfigurationV2",
+		"s3/bucketLifecycleConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketLoggingV2",
+		"s3/bucketLogging",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -155,7 +155,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketObjectLockConfigurationV2",
+		"s3/bucketObjectLockConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -185,12 +185,12 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketRequestPaymentConfigurationV2",
+		"s3/bucketRequestPaymentConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketServerSideEncryptionConfigurationV2",
+		"s3/bucketServerSideEncryptionConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -200,12 +200,12 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketVersioningV2",
+		"s3/bucketVersioning",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
-		"s3/bucketWebsiteConfigurationV2",
+		"s3/bucketWebsiteConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

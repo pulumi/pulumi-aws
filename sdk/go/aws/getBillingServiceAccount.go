@@ -41,7 +41,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = s3.NewBucketAclV2(ctx, "billing_logs_acl", &s3.BucketAclV2Args{
+// _, err = s3.NewBucketAcl(ctx, "billing_logs_acl", &s3.BucketAclArgs{
 // Bucket: billingLogs.ID(),
 // Acl: pulumi.String("private"),
 // })

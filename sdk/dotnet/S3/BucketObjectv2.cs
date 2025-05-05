@@ -60,7 +60,7 @@ namespace Pulumi.Aws.S3
     ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.S3
     ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.S3
     ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -157,16 +157,16 @@ namespace Pulumi.Aws.S3
     ///         ObjectLockEnabled = true,
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketVersioningV2,
+    ///             exampleBucketVersioning,
     ///         },
     ///     });
     /// 

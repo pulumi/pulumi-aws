@@ -3696,17 +3696,65 @@ compatibility shim in favor of the new "name" field.`)
 					},
 				},
 			},
-			"aws_s3_bucket_accelerate_configuration":             {Tok: awsResource(s3Mod, "BucketAccelerateConfigurationV2")},
-			"aws_s3_bucket_acl":                                  {Tok: awsResource(s3Mod, "BucketAclV2")},
-			"aws_s3_bucket_cors_configuration":                   {Tok: awsResource(s3Mod, "BucketCorsConfigurationV2")},
-			"aws_s3_bucket_lifecycle_configuration":              {Tok: awsResource(s3Mod, "BucketLifecycleConfigurationV2")},
-			"aws_s3_bucket_logging":                              {Tok: awsResource(s3Mod, "BucketLoggingV2")},
-			"aws_s3_bucket_object_lock_configuration":            {Tok: awsResource(s3Mod, "BucketObjectLockConfigurationV2")},
-			"aws_s3_bucket_request_payment_configuration":        {Tok: awsResource(s3Mod, "BucketRequestPaymentConfigurationV2")},
-			"aws_s3_bucket_server_side_encryption_configuration": {Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfigurationV2")},
-			"aws_s3_bucket_versioning":                           {Tok: awsResource(s3Mod, "BucketVersioningV2")},
+			"aws_s3_bucket_accelerate_configuration": {
+				Tok: awsResource(s3Mod, "BucketAccelerateConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_acl": {
+				Tok: awsResource(s3Mod, "BucketAcl"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketAclV2:BucketAclV2")},
+				},
+			},
+			"aws_s3_bucket_cors_configuration": {
+				Tok: awsResource(s3Mod, "BucketCorsConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_lifecycle_configuration": {
+				Tok: awsResource(s3Mod, "BucketLifecycleConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_logging": {
+				Tok: awsResource(s3Mod, "BucketLogging"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketLoggingV2:BucketLoggingV2")},
+				},
+			},
+			"aws_s3_bucket_object_lock_configuration": {
+				Tok: awsResource(s3Mod, "BucketObjectLockConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration")},
+				},
+			},
+			"aws_s3_bucket_request_payment_configuration": {
+				Tok: awsResource(s3Mod, "BucketRequestPaymentConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_server_side_encryption_configuration": {
+				Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration")},
+				},
+			},
+			"aws_s3_bucket_versioning": {
+				Tok: awsResource(s3Mod, "BucketVersioning"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketVersioning:BucketVersioning")},
+				},
+			},
 			"aws_s3_bucket_website_configuration": {
-				Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2"),
+				Tok: awsResource(s3Mod, "BucketWebsiteConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration")},
+				},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"routing_rules": {
 						Name: "routingRuleDetails",

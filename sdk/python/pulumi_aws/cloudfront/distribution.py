@@ -774,7 +774,7 @@ class Distribution(pulumi.CustomResource):
             tags={
                 "Name": "My bucket",
             })
-        b_acl = aws.s3.BucketAclV2("b_acl",
+        b_acl = aws.s3.BucketAcl("b_acl",
             bucket=b.id,
             acl="private")
         s3_origin_id = "myS3Origin"
@@ -1060,7 +1060,7 @@ class Distribution(pulumi.CustomResource):
             tags={
                 "Name": "My bucket",
             })
-        b_acl = aws.s3.BucketAclV2("b_acl",
+        b_acl = aws.s3.BucketAcl("b_acl",
             bucket=b.id,
             acl="private")
         s3_origin_id = "myS3Origin"

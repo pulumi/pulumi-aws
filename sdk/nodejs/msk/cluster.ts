@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const kms = new aws.kms.Key("kms", {description: "example"});
  * const test = new aws.cloudwatch.LogGroup("test", {name: "msk_broker_logs"});
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "msk-broker-logs-bucket"});
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: exampleBucket.id,
  *     acl: "private",
  * });

@@ -1969,8 +1969,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1995,7 +1995,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2060,8 +2060,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2086,7 +2086,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2151,8 +2151,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2177,7 +2177,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2242,8 +2242,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2268,7 +2268,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2333,8 +2333,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2359,7 +2359,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2424,8 +2424,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2450,7 +2450,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2515,8 +2515,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2541,7 +2541,7 @@ public final class AwsFunctions {
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());

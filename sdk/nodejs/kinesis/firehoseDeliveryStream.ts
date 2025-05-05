@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });

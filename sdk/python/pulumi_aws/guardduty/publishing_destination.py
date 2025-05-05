@@ -234,7 +234,7 @@ class PublishingDestination(pulumi.CustomResource):
             },
         ])
         test_gd = aws.guardduty.Detector("test_gd", enable=True)
-        gd_bucket_acl = aws.s3.BucketAclV2("gd_bucket_acl",
+        gd_bucket_acl = aws.s3.BucketAcl("gd_bucket_acl",
             bucket=gd_bucket.id,
             acl="private")
         gd_bucket_policy = aws.s3.BucketPolicy("gd_bucket_policy",
@@ -331,7 +331,7 @@ class PublishingDestination(pulumi.CustomResource):
             },
         ])
         test_gd = aws.guardduty.Detector("test_gd", enable=True)
-        gd_bucket_acl = aws.s3.BucketAclV2("gd_bucket_acl",
+        gd_bucket_acl = aws.s3.BucketAcl("gd_bucket_acl",
             bucket=gd_bucket.id,
             acl="private")
         gd_bucket_policy = aws.s3.BucketPolicy("gd_bucket_policy",

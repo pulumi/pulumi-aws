@@ -53,7 +53,7 @@ namespace Pulumi.Aws.GuardDuty
     ///         Name = "MyIPSet",
     ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",

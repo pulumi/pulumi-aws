@@ -4,7 +4,6 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -19,10 +18,10 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
      */
     private @Nullable Integer days;
     /**
-     * @return Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     * @return Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
      * 
      */
-    private String mode;
+    private @Nullable String mode;
     /**
      * @return Number of years that you want to specify for the default retention period.
      * 
@@ -38,11 +37,11 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
         return Optional.ofNullable(this.days);
     }
     /**
-     * @return Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     * @return Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
      * 
      */
-    public String mode() {
-        return this.mode;
+    public Optional<String> mode() {
+        return Optional.ofNullable(this.mode);
     }
     /**
      * @return Number of years that you want to specify for the default retention period.
@@ -62,7 +61,7 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
-        private String mode;
+        private @Nullable String mode;
         private @Nullable Integer years;
         public Builder() {}
         public Builder(BucketObjectLockConfigurationRuleDefaultRetention defaults) {
@@ -79,10 +78,8 @@ public final class BucketObjectLockConfigurationRuleDefaultRetention {
             return this;
         }
         @CustomType.Setter
-        public Builder mode(String mode) {
-            if (mode == null) {
-              throw new MissingRequiredPropertyException("BucketObjectLockConfigurationRuleDefaultRetention", "mode");
-            }
+        public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }

@@ -299,7 +299,7 @@ class IPSet(pulumi.CustomResource):
         ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
             name="MyIPSet")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
@@ -354,7 +354,7 @@ class IPSet(pulumi.CustomResource):
         ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
             name="MyIPSet")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```

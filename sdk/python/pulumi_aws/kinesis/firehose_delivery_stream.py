@@ -708,7 +708,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     }],
                 },
             })
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
@@ -1365,7 +1365,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     }],
                 },
             })
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```

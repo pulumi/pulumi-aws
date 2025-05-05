@@ -6,24 +6,23 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.aws.s3.outputs.BucketObjectLockConfigurationRuleDefaultRetention;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class BucketObjectLockConfigurationRule {
     /**
-     * @return Default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
-    private List<BucketObjectLockConfigurationRuleDefaultRetention> defaultRetentions;
+    private BucketObjectLockConfigurationRuleDefaultRetention defaultRetention;
 
     private BucketObjectLockConfigurationRule() {}
     /**
-     * @return Default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
-    public List<BucketObjectLockConfigurationRuleDefaultRetention> defaultRetentions() {
-        return this.defaultRetentions;
+    public BucketObjectLockConfigurationRuleDefaultRetention defaultRetention() {
+        return this.defaultRetention;
     }
 
     public static Builder builder() {
@@ -35,27 +34,24 @@ public final class BucketObjectLockConfigurationRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<BucketObjectLockConfigurationRuleDefaultRetention> defaultRetentions;
+        private BucketObjectLockConfigurationRuleDefaultRetention defaultRetention;
         public Builder() {}
         public Builder(BucketObjectLockConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.defaultRetentions = defaults.defaultRetentions;
+    	      this.defaultRetention = defaults.defaultRetention;
         }
 
         @CustomType.Setter
-        public Builder defaultRetentions(List<BucketObjectLockConfigurationRuleDefaultRetention> defaultRetentions) {
-            if (defaultRetentions == null) {
-              throw new MissingRequiredPropertyException("BucketObjectLockConfigurationRule", "defaultRetentions");
+        public Builder defaultRetention(BucketObjectLockConfigurationRuleDefaultRetention defaultRetention) {
+            if (defaultRetention == null) {
+              throw new MissingRequiredPropertyException("BucketObjectLockConfigurationRule", "defaultRetention");
             }
-            this.defaultRetentions = defaultRetentions;
+            this.defaultRetention = defaultRetention;
             return this;
-        }
-        public Builder defaultRetentions(BucketObjectLockConfigurationRuleDefaultRetention... defaultRetentions) {
-            return defaultRetentions(List.of(defaultRetentions));
         }
         public BucketObjectLockConfigurationRule build() {
             final var _resultValue = new BucketObjectLockConfigurationRule();
-            _resultValue.defaultRetentions = defaultRetentions;
+            _resultValue.defaultRetention = defaultRetention;
             return _resultValue;
         }
     }

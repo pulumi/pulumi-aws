@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; This resource provides functionality for managing S3 general purpose buckets in an AWS Partition. To manage Amazon S3 Express directory buckets, use the `aws_directory_bucket` resource. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), use the `aws.s3control.Bucket` resource.
  * 
- * &gt; Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `aws.s3.BucketObjectLockConfigurationV2` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
+ * &gt; Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `aws.s3.BucketObjectLockConfiguration` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
  * 
  * ## Example Usage
  * 
@@ -92,37 +92,37 @@ import javax.annotation.Nullable;
 public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketAccelerateConfiguration` instead.
      * 
      * @deprecated
-     * acceleration_status is deprecated. Use the aws.s3.BucketAccelerateConfigurationV2 resource instead.
+     * acceleration_status is deprecated. Use the aws.s3.BucketAccelerateConfiguration resource instead.
      * 
      */
-    @Deprecated /* acceleration_status is deprecated. Use the aws.s3.BucketAccelerateConfigurationV2 resource instead. */
+    @Deprecated /* acceleration_status is deprecated. Use the aws.s3.BucketAccelerateConfiguration resource instead. */
     @Export(name="accelerationStatus", refs={String.class}, tree="[0]")
     private Output<String> accelerationStatus;
 
     /**
      * @return Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketAccelerateConfiguration` instead.
      * 
      */
     public Output<String> accelerationStatus() {
         return this.accelerationStatus;
     }
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
      * 
      * @deprecated
-     * acl is deprecated. Use the aws.s3.BucketAclV2 resource instead.
+     * acl is deprecated. Use the aws.s3.BucketAcl resource instead.
      * 
      */
-    @Deprecated /* acl is deprecated. Use the aws.s3.BucketAclV2 resource instead. */
+    @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
     @Export(name="acl", refs={String.class}, tree="[0]")
     private Output<String> acl;
 
     /**
-     * @return The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
+     * @return The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
      * 
      */
     public Output<String> acl() {
@@ -199,18 +199,18 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         return this.bucketRegionalDomainName;
     }
     /**
-     * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
+     * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
      * 
      * @deprecated
-     * cors_rule is deprecated. Use the aws.s3.BucketCorsConfigurationV2 resource instead.
+     * cors_rule is deprecated. Use the aws.s3.BucketCorsConfiguration resource instead.
      * 
      */
-    @Deprecated /* cors_rule is deprecated. Use the aws.s3.BucketCorsConfigurationV2 resource instead. */
+    @Deprecated /* cors_rule is deprecated. Use the aws.s3.BucketCorsConfiguration resource instead. */
     @Export(name="corsRules", refs={List.class,BucketV2CorsRule.class}, tree="[0,1]")
     private Output<List<BucketV2CorsRule>> corsRules;
 
     /**
-     * @return Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
+     * @return Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
      * 
      */
     public Output<List<BucketV2CorsRule>> corsRules() {
@@ -231,18 +231,18 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
      * 
      * @deprecated
-     * grant is deprecated. Use the aws.s3.BucketAclV2 resource instead.
+     * grant is deprecated. Use the aws.s3.BucketAcl resource instead.
      * 
      */
-    @Deprecated /* grant is deprecated. Use the aws.s3.BucketAclV2 resource instead. */
+    @Deprecated /* grant is deprecated. Use the aws.s3.BucketAcl resource instead. */
     @Export(name="grants", refs={List.class,BucketV2Grant.class}, tree="[0,1]")
     private Output<List<BucketV2Grant>> grants;
 
     /**
-     * @return An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
+     * @return An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
      * 
      */
     public Output<List<BucketV2Grant>> grants() {
@@ -264,19 +264,19 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     }
     /**
      * Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
      * 
      * @deprecated
-     * lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfigurationV2 resource instead.
+     * lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfiguration resource instead.
      * 
      */
-    @Deprecated /* lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfigurationV2 resource instead. */
+    @Deprecated /* lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfiguration resource instead. */
     @Export(name="lifecycleRules", refs={List.class,BucketV2LifecycleRule.class}, tree="[0,1]")
     private Output<List<BucketV2LifecycleRule>> lifecycleRules;
 
     /**
      * @return Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
      * 
      */
     public Output<List<BucketV2LifecycleRule>> lifecycleRules() {
@@ -284,19 +284,19 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     }
     /**
      * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketLoggingV2` instead.
+     * Use the resource `aws.s3.BucketLogging` instead.
      * 
      * @deprecated
-     * logging is deprecated. Use the aws.s3.BucketLoggingV2 resource instead.
+     * logging is deprecated. Use the aws.s3.BucketLogging resource instead.
      * 
      */
-    @Deprecated /* logging is deprecated. Use the aws.s3.BucketLoggingV2 resource instead. */
+    @Deprecated /* logging is deprecated. Use the aws.s3.BucketLogging resource instead. */
     @Export(name="loggings", refs={List.class,BucketV2Logging.class}, tree="[0,1]")
     private Output<List<BucketV2Logging>> loggings;
 
     /**
      * @return Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketLoggingV2` instead.
+     * Use the resource `aws.s3.BucketLogging` instead.
      * 
      */
     public Output<List<BucketV2Logging>> loggings() {
@@ -305,20 +305,20 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
-     * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
+     * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
      * 
      * @deprecated
-     * object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead.
+     * object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
+    @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
     @Export(name="objectLockConfiguration", refs={BucketV2ObjectLockConfiguration.class}, tree="[0]")
     private Output<BucketV2ObjectLockConfiguration> objectLockConfiguration;
 
     /**
      * @return Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
-     * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
+     * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
      * 
      */
     public Output<BucketV2ObjectLockConfiguration> objectLockConfiguration() {
@@ -399,13 +399,13 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
      * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
      * The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
      * 
      * @deprecated
-     * request_payer is deprecated. Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead.
+     * request_payer is deprecated. Use the aws.s3.BucketRequestPaymentConfiguration resource instead.
      * 
      */
-    @Deprecated /* request_payer is deprecated. Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead. */
+    @Deprecated /* request_payer is deprecated. Use the aws.s3.BucketRequestPaymentConfiguration resource instead. */
     @Export(name="requestPayer", refs={String.class}, tree="[0]")
     private Output<String> requestPayer;
 
@@ -414,7 +414,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
      * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
      * The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
      * 
      */
     public Output<String> requestPayer() {
@@ -423,20 +423,20 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
      * Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
      * The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
      * 
      * @deprecated
-     * server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead.
+     * server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfiguration resource instead.
      * 
      */
-    @Deprecated /* server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead. */
+    @Deprecated /* server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfiguration resource instead. */
     @Export(name="serverSideEncryptionConfigurations", refs={List.class,BucketV2ServerSideEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<BucketV2ServerSideEncryptionConfiguration>> serverSideEncryptionConfigurations;
 
     /**
      * @return Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
      * The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
      * 
      */
     public Output<List<BucketV2ServerSideEncryptionConfiguration>> serverSideEncryptionConfigurations() {
@@ -479,54 +479,54 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
+     * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
      * 
      * @deprecated
-     * versioning is deprecated. Use the aws.s3.BucketVersioningV2 resource instead.
+     * versioning is deprecated. Use the aws.s3.BucketVersioning resource instead.
      * 
      */
-    @Deprecated /* versioning is deprecated. Use the aws.s3.BucketVersioningV2 resource instead. */
+    @Deprecated /* versioning is deprecated. Use the aws.s3.BucketVersioning resource instead. */
     @Export(name="versionings", refs={List.class,BucketV2Versioning.class}, tree="[0,1]")
     private Output<List<BucketV2Versioning>> versionings;
 
     /**
-     * @return Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
+     * @return Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
      * 
      */
     public Output<List<BucketV2Versioning>> versionings() {
         return this.versionings;
     }
     /**
-     * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      * 
      * @deprecated
-     * website_domain is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead.
+     * website_domain is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      * 
      */
-    @Deprecated /* website_domain is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead. */
+    @Deprecated /* website_domain is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead. */
     @Export(name="websiteDomain", refs={String.class}, tree="[0]")
     private Output<String> websiteDomain;
 
     /**
-     * @return (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * @return (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      * 
      */
     public Output<String> websiteDomain() {
         return this.websiteDomain;
     }
     /**
-     * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      * 
      * @deprecated
-     * website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead.
+     * website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      * 
      */
-    @Deprecated /* website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead. */
+    @Deprecated /* website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead. */
     @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
     private Output<String> websiteEndpoint;
 
     /**
-     * @return (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * @return (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      * 
      */
     public Output<String> websiteEndpoint() {
@@ -534,19 +534,19 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     }
     /**
      * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      * 
      * @deprecated
-     * website is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead.
+     * website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      * 
      */
-    @Deprecated /* website is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead. */
+    @Deprecated /* website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead. */
     @Export(name="websites", refs={List.class,BucketV2Website.class}, tree="[0,1]")
     private Output<List<BucketV2Website>> websites;
 
     /**
      * @return Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      * 
      */
     public Output<List<BucketV2Website>> websites() {

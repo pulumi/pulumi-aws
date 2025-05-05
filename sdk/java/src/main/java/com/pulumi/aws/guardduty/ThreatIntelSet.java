@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.guardduty.ThreatIntelSet;
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var bucket = new Bucket("bucket");
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
+ *         var bucketAcl = new BucketAcl("bucketAcl", BucketAclArgs.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());

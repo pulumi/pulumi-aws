@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const main = aws.elb.getServiceAccount({});
  * const elbLogs = new aws.s3.Bucket("elb_logs", {bucket: "my-elb-tf-test-bucket"});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elb_logs_acl", {
+ * const elbLogsAcl = new aws.s3.BucketAcl("elb_logs_acl", {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
@@ -100,7 +100,7 @@ export interface GetServiceAccountResult {
  *
  * const main = aws.elb.getServiceAccount({});
  * const elbLogs = new aws.s3.Bucket("elb_logs", {bucket: "my-elb-tf-test-bucket"});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elb_logs_acl", {
+ * const elbLogsAcl = new aws.s3.BucketAcl("elb_logs_acl", {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });

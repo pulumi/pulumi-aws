@@ -31,7 +31,7 @@ namespace Pulumi.Aws
         ///         BucketName = "my-billing-tf-test-bucket",
         ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAcl("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",
@@ -123,7 +123,7 @@ namespace Pulumi.Aws
         ///         BucketName = "my-billing-tf-test-bucket",
         ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAcl("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",
@@ -215,7 +215,7 @@ namespace Pulumi.Aws
         ///         BucketName = "my-billing-tf-test-bucket",
         ///     });
         /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
+        ///     var billingLogsAcl = new Aws.S3.BucketAcl("billing_logs_acl", new()
         ///     {
         ///         Bucket = billingLogs.Id,
         ///         Acl = "private",

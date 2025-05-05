@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.ivschat.LoggingConfiguration;
  * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
  * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("LogDeliveryEnabled", "true"))
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+ *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
  *             .bucket(exampleBucket.id())
  *             .acl("private")
  *             .build());

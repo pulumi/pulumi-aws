@@ -79,7 +79,7 @@ def get_log_delivery_canonical_user_id(region: Optional[builtins.str] = None,
         rule={
             "object_ownership": "BucketOwnerPreferred",
         })
-    example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+    example_bucket_acl = aws.s3.BucketAcl("example",
         bucket=example_bucket.id,
         access_control_policy={
             "grants": [{
@@ -127,7 +127,7 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
         rule={
             "object_ownership": "BucketOwnerPreferred",
         })
-    example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+    example_bucket_acl = aws.s3.BucketAcl("example",
         bucket=example_bucket.id,
         access_control_policy={
             "grants": [{

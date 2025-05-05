@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myIPSet.bucket}/${myIPSet.key}`,
  *     name: "MyIPSet",
  * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });

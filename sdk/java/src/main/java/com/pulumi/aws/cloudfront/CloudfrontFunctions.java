@@ -1094,10 +1094,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1128,17 +1128,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())
@@ -1178,10 +1178,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1212,17 +1212,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())
@@ -1262,10 +1262,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1296,17 +1296,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())
@@ -1346,10 +1346,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1380,17 +1380,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())
@@ -1430,10 +1430,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1464,17 +1464,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())
@@ -1514,10 +1514,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1548,17 +1548,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())
@@ -1598,10 +1598,10 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketOwnershipControls;
      * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
      * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
-     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1632,17 +1632,17 @@ public final class CloudfrontFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+     *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
      *             .bucket(exampleBucket.id())
-     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
-     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
-     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclAccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
      *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
-     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
      *                     .id(current.id())
      *                     .build())
      *                 .build())

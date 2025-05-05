@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const primary = new aws.guardduty.Detector("primary", {enable: true});
  * const bucket = new aws.s3.Bucket("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });

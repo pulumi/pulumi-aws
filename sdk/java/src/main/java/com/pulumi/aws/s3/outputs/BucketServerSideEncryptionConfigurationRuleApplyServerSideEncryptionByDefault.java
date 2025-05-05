@@ -18,7 +18,7 @@ public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEnc
      */
     private @Nullable String kmsMasterKeyId;
     /**
-     * @return Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+     * @return Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
      * 
      */
     private String sseAlgorithm;
@@ -32,7 +32,7 @@ public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEnc
         return Optional.ofNullable(this.kmsMasterKeyId);
     }
     /**
-     * @return Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+     * @return Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
      * 
      */
     public String sseAlgorithm() {

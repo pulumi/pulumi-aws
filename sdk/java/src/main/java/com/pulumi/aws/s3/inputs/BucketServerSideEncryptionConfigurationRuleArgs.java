@@ -6,9 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,18 +17,18 @@ public final class BucketServerSideEncryptionConfigurationRuleArgs extends com.p
     public static final BucketServerSideEncryptionConfigurationRuleArgs Empty = new BucketServerSideEncryptionConfigurationRuleArgs();
 
     /**
-     * Single object for setting server-side encryption by default. (documented below)
+     * Single object for setting server-side encryption by default. See below.
      * 
      */
-    @Import(name="applyServerSideEncryptionByDefaults", required=true)
-    private Output<List<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefaults;
+    @Import(name="applyServerSideEncryptionByDefault")
+    private @Nullable Output<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault;
 
     /**
-     * @return Single object for setting server-side encryption by default. (documented below)
+     * @return Single object for setting server-side encryption by default. See below.
      * 
      */
-    public Output<List<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefaults() {
-        return this.applyServerSideEncryptionByDefaults;
+    public Optional<Output<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefault() {
+        return Optional.ofNullable(this.applyServerSideEncryptionByDefault);
     }
 
     /**
@@ -51,7 +49,7 @@ public final class BucketServerSideEncryptionConfigurationRuleArgs extends com.p
     private BucketServerSideEncryptionConfigurationRuleArgs() {}
 
     private BucketServerSideEncryptionConfigurationRuleArgs(BucketServerSideEncryptionConfigurationRuleArgs $) {
-        this.applyServerSideEncryptionByDefaults = $.applyServerSideEncryptionByDefaults;
+        this.applyServerSideEncryptionByDefault = $.applyServerSideEncryptionByDefault;
         this.bucketKeyEnabled = $.bucketKeyEnabled;
     }
 
@@ -74,34 +72,24 @@ public final class BucketServerSideEncryptionConfigurationRuleArgs extends com.p
         }
 
         /**
-         * @param applyServerSideEncryptionByDefaults Single object for setting server-side encryption by default. (documented below)
+         * @param applyServerSideEncryptionByDefault Single object for setting server-side encryption by default. See below.
          * 
          * @return builder
          * 
          */
-        public Builder applyServerSideEncryptionByDefaults(Output<List<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefaults) {
-            $.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
+        public Builder applyServerSideEncryptionByDefault(@Nullable Output<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault) {
+            $.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
             return this;
         }
 
         /**
-         * @param applyServerSideEncryptionByDefaults Single object for setting server-side encryption by default. (documented below)
+         * @param applyServerSideEncryptionByDefault Single object for setting server-side encryption by default. See below.
          * 
          * @return builder
          * 
          */
-        public Builder applyServerSideEncryptionByDefaults(List<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefaults) {
-            return applyServerSideEncryptionByDefaults(Output.of(applyServerSideEncryptionByDefaults));
-        }
-
-        /**
-         * @param applyServerSideEncryptionByDefaults Single object for setting server-side encryption by default. (documented below)
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applyServerSideEncryptionByDefaults(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs... applyServerSideEncryptionByDefaults) {
-            return applyServerSideEncryptionByDefaults(List.of(applyServerSideEncryptionByDefaults));
+        public Builder applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs applyServerSideEncryptionByDefault) {
+            return applyServerSideEncryptionByDefault(Output.of(applyServerSideEncryptionByDefault));
         }
 
         /**
@@ -126,9 +114,6 @@ public final class BucketServerSideEncryptionConfigurationRuleArgs extends com.p
         }
 
         public BucketServerSideEncryptionConfigurationRuleArgs build() {
-            if ($.applyServerSideEncryptionByDefaults == null) {
-                throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfigurationRuleArgs", "applyServerSideEncryptionByDefaults");
-            }
             return $;
         }
     }

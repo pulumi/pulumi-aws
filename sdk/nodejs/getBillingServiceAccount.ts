@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const main = aws.getBillingServiceAccount({});
  * const billingLogs = new aws.s3.Bucket("billing_logs", {bucket: "my-billing-tf-test-bucket"});
- * const billingLogsAcl = new aws.s3.BucketAclV2("billing_logs_acl", {
+ * const billingLogsAcl = new aws.s3.BucketAcl("billing_logs_acl", {
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });
@@ -92,7 +92,7 @@ export interface GetBillingServiceAccountResult {
  *
  * const main = aws.getBillingServiceAccount({});
  * const billingLogs = new aws.s3.Bucket("billing_logs", {bucket: "my-billing-tf-test-bucket"});
- * const billingLogsAcl = new aws.s3.BucketAclV2("billing_logs_acl", {
+ * const billingLogsAcl = new aws.s3.BucketAcl("billing_logs_acl", {
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });

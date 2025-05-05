@@ -76,17 +76,17 @@ import * as utilities from "../utilities";
  *     role: replicationRole.name,
  *     policyArn: replicationPolicy.arn,
  * });
- * const destinationBucketVersioningV2 = new aws.s3.BucketVersioningV2("destination", {
+ * const destinationBucketVersioning = new aws.s3.BucketVersioning("destination", {
  *     bucket: destination.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const sourceBucketAcl = new aws.s3.BucketAclV2("source_bucket_acl", {
+ * const sourceBucketAcl = new aws.s3.BucketAcl("source_bucket_acl", {
  *     bucket: source.id,
  *     acl: "private",
  * });
- * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("source", {
+ * const sourceBucketVersioning = new aws.s3.BucketVersioning("source", {
  *     bucket: source.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }, {
- *     dependsOn: [sourceBucketVersioningV2],
+ *     dependsOn: [sourceBucketVersioning],
  * });
  * ```
  *
@@ -119,14 +119,14 @@ import * as utilities from "../utilities";
  *
  * // ... other configuration ...
  * const east = new aws.s3.Bucket("east", {bucket: "tf-test-bucket-east-12345"});
- * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("east", {
+ * const eastBucketVersioning = new aws.s3.BucketVersioning("east", {
  *     bucket: east.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
  * const west = new aws.s3.Bucket("west", {bucket: "tf-test-bucket-west-12345"});
- * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("west", {
+ * const westBucketVersioning = new aws.s3.BucketVersioning("west", {
  *     bucket: west.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
@@ -147,7 +147,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }, {
- *     dependsOn: [eastBucketVersioningV2],
+ *     dependsOn: [eastBucketVersioning],
  * });
  * const westToEast = new aws.s3.BucketReplicationConfig("west_to_east", {
  *     role: westReplication.arn,
@@ -164,7 +164,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }, {
- *     dependsOn: [westBucketVersioningV2],
+ *     dependsOn: [westBucketVersioning],
  * });
  * ```
  *

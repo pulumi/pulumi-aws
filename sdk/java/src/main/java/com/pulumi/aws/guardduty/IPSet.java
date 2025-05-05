@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.guardduty.IPSet;
  * import com.pulumi.aws.guardduty.IPSetArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .name("MyIPSet")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
+ *         var bucketAcl = new BucketAcl("bucketAcl", BucketAclArgs.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());

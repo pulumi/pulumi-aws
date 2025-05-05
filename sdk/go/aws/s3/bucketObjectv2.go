@@ -80,7 +80,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -122,7 +122,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -164,7 +164,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -207,16 +207,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
 //				Bucket: examplebucket.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -232,7 +232,7 @@ import (
 //				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
 //				ForceDestroy:              pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketVersioningV2,
+//				exampleBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err

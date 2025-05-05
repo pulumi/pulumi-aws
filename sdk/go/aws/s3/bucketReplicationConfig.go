@@ -133,25 +133,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "destination", &s3.BucketVersioningV2Args{
+//			_, err = s3.NewBucketVersioning(ctx, "destination", &s3.BucketVersioningArgs{
 //				Bucket: destination.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "source_bucket_acl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "source_bucket_acl", &s3.BucketAclArgs{
 //				Bucket: source.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sourceBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "source", &s3.BucketVersioningV2Args{
+//			sourceBucketVersioning, err := s3.NewBucketVersioning(ctx, "source", &s3.BucketVersioningArgs{
 //				Bucket: source.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -175,7 +175,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				sourceBucketVersioningV2,
+//				sourceBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err
@@ -207,9 +207,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			eastBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "east", &s3.BucketVersioningV2Args{
+//			eastBucketVersioning, err := s3.NewBucketVersioning(ctx, "east", &s3.BucketVersioningArgs{
 //				Bucket: east.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -222,9 +222,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			westBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "west", &s3.BucketVersioningV2Args{
+//			westBucketVersioning, err := s3.NewBucketVersioning(ctx, "west", &s3.BucketVersioningArgs{
 //				Bucket: west.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -248,7 +248,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				eastBucketVersioningV2,
+//				eastBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err
@@ -270,7 +270,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				westBucketVersioningV2,
+//				westBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err

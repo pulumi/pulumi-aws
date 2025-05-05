@@ -7,7 +7,6 @@ import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationRuleDefaultRetentio
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -16,24 +15,24 @@ public final class BucketObjectLockConfigurationRuleArgs extends com.pulumi.reso
     public static final BucketObjectLockConfigurationRuleArgs Empty = new BucketObjectLockConfigurationRuleArgs();
 
     /**
-     * Default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
-    @Import(name="defaultRetentions", required=true)
-    private Output<List<BucketObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions;
+    @Import(name="defaultRetention", required=true)
+    private Output<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention;
 
     /**
-     * @return Default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
-    public Output<List<BucketObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions() {
-        return this.defaultRetentions;
+    public Output<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention() {
+        return this.defaultRetention;
     }
 
     private BucketObjectLockConfigurationRuleArgs() {}
 
     private BucketObjectLockConfigurationRuleArgs(BucketObjectLockConfigurationRuleArgs $) {
-        this.defaultRetentions = $.defaultRetentions;
+        this.defaultRetention = $.defaultRetention;
     }
 
     public static Builder builder() {
@@ -55,39 +54,29 @@ public final class BucketObjectLockConfigurationRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetention Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
          * 
          * @return builder
          * 
          */
-        public Builder defaultRetentions(Output<List<BucketObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions) {
-            $.defaultRetentions = defaultRetentions;
+        public Builder defaultRetention(Output<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention) {
+            $.defaultRetention = defaultRetention;
             return this;
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetention Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
          * 
          * @return builder
          * 
          */
-        public Builder defaultRetentions(List<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetentions) {
-            return defaultRetentions(Output.of(defaultRetentions));
-        }
-
-        /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder defaultRetentions(BucketObjectLockConfigurationRuleDefaultRetentionArgs... defaultRetentions) {
-            return defaultRetentions(List.of(defaultRetentions));
+        public Builder defaultRetention(BucketObjectLockConfigurationRuleDefaultRetentionArgs defaultRetention) {
+            return defaultRetention(Output.of(defaultRetention));
         }
 
         public BucketObjectLockConfigurationRuleArgs build() {
-            if ($.defaultRetentions == null) {
-                throw new MissingRequiredPropertyException("BucketObjectLockConfigurationRuleArgs", "defaultRetentions");
+            if ($.defaultRetention == null) {
+                throw new MissingRequiredPropertyException("BucketObjectLockConfigurationRuleArgs", "defaultRetention");
             }
             return $;
         }

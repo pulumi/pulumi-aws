@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Fsx
     ///         BucketName = "my-bucket",
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "private",

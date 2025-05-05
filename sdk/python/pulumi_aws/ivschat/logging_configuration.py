@@ -242,7 +242,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             tags={
                 "LogDeliveryEnabled": "true",
             })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example_bucket.id,
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
@@ -319,7 +319,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             tags={
                 "LogDeliveryEnabled": "true",
             })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example_bucket.id,
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
