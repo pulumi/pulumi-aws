@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {BucketV2} from "../s3";
+import {Bucket} from "../s3";
 import {Application} from "./index";
 
 /**
@@ -183,7 +183,7 @@ export interface ApplicationVersionState {
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    bucket?: pulumi.Input<string | BucketV2>;
+    bucket?: pulumi.Input<string | Bucket>;
     /**
      * Short description of the Application Version.
      */
@@ -229,7 +229,7 @@ export interface ApplicationVersionArgs {
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    bucket: pulumi.Input<string | BucketV2>;
+    bucket: pulumi.Input<string | Bucket>;
     /**
      * Short description of the Application Version.
      */

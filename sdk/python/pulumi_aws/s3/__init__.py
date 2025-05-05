@@ -28,7 +28,6 @@ from .bucket_public_access_block import *
 from .bucket_replication_config import *
 from .bucket_request_payment_configuration import *
 from .bucket_server_side_encryption_configuration import *
-from .bucket_v2 import *
 from .bucket_versioning import *
 from .bucket_website_configuration import *
 from .directory_bucket import *

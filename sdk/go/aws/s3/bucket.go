@@ -173,6 +173,9 @@ func NewBucket(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketV2:BucketV2"),
 		},
+		{
+			Type: pulumi.String("aws:s3/bucketV2:BucketV2"),
+		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

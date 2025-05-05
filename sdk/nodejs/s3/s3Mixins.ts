@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi"
-import { BucketV2 } from "./bucketV2";
+import { Bucket } from "./bucket";
 import { BucketNotification } from "./bucketNotification";
 import * as lambda from "../lambda"
 
@@ -117,7 +117,7 @@ interface SubscriptionInfo {
     provider: pulumi.ProviderResource;
 }
 
-let bucketSubscriptionInfos = new Map<BucketV2, SubscriptionInfo[]>();
+let bucketSubscriptionInfos = new Map<Bucket, SubscriptionInfo[]>();
 
 /**
  * A component corresponding to a single underlying aws.s3.BucketNotification created for a bucket.
@@ -126,10 +126,10 @@ let bucketSubscriptionInfos = new Map<BucketV2, SubscriptionInfo[]>();
  * completion and all subscriptions have been heard about.
  */
 export class BucketEventSubscription extends lambda.EventSubscription {
-    public readonly bucket: BucketV2;
+    public readonly bucket: Bucket;
 
     public constructor(
-        name: string, bucket: BucketV2, handler: BucketEventHandler,
+        name: string, bucket: Bucket, handler: BucketEventHandler,
         args: BucketEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
         // We previously did not parent the subscription to the queue. We now do. Provide an alias
@@ -213,8 +213,8 @@ process.on("beforeExit", () => {
 });
 
 // Mixin event handling functionality onto Bucket.
-declare module "./bucketV2" {
-    interface BucketV2 {
+declare module "./bucket" {
+    interface Bucket {
         /**
          * Creates a new subscription to events fired from this Bucket to the handler provided,
          * along with options to control the behavior of the subscription.  The handler will be
@@ -245,7 +245,7 @@ declare module "./bucketV2" {
     }
 }
 
-BucketV2.prototype.onObjectCreated = function (this: BucketV2, name, handler, args, opts) {
+Bucket.prototype.onObjectCreated = function (this: Bucket, name, handler, args, opts) {
     args = args || {};
     args.event = args.event || "*";
 
@@ -258,7 +258,7 @@ BucketV2.prototype.onObjectCreated = function (this: BucketV2, name, handler, ar
     return this.onEvent(name, handler, argsCopy, opts);
 }
 
-BucketV2.prototype.onObjectRemoved = function (this: BucketV2, name, handler, args, opts) {
+Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, opts) {
     args = args || {};
     args.event = args.event || "*";
 
@@ -271,6 +271,6 @@ BucketV2.prototype.onObjectRemoved = function (this: BucketV2, name, handler, ar
     return this.onEvent(name, handler, argsCopy, opts);
 }
 
-BucketV2.prototype.onEvent = function (this: BucketV2, name, handler, args, opts) {
+Bucket.prototype.onEvent = function (this: Bucket, name, handler, args, opts) {
     return new BucketEventSubscription(name, this, handler, args, opts);
 }

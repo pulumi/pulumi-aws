@@ -1908,7 +1908,6 @@
         "s3/bucketReplicationConfig.ts",
         "s3/bucketRequestPaymentConfiguration.ts",
         "s3/bucketServerSideEncryptionConfiguration.ts",
-        "s3/bucketV2.ts",
         "s3/bucketVersioning.ts",
         "s3/bucketWebsiteConfiguration.ts",
         "s3/cannedAcl.ts",

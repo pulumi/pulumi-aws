@@ -1812,7 +1812,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"bucket": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(s3Mod, "BucketV2")},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
 					},
 				},
 			},
@@ -3772,7 +3772,7 @@ compatibility shim in favor of the new "name" field.`)
 						// Prefer a strongly typed Bucket reference.
 						Type: "string",
 						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "BucketV2")},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
 					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
@@ -3807,7 +3807,7 @@ compatibility shim in favor of the new "name" field.`)
 						// Prefer a strongly typed Bucket reference.
 						Type: "string",
 						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "BucketV2")},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
 					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.

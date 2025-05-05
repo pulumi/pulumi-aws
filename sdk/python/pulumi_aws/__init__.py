@@ -10198,14 +10198,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "s3/bucketV2",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/bucketV2:BucketV2": "BucketV2"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "s3/bucketVersioning",
   "fqn": "pulumi_aws.s3",
   "classes": {

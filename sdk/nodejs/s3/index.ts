@@ -110,11 +110,6 @@ export type BucketServerSideEncryptionConfiguration = import("./bucketServerSide
 export const BucketServerSideEncryptionConfiguration: typeof import("./bucketServerSideEncryptionConfiguration").BucketServerSideEncryptionConfiguration = null as any;
 utilities.lazyLoad(exports, ["BucketServerSideEncryptionConfiguration"], () => require("./bucketServerSideEncryptionConfiguration"));
 
-export { BucketV2Args, BucketV2State } from "./bucketV2";
-export type BucketV2 = import("./bucketV2").BucketV2;
-export const BucketV2: typeof import("./bucketV2").BucketV2 = null as any;
-utilities.lazyLoad(exports, ["BucketV2"], () => require("./bucketV2"));
-
 export { BucketVersioningArgs, BucketVersioningState } from "./bucketVersioning";
 export type BucketVersioning = import("./bucketVersioning").BucketVersioning;
 export const BucketVersioning: typeof import("./bucketVersioning").BucketVersioning = null as any;
@@ -238,8 +233,6 @@ const _module = {
                 return new BucketRequestPaymentConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration":
                 return new BucketServerSideEncryptionConfiguration(name, <any>undefined, { urn })
-            case "aws:s3/bucketV2:BucketV2":
-                return new BucketV2(name, <any>undefined, { urn })
             case "aws:s3/bucketVersioning:BucketVersioning":
                 return new BucketVersioning(name, <any>undefined, { urn })
             case "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration":
@@ -276,7 +269,6 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketPublicAccessBlock", _modu
 pulumi.runtime.registerResourceModule("aws", "s3/bucketReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketRequestPaymentConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketServerSideEncryptionConfiguration", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/bucketV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketVersioning", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/directoryBucket", _module)

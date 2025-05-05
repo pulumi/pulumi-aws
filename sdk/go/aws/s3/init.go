@@ -63,8 +63,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketRequestPaymentConfiguration{}
 	case "aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration":
 		r = &BucketServerSideEncryptionConfiguration{}
-	case "aws:s3/bucketV2:BucketV2":
-		r = &BucketV2{}
 	case "aws:s3/bucketVersioning:BucketVersioning":
 		r = &BucketVersioning{}
 	case "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration":
@@ -191,11 +189,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucketServerSideEncryptionConfiguration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"s3/bucketV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

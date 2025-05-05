@@ -589,6 +589,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketV2:BucketV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketV2:BucketV2").build())
             ))
             .build();
