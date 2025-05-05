@@ -1937,6 +1937,9 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_internet_gateway_attachment":    {Tok: awsResource(ec2Mod, "InternetGatewayAttachment")},
 			"aws_ec2_image_block_public_access":  {Tok: awsResource(ec2Mod, "ImageBlockPublicAccess")},
 			"aws_ec2_instance_metadata_defaults": {Tok: awsResource(ec2Mod, "InstanceMetadataDefaults")},
+			"aws_ec2_default_credit_specification": {
+				Tok: awsResource(ec2Mod, "DefaultCreditSpecification"),
+			},
 			"aws_key_pair": {
 				Tok: awsResource(ec2Mod, "KeyPair"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -6127,7 +6130,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_timestreamquery_scheduled_query":            {"arn"},
 		"aws_route53domains_domain":                      {"domainName"},
 		"aws_api_gateway_rest_api_put":                   {"restApiId"},
+		"aws_ec2_default_credit_specification":           {"instanceFamily"},
 	}
+
+	// error: Resource aws_ec2_default_credit_specification has a problem: no "id" attribute. To map this resource consider specifying ResourceInfo.ComputeID to a valid field on the upstream resource
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
 		prov.Resources[tfResourceID].ComputeID = func(
