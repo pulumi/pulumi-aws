@@ -1,0 +1,21 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 5 May 2025 14:11:38 -0400
+Subject: [PATCH] Remove tlskyber option to build on Go 1.24.x
+
+
+diff --git a/go.mod b/go.mod
+index 03fee682e3..550cc4705f 100644
+--- a/go.mod
++++ b/go.mod
+@@ -2,10 +2,6 @@ module github.com/hashicorp/terraform-provider-aws
+ 
+ go 1.23.8
+ 
+-// Disable experimental post-quantum key exchange mechanism X25519Kyber768Draft00
+-// This was causing errors with AWS Network Firewall
+-godebug tlskyber=0
+-
+ require (
+ 	github.com/ProtonMail/go-crypto v1.2.0
+ 	github.com/YakDriver/go-version v0.1.0
