@@ -3,8 +3,8 @@ runtime: yaml
 resources:
   myBucket:
     properties:
-      website:
-        indexDocument: index.html
+      websites:
+        - indexDocument: index.html
     type: aws:s3:BucketV2
   myBucketIndex:
     properties:

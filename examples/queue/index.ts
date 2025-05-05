@@ -20,13 +20,13 @@ const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const bucket = new aws.s3.Bucket("testbucket", {
-    serverSideEncryptionConfiguration: {
-        rule: {
+    serverSideEncryptionConfigurations: [{
+        rules: [{
             applyServerSideEncryptionByDefault: {
                 sseAlgorithm: "AES256",
             },
-        },
-    },
+        }],
+    }],
     forceDestroy: true,
 }, providerOpts);
 

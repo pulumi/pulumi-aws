@@ -377,6 +377,7 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
+	t.Skipf("Skipping test until awsx is update to use getAuthorizationToken %s", t.Name())
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "lambda-container-image"),
@@ -1032,43 +1033,6 @@ func TestRegress4446(t *testing.T) {
 	t.Logf("#%v", upResult.Summary)
 	result := test.Preview(t, optpreview.ExpectNoChanges())
 	t.Logf("#%v", result.ChangeSummary)
-}
-
-func TestRegress4568(t *testing.T) {
-	skipIfShort(t)
-	dir := filepath.Join("test-programs", "regress-4568")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up(t)
-	t.Logf("#%v", upResult.Summary)
-
-	// The singular lifecyclePolicy should contain the first value
-	assert.Equal(t, map[string]interface{}{
-		"transitionToIa":                  "AFTER_30_DAYS",
-		"transitionToArchive":             "",
-		"transitionToPrimaryStorageClass": "",
-	}, upResult.Outputs["lifecyclePolicy"].Value, "lifecyclePolicy should be set")
-
-	// The plural lifecyclePolicies should contain both values
-	lifecyclePolicies := upResult.Outputs["lifecyclePolicies"].Value.([]interface{})
-	assert.Len(t, lifecyclePolicies, 2, "lifecyclePolicies should have two elements")
-
-	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
-		"transitionToIa":                  "AFTER_30_DAYS",
-		"transitionToArchive":             "",
-		"transitionToPrimaryStorageClass": "",
-	})
-	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
-		"transitionToPrimaryStorageClass": "AFTER_1_ACCESS",
-		"transitionToIa":                  "",
-		"transitionToArchive":             "",
-	})
 }
 
 func TestRegress5219(t *testing.T) {
