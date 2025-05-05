@@ -20,6 +20,10 @@ __all__ = [
     'AnalyzerConfigurationArgsDict',
     'AnalyzerConfigurationUnusedAccessArgs',
     'AnalyzerConfigurationUnusedAccessArgsDict',
+    'AnalyzerConfigurationUnusedAccessAnalysisRuleArgs',
+    'AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict',
+    'AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs',
+    'AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict',
     'ArchiveRuleFilterArgs',
     'ArchiveRuleFilterArgsDict',
 ]
@@ -60,6 +64,10 @@ class AnalyzerConfigurationArgs:
 
 if not MYPY:
     class AnalyzerConfigurationUnusedAccessArgsDict(TypedDict):
+        analysis_rule: NotRequired[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict']]
+        """
+        A block for analysis rules. Documented below
+        """
         unused_access_age: NotRequired[pulumi.Input[builtins.int]]
         """
         The specified access age in days for which to generate findings for unused access.
@@ -70,12 +78,28 @@ elif False:
 @pulumi.input_type
 class AnalyzerConfigurationUnusedAccessArgs:
     def __init__(__self__, *,
+                 analysis_rule: Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs']] = None,
                  unused_access_age: Optional[pulumi.Input[builtins.int]] = None):
         """
+        :param pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs'] analysis_rule: A block for analysis rules. Documented below
         :param pulumi.Input[builtins.int] unused_access_age: The specified access age in days for which to generate findings for unused access.
         """
+        if analysis_rule is not None:
+            pulumi.set(__self__, "analysis_rule", analysis_rule)
         if unused_access_age is not None:
             pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="analysisRule")
+    def analysis_rule(self) -> Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs']]:
+        """
+        A block for analysis rules. Documented below
+        """
+        return pulumi.get(self, "analysis_rule")
+
+    @analysis_rule.setter
+    def analysis_rule(self, value: Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs']]):
+        pulumi.set(self, "analysis_rule", value)
 
     @property
     @pulumi.getter(name="unusedAccessAge")
@@ -88,6 +112,90 @@ class AnalyzerConfigurationUnusedAccessArgs:
     @unused_access_age.setter
     def unused_access_age(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "unused_access_age", value)
+
+
+if not MYPY:
+    class AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict(TypedDict):
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict']]]]
+        """
+        A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        """
+elif False:
+    AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs:
+    def __init__(__self__, *,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]] exclusions: A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        """
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]]]:
+        """
+        A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]]]):
+        pulumi.set(self, "exclusions", value)
+
+
+if not MYPY:
+    class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict(TypedDict):
+        account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        A list of account IDs to exclude from the analysis.
+        """
+        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]]
+        """
+        A list of key-value pairs for resource tags to exclude from the analysis.
+        """
+elif False:
+    AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs:
+    def __init__(__self__, *,
+                 account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: A list of account IDs to exclude from the analysis.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] resource_tags: A list of key-value pairs for resource tags to exclude from the analysis.
+        """
+        if account_ids is not None:
+            pulumi.set(__self__, "account_ids", account_ids)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of account IDs to exclude from the analysis.
+        """
+        return pulumi.get(self, "account_ids")
+
+    @account_ids.setter
+    def account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "account_ids", value)
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]]:
+        """
+        A list of key-value pairs for resource tags to exclude from the analysis.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]]):
+        pulumi.set(self, "resource_tags", value)
 
 
 if not MYPY:

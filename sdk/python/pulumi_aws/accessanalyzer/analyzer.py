@@ -246,6 +246,42 @@ class Analyzer(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
+        ### Organization Unused Access Analyzer with analysis rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.accessanalyzer.Analyzer("example",
+            analyzer_name="example",
+            type="ORGANIZATION_UNUSED_ACCESS",
+            configuration={
+                "unused_access": {
+                    "unused_access_age": 180,
+                    "analysis_rule": {
+                        "exclusions": [
+                            {
+                                "account_ids": [
+                                    "123456789012",
+                                    "234567890123",
+                                ],
+                            },
+                            {
+                                "resource_tags": [
+                                    {
+                                        "key1": "value1",
+                                    },
+                                    {
+                                        "key2": "value2",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
@@ -294,6 +330,42 @@ class Analyzer(pulumi.CustomResource):
             analyzer_name="example",
             type="ORGANIZATION",
             opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ### Organization Unused Access Analyzer with analysis rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.accessanalyzer.Analyzer("example",
+            analyzer_name="example",
+            type="ORGANIZATION_UNUSED_ACCESS",
+            configuration={
+                "unused_access": {
+                    "unused_access_age": 180,
+                    "analysis_rule": {
+                        "exclusions": [
+                            {
+                                "account_ids": [
+                                    "123456789012",
+                                    "234567890123",
+                                ],
+                            },
+                            {
+                                "resource_tags": [
+                                    {
+                                        "key1": "value1",
+                                    },
+                                    {
+                                        "key2": "value2",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                },
+            })
         ```
 
         ## Import

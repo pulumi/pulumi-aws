@@ -94,6 +94,8 @@ type InfrastructureConfiguration struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+	Placement InfrastructureConfigurationPlacementPtrOutput `pulumi:"placement"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
@@ -167,6 +169,8 @@ type infrastructureConfigurationState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
@@ -208,6 +212,8 @@ type InfrastructureConfigurationState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+	Placement InfrastructureConfigurationPlacementPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
 	// Set of EC2 Security Group identifiers.
@@ -247,6 +253,8 @@ type infrastructureConfigurationArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
@@ -279,6 +287,8 @@ type InfrastructureConfigurationArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+	Placement InfrastructureConfigurationPlacementPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
 	// Set of EC2 Security Group identifiers.
@@ -432,6 +442,11 @@ func (o InfrastructureConfigurationOutput) Logging() InfrastructureConfiguration
 // The following arguments are optional:
 func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+func (o InfrastructureConfigurationOutput) Placement() InfrastructureConfigurationPlacementPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationPlacementPtrOutput { return v.Placement }).(InfrastructureConfigurationPlacementPtrOutput)
 }
 
 // Key-value map of resource tags to assign to infrastructure created by the configuration.

@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             AuthenticationMode = "API",
     ///         },
-    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         RoleArn = cluster.Arn,
     ///         Version = "1.31",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             AuthenticationMode = "CONFIG_MAP",
     ///         },
-    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         RoleArn = cluster.Arn,
     ///         Version = "1.31",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {

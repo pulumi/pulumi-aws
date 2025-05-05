@@ -15,11 +15,12 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     {
         /// <summary>
         /// The HTTP criteria that a rule must match.
+        /// See `http_match` Block for details.
         /// </summary>
-        public readonly Outputs.ListenerRuleMatchHttpMatch? HttpMatch;
+        public readonly Outputs.ListenerRuleMatchHttpMatch HttpMatch;
 
         [OutputConstructor]
-        private ListenerRuleMatch(Outputs.ListenerRuleMatchHttpMatch? httpMatch)
+        private ListenerRuleMatch(Outputs.ListenerRuleMatchHttpMatch httpMatch)
         {
             HttpMatch = httpMatch;
         }

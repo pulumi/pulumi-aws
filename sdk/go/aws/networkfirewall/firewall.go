@@ -32,6 +32,10 @@ import (
 //				Name:              pulumi.String("example"),
 //				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
 //				VpcId:             pulumi.Any(exampleAwsVpc.Id),
+//				EnabledAnalysisTypes: pulumi.StringArray{
+//					pulumi.String("TLS_SNI"),
+//					pulumi.String("HTTP_HOST"),
+//				},
 //				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
 //					&networkfirewall.FirewallSubnetMappingArgs{
 //						SubnetId: pulumi.Any(exampleAwsSubnet.Id),
@@ -67,6 +71,8 @@ type Firewall struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+	EnabledAnalysisTypes pulumi.StringArrayOutput `pulumi:"enabledAnalysisTypes"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
@@ -138,6 +144,8 @@ type firewallState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description *string `pulumi:"description"`
+	// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
@@ -171,6 +179,8 @@ type FirewallState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrInput
+	// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+	EnabledAnalysisTypes pulumi.StringArrayInput
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
@@ -206,6 +216,8 @@ type firewallArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description *string `pulumi:"description"`
+	// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
@@ -230,6 +242,8 @@ type FirewallArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrInput
+	// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+	EnabledAnalysisTypes pulumi.StringArrayInput
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
@@ -348,6 +362,11 @@ func (o FirewallOutput) DeleteProtection() pulumi.BoolPtrOutput {
 // A friendly description of the firewall.
 func (o FirewallOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+func (o FirewallOutput) EnabledAnalysisTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringArrayOutput { return v.EnabledAnalysisTypes }).(pulumi.StringArrayOutput)
 }
 
 // KMS encryption configuration settings. See Encryption Configuration below for details.

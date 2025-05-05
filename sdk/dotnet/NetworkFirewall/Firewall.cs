@@ -27,6 +27,11 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         Name = "example",
     ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
     ///         VpcId = exampleAwsVpc.Id,
+    ///         EnabledAnalysisTypes = new[]
+    ///         {
+    ///             "TLS_SNI",
+    ///             "HTTP_HOST",
+    ///         },
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
@@ -72,6 +77,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+        /// </summary>
+        [Output("enabledAnalysisTypes")]
+        public Output<ImmutableArray<string>> EnabledAnalysisTypes { get; private set; } = null!;
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -197,6 +208,18 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enabledAnalysisTypes")]
+        private InputList<string>? _enabledAnalysisTypes;
+
+        /// <summary>
+        /// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+        /// </summary>
+        public InputList<string> EnabledAnalysisTypes
+        {
+            get => _enabledAnalysisTypes ?? (_enabledAnalysisTypes = new InputList<string>());
+            set => _enabledAnalysisTypes = value;
+        }
+
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
@@ -282,6 +305,18 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enabledAnalysisTypes")]
+        private InputList<string>? _enabledAnalysisTypes;
+
+        /// <summary>
+        /// Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+        /// </summary>
+        public InputList<string> EnabledAnalysisTypes
+        {
+            get => _enabledAnalysisTypes ?? (_enabledAnalysisTypes = new InputList<string>());
+            set => _enabledAnalysisTypes = value;
+        }
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.

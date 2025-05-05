@@ -518,8 +518,10 @@ func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntIn
 
 type ListenerRuleAction struct {
 	// Describes the rule action that returns a custom HTTP response.
+	// See `fixedResponse` Block for details.
 	FixedResponse *ListenerRuleActionFixedResponse `pulumi:"fixedResponse"`
 	// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+	// See `forward` Block for details.
 	Forward *ListenerRuleActionForward `pulumi:"forward"`
 }
 
@@ -536,8 +538,10 @@ type ListenerRuleActionInput interface {
 
 type ListenerRuleActionArgs struct {
 	// Describes the rule action that returns a custom HTTP response.
+	// See `fixedResponse` Block for details.
 	FixedResponse ListenerRuleActionFixedResponsePtrInput `pulumi:"fixedResponse"`
 	// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+	// See `forward` Block for details.
 	Forward ListenerRuleActionForwardPtrInput `pulumi:"forward"`
 }
 
@@ -619,11 +623,13 @@ func (o ListenerRuleActionOutput) ToListenerRuleActionPtrOutputWithContext(ctx c
 }
 
 // Describes the rule action that returns a custom HTTP response.
+// See `fixedResponse` Block for details.
 func (o ListenerRuleActionOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionFixedResponse { return v.FixedResponse }).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
 // The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+// See `forward` Block for details.
 func (o ListenerRuleActionOutput) Forward() ListenerRuleActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionForward { return v.Forward }).(ListenerRuleActionForwardPtrOutput)
 }
@@ -653,6 +659,7 @@ func (o ListenerRuleActionPtrOutput) Elem() ListenerRuleActionOutput {
 }
 
 // Describes the rule action that returns a custom HTTP response.
+// See `fixedResponse` Block for details.
 func (o ListenerRuleActionPtrOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAction) *ListenerRuleActionFixedResponse {
 		if v == nil {
@@ -663,6 +670,7 @@ func (o ListenerRuleActionPtrOutput) FixedResponse() ListenerRuleActionFixedResp
 }
 
 // The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+// See `forward` Block for details.
 func (o ListenerRuleActionPtrOutput) Forward() ListenerRuleActionForwardPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAction) *ListenerRuleActionForward {
 		if v == nil {
@@ -1056,7 +1064,8 @@ func (o ListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput
 
 type ListenerRuleMatch struct {
 	// The HTTP criteria that a rule must match.
-	HttpMatch *ListenerRuleMatchHttpMatch `pulumi:"httpMatch"`
+	// See `httpMatch` Block for details.
+	HttpMatch ListenerRuleMatchHttpMatch `pulumi:"httpMatch"`
 }
 
 // ListenerRuleMatchInput is an input type that accepts ListenerRuleMatchArgs and ListenerRuleMatchOutput values.
@@ -1072,7 +1081,8 @@ type ListenerRuleMatchInput interface {
 
 type ListenerRuleMatchArgs struct {
 	// The HTTP criteria that a rule must match.
-	HttpMatch ListenerRuleMatchHttpMatchPtrInput `pulumi:"httpMatch"`
+	// See `httpMatch` Block for details.
+	HttpMatch ListenerRuleMatchHttpMatchInput `pulumi:"httpMatch"`
 }
 
 func (ListenerRuleMatchArgs) ElementType() reflect.Type {
@@ -1153,8 +1163,9 @@ func (o ListenerRuleMatchOutput) ToListenerRuleMatchPtrOutputWithContext(ctx con
 }
 
 // The HTTP criteria that a rule must match.
-func (o ListenerRuleMatchOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOutput {
-	return o.ApplyT(func(v ListenerRuleMatch) *ListenerRuleMatchHttpMatch { return v.HttpMatch }).(ListenerRuleMatchHttpMatchPtrOutput)
+// See `httpMatch` Block for details.
+func (o ListenerRuleMatchOutput) HttpMatch() ListenerRuleMatchHttpMatchOutput {
+	return o.ApplyT(func(v ListenerRuleMatch) ListenerRuleMatchHttpMatch { return v.HttpMatch }).(ListenerRuleMatchHttpMatchOutput)
 }
 
 type ListenerRuleMatchPtrOutput struct{ *pulumi.OutputState }
@@ -1182,21 +1193,25 @@ func (o ListenerRuleMatchPtrOutput) Elem() ListenerRuleMatchOutput {
 }
 
 // The HTTP criteria that a rule must match.
+// See `httpMatch` Block for details.
 func (o ListenerRuleMatchPtrOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatch) *ListenerRuleMatchHttpMatch {
 		if v == nil {
 			return nil
 		}
-		return v.HttpMatch
+		return &v.HttpMatch
 	}).(ListenerRuleMatchHttpMatchPtrOutput)
 }
 
 type ListenerRuleMatchHttpMatch struct {
-	// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+	// The header matches.
+	// Matches incoming requests with rule based on request header value before applying rule action.
+	// See `headerMatches` Block for details.
 	HeaderMatches []ListenerRuleMatchHttpMatchHeaderMatch `pulumi:"headerMatches"`
 	// The HTTP method type.
 	Method *string `pulumi:"method"`
 	// The path match.
+	// See `pathMatch` Block for details.
 	PathMatch *ListenerRuleMatchHttpMatchPathMatch `pulumi:"pathMatch"`
 }
 
@@ -1212,11 +1227,14 @@ type ListenerRuleMatchHttpMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchArgs struct {
-	// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+	// The header matches.
+	// Matches incoming requests with rule based on request header value before applying rule action.
+	// See `headerMatches` Block for details.
 	HeaderMatches ListenerRuleMatchHttpMatchHeaderMatchArrayInput `pulumi:"headerMatches"`
 	// The HTTP method type.
 	Method pulumi.StringPtrInput `pulumi:"method"`
 	// The path match.
+	// See `pathMatch` Block for details.
 	PathMatch ListenerRuleMatchHttpMatchPathMatchPtrInput `pulumi:"pathMatch"`
 }
 
@@ -1297,7 +1315,9 @@ func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchPtrOutputW
 	}).(ListenerRuleMatchHttpMatchPtrOutput)
 }
 
-// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+// The header matches.
+// Matches incoming requests with rule based on request header value before applying rule action.
+// See `headerMatches` Block for details.
 func (o ListenerRuleMatchHttpMatchOutput) HeaderMatches() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) []ListenerRuleMatchHttpMatchHeaderMatch { return v.HeaderMatches }).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
 }
@@ -1308,6 +1328,7 @@ func (o ListenerRuleMatchHttpMatchOutput) Method() pulumi.StringPtrOutput {
 }
 
 // The path match.
+// See `pathMatch` Block for details.
 func (o ListenerRuleMatchHttpMatchOutput) PathMatch() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatchPathMatch { return v.PathMatch }).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
 }
@@ -1336,7 +1357,9 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchOu
 	}).(ListenerRuleMatchHttpMatchOutput)
 }
 
-// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+// The header matches.
+// Matches incoming requests with rule based on request header value before applying rule action.
+// See `headerMatches` Block for details.
 func (o ListenerRuleMatchHttpMatchPtrOutput) HeaderMatches() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) []ListenerRuleMatchHttpMatchHeaderMatch {
 		if v == nil {
@@ -1357,6 +1380,7 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) Method() pulumi.StringPtrOutput {
 }
 
 // The path match.
+// See `pathMatch` Block for details.
 func (o ListenerRuleMatchHttpMatchPtrOutput) PathMatch() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatchPathMatch {
 		if v == nil {
@@ -1367,9 +1391,11 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) PathMatch() ListenerRuleMatchHttpMa
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatch struct {
-	// Indicates whether the match is case sensitive. Defaults to false.
+	// Indicates whether the match is case sensitive.
+	// Default is `false`.
 	CaseSensitive *bool `pulumi:"caseSensitive"`
 	// The header match type.
+	// See Header Match `match` Block for details.
 	Match ListenerRuleMatchHttpMatchHeaderMatchMatch `pulumi:"match"`
 	// The name of the header.
 	Name string `pulumi:"name"`
@@ -1387,9 +1413,11 @@ type ListenerRuleMatchHttpMatchHeaderMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatchArgs struct {
-	// Indicates whether the match is case sensitive. Defaults to false.
+	// Indicates whether the match is case sensitive.
+	// Default is `false`.
 	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
 	// The header match type.
+	// See Header Match `match` Block for details.
 	Match ListenerRuleMatchHttpMatchHeaderMatchMatchInput `pulumi:"match"`
 	// The name of the header.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1446,12 +1474,14 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToListenerRuleMatchHttpMatc
 	return o
 }
 
-// Indicates whether the match is case sensitive. Defaults to false.
+// Indicates whether the match is case sensitive.
+// Default is `false`.
 func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
 // The header match type.
+// See Header Match `match` Block for details.
 func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) Match() ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) ListenerRuleMatchHttpMatchHeaderMatchMatch {
 		return v.Match
@@ -1488,7 +1518,8 @@ type ListenerRuleMatchHttpMatchHeaderMatchMatch struct {
 	Contains *string `pulumi:"contains"`
 	// Specifies an exact type match.
 	Exact *string `pulumi:"exact"`
-	// Specifies a prefix type match. Matches the value with the prefix.
+	// Specifies a prefix type match.
+	// Matches the value with the prefix.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1508,7 +1539,8 @@ type ListenerRuleMatchHttpMatchHeaderMatchMatchArgs struct {
 	Contains pulumi.StringPtrInput `pulumi:"contains"`
 	// Specifies an exact type match.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specifies a prefix type match. Matches the value with the prefix.
+	// Specifies a prefix type match.
+	// Matches the value with the prefix.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -1548,15 +1580,18 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Exact() pulumi.StringP
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a prefix type match. Matches the value with the prefix.
+// Specifies a prefix type match.
+// Matches the value with the prefix.
 func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 type ListenerRuleMatchHttpMatchPathMatch struct {
-	// Indicates whether the match is case sensitive. Defaults to false.
+	// Indicates whether the match is case sensitive.
+	// Default is `false`.
 	CaseSensitive *bool `pulumi:"caseSensitive"`
 	// The header match type.
+	// See Path Match `match` Block for details.
 	Match ListenerRuleMatchHttpMatchPathMatchMatch `pulumi:"match"`
 }
 
@@ -1572,9 +1607,11 @@ type ListenerRuleMatchHttpMatchPathMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchPathMatchArgs struct {
-	// Indicates whether the match is case sensitive. Defaults to false.
+	// Indicates whether the match is case sensitive.
+	// Default is `false`.
 	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
 	// The header match type.
+	// See Path Match `match` Block for details.
 	Match ListenerRuleMatchHttpMatchPathMatchMatchInput `pulumi:"match"`
 }
 
@@ -1655,12 +1692,14 @@ func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchP
 	}).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
 }
 
-// Indicates whether the match is case sensitive. Defaults to false.
+// Indicates whether the match is case sensitive.
+// Default is `false`.
 func (o ListenerRuleMatchHttpMatchPathMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
 // The header match type.
+// See Path Match `match` Block for details.
 func (o ListenerRuleMatchHttpMatchPathMatchOutput) Match() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) ListenerRuleMatchHttpMatchPathMatchMatch { return v.Match }).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
 }
@@ -1689,7 +1728,8 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Elem() ListenerRuleMatchHt
 	}).(ListenerRuleMatchHttpMatchPathMatchOutput)
 }
 
-// Indicates whether the match is case sensitive. Defaults to false.
+// Indicates whether the match is case sensitive.
+// Default is `false`.
 func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) *bool {
 		if v == nil {
@@ -1700,6 +1740,7 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) CaseSensitive() pulumi.Boo
 }
 
 // The header match type.
+// See Path Match `match` Block for details.
 func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Match() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) *ListenerRuleMatchHttpMatchPathMatchMatch {
 		if v == nil {
@@ -1712,7 +1753,8 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Match() ListenerRuleMatchH
 type ListenerRuleMatchHttpMatchPathMatchMatch struct {
 	// Specifies an exact type match.
 	Exact *string `pulumi:"exact"`
-	// Specifies a prefix type match. Matches the value with the prefix.
+	// Specifies a prefix type match.
+	// Matches the value with the prefix.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1730,7 +1772,8 @@ type ListenerRuleMatchHttpMatchPathMatchMatchInput interface {
 type ListenerRuleMatchHttpMatchPathMatchMatchArgs struct {
 	// Specifies an exact type match.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specifies a prefix type match. Matches the value with the prefix.
+	// Specifies a prefix type match.
+	// Matches the value with the prefix.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -1816,7 +1859,8 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Exact() pulumi.StringPtr
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a prefix type match. Matches the value with the prefix.
+// Specifies a prefix type match.
+// Matches the value with the prefix.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -1855,7 +1899,8 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Exact() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a prefix type match. Matches the value with the prefix.
+// Specifies a prefix type match.
+// Matches the value with the prefix.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatchMatch) *string {
 		if v == nil {

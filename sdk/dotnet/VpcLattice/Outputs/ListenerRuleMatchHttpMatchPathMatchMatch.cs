@@ -18,7 +18,8 @@ namespace Pulumi.Aws.VpcLattice.Outputs
         /// </summary>
         public readonly string? Exact;
         /// <summary>
-        /// Specifies a prefix type match. Matches the value with the prefix.
+        /// Specifies a prefix type match.
+        /// Matches the value with the prefix.
         /// </summary>
         public readonly string? Prefix;
 

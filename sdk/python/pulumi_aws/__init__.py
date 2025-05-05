@@ -4415,6 +4415,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/defaultCreditSpecification",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/defaultCreditSpecification:DefaultCreditSpecification": "DefaultCreditSpecification"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/defaultNetworkAcl",
   "fqn": "pulumi_aws.ec2",
   "classes": {

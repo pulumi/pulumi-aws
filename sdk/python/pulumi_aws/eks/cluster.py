@@ -831,7 +831,7 @@ class Cluster(pulumi.CustomResource):
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=example_aws_iam_role["arn"],
+            role_arn=cluster.arn,
             version="1.31",
             vpc_config={
                 "subnet_ids": [
@@ -1029,7 +1029,7 @@ class Cluster(pulumi.CustomResource):
             access_config={
                 "authentication_mode": "CONFIG_MAP",
             },
-            role_arn=example_aws_iam_role["arn"],
+            role_arn=cluster.arn,
             version="1.31",
             vpc_config={
                 "endpoint_private_access": True,
@@ -1118,7 +1118,7 @@ class Cluster(pulumi.CustomResource):
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=example_aws_iam_role["arn"],
+            role_arn=cluster.arn,
             version="1.31",
             vpc_config={
                 "subnet_ids": [
@@ -1316,7 +1316,7 @@ class Cluster(pulumi.CustomResource):
             access_config={
                 "authentication_mode": "CONFIG_MAP",
             },
-            role_arn=example_aws_iam_role["arn"],
+            role_arn=cluster.arn,
             version="1.31",
             vpc_config={
                 "endpoint_private_access": True,

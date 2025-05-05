@@ -71,7 +71,7 @@ import (
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("API"),
 //				},
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				RoleArn: cluster.Arn,
 //				Version: pulumi.String("1.31"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
@@ -418,7 +418,7 @@ import (
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("CONFIG_MAP"),
 //				},
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				RoleArn: cluster.Arn,
 //				Version: pulumi.String("1.31"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),

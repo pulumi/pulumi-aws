@@ -51,6 +51,7 @@ export interface GetDirectoryResult {
      * Directory alias.
      */
     readonly alias: string;
+    readonly certificateBasedAuthProperties: outputs.workspaces.GetDirectoryCertificateBasedAuthProperty[];
     /**
      * User name for the service account.
      */

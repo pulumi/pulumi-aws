@@ -131,6 +131,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        /// </summary>
+        [Output("placement")]
+        public Output<Outputs.InfrastructureConfigurationPlacement?> Placement { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
         /// </summary>
         [Output("resourceTags")]
@@ -268,6 +274,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        /// </summary>
+        [Input("placement")]
+        public Input<Inputs.InfrastructureConfigurationPlacementArgs>? Placement { get; set; }
+
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
 
@@ -397,6 +409,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        /// </summary>
+        [Input("placement")]
+        public Input<Inputs.InfrastructureConfigurationPlacementGetArgs>? Placement { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;

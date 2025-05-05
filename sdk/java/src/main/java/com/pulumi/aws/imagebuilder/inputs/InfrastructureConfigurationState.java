@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs;
 import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationLoggingArgs;
+import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationPlacementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -175,6 +176,21 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
     }
 
     /**
+     * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     * 
+     */
+    @Import(name="placement")
+    private @Nullable Output<InfrastructureConfigurationPlacementArgs> placement;
+
+    /**
+     * @return Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     * 
+     */
+    public Optional<Output<InfrastructureConfigurationPlacementArgs>> placement() {
+        return Optional.ofNullable(this.placement);
+    }
+
+    /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      * 
      */
@@ -300,6 +316,7 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
         this.keyPair = $.keyPair;
         this.logging = $.logging;
         this.name = $.name;
+        this.placement = $.placement;
         this.resourceTags = $.resourceTags;
         this.securityGroupIds = $.securityGroupIds;
         this.snsTopicArn = $.snsTopicArn;
@@ -549,6 +566,27 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param placement Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placement(@Nullable Output<InfrastructureConfigurationPlacementArgs> placement) {
+            $.placement = placement;
+            return this;
+        }
+
+        /**
+         * @param placement Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placement(InfrastructureConfigurationPlacementArgs placement) {
+            return placement(Output.of(placement));
         }
 
         /**

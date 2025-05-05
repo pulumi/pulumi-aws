@@ -81,6 +81,10 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Example: "true",
  *     },
+ *     certificateBasedAuthProperties: {
+ *         certificateAuthorityArn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+ *         status: "ENABLED",
+ *     },
  *     samlProperties: {
  *         userAccessUrl: "https://sso.example.com/",
  *         status: "ENABLED",
@@ -171,6 +175,10 @@ export class Directory extends pulumi.CustomResource {
      */
     public /*out*/ readonly alias!: pulumi.Output<string>;
     /**
+     * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     */
+    public readonly certificateBasedAuthProperties!: pulumi.Output<outputs.workspaces.DirectoryCertificateBasedAuthProperties>;
+    /**
      * The user name for the service account.
      */
     public /*out*/ readonly customerUserName!: pulumi.Output<string>;
@@ -251,6 +259,7 @@ export class Directory extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
             resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["certificateBasedAuthProperties"] = state ? state.certificateBasedAuthProperties : undefined;
             resourceInputs["customerUserName"] = state ? state.customerUserName : undefined;
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
             resourceInputs["directoryName"] = state ? state.directoryName : undefined;
@@ -272,6 +281,7 @@ export class Directory extends pulumi.CustomResource {
             if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
+            resourceInputs["certificateBasedAuthProperties"] = args ? args.certificateBasedAuthProperties : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
             resourceInputs["samlProperties"] = args ? args.samlProperties : undefined;
@@ -303,6 +313,10 @@ export interface DirectoryState {
      * The directory alias.
      */
     alias?: pulumi.Input<string>;
+    /**
+     * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     */
+    certificateBasedAuthProperties?: pulumi.Input<inputs.workspaces.DirectoryCertificateBasedAuthProperties>;
     /**
      * The user name for the service account.
      */
@@ -375,6 +389,10 @@ export interface DirectoryState {
  * The set of arguments for constructing a Directory resource.
  */
 export interface DirectoryArgs {
+    /**
+     * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     */
+    certificateBasedAuthProperties?: pulumi.Input<inputs.workspaces.DirectoryCertificateBasedAuthProperties>;
     /**
      * The directory identifier for registration in WorkSpaces service.
      */

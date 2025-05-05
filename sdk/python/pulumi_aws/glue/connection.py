@@ -22,6 +22,7 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
+                 athena_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  connection_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -32,11 +33,12 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
                
                **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[builtins.str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] match_criterias: List of criteria that can be used in selecting this connection.
         :param pulumi.Input[builtins.str] name: Name of the connection.
@@ -45,6 +47,8 @@ class ConnectionArgs:
         :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        if athena_properties is not None:
+            pulumi.set(__self__, "athena_properties", athena_properties)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if connection_properties is not None:
@@ -61,6 +65,18 @@ class ConnectionArgs:
             pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of key-value pairs used as connection properties specific to the Athena compute environment.
+        """
+        return pulumi.get(self, "athena_properties")
+
+    @athena_properties.setter
+    def athena_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "athena_properties", value)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -92,7 +108,7 @@ class ConnectionArgs:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -167,6 +183,7 @@ class ConnectionArgs:
 class _ConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 athena_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  connection_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -179,11 +196,12 @@ class _ConnectionState:
         """
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Glue Connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
                
                **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[builtins.str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] match_criterias: List of criteria that can be used in selecting this connection.
         :param pulumi.Input[builtins.str] name: Name of the connection.
@@ -195,6 +213,8 @@ class _ConnectionState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if athena_properties is not None:
+            pulumi.set(__self__, "athena_properties", athena_properties)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if connection_properties is not None:
@@ -230,6 +250,18 @@ class _ConnectionState:
         pulumi.set(self, "arn", value)
 
     @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of key-value pairs used as connection properties specific to the Athena compute environment.
+        """
+        return pulumi.get(self, "athena_properties")
+
+    @athena_properties.setter
+    def athena_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "athena_properties", value)
+
+    @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -259,7 +291,7 @@ class _ConnectionState:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 
@@ -351,6 +383,7 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 athena_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  connection_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -605,6 +638,22 @@ class Connection(pulumi.CustomResource):
             })
         ```
 
+        ### DynamoDB Connection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.glue.Connection("test",
+            name="example",
+            connection_type="DYNAMODB",
+            athena_properties={
+                "lambda_function_arn": "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_athena_abcdefgh",
+                "disable_spill_encryption": "false",
+                "spill_bucket": "example-bucket",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -615,11 +664,12 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
                
                **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[builtins.str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] match_criterias: List of criteria that can be used in selecting this connection.
         :param pulumi.Input[builtins.str] name: Name of the connection.
@@ -879,6 +929,22 @@ class Connection(pulumi.CustomResource):
             })
         ```
 
+        ### DynamoDB Connection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.glue.Connection("test",
+            name="example",
+            connection_type="DYNAMODB",
+            athena_properties={
+                "lambda_function_arn": "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_athena_abcdefgh",
+                "disable_spill_encryption": "false",
+                "spill_bucket": "example-bucket",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -902,6 +968,7 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 athena_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  connection_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -919,6 +986,7 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
+            __props__.__dict__["athena_properties"] = None if athena_properties is None else pulumi.Output.secret(athena_properties)
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["connection_properties"] = None if connection_properties is None else pulumi.Output.secret(connection_properties)
             __props__.__dict__["connection_type"] = connection_type
@@ -929,7 +997,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionProperties"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["athenaProperties", "connectionProperties"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
@@ -942,6 +1010,7 @@ class Connection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            athena_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             catalog_id: Optional[pulumi.Input[builtins.str]] = None,
             connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             connection_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -959,11 +1028,12 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Glue Connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
                
                **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        :param pulumi.Input[builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         :param pulumi.Input[builtins.str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] match_criterias: List of criteria that can be used in selecting this connection.
         :param pulumi.Input[builtins.str] name: Name of the connection.
@@ -978,6 +1048,7 @@ class Connection(pulumi.CustomResource):
         __props__ = _ConnectionState.__new__(_ConnectionState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["athena_properties"] = athena_properties
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["connection_properties"] = connection_properties
         __props__.__dict__["connection_type"] = connection_type
@@ -996,6 +1067,14 @@ class Connection(pulumi.CustomResource):
         ARN of the Glue Connection.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        Map of key-value pairs used as connection properties specific to the Athena compute environment.
+        """
+        return pulumi.get(self, "athena_properties")
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1019,7 +1098,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         """
         return pulumi.get(self, "connection_type")
 

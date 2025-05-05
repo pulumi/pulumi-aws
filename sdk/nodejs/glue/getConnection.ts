@@ -53,9 +53,16 @@ export interface GetConnectionResult {
      */
     readonly arn: string;
     /**
+     * A map of connection properties specific to the Athena compute environment.
+     */
+    readonly athenaProperties: {[key: string]: string};
+    /**
      * Catalog ID of the Glue Connection.
      */
     readonly catalogId: string;
+    /**
+     * A map of connection properties.
+     */
     readonly connectionProperties: {[key: string]: string};
     /**
      * Type of Glue Connection.

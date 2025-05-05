@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.inputs;
 
+import com.pulumi.aws.workspaces.inputs.DirectoryCertificateBasedAuthPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
@@ -34,6 +35,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
+    }
+
+    /**
+     * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     * 
+     */
+    @Import(name="certificateBasedAuthProperties")
+    private @Nullable Output<DirectoryCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties;
+
+    /**
+     * @return Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     * 
+     */
+    public Optional<Output<DirectoryCertificateBasedAuthPropertiesArgs>> certificateBasedAuthProperties() {
+        return Optional.ofNullable(this.certificateBasedAuthProperties);
     }
 
     /**
@@ -288,6 +304,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
 
     private DirectoryState(DirectoryState $) {
         this.alias = $.alias;
+        this.certificateBasedAuthProperties = $.certificateBasedAuthProperties;
         this.customerUserName = $.customerUserName;
         this.directoryId = $.directoryId;
         this.directoryName = $.directoryName;
@@ -343,6 +360,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(@Nullable Output<DirectoryCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties) {
+            $.certificateBasedAuthProperties = certificateBasedAuthProperties;
+            return this;
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(DirectoryCertificateBasedAuthPropertiesArgs certificateBasedAuthProperties) {
+            return certificateBasedAuthProperties(Output.of(certificateBasedAuthProperties));
         }
 
         /**

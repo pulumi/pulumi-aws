@@ -148,9 +148,16 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// A map of connection properties specific to the Athena compute environment.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> AthenaProperties;
+        /// <summary>
         /// Catalog ID of the Glue Connection.
         /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// A map of connection properties.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> ConnectionProperties;
         /// <summary>
         /// Type of Glue Connection.
@@ -182,6 +189,8 @@ namespace Pulumi.Aws.Glue
         private GetConnectionResult(
             string arn,
 
+            ImmutableDictionary<string, string> athenaProperties,
+
             string catalogId,
 
             ImmutableDictionary<string, string> connectionProperties,
@@ -201,6 +210,7 @@ namespace Pulumi.Aws.Glue
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            AthenaProperties = athenaProperties;
             CatalogId = catalogId;
             ConnectionProperties = connectionProperties;
             ConnectionType = connectionType;

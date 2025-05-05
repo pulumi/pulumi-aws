@@ -2734,7 +2734,7 @@ type AgentDataSourceDataSourceConfiguration struct {
 	SalesforceConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfiguration `pulumi:"salesforceConfiguration"`
 	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
 	SharePointConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfiguration `pulumi:"sharePointConfiguration"`
-	// Type of storage for the data source. Valid values: `S3`.
+	// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
 	Type string `pulumi:"type"`
 	// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
 	WebConfiguration *AgentDataSourceDataSourceConfigurationWebConfiguration `pulumi:"webConfiguration"`
@@ -2760,7 +2760,7 @@ type AgentDataSourceDataSourceConfigurationArgs struct {
 	SalesforceConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput `pulumi:"salesforceConfiguration"`
 	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
 	SharePointConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput `pulumi:"sharePointConfiguration"`
-	// Type of storage for the data source. Valid values: `S3`.
+	// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
 	WebConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput `pulumi:"webConfiguration"`
@@ -2871,7 +2871,7 @@ func (o AgentDataSourceDataSourceConfigurationOutput) SharePointConfiguration() 
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
 }
 
-// Type of storage for the data source. Valid values: `S3`.
+// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
 func (o AgentDataSourceDataSourceConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2947,7 +2947,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) SharePointConfiguration
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
 }
 
-// Type of storage for the data source. Valid values: `S3`.
+// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *string {
 		if v == nil {

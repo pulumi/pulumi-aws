@@ -28,10 +28,13 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, tags=None):
+    def __init__(__self__, arn=None, athena_properties=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if athena_properties and not isinstance(athena_properties, dict):
+            raise TypeError("Expected argument 'athena_properties' to be a dict")
+        pulumi.set(__self__, "athena_properties", athena_properties)
         if catalog_id and not isinstance(catalog_id, str):
             raise TypeError("Expected argument 'catalog_id' to be a str")
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -69,6 +72,14 @@ class GetConnectionResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> Mapping[str, builtins.str]:
+        """
+        A map of connection properties specific to the Athena compute environment.
+        """
+        return pulumi.get(self, "athena_properties")
+
+    @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> builtins.str:
         """
@@ -79,6 +90,9 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Mapping[str, builtins.str]:
+        """
+        A map of connection properties.
+        """
         return pulumi.get(self, "connection_properties")
 
     @property
@@ -142,6 +156,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             yield self
         return GetConnectionResult(
             arn=self.arn,
+            athena_properties=self.athena_properties,
             catalog_id=self.catalog_id,
             connection_properties=self.connection_properties,
             connection_type=self.connection_type,
@@ -181,6 +196,7 @@ def get_connection(id: Optional[builtins.str] = None,
 
     return AwaitableGetConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        athena_properties=pulumi.get(__ret__, 'athena_properties'),
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         connection_properties=pulumi.get(__ret__, 'connection_properties'),
         connection_type=pulumi.get(__ret__, 'connection_type'),
@@ -217,6 +233,7 @@ def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),
+        athena_properties=pulumi.get(__response__, 'athena_properties'),
         catalog_id=pulumi.get(__response__, 'catalog_id'),
         connection_properties=pulumi.get(__response__, 'connection_properties'),
         connection_type=pulumi.get(__response__, 'connection_type'),

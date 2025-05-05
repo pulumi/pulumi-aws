@@ -80,6 +80,58 @@ import (
 //
 // ```
 //
+// ### Organization Unused Access Analyzer with analysis rule
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
+//				AnalyzerName: pulumi.String("example"),
+//				Type:         pulumi.String("ORGANIZATION_UNUSED_ACCESS"),
+//				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
+//					UnusedAccess: &accessanalyzer.AnalyzerConfigurationUnusedAccessArgs{
+//						UnusedAccessAge: pulumi.Int(180),
+//						AnalysisRule: &accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{
+//							Exclusions: accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray{
+//								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
+//									AccountIds: pulumi.StringArray{
+//										pulumi.String("123456789012"),
+//										pulumi.String("234567890123"),
+//									},
+//								},
+//								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
+//									ResourceTags: pulumi.StringMapArray{
+//										pulumi.StringMap{
+//											"key1": pulumi.String("value1"),
+//										},
+//										pulumi.StringMap{
+//											"key2": pulumi.String("value2"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:

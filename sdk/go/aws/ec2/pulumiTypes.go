@@ -1056,6 +1056,162 @@ func (o CapacityBlockReservationTimeoutsPtrOutput) Create() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type DefaultCreditSpecificationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DefaultCreditSpecificationTimeoutsInput is an input type that accepts DefaultCreditSpecificationTimeoutsArgs and DefaultCreditSpecificationTimeoutsOutput values.
+// You can construct a concrete instance of `DefaultCreditSpecificationTimeoutsInput` via:
+//
+//	DefaultCreditSpecificationTimeoutsArgs{...}
+type DefaultCreditSpecificationTimeoutsInput interface {
+	pulumi.Input
+
+	ToDefaultCreditSpecificationTimeoutsOutput() DefaultCreditSpecificationTimeoutsOutput
+	ToDefaultCreditSpecificationTimeoutsOutputWithContext(context.Context) DefaultCreditSpecificationTimeoutsOutput
+}
+
+type DefaultCreditSpecificationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DefaultCreditSpecificationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsOutput() DefaultCreditSpecificationTimeoutsOutput {
+	return i.ToDefaultCreditSpecificationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultCreditSpecificationTimeoutsOutput)
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return i.ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultCreditSpecificationTimeoutsOutput).ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DefaultCreditSpecificationTimeoutsPtrInput is an input type that accepts DefaultCreditSpecificationTimeoutsArgs, DefaultCreditSpecificationTimeoutsPtr and DefaultCreditSpecificationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DefaultCreditSpecificationTimeoutsPtrInput` via:
+//
+//	        DefaultCreditSpecificationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DefaultCreditSpecificationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput
+	ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Context) DefaultCreditSpecificationTimeoutsPtrOutput
+}
+
+type defaultCreditSpecificationTimeoutsPtrType DefaultCreditSpecificationTimeoutsArgs
+
+func DefaultCreditSpecificationTimeoutsPtr(v *DefaultCreditSpecificationTimeoutsArgs) DefaultCreditSpecificationTimeoutsPtrInput {
+	return (*defaultCreditSpecificationTimeoutsPtrType)(v)
+}
+
+func (*defaultCreditSpecificationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (i *defaultCreditSpecificationTimeoutsPtrType) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return i.ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultCreditSpecificationTimeoutsPtrType) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultCreditSpecificationTimeoutsPtrOutput)
+}
+
+type DefaultCreditSpecificationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DefaultCreditSpecificationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsOutput() DefaultCreditSpecificationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o.ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultCreditSpecificationTimeouts) *DefaultCreditSpecificationTimeouts {
+		return &v
+	}).(DefaultCreditSpecificationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultCreditSpecificationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultCreditSpecificationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DefaultCreditSpecificationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultCreditSpecificationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) Elem() DefaultCreditSpecificationTimeoutsOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecificationTimeouts) DefaultCreditSpecificationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultCreditSpecificationTimeouts
+		return ret
+	}).(DefaultCreditSpecificationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecificationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecificationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DefaultNetworkAclEgress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
@@ -61578,6 +61734,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), AmiFromInstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityBlockReservationTimeoutsInput)(nil)).Elem(), CapacityBlockReservationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityBlockReservationTimeoutsPtrInput)(nil)).Elem(), CapacityBlockReservationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultCreditSpecificationTimeoutsInput)(nil)).Elem(), DefaultCreditSpecificationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultCreditSpecificationTimeoutsPtrInput)(nil)).Elem(), DefaultCreditSpecificationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclEgressInput)(nil)).Elem(), DefaultNetworkAclEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclEgressArrayInput)(nil)).Elem(), DefaultNetworkAclEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclIngressInput)(nil)).Elem(), DefaultNetworkAclIngressArgs{})
@@ -62483,6 +62641,8 @@ func init() {
 	pulumi.RegisterOutputType(AmiFromInstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(CapacityBlockReservationTimeoutsOutput{})
 	pulumi.RegisterOutputType(CapacityBlockReservationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DefaultCreditSpecificationTimeoutsOutput{})
+	pulumi.RegisterOutputType(DefaultCreditSpecificationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclIngressOutput{})
