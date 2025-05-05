@@ -124,14 +124,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
-//				LogDestination:     exampleBucketV2.Arn,
+//				LogDestination:     exampleBucket.Arn,
 //				LogDestinationType: pulumi.String("s3"),
 //				TrafficType:        pulumi.String("ALL"),
 //				VpcId:              pulumi.Any(exampleAwsVpc.Id),
@@ -160,14 +160,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
-//				LogDestination:     exampleBucketV2.Arn,
+//				LogDestination:     exampleBucket.Arn,
 //				LogDestinationType: pulumi.String("s3"),
 //				TrafficType:        pulumi.String("ALL"),
 //				VpcId:              pulumi.Any(exampleAwsVpc.Id),

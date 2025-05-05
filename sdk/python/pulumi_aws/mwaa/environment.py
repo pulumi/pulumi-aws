@@ -1016,7 +1016,7 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+        A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.Bucket`).
 
         ### Basic Usage
 
@@ -1165,7 +1165,7 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+        A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.Bucket`).
 
         ### Basic Usage
 

@@ -38,7 +38,7 @@ import {BucketV2} from "./index";
  *     description: "KMS key 1",
  *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
  * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -57,7 +57,7 @@ import {BucketV2} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
  * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -76,7 +76,7 @@ import {BucketV2} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
  * const example = new aws.s3.BucketAclV2("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
@@ -95,7 +95,7 @@ import {BucketV2} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     bucket: "examplebuckettftest",
  *     objectLockEnabled: true,
  * });

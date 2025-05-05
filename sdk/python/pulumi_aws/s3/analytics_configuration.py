@@ -188,8 +188,8 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
-        analytics = aws.s3.BucketV2("analytics", bucket="analytics-destination")
+        example = aws.s3.Bucket("example", bucket="example")
+        analytics = aws.s3.Bucket("analytics", bucket="analytics-destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket",
@@ -210,7 +210,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
@@ -257,8 +257,8 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
-        analytics = aws.s3.BucketV2("analytics", bucket="analytics-destination")
+        example = aws.s3.Bucket("example", bucket="example")
+        analytics = aws.s3.Bucket("analytics", bucket="analytics-destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket",
@@ -279,7 +279,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",

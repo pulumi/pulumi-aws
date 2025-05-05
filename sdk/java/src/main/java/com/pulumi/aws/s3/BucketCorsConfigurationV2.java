@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketCorsConfigurationV2;
  * import com.pulumi.aws.s3.BucketCorsConfigurationV2Args;
  * import com.pulumi.aws.s3.inputs.BucketCorsConfigurationV2CorsRuleArgs;
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .build());
  * 

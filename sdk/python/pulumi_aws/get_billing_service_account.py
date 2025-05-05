@@ -74,7 +74,7 @@ def get_billing_service_account(id: Optional[builtins.str] = None,
     import pulumi_aws as aws
 
     main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billing_logs", bucket="my-billing-tf-test-bucket")
+    billing_logs = aws.s3.Bucket("billing_logs", bucket="my-billing-tf-test-bucket")
     billing_logs_acl = aws.s3.BucketAclV2("billing_logs_acl",
         bucket=billing_logs.id,
         acl="private")
@@ -133,7 +133,7 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[builti
     import pulumi_aws as aws
 
     main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billing_logs", bucket="my-billing-tf-test-bucket")
+    billing_logs = aws.s3.Bucket("billing_logs", bucket="my-billing-tf-test-bucket")
     billing_logs_acl = aws.s3.BucketAclV2("billing_logs_acl",
         bucket=billing_logs.id,
         acl="private")

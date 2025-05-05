@@ -1967,8 +1967,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1991,7 +1991,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
@@ -2058,8 +2058,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -2082,7 +2082,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
@@ -2149,8 +2149,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -2173,7 +2173,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
@@ -2240,8 +2240,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -2264,7 +2264,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
@@ -2331,8 +2331,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -2355,7 +2355,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
@@ -2422,8 +2422,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -2446,7 +2446,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
@@ -2513,8 +2513,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -2537,7 +2537,7 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 

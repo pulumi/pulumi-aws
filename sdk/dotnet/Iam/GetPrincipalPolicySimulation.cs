@@ -97,9 +97,9 @@ namespace Pulumi.Aws.Iam
         ///         Name = "example",
         ///     });
         /// 
-        ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+        ///     var exampleBucket = new Aws.S3.Bucket("example", new()
         ///     {
-        ///         Bucket = "my-test-bucket",
+        ///         BucketName = "my-test-bucket",
         ///     });
         /// 
         ///     var s3Access = new Aws.Iam.UserPolicy("s3_access", new()
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Iam
         ///                 {
         ///                     ["Action"] = "s3:GetObject",
         ///                     ["Effect"] = "Allow",
-        ///                     ["Resource"] = exampleBucketV2.Arn,
+        ///                     ["Resource"] = exampleBucket.Arn,
         ///                 },
         ///             },
         ///         })),
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var accountAccess = new Aws.S3.BucketPolicy("account_access", new()
         ///     {
-        ///         Bucket = exampleBucketV2.Bucket,
+        ///         Bucket = exampleBucket.BucketName,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
         ///             ["Version"] = "2012-10-17",
@@ -139,8 +139,8 @@ namespace Pulumi.Aws.Iam
         ///                     },
         ///                     ["Resource"] = new[]
         ///                     {
-        ///                         exampleBucketV2.Arn,
-        ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+        ///                         exampleBucket.Arn,
+        ///                         exampleBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
         ///                     },
         ///                 },
         ///             },
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Iam
         ///         PolicySourceArn = example.Arn,
         ///         ResourceArns = new[]
         ///         {
-        ///             exampleBucketV2.Arn,
+        ///             exampleBucket.Arn,
         ///         },
         ///         ResourcePolicyJson = accountAccess.Policy,
         ///     });
@@ -255,9 +255,9 @@ namespace Pulumi.Aws.Iam
         ///         Name = "example",
         ///     });
         /// 
-        ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+        ///     var exampleBucket = new Aws.S3.Bucket("example", new()
         ///     {
-        ///         Bucket = "my-test-bucket",
+        ///         BucketName = "my-test-bucket",
         ///     });
         /// 
         ///     var s3Access = new Aws.Iam.UserPolicy("s3_access", new()
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Iam
         ///                 {
         ///                     ["Action"] = "s3:GetObject",
         ///                     ["Effect"] = "Allow",
-        ///                     ["Resource"] = exampleBucketV2.Arn,
+        ///                     ["Resource"] = exampleBucket.Arn,
         ///                 },
         ///             },
         ///         })),
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var accountAccess = new Aws.S3.BucketPolicy("account_access", new()
         ///     {
-        ///         Bucket = exampleBucketV2.Bucket,
+        ///         Bucket = exampleBucket.BucketName,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
         ///             ["Version"] = "2012-10-17",
@@ -297,8 +297,8 @@ namespace Pulumi.Aws.Iam
         ///                     },
         ///                     ["Resource"] = new[]
         ///                     {
-        ///                         exampleBucketV2.Arn,
-        ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+        ///                         exampleBucket.Arn,
+        ///                         exampleBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
         ///                     },
         ///                 },
         ///             },
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Iam
         ///         PolicySourceArn = example.Arn,
         ///         ResourceArns = new[]
         ///         {
-        ///             exampleBucketV2.Arn,
+        ///             exampleBucket.Arn,
         ///         },
         ///         ResourcePolicyJson = accountAccess.Policy,
         ///     });
@@ -413,9 +413,9 @@ namespace Pulumi.Aws.Iam
         ///         Name = "example",
         ///     });
         /// 
-        ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+        ///     var exampleBucket = new Aws.S3.Bucket("example", new()
         ///     {
-        ///         Bucket = "my-test-bucket",
+        ///         BucketName = "my-test-bucket",
         ///     });
         /// 
         ///     var s3Access = new Aws.Iam.UserPolicy("s3_access", new()
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Iam
         ///                 {
         ///                     ["Action"] = "s3:GetObject",
         ///                     ["Effect"] = "Allow",
-        ///                     ["Resource"] = exampleBucketV2.Arn,
+        ///                     ["Resource"] = exampleBucket.Arn,
         ///                 },
         ///             },
         ///         })),
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var accountAccess = new Aws.S3.BucketPolicy("account_access", new()
         ///     {
-        ///         Bucket = exampleBucketV2.Bucket,
+        ///         Bucket = exampleBucket.BucketName,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
         ///             ["Version"] = "2012-10-17",
@@ -455,8 +455,8 @@ namespace Pulumi.Aws.Iam
         ///                     },
         ///                     ["Resource"] = new[]
         ///                     {
-        ///                         exampleBucketV2.Arn,
-        ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+        ///                         exampleBucket.Arn,
+        ///                         exampleBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
         ///                     },
         ///                 },
         ///             },
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.Iam
         ///         PolicySourceArn = example.Arn,
         ///         ResourceArns = new[]
         ///         {
-        ///             exampleBucketV2.Arn,
+        ///             exampleBucket.Arn,
         ///         },
         ///         ResourcePolicyJson = accountAccess.Policy,
         ///     });

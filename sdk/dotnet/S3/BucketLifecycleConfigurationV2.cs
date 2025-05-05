@@ -33,7 +33,7 @@ namespace Pulumi.Aws.S3
     /// The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
     /// 
     /// This configuration is intended to replicate the default behavior of the `lifecycle_rule`
-    /// parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
+    /// parameter in the AWS Provider `aws.s3.Bucket` resource prior to `v4.0`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -361,9 +361,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "my-bucket",
+    ///         BucketName = "my-bucket",
     ///     });
     /// 
     ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
@@ -427,9 +427,9 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var versioningBucket = new Aws.S3.BucketV2("versioning_bucket", new()
+    ///     var versioningBucket = new Aws.S3.Bucket("versioning_bucket", new()
     ///     {
-    ///         Bucket = "my-versioning-bucket",
+    ///         BucketName = "my-versioning-bucket",
     ///     });
     /// 
     ///     var versioningBucketAcl = new Aws.S3.BucketAclV2("versioning_bucket_acl", new()

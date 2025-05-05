@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-bucket"});
  * const exampleCluster = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "example_cluster",
  *     databaseName: "example_db",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         },
  *         connectorProfileProperties: {
  *             redshift: {
- *                 bucketName: exampleBucketV2.name,
+ *                 bucketName: exampleBucket.name,
  *                 databaseUrl: pulumi.interpolate`jdbc:redshift://${exampleCluster.endpoint}/${exampleCluster.databaseName}`,
  *                 roleArn: exampleRole.arn,
  *             },

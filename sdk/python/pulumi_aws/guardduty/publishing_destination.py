@@ -190,7 +190,7 @@ class PublishingDestination(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         current_get_region = aws.get_region()
-        gd_bucket = aws.s3.BucketV2("gd_bucket",
+        gd_bucket = aws.s3.Bucket("gd_bucket",
             bucket="example",
             force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
@@ -287,7 +287,7 @@ class PublishingDestination(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         current_get_region = aws.get_region()
-        gd_bucket = aws.s3.BucketV2("gd_bucket",
+        gd_bucket = aws.s3.Bucket("gd_bucket",
             bucket="example",
             force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[

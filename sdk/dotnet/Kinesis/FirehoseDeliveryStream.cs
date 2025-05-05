@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "tf-test-bucket",
+    ///         BucketName = "tf-test-bucket",
     ///     });
     /// 
     ///     var firehoseAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -766,9 +766,9 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "test-bucket",
+    ///         BucketName = "test-bucket",
     ///         ForceDestroy = true,
     ///     });
     /// 

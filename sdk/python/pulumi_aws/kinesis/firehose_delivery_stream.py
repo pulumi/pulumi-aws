@@ -662,7 +662,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="tf-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -1123,7 +1123,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        bucket = aws.s3.BucketV2("bucket",
+        bucket = aws.s3.Bucket("bucket",
             bucket="test-bucket",
             force_destroy=True)
         test = aws.glue.CatalogDatabase("test", name="test")
@@ -1319,7 +1319,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="tf-test-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="tf-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -1780,7 +1780,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        bucket = aws.s3.BucketV2("bucket",
+        bucket = aws.s3.Bucket("bucket",
             bucket="test-bucket",
             force_destroy=True)
         test = aws.glue.CatalogDatabase("test", name="test")

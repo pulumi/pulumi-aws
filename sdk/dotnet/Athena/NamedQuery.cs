@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hoge = new Aws.S3.BucketV2("hoge", new()
+    ///     var hoge = new Aws.S3.Bucket("hoge", new()
     ///     {
-    ///         Bucket = "tf-test",
+    ///         BucketName = "tf-test",
     ///     });
     /// 
     ///     var test = new Aws.Kms.Key("test", new()

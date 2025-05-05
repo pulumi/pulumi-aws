@@ -71,7 +71,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-test"),
 //			})
 //			if err != nil {
@@ -83,7 +83,7 @@ import (
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 //					Type: pulumi.String("S3"),
 //					S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
-//						Bucket:             exampleBucketV2.ID(),
+//						Bucket:             exampleBucket.ID(),
 //						EncryptionDisabled: pulumi.Bool(false),
 //						EncryptionKey:      exampleKey.Arn,
 //						Packaging:          pulumi.String("NONE"),

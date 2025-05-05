@@ -74,15 +74,15 @@ namespace Pulumi.Aws.CustomerProfiles
     ///         DeletionWindowInDays = 10,
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -100,8 +100,8 @@ namespace Pulumi.Aws.CustomerProfiles
     ///                     },
     ///                     ["Resource"] = new[]
     ///                     {
-    ///                         exampleBucketV2.Arn,
-    ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+    ///                         exampleBucket.Arn,
+    ///                         exampleBucket.Arn.Apply(arn =&gt; $"{arn}/*"),
     ///                     },
     ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {

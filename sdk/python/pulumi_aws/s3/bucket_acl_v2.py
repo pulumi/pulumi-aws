@@ -190,7 +190,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
@@ -211,7 +211,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
@@ -239,7 +239,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.s3.get_canonical_user_id()
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
@@ -333,7 +333,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
@@ -354,7 +354,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={
@@ -382,7 +382,7 @@ class BucketAclV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.s3.get_canonical_user_id()
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
             rule={

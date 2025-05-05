@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
  *     bucket: example.id,
  *     rule: {
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
  *     bucket: example.id,
  *     rule: {
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.s3.getCanonicalUserId({});
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
  *     bucket: example.id,
  *     rule: {

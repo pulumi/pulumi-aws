@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.S3.BucketV2("default", new()
+    ///     var @default = new Aws.S3.Bucket("default", new()
     ///     {
-    ///         Bucket = "tf-spot-datafeed",
+    ///         BucketName = "tf-spot-datafeed",
     ///     });
     /// 
     ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("default", new()

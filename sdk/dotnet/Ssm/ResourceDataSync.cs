@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hoge", new()
+    ///     var hogeBucket = new Aws.S3.Bucket("hoge", new()
     ///     {
-    ///         Bucket = "tf-test-bucket-1234",
+    ///         BucketName = "tf-test-bucket-1234",
     ///     });
     /// 
     ///     var hoge = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hoge", new()
     ///     {
-    ///         Bucket = hogeBucketV2.Id,
+    ///         Bucket = hogeBucket.Id,
     ///         Policy = hoge.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -105,8 +105,8 @@ namespace Pulumi.Aws.Ssm
     ///         Name = "foo",
     ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
     ///         {
-    ///             BucketName = hogeBucketV2.Bucket,
-    ///             Region = hogeBucketV2.Region,
+    ///             BucketName = hogeBucket.BucketName,
+    ///             Region = hogeBucket.Region,
     ///         },
     ///     });
     /// 

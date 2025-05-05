@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     acl: "private",
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const example = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
+ * const example = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -85,8 +85,8 @@ import * as utilities from "../utilities";
  *             effect: "Allow",
  *             actions: ["s3:*"],
  *             resources: [
- *                 exampleBucketV2Arn,
- *                 `${exampleBucketV2Arn1}/*`,
+ *                 exampleBucketArn,
+ *                 `${exampleBucketArn1}/*`,
  *             ],
  *         },
  *         {
@@ -113,7 +113,7 @@ import * as utilities from "../utilities";
  *     },
  *     cache: {
  *         type: "S3",
- *         location: exampleBucketV2.bucket,
+ *         location: exampleBucket.bucket,
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
@@ -139,7 +139,7 @@ import * as utilities from "../utilities";
  *         },
  *         s3Logs: {
  *             status: "ENABLED",
- *             location: pulumi.interpolate`${exampleBucketV2.id}/build-log`,
+ *             location: pulumi.interpolate`${exampleBucket.id}/build-log`,
  *         },
  *     },
  *     source: {

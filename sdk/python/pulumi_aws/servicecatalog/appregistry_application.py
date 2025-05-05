@@ -224,7 +224,7 @@ class AppregistryApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        bucket = aws.s3.BucketV2("bucket",
+        bucket = aws.s3.Bucket("bucket",
             bucket="example-bucket",
             tags=example.application_tag)
         ```
@@ -274,7 +274,7 @@ class AppregistryApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        bucket = aws.s3.BucketV2("bucket",
+        bucket = aws.s3.Bucket("bucket",
             bucket="example-bucket",
             tags=example.application_tag)
         ```

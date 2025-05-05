@@ -220,7 +220,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
+        example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -237,13 +237,13 @@ class LoggingConfiguration(pulumi.CustomResource):
             destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": example_role.arn,
-                "bucket_arn": example_bucket_v2.arn,
+                "bucket_arn": example_bucket.arn,
             },
             tags={
                 "LogDeliveryEnabled": "true",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
             "firehose": {
@@ -297,7 +297,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
+        example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -314,13 +314,13 @@ class LoggingConfiguration(pulumi.CustomResource):
             destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": example_role.arn,
-                "bucket_arn": example_bucket_v2.arn,
+                "bucket_arn": example_bucket.arn,
             },
             tags={
                 "LogDeliveryEnabled": "true",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             acl="private")
         example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
             "firehose": {

@@ -1890,6 +1890,7 @@
         "s3/accessPoint.ts",
         "s3/accountPublicAccessBlock.ts",
         "s3/analyticsConfiguration.ts",
+        "s3/bucket.ts",
         "s3/bucketAccelerateConfigurationV2.ts",
         "s3/bucketAclV2.ts",
         "s3/bucketCorsConfigurationV2.ts",

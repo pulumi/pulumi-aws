@@ -67,7 +67,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket"),
 //			})
 //			if err != nil {
@@ -106,7 +106,7 @@ import (
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   exampleRole.Arn,
-//					BucketArn: exampleBucketV2.Arn,
+//					BucketArn: exampleBucket.Arn,
 //				},
 //				Tags: pulumi.StringMap{
 //					"LogDeliveryEnabled": pulumi.String("true"),
@@ -116,7 +116,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {

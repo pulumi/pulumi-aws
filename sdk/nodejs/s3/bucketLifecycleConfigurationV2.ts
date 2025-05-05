@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
  *
  * This configuration is intended to replicate the default behavior of the `lifecycleRule`
- * parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
+ * parameter in the AWS Provider `aws.s3.Bucket` resource prior to `v4.0`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -239,7 +239,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "my-bucket"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "my-bucket"});
  * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
@@ -285,7 +285,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.BucketV2("versioning_bucket", {bucket: "my-versioning-bucket"});
+ * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {bucket: "my-versioning-bucket"});
  * const versioningBucketAcl = new aws.s3.BucketAclV2("versioning_bucket_acl", {
  *     bucket: versioningBucket.id,
  *     acl: "private",

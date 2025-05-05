@@ -929,7 +929,7 @@ class BucketObject(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
@@ -946,7 +946,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
@@ -963,7 +963,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
@@ -980,7 +980,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
+        examplebucket = aws.s3.Bucket("examplebucket",
             bucket="examplebuckettftest",
             object_lock_enabled=True)
         example = aws.s3.BucketAclV2("example",
@@ -1084,7 +1084,7 @@ class BucketObject(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
@@ -1101,7 +1101,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
@@ -1118,7 +1118,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         example = aws.s3.BucketAclV2("example",
             bucket=examplebucket.id,
             acl="private")
@@ -1135,7 +1135,7 @@ class BucketObject(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
+        examplebucket = aws.s3.Bucket("examplebucket",
             bucket="examplebuckettftest",
             object_lock_enabled=True)
         example = aws.s3.BucketAclV2("example",

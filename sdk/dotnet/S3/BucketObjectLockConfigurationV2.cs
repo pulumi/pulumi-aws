@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///     });
     /// 
     ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()

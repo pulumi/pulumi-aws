@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "tf-test-bucket"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "tf-test-bucket"});
  * const firehoseAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -499,7 +499,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "test-bucket",
  *     forceDestroy: true,
  * });

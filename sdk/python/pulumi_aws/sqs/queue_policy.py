@@ -141,7 +141,7 @@ class QueuePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="brodobaggins")
+        example = aws.s3.Bucket("example", bucket="brodobaggins")
         example_queue = aws.sqs.Queue("example", name="be-giant")
         example_queue_policy = aws.sqs.QueuePolicy("example",
             queue_url=example_queue.id,
@@ -225,7 +225,7 @@ class QueuePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="brodobaggins")
+        example = aws.s3.Bucket("example", bucket="brodobaggins")
         example_queue = aws.sqs.Queue("example", name="be-giant")
         example_queue_policy = aws.sqs.QueuePolicy("example",
             queue_url=example_queue.id,

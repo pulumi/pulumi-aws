@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "example-awsconfig",
+    ///         BucketName = "example-awsconfig",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Cfg
     ///     var foo = new Aws.Cfg.DeliveryChannel("foo", new()
     ///     {
     ///         Name = "example",
-    ///         S3BucketName = b.Bucket,
+    ///         S3BucketName = b.BucketName,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

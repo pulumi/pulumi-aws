@@ -71,7 +71,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-bucket"),
 //			})
 //			if err != nil {
@@ -101,7 +101,7 @@ import (
 //					},
 //					ConnectorProfileProperties: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{
 //						Redshift: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{
-//							BucketName: exampleBucketV2.Name,
+//							BucketName: exampleBucket.Name,
 //							DatabaseUrl: pulumi.All(exampleCluster.Endpoint, exampleCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
 //								endpoint := _args[0].(string)
 //								databaseName := _args[1].(string)

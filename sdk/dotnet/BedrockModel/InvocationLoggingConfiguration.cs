@@ -28,15 +28,15 @@ namespace Pulumi.Aws.BedrockModel
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.BucketName,
     ///         Policy = Output.Tuple(example.Arn, current, current).Apply(values =&gt;
     ///         {
     ///             var arn = values.Item1;

@@ -57,9 +57,9 @@ namespace Pulumi.Aws.CloudWatch
     ///         AssumeRolePolicy = streamsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "metric-stream-test-bucket",
+    ///         BucketName = "metric-stream-test-bucket",
     ///     });
     /// 
     ///     var firehoseAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()

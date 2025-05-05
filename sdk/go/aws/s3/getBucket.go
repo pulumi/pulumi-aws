@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			selected, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "bucket.test.com",
 //			}, nil)
 //			if err != nil {
@@ -80,7 +80,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			selected, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "a-test-bucket",
 //			}, nil)
 //			if err != nil {
@@ -102,9 +102,9 @@ import (
 //	}
 //
 // ```
-func GetBucket(ctx *pulumi.Context, args *GetBucketArgs, opts ...pulumi.InvokeOption) (*GetBucketResult, error) {
+func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetBucketResult
+	var rv LookupBucketResult
 	err := ctx.Invoke("aws:s3/getBucket:getBucket", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -113,13 +113,13 @@ func GetBucket(ctx *pulumi.Context, args *GetBucketArgs, opts ...pulumi.InvokeOp
 }
 
 // A collection of arguments for invoking getBucket.
-type GetBucketArgs struct {
+type LookupBucketArgs struct {
 	// Name of the bucket
 	Bucket string `pulumi:"bucket"`
 }
 
 // A collection of values returned by getBucket.
-type GetBucketResult struct {
+type LookupBucketResult struct {
 	// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn    string `pulumi:"arn"`
 	Bucket string `pulumi:"bucket"`
@@ -139,84 +139,84 @@ type GetBucketResult struct {
 	WebsiteEndpoint string `pulumi:"websiteEndpoint"`
 }
 
-func GetBucketOutput(ctx *pulumi.Context, args GetBucketOutputArgs, opts ...pulumi.InvokeOption) GetBucketResultOutput {
+func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
 	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBucketResultOutput, error) {
-			args := v.(GetBucketArgs)
+		ApplyT(func(v interface{}) (LookupBucketResultOutput, error) {
+			args := v.(LookupBucketArgs)
 			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getBucket:getBucket", args, GetBucketResultOutput{}, options).(GetBucketResultOutput), nil
-		}).(GetBucketResultOutput)
+			return ctx.InvokeOutput("aws:s3/getBucket:getBucket", args, LookupBucketResultOutput{}, options).(LookupBucketResultOutput), nil
+		}).(LookupBucketResultOutput)
 }
 
 // A collection of arguments for invoking getBucket.
-type GetBucketOutputArgs struct {
+type LookupBucketOutputArgs struct {
 	// Name of the bucket
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 
-func (GetBucketOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBucketArgs)(nil)).Elem()
+func (LookupBucketOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBucketArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getBucket.
-type GetBucketResultOutput struct{ *pulumi.OutputState }
+type LookupBucketResultOutput struct{ *pulumi.OutputState }
 
-func (GetBucketResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBucketResult)(nil)).Elem()
+func (LookupBucketResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBucketResult)(nil)).Elem()
 }
 
-func (o GetBucketResultOutput) ToGetBucketResultOutput() GetBucketResultOutput {
+func (o LookupBucketResultOutput) ToLookupBucketResultOutput() LookupBucketResultOutput {
 	return o
 }
 
-func (o GetBucketResultOutput) ToGetBucketResultOutputWithContext(ctx context.Context) GetBucketResultOutput {
+func (o LookupBucketResultOutput) ToLookupBucketResultOutputWithContext(ctx context.Context) LookupBucketResultOutput {
 	return o
 }
 
 // ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-func (o GetBucketResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o GetBucketResultOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.Bucket }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
 // Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-func (o GetBucketResultOutput) BucketDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.BucketDomainName }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) BucketDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.BucketDomainName }).(pulumi.StringOutput)
 }
 
 // The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-func (o GetBucketResultOutput) BucketRegionalDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.BucketRegionalDomainName }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) BucketRegionalDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.BucketRegionalDomainName }).(pulumi.StringOutput)
 }
 
 // The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-func (o GetBucketResultOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetBucketResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // AWS region this bucket resides in.
-func (o GetBucketResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.Region }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-func (o GetBucketResultOutput) WebsiteDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.WebsiteDomain }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) WebsiteDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.WebsiteDomain }).(pulumi.StringOutput)
 }
 
 // Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-func (o GetBucketResultOutput) WebsiteEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketResult) string { return v.WebsiteEndpoint }).(pulumi.StringOutput)
+func (o LookupBucketResultOutput) WebsiteEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketResult) string { return v.WebsiteEndpoint }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetBucketResultOutput{})
+	pulumi.RegisterOutputType(LookupBucketResultOutput{})
 }

@@ -48,12 +48,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example-transcribe",
  *     forceDestroy: true,
  * });
  * const object = new aws.s3.BucketObjectv2("object", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     key: "transcribe/test1.txt",
  *     source: new pulumi.asset.FileAsset("test1.txt"),
  * });
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *     baseModelName: "NarrowBand",
  *     inputDataConfig: {
  *         dataAccessRoleArn: exampleRole.arn,
- *         s3Uri: pulumi.interpolate`s3://${exampleBucketV2.id}/transcribe/`,
+ *         s3Uri: pulumi.interpolate`s3://${exampleBucket.id}/transcribe/`,
  *     },
  *     languageCode: "en-US",
  *     tags: {

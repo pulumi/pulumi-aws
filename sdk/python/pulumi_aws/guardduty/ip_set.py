@@ -284,7 +284,7 @@ class IPSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        bucket = aws.s3.Bucket("bucket")
         my_ip_set = aws.s3.BucketObjectv2("MyIPSet",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
@@ -339,7 +339,7 @@ class IPSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        bucket = aws.s3.Bucket("bucket")
         my_ip_set = aws.s3.BucketObjectv2("MyIPSet",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,

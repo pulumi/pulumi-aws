@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hoge, err := s3.NewBucketV2(ctx, "hoge", &s3.BucketV2Args{
+//			hoge, err := s3.NewBucket(ctx, "hoge", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test"),
 //			})
 //			if err != nil {

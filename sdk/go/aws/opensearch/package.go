@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myOpensearchPackages, err := s3.NewBucketV2(ctx, "my_opensearch_packages", &s3.BucketV2Args{
+//			myOpensearchPackages, err := s3.NewBucket(ctx, "my_opensearch_packages", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-opensearch-packages"),
 //			})
 //			if err != nil {

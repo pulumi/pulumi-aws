@@ -33,14 +33,14 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+// exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 // Bucket: pulumi.String("example"),
 // })
 // if err != nil {
 // return err
 // }
 // _, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-// Bucket: exampleBucketV2.ID(),
+// Bucket: exampleBucket.ID(),
 // Acl: pulumi.String("private"),
 // })
 // if err != nil {
@@ -74,9 +74,9 @@ import (
 // if err != nil {
 // return err
 // }
-// example := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// exampleBucketV2Arn := _args[0].(string)
-// exampleBucketV2Arn1 := _args[1].(string)
+// example := pulumi.All(exampleBucket.Arn,exampleBucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+// exampleBucketArn := _args[0].(string)
+// exampleBucketArn1 := _args[1].(string)
 // return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -137,8 +137,8 @@ import (
 // "s3:*",
 // },
 // Resources: []string{
-// exampleBucketV2Arn,
-// fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+// exampleBucketArn,
+// fmt.Sprintf("%v/*", exampleBucketArn1),
 // },
 // },
 // {
@@ -173,7 +173,7 @@ import (
 // },
 // Cache: &codebuild.ProjectCacheArgs{
 // Type: pulumi.String("S3"),
-// Location: exampleBucketV2.Bucket,
+// Location: exampleBucket.Bucket,
 // },
 // Environment: &codebuild.ProjectEnvironmentArgs{
 // ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
@@ -199,7 +199,7 @@ import (
 // },
 // S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
 // Status: pulumi.String("ENABLED"),
-// Location: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
+// Location: exampleBucket.ID().ApplyT(func(id string) (string, error) {
 // return fmt.Sprintf("%v/build-log", id), nil
 // }).(pulumi.StringOutput),
 // },

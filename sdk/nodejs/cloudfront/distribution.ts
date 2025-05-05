@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {
+ * const b = new aws.s3.Bucket("b", {
  *     bucket: "mybucket",
  *     tags: {
  *         Name: "My bucket",
@@ -264,7 +264,7 @@ import * as utilities from "../utilities";
  *     logType: "ACCESS_LOGS",
  *     resourceArn: example.arn,
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "testbucket",
  *     forceDestroy: true,
  * });
@@ -272,7 +272,7 @@ import * as utilities from "../utilities";
  *     name: "s3-destination",
  *     outputFormat: "parquet",
  *     deliveryDestinationConfiguration: {
- *         destinationResourceArn: pulumi.interpolate`${exampleBucketV2.arn}/prefix`,
+ *         destinationResourceArn: pulumi.interpolate`${exampleBucket.arn}/prefix`,
  *     },
  * });
  * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {

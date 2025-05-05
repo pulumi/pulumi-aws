@@ -26,14 +26,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "my-tf-test-bucket",
+    ///         BucketName = "my-tf-test-bucket",
     ///     });
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory", new()
+    ///     var inventory = new Aws.S3.Bucket("inventory", new()
     ///     {
-    ///         Bucket = "my-tf-inventory-bucket",
+    ///         BucketName = "my-tf-inventory-bucket",
     ///     });
     /// 
     ///     var testInventory = new Aws.S3.Inventory("test", new()
@@ -68,14 +68,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "my-tf-test-bucket",
+    ///         BucketName = "my-tf-test-bucket",
     ///     });
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory", new()
+    ///     var inventory = new Aws.S3.Bucket("inventory", new()
     ///     {
-    ///         Bucket = "my-tf-inventory-bucket",
+    ///         BucketName = "my-tf-inventory-bucket",
     ///     });
     /// 
     ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()

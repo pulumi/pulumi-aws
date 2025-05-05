@@ -139,9 +139,9 @@ namespace Pulumi.Aws.TimestreamQuery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 

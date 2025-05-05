@@ -39,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			bucket, err := s3.NewBucket(ctx, "bucket", nil)
 //			if err != nil {
 //				return err
 //			}

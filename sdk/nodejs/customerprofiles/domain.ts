@@ -45,12 +45,12 @@ import * as utilities from "../utilities";
  *     description: "example",
  *     deletionWindowInDays: 10,
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -62,8 +62,8 @@ import * as utilities from "../utilities";
  *                 "s3:ListBucket",
  *             ],
  *             Resource: [
- *                 exampleBucketV2.arn,
- *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *                 exampleBucket.arn,
+ *                 pulumi.interpolate`${exampleBucket.arn}/*`,
  *             ],
  *             Principal: {
  *                 Service: "profile.amazonaws.com",

@@ -88,7 +88,7 @@ import (
 //
 // Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
 // principal into an `AWS` IAM ARN principal when supplied in an
-// `s3.BucketV2` bucket policy, causing spurious diffs. If
+// `s3.Bucket` bucket policy, causing spurious diffs. If
 // you see this behavior, use the `iamArn` instead:
 //
 // ```go

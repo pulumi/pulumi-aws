@@ -155,7 +155,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket")
@@ -167,7 +167,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
@@ -186,7 +186,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example-access-point",
             bucket=example.id,
             name="example-access-point")
@@ -235,7 +235,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket")
@@ -247,7 +247,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
@@ -266,7 +266,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example-access-point",
             bucket=example.id,
             name="example-access-point")

@@ -450,7 +450,7 @@ class DataSource(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.Bucket("example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.bucket,
             key="manifest.json",
@@ -586,7 +586,7 @@ class DataSource(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        example = aws.s3.BucketV2("example")
+        example = aws.s3.Bucket("example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.bucket,
             key="manifest.json",

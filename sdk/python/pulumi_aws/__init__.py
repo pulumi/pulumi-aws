@@ -10054,6 +10054,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucket",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucket:Bucket": "Bucket"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketAccelerateConfigurationV2",
   "fqn": "pulumi_aws.s3",
   "classes": {

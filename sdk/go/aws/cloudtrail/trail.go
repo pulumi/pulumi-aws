@@ -42,7 +42,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("my-test-trail"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -78,7 +78,7 @@ import (
 //							pulumi.String("s3:GetBucketAcl"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
+//							exampleBucket.Arn,
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
@@ -105,7 +105,7 @@ import (
 //							pulumi.String("s3:PutObject"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, current.AccountId), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -129,7 +129,7 @@ import (
 //				},
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
@@ -139,7 +139,7 @@ import (
 //			}
 //			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				Name:                       pulumi.String("example"),
-//				S3BucketName:               exampleBucketV2.ID(),
+//				S3BucketName:               exampleBucket.ID(),
 //				S3KeyPrefix:                pulumi.String("prefix"),
 //				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -256,7 +256,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			important_bucket, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			important_bucket, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "important-bucket",
 //			}, nil)
 //			if err != nil {
@@ -304,13 +304,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			not_important_bucket_1, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			not_important_bucket_1, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "not-important-bucket-1",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			not_important_bucket_2, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			not_important_bucket_2, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "not-important-bucket-2",
 //			}, nil)
 //			if err != nil {
@@ -381,19 +381,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			important_bucket_1, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			important_bucket_1, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "important-bucket-1",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			important_bucket_2, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			important_bucket_2, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "important-bucket-2",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			important_bucket_3, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			important_bucket_3, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "important-bucket-3",
 //			}, nil)
 //			if err != nil {

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const example = new aws.s3.BucketV2("example", {
+ * const example = new aws.s3.Bucket("example", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });

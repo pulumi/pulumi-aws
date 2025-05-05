@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -79,12 +79,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(exampleBucket.id())
  *             .acl("private")
  *             .build());
  * 
@@ -104,9 +104,9 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
- *         final var example = Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
- *             var exampleBucketV2Arn = values.t1;
- *             var exampleBucketV2Arn1 = values.t2;
+ *         final var example = Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+ *             var exampleBucketArn = values.t1;
+ *             var exampleBucketArn1 = values.t2;
  *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *                 .statements(                
  *                     GetPolicyDocumentStatementArgs.builder()
@@ -151,8 +151,8 @@ import javax.annotation.Nullable;
  *                         .effect("Allow")
  *                         .actions("s3:*")
  *                         .resources(                        
- *                             exampleBucketV2Arn,
- *                             String.format("%s/*", exampleBucketV2Arn1))
+ *                             exampleBucketArn,
+ *                             String.format("%s/*", exampleBucketArn1))
  *                         .build(),
  *                     GetPolicyDocumentStatementArgs.builder()
  *                         .effect("Allow")
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .cache(ProjectCacheArgs.builder()
  *                 .type("S3")
- *                 .location(exampleBucketV2.bucket())
+ *                 .location(exampleBucket.bucket())
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
  *                 .computeType("BUILD_GENERAL1_SMALL")
@@ -204,7 +204,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .s3Logs(ProjectLogsConfigS3LogsArgs.builder()
  *                     .status("ENABLED")
- *                     .location(exampleBucketV2.id().applyValue(_id -> String.format("%s/build-log", _id)))
+ *                     .location(exampleBucket.id().applyValue(_id -> String.format("%s/build-log", _id)))
  *                     .build())
  *                 .build())
  *             .source(ProjectSourceArgs.builder()

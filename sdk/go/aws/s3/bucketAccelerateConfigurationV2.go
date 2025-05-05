@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", &s3.BucketV2Args{
+//			mybucket, err := s3.NewBucket(ctx, "mybucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("mybucket"),
 //			})
 //			if err != nil {

@@ -224,7 +224,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
 
         This configuration is intended to replicate the default behavior of the `lifecycle_rule`
-        parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
+        parameter in the AWS Provider `s3.Bucket` resource prior to `v4.0`.
 
         ```python
         import pulumi
@@ -423,7 +423,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
         bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
@@ -467,7 +467,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "status": "Enabled",
                 },
             ])
-        versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
         versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
             bucket=versioning_bucket.id,
             acl="private")
@@ -555,7 +555,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
 
         This configuration is intended to replicate the default behavior of the `lifecycle_rule`
-        parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
+        parameter in the AWS Provider `s3.Bucket` resource prior to `v4.0`.
 
         ```python
         import pulumi
@@ -754,7 +754,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
         bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
@@ -798,7 +798,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "status": "Enabled",
                 },
             ])
-        versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
         versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
             bucket=versioning_bucket.id,
             acl="private")

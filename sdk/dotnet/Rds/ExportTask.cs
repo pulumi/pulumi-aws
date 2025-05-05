@@ -47,15 +47,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Rds
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucketV2.Arn,
+    ///                     exampleBucket.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Rds
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                     $"{exampleBucket.Arn}/*",
     ///                 },
     ///             },
     ///         },
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         ExportTaskIdentifier = "example",
     ///         SourceArn = exampleSnapshot.DbSnapshotArn,
-    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3BucketName = exampleBucket.Id,
     ///         IamRoleArn = exampleRole.Arn,
     ///         KmsKeyId = exampleKey.Arn,
     ///         ExportOnlies = new[]

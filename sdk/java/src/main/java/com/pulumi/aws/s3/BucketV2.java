@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("my-tf-test-bucket")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "My bucket"),
@@ -83,7 +83,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket
+ * 
  */
+@Deprecated /* aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket */
 @ResourceType(type="aws:s3/bucketV2:BucketV2")
 public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -589,7 +593,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucket:Bucket").build())
+                Output.of(Alias.builder().type("aws:s3/bucketV2:BucketV2").build())
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

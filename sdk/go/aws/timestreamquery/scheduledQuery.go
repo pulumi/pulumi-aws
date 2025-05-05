@@ -143,7 +143,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+//			_, err := s3.NewBucket(ctx, "test", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})

@@ -39,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "example", &cloudwatch.LogDataProtectionPolicyArgs{
 //				LogGroupName: example.Name,
-//				PolicyDocument: exampleBucketV2.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
+//				PolicyDocument: exampleBucket.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Name":    "Example",

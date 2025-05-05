@@ -29,9 +29,9 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
         ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
@@ -124,9 +124,9 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
         ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
@@ -219,9 +219,9 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
         ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()

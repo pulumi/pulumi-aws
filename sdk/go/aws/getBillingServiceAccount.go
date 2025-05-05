@@ -35,7 +35,7 @@ import (
 // if err != nil {
 // return err
 // }
-// billingLogs, err := s3.NewBucketV2(ctx, "billing_logs", &s3.BucketV2Args{
+// billingLogs, err := s3.NewBucket(ctx, "billing_logs", &s3.BucketArgs{
 // Bucket: pulumi.String("my-billing-tf-test-bucket"),
 // })
 // if err != nil {

@@ -91,7 +91,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("example",
@@ -167,7 +167,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("example",

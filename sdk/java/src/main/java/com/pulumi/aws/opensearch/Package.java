@@ -30,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.std.StdFunctions;
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myOpensearchPackages = new BucketV2("myOpensearchPackages", BucketV2Args.builder()
+ *         var myOpensearchPackages = new Bucket("myOpensearchPackages", BucketArgs.builder()
  *             .bucket("my-opensearch-packages")
  *             .build());
  * 

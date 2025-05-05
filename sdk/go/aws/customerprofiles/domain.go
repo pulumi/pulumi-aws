@@ -96,7 +96,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -104,10 +104,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketV2Arn := _args[0].(string)
-//					exampleBucketV2Arn1 := _args[1].(string)
+//				Bucket: exampleBucket.ID(),
+//				Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleBucketArn := _args[0].(string)
+//					exampleBucketArn1 := _args[1].(string)
 //					var _zero string
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
@@ -121,8 +121,8 @@ import (
 //									"s3:ListBucket",
 //								},
 //								"Resource": []string{
-//									exampleBucketV2Arn,
-//									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+//									exampleBucketArn,
+//									fmt.Sprintf("%v/*", exampleBucketArn1),
 //								},
 //								"Principal": map[string]interface{}{
 //									"Service": "profile.amazonaws.com",

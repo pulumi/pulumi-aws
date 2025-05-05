@@ -26,9 +26,9 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     var billingLogs = new Aws.S3.Bucket("billing_logs", new()
         ///     {
-        ///         Bucket = "my-billing-tf-test-bucket",
+        ///         BucketName = "my-billing-tf-test-bucket",
         ///     });
         /// 
         ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
@@ -118,9 +118,9 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     var billingLogs = new Aws.S3.Bucket("billing_logs", new()
         ///     {
-        ///         Bucket = "my-billing-tf-test-bucket",
+        ///         BucketName = "my-billing-tf-test-bucket",
         ///     });
         /// 
         ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()
@@ -210,9 +210,9 @@ namespace Pulumi.Aws
         /// {
         ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billing_logs", new()
+        ///     var billingLogs = new Aws.S3.Bucket("billing_logs", new()
         ///     {
-        ///         Bucket = "my-billing-tf-test-bucket",
+        ///         BucketName = "my-billing-tf-test-bucket",
         ///     });
         /// 
         ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billing_logs_acl", new()

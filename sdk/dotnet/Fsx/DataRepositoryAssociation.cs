@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-bucket",
+    ///         BucketName = "my-bucket",
     ///     });
     /// 
     ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()

@@ -635,7 +635,7 @@ class ScheduledQuery(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="example",
             force_destroy=True)
         test_topic = aws.sns.Topic("test", name="example")
@@ -934,7 +934,7 @@ class ScheduledQuery(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="example",
             force_destroy=True)
         test_topic = aws.sns.Topic("test", name="example")

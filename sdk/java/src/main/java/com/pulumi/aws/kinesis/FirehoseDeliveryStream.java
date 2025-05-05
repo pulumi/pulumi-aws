@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("tf-test-bucket")
  *             .build());
  * 
@@ -826,8 +826,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.glue.CatalogDatabase;
  * import com.pulumi.aws.glue.CatalogDatabaseArgs;
  * import com.pulumi.aws.glue.CatalogTable;
@@ -862,7 +862,7 @@ import javax.annotation.Nullable;
  *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("test-bucket")
  *             .forceDestroy(true)
  *             .build());

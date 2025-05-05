@@ -267,11 +267,11 @@ class LanguageModel(pulumi.CustomResource):
                     "Resource": ["*"],
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-transcribe",
             force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
@@ -279,7 +279,7 @@ class LanguageModel(pulumi.CustomResource):
             base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
-                "s3_uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
+                "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
             language_code="en-US",
             tags={
@@ -346,11 +346,11 @@ class LanguageModel(pulumi.CustomResource):
                     "Resource": ["*"],
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-transcribe",
             force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
@@ -358,7 +358,7 @@ class LanguageModel(pulumi.CustomResource):
             base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
-                "s3_uri": example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
+                "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
             language_code="en-US",
             tags={

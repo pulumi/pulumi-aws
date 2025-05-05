@@ -3571,7 +3571,7 @@ compatibility shim in favor of the new "name" field.`)
 			// S3
 			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {
-				Tok: awsResource(s3Mod, "BucketV2"),
+				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
@@ -3692,7 +3692,7 @@ compatibility shim in favor of the new "name" field.`)
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: ref("aws:s3/bucket:Bucket"),
+						Type: ref("aws:s3/bucketV2:BucketV2"),
 					},
 				},
 			},
@@ -5460,6 +5460,9 @@ compatibility shim in favor of the new "name" field.`)
 		awsResource(albMod, "TargetGroupAttachment"), &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group_attachment.html.markdown"},
 		})
+
+	// Add a CSharp-specific override for aws_s3_bucket.bucket.
+	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
 
 	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
 		"aws_auditmanager_account_registration": {

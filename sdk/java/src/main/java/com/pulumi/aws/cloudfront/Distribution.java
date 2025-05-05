@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.cloudfront.Distribution;
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2("b", BucketV2Args.builder()
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .tags(Map.of("Name", "My bucket"))
  *             .build());
@@ -370,8 +370,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudwatch.LogDeliverySource;
  * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
  * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
  * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
@@ -399,7 +399,7 @@ import javax.annotation.Nullable;
  *             .resourceArn(example.arn())
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("testbucket")
  *             .forceDestroy(true)
  *             .build());
@@ -408,7 +408,7 @@ import javax.annotation.Nullable;
  *             .name("s3-destination")
  *             .outputFormat("parquet")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
- *                 .destinationResourceArn(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/prefix", _arn)))
+ *                 .destinationResourceArn(exampleBucket.arn().applyValue(_arn -> String.format("%s/prefix", _arn)))
  *                 .build())
  *             .build());
  * 

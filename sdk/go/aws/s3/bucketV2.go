@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			_, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-test-bucket"),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("My bucket"),
@@ -56,6 +56,8 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
 // ```
+//
+// Deprecated: aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket
 type BucketV2 struct {
 	pulumi.CustomResourceState
 
@@ -171,7 +173,7 @@ func NewBucketV2(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("aws:s3/bucket:Bucket"),
+			Type: pulumi.String("aws:s3/bucketV2:BucketV2"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -34,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.GetBucket(ctx, &s3.GetBucketArgs{
+//			example, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
 //				Bucket: "an-example-bucket",
 //			}, nil)
 //			if err != nil {

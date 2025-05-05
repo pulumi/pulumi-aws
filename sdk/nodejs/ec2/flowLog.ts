@@ -66,9 +66,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const example = new aws.ec2.FlowLog("example", {
- *     logDestination: exampleBucketV2.arn,
+ *     logDestination: exampleBucket.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
  *     vpcId: exampleAwsVpc.id,
@@ -81,9 +81,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const example = new aws.ec2.FlowLog("example", {
- *     logDestination: exampleBucketV2.arn,
+ *     logDestination: exampleBucket.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
  *     vpcId: exampleAwsVpc.id,

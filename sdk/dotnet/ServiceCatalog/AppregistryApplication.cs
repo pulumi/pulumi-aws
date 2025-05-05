@@ -49,9 +49,9 @@ namespace Pulumi.Aws.ServiceCatalog
     ///         Name = "example-app",
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///         Tags = example.ApplicationTag,
     ///     });
     /// 

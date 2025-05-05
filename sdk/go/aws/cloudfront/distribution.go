@@ -37,7 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//			b, err := s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("mybucket"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My bucket"),
@@ -346,7 +346,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("testbucket"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -357,7 +357,7 @@ import (
 //				Name:         pulumi.String("s3-destination"),
 //				OutputFormat: pulumi.String("parquet"),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
-//					DestinationResourceArn: exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//					DestinationResourceArn: exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v/prefix", arn), nil
 //					}).(pulumi.StringOutput),
 //				},

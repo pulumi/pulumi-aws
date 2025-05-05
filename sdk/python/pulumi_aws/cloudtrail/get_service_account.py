@@ -86,7 +86,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     import pulumi_aws as aws
 
     main = aws.cloudtrail.get_service_account()
-    bucket = aws.s3.BucketV2("bucket",
+    bucket = aws.s3.Bucket("bucket",
         bucket="tf-cloudtrail-logging-test-bucket",
         force_destroy=True)
     allow_cloudtrail_logging = pulumi.Output.all(
@@ -148,7 +148,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     import pulumi_aws as aws
 
     main = aws.cloudtrail.get_service_account()
-    bucket = aws.s3.BucketV2("bucket",
+    bucket = aws.s3.Bucket("bucket",
         bucket="tf-cloudtrail-logging-test-bucket",
         force_destroy=True)
     allow_cloudtrail_logging = pulumi.Output.all(

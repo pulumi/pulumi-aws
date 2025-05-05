@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  *     name: "tf-iam-role-replication-12345",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const destination = new aws.s3.BucketV2("destination", {bucket: "tf-test-bucket-destination-12345"});
- * const source = new aws.s3.BucketV2("source", {bucket: "tf-test-bucket-source-12345"});
+ * const destination = new aws.s3.Bucket("destination", {bucket: "tf-test-bucket-destination-12345"});
+ * const source = new aws.s3.Bucket("source", {bucket: "tf-test-bucket-source-12345"});
  * const replication = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
@@ -118,14 +118,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const east = new aws.s3.BucketV2("east", {bucket: "tf-test-bucket-east-12345"});
+ * const east = new aws.s3.Bucket("east", {bucket: "tf-test-bucket-east-12345"});
  * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("east", {
  *     bucket: east.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const west = new aws.s3.BucketV2("west", {bucket: "tf-test-bucket-west-12345"});
+ * const west = new aws.s3.Bucket("west", {bucket: "tf-test-bucket-west-12345"});
  * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("west", {
  *     bucket: west.id,
  *     versioningConfiguration: {

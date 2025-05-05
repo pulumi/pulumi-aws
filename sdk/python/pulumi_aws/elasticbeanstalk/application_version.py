@@ -366,7 +366,7 @@ class ApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default = aws.s3.Bucket("default", bucket="tftest.applicationversion.bucket")
         default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
             bucket=default.id,
             key="beanstalk/go-v1.zip",
@@ -420,7 +420,7 @@ class ApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.s3.BucketV2("default", bucket="tftest.applicationversion.bucket")
+        default = aws.s3.Bucket("default", bucket="tftest.applicationversion.bucket")
         default_bucket_objectv2 = aws.s3.BucketObjectv2("default",
             bucket=default.id,
             key="beanstalk/go-v1.zip",

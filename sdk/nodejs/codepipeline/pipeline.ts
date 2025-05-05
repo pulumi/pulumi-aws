@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     name: "example-connection",
  *     providerType: "GitHub",
  * });
- * const codepipelineBucket = new aws.s3.BucketV2("codepipeline_bucket", {bucket: "test-bucket"});
+ * const codepipelineBucket = new aws.s3.Bucket("codepipeline_bucket", {bucket: "test-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",

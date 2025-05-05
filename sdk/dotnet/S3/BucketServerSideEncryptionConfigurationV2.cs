@@ -30,9 +30,9 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 10,
     ///     });
     /// 
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket", new()
+    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new()

@@ -923,7 +923,12 @@ class _BucketV2State:
         pulumi.set(self, "websites", value)
 
 
+warnings.warn("""aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket""", DeprecationWarning)
+
+
 class BucketV2(pulumi.CustomResource):
+    warnings.warn("""aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket""", DeprecationWarning)
+
 
     pulumi_type = "aws:s3/bucketV2:BucketV2"
 
@@ -965,7 +970,7 @@ class BucketV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="my-tf-test-bucket",
             tags={
                 "Name": "My bucket",
@@ -1040,7 +1045,7 @@ class BucketV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="my-tf-test-bucket",
             tags={
                 "Name": "My bucket",
@@ -1090,6 +1095,7 @@ class BucketV2(pulumi.CustomResource):
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2VersioningArgs', 'BucketV2VersioningArgsDict']]]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2WebsiteArgs', 'BucketV2WebsiteArgsDict']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""BucketV2 is deprecated: aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -1124,7 +1130,7 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucket:Bucket")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketV2:BucketV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketV2, __self__).__init__(
             'aws:s3/bucketV2:BucketV2',

@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gdBucket, err := s3.NewBucketV2(ctx, "gd_bucket", &s3.BucketV2Args{
+//			gdBucket, err := s3.NewBucket(ctx, "gd_bucket", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})

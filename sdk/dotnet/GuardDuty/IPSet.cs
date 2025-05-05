@@ -29,7 +29,7 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.Bucket("bucket");
     /// 
     ///     var myIPSet = new Aws.S3.BucketObjectv2("MyIPSet", new()
     ///     {

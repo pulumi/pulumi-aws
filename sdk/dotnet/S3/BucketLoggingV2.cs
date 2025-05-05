@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
@@ -39,9 +39,9 @@ namespace Pulumi.Aws.S3
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var logBucket = new Aws.S3.BucketV2("log_bucket", new()
+    ///     var logBucket = new Aws.S3.Bucket("log_bucket", new()
     ///     {
-    ///         Bucket = "my-tf-log-bucket",
+    ///         BucketName = "my-tf-log-bucket",
     ///     });
     /// 
     ///     var logBucketAcl = new Aws.S3.BucketAclV2("log_bucket_acl", new()

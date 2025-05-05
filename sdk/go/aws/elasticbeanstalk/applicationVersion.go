@@ -39,7 +39,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
+//			_default, err := s3.NewBucket(ctx, "default", &s3.BucketArgs{
 //				Bucket: pulumi.String("tftest.applicationversion.bucket"),
 //			})
 //			if err != nil {

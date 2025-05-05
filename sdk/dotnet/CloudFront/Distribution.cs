@@ -30,9 +30,9 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///         Tags = 
     ///         {
     ///             { "Name", "My bucket" },
@@ -357,9 +357,9 @@ namespace Pulumi.Aws.CloudFront
     ///         ResourceArn = example.Arn,
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "testbucket",
+    ///         BucketName = "testbucket",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.CloudFront
     ///         OutputFormat = "parquet",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
-    ///             DestinationResourceArn = exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/prefix"),
+    ///             DestinationResourceArn = exampleBucket.Arn.Apply(arn =&gt; $"{arn}/prefix"),
     ///         },
     ///     });
     /// 

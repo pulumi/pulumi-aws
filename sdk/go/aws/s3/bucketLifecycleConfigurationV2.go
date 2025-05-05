@@ -35,7 +35,7 @@ import (
 // The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
 //
 // This configuration is intended to replicate the default behavior of the `lifecycleRule`
-// parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
+// parameter in the AWS Provider `s3.Bucket` resource prior to `v4.0`.
 //
 // ```go
 // package main
@@ -404,7 +404,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//			bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-bucket"),
 //			})
 //			if err != nil {
@@ -461,7 +461,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			versioningBucket, err := s3.NewBucketV2(ctx, "versioning_bucket", &s3.BucketV2Args{
+//			versioningBucket, err := s3.NewBucket(ctx, "versioning_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-versioning-bucket"),
 //			})
 //			if err != nil {

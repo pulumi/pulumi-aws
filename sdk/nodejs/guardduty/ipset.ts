@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.guardduty.Detector("primary", {enable: true});
- * const bucket = new aws.s3.BucketV2("bucket", {});
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const myIPSet = new aws.s3.BucketObjectv2("MyIPSet", {
  *     content: "10.0.0.0/8\n",
  *     bucket: bucket.id,

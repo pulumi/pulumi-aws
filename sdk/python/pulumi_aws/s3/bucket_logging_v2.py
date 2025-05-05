@@ -254,11 +254,11 @@ class BucketLoggingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private")
-        log_bucket = aws.s3.BucketV2("log_bucket", bucket="my-tf-log-bucket")
+        log_bucket = aws.s3.Bucket("log_bucket", bucket="my-tf-log-bucket")
         log_bucket_acl = aws.s3.BucketAclV2("log_bucket_acl",
             bucket=log_bucket.id,
             acl="log-delivery-write")
@@ -315,11 +315,11 @@ class BucketLoggingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
+        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private")
-        log_bucket = aws.s3.BucketV2("log_bucket", bucket="my-tf-log-bucket")
+        log_bucket = aws.s3.Bucket("log_bucket", bucket="my-tf-log-bucket")
         log_bucket_acl = aws.s3.BucketAclV2("log_bucket_acl",
             bucket=log_bucket.id,
             acl="log-delivery-write")

@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *             .name("msk_broker_logs")
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("msk-broker-logs-bucket")
  *             .build());
  * 

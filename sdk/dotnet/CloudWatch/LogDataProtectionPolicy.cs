@@ -30,9 +30,9 @@ namespace Pulumi.Aws.CloudWatch
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///     });
     /// 
     ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                             {
     ///                                 ["S3"] = new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["Bucket"] = exampleBucketV2.Bucket,
+    ///                                     ["Bucket"] = exampleBucket.BucketName,
     ///                                 },
     ///                             },
     ///                         },

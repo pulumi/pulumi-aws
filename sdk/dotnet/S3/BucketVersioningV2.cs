@@ -32,9 +32,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
     ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
@@ -65,9 +65,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
     ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
@@ -104,9 +104,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "yotto",
+    ///         BucketName = "yotto",
     ///     });
     /// 
     ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()

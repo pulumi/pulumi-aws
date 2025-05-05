@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  *
  * const current = aws.s3.getCanonicalUserId({});
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
@@ -82,15 +82,15 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *
  * const current = aws.s3.getCanonicalUserId({});
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {

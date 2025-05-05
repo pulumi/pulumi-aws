@@ -37,7 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//			bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket"),
 //			})
 //			if err != nil {
@@ -802,7 +802,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//			bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 //				Bucket:       pulumi.String("test-bucket"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})

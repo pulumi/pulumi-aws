@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {vpcId: vpc.id});
  * const kms = new aws.kms.Key("kms", {description: "example"});
  * const test = new aws.cloudwatch.LogGroup("test", {name: "msk_broker_logs"});
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "msk-broker-logs-bucket"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "msk-broker-logs-bucket"});
  * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",

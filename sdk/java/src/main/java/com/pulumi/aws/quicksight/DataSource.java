@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.iam.Role;
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var example = new BucketV2("example");
+ *         var example = new Bucket("example");
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.bucket())

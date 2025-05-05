@@ -55,9 +55,9 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketAclV2("example", new()
@@ -87,9 +87,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketAclV2("example", new()
@@ -119,9 +119,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketAclV2("example", new()
@@ -151,9 +151,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///         ObjectLockEnabled = true,
     ///     });
     /// 

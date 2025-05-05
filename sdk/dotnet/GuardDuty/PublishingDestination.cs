@@ -26,9 +26,9 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var gdBucket = new Aws.S3.BucketV2("gd_bucket", new()
+    ///     var gdBucket = new Aws.S3.Bucket("gd_bucket", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 

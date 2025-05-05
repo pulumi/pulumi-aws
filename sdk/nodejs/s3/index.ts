@@ -20,6 +20,11 @@ export type AnalyticsConfiguration = import("./analyticsConfiguration").Analytic
 export const AnalyticsConfiguration: typeof import("./analyticsConfiguration").AnalyticsConfiguration = null as any;
 utilities.lazyLoad(exports, ["AnalyticsConfiguration"], () => require("./analyticsConfiguration"));
 
+export { BucketArgs, BucketState } from "./bucket";
+export type Bucket = import("./bucket").Bucket;
+export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
+
 export { BucketAccelerateConfigurationV2Args, BucketAccelerateConfigurationV2State } from "./bucketAccelerateConfigurationV2";
 export type BucketAccelerateConfigurationV2 = import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2;
 export const BucketAccelerateConfigurationV2: typeof import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2 = null as any;
@@ -197,6 +202,8 @@ const _module = {
                 return new AccountPublicAccessBlock(name, <any>undefined, { urn })
             case "aws:s3/analyticsConfiguration:AnalyticsConfiguration":
                 return new AnalyticsConfiguration(name, <any>undefined, { urn })
+            case "aws:s3/bucket:Bucket":
+                return new Bucket(name, <any>undefined, { urn })
             case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
                 return new BucketAccelerateConfigurationV2(name, <any>undefined, { urn })
             case "aws:s3/bucketAclV2:BucketAclV2":
@@ -251,6 +258,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "s3/accessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/accountPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/analyticsConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketAccelerateConfigurationV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketAclV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketCorsConfigurationV2", _module)

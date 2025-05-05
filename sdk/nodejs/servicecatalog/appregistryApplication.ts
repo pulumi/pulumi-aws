@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.AppregistryApplication("example", {name: "example-app"});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "example-bucket",
  *     tags: example.applicationTag,
  * });

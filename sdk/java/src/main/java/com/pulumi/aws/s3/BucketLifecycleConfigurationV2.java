@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * The Lifecycle rule applies to a subset of objects based on the key name prefix (`&#34;&#34;`).
  * 
  * This configuration is intended to replicate the default behavior of the `lifecycle_rule`
- * parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
+ * parameter in the AWS Provider `aws.s3.Bucket` resource prior to `v4.0`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -490,8 +490,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
@@ -518,7 +518,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("my-bucket")
  *             .build());
  * 
@@ -567,7 +567,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var versioningBucket = new BucketV2("versioningBucket", BucketV2Args.builder()
+ *         var versioningBucket = new Bucket("versioningBucket", BucketArgs.builder()
  *             .bucket("my-versioning-bucket")
  *             .build());
  * 

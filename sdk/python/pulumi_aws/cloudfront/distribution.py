@@ -769,7 +769,7 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="mybucket",
             tags={
                 "Name": "My bucket",
@@ -1003,14 +1003,14 @@ class Distribution(pulumi.CustomResource):
             name="example",
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
             name="s3-destination",
             output_format="parquet",
             delivery_destination_configuration={
-                "destination_resource_arn": example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix"),
+                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
             })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             delivery_source_name=example_log_delivery_source.name,
@@ -1055,7 +1055,7 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="mybucket",
             tags={
                 "Name": "My bucket",
@@ -1289,14 +1289,14 @@ class Distribution(pulumi.CustomResource):
             name="example",
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
             name="s3-destination",
             output_format="parquet",
             delivery_destination_configuration={
-                "destination_resource_arn": example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix"),
+                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
             })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             delivery_source_name=example_log_delivery_source.name,

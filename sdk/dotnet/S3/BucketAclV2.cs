@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
@@ -70,9 +70,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
@@ -121,9 +121,9 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
     /// 
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()

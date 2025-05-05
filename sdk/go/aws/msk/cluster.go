@@ -93,7 +93,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//			bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("msk-broker-logs-bucket"),
 //			})
 //			if err != nil {

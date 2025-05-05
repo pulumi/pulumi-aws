@@ -37,14 +37,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
@@ -53,7 +53,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
 //					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
 //						&s3.BucketAclV2AccessControlPolicyGrantArgs{

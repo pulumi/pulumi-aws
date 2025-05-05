@@ -136,7 +136,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example-s3-bucket"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -158,7 +158,7 @@ import (
 //							},
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -166,7 +166,7 @@ import (
 //				},
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
@@ -190,7 +190,7 @@ import (
 //				Name: pulumi.String("example-db-instance"),
 //				LogDeliveryConfiguration: &timestreaminfluxdb.DbInstanceLogDeliveryConfigurationArgs{
 //					S3Configuration: &timestreaminfluxdb.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs{
-//						BucketName: exampleBucketV2.Bucket,
+//						BucketName: exampleBucket.Bucket,
 //						Enabled:    pulumi.Bool(true),
 //					},
 //				},

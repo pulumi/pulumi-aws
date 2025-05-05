@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example-bucket"});
  * const exampleTopic = new aws.sns.Topic("example", {name: "example-topic"});
  * const exampleVideoStream = new aws.kinesis.VideoStream("example", {
  *     name: "example-kinesis-input",

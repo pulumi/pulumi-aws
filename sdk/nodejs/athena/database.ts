@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleDatabase = new aws.athena.Database("example", {
  *     name: "database_name",
  *     bucket: example.id,

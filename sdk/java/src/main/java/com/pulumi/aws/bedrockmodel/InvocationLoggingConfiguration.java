@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfiguration;
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());

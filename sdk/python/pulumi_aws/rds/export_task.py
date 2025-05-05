@@ -457,11 +457,11 @@ class ExportTask(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             acl="private")
         example_role = aws.iam.Role("example",
             name="example",
@@ -486,7 +486,7 @@ class ExportTask(pulumi.CustomResource):
                     "s3:GetBucketLocation",
                     "s3:ListBucket",
                 ],
-                "resources": [example_bucket_v2.arn],
+                "resources": [example_bucket.arn],
             },
             {
                 "actions": [
@@ -494,7 +494,7 @@ class ExportTask(pulumi.CustomResource):
                     "s3:PutObject",
                     "s3:DeleteObject",
                 ],
-                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
             },
         ])
         example_policy = aws.iam.Policy("example",
@@ -521,7 +521,7 @@ class ExportTask(pulumi.CustomResource):
         example_export_task = aws.rds.ExportTask("example",
             export_task_identifier="example",
             source_arn=example_snapshot.db_snapshot_arn,
-            s3_bucket_name=example_bucket_v2.id,
+            s3_bucket_name=example_bucket.id,
             iam_role_arn=example_role.arn,
             kms_key_id=example_key.arn,
             export_onlies=["database"],
@@ -580,11 +580,11 @@ class ExportTask(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             acl="private")
         example_role = aws.iam.Role("example",
             name="example",
@@ -609,7 +609,7 @@ class ExportTask(pulumi.CustomResource):
                     "s3:GetBucketLocation",
                     "s3:ListBucket",
                 ],
-                "resources": [example_bucket_v2.arn],
+                "resources": [example_bucket.arn],
             },
             {
                 "actions": [
@@ -617,7 +617,7 @@ class ExportTask(pulumi.CustomResource):
                     "s3:PutObject",
                     "s3:DeleteObject",
                 ],
-                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
             },
         ])
         example_policy = aws.iam.Policy("example",
@@ -644,7 +644,7 @@ class ExportTask(pulumi.CustomResource):
         example_export_task = aws.rds.ExportTask("example",
             export_task_identifier="example",
             source_arn=example_snapshot.db_snapshot_arn,
-            s3_bucket_name=example_bucket_v2.id,
+            s3_bucket_name=example_bucket.id,
             iam_role_arn=example_role.arn,
             kms_key_id=example_key.arn,
             export_onlies=["database"],

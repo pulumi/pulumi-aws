@@ -19,14 +19,14 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.ResourceArgs
     public static final DirectoryBucketArgs Empty = new DirectoryBucketArgs();
 
     /**
-     * Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * @return Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      * 
      */
     public Output<String> bucket() {
@@ -122,7 +122,7 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
          * 
          * @return builder
          * 

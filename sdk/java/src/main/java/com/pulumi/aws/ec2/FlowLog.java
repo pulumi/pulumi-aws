@@ -123,8 +123,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.ec2.FlowLog;
  * import com.pulumi.aws.ec2.FlowLogArgs;
  * import java.util.List;
@@ -140,12 +140,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .build());
  * 
  *         var example = new FlowLog("example", FlowLogArgs.builder()
- *             .logDestination(exampleBucketV2.arn())
+ *             .logDestination(exampleBucket.arn())
  *             .logDestinationType("s3")
  *             .trafficType("ALL")
  *             .vpcId(exampleAwsVpc.id())
@@ -167,8 +167,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.ec2.FlowLog;
  * import com.pulumi.aws.ec2.FlowLogArgs;
  * import com.pulumi.aws.ec2.inputs.FlowLogDestinationOptionsArgs;
@@ -185,12 +185,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .build());
  * 
  *         var example = new FlowLog("example", FlowLogArgs.builder()
- *             .logDestination(exampleBucketV2.arn())
+ *             .logDestination(exampleBucket.arn())
  *             .logDestinationType("s3")
  *             .trafficType("ALL")
  *             .vpcId(exampleAwsVpc.id())

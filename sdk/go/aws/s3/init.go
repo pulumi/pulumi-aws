@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountPublicAccessBlock{}
 	case "aws:s3/analyticsConfiguration:AnalyticsConfiguration":
 		r = &AnalyticsConfiguration{}
+	case "aws:s3/bucket:Bucket":
+		r = &Bucket{}
 	case "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2":
 		r = &BucketAccelerateConfigurationV2{}
 	case "aws:s3/bucketAclV2:BucketAclV2":
@@ -99,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/analyticsConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucket",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

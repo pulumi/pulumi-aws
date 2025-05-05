@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
  * });
@@ -97,7 +97,7 @@ export interface GetServiceAccountResult {
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
  * });

@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hoge", &s3.BucketV2Args{
+//			hogeBucket, err := s3.NewBucket(ctx, "hoge", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-1234"),
 //			})
 //			if err != nil {
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "hoge", &s3.BucketPolicyArgs{
-//				Bucket: hogeBucketV2.ID(),
+//				Bucket: hogeBucket.ID(),
 //				Policy: pulumi.String(hoge.Json),
 //			})
 //			if err != nil {
@@ -98,8 +98,8 @@ import (
 //			_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
 //				Name: pulumi.String("foo"),
 //				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
-//					BucketName: hogeBucketV2.Bucket,
-//					Region:     hogeBucketV2.Region,
+//					BucketName: hogeBucket.Bucket,
+//					Region:     hogeBucket.Region,
 //				},
 //			})
 //			if err != nil {

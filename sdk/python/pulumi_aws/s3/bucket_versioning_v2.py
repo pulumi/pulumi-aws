@@ -193,7 +193,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private")
@@ -210,7 +210,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private")
@@ -233,7 +233,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="yotto")
+        example = aws.s3.Bucket("example", bucket="yotto")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=example.id,
             versioning_configuration={
@@ -294,7 +294,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private")
@@ -311,7 +311,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private")
@@ -334,7 +334,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="yotto")
+        example = aws.s3.Bucket("example", bucket="yotto")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=example.id,
             versioning_configuration={

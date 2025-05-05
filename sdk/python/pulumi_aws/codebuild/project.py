@@ -944,9 +944,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -960,8 +960,8 @@ class Project(pulumi.CustomResource):
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
+            exampleBucketArn=example_bucket.arn,
+            exampleBucketArn1=example_bucket.arn
         ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
@@ -1009,8 +1009,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    resolved_outputs['exampleBucketArn'],
+                    f"{resolved_outputs['exampleBucketArn1']}/*",
                 ],
             },
             {
@@ -1036,7 +1036,7 @@ class Project(pulumi.CustomResource):
             },
             cache={
                 "type": "S3",
-                "location": example_bucket_v2.bucket,
+                "location": example_bucket.bucket,
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
@@ -1062,7 +1062,7 @@ class Project(pulumi.CustomResource):
                 },
                 "s3_logs": {
                     "status": "ENABLED",
-                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
             source={
@@ -1212,9 +1212,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -1228,8 +1228,8 @@ class Project(pulumi.CustomResource):
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
+            exampleBucketArn=example_bucket.arn,
+            exampleBucketArn1=example_bucket.arn
         ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
@@ -1277,8 +1277,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    resolved_outputs['exampleBucketArn'],
+                    f"{resolved_outputs['exampleBucketArn1']}/*",
                 ],
             },
             {
@@ -1304,7 +1304,7 @@ class Project(pulumi.CustomResource):
             },
             cache={
                 "type": "S3",
-                "location": example_bucket_v2.bucket,
+                "location": example_bucket.bucket,
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
@@ -1330,7 +1330,7 @@ class Project(pulumi.CustomResource):
                 },
                 "s3_logs": {
                     "status": "ENABLED",
-                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
             source={

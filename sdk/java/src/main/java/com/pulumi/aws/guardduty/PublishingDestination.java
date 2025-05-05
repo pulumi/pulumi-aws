@@ -30,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.guardduty.Detector;
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var gdBucket = new BucketV2("gdBucket", BucketV2Args.builder()
+ *         var gdBucket = new Bucket("gdBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());

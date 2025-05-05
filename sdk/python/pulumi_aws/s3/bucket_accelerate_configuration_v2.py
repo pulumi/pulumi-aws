@@ -150,7 +150,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
+        mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
         example = aws.s3.BucketAccelerateConfigurationV2("example",
             bucket=mybucket.id,
             status="Enabled")
@@ -196,7 +196,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
+        mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
         example = aws.s3.BucketAccelerateConfigurationV2("example",
             bucket=mybucket.id,
             status="Enabled")

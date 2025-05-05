@@ -486,7 +486,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[{
@@ -600,7 +600,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[{

@@ -602,9 +602,9 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket_v2.arn,
+            log_destination=example_bucket.arn,
             log_destination_type="s3",
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"])
@@ -616,9 +616,9 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket_v2.arn,
+            log_destination=example_bucket.arn,
             log_destination_type="s3",
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"],
@@ -713,9 +713,9 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket_v2.arn,
+            log_destination=example_bucket.arn,
             log_destination_type="s3",
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"])
@@ -727,9 +727,9 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket_v2.arn,
+            log_destination=example_bucket.arn,
             log_destination_type="s3",
             traffic_type="ALL",
             vpc_id=example_aws_vpc["id"],

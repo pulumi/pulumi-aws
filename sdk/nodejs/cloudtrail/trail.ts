@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "my-test-trail",
  *     forceDestroy: true,
  * });
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: [exampleBucketV2.arn],
+ *             resources: [exampleBucket.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:SourceArn",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucketV2.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
+ *             resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -74,12 +74,12 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     policy: example.apply(example => example.json),
  * });
  * const exampleTrail = new aws.cloudtrail.Trail("example", {
  *     name: "example",
- *     s3BucketName: exampleBucketV2.id,
+ *     s3BucketName: exampleBucket.id,
  *     s3KeyPrefix: "prefix",
  *     includeGlobalServiceEvents: false,
  * }, {

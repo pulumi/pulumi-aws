@@ -30,6 +30,8 @@ __all__ = [
     'BucketAclV2AccessControlPolicyGrantGrantee',
     'BucketAclV2AccessControlPolicyOwner',
     'BucketCorsConfigurationV2CorsRule',
+    'BucketCorsRule',
+    'BucketGrant',
     'BucketIntelligentTieringConfigurationFilter',
     'BucketIntelligentTieringConfigurationTiering',
     'BucketLifecycleConfigurationV2Rule',
@@ -42,6 +44,12 @@ __all__ = [
     'BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition',
     'BucketLifecycleConfigurationV2RuleTransition',
     'BucketLifecycleConfigurationV2Timeouts',
+    'BucketLifecycleRule',
+    'BucketLifecycleRuleExpiration',
+    'BucketLifecycleRuleNoncurrentVersionExpiration',
+    'BucketLifecycleRuleNoncurrentVersionTransition',
+    'BucketLifecycleRuleTransition',
+    'BucketLogging',
     'BucketLoggingV2TargetGrant',
     'BucketLoggingV2TargetGrantGrantee',
     'BucketLoggingV2TargetObjectKeyFormat',
@@ -51,6 +59,9 @@ __all__ = [
     'BucketNotificationLambdaFunction',
     'BucketNotificationQueue',
     'BucketNotificationTopic',
+    'BucketObjectLockConfiguration',
+    'BucketObjectLockConfigurationRule',
+    'BucketObjectLockConfigurationRuleDefaultRetention',
     'BucketObjectLockConfigurationV2Rule',
     'BucketObjectLockConfigurationV2RuleDefaultRetention',
     'BucketObjectv2OverrideProvider',
@@ -72,6 +83,18 @@ __all__ = [
     'BucketReplicationConfigRuleSourceSelectionCriteria',
     'BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications',
     'BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects',
+    'BucketReplicationConfiguration',
+    'BucketReplicationConfigurationRule',
+    'BucketReplicationConfigurationRuleDestination',
+    'BucketReplicationConfigurationRuleDestinationAccessControlTranslation',
+    'BucketReplicationConfigurationRuleDestinationMetric',
+    'BucketReplicationConfigurationRuleDestinationReplicationTime',
+    'BucketReplicationConfigurationRuleFilter',
+    'BucketReplicationConfigurationRuleSourceSelectionCriteria',
+    'BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject',
+    'BucketServerSideEncryptionConfiguration',
+    'BucketServerSideEncryptionConfigurationRule',
+    'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault',
     'BucketServerSideEncryptionConfigurationV2Rule',
     'BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault',
     'BucketV2CorsRule',
@@ -99,7 +122,9 @@ __all__ = [
     'BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault',
     'BucketV2Versioning',
     'BucketV2Website',
+    'BucketVersioning',
     'BucketVersioningV2VersioningConfiguration',
+    'BucketWebsite',
     'BucketWebsiteConfigurationV2ErrorDocument',
     'BucketWebsiteConfigurationV2IndexDocument',
     'BucketWebsiteConfigurationV2RedirectAllRequestsTo',
@@ -757,6 +782,149 @@ class BucketCorsConfigurationV2CorsRule(dict):
         Time in seconds that your browser is to cache the preflight response for the specified resource.
         """
         return pulumi.get(self, "max_age_seconds")
+
+
+@pulumi.output_type
+class BucketCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "exposeHeaders":
+            suggest = "expose_headers"
+        elif key == "maxAgeSeconds":
+            suggest = "max_age_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketCorsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_methods: Sequence[builtins.str],
+                 allowed_origins: Sequence[builtins.str],
+                 allowed_headers: Optional[Sequence[builtins.str]] = None,
+                 expose_headers: Optional[Sequence[builtins.str]] = None,
+                 max_age_seconds: Optional[builtins.int] = None):
+        """
+        :param Sequence[builtins.str] allowed_methods: One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        :param Sequence[builtins.str] allowed_origins: One or more origins you want customers to be able to access the bucket from.
+        :param Sequence[builtins.str] allowed_headers: List of headers allowed.
+        :param Sequence[builtins.str] expose_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+        :param builtins.int max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
+        """
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age_seconds is not None:
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[builtins.str]:
+        """
+        One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[builtins.str]:
+        """
+        One or more origins you want customers to be able to access the bucket from.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of headers allowed.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeSeconds")
+    def max_age_seconds(self) -> Optional[builtins.int]:
+        """
+        Specifies time in seconds that browser can cache the response for a preflight request.
+        """
+        return pulumi.get(self, "max_age_seconds")
+
+
+@pulumi.output_type
+class BucketGrant(dict):
+    def __init__(__self__, *,
+                 permissions: Sequence[builtins.str],
+                 type: builtins.str,
+                 id: Optional[builtins.str] = None,
+                 uri: Optional[builtins.str] = None):
+        """
+        :param Sequence[builtins.str] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        :param builtins.str type: Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        :param builtins.str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+        :param builtins.str uri: Uri address to grant for. Used only when `type` is `Group`.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[builtins.str]:
+        """
+        List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[builtins.str]:
+        """
+        Uri address to grant for. Used only when `type` is `Group`.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type
@@ -1478,6 +1646,375 @@ class BucketLifecycleConfigurationV2Timeouts(dict):
 
 
 @pulumi.output_type
+class BucketLifecycleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortIncompleteMultipartUploadDays":
+            suggest = "abort_incomplete_multipart_upload_days"
+        elif key == "noncurrentVersionExpirations":
+            suggest = "noncurrent_version_expirations"
+        elif key == "noncurrentVersionTransitions":
+            suggest = "noncurrent_version_transitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: builtins.bool,
+                 abort_incomplete_multipart_upload_days: Optional[builtins.int] = None,
+                 expirations: Optional[Sequence['outputs.BucketLifecycleRuleExpiration']] = None,
+                 id: Optional[builtins.str] = None,
+                 noncurrent_version_expirations: Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionExpiration']] = None,
+                 noncurrent_version_transitions: Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionTransition']] = None,
+                 prefix: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None,
+                 transitions: Optional[Sequence['outputs.BucketLifecycleRuleTransition']] = None):
+        """
+        :param builtins.bool enabled: Specifies lifecycle rule status.
+        :param builtins.int abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+        :param Sequence['BucketLifecycleRuleExpirationArgs'] expirations: Specifies a period in the object's expire. See Expiration below for details.
+        :param builtins.str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        :param Sequence['BucketLifecycleRuleNoncurrentVersionExpirationArgs'] noncurrent_version_expirations: Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+        :param Sequence['BucketLifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+        :param builtins.str prefix: Object key prefix identifying one or more objects to which the rule applies.
+        :param Mapping[str, builtins.str] tags: Specifies object tags key and value.
+        :param Sequence['BucketLifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions. See Transition below for details.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if abort_incomplete_multipart_upload_days is not None:
+            pulumi.set(__self__, "abort_incomplete_multipart_upload_days", abort_incomplete_multipart_upload_days)
+        if expirations is not None:
+            pulumi.set(__self__, "expirations", expirations)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if noncurrent_version_expirations is not None:
+            pulumi.set(__self__, "noncurrent_version_expirations", noncurrent_version_expirations)
+        if noncurrent_version_transitions is not None:
+            pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if transitions is not None:
+            pulumi.set(__self__, "transitions", transitions)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        """
+        Specifies lifecycle rule status.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="abortIncompleteMultipartUploadDays")
+    def abort_incomplete_multipart_upload_days(self) -> Optional[builtins.int]:
+        """
+        Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+        """
+        return pulumi.get(self, "abort_incomplete_multipart_upload_days")
+
+    @property
+    @pulumi.getter
+    def expirations(self) -> Optional[Sequence['outputs.BucketLifecycleRuleExpiration']]:
+        """
+        Specifies a period in the object's expire. See Expiration below for details.
+        """
+        return pulumi.get(self, "expirations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="noncurrentVersionExpirations")
+    def noncurrent_version_expirations(self) -> Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionExpiration']]:
+        """
+        Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+        """
+        return pulumi.get(self, "noncurrent_version_expirations")
+
+    @property
+    @pulumi.getter(name="noncurrentVersionTransitions")
+    def noncurrent_version_transitions(self) -> Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionTransition']]:
+        """
+        Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+        """
+        return pulumi.get(self, "noncurrent_version_transitions")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        Object key prefix identifying one or more objects to which the rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Specifies object tags key and value.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def transitions(self) -> Optional[Sequence['outputs.BucketLifecycleRuleTransition']]:
+        """
+        Specifies a period in the object's transitions. See Transition below for details.
+        """
+        return pulumi.get(self, "transitions")
+
+
+@pulumi.output_type
+class BucketLifecycleRuleExpiration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiredObjectDeleteMarker":
+            suggest = "expired_object_delete_marker"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRuleExpiration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRuleExpiration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRuleExpiration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date: Optional[builtins.str] = None,
+                 days: Optional[builtins.int] = None,
+                 expired_object_delete_marker: Optional[builtins.bool] = None):
+        """
+        :param builtins.str date: Specifies the date after which you want the corresponding action to take effect.
+        :param builtins.int days: Specifies the number of days after object creation when the specific rule action takes effect.
+        :param builtins.bool expired_object_delete_marker: On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
+        """
+        if date is not None:
+            pulumi.set(__self__, "date", date)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if expired_object_delete_marker is not None:
+            pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
+
+    @property
+    @pulumi.getter
+    def date(self) -> Optional[builtins.str]:
+        """
+        Specifies the date after which you want the corresponding action to take effect.
+        """
+        return pulumi.get(self, "date")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[builtins.int]:
+        """
+        Specifies the number of days after object creation when the specific rule action takes effect.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="expiredObjectDeleteMarker")
+    def expired_object_delete_marker(self) -> Optional[builtins.bool]:
+        """
+        On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
+        """
+        return pulumi.get(self, "expired_object_delete_marker")
+
+
+@pulumi.output_type
+class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
+    def __init__(__self__, *,
+                 days: Optional[builtins.int] = None):
+        """
+        :param builtins.int days: Specifies the number of days noncurrent object versions expire.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[builtins.int]:
+        """
+        Specifies the number of days noncurrent object versions expire.
+        """
+        return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class BucketLifecycleRuleNoncurrentVersionTransition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRuleNoncurrentVersionTransition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRuleNoncurrentVersionTransition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRuleNoncurrentVersionTransition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_class: builtins.str,
+                 days: Optional[builtins.int] = None):
+        """
+        :param builtins.str storage_class: Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+        :param builtins.int days: Specifies the number of days noncurrent object versions transition.
+        """
+        pulumi.set(__self__, "storage_class", storage_class)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> builtins.str:
+        """
+        Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+        """
+        return pulumi.get(self, "storage_class")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[builtins.int]:
+        """
+        Specifies the number of days noncurrent object versions transition.
+        """
+        return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class BucketLifecycleRuleTransition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleRuleTransition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLifecycleRuleTransition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLifecycleRuleTransition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_class: builtins.str,
+                 date: Optional[builtins.str] = None,
+                 days: Optional[builtins.int] = None):
+        """
+        :param builtins.str storage_class: Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+        :param builtins.str date: Specifies the date after which you want the corresponding action to take effect.
+        :param builtins.int days: Specifies the number of days after object creation when the specific rule action takes effect.
+        """
+        pulumi.set(__self__, "storage_class", storage_class)
+        if date is not None:
+            pulumi.set(__self__, "date", date)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> builtins.str:
+        """
+        Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+        """
+        return pulumi.get(self, "storage_class")
+
+    @property
+    @pulumi.getter
+    def date(self) -> Optional[builtins.str]:
+        """
+        Specifies the date after which you want the corresponding action to take effect.
+        """
+        return pulumi.get(self, "date")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[builtins.int]:
+        """
+        Specifies the number of days after object creation when the specific rule action takes effect.
+        """
+        return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class BucketLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetBucket":
+            suggest = "target_bucket"
+        elif key == "targetPrefix":
+            suggest = "target_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLogging.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_bucket: builtins.str,
+                 target_prefix: Optional[builtins.str] = None):
+        """
+        :param builtins.str target_bucket: Name of the bucket that will receive the log objects.
+        :param builtins.str target_prefix: To specify a key prefix for log objects.
+        """
+        pulumi.set(__self__, "target_bucket", target_bucket)
+        if target_prefix is not None:
+            pulumi.set(__self__, "target_prefix", target_prefix)
+
+    @property
+    @pulumi.getter(name="targetBucket")
+    def target_bucket(self) -> builtins.str:
+        """
+        Name of the bucket that will receive the log objects.
+        """
+        return pulumi.get(self, "target_bucket")
+
+    @property
+    @pulumi.getter(name="targetPrefix")
+    def target_prefix(self) -> Optional[builtins.str]:
+        """
+        To specify a key prefix for log objects.
+        """
+        return pulumi.get(self, "target_prefix")
+
+
+@pulumi.output_type
 class BucketLoggingV2TargetGrant(dict):
     def __init__(__self__, *,
                  grantee: 'outputs.BucketLoggingV2TargetGrantGrantee',
@@ -1995,6 +2532,133 @@ class BucketNotificationTopic(dict):
         Unique identifier for each of the notification configurations.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class BucketObjectLockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectLockEnabled":
+            suggest = "object_lock_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_lock_enabled: Optional[builtins.str] = None,
+                 rules: Optional[Sequence['outputs.BucketObjectLockConfigurationRule']] = None):
+        """
+        :param builtins.str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+        :param Sequence['BucketObjectLockConfigurationRuleArgs'] rules: Object Lock rule in place for this bucket (documented below).
+        """
+        if object_lock_enabled is not None:
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="objectLockEnabled")
+    @_utilities.deprecated("""object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.""")
+    def object_lock_enabled(self) -> Optional[builtins.str]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+        """
+        return pulumi.get(self, "object_lock_enabled")
+
+    @property
+    @pulumi.getter
+    @_utilities.deprecated("""rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.""")
+    def rules(self) -> Optional[Sequence['outputs.BucketObjectLockConfigurationRule']]:
+        """
+        Object Lock rule in place for this bucket (documented below).
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketObjectLockConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRetentions":
+            suggest = "default_retentions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_retentions: Sequence['outputs.BucketObjectLockConfigurationRuleDefaultRetention']):
+        """
+        :param Sequence['BucketObjectLockConfigurationRuleDefaultRetentionArgs'] default_retentions: Default retention period that you want to apply to new objects placed in this bucket (documented below).
+        """
+        pulumi.set(__self__, "default_retentions", default_retentions)
+
+    @property
+    @pulumi.getter(name="defaultRetentions")
+    def default_retentions(self) -> Sequence['outputs.BucketObjectLockConfigurationRuleDefaultRetention']:
+        """
+        Default retention period that you want to apply to new objects placed in this bucket (documented below).
+        """
+        return pulumi.get(self, "default_retentions")
+
+
+@pulumi.output_type
+class BucketObjectLockConfigurationRuleDefaultRetention(dict):
+    def __init__(__self__, *,
+                 mode: builtins.str,
+                 days: Optional[builtins.int] = None,
+                 years: Optional[builtins.int] = None):
+        """
+        :param builtins.str mode: Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        :param builtins.int days: Number of days that you want to specify for the default retention period.
+        :param builtins.int years: Number of years that you want to specify for the default retention period.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if years is not None:
+            pulumi.set(__self__, "years", years)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> builtins.str:
+        """
+        Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[builtins.int]:
+        """
+        Number of days that you want to specify for the default retention period.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def years(self) -> Optional[builtins.int]:
+        """
+        Number of years that you want to specify for the default retention period.
+        """
+        return pulumi.get(self, "years")
 
 
 @pulumi.output_type
@@ -2824,6 +3488,557 @@ class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(d
         Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfiguration(dict):
+    def __init__(__self__, *,
+                 role: builtins.str,
+                 rules: Sequence['outputs.BucketReplicationConfigurationRule']):
+        """
+        :param builtins.str role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        :param Sequence['BucketReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
+        """
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BucketReplicationConfigurationRule']:
+        """
+        Specifies the rules managing the replication (documented below).
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteMarkerReplicationStatus":
+            suggest = "delete_marker_replication_status"
+        elif key == "sourceSelectionCriterias":
+            suggest = "source_selection_criterias"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destinations: Sequence['outputs.BucketReplicationConfigurationRuleDestination'],
+                 status: builtins.str,
+                 delete_marker_replication_status: Optional[builtins.str] = None,
+                 filters: Optional[Sequence['outputs.BucketReplicationConfigurationRuleFilter']] = None,
+                 id: Optional[builtins.str] = None,
+                 prefix: Optional[builtins.str] = None,
+                 priority: Optional[builtins.int] = None,
+                 source_selection_criterias: Optional[Sequence['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria']] = None):
+        """
+        :param Sequence['BucketReplicationConfigurationRuleDestinationArgs'] destinations: Specifies the destination for the rule (documented below).
+        :param builtins.str status: Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        :param builtins.str delete_marker_replication_status: Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        :param Sequence['BucketReplicationConfigurationRuleFilterArgs'] filters: Filter that identifies subset of objects to which the replication rule applies (documented below).
+        :param builtins.str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        :param builtins.str prefix: Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        :param builtins.int priority: Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        :param Sequence['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criterias: Specifies special object selection criteria (documented below).
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "status", status)
+        if delete_marker_replication_status is not None:
+            pulumi.set(__self__, "delete_marker_replication_status", delete_marker_replication_status)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if source_selection_criterias is not None:
+            pulumi.set(__self__, "source_selection_criterias", source_selection_criterias)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.BucketReplicationConfigurationRuleDestination']:
+        """
+        Specifies the destination for the rule (documented below).
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="deleteMarkerReplicationStatus")
+    def delete_marker_replication_status(self) -> Optional[builtins.str]:
+        """
+        Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        """
+        return pulumi.get(self, "delete_marker_replication_status")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.BucketReplicationConfigurationRuleFilter']]:
+        """
+        Filter that identifies subset of objects to which the replication rule applies (documented below).
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[builtins.int]:
+        """
+        Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="sourceSelectionCriterias")
+    def source_selection_criterias(self) -> Optional[Sequence['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria']]:
+        """
+        Specifies special object selection criteria (documented below).
+        """
+        return pulumi.get(self, "source_selection_criterias")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlTranslations":
+            suggest = "access_control_translations"
+        elif key == "accountId":
+            suggest = "account_id"
+        elif key == "replicaKmsKeyId":
+            suggest = "replica_kms_key_id"
+        elif key == "replicationTimes":
+            suggest = "replication_times"
+        elif key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigurationRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigurationRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigurationRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: builtins.str,
+                 access_control_translations: Optional[Sequence['outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation']] = None,
+                 account_id: Optional[builtins.str] = None,
+                 metrics: Optional[Sequence['outputs.BucketReplicationConfigurationRuleDestinationMetric']] = None,
+                 replica_kms_key_id: Optional[builtins.str] = None,
+                 replication_times: Optional[Sequence['outputs.BucketReplicationConfigurationRuleDestinationReplicationTime']] = None,
+                 storage_class: Optional[builtins.str] = None):
+        """
+        :param builtins.str bucket: ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        :param Sequence['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translations: Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+        :param builtins.str account_id: Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        :param Sequence['BucketReplicationConfigurationRuleDestinationMetricArgs'] metrics: Enables replication metrics (required for S3 RTC) (documented below).
+        :param builtins.str replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
+               `sse_kms_encrypted_objects` source selection criteria.
+        :param Sequence['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs'] replication_times: Enables S3 Replication Time Control (S3 RTC) (documented below).
+        :param builtins.str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if access_control_translations is not None:
+            pulumi.set(__self__, "access_control_translations", access_control_translations)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if replica_kms_key_id is not None:
+            pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
+        if replication_times is not None:
+            pulumi.set(__self__, "replication_times", replication_times)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> builtins.str:
+        """
+        ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="accessControlTranslations")
+    def access_control_translations(self) -> Optional[Sequence['outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation']]:
+        """
+        Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+        """
+        return pulumi.get(self, "access_control_translations")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[builtins.str]:
+        """
+        Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Sequence['outputs.BucketReplicationConfigurationRuleDestinationMetric']]:
+        """
+        Enables replication metrics (required for S3 RTC) (documented below).
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter(name="replicaKmsKeyId")
+    def replica_kms_key_id(self) -> Optional[builtins.str]:
+        """
+        Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
+        `sse_kms_encrypted_objects` source selection criteria.
+        """
+        return pulumi.get(self, "replica_kms_key_id")
+
+    @property
+    @pulumi.getter(name="replicationTimes")
+    def replication_times(self) -> Optional[Sequence['outputs.BucketReplicationConfigurationRuleDestinationReplicationTime']]:
+        """
+        Enables S3 Replication Time Control (S3 RTC) (documented below).
+        """
+        return pulumi.get(self, "replication_times")
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[builtins.str]:
+        """
+        The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        """
+        return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
+    def __init__(__self__, *,
+                 owner: builtins.str):
+        """
+        :param builtins.str owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        """
+        pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        """
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        """
+        return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleDestinationMetric(dict):
+    def __init__(__self__, *,
+                 minutes: Optional[builtins.int] = None,
+                 status: Optional[builtins.str] = None):
+        """
+        :param builtins.int minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
+        :param builtins.str status: Status of replication metrics. Either `Enabled` or `Disabled`.
+        """
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[builtins.int]:
+        """
+        Threshold within which objects are to be replicated. The only valid value is `15`.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        Status of replication metrics. Either `Enabled` or `Disabled`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleDestinationReplicationTime(dict):
+    def __init__(__self__, *,
+                 minutes: Optional[builtins.int] = None,
+                 status: Optional[builtins.str] = None):
+        """
+        :param builtins.int minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
+        :param builtins.str status: Status of RTC. Either `Enabled` or `Disabled`.
+        """
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[builtins.int]:
+        """
+        Threshold within which objects are to be replicated. The only valid value is `15`.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        Status of RTC. Either `Enabled` or `Disabled`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleFilter(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str prefix: Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        :param Mapping[str, builtins.str] tags: A map of tags that identifies subset of objects to which the rule applies.
+               The rule applies only to objects having all the tags in its tagset.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        A map of tags that identifies subset of objects to which the rule applies.
+        The rule applies only to objects having all the tags in its tagset.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseKmsEncryptedObjects":
+            suggest = "sse_kms_encrypted_objects"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigurationRuleSourceSelectionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigurationRuleSourceSelectionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigurationRuleSourceSelectionCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sse_kms_encrypted_objects: Optional[Sequence['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject']] = None):
+        """
+        :param Sequence['BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs'] sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+               in `destination` must be specified as well.
+        """
+        if sse_kms_encrypted_objects is not None:
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+
+    @property
+    @pulumi.getter(name="sseKmsEncryptedObjects")
+    def sse_kms_encrypted_objects(self) -> Optional[Sequence['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject']]:
+        """
+        Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+        in `destination` must be specified as well.
+        """
+        return pulumi.get(self, "sse_kms_encrypted_objects")
+
+
+@pulumi.output_type
+class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(dict):
+    def __init__(__self__, *,
+                 enabled: builtins.bool):
+        """
+        :param builtins.bool enabled: Boolean which indicates if this criteria is enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        """
+        Boolean which indicates if this criteria is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class BucketServerSideEncryptionConfiguration(dict):
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.BucketServerSideEncryptionConfigurationRule']):
+        """
+        :param Sequence['BucketServerSideEncryptionConfigurationRuleArgs'] rules: Single object for server-side encryption by default configuration. (documented below)
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BucketServerSideEncryptionConfigurationRule']:
+        """
+        Single object for server-side encryption by default configuration. (documented below)
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketServerSideEncryptionConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyServerSideEncryptionByDefaults":
+            suggest = "apply_server_side_encryption_by_defaults"
+        elif key == "bucketKeyEnabled":
+            suggest = "bucket_key_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerSideEncryptionConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerSideEncryptionConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerSideEncryptionConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_server_side_encryption_by_defaults: Sequence['outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault'],
+                 bucket_key_enabled: Optional[builtins.bool] = None):
+        """
+        :param Sequence['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_defaults: Single object for setting server-side encryption by default. (documented below)
+        :param builtins.bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        """
+        pulumi.set(__self__, "apply_server_side_encryption_by_defaults", apply_server_side_encryption_by_defaults)
+        if bucket_key_enabled is not None:
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+
+    @property
+    @pulumi.getter(name="applyServerSideEncryptionByDefaults")
+    def apply_server_side_encryption_by_defaults(self) -> Sequence['outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault']:
+        """
+        Single object for setting server-side encryption by default. (documented below)
+        """
+        return pulumi.get(self, "apply_server_side_encryption_by_defaults")
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> Optional[builtins.bool]:
+        """
+        Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        """
+        return pulumi.get(self, "bucket_key_enabled")
+
+
+@pulumi.output_type
+class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseAlgorithm":
+            suggest = "sse_algorithm"
+        elif key == "kmsMasterKeyId":
+            suggest = "kms_master_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sse_algorithm: builtins.str,
+                 kms_master_key_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str sse_algorithm: Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        :param builtins.str kms_master_key_id: AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+        """
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+        if kms_master_key_id is not None:
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+
+    @property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> builtins.str:
+        """
+        Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        """
+        return pulumi.get(self, "sse_algorithm")
+
+    @property
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> Optional[builtins.str]:
+        """
+        AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+        """
+        return pulumi.get(self, "kms_master_key_id")
 
 
 @pulumi.output_type
@@ -4244,6 +5459,54 @@ class BucketV2Website(dict):
 
 
 @pulumi.output_type
+class BucketVersioning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mfaDelete":
+            suggest = "mfa_delete"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketVersioning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketVersioning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketVersioning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None,
+                 mfa_delete: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enabled: Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
+        :param builtins.bool mfa_delete: Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if mfa_delete is not None:
+            pulumi.set(__self__, "mfa_delete", mfa_delete)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        """
+        Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="mfaDelete")
+    def mfa_delete(self) -> Optional[builtins.bool]:
+        """
+        Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
+        """
+        return pulumi.get(self, "mfa_delete")
+
+
+@pulumi.output_type
 class BucketVersioningV2VersioningConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4288,6 +5551,86 @@ class BucketVersioningV2VersioningConfiguration(dict):
         Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
         """
         return pulumi.get(self, "mfa_delete")
+
+
+@pulumi.output_type
+class BucketWebsite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDocument":
+            suggest = "error_document"
+        elif key == "indexDocument":
+            suggest = "index_document"
+        elif key == "redirectAllRequestsTo":
+            suggest = "redirect_all_requests_to"
+        elif key == "routingRules":
+            suggest = "routing_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketWebsite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketWebsite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketWebsite.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_document: Optional[builtins.str] = None,
+                 index_document: Optional[builtins.str] = None,
+                 redirect_all_requests_to: Optional[builtins.str] = None,
+                 routing_rules: Optional[builtins.str] = None):
+        """
+        :param builtins.str error_document: Absolute path to the document to return in case of a 4XX error.
+        :param builtins.str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        :param builtins.str redirect_all_requests_to: Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+        :param builtins.str routing_rules: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+               describing redirect behavior and when redirects are applied.
+        """
+        if error_document is not None:
+            pulumi.set(__self__, "error_document", error_document)
+        if index_document is not None:
+            pulumi.set(__self__, "index_document", index_document)
+        if redirect_all_requests_to is not None:
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
+        if routing_rules is not None:
+            pulumi.set(__self__, "routing_rules", routing_rules)
+
+    @property
+    @pulumi.getter(name="errorDocument")
+    def error_document(self) -> Optional[builtins.str]:
+        """
+        Absolute path to the document to return in case of a 4XX error.
+        """
+        return pulumi.get(self, "error_document")
+
+    @property
+    @pulumi.getter(name="indexDocument")
+    def index_document(self) -> Optional[builtins.str]:
+        """
+        Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        """
+        return pulumi.get(self, "index_document")
+
+    @property
+    @pulumi.getter(name="redirectAllRequestsTo")
+    def redirect_all_requests_to(self) -> Optional[builtins.str]:
+        """
+        Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+        """
+        return pulumi.get(self, "redirect_all_requests_to")
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[builtins.str]:
+        """
+        JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        describing redirect behavior and when redirects are applied.
+        """
+        return pulumi.get(self, "routing_rules")
 
 
 @pulumi.output_type

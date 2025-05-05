@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
- *         var destination = new BucketV2("destination", BucketV2Args.builder()
+ *         var destination = new Bucket("destination", BucketArgs.builder()
  *             .bucket("tf-test-bucket-destination-12345")
  *             .build());
  * 
- *         var source = new BucketV2("source", BucketV2Args.builder()
+ *         var source = new Bucket("source", BucketArgs.builder()
  *             .bucket("tf-test-bucket-source-12345")
  *             .build());
  * 
@@ -183,8 +183,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
@@ -208,7 +208,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ... other configuration ...
- *         var east = new BucketV2("east", BucketV2Args.builder()
+ *         var east = new Bucket("east", BucketArgs.builder()
  *             .bucket("tf-test-bucket-east-12345")
  *             .build());
  * 
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var west = new BucketV2("west", BucketV2Args.builder()
+ *         var west = new Bucket("west", BucketArgs.builder()
  *             .bucket("tf-test-bucket-west-12345")
  *             .build());
  * 

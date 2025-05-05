@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.Role;
@@ -105,13 +105,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(exampleBucket.id())
  *             .acl("private")
  *             .build());
  * 
@@ -141,14 +141,14 @@ import javax.annotation.Nullable;
  *                     .actions(                    
  *                         "s3:GetBucketLocation",
  *                         "s3:ListBucket")
- *                     .resources(exampleBucketV2.arn())
+ *                     .resources(exampleBucket.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
  *                         "s3:GetObject",
  *                         "s3:PutObject",
  *                         "s3:DeleteObject")
- *                     .resources(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+ *                     .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .build())
  *             .build());
  * 
@@ -187,7 +187,7 @@ import javax.annotation.Nullable;
  *         var exampleExportTask = new ExportTask("exampleExportTask", ExportTaskArgs.builder()
  *             .exportTaskIdentifier("example")
  *             .sourceArn(exampleSnapshot.dbSnapshotArn())
- *             .s3BucketName(exampleBucketV2.id())
+ *             .s3BucketName(exampleBucket.id())
  *             .iamRoleArn(exampleRole.arn())
  *             .kmsKeyId(exampleKey.arn())
  *             .exportOnlies("database")

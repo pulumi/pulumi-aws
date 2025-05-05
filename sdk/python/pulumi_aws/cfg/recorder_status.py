@@ -118,7 +118,7 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b", bucket="awsconfig-example")
+        b = aws.s3.Bucket("b", bucket="awsconfig-example")
         foo_delivery_channel = aws.cfg.DeliveryChannel("foo",
             name="example",
             s3_bucket_name=b.bucket)
@@ -187,7 +187,7 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b", bucket="awsconfig-example")
+        b = aws.s3.Bucket("b", bucket="awsconfig-example")
         foo_delivery_channel = aws.cfg.DeliveryChannel("foo",
             name="example",
             s3_bucket_name=b.bucket)

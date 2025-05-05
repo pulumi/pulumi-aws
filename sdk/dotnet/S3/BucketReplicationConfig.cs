@@ -60,14 +60,14 @@ namespace Pulumi.Aws.S3
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var destination = new Aws.S3.BucketV2("destination", new()
+    ///     var destination = new Aws.S3.Bucket("destination", new()
     ///     {
-    ///         Bucket = "tf-test-bucket-destination-12345",
+    ///         BucketName = "tf-test-bucket-destination-12345",
     ///     });
     /// 
-    ///     var source = new Aws.S3.BucketV2("source", new()
+    ///     var source = new Aws.S3.Bucket("source", new()
     ///     {
-    ///         Bucket = "tf-test-bucket-source-12345",
+    ///         BucketName = "tf-test-bucket-source-12345",
     ///     });
     /// 
     ///     var replication = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -197,9 +197,9 @@ namespace Pulumi.Aws.S3
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var east = new Aws.S3.BucketV2("east", new()
+    ///     var east = new Aws.S3.Bucket("east", new()
     ///     {
-    ///         Bucket = "tf-test-bucket-east-12345",
+    ///         BucketName = "tf-test-bucket-east-12345",
     ///     });
     /// 
     ///     var eastBucketVersioningV2 = new Aws.S3.BucketVersioningV2("east", new()
@@ -211,9 +211,9 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var west = new Aws.S3.BucketV2("west", new()
+    ///     var west = new Aws.S3.Bucket("west", new()
     ///     {
-    ///         Bucket = "tf-test-bucket-west-12345",
+    ///         BucketName = "tf-test-bucket-west-12345",
     ///     });
     /// 
     ///     var westBucketVersioningV2 = new Aws.S3.BucketVersioningV2("west", new()

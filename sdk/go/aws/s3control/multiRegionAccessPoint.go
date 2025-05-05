@@ -33,13 +33,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooBucket, err := s3.NewBucketV2(ctx, "foo_bucket", &s3.BucketV2Args{
+//			fooBucket, err := s3.NewBucket(ctx, "foo_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-bucket-foo"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			barBucket, err := s3.NewBucketV2(ctx, "bar_bucket", &s3.BucketV2Args{
+//			barBucket, err := s3.NewBucket(ctx, "bar_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-bucket-bar"),
 //			})
 //			if err != nil {

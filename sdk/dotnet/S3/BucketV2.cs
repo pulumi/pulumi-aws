@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-test-bucket",
+    ///         BucketName = "my-tf-test-bucket",
     ///         Tags = 
     ///         {
     ///             { "Name", "My bucket" },
@@ -49,6 +49,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketv2.BucketV2 has been deprecated in favor of aws.s3/bucket.Bucket")]
     [AwsResourceType("aws:s3/bucketV2:BucketV2")]
     public partial class BucketV2 : global::Pulumi.CustomResource
     {
@@ -75,7 +76,7 @@ namespace Pulumi.Aws.S3
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
         /// </summary>
         [Output("bucket")]
-        public Output<string> Bucket { get; private set; } = null!;
+        public Output<string> BucketName { get; private set; } = null!;
 
         /// <summary>
         /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
@@ -250,7 +251,7 @@ namespace Pulumi.Aws.S3
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:s3/bucket:Bucket" },
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketV2:BucketV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -292,7 +293,7 @@ namespace Pulumi.Aws.S3
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
         /// </summary>
         [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
+        public Input<string>? BucketName { get; set; }
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -493,7 +494,7 @@ namespace Pulumi.Aws.S3
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
         /// </summary>
         [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
+        public Input<string>? BucketName { get; set; }
 
         /// <summary>
         /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.

@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .enable(true)
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket");
+ *         var bucket = new Bucket("bucket");
  * 
  *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
