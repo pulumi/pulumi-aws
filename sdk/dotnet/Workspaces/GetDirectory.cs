@@ -145,6 +145,7 @@ namespace Pulumi.Aws.Workspaces
         /// Directory alias.
         /// </summary>
         public readonly string Alias;
+        public readonly ImmutableArray<Outputs.GetDirectoryCertificateBasedAuthPropertyResult> CertificateBasedAuthProperties;
         /// <summary>
         /// User name for the service account.
         /// </summary>
@@ -208,6 +209,8 @@ namespace Pulumi.Aws.Workspaces
         private GetDirectoryResult(
             string alias,
 
+            ImmutableArray<Outputs.GetDirectoryCertificateBasedAuthPropertyResult> certificateBasedAuthProperties,
+
             string customerUserName,
 
             string directoryId,
@@ -241,6 +244,7 @@ namespace Pulumi.Aws.Workspaces
             string workspaceSecurityGroupId)
         {
             Alias = alias;
+            CertificateBasedAuthProperties = certificateBasedAuthProperties;
             CustomerUserName = customerUserName;
             DirectoryId = directoryId;
             DirectoryName = directoryName;

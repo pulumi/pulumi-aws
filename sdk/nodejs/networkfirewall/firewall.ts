@@ -20,6 +20,10 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     vpcId: exampleAwsVpc.id,
+ *     enabledAnalysisTypes: [
+ *         "TLS_SNI",
+ *         "HTTP_HOST",
+ *     ],
  *     subnetMappings: [{
  *         subnetId: exampleAwsSubnet.id,
  *     }],
@@ -78,6 +82,10 @@ export class Firewall extends pulumi.CustomResource {
      * A friendly description of the firewall.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     */
+    public readonly enabledAnalysisTypes!: pulumi.Output<string[] | undefined>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
@@ -141,6 +149,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = state ? state.enabledAnalysisTypes : undefined;
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
@@ -165,6 +174,7 @@ export class Firewall extends pulumi.CustomResource {
             }
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = args ? args.enabledAnalysisTypes : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
@@ -199,6 +209,10 @@ export interface FirewallState {
      * A friendly description of the firewall.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     */
+    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
@@ -259,6 +273,10 @@ export interface FirewallArgs {
      * A friendly description of the firewall.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     */
+    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */

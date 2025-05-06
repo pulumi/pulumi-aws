@@ -32,8 +32,10 @@ class ListenerRuleArgs:
         """
         The set of arguments for constructing a ListenerRule resource.
         :param pulumi.Input['ListenerRuleActionArgs'] action: The action for the listener rule.
+               See `action` Block for details.
         :param pulumi.Input[builtins.str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input['ListenerRuleMatchArgs'] match: The rule match.
+               See `match` Block
         :param pulumi.Input[builtins.int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
                
                The following arguments are optional:
@@ -56,6 +58,7 @@ class ListenerRuleArgs:
     def action(self) -> pulumi.Input['ListenerRuleActionArgs']:
         """
         The action for the listener rule.
+        See `action` Block for details.
         """
         return pulumi.get(self, "action")
 
@@ -80,6 +83,7 @@ class ListenerRuleArgs:
     def match(self) -> pulumi.Input['ListenerRuleMatchArgs']:
         """
         The rule match.
+        See `match` Block
         """
         return pulumi.get(self, "match")
 
@@ -154,9 +158,11 @@ class _ListenerRuleState:
         """
         Input properties used for looking up and filtering ListenerRule resources.
         :param pulumi.Input['ListenerRuleActionArgs'] action: The action for the listener rule.
+               See `action` Block for details.
         :param pulumi.Input[builtins.str] arn: The ARN for the listener rule.
         :param pulumi.Input[builtins.str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input['ListenerRuleMatchArgs'] match: The rule match.
+               See `match` Block
         :param pulumi.Input[builtins.str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
                
@@ -195,6 +201,7 @@ class _ListenerRuleState:
     def action(self) -> Optional[pulumi.Input['ListenerRuleActionArgs']]:
         """
         The action for the listener rule.
+        See `action` Block for details.
         """
         return pulumi.get(self, "action")
 
@@ -231,6 +238,7 @@ class _ListenerRuleState:
     def match(self) -> Optional[pulumi.Input['ListenerRuleMatchArgs']]:
         """
         The rule match.
+        See `match` Block
         """
         return pulumi.get(self, "match")
 
@@ -339,7 +347,7 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
+        example = aws.vpclattice.ListenerRule("example",
             name="example",
             listener_identifier=example_aws_vpclattice_listener["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
@@ -365,7 +373,7 @@ class ListenerRule(pulumi.CustomResource):
                 "forward": {
                     "target_groups": [
                         {
-                            "target_group_identifier": example["id"],
+                            "target_group_identifier": example_aws_vpclattice_target_group["id"],
                             "weight": 1,
                         },
                         {
@@ -383,9 +391,9 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
+        example = aws.vpclattice.ListenerRule("example",
             name="example",
-            listener_identifier=example["listenerId"],
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match={
@@ -416,8 +424,10 @@ class ListenerRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: The action for the listener rule.
+               See `action` Block for details.
         :param pulumi.Input[builtins.str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: The rule match.
+               See `match` Block
         :param pulumi.Input[builtins.str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
                
@@ -440,7 +450,7 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
+        example = aws.vpclattice.ListenerRule("example",
             name="example",
             listener_identifier=example_aws_vpclattice_listener["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
@@ -466,7 +476,7 @@ class ListenerRule(pulumi.CustomResource):
                 "forward": {
                     "target_groups": [
                         {
-                            "target_group_identifier": example["id"],
+                            "target_group_identifier": example_aws_vpclattice_target_group["id"],
                             "weight": 1,
                         },
                         {
@@ -484,9 +494,9 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
+        example = aws.vpclattice.ListenerRule("example",
             name="example",
-            listener_identifier=example["listenerId"],
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
             match={
@@ -593,9 +603,11 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: The action for the listener rule.
+               See `action` Block for details.
         :param pulumi.Input[builtins.str] arn: The ARN for the listener rule.
         :param pulumi.Input[builtins.str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: The rule match.
+               See `match` Block
         :param pulumi.Input[builtins.str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[builtins.int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
                
@@ -626,6 +638,7 @@ class ListenerRule(pulumi.CustomResource):
     def action(self) -> pulumi.Output['outputs.ListenerRuleAction']:
         """
         The action for the listener rule.
+        See `action` Block for details.
         """
         return pulumi.get(self, "action")
 
@@ -650,6 +663,7 @@ class ListenerRule(pulumi.CustomResource):
     def match(self) -> pulumi.Output['outputs.ListenerRuleMatch']:
         """
         The rule match.
+        See `match` Block
         """
         return pulumi.get(self, "match")
 

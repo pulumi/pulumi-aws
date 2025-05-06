@@ -22,6 +22,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      * 
      */
     @Import(name="action", required=true)
@@ -29,6 +30,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The action for the listener rule.
+     * See `action` Block for details.
      * 
      */
     public Output<ListenerRuleActionArgs> action() {
@@ -52,6 +54,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The rule match.
+     * See `match` Block
      * 
      */
     @Import(name="match", required=true)
@@ -59,6 +62,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The rule match.
+     * See `match` Block
      * 
      */
     public Output<ListenerRuleMatchArgs> match() {
@@ -161,6 +165,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param action The action for the listener rule.
+         * See `action` Block for details.
          * 
          * @return builder
          * 
@@ -172,6 +177,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param action The action for the listener rule.
+         * See `action` Block for details.
          * 
          * @return builder
          * 
@@ -203,6 +209,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param match The rule match.
+         * See `match` Block
          * 
          * @return builder
          * 
@@ -214,6 +221,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param match The rule match.
+         * See `match` Block
          * 
          * @return builder
          * 

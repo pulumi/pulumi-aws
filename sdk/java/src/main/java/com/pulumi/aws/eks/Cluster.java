@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("API")
  *                 .build())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(cluster.arn())
  *             .version("1.31")
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .subnetIds(                
@@ -432,7 +432,7 @@ import javax.annotation.Nullable;
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("CONFIG_MAP")
  *                 .build())
- *             .roleArn(exampleAwsIamRole.arn())
+ *             .roleArn(cluster.arn())
  *             .version("1.31")
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .endpointPrivateAccess(true)

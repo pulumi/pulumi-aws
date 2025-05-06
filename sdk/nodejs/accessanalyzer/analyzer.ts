@@ -36,6 +36,43 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Organization Unused Access Analyzer with analysis rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.accessanalyzer.Analyzer("example", {
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_UNUSED_ACCESS",
+ *     configuration: {
+ *         unusedAccess: {
+ *             unusedAccessAge: 180,
+ *             analysisRule: {
+ *                 exclusions: [
+ *                     {
+ *                         accountIds: [
+ *                             "123456789012",
+ *                             "234567890123",
+ *                         ],
+ *                     },
+ *                     {
+ *                         resourceTags: [
+ *                             {
+ *                                 key1: "value1",
+ *                             },
+ *                             {
+ *                                 key2: "value2",
+ *                             },
+ *                         ],
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:

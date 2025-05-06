@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ListenerRule("test", ListenerRuleArgs.builder()
+ *         var example = new ListenerRule("example", ListenerRuleArgs.builder()
  *             .name("example")
  *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .forward(ListenerRuleActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(example.id())
+ *                             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
  *                             .weight(1)
  *                             .build(),
  *                         ListenerRuleActionForwardTargetGroupArgs.builder()
@@ -126,9 +126,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ListenerRule("test", ListenerRuleArgs.builder()
+ *         var example = new ListenerRule("example", ListenerRuleArgs.builder()
  *             .name("example")
- *             .listenerIdentifier(example.listenerId())
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(10)
  *             .match(ListenerRuleMatchArgs.builder()
@@ -167,6 +167,7 @@ import javax.annotation.Nullable;
 public class ListenerRule extends com.pulumi.resources.CustomResource {
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      * 
      */
     @Export(name="action", refs={ListenerRuleAction.class}, tree="[0]")
@@ -174,6 +175,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The action for the listener rule.
+     * See `action` Block for details.
      * 
      */
     public Output<ListenerRuleAction> action() {
@@ -209,6 +211,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
     }
     /**
      * The rule match.
+     * See `match` Block
      * 
      */
     @Export(name="match", refs={ListenerRuleMatch.class}, tree="[0]")
@@ -216,6 +219,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The rule match.
+     * See `match` Block
      * 
      */
     public Output<ListenerRuleMatch> match() {

@@ -59,7 +59,8 @@ type LookupDirectoryArgs struct {
 // A collection of values returned by getDirectory.
 type LookupDirectoryResult struct {
 	// Directory alias.
-	Alias string `pulumi:"alias"`
+	Alias                          string                                     `pulumi:"alias"`
+	CertificateBasedAuthProperties []GetDirectoryCertificateBasedAuthProperty `pulumi:"certificateBasedAuthProperties"`
 	// User name for the service account.
 	CustomerUserName string `pulumi:"customerUserName"`
 	DirectoryId      string `pulumi:"directoryId"`
@@ -131,6 +132,12 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ct
 // Directory alias.
 func (o LookupDirectoryResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) CertificateBasedAuthProperties() GetDirectoryCertificateBasedAuthPropertyArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryCertificateBasedAuthProperty {
+		return v.CertificateBasedAuthProperties
+	}).(GetDirectoryCertificateBasedAuthPropertyArrayOutput)
 }
 
 // User name for the service account.

@@ -403,6 +403,31 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// 
+    /// ### DynamoDB Connection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Glue.Connection("test", new()
+    ///     {
+    ///         Name = "example",
+    ///         ConnectionType = "DYNAMODB",
+    ///         AthenaProperties = 
+    ///         {
+    ///             { "lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_athena_abcdefgh" },
+    ///             { "disable_spill_encryption", "false" },
+    ///             { "spill_bucket", "example-bucket" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -421,6 +446,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Map of key-value pairs used as connection properties specific to the Athena compute environment.
+        /// </summary>
+        [Output("athenaProperties")]
+        public Output<ImmutableDictionary<string, string>?> AthenaProperties { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
@@ -435,7 +466,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
@@ -503,6 +534,7 @@ namespace Pulumi.Aws.Glue
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "athenaProperties",
                     "connectionProperties",
                 },
             };
@@ -528,6 +560,22 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("athenaProperties")]
+        private InputMap<string>? _athenaProperties;
+
+        /// <summary>
+        /// Map of key-value pairs used as connection properties specific to the Athena compute environment.
+        /// </summary>
+        public InputMap<string> AthenaProperties
+        {
+            get => _athenaProperties ?? (_athenaProperties = new InputMap<string>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _athenaProperties = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
+
         /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
@@ -553,7 +601,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -616,6 +664,22 @@ namespace Pulumi.Aws.Glue
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("athenaProperties")]
+        private InputMap<string>? _athenaProperties;
+
+        /// <summary>
+        /// Map of key-value pairs used as connection properties specific to the Athena compute environment.
+        /// </summary>
+        public InputMap<string> AthenaProperties
+        {
+            get => _athenaProperties ?? (_athenaProperties = new InputMap<string>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _athenaProperties = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
+
         /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
@@ -641,7 +705,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }

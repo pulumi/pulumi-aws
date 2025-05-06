@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
+//			_, err := vpclattice.NewListenerRule(ctx, "example", &vpclattice.ListenerRuleArgs{
 //				Name:               pulumi.String("example"),
 //				ListenerIdentifier: pulumi.Any(exampleAwsVpclatticeListener.ListenerId),
 //				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
@@ -56,7 +56,7 @@ import (
 //					Forward: &vpclattice.ListenerRuleActionForwardArgs{
 //						TargetGroups: vpclattice.ListenerRuleActionForwardTargetGroupArray{
 //							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(example.Id),
+//								TargetGroupIdentifier: pulumi.Any(exampleAwsVpclatticeTargetGroup.Id),
 //								Weight:                pulumi.Int(1),
 //							},
 //							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
@@ -90,9 +90,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
+//			_, err := vpclattice.NewListenerRule(ctx, "example", &vpclattice.ListenerRuleArgs{
 //				Name:               pulumi.String("example"),
-//				ListenerIdentifier: pulumi.Any(example.ListenerId),
+//				ListenerIdentifier: pulumi.Any(exampleAwsVpclatticeListener.ListenerId),
 //				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
 //				Priority:           pulumi.Int(10),
 //				Match: &vpclattice.ListenerRuleMatchArgs{
@@ -131,12 +131,14 @@ type ListenerRule struct {
 	pulumi.CustomResourceState
 
 	// The action for the listener rule.
+	// See `action` Block for details.
 	Action ListenerRuleActionOutput `pulumi:"action"`
 	// The ARN for the listener rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringOutput `pulumi:"listenerIdentifier"`
 	// The rule match.
+	// See `match` Block
 	Match ListenerRuleMatchOutput `pulumi:"match"`
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -202,12 +204,14 @@ func GetListenerRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ListenerRule resources.
 type listenerRuleState struct {
 	// The action for the listener rule.
+	// See `action` Block for details.
 	Action *ListenerRuleAction `pulumi:"action"`
 	// The ARN for the listener rule.
 	Arn *string `pulumi:"arn"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier *string `pulumi:"listenerIdentifier"`
 	// The rule match.
+	// See `match` Block
 	Match *ListenerRuleMatch `pulumi:"match"`
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
@@ -229,12 +233,14 @@ type listenerRuleState struct {
 
 type ListenerRuleState struct {
 	// The action for the listener rule.
+	// See `action` Block for details.
 	Action ListenerRuleActionPtrInput
 	// The ARN for the listener rule.
 	Arn pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringPtrInput
 	// The rule match.
+	// See `match` Block
 	Match ListenerRuleMatchPtrInput
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
@@ -260,10 +266,12 @@ func (ListenerRuleState) ElementType() reflect.Type {
 
 type listenerRuleArgs struct {
 	// The action for the listener rule.
+	// See `action` Block for details.
 	Action ListenerRuleAction `pulumi:"action"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier string `pulumi:"listenerIdentifier"`
 	// The rule match.
+	// See `match` Block
 	Match ListenerRuleMatch `pulumi:"match"`
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
@@ -280,10 +288,12 @@ type listenerRuleArgs struct {
 // The set of arguments for constructing a ListenerRule resource.
 type ListenerRuleArgs struct {
 	// The action for the listener rule.
+	// See `action` Block for details.
 	Action ListenerRuleActionInput
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringInput
 	// The rule match.
+	// See `match` Block
 	Match ListenerRuleMatchInput
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
@@ -385,6 +395,7 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 }
 
 // The action for the listener rule.
+// See `action` Block for details.
 func (o ListenerRuleOutput) Action() ListenerRuleActionOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleActionOutput { return v.Action }).(ListenerRuleActionOutput)
 }
@@ -400,6 +411,7 @@ func (o ListenerRuleOutput) ListenerIdentifier() pulumi.StringOutput {
 }
 
 // The rule match.
+// See `match` Block
 func (o ListenerRuleOutput) Match() ListenerRuleMatchOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleMatchOutput { return v.Match }).(ListenerRuleMatchOutput)
 }

@@ -61,8 +61,11 @@ type LookupConnectionArgs struct {
 type LookupConnectionResult struct {
 	// ARN of the Glue Connection.
 	Arn string `pulumi:"arn"`
+	// A map of connection properties specific to the Athena compute environment.
+	AthenaProperties map[string]string `pulumi:"athenaProperties"`
 	// Catalog ID of the Glue Connection.
-	CatalogId            string            `pulumi:"catalogId"`
+	CatalogId string `pulumi:"catalogId"`
+	// A map of connection properties.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
 	// Type of Glue Connection.
 	ConnectionType string `pulumi:"connectionType"`
@@ -121,11 +124,17 @@ func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A map of connection properties specific to the Athena compute environment.
+func (o LookupConnectionResultOutput) AthenaProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.AthenaProperties }).(pulumi.StringMapOutput)
+}
+
 // Catalog ID of the Glue Connection.
 func (o LookupConnectionResultOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// A map of connection properties.
 func (o LookupConnectionResultOutput) ConnectionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.ConnectionProperties }).(pulumi.StringMapOutput)
 }

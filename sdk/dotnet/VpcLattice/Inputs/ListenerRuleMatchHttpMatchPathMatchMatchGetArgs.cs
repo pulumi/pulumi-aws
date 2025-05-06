@@ -19,7 +19,8 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// Specifies a prefix type match. Matches the value with the prefix.
+        /// Specifies a prefix type match.
+        /// Matches the value with the prefix.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

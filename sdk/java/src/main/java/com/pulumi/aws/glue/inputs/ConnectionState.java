@@ -34,6 +34,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     * 
+     */
+    @Import(name="athenaProperties")
+    private @Nullable Output<Map<String,String>> athenaProperties;
+
+    /**
+     * @return Map of key-value pairs used as connection properties specific to the Athena compute environment.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> athenaProperties() {
+        return Optional.ofNullable(this.athenaProperties);
+    }
+
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
@@ -68,14 +83,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     @Import(name="connectionType")
     private @Nullable Output<String> connectionType;
 
     /**
-     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     public Optional<Output<String>> connectionType() {
@@ -188,6 +203,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
 
     private ConnectionState(ConnectionState $) {
         this.arn = $.arn;
+        this.athenaProperties = $.athenaProperties;
         this.catalogId = $.catalogId;
         this.connectionProperties = $.connectionProperties;
         this.connectionType = $.connectionType;
@@ -239,6 +255,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param athenaProperties Map of key-value pairs used as connection properties specific to the Athena compute environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder athenaProperties(@Nullable Output<Map<String,String>> athenaProperties) {
+            $.athenaProperties = athenaProperties;
+            return this;
+        }
+
+        /**
+         * @param athenaProperties Map of key-value pairs used as connection properties specific to the Athena compute environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder athenaProperties(Map<String,String> athenaProperties) {
+            return athenaProperties(Output.of(athenaProperties));
+        }
+
+        /**
          * @param catalogId ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
          * 
          * @return builder
@@ -285,7 +322,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
          * 
          * @return builder
          * 
@@ -296,7 +333,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
          * 
          * @return builder
          * 

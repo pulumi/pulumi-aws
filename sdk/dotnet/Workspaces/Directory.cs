@@ -128,6 +128,11 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             { "Example", "true" },
     ///         },
+    ///         CertificateBasedAuthProperties = new Aws.Workspaces.Inputs.DirectoryCertificateBasedAuthPropertiesArgs
+    ///         {
+    ///             CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+    ///             Status = "ENABLED",
+    ///         },
     ///         SamlProperties = new Aws.Workspaces.Inputs.DirectorySamlPropertiesArgs
     ///         {
     ///             UserAccessUrl = "https://sso.example.com/",
@@ -215,6 +220,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        /// </summary>
+        [Output("certificateBasedAuthProperties")]
+        public Output<Outputs.DirectoryCertificateBasedAuthProperties> CertificateBasedAuthProperties { get; private set; } = null!;
 
         /// <summary>
         /// The user name for the service account.
@@ -359,6 +370,12 @@ namespace Pulumi.Aws.Workspaces
     public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        /// </summary>
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryCertificateBasedAuthPropertiesArgs>? CertificateBasedAuthProperties { get; set; }
+
+        /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Input("directoryId", required: true)]
@@ -437,6 +454,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
+
+        /// <summary>
+        /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        /// </summary>
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryCertificateBasedAuthPropertiesGetArgs>? CertificateBasedAuthProperties { get; set; }
 
         /// <summary>
         /// The user name for the service account.

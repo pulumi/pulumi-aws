@@ -91,6 +91,10 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly name: string;
     /**
+     * Placement settings that define where the instances that are launched from your image will run.
+     */
+    readonly placements: outputs.imagebuilder.GetInfrastructureConfigurationPlacement[];
+    /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
     readonly resourceTags: {[key: string]: string};

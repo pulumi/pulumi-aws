@@ -6,6 +6,7 @@ package com.pulumi.aws.workspaces;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.workspaces.DirectoryArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryState;
+import com.pulumi.aws.workspaces.outputs.DirectoryCertificateBasedAuthProperties;
 import com.pulumi.aws.workspaces.outputs.DirectorySamlProperties;
 import com.pulumi.aws.workspaces.outputs.DirectorySelfServicePermissions;
 import com.pulumi.aws.workspaces.outputs.DirectoryWorkspaceAccessProperties;
@@ -46,6 +47,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryCertificateBasedAuthPropertiesArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
@@ -135,6 +137,10 @@ import javax.annotation.Nullable;
  *                 exampleC.id(),
  *                 exampleD.id())
  *             .tags(Map.of("Example", "true"))
+ *             .certificateBasedAuthProperties(DirectoryCertificateBasedAuthPropertiesArgs.builder()
+ *                 .certificateAuthorityArn("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
+ *                 .status("ENABLED")
+ *                 .build())
  *             .samlProperties(DirectorySamlPropertiesArgs.builder()
  *                 .userAccessUrl("https://sso.example.com/")
  *                 .status("ENABLED")
@@ -241,6 +247,20 @@ public class Directory extends com.pulumi.resources.CustomResource {
      */
     public Output<String> alias() {
         return this.alias;
+    }
+    /**
+     * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     * 
+     */
+    @Export(name="certificateBasedAuthProperties", refs={DirectoryCertificateBasedAuthProperties.class}, tree="[0]")
+    private Output<DirectoryCertificateBasedAuthProperties> certificateBasedAuthProperties;
+
+    /**
+     * @return Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     * 
+     */
+    public Output<DirectoryCertificateBasedAuthProperties> certificateBasedAuthProperties() {
+        return this.certificateBasedAuthProperties;
     }
     /**
      * The user name for the service account.

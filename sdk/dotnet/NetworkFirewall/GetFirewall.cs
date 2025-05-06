@@ -283,6 +283,10 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Set of types for which to collect analysis metrics.
+        /// </summary>
+        public readonly ImmutableArray<string> EnabledAnalysisTypes;
+        /// <summary>
         /// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> EncryptionConfigurations;
@@ -335,6 +339,8 @@ namespace Pulumi.Aws.NetworkFirewall
 
             string description,
 
+            ImmutableArray<string> enabledAnalysisTypes,
+
             ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> encryptionConfigurations,
 
             string firewallPolicyArn,
@@ -360,6 +366,7 @@ namespace Pulumi.Aws.NetworkFirewall
             Arn = arn;
             DeleteProtection = deleteProtection;
             Description = description;
+            EnabledAnalysisTypes = enabledAnalysisTypes;
             EncryptionConfigurations = encryptionConfigurations;
             FirewallPolicyArn = firewallPolicyArn;
             FirewallPolicyChangeProtection = firewallPolicyChangeProtection;

@@ -28,10 +28,13 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
+    def __init__(__self__, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
+        if certificate_based_auth_properties and not isinstance(certificate_based_auth_properties, list):
+            raise TypeError("Expected argument 'certificate_based_auth_properties' to be a list")
+        pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if customer_user_name and not isinstance(customer_user_name, str):
             raise TypeError("Expected argument 'customer_user_name' to be a str")
         pulumi.set(__self__, "customer_user_name", customer_user_name)
@@ -88,6 +91,11 @@ class GetDirectoryResult:
         Directory alias.
         """
         return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Sequence['outputs.GetDirectoryCertificateBasedAuthPropertyResult']:
+        return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="customerUserName")
@@ -219,6 +227,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             yield self
         return GetDirectoryResult(
             alias=self.alias,
+            certificate_based_auth_properties=self.certificate_based_auth_properties,
             customer_user_name=self.customer_user_name,
             directory_id=self.directory_id,
             directory_name=self.directory_name,
@@ -264,6 +273,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
 
     return AwaitableGetDirectoryResult(
         alias=pulumi.get(__ret__, 'alias'),
+        certificate_based_auth_properties=pulumi.get(__ret__, 'certificate_based_auth_properties'),
         customer_user_name=pulumi.get(__ret__, 'customer_user_name'),
         directory_id=pulumi.get(__ret__, 'directory_id'),
         directory_name=pulumi.get(__ret__, 'directory_name'),
@@ -306,6 +316,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
     return __ret__.apply(lambda __response__: GetDirectoryResult(
         alias=pulumi.get(__response__, 'alias'),
+        certificate_based_auth_properties=pulumi.get(__response__, 'certificate_based_auth_properties'),
         customer_user_name=pulumi.get(__response__, 'customer_user_name'),
         directory_id=pulumi.get(__response__, 'directory_id'),
         directory_name=pulumi.get(__response__, 'directory_name'),

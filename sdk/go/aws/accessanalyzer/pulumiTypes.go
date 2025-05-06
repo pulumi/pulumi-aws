@@ -151,6 +151,8 @@ func (o AnalyzerConfigurationPtrOutput) UnusedAccess() AnalyzerConfigurationUnus
 }
 
 type AnalyzerConfigurationUnusedAccess struct {
+	// A block for analysis rules. Documented below
+	AnalysisRule *AnalyzerConfigurationUnusedAccessAnalysisRule `pulumi:"analysisRule"`
 	// The specified access age in days for which to generate findings for unused access.
 	UnusedAccessAge *int `pulumi:"unusedAccessAge"`
 }
@@ -167,6 +169,8 @@ type AnalyzerConfigurationUnusedAccessInput interface {
 }
 
 type AnalyzerConfigurationUnusedAccessArgs struct {
+	// A block for analysis rules. Documented below
+	AnalysisRule AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput `pulumi:"analysisRule"`
 	// The specified access age in days for which to generate findings for unused access.
 	UnusedAccessAge pulumi.IntPtrInput `pulumi:"unusedAccessAge"`
 }
@@ -248,6 +252,13 @@ func (o AnalyzerConfigurationUnusedAccessOutput) ToAnalyzerConfigurationUnusedAc
 	}).(AnalyzerConfigurationUnusedAccessPtrOutput)
 }
 
+// A block for analysis rules. Documented below
+func (o AnalyzerConfigurationUnusedAccessOutput) AnalysisRule() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccess) *AnalyzerConfigurationUnusedAccessAnalysisRule {
+		return v.AnalysisRule
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
+}
+
 // The specified access age in days for which to generate findings for unused access.
 func (o AnalyzerConfigurationUnusedAccessOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccess) *int { return v.UnusedAccessAge }).(pulumi.IntPtrOutput)
@@ -277,6 +288,16 @@ func (o AnalyzerConfigurationUnusedAccessPtrOutput) Elem() AnalyzerConfiguration
 	}).(AnalyzerConfigurationUnusedAccessOutput)
 }
 
+// A block for analysis rules. Documented below
+func (o AnalyzerConfigurationUnusedAccessPtrOutput) AnalysisRule() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccess) *AnalyzerConfigurationUnusedAccessAnalysisRule {
+		if v == nil {
+			return nil
+		}
+		return v.AnalysisRule
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
+}
+
 // The specified access age in days for which to generate findings for unused access.
 func (o AnalyzerConfigurationUnusedAccessPtrOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccess) *int {
@@ -285,6 +306,253 @@ func (o AnalyzerConfigurationUnusedAccessPtrOutput) UnusedAccessAge() pulumi.Int
 		}
 		return v.UnusedAccessAge
 	}).(pulumi.IntPtrOutput)
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRule struct {
+	// A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+	Exclusions []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion `pulumi:"exclusions"`
+}
+
+// AnalyzerConfigurationUnusedAccessAnalysisRuleInput is an input type that accepts AnalyzerConfigurationUnusedAccessAnalysisRuleArgs and AnalyzerConfigurationUnusedAccessAnalysisRuleOutput values.
+// You can construct a concrete instance of `AnalyzerConfigurationUnusedAccessAnalysisRuleInput` via:
+//
+//	AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{...}
+type AnalyzerConfigurationUnusedAccessAnalysisRuleInput interface {
+	pulumi.Input
+
+	ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleOutput
+	ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutputWithContext(context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleOutput
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleArgs struct {
+	// A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+	Exclusions AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayInput `pulumi:"exclusions"`
+}
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRule)(nil)).Elem()
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleArgs) ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleOutput {
+	return i.ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutputWithContext(context.Background())
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleArgs) ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationUnusedAccessAnalysisRuleOutput)
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleArgs) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return i.ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(context.Background())
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleArgs) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationUnusedAccessAnalysisRuleOutput).ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(ctx)
+}
+
+// AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput is an input type that accepts AnalyzerConfigurationUnusedAccessAnalysisRuleArgs, AnalyzerConfigurationUnusedAccessAnalysisRulePtr and AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput values.
+// You can construct a concrete instance of `AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput` via:
+//
+//	        AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput interface {
+	pulumi.Input
+
+	ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput
+	ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(context.Context) AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput
+}
+
+type analyzerConfigurationUnusedAccessAnalysisRulePtrType AnalyzerConfigurationUnusedAccessAnalysisRuleArgs
+
+func AnalyzerConfigurationUnusedAccessAnalysisRulePtr(v *AnalyzerConfigurationUnusedAccessAnalysisRuleArgs) AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput {
+	return (*analyzerConfigurationUnusedAccessAnalysisRulePtrType)(v)
+}
+
+func (*analyzerConfigurationUnusedAccessAnalysisRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerConfigurationUnusedAccessAnalysisRule)(nil)).Elem()
+}
+
+func (i *analyzerConfigurationUnusedAccessAnalysisRulePtrType) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return i.ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(context.Background())
+}
+
+func (i *analyzerConfigurationUnusedAccessAnalysisRulePtrType) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRule)(nil)).Elem()
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRuleOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return o.ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(context.Background())
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerConfigurationUnusedAccessAnalysisRule) *AnalyzerConfigurationUnusedAccessAnalysisRule {
+		return &v
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
+}
+
+// A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) Exclusions() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
+	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccessAnalysisRule) []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
+		return v.Exclusions
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput)
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerConfigurationUnusedAccessAnalysisRule)(nil)).Elem()
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRulePtrOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) Elem() AnalyzerConfigurationUnusedAccessAnalysisRuleOutput {
+	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccessAnalysisRule) AnalyzerConfigurationUnusedAccessAnalysisRule {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerConfigurationUnusedAccessAnalysisRule
+		return ret
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRuleOutput)
+}
+
+// A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) Exclusions() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
+	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccessAnalysisRule) []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput)
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion struct {
+	// A list of account IDs to exclude from the analysis.
+	AccountIds []string `pulumi:"accountIds"`
+	// A list of key-value pairs for resource tags to exclude from the analysis.
+	ResourceTags []map[string]string `pulumi:"resourceTags"`
+}
+
+// AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionInput is an input type that accepts AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs and AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput values.
+// You can construct a concrete instance of `AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionInput` via:
+//
+//	AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{...}
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionInput interface {
+	pulumi.Input
+
+	ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput
+	ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutputWithContext(context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs struct {
+	// A list of account IDs to exclude from the analysis.
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
+	// A list of key-value pairs for resource tags to exclude from the analysis.
+	ResourceTags pulumi.StringMapArrayInput `pulumi:"resourceTags"`
+}
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion)(nil)).Elem()
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput {
+	return i.ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutputWithContext(context.Background())
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput)
+}
+
+// AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayInput is an input type that accepts AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray and AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput values.
+// You can construct a concrete instance of `AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayInput` via:
+//
+//	AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray{ AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{...} }
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayInput interface {
+	pulumi.Input
+
+	ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput
+	ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutputWithContext(context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionInput
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion)(nil)).Elem()
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
+	return i.ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput)
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion)(nil)).Elem()
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput {
+	return o
+}
+
+// A list of account IDs to exclude from the analysis.
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of key-value pairs for resource tags to exclude from the analysis.
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) ResourceTags() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion) []map[string]string {
+		return v.ResourceTags
+	}).(pulumi.StringMapArrayOutput)
+}
+
+type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion)(nil)).Elem()
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput) ToAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutputWithContext(ctx context.Context) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput) Index(i pulumi.IntInput) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
+		return vs[0].([]AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion)[vs[1].(int)]
+	}).(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput)
 }
 
 type ArchiveRuleFilter struct {
@@ -425,12 +693,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPtrInput)(nil)).Elem(), AnalyzerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationUnusedAccessInput)(nil)).Elem(), AnalyzerConfigurationUnusedAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationUnusedAccessPtrInput)(nil)).Elem(), AnalyzerConfigurationUnusedAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRuleInput)(nil)).Elem(), AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput)(nil)).Elem(), AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionInput)(nil)).Elem(), AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayInput)(nil)).Elem(), AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveRuleFilterInput)(nil)).Elem(), ArchiveRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveRuleFilterArrayInput)(nil)).Elem(), ArchiveRuleFilterArray{})
 	pulumi.RegisterOutputType(AnalyzerConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalyzerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerConfigurationUnusedAccessOutput{})
 	pulumi.RegisterOutputType(AnalyzerConfigurationUnusedAccessPtrOutput{})
+	pulumi.RegisterOutputType(AnalyzerConfigurationUnusedAccessAnalysisRuleOutput{})
+	pulumi.RegisterOutputType(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput{})
+	pulumi.RegisterOutputType(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput{})
+	pulumi.RegisterOutputType(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput{})
 	pulumi.RegisterOutputType(ArchiveRuleFilterOutput{})
 	pulumi.RegisterOutputType(ArchiveRuleFilterArrayOutput{})
 }

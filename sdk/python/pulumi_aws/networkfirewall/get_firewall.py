@@ -28,7 +28,7 @@ class GetFirewallResult:
     """
     A collection of values returned by getFirewall.
     """
-    def __init__(__self__, arn=None, delete_protection=None, description=None, encryption_configurations=None, firewall_policy_arn=None, firewall_policy_change_protection=None, firewall_statuses=None, id=None, name=None, subnet_change_protection=None, subnet_mappings=None, tags=None, update_token=None, vpc_id=None):
+    def __init__(__self__, arn=None, delete_protection=None, description=None, enabled_analysis_types=None, encryption_configurations=None, firewall_policy_arn=None, firewall_policy_change_protection=None, firewall_statuses=None, id=None, name=None, subnet_change_protection=None, subnet_mappings=None, tags=None, update_token=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetFirewallResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enabled_analysis_types and not isinstance(enabled_analysis_types, list):
+            raise TypeError("Expected argument 'enabled_analysis_types' to be a list")
+        pulumi.set(__self__, "enabled_analysis_types", enabled_analysis_types)
         if encryption_configurations and not isinstance(encryption_configurations, list):
             raise TypeError("Expected argument 'encryption_configurations' to be a list")
         pulumi.set(__self__, "encryption_configurations", encryption_configurations)
@@ -95,6 +98,14 @@ class GetFirewallResult:
         Description of the firewall.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enabledAnalysisTypes")
+    def enabled_analysis_types(self) -> Sequence[builtins.str]:
+        """
+        Set of types for which to collect analysis metrics.
+        """
+        return pulumi.get(self, "enabled_analysis_types")
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
@@ -194,6 +205,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             arn=self.arn,
             delete_protection=self.delete_protection,
             description=self.description,
+            enabled_analysis_types=self.enabled_analysis_types,
             encryption_configurations=self.encryption_configurations,
             firewall_policy_arn=self.firewall_policy_arn,
             firewall_policy_change_protection=self.firewall_policy_change_protection,
@@ -260,6 +272,7 @@ def get_firewall(arn: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         delete_protection=pulumi.get(__ret__, 'delete_protection'),
         description=pulumi.get(__ret__, 'description'),
+        enabled_analysis_types=pulumi.get(__ret__, 'enabled_analysis_types'),
         encryption_configurations=pulumi.get(__ret__, 'encryption_configurations'),
         firewall_policy_arn=pulumi.get(__ret__, 'firewall_policy_arn'),
         firewall_policy_change_protection=pulumi.get(__ret__, 'firewall_policy_change_protection'),
@@ -323,6 +336,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
         arn=pulumi.get(__response__, 'arn'),
         delete_protection=pulumi.get(__response__, 'delete_protection'),
         description=pulumi.get(__response__, 'description'),
+        enabled_analysis_types=pulumi.get(__response__, 'enabled_analysis_types'),
         encryption_configurations=pulumi.get(__response__, 'encryption_configurations'),
         firewall_policy_arn=pulumi.get(__response__, 'firewall_policy_arn'),
         firewall_policy_change_protection=pulumi.get(__response__, 'firewall_policy_change_protection'),

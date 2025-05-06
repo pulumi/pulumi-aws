@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     accessConfig: {
  *         authenticationMode: "API",
  *     },
- *     roleArn: exampleAwsIamRole.arn,
+ *     roleArn: cluster.arn,
  *     version: "1.31",
  *     vpcConfig: {
  *         subnetIds: [
@@ -259,7 +259,7 @@ import * as utilities from "../utilities";
  *     accessConfig: {
  *         authenticationMode: "CONFIG_MAP",
  *     },
- *     roleArn: exampleAwsIamRole.arn,
+ *     roleArn: cluster.arn,
  *     version: "1.31",
  *     vpcConfig: {
  *         endpointPrivateAccess: true,

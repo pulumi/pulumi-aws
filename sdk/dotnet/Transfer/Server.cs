@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Transfer
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider.
+        /// The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
         /// </summary>
         [Output("function")]
         public Output<string?> Function { get; private set; } = null!;
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
         [Output("sftpAuthenticationMethods")]
         public Output<string> SftpAuthenticationMethods { get; private set; } = null!;
@@ -509,7 +509,7 @@ namespace Pulumi.Aws.Transfer
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider.
+        /// The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
@@ -634,7 +634,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
-        /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
         [Input("sftpAuthenticationMethods")]
         public Input<string>? SftpAuthenticationMethods { get; set; }
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.Transfer
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider.
+        /// The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
@@ -863,7 +863,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
-        /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+        /// For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
         [Input("sftpAuthenticationMethods")]
         public Input<string>? SftpAuthenticationMethods { get; set; }

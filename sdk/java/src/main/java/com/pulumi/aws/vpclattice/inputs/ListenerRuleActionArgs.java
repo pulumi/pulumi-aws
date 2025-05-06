@@ -18,6 +18,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Describes the rule action that returns a custom HTTP response.
+     * See `fixed_response` Block for details.
      * 
      */
     @Import(name="fixedResponse")
@@ -25,6 +26,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Describes the rule action that returns a custom HTTP response.
+     * See `fixed_response` Block for details.
      * 
      */
     public Optional<Output<ListenerRuleActionFixedResponseArgs>> fixedResponse() {
@@ -33,6 +35,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+     * See `forward` Block for details.
      * 
      */
     @Import(name="forward")
@@ -40,6 +43,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+     * See `forward` Block for details.
      * 
      */
     public Optional<Output<ListenerRuleActionForwardArgs>> forward() {
@@ -73,6 +77,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param fixedResponse Describes the rule action that returns a custom HTTP response.
+         * See `fixed_response` Block for details.
          * 
          * @return builder
          * 
@@ -84,6 +89,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param fixedResponse Describes the rule action that returns a custom HTTP response.
+         * See `fixed_response` Block for details.
          * 
          * @return builder
          * 
@@ -94,6 +100,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param forward The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+         * See `forward` Block for details.
          * 
          * @return builder
          * 
@@ -105,6 +112,7 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param forward The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+         * See `forward` Block for details.
          * 
          * @return builder
          * 

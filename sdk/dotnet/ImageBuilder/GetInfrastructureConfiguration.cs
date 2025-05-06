@@ -204,6 +204,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Placement settings that define where the instances that are launched from your image will run.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationPlacementResult> Placements;
+        /// <summary>
         /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ResourceTags;
@@ -252,6 +256,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string name,
 
+            ImmutableArray<Outputs.GetInfrastructureConfigurationPlacementResult> placements,
+
             ImmutableDictionary<string, string> resourceTags,
 
             ImmutableArray<string> securityGroupIds,
@@ -275,6 +281,7 @@ namespace Pulumi.Aws.ImageBuilder
             KeyPair = keyPair;
             Loggings = loggings;
             Name = name;
+            Placements = placements;
             ResourceTags = resourceTags;
             SecurityGroupIds = securityGroupIds;
             SnsTopicArn = snsTopicArn;

@@ -121,6 +121,8 @@ type LookupFirewallResult struct {
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Description of the firewall.
 	Description string `pulumi:"description"`
+	// Set of types for which to collect analysis metrics.
+	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
 	// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
 	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// ARN of the VPC Firewall policy.
@@ -196,6 +198,11 @@ func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolOutput {
 // Description of the firewall.
 func (o LookupFirewallResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Set of types for which to collect analysis metrics.
+func (o LookupFirewallResultOutput) EnabledAnalysisTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupFirewallResult) []string { return v.EnabledAnalysisTypes }).(pulumi.StringArrayOutput)
 }
 
 // AWS Key Management Service (AWS KMS) encryption settings for the firewall.

@@ -136,6 +136,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Example": pulumi.String("true"),
 //				},
+//				CertificateBasedAuthProperties: &workspaces.DirectoryCertificateBasedAuthPropertiesArgs{
+//					CertificateAuthorityArn: pulumi.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"),
+//					Status:                  pulumi.String("ENABLED"),
+//				},
 //				SamlProperties: &workspaces.DirectorySamlPropertiesArgs{
 //					UserAccessUrl: pulumi.String("https://sso.example.com/"),
 //					Status:        pulumi.String("ENABLED"),
@@ -224,6 +228,8 @@ type Directory struct {
 
 	// The directory alias.
 	Alias pulumi.StringOutput `pulumi:"alias"`
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties DirectoryCertificateBasedAuthPropertiesOutput `pulumi:"certificateBasedAuthProperties"`
 	// The user name for the service account.
 	CustomerUserName pulumi.StringOutput `pulumi:"customerUserName"`
 	// The directory identifier for registration in WorkSpaces service.
@@ -295,6 +301,8 @@ func GetDirectory(ctx *pulumi.Context,
 type directoryState struct {
 	// The directory alias.
 	Alias *string `pulumi:"alias"`
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties *DirectoryCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
 	// The user name for the service account.
 	CustomerUserName *string `pulumi:"customerUserName"`
 	// The directory identifier for registration in WorkSpaces service.
@@ -334,6 +342,8 @@ type directoryState struct {
 type DirectoryState struct {
 	// The directory alias.
 	Alias pulumi.StringPtrInput
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties DirectoryCertificateBasedAuthPropertiesPtrInput
 	// The user name for the service account.
 	CustomerUserName pulumi.StringPtrInput
 	// The directory identifier for registration in WorkSpaces service.
@@ -375,6 +385,8 @@ func (DirectoryState) ElementType() reflect.Type {
 }
 
 type directoryArgs struct {
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties *DirectoryCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
 	// The directory identifier for registration in WorkSpaces service.
 	DirectoryId string `pulumi:"directoryId"`
 	// The identifiers of the IP access control groups associated with the directory.
@@ -395,6 +407,8 @@ type directoryArgs struct {
 
 // The set of arguments for constructing a Directory resource.
 type DirectoryArgs struct {
+	// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+	CertificateBasedAuthProperties DirectoryCertificateBasedAuthPropertiesPtrInput
 	// The directory identifier for registration in WorkSpaces service.
 	DirectoryId pulumi.StringInput
 	// The identifiers of the IP access control groups associated with the directory.
@@ -503,6 +517,13 @@ func (o DirectoryOutput) ToDirectoryOutputWithContext(ctx context.Context) Direc
 // The directory alias.
 func (o DirectoryOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+func (o DirectoryOutput) CertificateBasedAuthProperties() DirectoryCertificateBasedAuthPropertiesOutput {
+	return o.ApplyT(func(v *Directory) DirectoryCertificateBasedAuthPropertiesOutput {
+		return v.CertificateBasedAuthProperties
+	}).(DirectoryCertificateBasedAuthPropertiesOutput)
 }
 
 // The user name for the service account.

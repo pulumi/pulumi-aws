@@ -101,6 +101,63 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Organization Unused Access Analyzer with analysis rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.accessanalyzer.Analyzer;
+ * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationUnusedAccessArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Analyzer("example", AnalyzerArgs.builder()
+ *             .analyzerName("example")
+ *             .type("ORGANIZATION_UNUSED_ACCESS")
+ *             .configuration(AnalyzerConfigurationArgs.builder()
+ *                 .unusedAccess(AnalyzerConfigurationUnusedAccessArgs.builder()
+ *                     .unusedAccessAge(180)
+ *                     .analysisRule(AnalyzerConfigurationUnusedAccessAnalysisRuleArgs.builder()
+ *                         .exclusions(                        
+ *                             AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs.builder()
+ *                                 .accountIds(                                
+ *                                     "123456789012",
+ *                                     "234567890123")
+ *                                 .build(),
+ *                             AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs.builder()
+ *                                 .resourceTags(                                
+ *                                     Map.of("key1", "value1"),
+ *                                     Map.of("key2", "value2"))
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:

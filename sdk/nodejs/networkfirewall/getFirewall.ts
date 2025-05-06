@@ -91,6 +91,10 @@ export interface GetFirewallResult {
      */
     readonly description: string;
     /**
+     * Set of types for which to collect analysis metrics.
+     */
+    readonly enabledAnalysisTypes: string[];
+    /**
      * AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      */
     readonly encryptionConfigurations: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];

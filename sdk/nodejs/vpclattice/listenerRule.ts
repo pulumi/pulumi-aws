@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.ListenerRule("test", {
+ * const example = new aws.vpclattice.ListenerRule("example", {
  *     name: "example",
  *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
  *     serviceIdentifier: exampleAwsVpclatticeService.id,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         forward: {
  *             targetGroups: [
  *                 {
- *                     targetGroupIdentifier: example.id,
+ *                     targetGroupIdentifier: exampleAwsVpclatticeTargetGroup.id,
  *                     weight: 1,
  *                 },
  *                 {
@@ -61,9 +61,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.ListenerRule("test", {
+ * const example = new aws.vpclattice.ListenerRule("example", {
  *     name: "example",
- *     listenerIdentifier: example.listenerId,
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
  *     serviceIdentifier: exampleAwsVpclatticeService.id,
  *     priority: 10,
  *     match: {
@@ -122,6 +122,7 @@ export class ListenerRule extends pulumi.CustomResource {
 
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      */
     public readonly action!: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
     /**
@@ -134,6 +135,7 @@ export class ListenerRule extends pulumi.CustomResource {
     public readonly listenerIdentifier!: pulumi.Output<string>;
     /**
      * The rule match.
+     * See `match` Block
      */
     public readonly match!: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
     /**
@@ -227,6 +229,7 @@ export class ListenerRule extends pulumi.CustomResource {
 export interface ListenerRuleState {
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      */
     action?: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
@@ -239,6 +242,7 @@ export interface ListenerRuleState {
     listenerIdentifier?: pulumi.Input<string>;
     /**
      * The rule match.
+     * See `match` Block
      */
     match?: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
     /**
@@ -277,6 +281,7 @@ export interface ListenerRuleState {
 export interface ListenerRuleArgs {
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
@@ -285,6 +290,7 @@ export interface ListenerRuleArgs {
     listenerIdentifier: pulumi.Input<string>;
     /**
      * The rule match.
+     * See `match` Block
      */
     match: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
     /**
