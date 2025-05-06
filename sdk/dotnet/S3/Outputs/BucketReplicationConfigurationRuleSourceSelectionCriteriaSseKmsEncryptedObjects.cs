@@ -11,7 +11,7 @@ namespace Pulumi.Aws.S3.Outputs
 {
 
     [OutputType]
-    public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject
+    public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects
     {
         /// <summary>
         /// Boolean which indicates if this criteria is enabled.
@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Outputs
         public readonly bool Enabled;
 
         [OutputConstructor]
-        private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(bool enabled)
+        private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects(bool enabled)
         {
             Enabled = enabled;
         }

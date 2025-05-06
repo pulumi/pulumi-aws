@@ -24,17 +24,11 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        [Input("expirations")]
-        private InputList<Inputs.BucketLifecycleRuleExpirationArgs>? _expirations;
-
         /// <summary>
         /// Specifies a period in the object's expire. See Expiration below for details.
         /// </summary>
-        public InputList<Inputs.BucketLifecycleRuleExpirationArgs> Expirations
-        {
-            get => _expirations ?? (_expirations = new InputList<Inputs.BucketLifecycleRuleExpirationArgs>());
-            set => _expirations = value;
-        }
+        [Input("expiration")]
+        public Input<Inputs.BucketLifecycleRuleExpirationArgs>? Expiration { get; set; }
 
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -42,17 +36,11 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        [Input("noncurrentVersionExpirations")]
-        private InputList<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs>? _noncurrentVersionExpirations;
-
         /// <summary>
         /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         /// </summary>
-        public InputList<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs> NoncurrentVersionExpirations
-        {
-            get => _noncurrentVersionExpirations ?? (_noncurrentVersionExpirations = new InputList<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs>());
-            set => _noncurrentVersionExpirations = value;
-        }
+        [Input("noncurrentVersionExpiration")]
+        public Input<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs>? NoncurrentVersionExpiration { get; set; }
 
         [Input("noncurrentVersionTransitions")]
         private InputList<Inputs.BucketLifecycleRuleNoncurrentVersionTransitionArgs>? _noncurrentVersionTransitions;

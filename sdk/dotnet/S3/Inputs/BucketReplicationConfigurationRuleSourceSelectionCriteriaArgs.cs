@@ -12,18 +12,12 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs : global::Pulumi.ResourceArgs
     {
-        [Input("sseKmsEncryptedObjects")]
-        private InputList<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>? _sseKmsEncryptedObjects;
-
         /// <summary>
         /// Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
         /// in `destination` must be specified as well.
         /// </summary>
-        public InputList<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs> SseKmsEncryptedObjects
-        {
-            get => _sseKmsEncryptedObjects ?? (_sseKmsEncryptedObjects = new InputList<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>());
-            set => _sseKmsEncryptedObjects = value;
-        }
+        [Input("sseKmsEncryptedObjects")]
+        public Input<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs>? SseKmsEncryptedObjects { get; set; }
 
         public BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs()
         {

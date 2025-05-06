@@ -12,17 +12,11 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rules", required: true)]
-        private InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs>? _rules;
-
         /// <summary>
         /// Single object for server-side encryption by default configuration. (documented below)
         /// </summary>
-        public InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs> Rules
-        {
-            get => _rules ?? (_rules = new InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs>());
-            set => _rules = value;
-        }
+        [Input("rule", required: true)]
+        public Input<Inputs.BucketServerSideEncryptionConfigurationRuleArgs> Rule { get; set; } = null!;
 
         public BucketServerSideEncryptionConfigurationArgs()
         {

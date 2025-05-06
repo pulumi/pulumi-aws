@@ -6,7 +6,6 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.aws.s3.outputs.BucketObjectLockConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,7 +29,7 @@ public final class BucketObjectLockConfiguration {
      * 
      */
     @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
-    private @Nullable List<BucketObjectLockConfigurationRule> rules;
+    private @Nullable BucketObjectLockConfigurationRule rule;
 
     private BucketObjectLockConfiguration() {}
     /**
@@ -52,8 +51,8 @@ public final class BucketObjectLockConfiguration {
      * 
      */
     @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
-    public List<BucketObjectLockConfigurationRule> rules() {
-        return this.rules == null ? List.of() : this.rules;
+    public Optional<BucketObjectLockConfigurationRule> rule() {
+        return Optional.ofNullable(this.rule);
     }
 
     public static Builder builder() {
@@ -66,12 +65,12 @@ public final class BucketObjectLockConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String objectLockEnabled;
-        private @Nullable List<BucketObjectLockConfigurationRule> rules;
+        private @Nullable BucketObjectLockConfigurationRule rule;
         public Builder() {}
         public Builder(BucketObjectLockConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectLockEnabled = defaults.objectLockEnabled;
-    	      this.rules = defaults.rules;
+    	      this.rule = defaults.rule;
         }
 
         @CustomType.Setter
@@ -81,18 +80,15 @@ public final class BucketObjectLockConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder rules(@Nullable List<BucketObjectLockConfigurationRule> rules) {
+        public Builder rule(@Nullable BucketObjectLockConfigurationRule rule) {
 
-            this.rules = rules;
+            this.rule = rule;
             return this;
-        }
-        public Builder rules(BucketObjectLockConfigurationRule... rules) {
-            return rules(List.of(rules));
         }
         public BucketObjectLockConfiguration build() {
             final var _resultValue = new BucketObjectLockConfiguration();
             _resultValue.objectLockEnabled = objectLockEnabled;
-            _resultValue.rules = rules;
+            _resultValue.rule = rule;
             return _resultValue;
         }
     }

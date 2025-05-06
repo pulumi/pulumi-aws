@@ -18,29 +18,17 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("deleteMarkerReplicationStatus")]
         public Input<string>? DeleteMarkerReplicationStatus { get; set; }
 
-        [Input("destinations", required: true)]
-        private InputList<Inputs.BucketReplicationConfigurationRuleDestinationGetArgs>? _destinations;
-
         /// <summary>
         /// Specifies the destination for the rule (documented below).
         /// </summary>
-        public InputList<Inputs.BucketReplicationConfigurationRuleDestinationGetArgs> Destinations
-        {
-            get => _destinations ?? (_destinations = new InputList<Inputs.BucketReplicationConfigurationRuleDestinationGetArgs>());
-            set => _destinations = value;
-        }
-
-        [Input("filters")]
-        private InputList<Inputs.BucketReplicationConfigurationRuleFilterGetArgs>? _filters;
+        [Input("destination", required: true)]
+        public Input<Inputs.BucketReplicationConfigurationRuleDestinationGetArgs> Destination { get; set; } = null!;
 
         /// <summary>
         /// Filter that identifies subset of objects to which the replication rule applies (documented below).
         /// </summary>
-        public InputList<Inputs.BucketReplicationConfigurationRuleFilterGetArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<Inputs.BucketReplicationConfigurationRuleFilterGetArgs>());
-            set => _filters = value;
-        }
+        [Input("filter")]
+        public Input<Inputs.BucketReplicationConfigurationRuleFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -60,17 +48,11 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        [Input("sourceSelectionCriterias")]
-        private InputList<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaGetArgs>? _sourceSelectionCriterias;
-
         /// <summary>
         /// Specifies special object selection criteria (documented below).
         /// </summary>
-        public InputList<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaGetArgs> SourceSelectionCriterias
-        {
-            get => _sourceSelectionCriterias ?? (_sourceSelectionCriterias = new InputList<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaGetArgs>());
-            set => _sourceSelectionCriterias = value;
-        }
+        [Input("sourceSelectionCriteria")]
+        public Input<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaGetArgs>? SourceSelectionCriteria { get; set; }
 
         /// <summary>
         /// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.

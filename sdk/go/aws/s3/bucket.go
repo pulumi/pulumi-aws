@@ -99,7 +99,7 @@ type Bucket struct {
 	// Use the resource `s3.BucketLogging` instead.
 	//
 	// Deprecated: logging is deprecated. Use the s3.BucketLogging resource instead.
-	Loggings BucketLoggingTypeArrayOutput `pulumi:"loggings"`
+	Logging BucketLoggingTypeOutput `pulumi:"logging"`
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
 	// The provider wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
@@ -120,7 +120,7 @@ type Bucket struct {
 	// Use the resource `s3.BucketReplicationConfig` instead.
 	//
 	// Deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.
-	ReplicationConfigurations BucketReplicationConfigurationArrayOutput `pulumi:"replicationConfigurations"`
+	ReplicationConfiguration BucketReplicationConfigurationOutput `pulumi:"replicationConfiguration"`
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
@@ -134,7 +134,7 @@ type Bucket struct {
 	// Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
 	//
 	// Deprecated: server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.
-	ServerSideEncryptionConfigurations BucketServerSideEncryptionConfigurationTypeArrayOutput `pulumi:"serverSideEncryptionConfigurations"`
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationTypeOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are deprecated, and will be removed in a future major version:
@@ -146,7 +146,12 @@ type Bucket struct {
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
 	//
 	// Deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.
-	Versionings BucketVersioningTypeArrayOutput `pulumi:"versionings"`
+	Versioning BucketVersioningTypeOutput `pulumi:"versioning"`
+	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+	// Use the resource `s3.BucketWebsiteConfiguration` instead.
+	//
+	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
+	Website BucketWebsiteOutput `pulumi:"website"`
 	// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
 	//
 	// Deprecated: website_domain is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
@@ -155,11 +160,6 @@ type Bucket struct {
 	//
 	// Deprecated: website_endpoint is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
 	WebsiteEndpoint pulumi.StringOutput `pulumi:"websiteEndpoint"`
-	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketWebsiteConfiguration` instead.
-	//
-	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
-	Websites BucketWebsiteArrayOutput `pulumi:"websites"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -241,7 +241,7 @@ type bucketState struct {
 	// Use the resource `s3.BucketLogging` instead.
 	//
 	// Deprecated: logging is deprecated. Use the s3.BucketLogging resource instead.
-	Loggings []BucketLoggingType `pulumi:"loggings"`
+	Logging *BucketLoggingType `pulumi:"logging"`
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
 	// The provider wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
@@ -262,7 +262,7 @@ type bucketState struct {
 	// Use the resource `s3.BucketReplicationConfig` instead.
 	//
 	// Deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.
-	ReplicationConfigurations []BucketReplicationConfiguration `pulumi:"replicationConfigurations"`
+	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
@@ -276,7 +276,7 @@ type bucketState struct {
 	// Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
 	//
 	// Deprecated: server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.
-	ServerSideEncryptionConfigurations []BucketServerSideEncryptionConfigurationType `pulumi:"serverSideEncryptionConfigurations"`
+	ServerSideEncryptionConfiguration *BucketServerSideEncryptionConfigurationType `pulumi:"serverSideEncryptionConfiguration"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are deprecated, and will be removed in a future major version:
@@ -288,7 +288,12 @@ type bucketState struct {
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
 	//
 	// Deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.
-	Versionings []BucketVersioningType `pulumi:"versionings"`
+	Versioning *BucketVersioningType `pulumi:"versioning"`
+	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+	// Use the resource `s3.BucketWebsiteConfiguration` instead.
+	//
+	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
+	Website *BucketWebsite `pulumi:"website"`
 	// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
 	//
 	// Deprecated: website_domain is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
@@ -297,11 +302,6 @@ type bucketState struct {
 	//
 	// Deprecated: website_endpoint is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
 	WebsiteEndpoint *string `pulumi:"websiteEndpoint"`
-	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketWebsiteConfiguration` instead.
-	//
-	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
-	Websites []BucketWebsite `pulumi:"websites"`
 }
 
 type BucketState struct {
@@ -345,7 +345,7 @@ type BucketState struct {
 	// Use the resource `s3.BucketLogging` instead.
 	//
 	// Deprecated: logging is deprecated. Use the s3.BucketLogging resource instead.
-	Loggings BucketLoggingTypeArrayInput
+	Logging BucketLoggingTypePtrInput
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
 	// The provider wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
@@ -366,7 +366,7 @@ type BucketState struct {
 	// Use the resource `s3.BucketReplicationConfig` instead.
 	//
 	// Deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.
-	ReplicationConfigurations BucketReplicationConfigurationArrayInput
+	ReplicationConfiguration BucketReplicationConfigurationPtrInput
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
@@ -380,7 +380,7 @@ type BucketState struct {
 	// Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
 	//
 	// Deprecated: server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.
-	ServerSideEncryptionConfigurations BucketServerSideEncryptionConfigurationTypeArrayInput
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationTypePtrInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are deprecated, and will be removed in a future major version:
@@ -392,7 +392,12 @@ type BucketState struct {
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
 	//
 	// Deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.
-	Versionings BucketVersioningTypeArrayInput
+	Versioning BucketVersioningTypePtrInput
+	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+	// Use the resource `s3.BucketWebsiteConfiguration` instead.
+	//
+	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
+	Website BucketWebsitePtrInput
 	// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
 	//
 	// Deprecated: website_domain is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
@@ -401,11 +406,6 @@ type BucketState struct {
 	//
 	// Deprecated: website_endpoint is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
 	WebsiteEndpoint pulumi.StringPtrInput
-	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketWebsiteConfiguration` instead.
-	//
-	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
-	Websites BucketWebsiteArrayInput
 }
 
 func (BucketState) ElementType() reflect.Type {
@@ -445,7 +445,7 @@ type bucketArgs struct {
 	// Use the resource `s3.BucketLogging` instead.
 	//
 	// Deprecated: logging is deprecated. Use the s3.BucketLogging resource instead.
-	Loggings []BucketLoggingType `pulumi:"loggings"`
+	Logging *BucketLoggingType `pulumi:"logging"`
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
 	// The provider wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
@@ -464,7 +464,7 @@ type bucketArgs struct {
 	// Use the resource `s3.BucketReplicationConfig` instead.
 	//
 	// Deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.
-	ReplicationConfigurations []BucketReplicationConfiguration `pulumi:"replicationConfigurations"`
+	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
@@ -478,7 +478,7 @@ type bucketArgs struct {
 	// Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
 	//
 	// Deprecated: server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.
-	ServerSideEncryptionConfigurations []BucketServerSideEncryptionConfigurationType `pulumi:"serverSideEncryptionConfigurations"`
+	ServerSideEncryptionConfiguration *BucketServerSideEncryptionConfigurationType `pulumi:"serverSideEncryptionConfiguration"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are deprecated, and will be removed in a future major version:
@@ -486,12 +486,12 @@ type bucketArgs struct {
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
 	//
 	// Deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.
-	Versionings []BucketVersioningType `pulumi:"versionings"`
+	Versioning *BucketVersioningType `pulumi:"versioning"`
 	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketWebsiteConfiguration` instead.
 	//
 	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
-	Websites []BucketWebsite `pulumi:"websites"`
+	Website *BucketWebsite `pulumi:"website"`
 }
 
 // The set of arguments for constructing a Bucket resource.
@@ -528,7 +528,7 @@ type BucketArgs struct {
 	// Use the resource `s3.BucketLogging` instead.
 	//
 	// Deprecated: logging is deprecated. Use the s3.BucketLogging resource instead.
-	Loggings BucketLoggingTypeArrayInput
+	Logging BucketLoggingTypePtrInput
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
 	// The provider wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
@@ -547,7 +547,7 @@ type BucketArgs struct {
 	// Use the resource `s3.BucketReplicationConfig` instead.
 	//
 	// Deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.
-	ReplicationConfigurations BucketReplicationConfigurationArrayInput
+	ReplicationConfiguration BucketReplicationConfigurationPtrInput
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
@@ -561,7 +561,7 @@ type BucketArgs struct {
 	// Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
 	//
 	// Deprecated: server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.
-	ServerSideEncryptionConfigurations BucketServerSideEncryptionConfigurationTypeArrayInput
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationTypePtrInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are deprecated, and will be removed in a future major version:
@@ -569,12 +569,12 @@ type BucketArgs struct {
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
 	//
 	// Deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.
-	Versionings BucketVersioningTypeArrayInput
+	Versioning BucketVersioningTypePtrInput
 	// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketWebsiteConfiguration` instead.
 	//
 	// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
-	Websites BucketWebsiteArrayInput
+	Website BucketWebsitePtrInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {
@@ -740,8 +740,8 @@ func (o BucketOutput) LifecycleRules() BucketLifecycleRuleArrayOutput {
 // Use the resource `s3.BucketLogging` instead.
 //
 // Deprecated: logging is deprecated. Use the s3.BucketLogging resource instead.
-func (o BucketOutput) Loggings() BucketLoggingTypeArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketLoggingTypeArrayOutput { return v.Loggings }).(BucketLoggingTypeArrayOutput)
+func (o BucketOutput) Logging() BucketLoggingTypeOutput {
+	return o.ApplyT(func(v *Bucket) BucketLoggingTypeOutput { return v.Logging }).(BucketLoggingTypeOutput)
 }
 
 // Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
@@ -776,8 +776,8 @@ func (o BucketOutput) Region() pulumi.StringOutput {
 // Use the resource `s3.BucketReplicationConfig` instead.
 //
 // Deprecated: replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.
-func (o BucketOutput) ReplicationConfigurations() BucketReplicationConfigurationArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketReplicationConfigurationArrayOutput { return v.ReplicationConfigurations }).(BucketReplicationConfigurationArrayOutput)
+func (o BucketOutput) ReplicationConfiguration() BucketReplicationConfigurationOutput {
+	return o.ApplyT(func(v *Bucket) BucketReplicationConfigurationOutput { return v.ReplicationConfiguration }).(BucketReplicationConfigurationOutput)
 }
 
 // Specifies who should bear the cost of Amazon S3 data transfer.
@@ -796,10 +796,10 @@ func (o BucketOutput) RequestPayer() pulumi.StringOutput {
 // Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
 //
 // Deprecated: server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.
-func (o BucketOutput) ServerSideEncryptionConfigurations() BucketServerSideEncryptionConfigurationTypeArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketServerSideEncryptionConfigurationTypeArrayOutput {
-		return v.ServerSideEncryptionConfigurations
-	}).(BucketServerSideEncryptionConfigurationTypeArrayOutput)
+func (o BucketOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionConfigurationTypeOutput {
+	return o.ApplyT(func(v *Bucket) BucketServerSideEncryptionConfigurationTypeOutput {
+		return v.ServerSideEncryptionConfiguration
+	}).(BucketServerSideEncryptionConfigurationTypeOutput)
 }
 
 // Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -819,8 +819,16 @@ func (o BucketOutput) TagsAll() pulumi.StringMapOutput {
 // Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
 //
 // Deprecated: versioning is deprecated. Use the s3.BucketVersioning resource instead.
-func (o BucketOutput) Versionings() BucketVersioningTypeArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketVersioningTypeArrayOutput { return v.Versionings }).(BucketVersioningTypeArrayOutput)
+func (o BucketOutput) Versioning() BucketVersioningTypeOutput {
+	return o.ApplyT(func(v *Bucket) BucketVersioningTypeOutput { return v.Versioning }).(BucketVersioningTypeOutput)
+}
+
+// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+// Use the resource `s3.BucketWebsiteConfiguration` instead.
+//
+// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
+func (o BucketOutput) Website() BucketWebsiteOutput {
+	return o.ApplyT(func(v *Bucket) BucketWebsiteOutput { return v.Website }).(BucketWebsiteOutput)
 }
 
 // (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
@@ -835,14 +843,6 @@ func (o BucketOutput) WebsiteDomain() pulumi.StringOutput {
 // Deprecated: website_endpoint is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
 func (o BucketOutput) WebsiteEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteEndpoint }).(pulumi.StringOutput)
-}
-
-// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-// Use the resource `s3.BucketWebsiteConfiguration` instead.
-//
-// Deprecated: website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.
-func (o BucketOutput) Websites() BucketWebsiteArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketWebsiteArrayOutput { return v.Websites }).(BucketWebsiteArrayOutput)
 }
 
 type BucketArrayOutput struct{ *pulumi.OutputState }

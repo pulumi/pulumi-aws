@@ -10,7 +10,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,12 +25,12 @@ public final class BucketReplicationConfigurationRule {
      * @return Specifies the destination for the rule (documented below).
      * 
      */
-    private List<BucketReplicationConfigurationRuleDestination> destinations;
+    private BucketReplicationConfigurationRuleDestination destination;
     /**
      * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    private @Nullable List<BucketReplicationConfigurationRuleFilter> filters;
+    private @Nullable BucketReplicationConfigurationRuleFilter filter;
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
@@ -51,7 +50,7 @@ public final class BucketReplicationConfigurationRule {
      * @return Specifies special object selection criteria (documented below).
      * 
      */
-    private @Nullable List<BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
+    private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
     /**
      * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
@@ -70,15 +69,15 @@ public final class BucketReplicationConfigurationRule {
      * @return Specifies the destination for the rule (documented below).
      * 
      */
-    public List<BucketReplicationConfigurationRuleDestination> destinations() {
-        return this.destinations;
+    public BucketReplicationConfigurationRuleDestination destination() {
+        return this.destination;
     }
     /**
      * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    public List<BucketReplicationConfigurationRuleFilter> filters() {
-        return this.filters == null ? List.of() : this.filters;
+    public Optional<BucketReplicationConfigurationRuleFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -105,8 +104,8 @@ public final class BucketReplicationConfigurationRule {
      * @return Specifies special object selection criteria (documented below).
      * 
      */
-    public List<BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias() {
-        return this.sourceSelectionCriterias == null ? List.of() : this.sourceSelectionCriterias;
+    public Optional<BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriteria() {
+        return Optional.ofNullable(this.sourceSelectionCriteria);
     }
     /**
      * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
@@ -126,23 +125,23 @@ public final class BucketReplicationConfigurationRule {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String deleteMarkerReplicationStatus;
-        private List<BucketReplicationConfigurationRuleDestination> destinations;
-        private @Nullable List<BucketReplicationConfigurationRuleFilter> filters;
+        private BucketReplicationConfigurationRuleDestination destination;
+        private @Nullable BucketReplicationConfigurationRuleFilter filter;
         private @Nullable String id;
         private @Nullable String prefix;
         private @Nullable Integer priority;
-        private @Nullable List<BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
+        private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
         private String status;
         public Builder() {}
         public Builder(BucketReplicationConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteMarkerReplicationStatus = defaults.deleteMarkerReplicationStatus;
-    	      this.destinations = defaults.destinations;
-    	      this.filters = defaults.filters;
+    	      this.destination = defaults.destination;
+    	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.prefix = defaults.prefix;
     	      this.priority = defaults.priority;
-    	      this.sourceSelectionCriterias = defaults.sourceSelectionCriterias;
+    	      this.sourceSelectionCriteria = defaults.sourceSelectionCriteria;
     	      this.status = defaults.status;
         }
 
@@ -153,24 +152,18 @@ public final class BucketReplicationConfigurationRule {
             return this;
         }
         @CustomType.Setter
-        public Builder destinations(List<BucketReplicationConfigurationRuleDestination> destinations) {
-            if (destinations == null) {
-              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRule", "destinations");
+        public Builder destination(BucketReplicationConfigurationRuleDestination destination) {
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRule", "destination");
             }
-            this.destinations = destinations;
+            this.destination = destination;
             return this;
-        }
-        public Builder destinations(BucketReplicationConfigurationRuleDestination... destinations) {
-            return destinations(List.of(destinations));
         }
         @CustomType.Setter
-        public Builder filters(@Nullable List<BucketReplicationConfigurationRuleFilter> filters) {
+        public Builder filter(@Nullable BucketReplicationConfigurationRuleFilter filter) {
 
-            this.filters = filters;
+            this.filter = filter;
             return this;
-        }
-        public Builder filters(BucketReplicationConfigurationRuleFilter... filters) {
-            return filters(List.of(filters));
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
@@ -191,13 +184,10 @@ public final class BucketReplicationConfigurationRule {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceSelectionCriterias(@Nullable List<BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias) {
+        public Builder sourceSelectionCriteria(@Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria) {
 
-            this.sourceSelectionCriterias = sourceSelectionCriterias;
+            this.sourceSelectionCriteria = sourceSelectionCriteria;
             return this;
-        }
-        public Builder sourceSelectionCriterias(BucketReplicationConfigurationRuleSourceSelectionCriteria... sourceSelectionCriterias) {
-            return sourceSelectionCriterias(List.of(sourceSelectionCriterias));
         }
         @CustomType.Setter
         public Builder status(String status) {
@@ -210,12 +200,12 @@ public final class BucketReplicationConfigurationRule {
         public BucketReplicationConfigurationRule build() {
             final var _resultValue = new BucketReplicationConfigurationRule();
             _resultValue.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-            _resultValue.destinations = destinations;
-            _resultValue.filters = filters;
+            _resultValue.destination = destination;
+            _resultValue.filter = filter;
             _resultValue.id = id;
             _resultValue.prefix = prefix;
             _resultValue.priority = priority;
-            _resultValue.sourceSelectionCriterias = sourceSelectionCriterias;
+            _resultValue.sourceSelectionCriteria = sourceSelectionCriteria;
             _resultValue.status = status;
             return _resultValue;
         }

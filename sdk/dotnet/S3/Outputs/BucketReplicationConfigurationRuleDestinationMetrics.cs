@@ -7,26 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.S3.Inputs
+namespace Pulumi.Aws.S3.Outputs
 {
 
-    public sealed class BucketReplicationConfigurationRuleDestinationMetricArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class BucketReplicationConfigurationRuleDestinationMetrics
     {
         /// <summary>
         /// Threshold within which objects are to be replicated. The only valid value is `15`.
         /// </summary>
-        [Input("minutes")]
-        public Input<int>? Minutes { get; set; }
-
+        public readonly int? Minutes;
         /// <summary>
         /// Status of replication metrics. Either `Enabled` or `Disabled`.
         /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
+        public readonly string? Status;
 
-        public BucketReplicationConfigurationRuleDestinationMetricArgs()
+        [OutputConstructor]
+        private BucketReplicationConfigurationRuleDestinationMetrics(
+            int? minutes,
+
+            string? status)
         {
+            Minutes = minutes;
+            Status = status;
         }
-        public static new BucketReplicationConfigurationRuleDestinationMetricArgs Empty => new BucketReplicationConfigurationRuleDestinationMetricArgs();
     }
 }

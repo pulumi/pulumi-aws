@@ -7,7 +7,6 @@ import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -19,21 +18,21 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
      * Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    @Import(name="rules", required=true)
-    private Output<List<BucketServerSideEncryptionConfigurationRuleArgs>> rules;
+    @Import(name="rule", required=true)
+    private Output<BucketServerSideEncryptionConfigurationRuleArgs> rule;
 
     /**
      * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    public Output<List<BucketServerSideEncryptionConfigurationRuleArgs>> rules() {
-        return this.rules;
+    public Output<BucketServerSideEncryptionConfigurationRuleArgs> rule() {
+        return this.rule;
     }
 
     private BucketServerSideEncryptionConfigurationArgs() {}
 
     private BucketServerSideEncryptionConfigurationArgs(BucketServerSideEncryptionConfigurationArgs $) {
-        this.rules = $.rules;
+        this.rule = $.rule;
     }
 
     public static Builder builder() {
@@ -55,39 +54,29 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rule Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
          */
-        public Builder rules(Output<List<BucketServerSideEncryptionConfigurationRuleArgs>> rules) {
-            $.rules = rules;
+        public Builder rule(Output<BucketServerSideEncryptionConfigurationRuleArgs> rule) {
+            $.rule = rule;
             return this;
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rule Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
          */
-        public Builder rules(List<BucketServerSideEncryptionConfigurationRuleArgs> rules) {
-            return rules(Output.of(rules));
-        }
-
-        /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rules(BucketServerSideEncryptionConfigurationRuleArgs... rules) {
-            return rules(List.of(rules));
+        public Builder rule(BucketServerSideEncryptionConfigurationRuleArgs rule) {
+            return rule(Output.of(rule));
         }
 
         public BucketServerSideEncryptionConfigurationArgs build() {
-            if ($.rules == null) {
-                throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfigurationArgs", "rules");
+            if ($.rule == null) {
+                throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfigurationArgs", "rule");
             }
             return $;
         }

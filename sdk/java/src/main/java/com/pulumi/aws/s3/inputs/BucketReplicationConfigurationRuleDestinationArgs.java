@@ -4,13 +4,12 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs;
-import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationRuleDestinationMetricArgs;
+import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationRuleDestinationMetricsArgs;
 import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,15 +23,15 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
      * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
-    @Import(name="accessControlTranslations")
-    private @Nullable Output<List<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations;
+    @Import(name="accessControlTranslation")
+    private @Nullable Output<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs> accessControlTranslation;
 
     /**
      * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
-    public Optional<Output<List<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs>>> accessControlTranslations() {
-        return Optional.ofNullable(this.accessControlTranslations);
+    public Optional<Output<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslation() {
+        return Optional.ofNullable(this.accessControlTranslation);
     }
 
     /**
@@ -70,13 +69,13 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
      * 
      */
     @Import(name="metrics")
-    private @Nullable Output<List<BucketReplicationConfigurationRuleDestinationMetricArgs>> metrics;
+    private @Nullable Output<BucketReplicationConfigurationRuleDestinationMetricsArgs> metrics;
 
     /**
      * @return Enables replication metrics (required for S3 RTC) (documented below).
      * 
      */
-    public Optional<Output<List<BucketReplicationConfigurationRuleDestinationMetricArgs>>> metrics() {
+    public Optional<Output<BucketReplicationConfigurationRuleDestinationMetricsArgs>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
 
@@ -101,15 +100,15 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
      * Enables S3 Replication Time Control (S3 RTC) (documented below).
      * 
      */
-    @Import(name="replicationTimes")
-    private @Nullable Output<List<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs>> replicationTimes;
+    @Import(name="replicationTime")
+    private @Nullable Output<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs> replicationTime;
 
     /**
      * @return Enables S3 Replication Time Control (S3 RTC) (documented below).
      * 
      */
-    public Optional<Output<List<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs>>> replicationTimes() {
-        return Optional.ofNullable(this.replicationTimes);
+    public Optional<Output<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs>> replicationTime() {
+        return Optional.ofNullable(this.replicationTime);
     }
 
     /**
@@ -130,12 +129,12 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
     private BucketReplicationConfigurationRuleDestinationArgs() {}
 
     private BucketReplicationConfigurationRuleDestinationArgs(BucketReplicationConfigurationRuleDestinationArgs $) {
-        this.accessControlTranslations = $.accessControlTranslations;
+        this.accessControlTranslation = $.accessControlTranslation;
         this.accountId = $.accountId;
         this.bucket = $.bucket;
         this.metrics = $.metrics;
         this.replicaKmsKeyId = $.replicaKmsKeyId;
-        this.replicationTimes = $.replicationTimes;
+        this.replicationTime = $.replicationTime;
         this.storageClass = $.storageClass;
     }
 
@@ -158,34 +157,24 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslation Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
          */
-        public Builder accessControlTranslations(@Nullable Output<List<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations) {
-            $.accessControlTranslations = accessControlTranslations;
+        public Builder accessControlTranslation(@Nullable Output<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs> accessControlTranslation) {
+            $.accessControlTranslation = accessControlTranslation;
             return this;
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslation Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
          */
-        public Builder accessControlTranslations(List<BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs> accessControlTranslations) {
-            return accessControlTranslations(Output.of(accessControlTranslations));
-        }
-
-        /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accessControlTranslations(BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs... accessControlTranslations) {
-            return accessControlTranslations(List.of(accessControlTranslations));
+        public Builder accessControlTranslation(BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs accessControlTranslation) {
+            return accessControlTranslation(Output.of(accessControlTranslation));
         }
 
         /**
@@ -236,7 +225,7 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
          * @return builder
          * 
          */
-        public Builder metrics(@Nullable Output<List<BucketReplicationConfigurationRuleDestinationMetricArgs>> metrics) {
+        public Builder metrics(@Nullable Output<BucketReplicationConfigurationRuleDestinationMetricsArgs> metrics) {
             $.metrics = metrics;
             return this;
         }
@@ -247,18 +236,8 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
          * @return builder
          * 
          */
-        public Builder metrics(List<BucketReplicationConfigurationRuleDestinationMetricArgs> metrics) {
+        public Builder metrics(BucketReplicationConfigurationRuleDestinationMetricsArgs metrics) {
             return metrics(Output.of(metrics));
-        }
-
-        /**
-         * @param metrics Enables replication metrics (required for S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metrics(BucketReplicationConfigurationRuleDestinationMetricArgs... metrics) {
-            return metrics(List.of(metrics));
         }
 
         /**
@@ -285,34 +264,24 @@ public final class BucketReplicationConfigurationRuleDestinationArgs extends com
         }
 
         /**
-         * @param replicationTimes Enables S3 Replication Time Control (S3 RTC) (documented below).
+         * @param replicationTime Enables S3 Replication Time Control (S3 RTC) (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder replicationTimes(@Nullable Output<List<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs>> replicationTimes) {
-            $.replicationTimes = replicationTimes;
+        public Builder replicationTime(@Nullable Output<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs> replicationTime) {
+            $.replicationTime = replicationTime;
             return this;
         }
 
         /**
-         * @param replicationTimes Enables S3 Replication Time Control (S3 RTC) (documented below).
+         * @param replicationTime Enables S3 Replication Time Control (S3 RTC) (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder replicationTimes(List<BucketReplicationConfigurationRuleDestinationReplicationTimeArgs> replicationTimes) {
-            return replicationTimes(Output.of(replicationTimes));
-        }
-
-        /**
-         * @param replicationTimes Enables S3 Replication Time Control (S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder replicationTimes(BucketReplicationConfigurationRuleDestinationReplicationTimeArgs... replicationTimes) {
-            return replicationTimes(List.of(replicationTimes));
+        public Builder replicationTime(BucketReplicationConfigurationRuleDestinationReplicationTimeArgs replicationTime) {
+            return replicationTime(Output.of(replicationTime));
         }
 
         /**

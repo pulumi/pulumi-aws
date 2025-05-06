@@ -10,9 +10,9 @@ import java.lang.Boolean;
 import java.util.Objects;
 
 
-public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs extends com.pulumi.resources.ResourceArgs {
+public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs Empty = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs();
+    public static final BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs Empty = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs();
 
     /**
      * Boolean which indicates if this criteria is enabled.
@@ -29,28 +29,28 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
         return this.enabled;
     }
 
-    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs() {}
+    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs() {}
 
-    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs $) {
+    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs $) {
         this.enabled = $.enabled;
     }
 
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs defaults) {
+    public static Builder builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs $;
+        private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs $;
 
         public Builder() {
-            $ = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs();
+            $ = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs();
         }
 
-        public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs defaults) {
-            $ = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs(Objects.requireNonNull(defaults));
+        public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs defaults) {
+            $ = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -74,9 +74,9 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
             return enabled(Output.of(enabled));
         }
 
-        public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs build() {
+        public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs build() {
             if ($.enabled == null) {
-                throw new MissingRequiredPropertyException("BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs", "enabled");
+                throw new MissingRequiredPropertyException("BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs", "enabled");
             }
             return $;
         }

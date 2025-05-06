@@ -16,12 +16,12 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Single object for server-side encryption by default configuration. (documented below)
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketServerSideEncryptionConfigurationRule> Rules;
+        public readonly Outputs.BucketServerSideEncryptionConfigurationRule Rule;
 
         [OutputConstructor]
-        private BucketServerSideEncryptionConfiguration(ImmutableArray<Outputs.BucketServerSideEncryptionConfigurationRule> rules)
+        private BucketServerSideEncryptionConfiguration(Outputs.BucketServerSideEncryptionConfigurationRule rule)
         {
-            Rules = rules;
+            Rule = rule;
         }
     }
 }

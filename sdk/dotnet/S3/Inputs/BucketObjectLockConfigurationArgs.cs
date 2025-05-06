@@ -18,18 +18,11 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("objectLockEnabled")]
         public Input<string>? ObjectLockEnabled { get; set; }
 
-        [Input("rules")]
-        private InputList<Inputs.BucketObjectLockConfigurationRuleArgs>? _rules;
-
         /// <summary>
         /// Object Lock rule in place for this bucket (documented below).
         /// </summary>
-        [Obsolete(@"rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.")]
-        public InputList<Inputs.BucketObjectLockConfigurationRuleArgs> Rules
-        {
-            get => _rules ?? (_rules = new InputList<Inputs.BucketObjectLockConfigurationRuleArgs>());
-            set => _rules = value;
-        }
+        [Input("rule")]
+        public Input<Inputs.BucketObjectLockConfigurationRuleArgs>? Rule { get; set; }
 
         public BucketObjectLockConfigurationArgs()
         {

@@ -58,15 +58,15 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
      * Specifies a period in the object&#39;s expire. See Expiration below for details.
      * 
      */
-    @Import(name="expirations")
-    private @Nullable Output<List<BucketLifecycleRuleExpirationArgs>> expirations;
+    @Import(name="expiration")
+    private @Nullable Output<BucketLifecycleRuleExpirationArgs> expiration;
 
     /**
      * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
      * 
      */
-    public Optional<Output<List<BucketLifecycleRuleExpirationArgs>>> expirations() {
-        return Optional.ofNullable(this.expirations);
+    public Optional<Output<BucketLifecycleRuleExpirationArgs>> expiration() {
+        return Optional.ofNullable(this.expiration);
     }
 
     /**
@@ -88,15 +88,15 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
      * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
      * 
      */
-    @Import(name="noncurrentVersionExpirations")
-    private @Nullable Output<List<BucketLifecycleRuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpirations;
+    @Import(name="noncurrentVersionExpiration")
+    private @Nullable Output<BucketLifecycleRuleNoncurrentVersionExpirationArgs> noncurrentVersionExpiration;
 
     /**
      * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
      * 
      */
-    public Optional<Output<List<BucketLifecycleRuleNoncurrentVersionExpirationArgs>>> noncurrentVersionExpirations() {
-        return Optional.ofNullable(this.noncurrentVersionExpirations);
+    public Optional<Output<BucketLifecycleRuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpiration() {
+        return Optional.ofNullable(this.noncurrentVersionExpiration);
     }
 
     /**
@@ -164,9 +164,9 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
     private BucketLifecycleRuleArgs(BucketLifecycleRuleArgs $) {
         this.abortIncompleteMultipartUploadDays = $.abortIncompleteMultipartUploadDays;
         this.enabled = $.enabled;
-        this.expirations = $.expirations;
+        this.expiration = $.expiration;
         this.id = $.id;
-        this.noncurrentVersionExpirations = $.noncurrentVersionExpirations;
+        this.noncurrentVersionExpiration = $.noncurrentVersionExpiration;
         this.noncurrentVersionTransitions = $.noncurrentVersionTransitions;
         this.prefix = $.prefix;
         this.tags = $.tags;
@@ -234,34 +234,24 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expirations Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expiration Specifies a period in the object&#39;s expire. See Expiration below for details.
          * 
          * @return builder
          * 
          */
-        public Builder expirations(@Nullable Output<List<BucketLifecycleRuleExpirationArgs>> expirations) {
-            $.expirations = expirations;
+        public Builder expiration(@Nullable Output<BucketLifecycleRuleExpirationArgs> expiration) {
+            $.expiration = expiration;
             return this;
         }
 
         /**
-         * @param expirations Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expiration Specifies a period in the object&#39;s expire. See Expiration below for details.
          * 
          * @return builder
          * 
          */
-        public Builder expirations(List<BucketLifecycleRuleExpirationArgs> expirations) {
-            return expirations(Output.of(expirations));
-        }
-
-        /**
-         * @param expirations Specifies a period in the object&#39;s expire. See Expiration below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder expirations(BucketLifecycleRuleExpirationArgs... expirations) {
-            return expirations(List.of(expirations));
+        public Builder expiration(BucketLifecycleRuleExpirationArgs expiration) {
+            return expiration(Output.of(expiration));
         }
 
         /**
@@ -286,34 +276,24 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param noncurrentVersionExpirations Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpiration Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          * 
          * @return builder
          * 
          */
-        public Builder noncurrentVersionExpirations(@Nullable Output<List<BucketLifecycleRuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpirations) {
-            $.noncurrentVersionExpirations = noncurrentVersionExpirations;
+        public Builder noncurrentVersionExpiration(@Nullable Output<BucketLifecycleRuleNoncurrentVersionExpirationArgs> noncurrentVersionExpiration) {
+            $.noncurrentVersionExpiration = noncurrentVersionExpiration;
             return this;
         }
 
         /**
-         * @param noncurrentVersionExpirations Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpiration Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          * 
          * @return builder
          * 
          */
-        public Builder noncurrentVersionExpirations(List<BucketLifecycleRuleNoncurrentVersionExpirationArgs> noncurrentVersionExpirations) {
-            return noncurrentVersionExpirations(Output.of(noncurrentVersionExpirations));
-        }
-
-        /**
-         * @param noncurrentVersionExpirations Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder noncurrentVersionExpirations(BucketLifecycleRuleNoncurrentVersionExpirationArgs... noncurrentVersionExpirations) {
-            return noncurrentVersionExpirations(List.of(noncurrentVersionExpirations));
+        public Builder noncurrentVersionExpiration(BucketLifecycleRuleNoncurrentVersionExpirationArgs noncurrentVersionExpiration) {
+            return noncurrentVersionExpiration(Output.of(noncurrentVersionExpiration));
         }
 
         /**

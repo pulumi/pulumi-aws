@@ -12,9 +12,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class BucketReplicationConfigurationRuleDestinationMetricArgs extends com.pulumi.resources.ResourceArgs {
+public final class BucketReplicationConfigurationRuleDestinationMetricsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final BucketReplicationConfigurationRuleDestinationMetricArgs Empty = new BucketReplicationConfigurationRuleDestinationMetricArgs();
+    public static final BucketReplicationConfigurationRuleDestinationMetricsArgs Empty = new BucketReplicationConfigurationRuleDestinationMetricsArgs();
 
     /**
      * Threshold within which objects are to be replicated. The only valid value is `15`.
@@ -46,9 +46,9 @@ public final class BucketReplicationConfigurationRuleDestinationMetricArgs exten
         return Optional.ofNullable(this.status);
     }
 
-    private BucketReplicationConfigurationRuleDestinationMetricArgs() {}
+    private BucketReplicationConfigurationRuleDestinationMetricsArgs() {}
 
-    private BucketReplicationConfigurationRuleDestinationMetricArgs(BucketReplicationConfigurationRuleDestinationMetricArgs $) {
+    private BucketReplicationConfigurationRuleDestinationMetricsArgs(BucketReplicationConfigurationRuleDestinationMetricsArgs $) {
         this.minutes = $.minutes;
         this.status = $.status;
     }
@@ -56,19 +56,19 @@ public final class BucketReplicationConfigurationRuleDestinationMetricArgs exten
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(BucketReplicationConfigurationRuleDestinationMetricArgs defaults) {
+    public static Builder builder(BucketReplicationConfigurationRuleDestinationMetricsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private BucketReplicationConfigurationRuleDestinationMetricArgs $;
+        private BucketReplicationConfigurationRuleDestinationMetricsArgs $;
 
         public Builder() {
-            $ = new BucketReplicationConfigurationRuleDestinationMetricArgs();
+            $ = new BucketReplicationConfigurationRuleDestinationMetricsArgs();
         }
 
-        public Builder(BucketReplicationConfigurationRuleDestinationMetricArgs defaults) {
-            $ = new BucketReplicationConfigurationRuleDestinationMetricArgs(Objects.requireNonNull(defaults));
+        public Builder(BucketReplicationConfigurationRuleDestinationMetricsArgs defaults) {
+            $ = new BucketReplicationConfigurationRuleDestinationMetricsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -113,7 +113,7 @@ public final class BucketReplicationConfigurationRuleDestinationMetricArgs exten
             return status(Output.of(status));
         }
 
-        public BucketReplicationConfigurationRuleDestinationMetricArgs build() {
+        public BucketReplicationConfigurationRuleDestinationMetricsArgs build() {
             return $;
         }
     }

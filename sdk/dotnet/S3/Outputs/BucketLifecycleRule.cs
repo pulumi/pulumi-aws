@@ -24,7 +24,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Specifies a period in the object's expire. See Expiration below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketLifecycleRuleExpiration> Expirations;
+        public readonly Outputs.BucketLifecycleRuleExpiration? Expiration;
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketLifecycleRuleNoncurrentVersionExpiration> NoncurrentVersionExpirations;
+        public readonly Outputs.BucketLifecycleRuleNoncurrentVersionExpiration? NoncurrentVersionExpiration;
         /// <summary>
         /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.Aws.S3.Outputs
 
             bool enabled,
 
-            ImmutableArray<Outputs.BucketLifecycleRuleExpiration> expirations,
+            Outputs.BucketLifecycleRuleExpiration? expiration,
 
             string? id,
 
-            ImmutableArray<Outputs.BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations,
+            Outputs.BucketLifecycleRuleNoncurrentVersionExpiration? noncurrentVersionExpiration,
 
             ImmutableArray<Outputs.BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions,
 
@@ -72,9 +72,9 @@ namespace Pulumi.Aws.S3.Outputs
         {
             AbortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
             Enabled = enabled;
-            Expirations = expirations;
+            Expiration = expiration;
             Id = id;
-            NoncurrentVersionExpirations = noncurrentVersionExpirations;
+            NoncurrentVersionExpiration = noncurrentVersionExpiration;
             NoncurrentVersionTransitions = noncurrentVersionTransitions;
             Prefix = prefix;
             Tags = tags;

@@ -11,7 +11,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class BucketReplicationConfigurationRuleDestinationMetric {
+public final class BucketReplicationConfigurationRuleDestinationMetrics {
     /**
      * @return Threshold within which objects are to be replicated. The only valid value is `15`.
      * 
@@ -23,7 +23,7 @@ public final class BucketReplicationConfigurationRuleDestinationMetric {
      */
     private @Nullable String status;
 
-    private BucketReplicationConfigurationRuleDestinationMetric() {}
+    private BucketReplicationConfigurationRuleDestinationMetrics() {}
     /**
      * @return Threshold within which objects are to be replicated. The only valid value is `15`.
      * 
@@ -43,7 +43,7 @@ public final class BucketReplicationConfigurationRuleDestinationMetric {
         return new Builder();
     }
 
-    public static Builder builder(BucketReplicationConfigurationRuleDestinationMetric defaults) {
+    public static Builder builder(BucketReplicationConfigurationRuleDestinationMetrics defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -51,7 +51,7 @@ public final class BucketReplicationConfigurationRuleDestinationMetric {
         private @Nullable Integer minutes;
         private @Nullable String status;
         public Builder() {}
-        public Builder(BucketReplicationConfigurationRuleDestinationMetric defaults) {
+        public Builder(BucketReplicationConfigurationRuleDestinationMetrics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minutes = defaults.minutes;
     	      this.status = defaults.status;
@@ -69,8 +69,8 @@ public final class BucketReplicationConfigurationRuleDestinationMetric {
             this.status = status;
             return this;
         }
-        public BucketReplicationConfigurationRuleDestinationMetric build() {
-            final var _resultValue = new BucketReplicationConfigurationRuleDestinationMetric();
+        public BucketReplicationConfigurationRuleDestinationMetrics build() {
+            final var _resultValue = new BucketReplicationConfigurationRuleDestinationMetrics();
             _resultValue.minutes = minutes;
             _resultValue.status = status;
             return _resultValue;

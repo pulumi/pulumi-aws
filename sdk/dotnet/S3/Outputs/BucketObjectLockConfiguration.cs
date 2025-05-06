@@ -20,16 +20,16 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Object Lock rule in place for this bucket (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketObjectLockConfigurationRule> Rules;
+        public readonly Outputs.BucketObjectLockConfigurationRule? Rule;
 
         [OutputConstructor]
         private BucketObjectLockConfiguration(
             string? objectLockEnabled,
 
-            ImmutableArray<Outputs.BucketObjectLockConfigurationRule> rules)
+            Outputs.BucketObjectLockConfigurationRule? rule)
         {
             ObjectLockEnabled = objectLockEnabled;
-            Rules = rules;
+            Rule = rule;
         }
     }
 }

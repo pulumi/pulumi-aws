@@ -17,10 +17,10 @@ namespace Pulumi.Aws.S3.Outputs
         /// Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
         /// in `destination` must be specified as well.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> SseKmsEncryptedObjects;
+        public readonly Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects? SseKmsEncryptedObjects;
 
         [OutputConstructor]
-        private BucketReplicationConfigurationRuleSourceSelectionCriteria(ImmutableArray<Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects)
+        private BucketReplicationConfigurationRuleSourceSelectionCriteria(Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects? sseKmsEncryptedObjects)
         {
             SseKmsEncryptedObjects = sseKmsEncryptedObjects;
         }

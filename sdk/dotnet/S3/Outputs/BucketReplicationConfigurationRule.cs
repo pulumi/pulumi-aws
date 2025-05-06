@@ -20,11 +20,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Specifies the destination for the rule (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestination> Destinations;
+        public readonly Outputs.BucketReplicationConfigurationRuleDestination Destination;
         /// <summary>
         /// Filter that identifies subset of objects to which the replication rule applies (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleFilter> Filters;
+        public readonly Outputs.BucketReplicationConfigurationRuleFilter? Filter;
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Specifies special object selection criteria (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria> SourceSelectionCriterias;
+        public readonly Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria? SourceSelectionCriteria;
         /// <summary>
         /// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         /// </summary>
@@ -50,9 +50,9 @@ namespace Pulumi.Aws.S3.Outputs
         private BucketReplicationConfigurationRule(
             string? deleteMarkerReplicationStatus,
 
-            ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestination> destinations,
+            Outputs.BucketReplicationConfigurationRuleDestination destination,
 
-            ImmutableArray<Outputs.BucketReplicationConfigurationRuleFilter> filters,
+            Outputs.BucketReplicationConfigurationRuleFilter? filter,
 
             string? id,
 
@@ -60,17 +60,17 @@ namespace Pulumi.Aws.S3.Outputs
 
             int? priority,
 
-            ImmutableArray<Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias,
+            Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria? sourceSelectionCriteria,
 
             string status)
         {
             DeleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-            Destinations = destinations;
-            Filters = filters;
+            Destination = destination;
+            Filter = filter;
             Id = id;
             Prefix = prefix;
             Priority = priority;
-            SourceSelectionCriterias = sourceSelectionCriterias;
+            SourceSelectionCriteria = sourceSelectionCriteria;
             Status = status;
         }
     }

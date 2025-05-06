@@ -6,7 +6,6 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.aws.s3.outputs.BucketServerSideEncryptionConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -15,15 +14,15 @@ public final class BucketServerSideEncryptionConfiguration {
      * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    private List<BucketServerSideEncryptionConfigurationRule> rules;
+    private BucketServerSideEncryptionConfigurationRule rule;
 
     private BucketServerSideEncryptionConfiguration() {}
     /**
      * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    public List<BucketServerSideEncryptionConfigurationRule> rules() {
-        return this.rules;
+    public BucketServerSideEncryptionConfigurationRule rule() {
+        return this.rule;
     }
 
     public static Builder builder() {
@@ -35,27 +34,24 @@ public final class BucketServerSideEncryptionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<BucketServerSideEncryptionConfigurationRule> rules;
+        private BucketServerSideEncryptionConfigurationRule rule;
         public Builder() {}
         public Builder(BucketServerSideEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.rules = defaults.rules;
+    	      this.rule = defaults.rule;
         }
 
         @CustomType.Setter
-        public Builder rules(List<BucketServerSideEncryptionConfigurationRule> rules) {
-            if (rules == null) {
-              throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfiguration", "rules");
+        public Builder rule(BucketServerSideEncryptionConfigurationRule rule) {
+            if (rule == null) {
+              throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfiguration", "rule");
             }
-            this.rules = rules;
+            this.rule = rule;
             return this;
-        }
-        public Builder rules(BucketServerSideEncryptionConfigurationRule... rules) {
-            return rules(List.of(rules));
         }
         public BucketServerSideEncryptionConfiguration build() {
             final var _resultValue = new BucketServerSideEncryptionConfiguration();
-            _resultValue.rules = rules;
+            _resultValue.rule = rule;
             return _resultValue;
         }
     }

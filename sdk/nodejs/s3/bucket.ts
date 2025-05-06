@@ -133,7 +133,7 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated logging is deprecated. Use the aws.s3.BucketLogging resource instead.
      */
-    public readonly loggings!: pulumi.Output<outputs.s3.BucketLogging[]>;
+    public readonly logging!: pulumi.Output<outputs.s3.BucketLogging>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -164,7 +164,7 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated replication_configuration is deprecated. Use the aws.s3.BucketReplicationConfig resource instead.
      */
-    public readonly replicationConfigurations!: pulumi.Output<outputs.s3.BucketReplicationConfiguration[]>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -182,7 +182,7 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfiguration resource instead.
      */
-    public readonly serverSideEncryptionConfigurations!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration[]>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -200,7 +200,14 @@ export class Bucket extends pulumi.CustomResource {
      *
      * @deprecated versioning is deprecated. Use the aws.s3.BucketVersioning resource instead.
      */
-    public readonly versionings!: pulumi.Output<outputs.s3.BucketVersioning[]>;
+    public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning>;
+    /**
+     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
+     *
+     * @deprecated website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
+     */
+    public readonly website!: pulumi.Output<outputs.s3.BucketWebsite>;
     /**
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      *
@@ -213,13 +220,6 @@ export class Bucket extends pulumi.CustomResource {
      * @deprecated website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      */
     public /*out*/ readonly websiteEndpoint!: pulumi.Output<string>;
-    /**
-     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
-     *
-     * @deprecated website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
-     */
-    public readonly websites!: pulumi.Output<outputs.s3.BucketWebsite[]>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -246,20 +246,20 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["grants"] = state ? state.grants : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
-            resourceInputs["loggings"] = state ? state.loggings : undefined;
+            resourceInputs["logging"] = state ? state.logging : undefined;
             resourceInputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
             resourceInputs["objectLockEnabled"] = state ? state.objectLockEnabled : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["replicationConfigurations"] = state ? state.replicationConfigurations : undefined;
+            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
             resourceInputs["requestPayer"] = state ? state.requestPayer : undefined;
-            resourceInputs["serverSideEncryptionConfigurations"] = state ? state.serverSideEncryptionConfigurations : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["versionings"] = state ? state.versionings : undefined;
+            resourceInputs["versioning"] = state ? state.versioning : undefined;
+            resourceInputs["website"] = state ? state.website : undefined;
             resourceInputs["websiteDomain"] = state ? state.websiteDomain : undefined;
             resourceInputs["websiteEndpoint"] = state ? state.websiteEndpoint : undefined;
-            resourceInputs["websites"] = state ? state.websites : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
             resourceInputs["accelerationStatus"] = args ? args.accelerationStatus : undefined;
@@ -270,16 +270,16 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["grants"] = args ? args.grants : undefined;
             resourceInputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
-            resourceInputs["loggings"] = args ? args.loggings : undefined;
+            resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
             resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["replicationConfigurations"] = args ? args.replicationConfigurations : undefined;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
-            resourceInputs["serverSideEncryptionConfigurations"] = args ? args.serverSideEncryptionConfigurations : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionings"] = args ? args.versionings : undefined;
-            resourceInputs["websites"] = args ? args.websites : undefined;
+            resourceInputs["versioning"] = args ? args.versioning : undefined;
+            resourceInputs["website"] = args ? args.website : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bucketDomainName"] = undefined /*out*/;
             resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
@@ -366,7 +366,7 @@ export interface BucketState {
      *
      * @deprecated logging is deprecated. Use the aws.s3.BucketLogging resource instead.
      */
-    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
+    logging?: pulumi.Input<inputs.s3.BucketLogging>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -397,7 +397,7 @@ export interface BucketState {
      *
      * @deprecated replication_configuration is deprecated. Use the aws.s3.BucketReplicationConfig resource instead.
      */
-    replicationConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfiguration>[]>;
+    replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -415,7 +415,7 @@ export interface BucketState {
      *
      * @deprecated server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfiguration resource instead.
      */
-    serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>[]>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -433,7 +433,14 @@ export interface BucketState {
      *
      * @deprecated versioning is deprecated. Use the aws.s3.BucketVersioning resource instead.
      */
-    versionings?: pulumi.Input<pulumi.Input<inputs.s3.BucketVersioning>[]>;
+    versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
+    /**
+     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
+     *
+     * @deprecated website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
+     */
+    website?: pulumi.Input<inputs.s3.BucketWebsite>;
     /**
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      *
@@ -446,13 +453,6 @@ export interface BucketState {
      * @deprecated website_endpoint is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      */
     websiteEndpoint?: pulumi.Input<string>;
-    /**
-     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
-     *
-     * @deprecated website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
-     */
-    websites?: pulumi.Input<pulumi.Input<inputs.s3.BucketWebsite>[]>;
 }
 
 /**
@@ -509,7 +509,7 @@ export interface BucketArgs {
      *
      * @deprecated logging is deprecated. Use the aws.s3.BucketLogging resource instead.
      */
-    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
+    logging?: pulumi.Input<inputs.s3.BucketLogging>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -536,7 +536,7 @@ export interface BucketArgs {
      *
      * @deprecated replication_configuration is deprecated. Use the aws.s3.BucketReplicationConfig resource instead.
      */
-    replicationConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfiguration>[]>;
+    replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -554,7 +554,7 @@ export interface BucketArgs {
      *
      * @deprecated server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfiguration resource instead.
      */
-    serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>[]>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -566,12 +566,12 @@ export interface BucketArgs {
      *
      * @deprecated versioning is deprecated. Use the aws.s3.BucketVersioning resource instead.
      */
-    versionings?: pulumi.Input<pulumi.Input<inputs.s3.BucketVersioning>[]>;
+    versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
     /**
      * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
      *
      * @deprecated website is deprecated. Use the aws.s3.BucketWebsiteConfiguration resource instead.
      */
-    websites?: pulumi.Input<pulumi.Input<inputs.s3.BucketWebsite>[]>;
+    website?: pulumi.Input<inputs.s3.BucketWebsite>;
 }

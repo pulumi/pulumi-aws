@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation> AccessControlTranslations;
+        public readonly Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation? AccessControlTranslation;
         /// <summary>
         /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Enables replication metrics (required for S3 RTC) (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestinationMetric> Metrics;
+        public readonly Outputs.BucketReplicationConfigurationRuleDestinationMetrics? Metrics;
         /// <summary>
         /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
         /// `sse_kms_encrypted_objects` source selection criteria.
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Enables S3 Replication Time Control (S3 RTC) (documented below).
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime> ReplicationTimes;
+        public readonly Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? ReplicationTime;
         /// <summary>
         /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
@@ -45,26 +45,26 @@ namespace Pulumi.Aws.S3.Outputs
 
         [OutputConstructor]
         private BucketReplicationConfigurationRuleDestination(
-            ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations,
+            Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation? accessControlTranslation,
 
             string? accountId,
 
             string bucket,
 
-            ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestinationMetric> metrics,
+            Outputs.BucketReplicationConfigurationRuleDestinationMetrics? metrics,
 
             string? replicaKmsKeyId,
 
-            ImmutableArray<Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime> replicationTimes,
+            Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? replicationTime,
 
             string? storageClass)
         {
-            AccessControlTranslations = accessControlTranslations;
+            AccessControlTranslation = accessControlTranslation;
             AccountId = accountId;
             Bucket = bucket;
             Metrics = metrics;
             ReplicaKmsKeyId = replicaKmsKeyId;
-            ReplicationTimes = replicationTimes;
+            ReplicationTime = replicationTime;
             StorageClass = storageClass;
         }
     }

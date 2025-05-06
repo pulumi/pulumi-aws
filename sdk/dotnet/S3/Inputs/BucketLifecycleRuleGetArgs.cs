@@ -24,17 +24,11 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        [Input("expirations")]
-        private InputList<Inputs.BucketLifecycleRuleExpirationGetArgs>? _expirations;
-
         /// <summary>
         /// Specifies a period in the object's expire. See Expiration below for details.
         /// </summary>
-        public InputList<Inputs.BucketLifecycleRuleExpirationGetArgs> Expirations
-        {
-            get => _expirations ?? (_expirations = new InputList<Inputs.BucketLifecycleRuleExpirationGetArgs>());
-            set => _expirations = value;
-        }
+        [Input("expiration")]
+        public Input<Inputs.BucketLifecycleRuleExpirationGetArgs>? Expiration { get; set; }
 
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -42,17 +36,11 @@ namespace Pulumi.Aws.S3.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        [Input("noncurrentVersionExpirations")]
-        private InputList<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationGetArgs>? _noncurrentVersionExpirations;
-
         /// <summary>
         /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         /// </summary>
-        public InputList<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationGetArgs> NoncurrentVersionExpirations
-        {
-            get => _noncurrentVersionExpirations ?? (_noncurrentVersionExpirations = new InputList<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationGetArgs>());
-            set => _noncurrentVersionExpirations = value;
-        }
+        [Input("noncurrentVersionExpiration")]
+        public Input<Inputs.BucketLifecycleRuleNoncurrentVersionExpirationGetArgs>? NoncurrentVersionExpiration { get; set; }
 
         [Input("noncurrentVersionTransitions")]
         private InputList<Inputs.BucketLifecycleRuleNoncurrentVersionTransitionGetArgs>? _noncurrentVersionTransitions;

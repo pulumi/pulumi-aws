@@ -34,7 +34,7 @@ public final class BucketLifecycleRule {
      * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
      * 
      */
-    private @Nullable List<BucketLifecycleRuleExpiration> expirations;
+    private @Nullable BucketLifecycleRuleExpiration expiration;
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
@@ -44,7 +44,7 @@ public final class BucketLifecycleRule {
      * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
      * 
      */
-    private @Nullable List<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations;
+    private @Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration;
     /**
      * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
      * 
@@ -85,8 +85,8 @@ public final class BucketLifecycleRule {
      * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
      * 
      */
-    public List<BucketLifecycleRuleExpiration> expirations() {
-        return this.expirations == null ? List.of() : this.expirations;
+    public Optional<BucketLifecycleRuleExpiration> expiration() {
+        return Optional.ofNullable(this.expiration);
     }
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -99,8 +99,8 @@ public final class BucketLifecycleRule {
      * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
      * 
      */
-    public List<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations() {
-        return this.noncurrentVersionExpirations == null ? List.of() : this.noncurrentVersionExpirations;
+    public Optional<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpiration() {
+        return Optional.ofNullable(this.noncurrentVersionExpiration);
     }
     /**
      * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
@@ -142,9 +142,9 @@ public final class BucketLifecycleRule {
     public static final class Builder {
         private @Nullable Integer abortIncompleteMultipartUploadDays;
         private Boolean enabled;
-        private @Nullable List<BucketLifecycleRuleExpiration> expirations;
+        private @Nullable BucketLifecycleRuleExpiration expiration;
         private @Nullable String id;
-        private @Nullable List<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations;
+        private @Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration;
         private @Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
@@ -154,9 +154,9 @@ public final class BucketLifecycleRule {
     	      Objects.requireNonNull(defaults);
     	      this.abortIncompleteMultipartUploadDays = defaults.abortIncompleteMultipartUploadDays;
     	      this.enabled = defaults.enabled;
-    	      this.expirations = defaults.expirations;
+    	      this.expiration = defaults.expiration;
     	      this.id = defaults.id;
-    	      this.noncurrentVersionExpirations = defaults.noncurrentVersionExpirations;
+    	      this.noncurrentVersionExpiration = defaults.noncurrentVersionExpiration;
     	      this.noncurrentVersionTransitions = defaults.noncurrentVersionTransitions;
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
@@ -178,13 +178,10 @@ public final class BucketLifecycleRule {
             return this;
         }
         @CustomType.Setter
-        public Builder expirations(@Nullable List<BucketLifecycleRuleExpiration> expirations) {
+        public Builder expiration(@Nullable BucketLifecycleRuleExpiration expiration) {
 
-            this.expirations = expirations;
+            this.expiration = expiration;
             return this;
-        }
-        public Builder expirations(BucketLifecycleRuleExpiration... expirations) {
-            return expirations(List.of(expirations));
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
@@ -193,13 +190,10 @@ public final class BucketLifecycleRule {
             return this;
         }
         @CustomType.Setter
-        public Builder noncurrentVersionExpirations(@Nullable List<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations) {
+        public Builder noncurrentVersionExpiration(@Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration) {
 
-            this.noncurrentVersionExpirations = noncurrentVersionExpirations;
+            this.noncurrentVersionExpiration = noncurrentVersionExpiration;
             return this;
-        }
-        public Builder noncurrentVersionExpirations(BucketLifecycleRuleNoncurrentVersionExpiration... noncurrentVersionExpirations) {
-            return noncurrentVersionExpirations(List.of(noncurrentVersionExpirations));
         }
         @CustomType.Setter
         public Builder noncurrentVersionTransitions(@Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions) {
@@ -235,9 +229,9 @@ public final class BucketLifecycleRule {
             final var _resultValue = new BucketLifecycleRule();
             _resultValue.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
             _resultValue.enabled = enabled;
-            _resultValue.expirations = expirations;
+            _resultValue.expiration = expiration;
             _resultValue.id = id;
-            _resultValue.noncurrentVersionExpirations = noncurrentVersionExpirations;
+            _resultValue.noncurrentVersionExpiration = noncurrentVersionExpiration;
             _resultValue.noncurrentVersionTransitions = noncurrentVersionTransitions;
             _resultValue.prefix = prefix;
             _resultValue.tags = tags;

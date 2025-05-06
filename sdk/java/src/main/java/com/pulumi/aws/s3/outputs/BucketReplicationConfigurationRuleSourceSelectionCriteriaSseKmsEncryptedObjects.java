@@ -9,14 +9,14 @@ import java.lang.Boolean;
 import java.util.Objects;
 
 @CustomType
-public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
+public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
     /**
      * @return Boolean which indicates if this criteria is enabled.
      * 
      */
     private Boolean enabled;
 
-    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject() {}
+    private BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects() {}
     /**
      * @return Boolean which indicates if this criteria is enabled.
      * 
@@ -29,14 +29,14 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
         return new Builder();
     }
 
-    public static Builder builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject defaults) {
+    public static Builder builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         public Builder() {}
-        public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject defaults) {
+        public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
@@ -44,13 +44,13 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
-              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject", "enabled");
+              throw new MissingRequiredPropertyException("BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects", "enabled");
             }
             this.enabled = enabled;
             return this;
         }
-        public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject build() {
-            final var _resultValue = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject();
+        public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
+            final var _resultValue = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
             _resultValue.enabled = enabled;
             return _resultValue;
         }

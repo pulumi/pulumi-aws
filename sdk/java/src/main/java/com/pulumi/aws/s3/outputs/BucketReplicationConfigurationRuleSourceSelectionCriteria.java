@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.s3.outputs;
 
-import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject;
+import com.pulumi.aws.s3.outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects;
 import com.pulumi.core.annotations.CustomType;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,7 +16,7 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
      * in `destination` must be specified as well.
      * 
      */
-    private @Nullable List<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects;
+    private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
 
     private BucketReplicationConfigurationRuleSourceSelectionCriteria() {}
     /**
@@ -24,8 +24,8 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
      * in `destination` must be specified as well.
      * 
      */
-    public List<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects() {
-        return this.sseKmsEncryptedObjects == null ? List.of() : this.sseKmsEncryptedObjects;
+    public Optional<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects> sseKmsEncryptedObjects() {
+        return Optional.ofNullable(this.sseKmsEncryptedObjects);
     }
 
     public static Builder builder() {
@@ -37,7 +37,7 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects;
+        private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
         public Builder() {}
         public Builder(BucketReplicationConfigurationRuleSourceSelectionCriteria defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,13 +45,10 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
         }
 
         @CustomType.Setter
-        public Builder sseKmsEncryptedObjects(@Nullable List<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects) {
+        public Builder sseKmsEncryptedObjects(@Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
 
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
-        }
-        public Builder sseKmsEncryptedObjects(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject... sseKmsEncryptedObjects) {
-            return sseKmsEncryptedObjects(List.of(sseKmsEncryptedObjects));
         }
         public BucketReplicationConfigurationRuleSourceSelectionCriteria build() {
             final var _resultValue = new BucketReplicationConfigurationRuleSourceSelectionCriteria();
