@@ -6133,8 +6133,6 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_ec2_default_credit_specification":           {"instanceFamily"},
 	}
 
-	// error: Resource aws_ec2_default_credit_specification has a problem: no "id" attribute. To map this resource consider specifying ResourceInfo.ComputeID to a valid field on the upstream resource
-
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
 		prov.Resources[tfResourceID].ComputeID = func(
 			ctx context.Context, state resource.PropertyMap,
