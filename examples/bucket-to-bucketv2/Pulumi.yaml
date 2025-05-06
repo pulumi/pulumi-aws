@@ -1,8 +1,14 @@
 name: test-aws-bucket-migration
 runtime: yaml
 resources:
+  provider:
+    type: pulumi:providers:aws
+    options:
+      version: 6.78.0
   replication:
     type: aws:iam:Role
+    options:
+      provider: ${provider}
     properties:
       name: tf-iam-role-replication-12345
       assumeRolePolicy: |
@@ -21,6 +27,8 @@ resources:
         }
   replicationPolicy:
     type: aws:iam:Policy
+    options:
+      provider: ${provider}
     name: replication
     properties:
       name: tf-iam-role-policy-replication-12345
@@ -63,21 +71,29 @@ resources:
   replicationRolePolicyAttachment:
     type: aws:iam:RolePolicyAttachment
     name: replication
+    options:
+      provider: ${provider}
     properties:
       role: ${replication.name}
       policyArn: ${replicationPolicy.arn}
   destinationBucket:
     type: aws:s3:Bucket
+    options:
+      provider: ${provider}
     properties:
       forceDestroy: true
       versioning:
         enabled: true
   loggingBucket:
     type: aws:s3:Bucket
+    options:
+      provider: ${provider}
     properties:
       forceDestroy: true
   exampleBucketOwnershipControls:
     type: aws:s3:BucketOwnershipControls
+    options:
+      provider: ${provider}
     properties:
       bucket: ${loggingBucket.id}
       rule:
@@ -88,10 +104,13 @@ resources:
       bucket: ${loggingBucket.id}
       acl: log-delivery-write
     options:
+      provider: ${provider}
       dependsOn:
         - ${exampleBucketOwnershipControls}
   migrationBucket:
     type: aws:s3:Bucket
+    options:
+      provider: ${provider}
     properties:
       forceDestroy: true
       serverSideEncryptionConfiguration:
@@ -117,9 +136,9 @@ resources:
             - days: 30
               storageClass: STANDARD_IA
       # same between v1 & v2
-      logging:
-        targetBucket: ${loggingBucket.bucket}
-        targetPrefix: /log
+      loggings:
+        - targetBucket: ${loggingBucket.bucket}
+          targetPrefix: /log
       corsRules:
         - allowedHeaders:
             - '*'

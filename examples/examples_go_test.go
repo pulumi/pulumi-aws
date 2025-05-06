@@ -259,7 +259,7 @@ func (st tagsState) validateStateResult(phase int) func(
 
 			if k == "bucket" {
 				getTags := stack.Outputs["get-bucket"].(string)
-				assert.Equal(t, v.(string), getTags)
+				isEqual(t, v.(string), getTags)
 				bucketName := stack.Outputs["bucket-name"].(string)
 				st.assertTagsEqualWithRetry(t,
 					fetchBucketTags(bucketName),

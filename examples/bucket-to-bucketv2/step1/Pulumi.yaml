@@ -70,8 +70,8 @@ resources:
     type: aws:s3:Bucket
     properties:
       forceDestroy: true
-      versionings:
-        - enabled: true
+      versioning:
+        enabled: true
   loggingBucket:
     type: aws:s3:Bucket
     properties:
@@ -113,10 +113,10 @@ resources:
       lifecycleRules:
          - id: noncurrent
            enabled: true
-           expirations:
-             - days: 30
-           noncurrentVersionExpirations:
-             - days: 30
+           expiration:
+             days: 30
+           noncurrentVersionExpiration:
+             days: 30
          - id: log
            enabled: true
            prefix: log/
@@ -143,23 +143,23 @@ resources:
           }]
       versioning:
         enabled: true
-      replicationConfigurations:
-        - role: ${replication.arn}
-          rules:
-            - id: foobar
-              status: Disabled
-              filters:
-                - tags: {}
-              # sourceSelectionCriterias:
-              #   - sseKmsEncryptedObjects:
-              #       - enabled: false
-              destinations:
-                - bucket: ${destinationBucket.arn}
-                  replicationTimes:
-                    - status: Disabled
-                      minutes: 15
-                  # not testing because we don't want to change the owner
-                  # accessControlTranslation:
-                  metrics:
-                    - status: Disabled
-                      minutes: 15
+      replicationConfiguration:
+        role: ${replication.arn}
+        rules:
+          - id: foobar
+            status: Disabled
+            filter:
+              tags: {}
+            # sourceSelectionCriterias:
+            #   - sseKmsEncryptedObjects:
+            #       - enabled: false
+            destination:
+              bucket: ${destinationBucket.arn}
+              replicationTime:
+                status: Disabled
+                minutes: 15
+              # not testing because we don't want to change the owner
+              # accessControlTranslation:
+              metrics:
+                status: Disabled
+                minutes: 15

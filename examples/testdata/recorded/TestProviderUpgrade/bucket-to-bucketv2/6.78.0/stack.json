@@ -1,0 +1,678 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-06T13:26:15.53792-04:00",
+      "magic": "afb0b63d6746c8d512491ec16bc9053776fb43c6f21375a7d61f5b0f2bfcfb5e",
+      "version": "v3.165.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Z5vCpDlNPig=:v1:CY7wjkQP22FR6E5v:bmBb09zVq947Jp8Z0RNWczNb9acj4w=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-06T17:26:07.071307Z",
+        "modified": "2025-05-06T17:26:07.071307Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider",
+        "custom": true,
+        "id": "3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "__internal": {},
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true",
+          "version": "6.78.0"
+        },
+        "outputs": {
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true",
+          "version": "6.78.0"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "additionalSecretOutputs": [
+          "accessKey",
+          "secretKey",
+          "token"
+        ],
+        "created": "2025-05-06T17:26:10.558942Z",
+        "modified": "2025-05-06T17:26:10.558942Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:iam/role:Role::replication",
+        "custom": true,
+        "id": "tf-iam-role-replication-12345",
+        "type": "aws:iam/role:Role",
+        "inputs": {
+          "__defaults": [
+            "forceDetachPolicies",
+            "maxSessionDuration",
+            "path"
+          ],
+          "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"s3.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+          "forceDetachPolicies": false,
+          "maxSessionDuration": 3600,
+          "name": "tf-iam-role-replication-12345",
+          "path": "/"
+        },
+        "outputs": {
+          "arn": "arn:aws:iam::616138583583:role/tf-iam-role-replication-12345",
+          "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"s3.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+          "createDate": "2025-05-06T17:26:10Z",
+          "description": "",
+          "forceDetachPolicies": false,
+          "id": "tf-iam-role-replication-12345",
+          "inlinePolicies": [],
+          "managedPolicyArns": [],
+          "maxSessionDuration": 3600,
+          "name": "tf-iam-role-replication-12345",
+          "namePrefix": "",
+          "path": "/",
+          "permissionsBoundary": "",
+          "uniqueId": "AROAY65FYVYPUOFRYT34L"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "assumeRolePolicy": [],
+          "name": []
+        },
+        "created": "2025-05-06T17:26:11.220819Z",
+        "modified": "2025-05-06T17:26:11.220819Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket",
+        "custom": true,
+        "id": "loggingbucket-2cfdcb8",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket"
+          ],
+          "acl": "private",
+          "bucket": "loggingbucket-2cfdcb8",
+          "forceDestroy": true
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::loggingbucket-2cfdcb8",
+          "bucket": "loggingbucket-2cfdcb8",
+          "bucketDomainName": "loggingbucket-2cfdcb8.s3.amazonaws.com",
+          "bucketPrefix": null,
+          "bucketRegionalDomainName": "loggingbucket-2cfdcb8.s3.us-east-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": true,
+          "grants": [],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "loggingbucket-2cfdcb8",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "policy": null,
+          "region": "us-east-2",
+          "replicationConfiguration": null,
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "versioning": {
+            "enabled": false,
+            "mfaDelete": false
+          },
+          "website": null,
+          "websiteDomain": null,
+          "websiteEndpoint": null
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "forceDestroy": []
+        },
+        "created": "2025-05-06T17:26:11.963497Z",
+        "modified": "2025-05-06T17:26:11.963497Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::destinationBucket",
+        "custom": true,
+        "id": "destinationbucket-a22ef60",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket"
+          ],
+          "acl": "private",
+          "bucket": "destinationbucket-a22ef60",
+          "forceDestroy": true,
+          "versioning": {
+            "__defaults": [
+              "mfaDelete"
+            ],
+            "enabled": true,
+            "mfaDelete": false
+          }
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::destinationbucket-a22ef60",
+          "bucket": "destinationbucket-a22ef60",
+          "bucketDomainName": "destinationbucket-a22ef60.s3.amazonaws.com",
+          "bucketPrefix": null,
+          "bucketRegionalDomainName": "destinationbucket-a22ef60.s3.us-east-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": true,
+          "grants": [],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "destinationbucket-a22ef60",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "policy": null,
+          "region": "us-east-2",
+          "replicationConfiguration": null,
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "versioning": {
+            "enabled": true,
+            "mfaDelete": false
+          },
+          "website": null,
+          "websiteDomain": null,
+          "websiteEndpoint": null
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "forceDestroy": [],
+          "versioning": []
+        },
+        "created": "2025-05-06T17:26:12.148898Z",
+        "modified": "2025-05-06T17:26:12.148898Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketOwnershipControls:BucketOwnershipControls::exampleBucketOwnershipControls",
+        "custom": true,
+        "id": "loggingbucket-2cfdcb8",
+        "type": "aws:s3/bucketOwnershipControls:BucketOwnershipControls",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "loggingbucket-2cfdcb8",
+          "rule": {
+            "__defaults": [],
+            "objectOwnership": "BucketOwnerPreferred"
+          }
+        },
+        "outputs": {
+          "bucket": "loggingbucket-2cfdcb8",
+          "id": "loggingbucket-2cfdcb8",
+          "rule": {
+            "objectOwnership": "BucketOwnerPreferred"
+          }
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket"
+          ],
+          "rule": []
+        },
+        "created": "2025-05-06T17:26:12.483397Z",
+        "modified": "2025-05-06T17:26:12.483397Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketAclV2:BucketAclV2::exampleBucketAclV2",
+        "custom": true,
+        "id": "loggingbucket-2cfdcb8,log-delivery-write",
+        "type": "aws:s3/bucketAclV2:BucketAclV2",
+        "inputs": {
+          "__defaults": [],
+          "acl": "log-delivery-write",
+          "bucket": "loggingbucket-2cfdcb8"
+        },
+        "outputs": {
+          "accessControlPolicy": {
+            "grants": [
+              {
+                "grantee": {
+                  "displayName": "",
+                  "emailAddress": "",
+                  "id": "",
+                  "type": "Group",
+                  "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery"
+                },
+                "permission": "READ_ACP"
+              },
+              {
+                "grantee": {
+                  "displayName": "",
+                  "emailAddress": "",
+                  "id": "",
+                  "type": "Group",
+                  "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery"
+                },
+                "permission": "WRITE"
+              },
+              {
+                "grantee": {
+                  "displayName": "",
+                  "emailAddress": "",
+                  "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8",
+                  "type": "CanonicalUser",
+                  "uri": ""
+                },
+                "permission": "FULL_CONTROL"
+              }
+            ],
+            "owner": {
+              "displayName": "",
+              "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8"
+            }
+          },
+          "acl": "log-delivery-write",
+          "bucket": "loggingbucket-2cfdcb8",
+          "expectedBucketOwner": "",
+          "id": "loggingbucket-2cfdcb8,log-delivery-write"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucketOwnershipControls:BucketOwnershipControls::exampleBucketOwnershipControls"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "acl": [],
+          "bucket": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket"
+          ]
+        },
+        "created": "2025-05-06T17:26:12.775741Z",
+        "modified": "2025-05-06T17:26:12.775741Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::migrationBucket",
+        "custom": true,
+        "id": "migrationbucket-49d6835",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket"
+          ],
+          "acl": "private",
+          "bucket": "migrationbucket-49d6835",
+          "corsRules": [
+            {
+              "__defaults": [],
+              "allowedHeaders": [
+                "*"
+              ],
+              "allowedMethods": [
+                "PUT",
+                "POST"
+              ],
+              "allowedOrigins": [
+                "https://s3-website-test.mydomain.com"
+              ],
+              "exposeHeaders": [
+                "ETag"
+              ],
+              "maxAgeSeconds": 3000
+            }
+          ],
+          "forceDestroy": true,
+          "lifecycleRules": [
+            {
+              "__defaults": [],
+              "enabled": true,
+              "expiration": {
+                "__defaults": [],
+                "days": 30
+              },
+              "id": "noncurrent",
+              "noncurrentVersionExpiration": {
+                "__defaults": [],
+                "days": 30
+              }
+            },
+            {
+              "__defaults": [],
+              "enabled": true,
+              "id": "log",
+              "prefix": "log/",
+              "tags": {
+                "autoclean": "true",
+                "rule": "log"
+              },
+              "transitions": [
+                {
+                  "__defaults": [],
+                  "days": 30,
+                  "storageClass": "STANDARD_IA"
+                }
+              ]
+            }
+          ],
+          "loggings": [
+            {
+              "__defaults": [],
+              "targetBucket": "loggingbucket-2cfdcb8",
+              "targetPrefix": "/log"
+            }
+          ],
+          "replicationConfiguration": {
+            "__defaults": [],
+            "role": "arn:aws:iam::616138583583:role/tf-iam-role-replication-12345",
+            "rules": [
+              {
+                "__defaults": [],
+                "destination": {
+                  "__defaults": [],
+                  "bucket": "arn:aws:s3:::destinationbucket-a22ef60",
+                  "metrics": {
+                    "__defaults": [],
+                    "minutes": 15,
+                    "status": "Disabled"
+                  },
+                  "replicationTime": {
+                    "__defaults": [],
+                    "minutes": 15,
+                    "status": "Disabled"
+                  }
+                },
+                "filter": {
+                  "__defaults": [],
+                  "tags": {}
+                },
+                "id": "foobar",
+                "status": "Disabled"
+              }
+            ]
+          },
+          "serverSideEncryptionConfiguration": {
+            "__defaults": [],
+            "rule": {
+              "__defaults": [],
+              "applyServerSideEncryptionByDefault": {
+                "__defaults": [],
+                "sseAlgorithm": "AES256"
+              }
+            }
+          },
+          "versioning": {
+            "__defaults": [
+              "mfaDelete"
+            ],
+            "enabled": true,
+            "mfaDelete": false
+          },
+          "website": {
+            "__defaults": [],
+            "errorDocument": "error.html",
+            "indexDocument": "index.html",
+            "routingRules": "[{\n  \"Condition\": {\n    \"KeyPrefixEquals\": \"docs\"\n  },\n  \"Redirect\": {\n    \"ReplaceKeyPrefixWith\": \"documents/\"\n  }\n}]\n"
+          }
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::migrationbucket-49d6835",
+          "bucket": "migrationbucket-49d6835",
+          "bucketDomainName": "migrationbucket-49d6835.s3.amazonaws.com",
+          "bucketPrefix": null,
+          "bucketRegionalDomainName": "migrationbucket-49d6835.s3.us-east-2.amazonaws.com",
+          "corsRules": [
+            {
+              "allowedHeaders": [
+                "*"
+              ],
+              "allowedMethods": [
+                "PUT",
+                "POST"
+              ],
+              "allowedOrigins": [
+                "https://s3-website-test.mydomain.com"
+              ],
+              "exposeHeaders": [
+                "ETag"
+              ],
+              "maxAgeSeconds": 3000
+            }
+          ],
+          "forceDestroy": true,
+          "grants": [],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "migrationbucket-49d6835",
+          "lifecycleRules": [
+            {
+              "abortIncompleteMultipartUploadDays": 0,
+              "enabled": true,
+              "expiration": {
+                "date": "",
+                "days": 30,
+                "expiredObjectDeleteMarker": false
+              },
+              "id": "noncurrent",
+              "noncurrentVersionExpiration": {
+                "days": 30
+              },
+              "noncurrentVersionTransitions": [],
+              "prefix": "",
+              "tags": null,
+              "transitions": []
+            },
+            {
+              "abortIncompleteMultipartUploadDays": 0,
+              "enabled": true,
+              "expiration": null,
+              "id": "log",
+              "noncurrentVersionExpiration": null,
+              "noncurrentVersionTransitions": [],
+              "prefix": "log/",
+              "tags": {
+                "autoclean": "true",
+                "rule": "log"
+              },
+              "transitions": [
+                {
+                  "date": "",
+                  "days": 30,
+                  "storageClass": "STANDARD_IA"
+                }
+              ]
+            }
+          ],
+          "loggings": [
+            {
+              "targetBucket": "loggingbucket-2cfdcb8",
+              "targetPrefix": "/log"
+            }
+          ],
+          "objectLockConfiguration": null,
+          "policy": null,
+          "region": "us-east-2",
+          "replicationConfiguration": {
+            "role": "arn:aws:iam::616138583583:role/tf-iam-role-replication-12345",
+            "rules": [
+              {
+                "deleteMarkerReplicationStatus": "",
+                "destination": {
+                  "accessControlTranslation": null,
+                  "accountId": "",
+                  "bucket": "arn:aws:s3:::destinationbucket-a22ef60",
+                  "metrics": {
+                    "minutes": 15,
+                    "status": "Disabled"
+                  },
+                  "replicaKmsKeyId": "",
+                  "replicationTime": {
+                    "minutes": 15,
+                    "status": "Disabled"
+                  },
+                  "storageClass": ""
+                },
+                "filter": {
+                  "prefix": "",
+                  "tags": null
+                },
+                "id": "foobar",
+                "prefix": "",
+                "priority": null,
+                "sourceSelectionCriteria": null,
+                "status": "Disabled"
+              }
+            ]
+          },
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "versioning": {
+            "enabled": true,
+            "mfaDelete": false
+          },
+          "website": {
+            "errorDocument": "error.html",
+            "indexDocument": "index.html",
+            "redirectAllRequestsTo": "",
+            "routingRules": "[{\"Condition\":{\"KeyPrefixEquals\":\"docs\"},\"Redirect\":{\"ReplaceKeyPrefixWith\":\"documents/\"}}]"
+          },
+          "websiteDomain": "s3-website.us-east-2.amazonaws.com",
+          "websiteEndpoint": "migrationbucket-49d6835.s3-website.us-east-2.amazonaws.com"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:iam/role:Role::replication",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::destinationBucket",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "corsRules": [],
+          "forceDestroy": [],
+          "lifecycleRules": [],
+          "loggings": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::loggingBucket"
+          ],
+          "replicationConfiguration": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:iam/role:Role::replication",
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::destinationBucket"
+          ],
+          "serverSideEncryptionConfiguration": [],
+          "versioning": [],
+          "website": []
+        },
+        "created": "2025-05-06T17:26:14.9545Z",
+        "modified": "2025-05-06T17:26:14.9545Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:iam/policy:Policy::replication",
+        "custom": true,
+        "id": "arn:aws:iam::616138583583:policy/tf-iam-role-policy-replication-12345",
+        "type": "aws:iam/policy:Policy",
+        "inputs": {
+          "__defaults": [
+            "path"
+          ],
+          "name": "tf-iam-role-policy-replication-12345",
+          "path": "/",
+          "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"s3:GetReplicationConfiguration\",\n        \"s3:ListBucket\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"arn:aws:s3:::migrationbucket-49d6835\"\n      ]\n    },\n    {\n      \"Action\": [\n        \"s3:GetObjectVersionForReplication\",\n        \"s3:GetObjectVersionAcl\",\n         \"s3:GetObjectVersionTagging\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"arn:aws:s3:::migrationbucket-49d6835/*\"\n      ]\n    },\n    {\n      \"Action\": [\n        \"s3:ReplicateObject\",\n        \"s3:ReplicateDelete\",\n        \"s3:ReplicateTags\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"arn:aws:s3:::destinationbucket-a22ef60/*\"\n    }\n  ]\n}\n"
+        },
+        "outputs": {
+          "arn": "arn:aws:iam::616138583583:policy/tf-iam-role-policy-replication-12345",
+          "attachmentCount": 0,
+          "description": "",
+          "id": "arn:aws:iam::616138583583:policy/tf-iam-role-policy-replication-12345",
+          "name": "tf-iam-role-policy-replication-12345",
+          "namePrefix": "",
+          "path": "/",
+          "policy": "{\"Statement\":[{\"Action\":[\"s3:GetReplicationConfiguration\",\"s3:ListBucket\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::migrationbucket-49d6835\"]},{\"Action\":[\"s3:GetObjectVersionForReplication\",\"s3:GetObjectVersionAcl\",\"s3:GetObjectVersionTagging\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::migrationbucket-49d6835/*\"]},{\"Action\":[\"s3:ReplicateObject\",\"s3:ReplicateDelete\",\"s3:ReplicateTags\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::destinationbucket-a22ef60/*\"}],\"Version\":\"2012-10-17\"}",
+          "policyId": "ANPAY65FYVYPWM6UU5LFX"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::destinationBucket",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::migrationBucket"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "name": [],
+          "policy": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::destinationBucket",
+            "urn:pulumi:test::test-aws-bucket-migration::aws:s3/bucket:Bucket::migrationBucket"
+          ]
+        },
+        "created": "2025-05-06T17:26:15.184791Z",
+        "modified": "2025-05-06T17:26:15.184791Z"
+      },
+      {
+        "urn": "urn:pulumi:test::test-aws-bucket-migration::aws:iam/rolePolicyAttachment:RolePolicyAttachment::replication",
+        "custom": true,
+        "id": "tf-iam-role-replication-12345-20250506172615434000000001",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::616138583583:policy/tf-iam-role-policy-replication-12345",
+          "role": "tf-iam-role-replication-12345"
+        },
+        "outputs": {
+          "id": "tf-iam-role-replication-12345-20250506172615434000000001",
+          "policyArn": "arn:aws:iam::616138583583:policy/tf-iam-role-policy-replication-12345",
+          "role": "tf-iam-role-replication-12345"
+        },
+        "parent": "urn:pulumi:test::test-aws-bucket-migration::pulumi:pulumi:Stack::test-aws-bucket-migration-test",
+        "dependencies": [
+          "urn:pulumi:test::test-aws-bucket-migration::aws:iam/policy:Policy::replication",
+          "urn:pulumi:test::test-aws-bucket-migration::aws:iam/role:Role::replication"
+        ],
+        "provider": "urn:pulumi:test::test-aws-bucket-migration::pulumi:providers:aws::provider::3925c0f8-e711-481d-a47d-1b4ec07509e3",
+        "propertyDependencies": {
+          "policyArn": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:iam/policy:Policy::replication"
+          ],
+          "role": [
+            "urn:pulumi:test::test-aws-bucket-migration::aws:iam/role:Role::replication"
+          ]
+        },
+        "created": "2025-05-06T17:26:15.492943Z",
+        "modified": "2025-05-06T17:26:15.492943Z"
+      }
+    ],
+    "metadata": {}
+  }
+}
