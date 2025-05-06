@@ -95,10 +95,10 @@ resources:
     type: aws:s3:Bucket
     properties:
       forceDestroy: true
-      serverSideEncryptionConfigurations:
-        - rules:
-          - applyServerSideEncryptionByDefaults:
-              - sseAlgorithm: "AES256"
+      serverSideEncryptionConfiguration:
+        rule:
+          applyServerSideEncryptionByDefault:
+              sseAlgorithm: "AES256"
       corsRules:
         - allowedHeaders:
             - '*'
@@ -126,23 +126,23 @@ resources:
            transitions:
              - days: 30
                storageClass: STANDARD_IA
-      loggings:
-        - targetBucket: ${loggingBucket.bucket}
-          targetPrefix: /log
-      websites:
-        - indexDocument: index.html
-          errorDocument: error.html
-          routingRules: |
-            [{
-              "Condition": {
-                "KeyPrefixEquals": "docs"
-              },
-              "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-              }
-            }]
-      versionings:
-        - enabled: true
+      logging:
+        targetBucket: ${loggingBucket.bucket}
+        targetPrefix: /log
+      website:
+        indexDocument: index.html
+        errorDocument: error.html
+        routingRules: |
+          [{
+            "Condition": {
+              "KeyPrefixEquals": "docs"
+            },
+            "Redirect": {
+              "ReplaceKeyPrefixWith": "documents/"
+            }
+          }]
+      versioning:
+        enabled: true
       replicationConfigurations:
         - role: ${replication.arn}
           rules:

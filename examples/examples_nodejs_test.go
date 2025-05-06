@@ -23,7 +23,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
@@ -811,7 +810,7 @@ func TestLogGroupUpgrade(t *testing.T) {
 }
 
 func TestQueueUpgrade(t *testing.T) {
-	testProviderUpgrade(t, filepath.Join("queue"), nodeProviderUpgradeOpts(), optproviderupgrade.NewSourcePath(filepath.Join("queue", "step2")))
+	testProviderUpgrade(t, filepath.Join("queue"), nodeProviderUpgradeOpts())
 }
 
 func TestRoute53Upgrade(t *testing.T) {

@@ -20,13 +20,13 @@ const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const bucket = new aws.s3.Bucket("testbucket", {
-    serverSideEncryptionConfigurations: [{
-        rules: [{
-            applyServerSideEncryptionByDefaults: [{
+    serverSideEncryptionConfiguration: {
+        rule: {
+            applyServerSideEncryptionByDefault: {
                 sseAlgorithm: "AES256",
-            }],
-        }],
-    }],
+            },
+        },
+    },
     forceDestroy: true,
 }, providerOpts);
 
@@ -55,7 +55,7 @@ bucket.onObjectCreated("bucket-callback", async (event) => {
 
 // Another bucket with some strongly-typed routingRules.
 const websiteBucket = new aws.s3.Bucket("websiteBucket", {
-    websites: [{
+    website: {
         indexDocument: "index.html",
         routingRules: [{
             Condition: {
@@ -65,7 +65,7 @@ const websiteBucket = new aws.s3.Bucket("websiteBucket", {
                 ReplaceKeyPrefixWith: "documents/",
             }
         }]
-    }]
+    }
 }, providerOpts);
 
 export const bucketName = bucket.id;
