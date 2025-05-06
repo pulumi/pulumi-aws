@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {IpAddressType, LoadBalancerType} from "./index";
-
 /**
  * Provides a Load Balancer resource.
  *
@@ -221,7 +219,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    public readonly ipAddressType!: pulumi.Output<IpAddressType>;
+    public readonly ipAddressType!: pulumi.Output<enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -229,7 +227,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    public readonly loadBalancerType!: pulumi.Output<LoadBalancerType | undefined>;
+    public readonly loadBalancerType!: pulumi.Output<enums.alb.LoadBalancerType | undefined>;
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
@@ -452,7 +450,7 @@ export interface LoadBalancerState {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    ipAddressType?: pulumi.Input<IpAddressType>;
+    ipAddressType?: pulumi.Input<enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -460,7 +458,7 @@ export interface LoadBalancerState {
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    loadBalancerType?: pulumi.Input<enums.alb.LoadBalancerType>;
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
@@ -581,7 +579,7 @@ export interface LoadBalancerArgs {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    ipAddressType?: pulumi.Input<IpAddressType>;
+    ipAddressType?: pulumi.Input<enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -589,7 +587,7 @@ export interface LoadBalancerArgs {
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    loadBalancerType?: pulumi.Input<enums.alb.LoadBalancerType>;
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */

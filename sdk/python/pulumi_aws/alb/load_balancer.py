@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LoadBalancerArgs', 'LoadBalancer']
@@ -39,9 +40,9 @@ class LoadBalancerArgs:
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[builtins.str]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  internal: Optional[pulumi.Input[builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['IpAddressType']] = None,
                  ipam_pools: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']] = None,
-                 load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 load_balancer_type: Optional[pulumi.Input['LoadBalancerType']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -69,9 +70,9 @@ class LoadBalancerArgs:
         :param pulumi.Input[builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
-        :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        :param pulumi.Input['IpAddressType'] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input['LoadBalancerIpamPoolsArgs'] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
-        :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input['LoadBalancerType'] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -344,14 +345,14 @@ class LoadBalancerArgs:
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+    def ip_address_type(self) -> Optional[pulumi.Input['IpAddressType']]:
         """
         Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+    def ip_address_type(self, value: Optional[pulumi.Input['IpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
     @property
@@ -368,14 +369,14 @@ class LoadBalancerArgs:
 
     @property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> Optional[pulumi.Input[builtins.str]]:
+    def load_balancer_type(self) -> Optional[pulumi.Input['LoadBalancerType']]:
         """
         Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
-    def load_balancer_type(self, value: Optional[pulumi.Input[builtins.str]]):
+    def load_balancer_type(self, value: Optional[pulumi.Input['LoadBalancerType']]):
         pulumi.set(self, "load_balancer_type", value)
 
     @property
@@ -498,9 +499,9 @@ class _LoadBalancerState:
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[builtins.str]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  internal: Optional[pulumi.Input[builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['IpAddressType']] = None,
                  ipam_pools: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']] = None,
-                 load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 load_balancer_type: Optional[pulumi.Input['LoadBalancerType']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -534,9 +535,9 @@ class _LoadBalancerState:
         :param pulumi.Input[builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
-        :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        :param pulumi.Input['IpAddressType'] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input['LoadBalancerIpamPoolsArgs'] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
-        :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input['LoadBalancerType'] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -862,14 +863,14 @@ class _LoadBalancerState:
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+    def ip_address_type(self) -> Optional[pulumi.Input['IpAddressType']]:
         """
         Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+    def ip_address_type(self, value: Optional[pulumi.Input['IpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
     @property
@@ -886,14 +887,14 @@ class _LoadBalancerState:
 
     @property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> Optional[pulumi.Input[builtins.str]]:
+    def load_balancer_type(self) -> Optional[pulumi.Input['LoadBalancerType']]:
         """
         Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
-    def load_balancer_type(self, value: Optional[pulumi.Input[builtins.str]]):
+    def load_balancer_type(self, value: Optional[pulumi.Input['LoadBalancerType']]):
         pulumi.set(self, "load_balancer_type", value)
 
     @property
@@ -1052,9 +1053,9 @@ class LoadBalancer(pulumi.CustomResource):
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[builtins.str]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  internal: Optional[pulumi.Input[builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['IpAddressType']] = None,
                  ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
-                 load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 load_balancer_type: Optional[pulumi.Input['LoadBalancerType']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1180,9 +1181,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
-        :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        :param pulumi.Input['IpAddressType'] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
-        :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input['LoadBalancerType'] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -1327,9 +1328,9 @@ class LoadBalancer(pulumi.CustomResource):
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[builtins.str]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  internal: Optional[pulumi.Input[builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['IpAddressType']] = None,
                  ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
-                 load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 load_balancer_type: Optional[pulumi.Input['LoadBalancerType']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1413,9 +1414,9 @@ class LoadBalancer(pulumi.CustomResource):
             enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[builtins.str]] = None,
             idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
             internal: Optional[pulumi.Input[builtins.bool]] = None,
-            ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+            ip_address_type: Optional[pulumi.Input['IpAddressType']] = None,
             ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
-            load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+            load_balancer_type: Optional[pulumi.Input['LoadBalancerType']] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1454,9 +1455,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[builtins.int] idle_timeout: Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[builtins.bool] internal: If true, the LB will be internal. Defaults to `false`.
-        :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        :param pulumi.Input['IpAddressType'] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
-        :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input['LoadBalancerType'] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -1670,7 +1671,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> pulumi.Output[builtins.str]:
+    def ip_address_type(self) -> pulumi.Output['IpAddressType']:
         """
         Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         """
@@ -1686,7 +1687,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> pulumi.Output[Optional[builtins.str]]:
+    def load_balancer_type(self) -> pulumi.Output[Optional['LoadBalancerType']]:
         """
         Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """

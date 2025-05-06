@@ -518,8 +518,8 @@ func awsMember(moduleTitle string, fn string, mem string) tokens.ModuleMember {
 }
 
 // awsType manufactures a type token for the AWS package and the given module, file name, and type.
-func awsType(mod string, fn string, typ string) tokens.Type {
-	return tokens.Type(awsMember(mod, fn, typ))
+func awsType(mod string, fileName string, typ string) tokens.Type {
+	return tokens.Type(awsMember(mod, fileName, typ))
 }
 
 // awsResource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
@@ -1273,7 +1273,7 @@ compatibility shim in favor of the new "name" field.`)
 						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
 					},
 					"enabled_metrics": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "metrics", "Metric")},
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "Metric", "Metric")},
 					},
 					"metrics_granularity": {
 						Type:     "string",
@@ -1334,7 +1334,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(autoscalingMod, "Notification"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"notifications": {
-						Elem: &tfbridge.SchemaInfo{Type: awsTypeDefaultFile(autoscalingMod, "NotificationType")},
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "NotificationType", "NotificationType")},
 					},
 				},
 			},
@@ -5318,18 +5318,6 @@ compatibility shim in favor of the new "name" field.`)
 					"utils.ts",  // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
-					"autoscaling": {
-						DestFiles: []string{
-							"metrics.ts",          // Metric and MetricsGranularity constants
-							"notificationType.ts", // NotificationType constants
-						},
-					},
-					"alb": {
-						DestFiles: []string{
-							"ipAddressType.ts",    // IpAddressType constants
-							"loadBalancerType.ts", // LoadBalancerType constants
-						},
-					},
 					"applicationloadbalancing": {
 						DestFiles: []string{
 							"ipAddressType.ts",    // IpAddressType constants
@@ -5542,8 +5530,8 @@ compatibility shim in favor of the new "name" field.`)
 	rAlias("aws_alb", awsResource(legacyAlbMod, "LoadBalancer"),
 		awsResource(albMod, "LoadBalancer"), &tfbridge.ResourceInfo{
 			Fields: map[string]*tfbridge.SchemaInfo{
-				"load_balancer_type": {Type: awsResource(albMod, "LoadBalancerType")},
-				"ip_address_type":    {Type: awsResource(albMod, "IpAddressType")},
+				"load_balancer_type": {Type: awsType(albMod, "LoadBalancerType", "LoadBalancerType")},
+				"ip_address_type":    {Type: awsType(albMod, "IpAddressType", "IpAddressType")},
 			},
 			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
 		})

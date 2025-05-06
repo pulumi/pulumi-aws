@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.alb;
 
+import com.pulumi.aws.alb.enums.IpAddressType;
+import com.pulumi.aws.alb.enums.LoadBalancerType;
 import com.pulumi.aws.alb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerConnectionLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerIpamPoolsArgs;
@@ -283,13 +285,13 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="ipAddressType")
-    private @Nullable Output<String> ipAddressType;
+    private @Nullable Output<IpAddressType> ipAddressType;
 
     /**
      * @return Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    public Optional<Output<String>> ipAddressType() {
+    public Optional<Output<IpAddressType>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
@@ -313,13 +315,13 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="loadBalancerType")
-    private @Nullable Output<String> loadBalancerType;
+    private @Nullable Output<LoadBalancerType> loadBalancerType;
 
     /**
      * @return Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
-    public Optional<Output<String>> loadBalancerType() {
+    public Optional<Output<LoadBalancerType>> loadBalancerType() {
         return Optional.ofNullable(this.loadBalancerType);
     }
 
@@ -857,7 +859,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+        public Builder ipAddressType(@Nullable Output<IpAddressType> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
@@ -868,7 +870,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipAddressType(String ipAddressType) {
+        public Builder ipAddressType(IpAddressType ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
@@ -899,7 +901,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder loadBalancerType(@Nullable Output<String> loadBalancerType) {
+        public Builder loadBalancerType(@Nullable Output<LoadBalancerType> loadBalancerType) {
             $.loadBalancerType = loadBalancerType;
             return this;
         }
@@ -910,7 +912,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder loadBalancerType(String loadBalancerType) {
+        public Builder loadBalancerType(LoadBalancerType loadBalancerType) {
             return loadBalancerType(Output.of(loadBalancerType));
         }
 

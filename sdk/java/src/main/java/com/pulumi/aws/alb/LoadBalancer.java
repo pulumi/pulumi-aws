@@ -5,6 +5,8 @@ package com.pulumi.aws.alb;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.alb.LoadBalancerArgs;
+import com.pulumi.aws.alb.enums.IpAddressType;
+import com.pulumi.aws.alb.enums.LoadBalancerType;
 import com.pulumi.aws.alb.inputs.LoadBalancerState;
 import com.pulumi.aws.alb.outputs.LoadBalancerAccessLogs;
 import com.pulumi.aws.alb.outputs.LoadBalancerConnectionLogs;
@@ -427,14 +429,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
-    private Output<String> ipAddressType;
+    @Export(name="ipAddressType", refs={IpAddressType.class}, tree="[0]")
+    private Output<IpAddressType> ipAddressType;
 
     /**
      * @return Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    public Output<String> ipAddressType() {
+    public Output<IpAddressType> ipAddressType() {
         return this.ipAddressType;
     }
     /**
@@ -455,14 +457,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
-    @Export(name="loadBalancerType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> loadBalancerType;
+    @Export(name="loadBalancerType", refs={LoadBalancerType.class}, tree="[0]")
+    private Output</* @Nullable */ LoadBalancerType> loadBalancerType;
 
     /**
      * @return Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
-    public Output<Optional<String>> loadBalancerType() {
+    public Output<Optional<LoadBalancerType>> loadBalancerType() {
         return Codegen.optional(this.loadBalancerType);
     }
     /**

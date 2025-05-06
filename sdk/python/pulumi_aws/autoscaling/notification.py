@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['NotificationArgs', 'Notification']
 
@@ -21,12 +22,12 @@ __all__ = ['NotificationArgs', 'Notification']
 class NotificationArgs:
     def __init__(__self__, *,
                  group_names: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 notifications: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 notifications: pulumi.Input[Sequence[pulumi.Input['NotificationType']]],
                  topic_arn: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a Notification resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
@@ -48,7 +49,7 @@ class NotificationArgs:
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+    def notifications(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationType']]]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -56,7 +57,7 @@ class NotificationArgs:
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+    def notifications(self, value: pulumi.Input[Sequence[pulumi.Input['NotificationType']]]):
         pulumi.set(self, "notifications", value)
 
     @property
@@ -76,12 +77,12 @@ class NotificationArgs:
 class _NotificationState:
     def __init__(__self__, *,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
                  topic_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Notification resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
@@ -106,7 +107,7 @@ class _NotificationState:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -114,7 +115,7 @@ class _NotificationState:
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]]):
         pulumi.set(self, "notifications", value)
 
     @property
@@ -139,7 +140,7 @@ class Notification(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
                  topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -164,10 +165,10 @@ class Notification(pulumi.CustomResource):
                 foo.name,
             ],
             notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
             ],
             topic_arn=example.arn)
         ```
@@ -175,7 +176,7 @@ class Notification(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
@@ -207,10 +208,10 @@ class Notification(pulumi.CustomResource):
                 foo.name,
             ],
             notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
             ],
             topic_arn=example.arn)
         ```
@@ -231,7 +232,7 @@ class Notification(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
                  topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -262,7 +263,7 @@ class Notification(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
             topic_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'Notification':
         """
         Get an existing Notification resource's state with the given name, id, and optional extra
@@ -272,7 +273,7 @@ class Notification(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
@@ -295,7 +296,7 @@ class Notification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def notifications(self) -> pulumi.Output[Sequence['NotificationType']]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)

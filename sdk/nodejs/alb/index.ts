@@ -20,7 +20,6 @@ export const getTargetGroup: typeof import("./getTargetGroup").getTargetGroup = 
 export const getTargetGroupOutput: typeof import("./getTargetGroup").getTargetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTargetGroup","getTargetGroupOutput"], () => require("./getTargetGroup"));
 
-export * from "./ipAddressType";
 export { ListenerArgs, ListenerState } from "./listener";
 export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;
@@ -41,7 +40,6 @@ export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
 utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
 
-export * from "./loadBalancerType";
 export { TargetGroupArgs, TargetGroupState } from "./targetGroup";
 export type TargetGroup = import("./targetGroup").TargetGroup;
 export const TargetGroup: typeof import("./targetGroup").TargetGroup = null as any;

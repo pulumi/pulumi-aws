@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Output("ipAddressType")]
-        public Output<string> IpAddressType { get; private set; } = null!;
+        public Output<Pulumi.Aws.Alb.IpAddressType> IpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Alb
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Output("loadBalancerType")]
-        public Output<string?> LoadBalancerType { get; private set; } = null!;
+        public Output<Pulumi.Aws.Alb.LoadBalancerType?> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -516,7 +516,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
-        public Input<string>? IpAddressType { get; set; }
+        public Input<Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Alb
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
-        public Input<string>? LoadBalancerType { get; set; }
+        public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -734,7 +734,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
-        public Input<string>? IpAddressType { get; set; }
+        public Input<Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.Alb
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
-        public Input<string>? LoadBalancerType { get; set; }
+        public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.

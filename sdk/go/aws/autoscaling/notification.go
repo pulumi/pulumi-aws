@@ -56,11 +56,11 @@ import (
 //					bar.Name,
 //					foo.Name,
 //				},
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
+//				Notifications: autoscaling.NotificationTypeArray{
+//					autoscaling.NotificationTypeInstanceLaunch,
+//					autoscaling.NotificationTypeInstanceTerminate,
+//					autoscaling.NotificationTypeInstanceLaunchError,
+//					autoscaling.NotificationTypeInstanceTerminateError,
 //				},
 //				TopicArn: example.Arn,
 //			})
@@ -79,7 +79,7 @@ type Notification struct {
 	GroupNames pulumi.StringArrayOutput `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications pulumi.StringArrayOutput `pulumi:"notifications"`
+	Notifications NotificationTypeArrayOutput `pulumi:"notifications"`
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
 }
@@ -127,7 +127,7 @@ type notificationState struct {
 	GroupNames []string `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications []string `pulumi:"notifications"`
+	Notifications []NotificationType `pulumi:"notifications"`
 	// Topic ARN for notifications to be sent through
 	TopicArn *string `pulumi:"topicArn"`
 }
@@ -137,7 +137,7 @@ type NotificationState struct {
 	GroupNames pulumi.StringArrayInput
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications pulumi.StringArrayInput
+	Notifications NotificationTypeArrayInput
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringPtrInput
 }
@@ -151,7 +151,7 @@ type notificationArgs struct {
 	GroupNames []string `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications []string `pulumi:"notifications"`
+	Notifications []NotificationType `pulumi:"notifications"`
 	// Topic ARN for notifications to be sent through
 	TopicArn string `pulumi:"topicArn"`
 }
@@ -162,7 +162,7 @@ type NotificationArgs struct {
 	GroupNames pulumi.StringArrayInput
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications pulumi.StringArrayInput
+	Notifications NotificationTypeArrayInput
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringInput
 }
@@ -261,8 +261,8 @@ func (o NotificationOutput) GroupNames() pulumi.StringArrayOutput {
 
 // List of Notification Types that trigger
 // notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-func (o NotificationOutput) Notifications() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Notification) pulumi.StringArrayOutput { return v.Notifications }).(pulumi.StringArrayOutput)
+func (o NotificationOutput) Notifications() NotificationTypeArrayOutput {
+	return o.ApplyT(func(v *Notification) NotificationTypeArrayOutput { return v.Notifications }).(NotificationTypeArrayOutput)
 }
 
 // Topic ARN for notifications to be sent through

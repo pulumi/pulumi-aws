@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
  *     groupNames: groups.then(groups => groups.names),
  *     notifications: [
- *         "autoscaling:EC2_INSTANCE_LAUNCH",
- *         "autoscaling:EC2_INSTANCE_TERMINATE",
- *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *         aws.autoscaling.NotificationType.InstanceLaunch,
+ *         aws.autoscaling.NotificationType.InstanceTerminate,
+ *         aws.autoscaling.NotificationType.InstanceLaunchError,
+ *         aws.autoscaling.NotificationType.InstanceTerminateError,
  *     ],
  *     topicArn: "TOPIC ARN",
  * });
@@ -107,10 +107,10 @@ export interface GetAmiIdsResult {
  * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
  *     groupNames: groups.then(groups => groups.names),
  *     notifications: [
- *         "autoscaling:EC2_INSTANCE_LAUNCH",
- *         "autoscaling:EC2_INSTANCE_TERMINATE",
- *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *         aws.autoscaling.NotificationType.InstanceLaunch,
+ *         aws.autoscaling.NotificationType.InstanceTerminate,
+ *         aws.autoscaling.NotificationType.InstanceLaunchError,
+ *         aws.autoscaling.NotificationType.InstanceTerminateError,
  *     ],
  *     topicArn: "TOPIC ARN",
  * });

@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.autoscaling.NotificationArgs;
+import com.pulumi.aws.autoscaling.enums.NotificationType;
 import com.pulumi.aws.autoscaling.inputs.NotificationState;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -102,15 +103,15 @@ public class Notification extends com.pulumi.resources.CustomResource {
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
-    @Export(name="notifications", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> notifications;
+    @Export(name="notifications", refs={List.class,NotificationType.class}, tree="[0,1]")
+    private Output<List<NotificationType>> notifications;
 
     /**
      * @return List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
-    public Output<List<String>> notifications() {
+    public Output<List<NotificationType>> notifications() {
         return this.notifications;
     }
     /**
