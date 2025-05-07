@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const topic = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     runtime: aws.lambda.Runtime.NodeJS20dX,
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const allowBucket = new aws.lambda.Permission("allow_bucket", {
  *     statementId: "AllowExecutionFromS3Bucket",
  *     action: "lambda:InvokeFunction",
@@ -165,7 +165,7 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     runtime: aws.lambda.Runtime.NodeJS20dX,
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const allowBucket1 = new aws.lambda.Permission("allow_bucket1", {
  *     statementId: "AllowExecutionFromS3Bucket1",
  *     action: "lambda:InvokeFunction",
@@ -216,7 +216,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
@@ -264,7 +264,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     eventbridge: true,

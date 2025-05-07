@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.redshift.Cluster;
  * import com.pulumi.aws.redshift.ClusterArgs;
  * import com.pulumi.aws.appflow.ConnectorProfile;
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example-bucket")
  *             .build());
  * 
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .connectorProfileProperties(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs.builder()
  *                     .redshift(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs.builder()
- *                         .bucketName(exampleBucketV2.name())
+ *                         .bucketName(exampleBucket.name())
  *                         .databaseUrl(Output.tuple(exampleCluster.endpoint(), exampleCluster.databaseName()).applyValue(values -> {
  *                             var endpoint = values.t1;
  *                             var databaseName = values.t2;

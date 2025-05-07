@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +77,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +107,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,7 +166,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -234,7 +234,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -310,7 +310,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -363,19 +363,9 @@ type Instance struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-	//
-	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
-	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-	//
-	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
-	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions InstanceCpuOptionsOutput `pulumi:"cpuOptions"`
-	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	//
-	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
-	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
@@ -473,7 +463,7 @@ type Instance struct {
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-	UserData pulumi.StringOutput `pulumi:"userData"`
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
@@ -525,19 +515,9 @@ type instanceState struct {
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-	//
-	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-	//
-	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
-	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions *InstanceCpuOptions `pulumi:"cpuOptions"`
-	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	//
-	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
-	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
@@ -658,19 +638,9 @@ type InstanceState struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-	//
-	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
-	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-	//
-	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
-	CpuCoreCount pulumi.IntPtrInput
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions InstanceCpuOptionsPtrInput
-	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	//
-	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
-	CpuThreadsPerCore pulumi.IntPtrInput
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrInput
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
@@ -793,19 +763,9 @@ type instanceArgs struct {
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-	//
-	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-	//
-	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
-	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions *InstanceCpuOptions `pulumi:"cpuOptions"`
-	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	//
-	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
-	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
@@ -903,19 +863,9 @@ type InstanceArgs struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-	//
-	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
-	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-	//
-	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
-	CpuCoreCount pulumi.IntPtrInput
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions InstanceCpuOptionsPtrInput
-	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-	//
-	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
-	CpuThreadsPerCore pulumi.IntPtrInput
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrInput
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
@@ -1112,31 +1062,15 @@ func (o InstanceOutput) AvailabilityZone() pulumi.StringOutput {
 }
 
 // Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-//
-// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 func (o InstanceOutput) CapacityReservationSpecification() InstanceCapacityReservationSpecificationOutput {
 	return o.ApplyT(func(v *Instance) InstanceCapacityReservationSpecificationOutput {
 		return v.CapacityReservationSpecification
 	}).(InstanceCapacityReservationSpecificationOutput)
 }
 
-// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-//
-// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
-func (o InstanceOutput) CpuCoreCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuCoreCount }).(pulumi.IntOutput)
-}
-
 // The CPU options for the instance. See CPU Options below for more details.
 func (o InstanceOutput) CpuOptions() InstanceCpuOptionsOutput {
 	return o.ApplyT(func(v *Instance) InstanceCpuOptionsOutput { return v.CpuOptions }).(InstanceCpuOptionsOutput)
-}
-
-// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-//
-// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
-func (o InstanceOutput) CpuThreadsPerCore() pulumi.IntOutput {
-	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuThreadsPerCore }).(pulumi.IntOutput)
 }
 
 // Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1371,8 +1305,8 @@ func (o InstanceOutput) Tenancy() pulumi.StringOutput {
 }
 
 // User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-func (o InstanceOutput) UserData() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.UserData }).(pulumi.StringOutput)
+func (o InstanceOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 // Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.

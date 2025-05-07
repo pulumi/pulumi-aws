@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const batch_mongo = aws.batch.getComputeEnvironment({
- *     computeEnvironmentName: "batch-mongo-production",
+ *     name: "batch-mongo-production",
  * });
  * ```
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
-        "computeEnvironmentName": args.computeEnvironmentName,
+        "name": args.name,
         "tags": args.tags,
     }, opts);
 }
@@ -37,7 +37,7 @@ export interface GetComputeEnvironmentArgs {
     /**
      * Name of the Batch Compute Environment
      */
-    computeEnvironmentName: string;
+    name: string;
     /**
      * Key-value map of resource tags
      */
@@ -52,7 +52,6 @@ export interface GetComputeEnvironmentResult {
      * ARN of the compute environment.
      */
     readonly arn: string;
-    readonly computeEnvironmentName: string;
     /**
      * ARN of the underlying Amazon ECS cluster used by the compute environment.
      */
@@ -61,6 +60,7 @@ export interface GetComputeEnvironmentResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
     /**
      * ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
@@ -101,14 +101,14 @@ export interface GetComputeEnvironmentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const batch_mongo = aws.batch.getComputeEnvironment({
- *     computeEnvironmentName: "batch-mongo-production",
+ *     name: "batch-mongo-production",
  * });
  * ```
  */
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", {
-        "computeEnvironmentName": args.computeEnvironmentName,
+        "name": args.name,
         "tags": args.tags,
     }, opts);
 }
@@ -120,7 +120,7 @@ export interface GetComputeEnvironmentOutputArgs {
     /**
      * Name of the Batch Compute Environment
      */
-    computeEnvironmentName: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */

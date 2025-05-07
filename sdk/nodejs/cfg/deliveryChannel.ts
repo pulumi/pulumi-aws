@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {
+ * const b = new aws.s3.Bucket("b", {
  *     bucket: "example-awsconfig",
  *     forceDestroy: true,
  * });

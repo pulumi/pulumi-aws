@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +68,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,9 +101,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +120,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-test-bucket"),
 //			})
 //			if err != nil {
@@ -129,7 +129,7 @@ import (
 //			_, err = iam.NewUserPolicy(ctx, "s3_access", &iam.UserPolicyArgs{
 //				Name: pulumi.String("example_s3_access"),
 //				User: example.Name,
-//				Policy: exampleBucketV2.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
@@ -152,10 +152,10 @@ import (
 //				return err
 //			}
 //			accountAccess, err := s3.NewBucketPolicy(ctx, "account_access", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.Bucket,
-//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketV2Arn := _args[0].(string)
-//					exampleBucketV2Arn1 := _args[1].(string)
+//				Bucket: exampleBucket.Bucket,
+//				Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleBucketArn := _args[0].(string)
+//					exampleBucketArn1 := _args[1].(string)
 //					var _zero string
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
@@ -167,8 +167,8 @@ import (
 //									"AWS": current.AccountId,
 //								},
 //								"Resource": []string{
-//									exampleBucketV2Arn,
-//									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+//									exampleBucketArn,
+//									fmt.Sprintf("%v/*", exampleBucketArn1),
 //								},
 //							},
 //						},
@@ -189,7 +189,7 @@ import (
 //				},
 //				PolicySourceArn: example.Arn,
 //				ResourceArns: pulumi.StringArray{
-//					exampleBucketV2.Arn,
+//					exampleBucket.Arn,
 //				},
 //				ResourcePolicyJson: accountAccess.Policy,
 //			}, nil)

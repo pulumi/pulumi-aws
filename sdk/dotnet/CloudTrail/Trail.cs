@@ -31,9 +31,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-test-trail",
+    ///         BucketName = "my-test-trail",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucketV2.Arn,
+    ///                     exampleBucket.Arn,
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleBucketV2.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
+    ///                     $"{exampleBucket.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -133,14 +133,14 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleTrail = new Aws.CloudTrail.Trail("example", new()
     ///     {
     ///         Name = "example",
-    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3BucketName = exampleBucket.Id,
     ///         S3KeyPrefix = "prefix",
     ///         IncludeGlobalServiceEvents = false,
     ///     }, new CustomResourceOptions

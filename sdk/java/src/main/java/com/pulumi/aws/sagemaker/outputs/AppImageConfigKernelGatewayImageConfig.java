@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfigFi
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfigKernelSpec;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +23,7 @@ public final class AppImageConfigKernelGatewayImageConfig {
      * @return The default branch for the Git repository. See Kernel Spec details below.
      * 
      */
-    private AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec;
+    private List<AppImageConfigKernelGatewayImageConfigKernelSpec> kernelSpecs;
 
     private AppImageConfigKernelGatewayImageConfig() {}
     /**
@@ -36,8 +37,8 @@ public final class AppImageConfigKernelGatewayImageConfig {
      * @return The default branch for the Git repository. See Kernel Spec details below.
      * 
      */
-    public AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec() {
-        return this.kernelSpec;
+    public List<AppImageConfigKernelGatewayImageConfigKernelSpec> kernelSpecs() {
+        return this.kernelSpecs;
     }
 
     public static Builder builder() {
@@ -50,12 +51,12 @@ public final class AppImageConfigKernelGatewayImageConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AppImageConfigKernelGatewayImageConfigFileSystemConfig fileSystemConfig;
-        private AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec;
+        private List<AppImageConfigKernelGatewayImageConfigKernelSpec> kernelSpecs;
         public Builder() {}
         public Builder(AppImageConfigKernelGatewayImageConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fileSystemConfig = defaults.fileSystemConfig;
-    	      this.kernelSpec = defaults.kernelSpec;
+    	      this.kernelSpecs = defaults.kernelSpecs;
         }
 
         @CustomType.Setter
@@ -65,17 +66,20 @@ public final class AppImageConfigKernelGatewayImageConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec) {
-            if (kernelSpec == null) {
-              throw new MissingRequiredPropertyException("AppImageConfigKernelGatewayImageConfig", "kernelSpec");
+        public Builder kernelSpecs(List<AppImageConfigKernelGatewayImageConfigKernelSpec> kernelSpecs) {
+            if (kernelSpecs == null) {
+              throw new MissingRequiredPropertyException("AppImageConfigKernelGatewayImageConfig", "kernelSpecs");
             }
-            this.kernelSpec = kernelSpec;
+            this.kernelSpecs = kernelSpecs;
             return this;
+        }
+        public Builder kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpec... kernelSpecs) {
+            return kernelSpecs(List.of(kernelSpecs));
         }
         public AppImageConfigKernelGatewayImageConfig build() {
             final var _resultValue = new AppImageConfigKernelGatewayImageConfig();
             _resultValue.fileSystemConfig = fileSystemConfig;
-            _resultValue.kernelSpec = kernelSpec;
+            _resultValue.kernelSpecs = kernelSpecs;
             return _resultValue;
         }
     }

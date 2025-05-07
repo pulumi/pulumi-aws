@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -94,7 +94,7 @@ type LookupFileSystemResult struct {
 	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 	//
 	// Deprecated: Use `lifecyclePolicies` instead. This field will be removed in the next major version.
-	LifecyclePolicy GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicy []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
 	// The value of the file system's `Name` tag.
 	Name string `pulumi:"name"`
 	// File system performance mode.
@@ -198,8 +198,8 @@ func (o LookupFileSystemResultOutput) LifecyclePolicies() GetFileSystemLifecycle
 // File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 //
 // Deprecated: Use `lifecyclePolicies` instead. This field will be removed in the next major version.
-func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyOutput)
+func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyArrayOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyArrayOutput)
 }
 
 // The value of the file system's `Name` tag.

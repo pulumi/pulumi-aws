@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
-        /// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult> InferenceAcceleratorOverrides;
-        /// <summary>
         /// The memory override for the task.
         /// </summary>
         public readonly string? Memory;
@@ -46,8 +42,6 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? executionRoleArn,
 
-            ImmutableArray<Outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult> inferenceAcceleratorOverrides,
-
             string? memory,
 
             string? taskRoleArn)
@@ -55,7 +49,6 @@ namespace Pulumi.Aws.Ecs.Outputs
             ContainerOverrides = containerOverrides;
             Cpu = cpu;
             ExecutionRoleArn = executionRoleArn;
-            InferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             Memory = memory;
             TaskRoleArn = taskRoleArn;
         }

@@ -15,14 +15,14 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
     public static final BucketServerSideEncryptionConfigurationArgs Empty = new BucketServerSideEncryptionConfigurationArgs();
 
     /**
-     * A single object for server-side encryption by default configuration. (documented below)
+     * Single object for server-side encryption by default configuration. (documented below)
      * 
      */
     @Import(name="rule", required=true)
     private Output<BucketServerSideEncryptionConfigurationRuleArgs> rule;
 
     /**
-     * @return A single object for server-side encryption by default configuration. (documented below)
+     * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
     public Output<BucketServerSideEncryptionConfigurationRuleArgs> rule() {
@@ -54,7 +54,7 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param rule A single object for server-side encryption by default configuration. (documented below)
+         * @param rule Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param rule A single object for server-side encryption by default configuration. (documented below)
+         * @param rule Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 

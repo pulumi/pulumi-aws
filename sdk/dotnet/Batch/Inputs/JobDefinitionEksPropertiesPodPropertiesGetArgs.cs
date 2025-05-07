@@ -12,11 +12,17 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesPodPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("containers", required: true)]
+        private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerGetArgs>? _containers;
+
         /// <summary>
         /// Properties of the container that's used on the Amazon EKS pod. See containers below.
         /// </summary>
-        [Input("containers", required: true)]
-        public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersGetArgs> Containers { get; set; } = null!;
+        public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerGetArgs> Containers
+        {
+            get => _containers ?? (_containers = new InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerGetArgs>());
+            set => _containers = value;
+        }
 
         /// <summary>
         /// DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.

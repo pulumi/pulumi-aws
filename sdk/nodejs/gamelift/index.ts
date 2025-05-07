@@ -30,16 +30,6 @@ export type GameSessionQueue = import("./gameSessionQueue").GameSessionQueue;
 export const GameSessionQueue: typeof import("./gameSessionQueue").GameSessionQueue = null as any;
 utilities.lazyLoad(exports, ["GameSessionQueue"], () => require("./gameSessionQueue"));
 
-export { MatchmakingConfigurationArgs, MatchmakingConfigurationState } from "./matchmakingConfiguration";
-export type MatchmakingConfiguration = import("./matchmakingConfiguration").MatchmakingConfiguration;
-export const MatchmakingConfiguration: typeof import("./matchmakingConfiguration").MatchmakingConfiguration = null as any;
-utilities.lazyLoad(exports, ["MatchmakingConfiguration"], () => require("./matchmakingConfiguration"));
-
-export { MatchmakingRuleSetArgs, MatchmakingRuleSetState } from "./matchmakingRuleSet";
-export type MatchmakingRuleSet = import("./matchmakingRuleSet").MatchmakingRuleSet;
-export const MatchmakingRuleSet: typeof import("./matchmakingRuleSet").MatchmakingRuleSet = null as any;
-utilities.lazyLoad(exports, ["MatchmakingRuleSet"], () => require("./matchmakingRuleSet"));
-
 export { ScriptArgs, ScriptState } from "./script";
 export type Script = import("./script").Script;
 export const Script: typeof import("./script").Script = null as any;
@@ -60,10 +50,6 @@ const _module = {
                 return new GameServerGroup(name, <any>undefined, { urn })
             case "aws:gamelift/gameSessionQueue:GameSessionQueue":
                 return new GameSessionQueue(name, <any>undefined, { urn })
-            case "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration":
-                return new MatchmakingConfiguration(name, <any>undefined, { urn })
-            case "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet":
-                return new MatchmakingRuleSet(name, <any>undefined, { urn })
             case "aws:gamelift/script:Script":
                 return new Script(name, <any>undefined, { urn })
             default:
@@ -76,6 +62,4 @@ pulumi.runtime.registerResourceModule("aws", "gamelift/build", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/gameServerGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/gameSessionQueue", _module)
-pulumi.runtime.registerResourceModule("aws", "gamelift/matchmakingConfiguration", _module)
-pulumi.runtime.registerResourceModule("aws", "gamelift/matchmakingRuleSet", _module)
 pulumi.runtime.registerResourceModule("aws", "gamelift/script", _module)

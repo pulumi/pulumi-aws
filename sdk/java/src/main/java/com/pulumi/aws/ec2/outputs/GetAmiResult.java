@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAmiResult {
+    private @Nullable Boolean allowUnsafeFilter;
     /**
      * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
@@ -212,6 +213,9 @@ public final class GetAmiResult {
     private String virtualizationType;
 
     private GetAmiResult() {}
+    public Optional<Boolean> allowUnsafeFilter() {
+        return Optional.ofNullable(this.allowUnsafeFilter);
+    }
     /**
      * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
@@ -496,6 +500,7 @@ public final class GetAmiResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean allowUnsafeFilter;
         private String architecture;
         private String arn;
         private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
@@ -540,6 +545,7 @@ public final class GetAmiResult {
         public Builder() {}
         public Builder(GetAmiResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowUnsafeFilter = defaults.allowUnsafeFilter;
     	      this.architecture = defaults.architecture;
     	      this.arn = defaults.arn;
     	      this.blockDeviceMappings = defaults.blockDeviceMappings;
@@ -583,6 +589,12 @@ public final class GetAmiResult {
     	      this.virtualizationType = defaults.virtualizationType;
         }
 
+        @CustomType.Setter
+        public Builder allowUnsafeFilter(@Nullable Boolean allowUnsafeFilter) {
+
+            this.allowUnsafeFilter = allowUnsafeFilter;
+            return this;
+        }
         @CustomType.Setter
         public Builder architecture(String architecture) {
             if (architecture == null) {
@@ -914,6 +926,7 @@ public final class GetAmiResult {
         }
         public GetAmiResult build() {
             final var _resultValue = new GetAmiResult();
+            _resultValue.allowUnsafeFilter = allowUnsafeFilter;
             _resultValue.architecture = architecture;
             _resultValue.arn = arn;
             _resultValue.blockDeviceMappings = blockDeviceMappings;

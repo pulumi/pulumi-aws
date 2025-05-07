@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,8 +103,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -270,8 +270,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -362,9 +362,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -465,14 +465,13 @@ type Cluster struct {
 	BootstrapSelfManagedAddons pulumi.BoolPtrOutput                   `pulumi:"bootstrapSelfManagedAddons"`
 	CertificateAuthorities     ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
+	CertificateAuthority ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig ClusterComputeConfigPtrOutput `pulumi:"computeConfig"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
-	CreatedAt              pulumi.StringOutput      `pulumi:"createdAt"`
-	DefaultAddonsToRemoves pulumi.StringArrayOutput `pulumi:"defaultAddonsToRemoves"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -561,14 +560,13 @@ type clusterState struct {
 	BootstrapSelfManagedAddons *bool                         `pulumi:"bootstrapSelfManagedAddons"`
 	CertificateAuthorities     []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
+	CertificateAuthority []ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId *string `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
-	CreatedAt              *string  `pulumi:"createdAt"`
-	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	CreatedAt *string `pulumi:"createdAt"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -622,14 +620,13 @@ type ClusterState struct {
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	CertificateAuthorities     ClusterCertificateAuthorityArrayInput
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityPtrInput
+	CertificateAuthority ClusterCertificateAuthorityArrayInput
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringPtrInput
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
 	ComputeConfig ClusterComputeConfigPtrInput
 	// Unix epoch timestamp in seconds for when the cluster was created.
-	CreatedAt              pulumi.StringPtrInput
-	DefaultAddonsToRemoves pulumi.StringArrayInput
+	CreatedAt pulumi.StringPtrInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -684,8 +681,7 @@ type clusterArgs struct {
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
-	ComputeConfig          *ClusterComputeConfig `pulumi:"computeConfig"`
-	DefaultAddonsToRemoves []string              `pulumi:"defaultAddonsToRemoves"`
+	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -725,8 +721,7 @@ type ClusterArgs struct {
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
-	ComputeConfig          ClusterComputeConfigPtrInput
-	DefaultAddonsToRemoves pulumi.StringArrayInput
+	ComputeConfig ClusterComputeConfigPtrInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
@@ -866,8 +861,8 @@ func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArray
 }
 
 // Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityOutput {
-	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityOutput)
+func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityArrayOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityArrayOutput)
 }
 
 // The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -883,10 +878,6 @@ func (o ClusterOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
 // Unix epoch timestamp in seconds for when the cluster was created.
 func (o ClusterOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
-}
-
-func (o ClusterOutput) DefaultAddonsToRemoves() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.DefaultAddonsToRemoves }).(pulumi.StringArrayOutput)
 }
 
 // List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

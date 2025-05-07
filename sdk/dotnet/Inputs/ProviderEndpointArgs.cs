@@ -1245,12 +1245,6 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("opsworks")]
-        public Input<string>? Opsworks { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
         [Input("organizations")]
         public Input<string>? Organizations { get; set; }
 
@@ -1527,12 +1521,6 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sdb")]
-        public Input<string>? Sdb { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
         [Input("secretsmanager")]
         public Input<string>? Secretsmanager { get; set; }
 
@@ -1619,12 +1607,6 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("signer")]
         public Input<string>? Signer { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
-        [Input("simpledb")]
-        public Input<string>? Simpledb { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
@@ -1787,12 +1769,6 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("wellarchitected")]
         public Input<string>? Wellarchitected { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
-        [Input("worklink")]
-        public Input<string>? Worklink { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

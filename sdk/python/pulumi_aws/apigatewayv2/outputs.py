@@ -179,6 +179,8 @@ class DomainNameDomainNameConfiguration(dict):
             suggest = "security_policy"
         elif key == "hostedZoneId":
             suggest = "hosted_zone_id"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
         elif key == "ownershipVerificationCertificateArn":
             suggest = "ownership_verification_certificate_arn"
         elif key == "targetDomainName":
@@ -200,6 +202,7 @@ class DomainNameDomainNameConfiguration(dict):
                  endpoint_type: builtins.str,
                  security_policy: builtins.str,
                  hosted_zone_id: Optional[builtins.str] = None,
+                 ip_address_type: Optional[builtins.str] = None,
                  ownership_verification_certificate_arn: Optional[builtins.str] = None,
                  target_domain_name: Optional[builtins.str] = None):
         """
@@ -207,6 +210,7 @@ class DomainNameDomainNameConfiguration(dict):
         :param builtins.str endpoint_type: Endpoint type. Valid values: `REGIONAL`.
         :param builtins.str security_policy: Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         :param builtins.str hosted_zone_id: Amazon Route 53 Hosted Zone ID of the endpoint.
+        :param builtins.str ip_address_type: The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
         :param builtins.str ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         :param builtins.str target_domain_name: Target domain name.
         """
@@ -215,6 +219,8 @@ class DomainNameDomainNameConfiguration(dict):
         pulumi.set(__self__, "security_policy", security_policy)
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ownership_verification_certificate_arn is not None:
             pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if target_domain_name is not None:
@@ -251,6 +257,14 @@ class DomainNameDomainNameConfiguration(dict):
         Amazon Route 53 Hosted Zone ID of the endpoint.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[builtins.str]:
+        """
+        The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="ownershipVerificationCertificateArn")

@@ -235,10 +235,6 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string IpAddressType;
         /// <summary>
-        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        /// </summary>
-        public readonly string KibanaEndpoint;
-        /// <summary>
         /// Domain log publishing related options.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> LogPublishingOptions;
@@ -315,8 +311,6 @@ namespace Pulumi.Aws.OpenSearch
 
             string ipAddressType,
 
-            string kibanaEndpoint,
-
             ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> logPublishingOptions,
 
             ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> nodeToNodeEncryptions,
@@ -354,7 +348,6 @@ namespace Pulumi.Aws.OpenSearch
             EngineVersion = engineVersion;
             Id = id;
             IpAddressType = ipAddressType;
-            KibanaEndpoint = kibanaEndpoint;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptions = nodeToNodeEncryptions;
             OffPeakWindowOptions = offPeakWindowOptions;

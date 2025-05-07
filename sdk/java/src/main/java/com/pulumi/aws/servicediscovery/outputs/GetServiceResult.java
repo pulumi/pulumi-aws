@@ -57,15 +57,6 @@ public final class GetServiceResult {
      * 
      */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    private Map<String,String> tagsAll;
 
     private GetServiceResult() {}
     /**
@@ -127,17 +118,6 @@ public final class GetServiceResult {
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    public Map<String,String> tagsAll() {
-        return this.tagsAll;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -157,7 +137,6 @@ public final class GetServiceResult {
         private String name;
         private String namespaceId;
         private @Nullable Map<String,String> tags;
-        private Map<String,String> tagsAll;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -170,7 +149,6 @@ public final class GetServiceResult {
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
     	      this.tags = defaults.tags;
-    	      this.tagsAll = defaults.tagsAll;
         }
 
         @CustomType.Setter
@@ -252,14 +230,6 @@ public final class GetServiceResult {
             this.tags = tags;
             return this;
         }
-        @CustomType.Setter
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            if (tagsAll == null) {
-              throw new MissingRequiredPropertyException("GetServiceResult", "tagsAll");
-            }
-            this.tagsAll = tagsAll;
-            return this;
-        }
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.arn = arn;
@@ -271,7 +241,6 @@ public final class GetServiceResult {
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
             _resultValue.tags = tags;
-            _resultValue.tagsAll = tagsAll;
             return _resultValue;
         }
     }

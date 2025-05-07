@@ -11,7 +11,7 @@ resources:
           foo: quux
           thwomp: pow
   res:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
     options:
       provider: ${aws-provider}
 outputs:

@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooBucket = new aws.s3.BucketV2("foo_bucket", {bucket: "example-bucket-foo"});
- * const barBucket = new aws.s3.BucketV2("bar_bucket", {bucket: "example-bucket-bar"});
+ * const fooBucket = new aws.s3.Bucket("foo_bucket", {bucket: "example-bucket-foo"});
+ * const barBucket = new aws.s3.Bucket("bar_bucket", {bucket: "example-bucket-bar"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
  *     name: "example",
  *     regions: [

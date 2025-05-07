@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement {
     /**
-     * @return The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+     * @return The type of resource to assign to a container. Valid values are `GPU`.
      * 
      */
     private String type;
     /**
-     * @return The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+     * @return The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
      * 
      */
     private String value;
 
     private GetTaskExecutionOverridesContainerOverrideResourceRequirement() {}
     /**
-     * @return The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+     * @return The type of resource to assign to a container. Valid values are `GPU`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+     * @return The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
      * 
      */
     public String value() {

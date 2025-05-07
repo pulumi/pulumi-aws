@@ -11,6 +11,7 @@ import com.pulumi.aws.lb.inputs.GetListenerRuleConditionQueryStringArgs;
 import com.pulumi.aws.lb.inputs.GetListenerRuleConditionSourceIpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,15 +25,15 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
      * Contains a single attribute `values`, which contains a set of host names.
      * 
      */
-    @Import(name="hostHeader")
-    private @Nullable Output<GetListenerRuleConditionHostHeaderArgs> hostHeader;
+    @Import(name="hostHeaders")
+    private @Nullable Output<List<GetListenerRuleConditionHostHeaderArgs>> hostHeaders;
 
     /**
      * @return Contains a single attribute `values`, which contains a set of host names.
      * 
      */
-    public Optional<Output<GetListenerRuleConditionHostHeaderArgs>> hostHeader() {
-        return Optional.ofNullable(this.hostHeader);
+    public Optional<Output<List<GetListenerRuleConditionHostHeaderArgs>>> hostHeaders() {
+        return Optional.ofNullable(this.hostHeaders);
     }
 
     /**
@@ -40,46 +41,46 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
      * Detailed below.
      * 
      */
-    @Import(name="httpHeader")
-    private @Nullable Output<GetListenerRuleConditionHttpHeaderArgs> httpHeader;
+    @Import(name="httpHeaders")
+    private @Nullable Output<List<GetListenerRuleConditionHttpHeaderArgs>> httpHeaders;
 
     /**
      * @return HTTP header and values to match.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleConditionHttpHeaderArgs>> httpHeader() {
-        return Optional.ofNullable(this.httpHeader);
+    public Optional<Output<List<GetListenerRuleConditionHttpHeaderArgs>>> httpHeaders() {
+        return Optional.ofNullable(this.httpHeaders);
     }
 
     /**
      * Contains a single attribute `values`, which contains a set of HTTP request methods.
      * 
      */
-    @Import(name="httpRequestMethod")
-    private @Nullable Output<GetListenerRuleConditionHttpRequestMethodArgs> httpRequestMethod;
+    @Import(name="httpRequestMethods")
+    private @Nullable Output<List<GetListenerRuleConditionHttpRequestMethodArgs>> httpRequestMethods;
 
     /**
      * @return Contains a single attribute `values`, which contains a set of HTTP request methods.
      * 
      */
-    public Optional<Output<GetListenerRuleConditionHttpRequestMethodArgs>> httpRequestMethod() {
-        return Optional.ofNullable(this.httpRequestMethod);
+    public Optional<Output<List<GetListenerRuleConditionHttpRequestMethodArgs>>> httpRequestMethods() {
+        return Optional.ofNullable(this.httpRequestMethods);
     }
 
     /**
      * Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
      * 
      */
-    @Import(name="pathPattern")
-    private @Nullable Output<GetListenerRuleConditionPathPatternArgs> pathPattern;
+    @Import(name="pathPatterns")
+    private @Nullable Output<List<GetListenerRuleConditionPathPatternArgs>> pathPatterns;
 
     /**
      * @return Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
      * 
      */
-    public Optional<Output<GetListenerRuleConditionPathPatternArgs>> pathPattern() {
-        return Optional.ofNullable(this.pathPattern);
+    public Optional<Output<List<GetListenerRuleConditionPathPatternArgs>>> pathPatterns() {
+        return Optional.ofNullable(this.pathPatterns);
     }
 
     /**
@@ -87,42 +88,42 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
      * Detailed below.
      * 
      */
-    @Import(name="queryString")
-    private @Nullable Output<GetListenerRuleConditionQueryStringArgs> queryString;
+    @Import(name="queryStrings")
+    private @Nullable Output<List<GetListenerRuleConditionQueryStringArgs>> queryStrings;
 
     /**
      * @return Query string parameters to match.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleConditionQueryStringArgs>> queryString() {
-        return Optional.ofNullable(this.queryString);
+    public Optional<Output<List<GetListenerRuleConditionQueryStringArgs>>> queryStrings() {
+        return Optional.ofNullable(this.queryStrings);
     }
 
     /**
      * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
      * 
      */
-    @Import(name="sourceIp")
-    private @Nullable Output<GetListenerRuleConditionSourceIpArgs> sourceIp;
+    @Import(name="sourceIps")
+    private @Nullable Output<List<GetListenerRuleConditionSourceIpArgs>> sourceIps;
 
     /**
      * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
      * 
      */
-    public Optional<Output<GetListenerRuleConditionSourceIpArgs>> sourceIp() {
-        return Optional.ofNullable(this.sourceIp);
+    public Optional<Output<List<GetListenerRuleConditionSourceIpArgs>>> sourceIps() {
+        return Optional.ofNullable(this.sourceIps);
     }
 
     private GetListenerRuleConditionArgs() {}
 
     private GetListenerRuleConditionArgs(GetListenerRuleConditionArgs $) {
-        this.hostHeader = $.hostHeader;
-        this.httpHeader = $.httpHeader;
-        this.httpRequestMethod = $.httpRequestMethod;
-        this.pathPattern = $.pathPattern;
-        this.queryString = $.queryString;
-        this.sourceIp = $.sourceIp;
+        this.hostHeaders = $.hostHeaders;
+        this.httpHeaders = $.httpHeaders;
+        this.httpRequestMethods = $.httpRequestMethods;
+        this.pathPatterns = $.pathPatterns;
+        this.queryStrings = $.queryStrings;
+        this.sourceIps = $.sourceIps;
     }
 
     public static Builder builder() {
@@ -144,133 +145,195 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hostHeader Contains a single attribute `values`, which contains a set of host names.
+         * @param hostHeaders Contains a single attribute `values`, which contains a set of host names.
          * 
          * @return builder
          * 
          */
-        public Builder hostHeader(@Nullable Output<GetListenerRuleConditionHostHeaderArgs> hostHeader) {
-            $.hostHeader = hostHeader;
+        public Builder hostHeaders(@Nullable Output<List<GetListenerRuleConditionHostHeaderArgs>> hostHeaders) {
+            $.hostHeaders = hostHeaders;
             return this;
         }
 
         /**
-         * @param hostHeader Contains a single attribute `values`, which contains a set of host names.
+         * @param hostHeaders Contains a single attribute `values`, which contains a set of host names.
          * 
          * @return builder
          * 
          */
-        public Builder hostHeader(GetListenerRuleConditionHostHeaderArgs hostHeader) {
-            return hostHeader(Output.of(hostHeader));
+        public Builder hostHeaders(List<GetListenerRuleConditionHostHeaderArgs> hostHeaders) {
+            return hostHeaders(Output.of(hostHeaders));
         }
 
         /**
-         * @param httpHeader HTTP header and values to match.
+         * @param hostHeaders Contains a single attribute `values`, which contains a set of host names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostHeaders(GetListenerRuleConditionHostHeaderArgs... hostHeaders) {
+            return hostHeaders(List.of(hostHeaders));
+        }
+
+        /**
+         * @param httpHeaders HTTP header and values to match.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder httpHeader(@Nullable Output<GetListenerRuleConditionHttpHeaderArgs> httpHeader) {
-            $.httpHeader = httpHeader;
+        public Builder httpHeaders(@Nullable Output<List<GetListenerRuleConditionHttpHeaderArgs>> httpHeaders) {
+            $.httpHeaders = httpHeaders;
             return this;
         }
 
         /**
-         * @param httpHeader HTTP header and values to match.
+         * @param httpHeaders HTTP header and values to match.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder httpHeader(GetListenerRuleConditionHttpHeaderArgs httpHeader) {
-            return httpHeader(Output.of(httpHeader));
+        public Builder httpHeaders(List<GetListenerRuleConditionHttpHeaderArgs> httpHeaders) {
+            return httpHeaders(Output.of(httpHeaders));
         }
 
         /**
-         * @param httpRequestMethod Contains a single attribute `values`, which contains a set of HTTP request methods.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder httpRequestMethod(@Nullable Output<GetListenerRuleConditionHttpRequestMethodArgs> httpRequestMethod) {
-            $.httpRequestMethod = httpRequestMethod;
-            return this;
-        }
-
-        /**
-         * @param httpRequestMethod Contains a single attribute `values`, which contains a set of HTTP request methods.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder httpRequestMethod(GetListenerRuleConditionHttpRequestMethodArgs httpRequestMethod) {
-            return httpRequestMethod(Output.of(httpRequestMethod));
-        }
-
-        /**
-         * @param pathPattern Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pathPattern(@Nullable Output<GetListenerRuleConditionPathPatternArgs> pathPattern) {
-            $.pathPattern = pathPattern;
-            return this;
-        }
-
-        /**
-         * @param pathPattern Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pathPattern(GetListenerRuleConditionPathPatternArgs pathPattern) {
-            return pathPattern(Output.of(pathPattern));
-        }
-
-        /**
-         * @param queryString Query string parameters to match.
+         * @param httpHeaders HTTP header and values to match.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder queryString(@Nullable Output<GetListenerRuleConditionQueryStringArgs> queryString) {
-            $.queryString = queryString;
+        public Builder httpHeaders(GetListenerRuleConditionHttpHeaderArgs... httpHeaders) {
+            return httpHeaders(List.of(httpHeaders));
+        }
+
+        /**
+         * @param httpRequestMethods Contains a single attribute `values`, which contains a set of HTTP request methods.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpRequestMethods(@Nullable Output<List<GetListenerRuleConditionHttpRequestMethodArgs>> httpRequestMethods) {
+            $.httpRequestMethods = httpRequestMethods;
             return this;
         }
 
         /**
-         * @param queryString Query string parameters to match.
+         * @param httpRequestMethods Contains a single attribute `values`, which contains a set of HTTP request methods.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpRequestMethods(List<GetListenerRuleConditionHttpRequestMethodArgs> httpRequestMethods) {
+            return httpRequestMethods(Output.of(httpRequestMethods));
+        }
+
+        /**
+         * @param httpRequestMethods Contains a single attribute `values`, which contains a set of HTTP request methods.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpRequestMethods(GetListenerRuleConditionHttpRequestMethodArgs... httpRequestMethods) {
+            return httpRequestMethods(List.of(httpRequestMethods));
+        }
+
+        /**
+         * @param pathPatterns Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pathPatterns(@Nullable Output<List<GetListenerRuleConditionPathPatternArgs>> pathPatterns) {
+            $.pathPatterns = pathPatterns;
+            return this;
+        }
+
+        /**
+         * @param pathPatterns Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pathPatterns(List<GetListenerRuleConditionPathPatternArgs> pathPatterns) {
+            return pathPatterns(Output.of(pathPatterns));
+        }
+
+        /**
+         * @param pathPatterns Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pathPatterns(GetListenerRuleConditionPathPatternArgs... pathPatterns) {
+            return pathPatterns(List.of(pathPatterns));
+        }
+
+        /**
+         * @param queryStrings Query string parameters to match.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder queryString(GetListenerRuleConditionQueryStringArgs queryString) {
-            return queryString(Output.of(queryString));
-        }
-
-        /**
-         * @param sourceIp Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sourceIp(@Nullable Output<GetListenerRuleConditionSourceIpArgs> sourceIp) {
-            $.sourceIp = sourceIp;
+        public Builder queryStrings(@Nullable Output<List<GetListenerRuleConditionQueryStringArgs>> queryStrings) {
+            $.queryStrings = queryStrings;
             return this;
         }
 
         /**
-         * @param sourceIp Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * @param queryStrings Query string parameters to match.
+         * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder sourceIp(GetListenerRuleConditionSourceIpArgs sourceIp) {
-            return sourceIp(Output.of(sourceIp));
+        public Builder queryStrings(List<GetListenerRuleConditionQueryStringArgs> queryStrings) {
+            return queryStrings(Output.of(queryStrings));
+        }
+
+        /**
+         * @param queryStrings Query string parameters to match.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryStrings(GetListenerRuleConditionQueryStringArgs... queryStrings) {
+            return queryStrings(List.of(queryStrings));
+        }
+
+        /**
+         * @param sourceIps Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceIps(@Nullable Output<List<GetListenerRuleConditionSourceIpArgs>> sourceIps) {
+            $.sourceIps = sourceIps;
+            return this;
+        }
+
+        /**
+         * @param sourceIps Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceIps(List<GetListenerRuleConditionSourceIpArgs> sourceIps) {
+            return sourceIps(Output.of(sourceIps));
+        }
+
+        /**
+         * @param sourceIps Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceIps(GetListenerRuleConditionSourceIpArgs... sourceIps) {
+            return sourceIps(List.of(sourceIps));
         }
 
         public GetListenerRuleConditionArgs build() {

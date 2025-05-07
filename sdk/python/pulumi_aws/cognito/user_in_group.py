@@ -168,6 +168,14 @@ class UserInGroup(pulumi.CustomResource):
             username=example_user.username)
         ```
 
+        ## Import
+
+        Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
+
+        ```sh
+        $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_name: The name of the group to which the user is to be added.
@@ -208,6 +216,14 @@ class UserInGroup(pulumi.CustomResource):
             user_pool_id=example.id,
             group_name=example_user_group.name,
             username=example_user.username)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
+
+        ```sh
+        $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
         ```
 
         :param str resource_name: The name of the resource.

@@ -315,18 +315,6 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> proposalId() {
         return Codegen.optional(this.proposalId);
     }
-    /**
-     * @deprecated
-     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-     * 
-     */
-    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> vpnGatewayId;
-
-    public Output<Optional<String>> vpnGatewayId() {
-        return Codegen.optional(this.vpnGatewayId);
-    }
 
     /**
      *

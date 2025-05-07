@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -59,8 +59,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,13 +74,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//			examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("examplebuckettftest"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -109,20 +109,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//			examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("examplebuckettftest"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -151,20 +151,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//			examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("examplebuckettftest"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -193,30 +193,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//			examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
 //				Bucket:            pulumi.String("examplebuckettftest"),
 //				ObjectLockEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: examplebucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
 //				Bucket: examplebucket.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
 //			})
@@ -232,7 +232,7 @@ import (
 //				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
 //				ForceDestroy:              pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketVersioningV2,
+//				exampleBucketVersioning,
 //			}))
 //			if err != nil {
 //				return err
@@ -255,14 +255,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//			examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("examplebuckettftest"),
 //			})
 //			if err != nil {

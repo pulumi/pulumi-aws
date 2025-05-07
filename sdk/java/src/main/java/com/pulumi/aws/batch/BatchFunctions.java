@@ -54,7 +54,7 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName("batch-mongo-production")
+     *             .name("batch-mongo-production")
      *             .build());
      * 
      *     }
@@ -97,7 +97,7 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName("batch-mongo-production")
+     *             .name("batch-mongo-production")
      *             .build());
      * 
      *     }
@@ -140,7 +140,7 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName("batch-mongo-production")
+     *             .name("batch-mongo-production")
      *             .build());
      * 
      *     }
@@ -183,7 +183,7 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName("batch-mongo-production")
+     *             .name("batch-mongo-production")
      *             .build());
      * 
      *     }
@@ -226,7 +226,7 @@ public final class BatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName("batch-mongo-production")
+     *             .name("batch-mongo-production")
      *             .build());
      * 
      *     }

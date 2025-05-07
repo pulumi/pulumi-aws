@@ -29,7 +29,6 @@ __all__ = [
     'GameServerGroupInstanceDefinition',
     'GameServerGroupLaunchTemplate',
     'GameSessionQueuePlayerLatencyPolicy',
-    'MatchmakingConfigurationGameProperty',
     'ScriptStorageLocation',
 ]
 
@@ -676,35 +675,6 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
         Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
         return pulumi.get(self, "policy_duration_seconds")
-
-
-@pulumi.output_type
-class MatchmakingConfigurationGameProperty(dict):
-    def __init__(__self__, *,
-                 key: builtins.str,
-                 value: builtins.str):
-        """
-        :param builtins.str key: A game property key
-        :param builtins.str value: A game property value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> builtins.str:
-        """
-        A game property key
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> builtins.str:
-        """
-        A game property value.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

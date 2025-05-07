@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,7 +96,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -143,7 +143,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -192,7 +192,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -243,8 +243,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -299,14 +299,14 @@ import (
 //
 // ```
 //
-// ### Example Using `containerDefinitions` and `inferenceAccelerator`
+// ### Example Using `containerDefinitions`
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -332,24 +332,12 @@ import (
 //	        "containerPort": 80,
 //	        "hostPort": 8080
 //	      }
-//	    ],
-//	        "resourceRequirements":[
-//	            {
-//	                "type":"InferenceAccelerator",
-//	                "value":"device_1"
-//	            }
-//	        ]
+//	    ]
 //	  }
 //
 // ]
 // `),
 //
-//				InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
-//					&ecs.TaskDefinitionInferenceAcceleratorArgs{
-//						DeviceName: pulumi.String("device_1"),
-//						DeviceType: pulumi.String("eia1.medium"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -367,7 +355,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -438,8 +426,6 @@ type TaskDefinition struct {
 	//
 	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -530,8 +516,6 @@ type taskDefinitionState struct {
 	//
 	// The following arguments are optional:
 	Family *string `pulumi:"family"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode *string `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -587,8 +571,6 @@ type TaskDefinitionState struct {
 	//
 	// The following arguments are optional:
 	Family pulumi.StringPtrInput
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode pulumi.StringPtrInput
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -644,8 +626,6 @@ type taskDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	Family string `pulumi:"family"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode *string `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -692,8 +672,6 @@ type TaskDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	Family pulumi.StringInput
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode pulumi.StringPtrInput
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -851,11 +829,6 @@ func (o TaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o TaskDefinitionOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
-}
-
-// Configuration block(s) with Inference Accelerators settings. Detailed below.
-func (o TaskDefinitionOutput) InferenceAccelerators() TaskDefinitionInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionInferenceAcceleratorArrayOutput { return v.InferenceAccelerators }).(TaskDefinitionInferenceAcceleratorArrayOutput)
 }
 
 // IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.

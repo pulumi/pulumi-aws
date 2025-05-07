@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Batch.ComputeEnvironment("example", new()
     ///     {
-    ///         ComputeEnvironmentName = "example",
+    ///         Name = "example",
     ///         ServiceRole = exampleAwsIamRole.Arn,
     ///         Type = "UNMANAGED",
     ///     });

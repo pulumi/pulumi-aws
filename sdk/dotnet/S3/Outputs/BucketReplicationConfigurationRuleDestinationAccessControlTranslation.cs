@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketReplicationConfigurationRuleDestinationAccessControlTranslation
     {
         /// <summary>
-        /// The override value for the owner on replicated objects. Currently only `Destination` is supported.
+        /// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
         /// </summary>
         public readonly string Owner;
 

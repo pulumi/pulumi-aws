@@ -7,7 +7,6 @@ import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,54 +18,41 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     public static final OrganizationConfigurationArgs Empty = new OrganizationConfigurationArgs();
 
     /**
-     * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-     * 
-     * @deprecated
-     * auto_enable is deprecated. Use auto_enable_organization_members instead.
+     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+     * Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
-    @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-    @Import(name="autoEnable")
-    private @Nullable Output<Boolean> autoEnable;
+    @Import(name="autoEnableOrganizationMembers", required=true)
+    private Output<String> autoEnableOrganizationMembers;
 
     /**
-     * @return *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-     * 
-     * @deprecated
-     * auto_enable is deprecated. Use auto_enable_organization_members instead.
+     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+     * Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
-    @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-    public Optional<Output<Boolean>> autoEnable() {
-        return Optional.ofNullable(this.autoEnable);
-    }
-
-    /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-     * 
-     */
-    @Import(name="autoEnableOrganizationMembers")
-    private @Nullable Output<String> autoEnableOrganizationMembers;
-
-    /**
-     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-     * 
-     */
-    public Optional<Output<String>> autoEnableOrganizationMembers() {
-        return Optional.ofNullable(this.autoEnableOrganizationMembers);
+    public Output<String> autoEnableOrganizationMembers() {
+        return this.autoEnableOrganizationMembers;
     }
 
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
     @Import(name="datasources")
     private @Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources;
 
     /**
      * @return Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
     public Optional<Output<OrganizationConfigurationDatasourcesArgs>> datasources() {
         return Optional.ofNullable(this.datasources);
     }
@@ -89,7 +75,6 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     private OrganizationConfigurationArgs() {}
 
     private OrganizationConfigurationArgs(OrganizationConfigurationArgs $) {
-        this.autoEnable = $.autoEnable;
         this.autoEnableOrganizationMembers = $.autoEnableOrganizationMembers;
         this.datasources = $.datasources;
         this.detectorId = $.detectorId;
@@ -114,47 +99,20 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoEnable *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * auto_enable is deprecated. Use auto_enable_organization_members instead.
-         * 
-         */
-        @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-        public Builder autoEnable(@Nullable Output<Boolean> autoEnable) {
-            $.autoEnable = autoEnable;
-            return this;
-        }
-
-        /**
-         * @param autoEnable *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * auto_enable is deprecated. Use auto_enable_organization_members instead.
-         * 
-         */
-        @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-        public Builder autoEnable(Boolean autoEnable) {
-            return autoEnable(Output.of(autoEnable));
-        }
-
-        /**
-         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+         * Valid values are `ALL`, `NEW`, `NONE`.
          * 
          * @return builder
          * 
          */
-        public Builder autoEnableOrganizationMembers(@Nullable Output<String> autoEnableOrganizationMembers) {
+        public Builder autoEnableOrganizationMembers(Output<String> autoEnableOrganizationMembers) {
             $.autoEnableOrganizationMembers = autoEnableOrganizationMembers;
             return this;
         }
 
         /**
-         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+         * Valid values are `ALL`, `NEW`, `NONE`.
          * 
          * @return builder
          * 
@@ -168,7 +126,11 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
+         * @deprecated
+         * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+         * 
          */
+        @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
         public Builder datasources(@Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources) {
             $.datasources = datasources;
             return this;
@@ -179,7 +141,11 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
+         * @deprecated
+         * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+         * 
          */
+        @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
         public Builder datasources(OrganizationConfigurationDatasourcesArgs datasources) {
             return datasources(Output.of(datasources));
         }
@@ -206,6 +172,9 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public OrganizationConfigurationArgs build() {
+            if ($.autoEnableOrganizationMembers == null) {
+                throw new MissingRequiredPropertyException("OrganizationConfigurationArgs", "autoEnableOrganizationMembers");
+            }
             if ($.detectorId == null) {
                 throw new MissingRequiredPropertyException("OrganizationConfigurationArgs", "detectorId");
             }

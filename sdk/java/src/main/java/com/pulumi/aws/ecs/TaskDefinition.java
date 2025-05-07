@@ -7,7 +7,6 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecs.TaskDefinitionArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionState;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionEphemeralStorage;
-import com.pulumi.aws.ecs.outputs.TaskDefinitionInferenceAccelerator;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionPlacementConstraint;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionProxyConfiguration;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionRuntimePlatform;
@@ -329,7 +328,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Example Using `container_definitions` and `inference_accelerator`
+ * ### Example Using `container_definitions`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -341,7 +340,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionInferenceAcceleratorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -375,20 +373,10 @@ import javax.annotation.Nullable;
  *         "containerPort": 80,
  *         "hostPort": 8080
  *       }
- *     ],
- *         "resourceRequirements":[
- *             {
- *                 "type":"InferenceAccelerator",
- *                 "value":"device_1"
- *             }
- *         ]
+ *     ]
  *   }
  * ]
  *             """)
- *             .inferenceAccelerators(TaskDefinitionInferenceAcceleratorArgs.builder()
- *                 .deviceName("device_1")
- *                 .deviceType("eia1.medium")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -582,20 +570,6 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      */
     public Output<String> family() {
         return this.family;
-    }
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    @Export(name="inferenceAccelerators", refs={List.class,TaskDefinitionInferenceAccelerator.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TaskDefinitionInferenceAccelerator>> inferenceAccelerators;
-
-    /**
-     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    public Output<Optional<List<TaskDefinitionInferenceAccelerator>>> inferenceAccelerators() {
-        return Codegen.optional(this.inferenceAccelerators);
     }
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.

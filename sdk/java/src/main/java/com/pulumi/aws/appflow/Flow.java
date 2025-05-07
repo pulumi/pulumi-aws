@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSourceBucketV2 = new BucketV2("exampleSourceBucketV2", BucketV2Args.builder()
+ *         var exampleSourceBucket = new Bucket("exampleSourceBucket", BucketArgs.builder()
  *             .bucket("example-source")
  *             .build());
  * 
@@ -90,17 +90,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSourceBucketPolicy = new BucketPolicy("exampleSourceBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleSourceBucketV2.id())
+ *             .bucket(exampleSourceBucket.id())
  *             .policy(exampleSource.json())
  *             .build());
  * 
  *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
- *             .bucket(exampleSourceBucketV2.id())
+ *             .bucket(exampleSourceBucket.id())
  *             .key("example_source.csv")
  *             .source(new FileAsset("example_source.csv"))
  *             .build());
  * 
- *         var exampleDestinationBucketV2 = new BucketV2("exampleDestinationBucketV2", BucketV2Args.builder()
+ *         var exampleDestinationBucket = new Bucket("exampleDestinationBucket", BucketArgs.builder()
  *             .bucket("example-destination")
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDestinationBucketPolicy = new BucketPolicy("exampleDestinationBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleDestinationBucketV2.id())
+ *             .bucket(exampleDestinationBucket.id())
  *             .policy(exampleDestination.json())
  *             .build());
  * 

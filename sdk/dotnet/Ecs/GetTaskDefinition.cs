@@ -260,10 +260,6 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetTaskDefinitionInferenceAcceleratorResult> InferenceAccelerators;
-        /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
         public readonly string IpcMode;
@@ -333,8 +329,6 @@ namespace Pulumi.Aws.Ecs
 
             string id,
 
-            ImmutableArray<Outputs.GetTaskDefinitionInferenceAcceleratorResult> inferenceAccelerators,
-
             string ipcMode,
 
             string memory,
@@ -370,7 +364,6 @@ namespace Pulumi.Aws.Ecs
             ExecutionRoleArn = executionRoleArn;
             Family = family;
             Id = id;
-            InferenceAccelerators = inferenceAccelerators;
             IpcMode = ipcMode;
             Memory = memory;
             NetworkMode = networkMode;

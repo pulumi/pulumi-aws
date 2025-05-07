@@ -128,6 +128,33 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.verifiedpermissions.Schema("example",
+            policy_store_id=example_aws_verifiedpermissions_policy_store["policyStoreId"],
+            definition={
+                "value": json.dumps({
+                    "Namespace": {
+                        "entityTypes": {},
+                        "actions": {},
+                    },
+                }),
+            })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+
+        console
+
+         % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
@@ -141,6 +168,33 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.verifiedpermissions.Schema("example",
+            policy_store_id=example_aws_verifiedpermissions_policy_store["policyStoreId"],
+            definition={
+                "value": json.dumps({
+                    "Namespace": {
+                        "entityTypes": {},
+                        "actions": {},
+                    },
+                }),
+            })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+
+        console
+
+         % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

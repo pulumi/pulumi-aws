@@ -26,14 +26,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooBucket = new Aws.S3.BucketV2("foo_bucket", new()
+    ///     var fooBucket = new Aws.S3.Bucket("foo_bucket", new()
     ///     {
-    ///         Bucket = "example-bucket-foo",
+    ///         BucketName = "example-bucket-foo",
     ///     });
     /// 
-    ///     var barBucket = new Aws.S3.BucketV2("bar_bucket", new()
+    ///     var barBucket = new Aws.S3.Bucket("bar_bucket", new()
     ///     {
-    ///         Bucket = "example-bucket-bar",
+    ///         BucketName = "example-bucket-bar",
     ///     });
     /// 
     ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()

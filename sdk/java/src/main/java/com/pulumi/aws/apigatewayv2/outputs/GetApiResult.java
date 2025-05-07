@@ -59,6 +59,7 @@ public final class GetApiResult {
      * 
      */
     private String id;
+    private String ipAddressType;
     /**
      * @return Name of the API.
      * 
@@ -149,6 +150,9 @@ public final class GetApiResult {
     public String id() {
         return this.id;
     }
+    public String ipAddressType() {
+        return this.ipAddressType;
+    }
     /**
      * @return Name of the API.
      * 
@@ -203,6 +207,7 @@ public final class GetApiResult {
         private Boolean disableExecuteApiEndpoint;
         private String executionArn;
         private String id;
+        private String ipAddressType;
         private String name;
         private String protocolType;
         private String routeSelectionExpression;
@@ -220,6 +225,7 @@ public final class GetApiResult {
     	      this.disableExecuteApiEndpoint = defaults.disableExecuteApiEndpoint;
     	      this.executionArn = defaults.executionArn;
     	      this.id = defaults.id;
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.name = defaults.name;
     	      this.protocolType = defaults.protocolType;
     	      this.routeSelectionExpression = defaults.routeSelectionExpression;
@@ -303,6 +309,14 @@ public final class GetApiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipAddressType(String ipAddressType) {
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetApiResult", "name");
@@ -353,6 +367,7 @@ public final class GetApiResult {
             _resultValue.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
             _resultValue.executionArn = executionArn;
             _resultValue.id = id;
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.name = name;
             _resultValue.protocolType = protocolType;
             _resultValue.routeSelectionExpression = routeSelectionExpression;

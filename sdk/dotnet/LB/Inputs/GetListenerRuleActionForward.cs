@@ -12,12 +12,18 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleActionForwardArgs : global::Pulumi.InvokeArgs
     {
+        [Input("stickinesses")]
+        private List<Inputs.GetListenerRuleActionForwardStickinessArgs>? _stickinesses;
+
         /// <summary>
         /// Target group stickiness for the rule.
         /// Detailed below.
         /// </summary>
-        [Input("stickiness")]
-        public Inputs.GetListenerRuleActionForwardStickinessArgs? Stickiness { get; set; }
+        public List<Inputs.GetListenerRuleActionForwardStickinessArgs> Stickinesses
+        {
+            get => _stickinesses ?? (_stickinesses = new List<Inputs.GetListenerRuleActionForwardStickinessArgs>());
+            set => _stickinesses = value;
+        }
 
         [Input("targetGroups")]
         private List<Inputs.GetListenerRuleActionForwardTargetGroupArgs>? _targetGroups;

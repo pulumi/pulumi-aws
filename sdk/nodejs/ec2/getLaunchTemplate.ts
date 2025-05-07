@@ -82,14 +82,6 @@ export interface GetLaunchTemplateResult {
     readonly disableApiStop: boolean;
     readonly disableApiTermination: boolean;
     readonly ebsOptimized: string;
-    /**
-     * @deprecated elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     */
-    readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
-    /**
-     * @deprecated elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     */
-    readonly elasticInferenceAccelerators: outputs.ec2.GetLaunchTemplateElasticInferenceAccelerator[];
     readonly enclaveOptions: outputs.ec2.GetLaunchTemplateEnclaveOption[];
     readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
     readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];

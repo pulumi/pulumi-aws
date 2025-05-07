@@ -18,11 +18,17 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("fileSystemConfig")]
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
 
+        [Input("kernelSpecs", required: true)]
+        private InputList<Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecGetArgs>? _kernelSpecs;
+
         /// <summary>
         /// The default branch for the Git repository. See Kernel Spec details below.
         /// </summary>
-        [Input("kernelSpec", required: true)]
-        public Input<Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecGetArgs> KernelSpec { get; set; } = null!;
+        public InputList<Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecGetArgs> KernelSpecs
+        {
+            get => _kernelSpecs ?? (_kernelSpecs = new InputList<Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecGetArgs>());
+            set => _kernelSpecs = value;
+        }
 
         public AppImageConfigKernelGatewayImageConfigGetArgs()
         {

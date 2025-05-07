@@ -198,6 +198,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetAmiArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// If true, allow unsafe filter values. With unsafe
+        /// filters and `most_recent` set to `true`, a third party may introduce a new image which
+        /// will be returned by this data source. Consider filtering by owner or image ID rather
+        /// than setting this argument.
+        /// </summary>
+        [Input("allowUnsafeFilter")]
+        public bool? AllowUnsafeFilter { get; set; }
+
         [Input("executableUsers")]
         private List<string>? _executableUsers;
 
@@ -293,6 +302,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetAmiInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// If true, allow unsafe filter values. With unsafe
+        /// filters and `most_recent` set to `true`, a third party may introduce a new image which
+        /// will be returned by this data source. Consider filtering by owner or image ID rather
+        /// than setting this argument.
+        /// </summary>
+        [Input("allowUnsafeFilter")]
+        public Input<bool>? AllowUnsafeFilter { get; set; }
+
         [Input("executableUsers")]
         private InputList<string>? _executableUsers;
 
@@ -390,6 +408,7 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetAmiResult
     {
+        public readonly bool? AllowUnsafeFilter;
         /// <summary>
         /// OS architecture of the AMI (ie: `i386` or `x86_64`).
         /// </summary>
@@ -550,6 +569,8 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetAmiResult(
+            bool? allowUnsafeFilter,
+
             string architecture,
 
             string arn,
@@ -632,6 +653,7 @@ namespace Pulumi.Aws.Ec2
 
             string virtualizationType)
         {
+            AllowUnsafeFilter = allowUnsafeFilter;
             Architecture = architecture;
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;

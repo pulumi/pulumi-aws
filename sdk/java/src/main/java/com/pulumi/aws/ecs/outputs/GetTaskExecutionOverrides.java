@@ -4,7 +4,6 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.GetTaskExecutionOverridesContainerOverride;
-import com.pulumi.aws.ecs.outputs.GetTaskExecutionOverridesInferenceAcceleratorOverride;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -29,15 +28,6 @@ public final class GetTaskExecutionOverrides {
      * 
      */
     private @Nullable String executionRoleArn;
-    /**
-     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-     * 
-     * @deprecated
-     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
-    private @Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
     /**
      * @return The memory override for the task.
      * 
@@ -72,17 +62,6 @@ public final class GetTaskExecutionOverrides {
         return Optional.ofNullable(this.executionRoleArn);
     }
     /**
-     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-     * 
-     * @deprecated
-     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
-    public List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides() {
-        return this.inferenceAcceleratorOverrides == null ? List.of() : this.inferenceAcceleratorOverrides;
-    }
-    /**
      * @return The memory override for the task.
      * 
      */
@@ -109,7 +88,6 @@ public final class GetTaskExecutionOverrides {
         private @Nullable List<GetTaskExecutionOverridesContainerOverride> containerOverrides;
         private @Nullable String cpu;
         private @Nullable String executionRoleArn;
-        private @Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
         private @Nullable String memory;
         private @Nullable String taskRoleArn;
         public Builder() {}
@@ -118,7 +96,6 @@ public final class GetTaskExecutionOverrides {
     	      this.containerOverrides = defaults.containerOverrides;
     	      this.cpu = defaults.cpu;
     	      this.executionRoleArn = defaults.executionRoleArn;
-    	      this.inferenceAcceleratorOverrides = defaults.inferenceAcceleratorOverrides;
     	      this.memory = defaults.memory;
     	      this.taskRoleArn = defaults.taskRoleArn;
         }
@@ -145,15 +122,6 @@ public final class GetTaskExecutionOverrides {
             return this;
         }
         @CustomType.Setter
-        public Builder inferenceAcceleratorOverrides(@Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides) {
-
-            this.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
-            return this;
-        }
-        public Builder inferenceAcceleratorOverrides(GetTaskExecutionOverridesInferenceAcceleratorOverride... inferenceAcceleratorOverrides) {
-            return inferenceAcceleratorOverrides(List.of(inferenceAcceleratorOverrides));
-        }
-        @CustomType.Setter
         public Builder memory(@Nullable String memory) {
 
             this.memory = memory;
@@ -170,7 +138,6 @@ public final class GetTaskExecutionOverrides {
             _resultValue.containerOverrides = containerOverrides;
             _resultValue.cpu = cpu;
             _resultValue.executionRoleArn = executionRoleArn;
-            _resultValue.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             _resultValue.memory = memory;
             _resultValue.taskRoleArn = taskRoleArn;
             return _resultValue;

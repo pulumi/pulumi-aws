@@ -273,12 +273,6 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs>? CustomHeadersConfig { get; set; }
 
         /// <summary>
-        /// The current version of the response headers policy.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// A unique name to identify the response headers policy.
         /// </summary>
         [Input("name")]

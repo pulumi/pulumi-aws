@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         /// </summary>
-        public readonly Outputs.GetFileSystemLifecyclePolicyResult LifecyclePolicy;
+        public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicy;
         /// <summary>
         /// The value of the file system's `Name` tag.
         /// </summary>
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Efs
 
             ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> lifecyclePolicies,
 
-            Outputs.GetFileSystemLifecyclePolicyResult lifecyclePolicy,
+            ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> lifecyclePolicy,
 
             string name,
 

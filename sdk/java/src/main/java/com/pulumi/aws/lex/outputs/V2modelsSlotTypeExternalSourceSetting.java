@@ -5,8 +5,8 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,7 +16,7 @@ public final class V2modelsSlotTypeExternalSourceSetting {
      * See `grammar_slot_type_setting` argument reference below.
      * 
      */
-    private @Nullable V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting grammarSlotTypeSetting;
+    private @Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings;
 
     private V2modelsSlotTypeExternalSourceSetting() {}
     /**
@@ -24,8 +24,8 @@ public final class V2modelsSlotTypeExternalSourceSetting {
      * See `grammar_slot_type_setting` argument reference below.
      * 
      */
-    public Optional<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSetting() {
-        return Optional.ofNullable(this.grammarSlotTypeSetting);
+    public List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings() {
+        return this.grammarSlotTypeSettings == null ? List.of() : this.grammarSlotTypeSettings;
     }
 
     public static Builder builder() {
@@ -37,22 +37,25 @@ public final class V2modelsSlotTypeExternalSourceSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting grammarSlotTypeSetting;
+        private @Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings;
         public Builder() {}
         public Builder(V2modelsSlotTypeExternalSourceSetting defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.grammarSlotTypeSetting = defaults.grammarSlotTypeSetting;
+    	      this.grammarSlotTypeSettings = defaults.grammarSlotTypeSettings;
         }
 
         @CustomType.Setter
-        public Builder grammarSlotTypeSetting(@Nullable V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting grammarSlotTypeSetting) {
+        public Builder grammarSlotTypeSettings(@Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings) {
 
-            this.grammarSlotTypeSetting = grammarSlotTypeSetting;
+            this.grammarSlotTypeSettings = grammarSlotTypeSettings;
             return this;
+        }
+        public Builder grammarSlotTypeSettings(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting... grammarSlotTypeSettings) {
+            return grammarSlotTypeSettings(List.of(grammarSlotTypeSettings));
         }
         public V2modelsSlotTypeExternalSourceSetting build() {
             final var _resultValue = new V2modelsSlotTypeExternalSourceSetting();
-            _resultValue.grammarSlotTypeSetting = grammarSlotTypeSetting;
+            _resultValue.grammarSlotTypeSettings = grammarSlotTypeSettings;
             return _resultValue;
         }
     }

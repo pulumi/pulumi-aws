@@ -29,9 +29,9 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
     ///     var exampleTopic = new Aws.Sns.Topic("example", new()
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Rekognition
     ///         {
     ///             S3Destination = new Aws.Rekognition.Inputs.StreamProcessorOutputS3DestinationArgs
     ///             {
-    ///                 Bucket = example.Bucket,
+    ///                 Bucket = example.BucketName,
     ///             },
     ///         },
     ///         Settings = new Aws.Rekognition.Inputs.StreamProcessorSettingsArgs

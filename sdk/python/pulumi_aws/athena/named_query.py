@@ -214,7 +214,7 @@ class NamedQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge = aws.s3.BucketV2("hoge", bucket="tf-test")
+        hoge = aws.s3.Bucket("hoge", bucket="tf-test")
         test = aws.kms.Key("test",
             deletion_window_in_days=7,
             description="Athena KMS Key")
@@ -269,7 +269,7 @@ class NamedQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge = aws.s3.BucketV2("hoge", bucket="tf-test")
+        hoge = aws.s3.Bucket("hoge", bucket="tf-test")
         test = aws.kms.Key("test",
             deletion_window_in_days=7,
             description="Athena KMS Key")

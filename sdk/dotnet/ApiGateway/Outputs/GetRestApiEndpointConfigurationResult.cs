@@ -13,15 +13,28 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class GetRestApiEndpointConfigurationResult
     {
+        /// <summary>
+        /// The IP address types that can invoke an API (RestApi).
+        /// </summary>
+        public readonly string IpAddressType;
+        /// <summary>
+        /// List of endpoint types.
+        /// </summary>
         public readonly ImmutableArray<string> Types;
+        /// <summary>
+        /// Set of VPC Endpoint identifiers.
+        /// </summary>
         public readonly ImmutableArray<string> VpcEndpointIds;
 
         [OutputConstructor]
         private GetRestApiEndpointConfigurationResult(
+            string ipAddressType,
+
             ImmutableArray<string> types,
 
             ImmutableArray<string> vpcEndpointIds)
         {
+            IpAddressType = ipAddressType;
             Types = types;
             VpcEndpointIds = vpcEndpointIds;
         }

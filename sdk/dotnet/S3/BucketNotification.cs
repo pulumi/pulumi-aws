@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "your-bucket-name",
+    ///         BucketName = "your-bucket-name",
     ///     });
     /// 
     ///     var topic = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -111,9 +111,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "your-bucket-name",
+    ///         BucketName = "your-bucket-name",
     ///     });
     /// 
     ///     var queue = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -235,9 +235,9 @@ namespace Pulumi.Aws.S3
     ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "your-bucket-name",
+    ///         BucketName = "your-bucket-name",
     ///     });
     /// 
     ///     var allowBucket = new Aws.Lambda.Permission("allow_bucket", new()
@@ -327,9 +327,9 @@ namespace Pulumi.Aws.S3
     ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "your-bucket-name",
+    ///         BucketName = "your-bucket-name",
     ///     });
     /// 
     ///     var allowBucket1 = new Aws.Lambda.Permission("allow_bucket1", new()
@@ -406,9 +406,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "your-bucket-name",
+    ///         BucketName = "your-bucket-name",
     ///     });
     /// 
     ///     var queue = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -502,9 +502,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "your-bucket-name",
+    ///         BucketName = "your-bucket-name",
     ///     });
     /// 
     ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()

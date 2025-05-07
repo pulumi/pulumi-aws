@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +70,7 @@ type InstanceGroup struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -165,7 +165,7 @@ type instanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -225,7 +225,7 @@ type InstanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -289,7 +289,7 @@ type instanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -346,7 +346,7 @@ type InstanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -498,7 +498,7 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

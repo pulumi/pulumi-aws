@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,7 +104,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -159,6 +159,58 @@ import (
 //
 // ```
 //
+// ### Job Definition of type EKS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Name: pulumi.String(" tf_test_batch_job_definition_eks"),
+//				Type: pulumi.String("container"),
+//				EksProperties: &batch.JobDefinitionEksPropertiesArgs{
+//					PodProperties: &batch.JobDefinitionEksPropertiesPodPropertiesArgs{
+//						HostNetwork: pulumi.Bool(true),
+//						Containers: batch.JobDefinitionEksPropertiesPodPropertiesContainerArray{
+//							&batch.JobDefinitionEksPropertiesPodPropertiesContainerArgs{
+//								Image: pulumi.String("public.ecr.aws/amazonlinux/amazonlinux:1"),
+//								Commands: pulumi.StringArray{
+//									pulumi.String("sleep"),
+//									pulumi.String("60"),
+//								},
+//								Resources: &batch.JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs{
+//									Limits: pulumi.StringMap{
+//										"cpu":    pulumi.String("1"),
+//										"memory": pulumi.String("1024Mi"),
+//									},
+//								},
+//							},
+//						},
+//						Metadata: &batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs{
+//							Labels: pulumi.StringMap{
+//								"environment": pulumi.String("test"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Fargate Platform Capability
 //
 // ```go
@@ -168,8 +220,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -265,7 +317,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

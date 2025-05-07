@@ -10,19 +10,7 @@ const repository = new aws.ecr.Repository("myrepository", {
 }, providerOpts);
 
 // Get registry info (credentials and endpoint) so we can publish to it.
-const credentials = aws.ecr.getCredentialsOutput({ registryId: repository.registryId }, providerOpts);
-const decodedCredentials = credentials.authorizationToken.apply(tok => Buffer.from(tok, "base64").toString());
-const registryInfo = decodedCredentials.apply(creds => {
-    const [username, password] = creds.split(":");
-    if (!password || !username) {
-        throw new Error("Invalid credentials");
-    }
-    return {
-        address: credentials.proxyEndpoint,
-        username: username,
-        password: password,
-    };
-});
+const credentials = aws.ecr.getAuthorizationTokenOutput({ registryId: repository.registryId }, providerOpts);
 
 const image = new docker.Image("myimage", {
     push: true,
@@ -30,7 +18,11 @@ const image = new docker.Image("myimage", {
     context: {
         location: "./app",
     },
-    registries: [registryInfo],
+    registries: [{
+        address: credentials.proxyEndpoint,
+        username: credentials.userName,
+        password: credentials.password,
+    }],
 });
 
 export const digest = image.digest;

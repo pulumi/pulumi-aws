@@ -14065,14 +14065,14 @@ class WebAclAssociationConfigRequestBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "apiGateways":
-            suggest = "api_gateways"
-        elif key == "appRunnerServices":
-            suggest = "app_runner_services"
-        elif key == "cognitoUserPools":
-            suggest = "cognito_user_pools"
-        elif key == "verifiedAccessInstances":
-            suggest = "verified_access_instances"
+        if key == "apiGateway":
+            suggest = "api_gateway"
+        elif key == "appRunnerService":
+            suggest = "app_runner_service"
+        elif key == "cognitoUserPool":
+            suggest = "cognito_user_pool"
+        elif key == "verifiedAccessInstance":
+            suggest = "verified_access_instance"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBody. Access the value via the '{suggest}' property getter instead.")
@@ -14086,68 +14086,68 @@ class WebAclAssociationConfigRequestBody(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 api_gateways: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyApiGateway']] = None,
-                 app_runner_services: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']] = None,
-                 cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None,
-                 cognito_user_pools: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']] = None,
-                 verified_access_instances: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']] = None):
+                 api_gateway: Optional['outputs.WebAclAssociationConfigRequestBodyApiGateway'] = None,
+                 app_runner_service: Optional['outputs.WebAclAssociationConfigRequestBodyAppRunnerService'] = None,
+                 cloudfront: Optional['outputs.WebAclAssociationConfigRequestBodyCloudfront'] = None,
+                 cognito_user_pool: Optional['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool'] = None,
+                 verified_access_instance: Optional['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance'] = None):
         """
-        :param Sequence['WebAclAssociationConfigRequestBodyApiGatewayArgs'] api_gateways: Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyAppRunnerServiceArgs'] app_runner_services: Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyCognitoUserPoolArgs'] cognito_user_pools: Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs'] verified_access_instances: Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        :param 'WebAclAssociationConfigRequestBodyApiGatewayArgs' api_gateway: Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
+        :param 'WebAclAssociationConfigRequestBodyAppRunnerServiceArgs' app_runner_service: Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
+        :param 'WebAclAssociationConfigRequestBodyCloudfrontArgs' cloudfront: Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
+        :param 'WebAclAssociationConfigRequestBodyCognitoUserPoolArgs' cognito_user_pool: Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
+        :param 'WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs' verified_access_instance: Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
-        if api_gateways is not None:
-            pulumi.set(__self__, "api_gateways", api_gateways)
-        if app_runner_services is not None:
-            pulumi.set(__self__, "app_runner_services", app_runner_services)
-        if cloudfronts is not None:
-            pulumi.set(__self__, "cloudfronts", cloudfronts)
-        if cognito_user_pools is not None:
-            pulumi.set(__self__, "cognito_user_pools", cognito_user_pools)
-        if verified_access_instances is not None:
-            pulumi.set(__self__, "verified_access_instances", verified_access_instances)
+        if api_gateway is not None:
+            pulumi.set(__self__, "api_gateway", api_gateway)
+        if app_runner_service is not None:
+            pulumi.set(__self__, "app_runner_service", app_runner_service)
+        if cloudfront is not None:
+            pulumi.set(__self__, "cloudfront", cloudfront)
+        if cognito_user_pool is not None:
+            pulumi.set(__self__, "cognito_user_pool", cognito_user_pool)
+        if verified_access_instance is not None:
+            pulumi.set(__self__, "verified_access_instance", verified_access_instance)
 
     @property
-    @pulumi.getter(name="apiGateways")
-    def api_gateways(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyApiGateway']]:
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyApiGateway']:
         """
         Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
         """
-        return pulumi.get(self, "api_gateways")
+        return pulumi.get(self, "api_gateway")
 
     @property
-    @pulumi.getter(name="appRunnerServices")
-    def app_runner_services(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']]:
+    @pulumi.getter(name="appRunnerService")
+    def app_runner_service(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']:
         """
         Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
         """
-        return pulumi.get(self, "app_runner_services")
+        return pulumi.get(self, "app_runner_service")
 
     @property
     @pulumi.getter
-    def cloudfronts(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']]:
+    def cloudfront(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyCloudfront']:
         """
         Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         """
-        return pulumi.get(self, "cloudfronts")
+        return pulumi.get(self, "cloudfront")
 
     @property
-    @pulumi.getter(name="cognitoUserPools")
-    def cognito_user_pools(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']]:
+    @pulumi.getter(name="cognitoUserPool")
+    def cognito_user_pool(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']:
         """
         Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
         """
-        return pulumi.get(self, "cognito_user_pools")
+        return pulumi.get(self, "cognito_user_pool")
 
     @property
-    @pulumi.getter(name="verifiedAccessInstances")
-    def verified_access_instances(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']]:
+    @pulumi.getter(name="verifiedAccessInstance")
+    def verified_access_instance(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']:
         """
         Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
-        return pulumi.get(self, "verified_access_instances")
+        return pulumi.get(self, "verified_access_instance")
 
 
 @pulumi.output_type

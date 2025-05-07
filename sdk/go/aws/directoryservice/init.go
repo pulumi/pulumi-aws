@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,14 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws:directoryservice/conditionalForwader:ConditionalForwader":
-		r = &ConditionalForwader{}
 	case "aws:directoryservice/conditionalForwarder:ConditionalForwarder":
 		r = &ConditionalForwarder{}
 	case "aws:directoryservice/directory:Directory":
 		r = &Directory{}
-	case "aws:directoryservice/logService:LogService":
-		r = &LogService{}
 	case "aws:directoryservice/logSubscription:LogSubscription":
 		r = &LogSubscription{}
 	case "aws:directoryservice/radiusSettings:RadiusSettings":
@@ -56,22 +52,12 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
-		"directoryservice/conditionalForwader",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
 		"directoryservice/conditionalForwarder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directoryservice/directory",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"directoryservice/logService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

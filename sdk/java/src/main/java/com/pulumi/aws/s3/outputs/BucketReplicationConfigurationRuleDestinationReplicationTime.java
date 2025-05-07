@@ -18,7 +18,7 @@ public final class BucketReplicationConfigurationRuleDestinationReplicationTime 
      */
     private @Nullable Integer minutes;
     /**
-     * @return The status of RTC. Either `Enabled` or `Disabled`.
+     * @return Status of RTC. Either `Enabled` or `Disabled`.
      * 
      */
     private @Nullable String status;
@@ -32,7 +32,7 @@ public final class BucketReplicationConfigurationRuleDestinationReplicationTime 
         return Optional.ofNullable(this.minutes);
     }
     /**
-     * @return The status of RTC. Either `Enabled` or `Disabled`.
+     * @return Status of RTC. Either `Enabled` or `Disabled`.
      * 
      */
     public Optional<String> status() {

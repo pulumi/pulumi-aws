@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
  * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooBucket = new BucketV2("fooBucket", BucketV2Args.builder()
+ *         var fooBucket = new Bucket("fooBucket", BucketArgs.builder()
  *             .bucket("example-bucket-foo")
  *             .build());
  * 
- *         var barBucket = new BucketV2("barBucket", BucketV2Args.builder()
+ *         var barBucket = new Bucket("barBucket", BucketArgs.builder()
  *             .bucket("example-bucket-bar")
  *             .build());
  * 

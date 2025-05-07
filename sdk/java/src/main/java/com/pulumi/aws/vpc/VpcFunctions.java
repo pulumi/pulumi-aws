@@ -4,10 +4,13 @@
 package com.pulumi.aws.vpc;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
+import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsPlainArgs;
 import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
 import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulePlainArgs;
 import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
 import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesPlainArgs;
+import com.pulumi.aws.vpc.outputs.GetEndpointAssociationsResult;
 import com.pulumi.aws.vpc.outputs.GetSecurityGroupRuleResult;
 import com.pulumi.aws.vpc.outputs.GetSecurityGroupRulesResult;
 import com.pulumi.core.Output;
@@ -18,6 +21,226 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class VpcFunctions {
+    /**
+     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEndpointAssociationsResult> getEndpointAssociations(GetEndpointAssociationsArgs args) {
+        return getEndpointAssociations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEndpointAssociationsResult> getEndpointAssociationsPlain(GetEndpointAssociationsPlainArgs args) {
+        return getEndpointAssociationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEndpointAssociationsResult> getEndpointAssociations(GetEndpointAssociationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", TypeShape.of(GetEndpointAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEndpointAssociationsResult> getEndpointAssociations(GetEndpointAssociationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", TypeShape.of(GetEndpointAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpc.VpcFunctions;
+     * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpcFunctions.getEndpointAssociations(GetEndpointAssociationsArgs.builder()
+     *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEndpointAssociationsResult> getEndpointAssociationsPlain(GetEndpointAssociationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:vpc/getEndpointAssociations:getEndpointAssociations", TypeShape.of(GetEndpointAssociationsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 

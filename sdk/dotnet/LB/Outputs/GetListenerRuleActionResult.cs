@@ -17,22 +17,22 @@ namespace Pulumi.Aws.LB.Outputs
         /// An action to authenticate using Amazon Cognito.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleActionAuthenticateCognitoResult? AuthenticateCognito;
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionAuthenticateCognitoResult> AuthenticateCognitos;
         /// <summary>
         /// An action to authenticate using OIDC.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleActionAuthenticateOidcResult? AuthenticateOidc;
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionAuthenticateOidcResult> AuthenticateOidcs;
         /// <summary>
         /// An action to return a fixed response.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleActionFixedResponseResult? FixedResponse;
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionFixedResponseResult> FixedResponses;
         /// <summary>
         /// An action to forward the request.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleActionForwardResult? Forward;
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionForwardResult> Forwards;
         /// <summary>
         /// The evaluation order of the action.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// An action to redirect the request.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleActionRedirectResult? Redirect;
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionRedirectResult> Redirects;
         /// <summary>
         /// The type of the action, indicates which sub-block will be populated.
         /// </summary>
@@ -49,26 +49,26 @@ namespace Pulumi.Aws.LB.Outputs
 
         [OutputConstructor]
         private GetListenerRuleActionResult(
-            Outputs.GetListenerRuleActionAuthenticateCognitoResult? authenticateCognito,
+            ImmutableArray<Outputs.GetListenerRuleActionAuthenticateCognitoResult> authenticateCognitos,
 
-            Outputs.GetListenerRuleActionAuthenticateOidcResult? authenticateOidc,
+            ImmutableArray<Outputs.GetListenerRuleActionAuthenticateOidcResult> authenticateOidcs,
 
-            Outputs.GetListenerRuleActionFixedResponseResult? fixedResponse,
+            ImmutableArray<Outputs.GetListenerRuleActionFixedResponseResult> fixedResponses,
 
-            Outputs.GetListenerRuleActionForwardResult? forward,
+            ImmutableArray<Outputs.GetListenerRuleActionForwardResult> forwards,
 
             int order,
 
-            Outputs.GetListenerRuleActionRedirectResult? redirect,
+            ImmutableArray<Outputs.GetListenerRuleActionRedirectResult> redirects,
 
             string type)
         {
-            AuthenticateCognito = authenticateCognito;
-            AuthenticateOidc = authenticateOidc;
-            FixedResponse = fixedResponse;
-            Forward = forward;
+            AuthenticateCognitos = authenticateCognitos;
+            AuthenticateOidcs = authenticateOidcs;
+            FixedResponses = fixedResponses;
+            Forwards = forwards;
             Order = order;
-            Redirect = redirect;
+            Redirects = redirects;
             Type = type;
         }
     }

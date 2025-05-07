@@ -28,7 +28,6 @@ class TaskDefinitionArgs:
                  enable_fault_injection: Optional[pulumi.Input[builtins.bool]] = None,
                  ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -54,7 +53,6 @@ class TaskDefinitionArgs:
                **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
@@ -79,8 +77,6 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        if inference_accelerators is not None:
-            pulumi.set(__self__, "inference_accelerators", inference_accelerators)
         if ipc_mode is not None:
             pulumi.set(__self__, "ipc_mode", ipc_mode)
         if memory is not None:
@@ -183,18 +179,6 @@ class TaskDefinitionArgs:
     @execution_role_arn.setter
     def execution_role_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
-
-    @inference_accelerators.setter
-    def inference_accelerators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]):
-        pulumi.set(self, "inference_accelerators", value)
 
     @property
     @pulumi.getter(name="ipcMode")
@@ -364,7 +348,6 @@ class _TaskDefinitionState:
                  ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  family: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -394,7 +377,6 @@ class _TaskDefinitionState:
         :param pulumi.Input[builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
@@ -427,8 +409,6 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if family is not None:
             pulumi.set(__self__, "family", family)
-        if inference_accelerators is not None:
-            pulumi.set(__self__, "inference_accelerators", inference_accelerators)
         if ipc_mode is not None:
             pulumi.set(__self__, "ipc_mode", ipc_mode)
         if memory is not None:
@@ -562,18 +542,6 @@ class _TaskDefinitionState:
     @family.setter
     def family(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
-
-    @inference_accelerators.setter
-    def inference_accelerators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]):
-        pulumi.set(self, "inference_accelerators", value)
 
     @property
     @pulumi.getter(name="ipcMode")
@@ -771,7 +739,6 @@ class TaskDefinition(pulumi.CustomResource):
                  ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  family: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -937,7 +904,7 @@ class TaskDefinition(pulumi.CustomResource):
             }])
         ```
 
-        ### Example Using `container_definitions` and `inference_accelerator`
+        ### Example Using `container_definitions`
 
         ```python
         import pulumi
@@ -962,20 +929,10 @@ class TaskDefinition(pulumi.CustomResource):
                 "containerPort": 80,
                 "hostPort": 8080
               }
-            ],
-                "resourceRequirements":[
-                    {
-                        "type":"InferenceAccelerator",
-                        "value":"device_1"
-                    }
-                ]
+            ]
           }
         ]
-        \"\"\",
-            inference_accelerators=[{
-                "device_name": "device_1",
-                "device_type": "eia1.medium",
-            }])
+        \"\"\")
         ```
 
         ### Example Using `runtime_platform` and `fargate`
@@ -1026,7 +983,6 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
@@ -1198,7 +1154,7 @@ class TaskDefinition(pulumi.CustomResource):
             }])
         ```
 
-        ### Example Using `container_definitions` and `inference_accelerator`
+        ### Example Using `container_definitions`
 
         ```python
         import pulumi
@@ -1223,20 +1179,10 @@ class TaskDefinition(pulumi.CustomResource):
                 "containerPort": 80,
                 "hostPort": 8080
               }
-            ],
-                "resourceRequirements":[
-                    {
-                        "type":"InferenceAccelerator",
-                        "value":"device_1"
-                    }
-                ]
+            ]
           }
         ]
-        \"\"\",
-            inference_accelerators=[{
-                "device_name": "device_1",
-                "device_type": "eia1.medium",
-            }])
+        \"\"\")
         ```
 
         ### Example Using `runtime_platform` and `fargate`
@@ -1296,7 +1242,6 @@ class TaskDefinition(pulumi.CustomResource):
                  ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  family: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -1329,7 +1274,6 @@ class TaskDefinition(pulumi.CustomResource):
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
-            __props__.__dict__["inference_accelerators"] = inference_accelerators
             __props__.__dict__["ipc_mode"] = ipc_mode
             __props__.__dict__["memory"] = memory
             __props__.__dict__["network_mode"] = network_mode
@@ -1365,7 +1309,6 @@ class TaskDefinition(pulumi.CustomResource):
             ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
             execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             family: Optional[pulumi.Input[builtins.str]] = None,
-            inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
             ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
             memory: Optional[pulumi.Input[builtins.str]] = None,
             network_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -1400,7 +1343,6 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
@@ -1429,7 +1371,6 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["ephemeral_storage"] = ephemeral_storage
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["family"] = family
-        __props__.__dict__["inference_accelerators"] = inference_accelerators
         __props__.__dict__["ipc_mode"] = ipc_mode
         __props__.__dict__["memory"] = memory
         __props__.__dict__["network_mode"] = network_mode
@@ -1514,14 +1455,6 @@ class TaskDefinition(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionInferenceAccelerator']]]:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
 
     @property
     @pulumi.getter(name="ipcMode")

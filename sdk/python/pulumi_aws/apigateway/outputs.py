@@ -18,7 +18,6 @@ from . import outputs
 
 __all__ = [
     'AccountThrottleSetting',
-    'DeploymentCanarySettings',
     'DocumentationPartLocation',
     'DomainNameEndpointConfiguration',
     'DomainNameMutualTlsAuthentication',
@@ -83,70 +82,6 @@ class AccountThrottleSetting(dict):
         Number of times API Gateway allows the API to be called per second on average (RPS).
         """
         return pulumi.get(self, "rate_limit")
-
-
-@pulumi.output_type
-class DeploymentCanarySettings(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "percentTraffic":
-            suggest = "percent_traffic"
-        elif key == "stageVariableOverrides":
-            suggest = "stage_variable_overrides"
-        elif key == "useStageCache":
-            suggest = "use_stage_cache"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentCanarySettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentCanarySettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentCanarySettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 percent_traffic: Optional[builtins.float] = None,
-                 stage_variable_overrides: Optional[Mapping[str, builtins.str]] = None,
-                 use_stage_cache: Optional[builtins.bool] = None):
-        """
-        :param builtins.float percent_traffic: Percentage (0.0-100.0) of traffic routed to the canary deployment.
-        :param Mapping[str, builtins.str] stage_variable_overrides: Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-        :param builtins.bool use_stage_cache: Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-        """
-        if percent_traffic is not None:
-            pulumi.set(__self__, "percent_traffic", percent_traffic)
-        if stage_variable_overrides is not None:
-            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
-        if use_stage_cache is not None:
-            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
-
-    @property
-    @pulumi.getter(name="percentTraffic")
-    def percent_traffic(self) -> Optional[builtins.float]:
-        """
-        Percentage (0.0-100.0) of traffic routed to the canary deployment.
-        """
-        return pulumi.get(self, "percent_traffic")
-
-    @property
-    @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[Mapping[str, builtins.str]]:
-        """
-        Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-        """
-        return pulumi.get(self, "stage_variable_overrides")
-
-    @property
-    @pulumi.getter(name="useStageCache")
-    def use_stage_cache(self) -> Optional[builtins.bool]:
-        """
-        Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-        """
-        return pulumi.get(self, "use_stage_cache")
 
 
 @pulumi.output_type
@@ -234,12 +169,32 @@ class DocumentationPartLocation(dict):
 
 @pulumi.output_type
 class DomainNameEndpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainNameEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainNameEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainNameEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 types: builtins.str):
+                 types: builtins.str,
+                 ip_address_type: Optional[builtins.str] = None):
         """
         :param builtins.str types: A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
         pulumi.set(__self__, "types", types)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter
@@ -248,6 +203,11 @@ class DomainNameEndpointConfiguration(dict):
         A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
         return pulumi.get(self, "types")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type
@@ -502,7 +462,9 @@ class RestApiEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vpcEndpointIds":
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "vpcEndpointIds":
             suggest = "vpc_endpoint_ids"
 
         if suggest:
@@ -518,12 +480,16 @@ class RestApiEndpointConfiguration(dict):
 
     def __init__(__self__, *,
                  types: builtins.str,
+                 ip_address_type: Optional[builtins.str] = None,
                  vpc_endpoint_ids: Optional[Sequence[builtins.str]] = None):
         """
         :param builtins.str types: List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        :param builtins.str ip_address_type: The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
         :param Sequence[builtins.str] vpc_endpoint_ids: Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
         """
         pulumi.set(__self__, "types", types)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if vpc_endpoint_ids is not None:
             pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
 
@@ -534,6 +500,14 @@ class RestApiEndpointConfiguration(dict):
         List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         """
         return pulumi.get(self, "types")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[builtins.str]:
+        """
+        The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="vpcEndpointIds")
@@ -1004,11 +978,22 @@ class GetApiKeysItemResult(dict):
 @pulumi.output_type
 class GetDomainNameEndpointConfigurationResult(dict):
     def __init__(__self__, *,
+                 ip_address_type: builtins.str,
                  types: Sequence[builtins.str]):
         """
+        :param builtins.str ip_address_type: The IP address types that can invoke an API (RestApi).
         :param Sequence[builtins.str] types: List of endpoint types.
         """
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> builtins.str:
+        """
+        The IP address types that can invoke an API (RestApi).
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter
@@ -1022,19 +1007,40 @@ class GetDomainNameEndpointConfigurationResult(dict):
 @pulumi.output_type
 class GetRestApiEndpointConfigurationResult(dict):
     def __init__(__self__, *,
+                 ip_address_type: builtins.str,
                  types: Sequence[builtins.str],
                  vpc_endpoint_ids: Sequence[builtins.str]):
+        """
+        :param builtins.str ip_address_type: The IP address types that can invoke an API (RestApi).
+        :param Sequence[builtins.str] types: List of endpoint types.
+        :param Sequence[builtins.str] vpc_endpoint_ids: Set of VPC Endpoint identifiers.
+        """
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         pulumi.set(__self__, "types", types)
         pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> builtins.str:
+        """
+        The IP address types that can invoke an API (RestApi).
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @property
     @pulumi.getter
     def types(self) -> Sequence[builtins.str]:
+        """
+        List of endpoint types.
+        """
         return pulumi.get(self, "types")
 
     @property
     @pulumi.getter(name="vpcEndpointIds")
     def vpc_endpoint_ids(self) -> Sequence[builtins.str]:
+        """
+        Set of VPC Endpoint identifiers.
+        """
         return pulumi.get(self, "vpc_endpoint_ids")
 
 

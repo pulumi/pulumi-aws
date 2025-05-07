@@ -486,7 +486,7 @@ class MetricStream(pulumi.CustomResource):
         metric_stream_to_firehose_role = aws.iam.Role("metric_stream_to_firehose",
             name="metric_stream_to_firehose_role",
             assume_role_policy=streams_assume_role.json)
-        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="metric-stream-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -534,7 +534,7 @@ class MetricStream(pulumi.CustomResource):
             name="default",
             role=metric_stream_to_firehose_role.id,
             policy=metric_stream_to_firehose.json)
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         firehose_to_s3 = aws.iam.get_policy_document_output(statements=[{
@@ -642,7 +642,7 @@ class MetricStream(pulumi.CustomResource):
         metric_stream_to_firehose_role = aws.iam.Role("metric_stream_to_firehose",
             name="metric_stream_to_firehose_role",
             assume_role_policy=streams_assume_role.json)
-        bucket = aws.s3.BucketV2("bucket", bucket="metric-stream-test-bucket")
+        bucket = aws.s3.Bucket("bucket", bucket="metric-stream-test-bucket")
         firehose_assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -690,7 +690,7 @@ class MetricStream(pulumi.CustomResource):
             name="default",
             role=metric_stream_to_firehose_role.id,
             policy=metric_stream_to_firehose.json)
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         firehose_to_s3 = aws.iam.get_policy_document_output(statements=[{

@@ -123,12 +123,6 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder>> ComputeEnvironmentOrders { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-        /// </summary>
-        [Output("computeEnvironments")]
-        public Output<ImmutableArray<string>> ComputeEnvironments { get; private set; } = null!;
-
-        /// <summary>
         /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
         [Output("jobStateTimeLimitActions")]
@@ -232,19 +226,6 @@ namespace Pulumi.Aws.Batch
             set => _computeEnvironmentOrders = value;
         }
 
-        [Input("computeEnvironments")]
-        private InputList<string>? _computeEnvironments;
-
-        /// <summary>
-        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-        /// </summary>
-        [Obsolete(@"This parameter will be replaced by `compute_environment_order`.")]
-        public InputList<string> ComputeEnvironments
-        {
-            get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
-            set => _computeEnvironments = value;
-        }
-
         [Input("jobStateTimeLimitActions")]
         private InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>? _jobStateTimeLimitActions;
 
@@ -321,19 +302,6 @@ namespace Pulumi.Aws.Batch
         {
             get => _computeEnvironmentOrders ?? (_computeEnvironmentOrders = new InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs>());
             set => _computeEnvironmentOrders = value;
-        }
-
-        [Input("computeEnvironments")]
-        private InputList<string>? _computeEnvironments;
-
-        /// <summary>
-        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-        /// </summary>
-        [Obsolete(@"This parameter will be replaced by `compute_environment_order`.")]
-        public InputList<string> ComputeEnvironments
-        {
-            get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
-            set => _computeEnvironments = value;
         }
 
         [Input("jobStateTimeLimitActions")]

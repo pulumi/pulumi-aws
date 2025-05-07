@@ -46,9 +46,9 @@ class StageArgs:
         :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[builtins.str] description: Description of the stage.
-        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation
+        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
         :param pulumi.Input[builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "deployment", deployment)
@@ -187,7 +187,7 @@ class StageArgs:
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Version of the associated API documentation
+        Version of the associated API documentation.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -211,7 +211,7 @@ class StageArgs:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Map that defines the stage variables
+        Map that defines the stage variables.
         """
         return pulumi.get(self, "variables")
 
@@ -263,7 +263,7 @@ class _StageState:
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
-        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation
+        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
@@ -273,7 +273,7 @@ class _StageState:
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
         :param pulumi.Input[builtins.str] web_acl_arn: ARN of the WebAcl associated with the Stage.
         :param pulumi.Input[builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
@@ -417,7 +417,7 @@ class _StageState:
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Version of the associated API documentation
+        Version of the associated API documentation.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -505,7 +505,7 @@ class _StageState:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Map that defines the stage variables
+        Map that defines the stage variables.
         """
         return pulumi.get(self, "variables")
 
@@ -600,11 +600,11 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
-        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation
+        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
         :param pulumi.Input[builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         ...
@@ -748,7 +748,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
-        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation
+        :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
@@ -758,7 +758,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
         :param pulumi.Input[builtins.str] web_acl_arn: ARN of the WebAcl associated with the Stage.
         :param pulumi.Input[builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
@@ -854,7 +854,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Version of the associated API documentation
+        Version of the associated API documentation.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -914,7 +914,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Map that defines the stage variables
+        Map that defines the stage variables.
         """
         return pulumi.get(self, "variables")
 

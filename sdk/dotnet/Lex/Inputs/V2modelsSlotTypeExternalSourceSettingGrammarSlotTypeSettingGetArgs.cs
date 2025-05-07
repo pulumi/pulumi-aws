@@ -12,12 +12,18 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("sources")]
+        private InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceGetArgs>? _sources;
+
         /// <summary>
         /// Source of the grammar used to create the slot type.
         /// See `source` argument reference below.
         /// </summary>
-        [Input("source")]
-        public Input<Inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceGetArgs>? Source { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceGetArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceGetArgs>());
+            set => _sources = value;
+        }
 
         public V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingGetArgs()
         {

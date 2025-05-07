@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,11 @@ func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAmi.
 type LookupAmiArgs struct {
+	// If true, allow unsafe filter values. With unsafe
+	// filters and `mostRecent` set to `true`, a third party may introduce a new image which
+	// will be returned by this data source. Consider filtering by owner or image ID rather
+	// than setting this argument.
+	AllowUnsafeFilter *bool `pulumi:"allowUnsafeFilter"`
 	// Limit search to users with *explicit* launch permission on
 	// the image. Valid items are the numeric account ID or `self`.
 	ExecutableUsers []string `pulumi:"executableUsers"`
@@ -113,6 +118,7 @@ type LookupAmiArgs struct {
 
 // A collection of values returned by getAmi.
 type LookupAmiResult struct {
+	AllowUnsafeFilter *bool `pulumi:"allowUnsafeFilter"`
 	// OS architecture of the AMI (ie: `i386` or `x8664`).
 	Architecture string `pulumi:"architecture"`
 	// ARN of the AMI.
@@ -213,6 +219,11 @@ func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAmi.
 type LookupAmiOutputArgs struct {
+	// If true, allow unsafe filter values. With unsafe
+	// filters and `mostRecent` set to `true`, a third party may introduce a new image which
+	// will be returned by this data source. Consider filtering by owner or image ID rather
+	// than setting this argument.
+	AllowUnsafeFilter pulumi.BoolPtrInput `pulumi:"allowUnsafeFilter"`
 	// Limit search to users with *explicit* launch permission on
 	// the image. Valid items are the numeric account ID or `self`.
 	ExecutableUsers pulumi.StringArrayInput `pulumi:"executableUsers"`
@@ -263,6 +274,10 @@ func (o LookupAmiResultOutput) ToLookupAmiResultOutput() LookupAmiResultOutput {
 
 func (o LookupAmiResultOutput) ToLookupAmiResultOutputWithContext(ctx context.Context) LookupAmiResultOutput {
 	return o
+}
+
+func (o LookupAmiResultOutput) AllowUnsafeFilter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *bool { return v.AllowUnsafeFilter }).(pulumi.BoolPtrOutput)
 }
 
 // OS architecture of the AMI (ie: `i386` or `x8664`).

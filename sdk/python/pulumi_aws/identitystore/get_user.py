@@ -29,7 +29,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, filter=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
+    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
         pulumi.set(__self__, "addresses", addresses)
@@ -45,9 +45,6 @@ class GetUserResult:
         if external_ids and not isinstance(external_ids, list):
             raise TypeError("Expected argument 'external_ids' to be a list")
         pulumi.set(__self__, "external_ids", external_ids)
-        if filter and not isinstance(filter, dict):
-            raise TypeError("Expected argument 'filter' to be a dict")
-        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -124,12 +121,6 @@ class GetUserResult:
         List of identifiers issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "external_ids")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""filter is deprecated. Use alternate_identifier instead.""")
-    def filter(self) -> Optional['outputs.GetUserFilterResult']:
-        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -241,7 +232,6 @@ class AwaitableGetUserResult(GetUserResult):
             display_name=self.display_name,
             emails=self.emails,
             external_ids=self.external_ids,
-            filter=self.filter,
             id=self.id,
             identity_store_id=self.identity_store_id,
             locale=self.locale,
@@ -258,7 +248,6 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']] = None,
-             filter: Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']] = None,
              identity_store_id: Optional[builtins.str] = None,
              user_id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
@@ -284,7 +273,6 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
 
 
     :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param Union['GetUserFilterArgs', 'GetUserFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
@@ -294,7 +282,6 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
-    __args__['filter'] = filter
     __args__['identityStoreId'] = identity_store_id
     __args__['userId'] = user_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -306,7 +293,6 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         display_name=pulumi.get(__ret__, 'display_name'),
         emails=pulumi.get(__ret__, 'emails'),
         external_ids=pulumi.get(__ret__, 'external_ids'),
-        filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         locale=pulumi.get(__ret__, 'locale'),
@@ -321,7 +307,6 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         user_name=pulumi.get(__ret__, 'user_name'),
         user_type=pulumi.get(__ret__, 'user_type'))
 def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
-                    filter: Optional[pulumi.Input[Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']]]] = None,
                     identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
                     user_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
@@ -347,7 +332,6 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
 
 
     :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param Union['GetUserFilterArgs', 'GetUserFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
@@ -357,7 +341,6 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
-    __args__['filter'] = filter
     __args__['identityStoreId'] = identity_store_id
     __args__['userId'] = user_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -368,7 +351,6 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
         display_name=pulumi.get(__response__, 'display_name'),
         emails=pulumi.get(__response__, 'emails'),
         external_ids=pulumi.get(__response__, 'external_ids'),
-        filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
         identity_store_id=pulumi.get(__response__, 'identity_store_id'),
         locale=pulumi.get(__response__, 'locale'),

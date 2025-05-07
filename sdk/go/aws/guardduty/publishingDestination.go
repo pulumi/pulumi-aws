@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,11 +23,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gdBucket, err := s3.NewBucketV2(ctx, "gd_bucket", &s3.BucketV2Args{
+//			gdBucket, err := s3.NewBucket(ctx, "gd_bucket", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -136,7 +136,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "gd_bucket_acl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "gd_bucket_acl", &s3.BucketAclArgs{
 //				Bucket: gdBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})

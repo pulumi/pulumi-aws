@@ -9,7 +9,6 @@ import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingPromptSpecif
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,11 +18,11 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
 
     public static final V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs Empty = new V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs();
 
-    @Import(name="customPayloads")
-    private @Nullable Output<List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs>> customPayloads;
+    @Import(name="customPayload")
+    private @Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs> customPayload;
 
-    public Optional<Output<List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs>>> customPayloads() {
-        return Optional.ofNullable(this.customPayloads);
+    public Optional<Output<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs>> customPayload() {
+        return Optional.ofNullable(this.customPayload);
     }
 
     @Import(name="imageResponseCard")
@@ -50,7 +49,7 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
     private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs() {}
 
     private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs $) {
-        this.customPayloads = $.customPayloads;
+        this.customPayload = $.customPayload;
         this.imageResponseCard = $.imageResponseCard;
         this.plainTextMessage = $.plainTextMessage;
         this.ssmlMessage = $.ssmlMessage;
@@ -74,17 +73,13 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
             $ = new V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder customPayloads(@Nullable Output<List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs>> customPayloads) {
-            $.customPayloads = customPayloads;
+        public Builder customPayload(@Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs> customPayload) {
+            $.customPayload = customPayload;
             return this;
         }
 
-        public Builder customPayloads(List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs> customPayloads) {
-            return customPayloads(Output.of(customPayloads));
-        }
-
-        public Builder customPayloads(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs... customPayloads) {
-            return customPayloads(List.of(customPayloads));
+        public Builder customPayload(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs customPayload) {
+            return customPayload(Output.of(customPayload));
         }
 
         public Builder imageResponseCard(@Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs> imageResponseCard) {

@@ -33,14 +33,14 @@ public final class DirectoryBucketState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * @return Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -158,7 +158,7 @@ public final class DirectoryBucketState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DirectoryBucketState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+         * @param bucket Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
          * 
          * @return builder
          * 

@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class StreamProcessorRegionsOfInterest {
@@ -18,7 +16,7 @@ public final class StreamProcessorRegionsOfInterest {
      * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
      * 
      */
-    private @Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox;
+    private StreamProcessorRegionsOfInterestBoundingBox boundingBox;
     /**
      * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
      * 
@@ -30,8 +28,8 @@ public final class StreamProcessorRegionsOfInterest {
      * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
      * 
      */
-    public Optional<StreamProcessorRegionsOfInterestBoundingBox> boundingBox() {
-        return Optional.ofNullable(this.boundingBox);
+    public StreamProcessorRegionsOfInterestBoundingBox boundingBox() {
+        return this.boundingBox;
     }
     /**
      * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
@@ -50,7 +48,7 @@ public final class StreamProcessorRegionsOfInterest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox;
+        private StreamProcessorRegionsOfInterestBoundingBox boundingBox;
         private List<StreamProcessorRegionsOfInterestPolygon> polygons;
         public Builder() {}
         public Builder(StreamProcessorRegionsOfInterest defaults) {
@@ -60,8 +58,10 @@ public final class StreamProcessorRegionsOfInterest {
         }
 
         @CustomType.Setter
-        public Builder boundingBox(@Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox) {
-
+        public Builder boundingBox(StreamProcessorRegionsOfInterestBoundingBox boundingBox) {
+            if (boundingBox == null) {
+              throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterest", "boundingBox");
+            }
             this.boundingBox = boundingBox;
             return this;
         }

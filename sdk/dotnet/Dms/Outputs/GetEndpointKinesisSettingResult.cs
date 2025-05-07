@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Dms.Outputs
         public readonly bool PartitionIncludeSchemaTable;
         public readonly string ServiceAccessRoleArn;
         public readonly string StreamArn;
+        public readonly bool UseLargeIntegerValue;
 
         [OutputConstructor]
         private GetEndpointKinesisSettingResult(
@@ -41,7 +42,9 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string serviceAccessRoleArn,
 
-            string streamArn)
+            string streamArn,
+
+            bool useLargeIntegerValue)
         {
             IncludeControlDetails = includeControlDetails;
             IncludeNullAndEmpty = includeNullAndEmpty;
@@ -52,6 +55,7 @@ namespace Pulumi.Aws.Dms.Outputs
             PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
             ServiceAccessRoleArn = serviceAccessRoleArn;
             StreamArn = streamArn;
+            UseLargeIntegerValue = useLargeIntegerValue;
         }
     }
 }

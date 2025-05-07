@@ -220,7 +220,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket",
@@ -242,7 +242,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
@@ -295,7 +295,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket",
@@ -317,7 +317,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",

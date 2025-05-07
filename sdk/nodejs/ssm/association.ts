@@ -144,12 +144,6 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly documentVersion!: pulumi.Output<string>;
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     *
-     * @deprecated instance_id is deprecated. Use targets instead.
-     */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
     public readonly maxConcurrency!: pulumi.Output<string | undefined>;
@@ -218,7 +212,6 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
             resourceInputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
             resourceInputs["documentVersion"] = state ? state.documentVersion : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
             resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
             resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -237,7 +230,6 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
             resourceInputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
             resourceInputs["documentVersion"] = args ? args.documentVersion : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
             resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -289,12 +281,6 @@ export interface AssociationState {
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
     documentVersion?: pulumi.Input<string>;
-    /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     *
-     * @deprecated instance_id is deprecated. Use targets instead.
-     */
-    instanceId?: pulumi.Input<string>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
@@ -369,12 +355,6 @@ export interface AssociationArgs {
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
     documentVersion?: pulumi.Input<string>;
-    /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     *
-     * @deprecated instance_id is deprecated. Use targets instead.
-     */
-    instanceId?: pulumi.Input<string>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */

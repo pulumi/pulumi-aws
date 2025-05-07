@@ -8,21 +8,20 @@ import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndCont
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage;
 import com.pulumi.core.annotations.CustomType;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
-    private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads;
+    private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload customPayload;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage plainTextMessage;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation() {}
-    public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads() {
-        return this.customPayloads == null ? List.of() : this.customPayloads;
+    public Optional<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayload() {
+        return Optional.ofNullable(this.customPayload);
     }
     public Optional<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
@@ -43,27 +42,24 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads;
+        private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload customPayload;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage plainTextMessage;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage ssmlMessage;
         public Builder() {}
         public Builder(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.customPayloads = defaults.customPayloads;
+    	      this.customPayload = defaults.customPayload;
     	      this.imageResponseCard = defaults.imageResponseCard;
     	      this.plainTextMessage = defaults.plainTextMessage;
     	      this.ssmlMessage = defaults.ssmlMessage;
         }
 
         @CustomType.Setter
-        public Builder customPayloads(@Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads) {
+        public Builder customPayload(@Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload customPayload) {
 
-            this.customPayloads = customPayloads;
+            this.customPayload = customPayload;
             return this;
-        }
-        public Builder customPayloads(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload... customPayloads) {
-            return customPayloads(List.of(customPayloads));
         }
         @CustomType.Setter
         public Builder imageResponseCard(@Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard) {
@@ -85,7 +81,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
         }
         public V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation build() {
             final var _resultValue = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation();
-            _resultValue.customPayloads = customPayloads;
+            _resultValue.customPayload = customPayload;
             _resultValue.imageResponseCard = imageResponseCard;
             _resultValue.plainTextMessage = plainTextMessage;
             _resultValue.ssmlMessage = ssmlMessage;

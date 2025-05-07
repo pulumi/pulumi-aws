@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,9 +87,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,14 +105,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Key:    pulumi.String("example-key"),
 //				Content: pulumi.String(`Resources:
 //	  IAMPasswordPolicy:
@@ -131,7 +131,7 @@ import (
 //			}
 //			_, err = cfg.NewOrganizationConformancePack(ctx, "example", &cfg.OrganizationConformancePackArgs{
 //				Name: pulumi.String("example"),
-//				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
+//				TemplateS3Uri: pulumi.All(exampleBucket.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					bucket := _args[0].(string)
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", bucket, key), nil

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.batch.ComputeEnvironment("example", {
- *     computeEnvironmentName: "example",
+ *     name: "example",
  *     serviceRole: exampleAwsIamRole.arn,
  *     type: "UNMANAGED",
  * });

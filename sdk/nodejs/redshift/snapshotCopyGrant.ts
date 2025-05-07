@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.redshift.SnapshotCopyGrant("test", {snapshotCopyGrantName: "my-grant"});
- * const testCluster = new aws.redshift.Cluster("test", {snapshotCopy: {
- *     destinationRegion: "us-east-2",
- *     grantName: test.snapshotCopyGrantName,
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:

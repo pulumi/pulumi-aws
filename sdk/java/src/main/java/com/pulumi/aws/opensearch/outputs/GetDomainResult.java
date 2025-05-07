@@ -129,15 +129,6 @@ public final class GetDomainResult {
      */
     private String ipAddressType;
     /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    private String kibanaEndpoint;
-    /**
      * @return Domain log publishing related options.
      * 
      */
@@ -323,17 +314,6 @@ public final class GetDomainResult {
         return this.ipAddressType;
     }
     /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    public String kibanaEndpoint() {
-        return this.kibanaEndpoint;
-    }
-    /**
      * @return Domain log publishing related options.
      * 
      */
@@ -420,7 +400,6 @@ public final class GetDomainResult {
         private String engineVersion;
         private String id;
         private String ipAddressType;
-        private String kibanaEndpoint;
         private List<GetDomainLogPublishingOption> logPublishingOptions;
         private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
         private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
@@ -453,7 +432,6 @@ public final class GetDomainResult {
     	      this.engineVersion = defaults.engineVersion;
     	      this.id = defaults.id;
     	      this.ipAddressType = defaults.ipAddressType;
-    	      this.kibanaEndpoint = defaults.kibanaEndpoint;
     	      this.logPublishingOptions = defaults.logPublishingOptions;
     	      this.nodeToNodeEncryptions = defaults.nodeToNodeEncryptions;
     	      this.offPeakWindowOptions = defaults.offPeakWindowOptions;
@@ -651,14 +629,6 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kibanaEndpoint(String kibanaEndpoint) {
-            if (kibanaEndpoint == null) {
-              throw new MissingRequiredPropertyException("GetDomainResult", "kibanaEndpoint");
-            }
-            this.kibanaEndpoint = kibanaEndpoint;
-            return this;
-        }
-        @CustomType.Setter
         public Builder logPublishingOptions(List<GetDomainLogPublishingOption> logPublishingOptions) {
             if (logPublishingOptions == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "logPublishingOptions");
@@ -758,7 +728,6 @@ public final class GetDomainResult {
             _resultValue.engineVersion = engineVersion;
             _resultValue.id = id;
             _resultValue.ipAddressType = ipAddressType;
-            _resultValue.kibanaEndpoint = kibanaEndpoint;
             _resultValue.logPublishingOptions = logPublishingOptions;
             _resultValue.nodeToNodeEncryptions = nodeToNodeEncryptions;
             _resultValue.offPeakWindowOptions = offPeakWindowOptions;

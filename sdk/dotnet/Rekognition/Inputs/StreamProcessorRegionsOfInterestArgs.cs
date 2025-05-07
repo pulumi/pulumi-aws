@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Rekognition.Inputs
         /// <summary>
         /// Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
         /// </summary>
-        [Input("boundingBox")]
-        public Input<Inputs.StreamProcessorRegionsOfInterestBoundingBoxArgs>? BoundingBox { get; set; }
+        [Input("boundingBox", required: true)]
+        public Input<Inputs.StreamProcessorRegionsOfInterestBoundingBoxArgs> BoundingBox { get; set; } = null!;
 
         [Input("polygons", required: true)]
         private InputList<Inputs.StreamProcessorRegionsOfInterestPolygonArgs>? _polygons;

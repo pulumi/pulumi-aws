@@ -28,6 +28,11 @@ public final class DomainNameDomainNameConfiguration {
      */
     private @Nullable String hostedZoneId;
     /**
+     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+     * 
+     */
+    private @Nullable String ipAddressType;
+    /**
      * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
@@ -66,6 +71,13 @@ public final class DomainNameDomainNameConfiguration {
         return Optional.ofNullable(this.hostedZoneId);
     }
     /**
+     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+     * 
+     */
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+    /**
      * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
@@ -99,6 +111,7 @@ public final class DomainNameDomainNameConfiguration {
         private String certificateArn;
         private String endpointType;
         private @Nullable String hostedZoneId;
+        private @Nullable String ipAddressType;
         private @Nullable String ownershipVerificationCertificateArn;
         private String securityPolicy;
         private @Nullable String targetDomainName;
@@ -108,6 +121,7 @@ public final class DomainNameDomainNameConfiguration {
     	      this.certificateArn = defaults.certificateArn;
     	      this.endpointType = defaults.endpointType;
     	      this.hostedZoneId = defaults.hostedZoneId;
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.ownershipVerificationCertificateArn = defaults.ownershipVerificationCertificateArn;
     	      this.securityPolicy = defaults.securityPolicy;
     	      this.targetDomainName = defaults.targetDomainName;
@@ -136,6 +150,12 @@ public final class DomainNameDomainNameConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ownershipVerificationCertificateArn(@Nullable String ownershipVerificationCertificateArn) {
 
             this.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
@@ -160,6 +180,7 @@ public final class DomainNameDomainNameConfiguration {
             _resultValue.certificateArn = certificateArn;
             _resultValue.endpointType = endpointType;
             _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
             _resultValue.securityPolicy = securityPolicy;
             _resultValue.targetDomainName = targetDomainName;

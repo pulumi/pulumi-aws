@@ -354,11 +354,11 @@ class Domain(pulumi.CustomResource):
         example_key = aws.kms.Key("example",
             description="example",
             deletion_window_in_days=10)
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -370,8 +370,8 @@ class Domain(pulumi.CustomResource):
                         "s3:ListBucket",
                     ],
                     "Resource": [
-                        example_bucket_v2.arn,
-                        example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                        example_bucket.arn,
+                        example_bucket.arn.apply(lambda arn: f"{arn}/*"),
                     ],
                     "Principal": {
                         "Service": "profile.amazonaws.com",
@@ -448,11 +448,11 @@ class Domain(pulumi.CustomResource):
         example_key = aws.kms.Key("example",
             description="example",
             deletion_window_in_days=10)
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example",
             force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -464,8 +464,8 @@ class Domain(pulumi.CustomResource):
                         "s3:ListBucket",
                     ],
                     "Resource": [
-                        example_bucket_v2.arn,
-                        example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                        example_bucket.arn,
+                        example_bucket.arn.apply(lambda arn: f"{arn}/*"),
                     ],
                     "Principal": {
                         "Service": "profile.amazonaws.com",

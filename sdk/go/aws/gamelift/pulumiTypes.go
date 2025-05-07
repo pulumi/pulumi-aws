@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1788,112 +1788,6 @@ func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput)
 	}).(GameSessionQueuePlayerLatencyPolicyOutput)
 }
 
-type MatchmakingConfigurationGameProperty struct {
-	// A game property key
-	Key string `pulumi:"key"`
-	// A game property value.
-	Value string `pulumi:"value"`
-}
-
-// MatchmakingConfigurationGamePropertyInput is an input type that accepts MatchmakingConfigurationGamePropertyArgs and MatchmakingConfigurationGamePropertyOutput values.
-// You can construct a concrete instance of `MatchmakingConfigurationGamePropertyInput` via:
-//
-//	MatchmakingConfigurationGamePropertyArgs{...}
-type MatchmakingConfigurationGamePropertyInput interface {
-	pulumi.Input
-
-	ToMatchmakingConfigurationGamePropertyOutput() MatchmakingConfigurationGamePropertyOutput
-	ToMatchmakingConfigurationGamePropertyOutputWithContext(context.Context) MatchmakingConfigurationGamePropertyOutput
-}
-
-type MatchmakingConfigurationGamePropertyArgs struct {
-	// A game property key
-	Key pulumi.StringInput `pulumi:"key"`
-	// A game property value.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MatchmakingConfigurationGamePropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingConfigurationGameProperty)(nil)).Elem()
-}
-
-func (i MatchmakingConfigurationGamePropertyArgs) ToMatchmakingConfigurationGamePropertyOutput() MatchmakingConfigurationGamePropertyOutput {
-	return i.ToMatchmakingConfigurationGamePropertyOutputWithContext(context.Background())
-}
-
-func (i MatchmakingConfigurationGamePropertyArgs) ToMatchmakingConfigurationGamePropertyOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationGamePropertyOutput)
-}
-
-// MatchmakingConfigurationGamePropertyArrayInput is an input type that accepts MatchmakingConfigurationGamePropertyArray and MatchmakingConfigurationGamePropertyArrayOutput values.
-// You can construct a concrete instance of `MatchmakingConfigurationGamePropertyArrayInput` via:
-//
-//	MatchmakingConfigurationGamePropertyArray{ MatchmakingConfigurationGamePropertyArgs{...} }
-type MatchmakingConfigurationGamePropertyArrayInput interface {
-	pulumi.Input
-
-	ToMatchmakingConfigurationGamePropertyArrayOutput() MatchmakingConfigurationGamePropertyArrayOutput
-	ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(context.Context) MatchmakingConfigurationGamePropertyArrayOutput
-}
-
-type MatchmakingConfigurationGamePropertyArray []MatchmakingConfigurationGamePropertyInput
-
-func (MatchmakingConfigurationGamePropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchmakingConfigurationGameProperty)(nil)).Elem()
-}
-
-func (i MatchmakingConfigurationGamePropertyArray) ToMatchmakingConfigurationGamePropertyArrayOutput() MatchmakingConfigurationGamePropertyArrayOutput {
-	return i.ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(context.Background())
-}
-
-func (i MatchmakingConfigurationGamePropertyArray) ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationGamePropertyArrayOutput)
-}
-
-type MatchmakingConfigurationGamePropertyOutput struct{ *pulumi.OutputState }
-
-func (MatchmakingConfigurationGamePropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingConfigurationGameProperty)(nil)).Elem()
-}
-
-func (o MatchmakingConfigurationGamePropertyOutput) ToMatchmakingConfigurationGamePropertyOutput() MatchmakingConfigurationGamePropertyOutput {
-	return o
-}
-
-func (o MatchmakingConfigurationGamePropertyOutput) ToMatchmakingConfigurationGamePropertyOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyOutput {
-	return o
-}
-
-// A game property key
-func (o MatchmakingConfigurationGamePropertyOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchmakingConfigurationGameProperty) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A game property value.
-func (o MatchmakingConfigurationGamePropertyOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchmakingConfigurationGameProperty) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MatchmakingConfigurationGamePropertyArrayOutput struct{ *pulumi.OutputState }
-
-func (MatchmakingConfigurationGamePropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchmakingConfigurationGameProperty)(nil)).Elem()
-}
-
-func (o MatchmakingConfigurationGamePropertyArrayOutput) ToMatchmakingConfigurationGamePropertyArrayOutput() MatchmakingConfigurationGamePropertyArrayOutput {
-	return o
-}
-
-func (o MatchmakingConfigurationGamePropertyArrayOutput) ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyArrayOutput {
-	return o
-}
-
-func (o MatchmakingConfigurationGamePropertyArrayOutput) Index(i pulumi.IntInput) MatchmakingConfigurationGamePropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingConfigurationGameProperty {
-		return vs[0].([]MatchmakingConfigurationGameProperty)[vs[1].(int)]
-	}).(MatchmakingConfigurationGamePropertyOutput)
-}
-
 type ScriptStorageLocation struct {
 	// Name of your S3 bucket.
 	Bucket string `pulumi:"bucket"`
@@ -2113,8 +2007,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplatePtrInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyArrayInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyArrayInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptStorageLocationInput)(nil)).Elem(), ScriptStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptStorageLocationPtrInput)(nil)).Elem(), ScriptStorageLocationArgs{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
@@ -2141,8 +2033,6 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyArrayOutput{})
-	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyOutput{})
-	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyArrayOutput{})
 	pulumi.RegisterOutputType(ScriptStorageLocationOutput{})
 	pulumi.RegisterOutputType(ScriptStorageLocationPtrOutput{})
 }

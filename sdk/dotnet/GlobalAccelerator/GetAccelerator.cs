@@ -105,9 +105,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("arn")]
         public string? Arn { get; set; }
 
-        [Input("id")]
-        public string? Id { get; set; }
-
         /// <summary>
         /// Unique name of the Global Accelerator.
         /// 
@@ -129,9 +126,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Unique name of the Global Accelerator.

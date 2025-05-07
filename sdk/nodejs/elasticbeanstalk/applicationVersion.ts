@@ -26,7 +26,7 @@ import {Application} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.s3.BucketV2("default", {bucket: "tftest.applicationversion.bucket"});
+ * const _default = new aws.s3.Bucket("default", {bucket: "tftest.applicationversion.bucket"});
  * const defaultBucketObjectv2 = new aws.s3.BucketObjectv2("default", {
  *     bucket: _default.id,
  *     key: "beanstalk/go-v1.zip",

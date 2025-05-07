@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.cfg.ConformancePack;
@@ -114,12 +114,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(exampleBucket.id())
  *             .key("example-key")
  *             .content("""
  * Resources:
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new ConformancePack("example", ConformancePackArgs.builder()
  *             .name("example")
- *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -> {
+ *             .templateS3Uri(Output.tuple(exampleBucket.bucket(), exampleBucketObjectv2.key()).applyValue(values -> {
  *                 var bucket = values.t1;
  *                 var key = values.t2;
  *                 return String.format("s3://%s/%s", bucket,key);

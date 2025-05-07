@@ -29,7 +29,6 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
         "awsAccountId": args.awsAccountId,
         "dataSetId": args.dataSetId,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -48,10 +47,6 @@ export interface GetDataSetArgs {
      */
     dataSetId: string;
     tags?: {[key: string]: string};
-    /**
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    tagsAll?: {[key: string]: string};
 }
 
 /**
@@ -77,10 +72,6 @@ export interface GetDataSetResult {
     readonly rowLevelPermissionDataSets: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
     readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
-    /**
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    readonly tagsAll: {[key: string]: string};
 }
 /**
  * Data source for managing a QuickSight Data Set.
@@ -104,7 +95,6 @@ export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.Invok
         "awsAccountId": args.awsAccountId,
         "dataSetId": args.dataSetId,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -123,8 +113,4 @@ export interface GetDataSetOutputArgs {
      */
     dataSetId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

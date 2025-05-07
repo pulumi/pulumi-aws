@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,22 +21,22 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
      * See `grammar_slot_type_setting` argument reference below.
      * 
      */
-    @Import(name="grammarSlotTypeSetting")
-    private @Nullable Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs> grammarSlotTypeSetting;
+    @Import(name="grammarSlotTypeSettings")
+    private @Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>> grammarSlotTypeSettings;
 
     /**
      * @return Settings required for a slot type based on a grammar that you provide.
      * See `grammar_slot_type_setting` argument reference below.
      * 
      */
-    public Optional<Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>> grammarSlotTypeSetting() {
-        return Optional.ofNullable(this.grammarSlotTypeSetting);
+    public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>>> grammarSlotTypeSettings() {
+        return Optional.ofNullable(this.grammarSlotTypeSettings);
     }
 
     private V2modelsSlotTypeExternalSourceSettingArgs() {}
 
     private V2modelsSlotTypeExternalSourceSettingArgs(V2modelsSlotTypeExternalSourceSettingArgs $) {
-        this.grammarSlotTypeSetting = $.grammarSlotTypeSetting;
+        this.grammarSlotTypeSettings = $.grammarSlotTypeSettings;
     }
 
     public static Builder builder() {
@@ -57,26 +58,37 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param grammarSlotTypeSetting Settings required for a slot type based on a grammar that you provide.
+         * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
          * See `grammar_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder grammarSlotTypeSetting(@Nullable Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs> grammarSlotTypeSetting) {
-            $.grammarSlotTypeSetting = grammarSlotTypeSetting;
+        public Builder grammarSlotTypeSettings(@Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>> grammarSlotTypeSettings) {
+            $.grammarSlotTypeSettings = grammarSlotTypeSettings;
             return this;
         }
 
         /**
-         * @param grammarSlotTypeSetting Settings required for a slot type based on a grammar that you provide.
+         * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
          * See `grammar_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder grammarSlotTypeSetting(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs grammarSlotTypeSetting) {
-            return grammarSlotTypeSetting(Output.of(grammarSlotTypeSetting));
+        public Builder grammarSlotTypeSettings(List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs> grammarSlotTypeSettings) {
+            return grammarSlotTypeSettings(Output.of(grammarSlotTypeSettings));
+        }
+
+        /**
+         * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
+         * See `grammar_slot_type_setting` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grammarSlotTypeSettings(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs... grammarSlotTypeSettings) {
+            return grammarSlotTypeSettings(List.of(grammarSlotTypeSettings));
         }
 
         public V2modelsSlotTypeExternalSourceSettingArgs build() {

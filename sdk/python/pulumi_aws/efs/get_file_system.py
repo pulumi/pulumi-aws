@@ -59,8 +59,8 @@ class GetFileSystemResult:
         if lifecycle_policies and not isinstance(lifecycle_policies, list):
             raise TypeError("Expected argument 'lifecycle_policies' to be a list")
         pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
-        if lifecycle_policy and not isinstance(lifecycle_policy, dict):
-            raise TypeError("Expected argument 'lifecycle_policy' to be a dict")
+        if lifecycle_policy and not isinstance(lifecycle_policy, list):
+            raise TypeError("Expected argument 'lifecycle_policy' to be a list")
         pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -158,7 +158,7 @@ class GetFileSystemResult:
     @property
     @pulumi.getter(name="lifecyclePolicy")
     @_utilities.deprecated("""Use `lifecycle_policies` instead. This field will be removed in the next major version.""")
-    def lifecycle_policy(self) -> 'outputs.GetFileSystemLifecyclePolicyResult':
+    def lifecycle_policy(self) -> Sequence['outputs.GetFileSystemLifecyclePolicyResult']:
         """
         File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         """

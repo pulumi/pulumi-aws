@@ -197,14 +197,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      * 
      */
     @Export(name="documentationVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> documentationVersion;
 
     /**
-     * @return Version of the associated API documentation
+     * @return Version of the associated API documentation.
      * 
      */
     public Output<Optional<String>> documentationVersion() {
@@ -305,14 +305,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      * 
      */
     @Export(name="variables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> variables;
 
     /**
-     * @return Map that defines the stage variables
+     * @return Map that defines the stage variables.
      * 
      */
     public Output<Optional<Map<String,String>>> variables() {

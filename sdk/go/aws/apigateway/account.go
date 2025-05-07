@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,12 +116,6 @@ type Account struct {
 	CloudwatchRoleArn pulumi.StringOutput `pulumi:"cloudwatchRoleArn"`
 	// A list of features supported for the account.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
-	// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-	// Defaults to `false`.
-	// Will be removed in a future major version of the provider.
-	//
-	// Deprecated: The "resetOnDelete" attribute will be removed in a future version of the provider
-	ResetOnDelete pulumi.BoolPtrOutput `pulumi:"resetOnDelete"`
 	// Account-Level throttle settings. See exported fields below.
 	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
 }
@@ -162,12 +156,6 @@ type accountState struct {
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
 	// A list of features supported for the account.
 	Features []string `pulumi:"features"`
-	// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-	// Defaults to `false`.
-	// Will be removed in a future major version of the provider.
-	//
-	// Deprecated: The "resetOnDelete" attribute will be removed in a future version of the provider
-	ResetOnDelete *bool `pulumi:"resetOnDelete"`
 	// Account-Level throttle settings. See exported fields below.
 	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
 }
@@ -179,12 +167,6 @@ type AccountState struct {
 	CloudwatchRoleArn pulumi.StringPtrInput
 	// A list of features supported for the account.
 	Features pulumi.StringArrayInput
-	// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-	// Defaults to `false`.
-	// Will be removed in a future major version of the provider.
-	//
-	// Deprecated: The "resetOnDelete" attribute will be removed in a future version of the provider
-	ResetOnDelete pulumi.BoolPtrInput
 	// Account-Level throttle settings. See exported fields below.
 	ThrottleSettings AccountThrottleSettingArrayInput
 }
@@ -196,24 +178,12 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
-	// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-	// Defaults to `false`.
-	// Will be removed in a future major version of the provider.
-	//
-	// Deprecated: The "resetOnDelete" attribute will be removed in a future version of the provider
-	ResetOnDelete *bool `pulumi:"resetOnDelete"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
-	// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-	// Defaults to `false`.
-	// Will be removed in a future major version of the provider.
-	//
-	// Deprecated: The "resetOnDelete" attribute will be removed in a future version of the provider
-	ResetOnDelete pulumi.BoolPtrInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -316,15 +286,6 @@ func (o AccountOutput) CloudwatchRoleArn() pulumi.StringOutput {
 // A list of features supported for the account.
 func (o AccountOutput) Features() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
-}
-
-// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-// Defaults to `false`.
-// Will be removed in a future major version of the provider.
-//
-// Deprecated: The "resetOnDelete" attribute will be removed in a future version of the provider
-func (o AccountOutput) ResetOnDelete() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.ResetOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Account-Level throttle settings. See exported fields below.

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.s3.BucketV2("default", {bucket: "tf-spot-datafeed"});
+ * const _default = new aws.s3.Bucket("default", {bucket: "tf-spot-datafeed"});
  * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("default", {
  *     bucket: _default.id,
  *     prefix: "my_subdirectory",

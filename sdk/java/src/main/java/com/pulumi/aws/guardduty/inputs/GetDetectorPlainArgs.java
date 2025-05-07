@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -29,10 +30,26 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Map of tags for the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetDetectorPlainArgs() {}
 
     private GetDetectorPlainArgs(GetDetectorPlainArgs $) {
         this.id = $.id;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -61,6 +78,17 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder id(@Nullable String id) {
             $.id = id;
+            return this;
+        }
+
+        /**
+         * @param tags Map of tags for the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

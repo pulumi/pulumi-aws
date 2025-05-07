@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `container_definitions` and `inference_accelerator`
+    /// ### Example Using `container_definitions`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -285,24 +285,10 @@ namespace Pulumi.Aws.Ecs
     ///         ""containerPort"": 80,
     ///         ""hostPort"": 8080
     ///       }
-    ///     ],
-    ///         ""resourceRequirements"":[
-    ///             {
-    ///                 ""type"":""InferenceAccelerator"",
-    ///                 ""value"":""device_1""
-    ///             }
-    ///         ]
+    ///     ]
     ///   }
     /// ]
     /// ",
-    ///         InferenceAccelerators = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
-    ///             {
-    ///                 DeviceName = "device_1",
-    ///                 DeviceType = "eia1.medium",
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -410,12 +396,6 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
-        [Output("inferenceAccelerators")]
-        public Output<ImmutableArray<Outputs.TaskDefinitionInferenceAccelerator>> InferenceAccelerators { get; private set; } = null!;
 
         /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
@@ -593,18 +573,6 @@ namespace Pulumi.Aws.Ecs
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
-        [Input("inferenceAccelerators")]
-        private InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>? _inferenceAccelerators;
-
-        /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
-        public InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs> InferenceAccelerators
-        {
-            get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>());
-            set => _inferenceAccelerators = value;
-        }
-
         /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
@@ -766,18 +734,6 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
-
-        [Input("inferenceAccelerators")]
-        private InputList<Inputs.TaskDefinitionInferenceAcceleratorGetArgs>? _inferenceAccelerators;
-
-        /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
-        public InputList<Inputs.TaskDefinitionInferenceAcceleratorGetArgs> InferenceAccelerators
-        {
-            get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorGetArgs>());
-            set => _inferenceAccelerators = value;
-        }
 
         /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.

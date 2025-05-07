@@ -10,8 +10,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,15 +20,15 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
      * Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
      * 
      */
-    @Import(name="boundingBox")
-    private @Nullable Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox;
+    @Import(name="boundingBox", required=true)
+    private Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox;
 
     /**
      * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
      * 
      */
-    public Optional<Output<StreamProcessorRegionsOfInterestBoundingBoxArgs>> boundingBox() {
-        return Optional.ofNullable(this.boundingBox);
+    public Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox() {
+        return this.boundingBox;
     }
 
     /**
@@ -79,7 +77,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder boundingBox(@Nullable Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox) {
+        public Builder boundingBox(Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox) {
             $.boundingBox = boundingBox;
             return this;
         }
@@ -126,6 +124,9 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         public StreamProcessorRegionsOfInterestArgs build() {
+            if ($.boundingBox == null) {
+                throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterestArgs", "boundingBox");
+            }
             if ($.polygons == null) {
                 throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterestArgs", "polygons");
             }

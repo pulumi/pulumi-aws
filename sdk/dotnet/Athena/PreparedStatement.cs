@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "tf-test",
+    ///         BucketName = "tf-test",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Athena
     ///     var testDatabase = new Aws.Athena.Database("test", new()
     ///     {
     ///         Name = "example",
-    ///         Bucket = test.Bucket,
+    ///         Bucket = test.BucketName,
     ///     });
     /// 
     ///     var testPreparedStatement = new Aws.Athena.PreparedStatement("test", new()

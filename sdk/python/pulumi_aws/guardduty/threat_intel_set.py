@@ -284,8 +284,8 @@ class ThreatIntelSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket = aws.s3.Bucket("bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         my_threat_intel_set = aws.s3.BucketObjectv2("MyThreatIntelSet",
@@ -340,8 +340,8 @@ class ThreatIntelSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket = aws.s3.Bucket("bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         my_threat_intel_set = aws.s3.BucketObjectv2("MyThreatIntelSet",

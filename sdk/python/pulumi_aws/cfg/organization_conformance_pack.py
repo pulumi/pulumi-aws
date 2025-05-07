@@ -340,9 +340,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example_organization = aws.organizations.Organization("example",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="example-key",
             content=\"\"\"Resources:
           IAMPasswordPolicy:
@@ -356,7 +356,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket_v2.bucket,
+                bucket=example_bucket.bucket,
                 key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
@@ -439,9 +439,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example_organization = aws.organizations.Organization("example",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="example-key",
             content=\"\"\"Resources:
           IAMPasswordPolicy:
@@ -455,7 +455,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket_v2.bucket,
+                bucket=example_bucket.bucket,
                 key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,

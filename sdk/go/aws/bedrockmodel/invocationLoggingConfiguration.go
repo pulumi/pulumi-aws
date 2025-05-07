@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,6 +16,95 @@ import (
 // > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrockmodel"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+//				Bucket:       pulumi.String("example"),
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: example.Bucket,
+//				Policy: example.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "bedrock.amazonaws.com"
+//	      },
+//	      "Action": [
+//	        "s3:*"
+//	      ],
+//	      "Resource": [
+//	        "%v/*"
+//	      ],
+//	      "Condition": {
+//	        "StringEquals": {
+//	          "aws:SourceAccount": "%v"
+//	        },
+//	        "ArnLike": {
+//	          "aws:SourceArn": "arn:aws:bedrock:us-east-1:%v:*"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `, arn, current.AccountId, current.AccountId), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrockmodel.NewInvocationLoggingConfiguration(ctx, "example", &bedrockmodel.InvocationLoggingConfigurationArgs{
+//				LoggingConfig: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigArgs{
+//					EmbeddingDataDeliveryEnabled: pulumi.Bool(true),
+//					ImageDataDeliveryEnabled:     pulumi.Bool(true),
+//					TextDataDeliveryEnabled:      pulumi.Bool(true),
+//					VideoDataDeliveryEnabled:     pulumi.Bool(true),
+//					S3Config: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{
+//						BucketName: example.ID(),
+//						KeyPrefix:  pulumi.String("bedrock"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

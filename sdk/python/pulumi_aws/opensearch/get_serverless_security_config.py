@@ -45,8 +45,8 @@ class GetServerlessSecurityConfigResult:
         if last_modified_date and not isinstance(last_modified_date, str):
             raise TypeError("Expected argument 'last_modified_date' to be a str")
         pulumi.set(__self__, "last_modified_date", last_modified_date)
-        if saml_options and not isinstance(saml_options, dict):
-            raise TypeError("Expected argument 'saml_options' to be a dict")
+        if saml_options and not isinstance(saml_options, list):
+            raise TypeError("Expected argument 'saml_options' to be a list")
         pulumi.set(__self__, "saml_options", saml_options)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -91,7 +91,7 @@ class GetServerlessSecurityConfigResult:
 
     @property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional['outputs.GetServerlessSecurityConfigSamlOptionsResult']:
+    def saml_options(self) -> Optional[Sequence['outputs.GetServerlessSecurityConfigSamlOptionResult']]:
         """
         SAML options for the security configuration.
         """
@@ -122,7 +122,7 @@ class AwaitableGetServerlessSecurityConfigResult(GetServerlessSecurityConfigResu
 
 
 def get_serverless_security_config(id: Optional[builtins.str] = None,
-                                   saml_options: Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']] = None,
+                                   saml_options: Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityConfigResult:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -140,7 +140,7 @@ def get_serverless_security_config(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: The unique identifier of the security configuration.
-    :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -157,7 +157,7 @@ def get_serverless_security_config(id: Optional[builtins.str] = None,
         saml_options=pulumi.get(__ret__, 'saml_options'),
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_security_config_output(id: Optional[pulumi.Input[builtins.str]] = None,
-                                          saml_options: Optional[pulumi.Input[Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']]]] = None,
+                                          saml_options: Optional[pulumi.Input[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -175,7 +175,7 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str id: The unique identifier of the security configuration.
-    :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['id'] = id

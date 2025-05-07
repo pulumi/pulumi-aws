@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elb_logs", {bucket: "my-elb-tf-test-bucket"});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elb_logs_acl", {
+ * const elbLogs = new aws.s3.Bucket("elb_logs", {bucket: "my-elb-tf-test-bucket"});
+ * const elbLogsAcl = new aws.s3.BucketAcl("elb_logs_acl", {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
@@ -99,8 +99,8 @@ export interface GetServiceAccountResult {
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elb_logs", {bucket: "my-elb-tf-test-bucket"});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elb_logs_acl", {
+ * const elbLogs = new aws.s3.Bucket("elb_logs", {bucket: "my-elb-tf-test-bucket"});
+ * const elbLogsAcl = new aws.s3.BucketAcl("elb_logs_acl", {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });

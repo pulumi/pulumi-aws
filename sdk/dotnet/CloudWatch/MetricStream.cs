@@ -57,9 +57,9 @@ namespace Pulumi.Aws.CloudWatch
     ///         AssumeRolePolicy = streamsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
-    ///         Bucket = "metric-stream-test-bucket",
+    ///         BucketName = "metric-stream-test-bucket",
     ///     });
     /// 
     ///     var firehoseAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Policy = metricStreamToFirehose.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucket_acl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",

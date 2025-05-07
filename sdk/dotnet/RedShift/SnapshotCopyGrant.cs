@@ -14,33 +14,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// Note that the grant must exist in the destination region, and not in the region of the cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.RedShift.SnapshotCopyGrant("test", new()
-    ///     {
-    ///         SnapshotCopyGrantName = "my-grant",
-    ///     });
-    /// 
-    ///     var testCluster = new Aws.RedShift.Cluster("test", new()
-    ///     {
-    ///         SnapshotCopy = new Aws.RedShift.Inputs.ClusterSnapshotCopyArgs
-    ///         {
-    ///             DestinationRegion = "us-east-2",
-    ///             GrantName = test.SnapshotCopyGrantName,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:

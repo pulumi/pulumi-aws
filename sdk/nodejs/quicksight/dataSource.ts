@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.Bucket("example", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: example.bucket,
  *     key: "manifest.json",

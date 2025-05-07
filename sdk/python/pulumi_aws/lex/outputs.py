@@ -1046,9 +1046,9 @@ __all__ = [
     'V2modelsSlotTypeExternalSourceSetting',
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting',
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource',
-    'V2modelsSlotTypeSlotTypeValues',
-    'V2modelsSlotTypeSlotTypeValuesSampleValue',
-    'V2modelsSlotTypeSlotTypeValuesSynonym',
+    'V2modelsSlotTypeSlotTypeValue',
+    'V2modelsSlotTypeSlotTypeValueSampleValue',
+    'V2modelsSlotTypeSlotTypeValueSynonym',
     'V2modelsSlotTypeTimeouts',
     'V2modelsSlotTypeValueSelectionSetting',
     'V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting',
@@ -45197,8 +45197,8 @@ class V2modelsSlotTypeExternalSourceSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "grammarSlotTypeSetting":
-            suggest = "grammar_slot_type_setting"
+        if key == "grammarSlotTypeSettings":
+            suggest = "grammar_slot_type_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeExternalSourceSetting. Access the value via the '{suggest}' property getter instead.")
@@ -45212,43 +45212,43 @@ class V2modelsSlotTypeExternalSourceSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 grammar_slot_type_setting: Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting'] = None):
+                 grammar_slot_type_settings: Optional[Sequence['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting']] = None):
         """
-        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs' grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide.
+        :param Sequence['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs'] grammar_slot_type_settings: Settings required for a slot type based on a grammar that you provide.
                See `grammar_slot_type_setting` argument reference below.
         """
-        if grammar_slot_type_setting is not None:
-            pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
+        if grammar_slot_type_settings is not None:
+            pulumi.set(__self__, "grammar_slot_type_settings", grammar_slot_type_settings)
 
     @property
-    @pulumi.getter(name="grammarSlotTypeSetting")
-    def grammar_slot_type_setting(self) -> Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting']:
+    @pulumi.getter(name="grammarSlotTypeSettings")
+    def grammar_slot_type_settings(self) -> Optional[Sequence['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting']]:
         """
         Settings required for a slot type based on a grammar that you provide.
         See `grammar_slot_type_setting` argument reference below.
         """
-        return pulumi.get(self, "grammar_slot_type_setting")
+        return pulumi.get(self, "grammar_slot_type_settings")
 
 
 @pulumi.output_type
 class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting(dict):
     def __init__(__self__, *,
-                 source: Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource'] = None):
+                 sources: Optional[Sequence['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource']] = None):
         """
-        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs' source: Source of the grammar used to create the slot type.
+        :param Sequence['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs'] sources: Source of the grammar used to create the slot type.
                See `source` argument reference below.
         """
-        if source is not None:
-            pulumi.set(__self__, "source", source)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource']:
+    def sources(self) -> Optional[Sequence['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource']]:
         """
         Source of the grammar used to create the slot type.
         See `source` argument reference below.
         """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "sources")
 
 
 @pulumi.output_type
@@ -45313,7 +45313,7 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource(dict):
 
 
 @pulumi.output_type
-class V2modelsSlotTypeSlotTypeValues(dict):
+class V2modelsSlotTypeSlotTypeValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -45321,23 +45321,23 @@ class V2modelsSlotTypeSlotTypeValues(dict):
             suggest = "sample_values"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeSlotTypeValues. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeSlotTypeValue. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        V2modelsSlotTypeSlotTypeValues.__key_warning(key)
+        V2modelsSlotTypeSlotTypeValue.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        V2modelsSlotTypeSlotTypeValues.__key_warning(key)
+        V2modelsSlotTypeSlotTypeValue.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sample_values: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSampleValue']] = None,
-                 synonyms: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']] = None):
+                 sample_values: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValueSampleValue']] = None,
+                 synonyms: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValueSynonym']] = None):
         """
-        :param Sequence['V2modelsSlotTypeSlotTypeValuesSampleValueArgs'] sample_values: Value of the slot type entry.
+        :param Sequence['V2modelsSlotTypeSlotTypeValueSampleValueArgs'] sample_values: Value of the slot type entry.
                See `sample_value` argument reference below.
-        :param Sequence['V2modelsSlotTypeSlotTypeValuesSynonymArgs'] synonyms: A list of additional values related to the slot type entry.
+        :param Sequence['V2modelsSlotTypeSlotTypeValueSynonymArgs'] synonyms: A list of additional values related to the slot type entry.
                See `synonyms` argument reference below.
         """
         if sample_values is not None:
@@ -45347,7 +45347,7 @@ class V2modelsSlotTypeSlotTypeValues(dict):
 
     @property
     @pulumi.getter(name="sampleValues")
-    def sample_values(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSampleValue']]:
+    def sample_values(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValueSampleValue']]:
         """
         Value of the slot type entry.
         See `sample_value` argument reference below.
@@ -45356,7 +45356,7 @@ class V2modelsSlotTypeSlotTypeValues(dict):
 
     @property
     @pulumi.getter
-    def synonyms(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']]:
+    def synonyms(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValueSynonym']]:
         """
         A list of additional values related to the slot type entry.
         See `synonyms` argument reference below.
@@ -45365,7 +45365,7 @@ class V2modelsSlotTypeSlotTypeValues(dict):
 
 
 @pulumi.output_type
-class V2modelsSlotTypeSlotTypeValuesSampleValue(dict):
+class V2modelsSlotTypeSlotTypeValueSampleValue(dict):
     def __init__(__self__, *,
                  value: builtins.str):
         """
@@ -45383,7 +45383,7 @@ class V2modelsSlotTypeSlotTypeValuesSampleValue(dict):
 
 
 @pulumi.output_type
-class V2modelsSlotTypeSlotTypeValuesSynonym(dict):
+class V2modelsSlotTypeSlotTypeValueSynonym(dict):
     def __init__(__self__, *,
                  value: builtins.str):
         """
@@ -45863,8 +45863,8 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage(
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -45884,12 +45884,12 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage(
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -45898,9 +45898,9 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage(
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -46031,8 +46031,8 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -46052,12 +46052,12 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -46066,9 +46066,9 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -46712,8 +46712,8 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -46733,12 +46733,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -46747,9 +46747,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -46880,8 +46880,8 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -46901,12 +46901,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -46915,9 +46915,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -47156,8 +47156,8 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -47177,12 +47177,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -47191,9 +47191,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -47324,8 +47324,8 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -47345,12 +47345,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -47359,9 +47359,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -47582,8 +47582,8 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -47603,12 +47603,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -47617,9 +47617,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")
@@ -47750,8 +47750,8 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customPayloads":
-            suggest = "custom_payloads"
+        if key == "customPayload":
+            suggest = "custom_payload"
         elif key == "imageResponseCard":
             suggest = "image_response_card"
         elif key == "plainTextMessage":
@@ -47771,12 +47771,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_payloads: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload']] = None,
+                 custom_payload: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload'] = None,
                  image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage'] = None,
                  ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage'] = None):
-        if custom_payloads is not None:
-            pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -47785,9 +47785,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
             pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
-    @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload']]:
-        return pulumi.get(self, "custom_payloads")
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload']:
+        return pulumi.get(self, "custom_payload")
 
     @property
     @pulumi.getter(name="imageResponseCard")

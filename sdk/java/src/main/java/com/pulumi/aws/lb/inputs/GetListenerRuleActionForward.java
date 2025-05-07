@@ -21,16 +21,16 @@ public final class GetListenerRuleActionForward extends com.pulumi.resources.Inv
      * Detailed below.
      * 
      */
-    @Import(name="stickiness")
-    private @Nullable GetListenerRuleActionForwardStickiness stickiness;
+    @Import(name="stickinesses")
+    private @Nullable List<GetListenerRuleActionForwardStickiness> stickinesses;
 
     /**
      * @return Target group stickiness for the rule.
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionForwardStickiness> stickiness() {
-        return Optional.ofNullable(this.stickiness);
+    public Optional<List<GetListenerRuleActionForwardStickiness>> stickinesses() {
+        return Optional.ofNullable(this.stickinesses);
     }
 
     /**
@@ -53,7 +53,7 @@ public final class GetListenerRuleActionForward extends com.pulumi.resources.Inv
     private GetListenerRuleActionForward() {}
 
     private GetListenerRuleActionForward(GetListenerRuleActionForward $) {
-        this.stickiness = $.stickiness;
+        this.stickinesses = $.stickinesses;
         this.targetGroups = $.targetGroups;
     }
 
@@ -76,15 +76,26 @@ public final class GetListenerRuleActionForward extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param stickiness Target group stickiness for the rule.
+         * @param stickinesses Target group stickiness for the rule.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder stickiness(@Nullable GetListenerRuleActionForwardStickiness stickiness) {
-            $.stickiness = stickiness;
+        public Builder stickinesses(@Nullable List<GetListenerRuleActionForwardStickiness> stickinesses) {
+            $.stickinesses = stickinesses;
             return this;
+        }
+
+        /**
+         * @param stickinesses Target group stickiness for the rule.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stickinesses(GetListenerRuleActionForwardStickiness... stickinesses) {
+            return stickinesses(List.of(stickinesses));
         }
 
         /**

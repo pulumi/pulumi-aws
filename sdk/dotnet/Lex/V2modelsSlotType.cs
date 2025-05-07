@@ -96,13 +96,16 @@ namespace Pulumi.Aws.Lex
     ///                 },
     ///             },
     ///         },
-    ///         SlotTypeValues = new Aws.Lex.Inputs.V2modelsSlotTypeSlotTypeValuesArgs
+    ///         SlotTypeValues = new[]
     ///         {
-    ///             SampleValues = new[]
+    ///             new Aws.Lex.Inputs.V2modelsSlotTypeSlotTypeValueArgs
     ///             {
-    ///                 new Aws.Lex.Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs
+    ///                 SampleValues = new[]
     ///                 {
-    ///                     Value = "exampleValue",
+    ///                     new Aws.Lex.Inputs.V2modelsSlotTypeSlotTypeValueSampleValueArgs
+    ///                     {
+    ///                         Value = "exampleValue",
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -138,8 +141,8 @@ namespace Pulumi.Aws.Lex
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
-        [Output("compositeSlotTypeSetting")]
-        public Output<Outputs.V2modelsSlotTypeCompositeSlotTypeSetting?> CompositeSlotTypeSetting { get; private set; } = null!;
+        [Output("compositeSlotTypeSettings")]
+        public Output<ImmutableArray<Outputs.V2modelsSlotTypeCompositeSlotTypeSetting>> CompositeSlotTypeSettings { get; private set; } = null!;
 
         /// <summary>
         /// Description of the slot type.
@@ -151,8 +154,8 @@ namespace Pulumi.Aws.Lex
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         /// </summary>
-        [Output("externalSourceSetting")]
-        public Output<Outputs.V2modelsSlotTypeExternalSourceSetting?> ExternalSourceSetting { get; private set; } = null!;
+        [Output("externalSourceSettings")]
+        public Output<ImmutableArray<Outputs.V2modelsSlotTypeExternalSourceSetting>> ExternalSourceSettings { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the language and locale where this slot type is used.
@@ -189,7 +192,7 @@ namespace Pulumi.Aws.Lex
         /// See `slot_type_values` argument reference below.
         /// </summary>
         [Output("slotTypeValues")]
-        public Output<Outputs.V2modelsSlotTypeSlotTypeValues?> SlotTypeValues { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValue>> SlotTypeValues { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.V2modelsSlotTypeTimeouts?> Timeouts { get; private set; } = null!;
@@ -259,12 +262,18 @@ namespace Pulumi.Aws.Lex
         [Input("botVersion", required: true)]
         public Input<string> BotVersion { get; set; } = null!;
 
+        [Input("compositeSlotTypeSettings")]
+        private InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs>? _compositeSlotTypeSettings;
+
         /// <summary>
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
-        [Input("compositeSlotTypeSetting")]
-        public Input<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs>? CompositeSlotTypeSetting { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs> CompositeSlotTypeSettings
+        {
+            get => _compositeSlotTypeSettings ?? (_compositeSlotTypeSettings = new InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs>());
+            set => _compositeSlotTypeSettings = value;
+        }
 
         /// <summary>
         /// Description of the slot type.
@@ -272,12 +281,18 @@ namespace Pulumi.Aws.Lex
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("externalSourceSettings")]
+        private InputList<Inputs.V2modelsSlotTypeExternalSourceSettingArgs>? _externalSourceSettings;
+
         /// <summary>
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         /// </summary>
-        [Input("externalSourceSetting")]
-        public Input<Inputs.V2modelsSlotTypeExternalSourceSettingArgs>? ExternalSourceSetting { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingArgs> ExternalSourceSettings
+        {
+            get => _externalSourceSettings ?? (_externalSourceSettings = new InputList<Inputs.V2modelsSlotTypeExternalSourceSettingArgs>());
+            set => _externalSourceSettings = value;
+        }
 
         /// <summary>
         /// Identifier of the language and locale where this slot type is used.
@@ -302,13 +317,19 @@ namespace Pulumi.Aws.Lex
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
 
+        [Input("slotTypeValues")]
+        private InputList<Inputs.V2modelsSlotTypeSlotTypeValueArgs>? _slotTypeValues;
+
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
         /// See `slot_type_values` argument reference below.
         /// </summary>
-        [Input("slotTypeValues")]
-        public Input<Inputs.V2modelsSlotTypeSlotTypeValuesArgs>? SlotTypeValues { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeSlotTypeValueArgs> SlotTypeValues
+        {
+            get => _slotTypeValues ?? (_slotTypeValues = new InputList<Inputs.V2modelsSlotTypeSlotTypeValueArgs>());
+            set => _slotTypeValues = value;
+        }
 
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTypeTimeoutsArgs>? Timeouts { get; set; }
@@ -340,12 +361,18 @@ namespace Pulumi.Aws.Lex
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
+        [Input("compositeSlotTypeSettings")]
+        private InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingGetArgs>? _compositeSlotTypeSettings;
+
         /// <summary>
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
-        [Input("compositeSlotTypeSetting")]
-        public Input<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingGetArgs>? CompositeSlotTypeSetting { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingGetArgs> CompositeSlotTypeSettings
+        {
+            get => _compositeSlotTypeSettings ?? (_compositeSlotTypeSettings = new InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingGetArgs>());
+            set => _compositeSlotTypeSettings = value;
+        }
 
         /// <summary>
         /// Description of the slot type.
@@ -353,12 +380,18 @@ namespace Pulumi.Aws.Lex
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("externalSourceSettings")]
+        private InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGetArgs>? _externalSourceSettings;
+
         /// <summary>
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         /// </summary>
-        [Input("externalSourceSetting")]
-        public Input<Inputs.V2modelsSlotTypeExternalSourceSettingGetArgs>? ExternalSourceSetting { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGetArgs> ExternalSourceSettings
+        {
+            get => _externalSourceSettings ?? (_externalSourceSettings = new InputList<Inputs.V2modelsSlotTypeExternalSourceSettingGetArgs>());
+            set => _externalSourceSettings = value;
+        }
 
         /// <summary>
         /// Identifier of the language and locale where this slot type is used.
@@ -389,13 +422,19 @@ namespace Pulumi.Aws.Lex
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
 
+        [Input("slotTypeValues")]
+        private InputList<Inputs.V2modelsSlotTypeSlotTypeValueGetArgs>? _slotTypeValues;
+
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
         /// See `slot_type_values` argument reference below.
         /// </summary>
-        [Input("slotTypeValues")]
-        public Input<Inputs.V2modelsSlotTypeSlotTypeValuesGetArgs>? SlotTypeValues { get; set; }
+        public InputList<Inputs.V2modelsSlotTypeSlotTypeValueGetArgs> SlotTypeValues
+        {
+            get => _slotTypeValues ?? (_slotTypeValues = new InputList<Inputs.V2modelsSlotTypeSlotTypeValueGetArgs>());
+            set => _slotTypeValues = value;
+        }
 
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTypeTimeoutsGetArgs>? Timeouts { get; set; }

@@ -7,9 +7,12 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainNameEndpointConfiguration {
+    private @Nullable String ipAddressType;
     /**
      * @return A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
      * 
@@ -17,6 +20,9 @@ public final class DomainNameEndpointConfiguration {
     private String types;
 
     private DomainNameEndpointConfiguration() {}
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
     /**
      * @return A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
      * 
@@ -34,13 +40,21 @@ public final class DomainNameEndpointConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String ipAddressType;
         private String types;
         public Builder() {}
         public Builder(DomainNameEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.types = defaults.types;
         }
 
+        @CustomType.Setter
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
         @CustomType.Setter
         public Builder types(String types) {
             if (types == null) {
@@ -51,6 +65,7 @@ public final class DomainNameEndpointConfiguration {
         }
         public DomainNameEndpointConfiguration build() {
             final var _resultValue = new DomainNameEndpointConfiguration();
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.types = types;
             return _resultValue;
         }

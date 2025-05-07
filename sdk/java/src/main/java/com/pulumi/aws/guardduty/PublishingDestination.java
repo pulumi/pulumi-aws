@@ -30,14 +30,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.kms.Key;
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var gdBucket = new BucketV2("gdBucket", BucketV2Args.builder()
+ *         var gdBucket = new Bucket("gdBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *             .enable(true)
  *             .build());
  * 
- *         var gdBucketAcl = new BucketAclV2("gdBucketAcl", BucketAclV2Args.builder()
+ *         var gdBucketAcl = new BucketAcl("gdBucketAcl", BucketAclArgs.builder()
  *             .bucket(gdBucket.id())
  *             .acl("private")
  *             .build());

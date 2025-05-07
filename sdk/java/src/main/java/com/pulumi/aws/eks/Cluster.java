@@ -519,14 +519,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    @Export(name="certificateAuthority", refs={ClusterCertificateAuthority.class}, tree="[0]")
-    private Output<ClusterCertificateAuthority> certificateAuthority;
+    @Export(name="certificateAuthority", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
+    private Output<List<ClusterCertificateAuthority>> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Output<ClusterCertificateAuthority> certificateAuthority() {
+    public Output<List<ClusterCertificateAuthority>> certificateAuthority() {
         return this.certificateAuthority;
     }
     /**
@@ -570,12 +570,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdAt() {
         return this.createdAt;
-    }
-    @Export(name="defaultAddonsToRemoves", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> defaultAddonsToRemoves;
-
-    public Output<Optional<List<String>>> defaultAddonsToRemoves() {
-        return Codegen.optional(this.defaultAddonsToRemoves);
     }
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

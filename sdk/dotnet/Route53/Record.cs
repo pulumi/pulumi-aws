@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Route53
         public Output<int?> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -542,7 +542,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? Ttl { get; set; }
 
         /// <summary>
-        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.Aws.Route53.RecordType> Type { get; set; } = null!;
@@ -691,7 +691,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? Ttl { get; set; }
 
         /// <summary>
-        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.Aws.Route53.RecordType>? Type { get; set; }

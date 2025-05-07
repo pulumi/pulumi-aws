@@ -8,10 +8,16 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class GetDetectorResult {
+    /**
+     * @return ARN of the detector.
+     * 
+     */
+    private String arn;
     /**
      * @return Current configuration of the detector features.
      * 
@@ -33,8 +39,20 @@ public final class GetDetectorResult {
      * 
      */
     private String status;
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetDetectorResult() {}
+    /**
+     * @return ARN of the detector.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Current configuration of the detector features.
      * 
@@ -66,6 +84,13 @@ public final class GetDetectorResult {
     public String status() {
         return this.status;
     }
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -76,21 +101,33 @@ public final class GetDetectorResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private List<GetDetectorFeature> features;
         private String findingPublishingFrequency;
         private String id;
         private String serviceRoleArn;
         private String status;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetDetectorResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.features = defaults.features;
     	      this.findingPublishingFrequency = defaults.findingPublishingFrequency;
     	      this.id = defaults.id;
     	      this.serviceRoleArn = defaults.serviceRoleArn;
     	      this.status = defaults.status;
+    	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder features(List<GetDetectorFeature> features) {
             if (features == null) {
@@ -134,13 +171,23 @@ public final class GetDetectorResult {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDetectorResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetDetectorResult build() {
             final var _resultValue = new GetDetectorResult();
+            _resultValue.arn = arn;
             _resultValue.features = features;
             _resultValue.findingPublishingFrequency = findingPublishingFrequency;
             _resultValue.id = id;
             _resultValue.serviceRoleArn = serviceRoleArn;
             _resultValue.status = status;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

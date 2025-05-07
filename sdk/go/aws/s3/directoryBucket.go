@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,7 +87,7 @@ type DirectoryBucket struct {
 
 	// ARN of the bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringOutput `pulumi:"dataRedundancy"`
@@ -134,7 +134,7 @@ func GetDirectoryBucket(ctx *pulumi.Context,
 type directoryBucketState struct {
 	// ARN of the bucket.
 	Arn *string `pulumi:"arn"`
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket *string `pulumi:"bucket"`
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy *string `pulumi:"dataRedundancy"`
@@ -149,7 +149,7 @@ type directoryBucketState struct {
 type DirectoryBucketState struct {
 	// ARN of the bucket.
 	Arn pulumi.StringPtrInput
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket pulumi.StringPtrInput
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringPtrInput
@@ -166,7 +166,7 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 }
 
 type directoryBucketArgs struct {
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket string `pulumi:"bucket"`
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy *string `pulumi:"dataRedundancy"`
@@ -180,7 +180,7 @@ type directoryBucketArgs struct {
 
 // The set of arguments for constructing a DirectoryBucket resource.
 type DirectoryBucketArgs struct {
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket pulumi.StringInput
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringPtrInput
@@ -284,7 +284,7 @@ func (o DirectoryBucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 func (o DirectoryBucketOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

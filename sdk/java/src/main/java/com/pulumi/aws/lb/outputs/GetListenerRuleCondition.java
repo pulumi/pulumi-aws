@@ -10,8 +10,8 @@ import com.pulumi.aws.lb.outputs.GetListenerRuleConditionPathPattern;
 import com.pulumi.aws.lb.outputs.GetListenerRuleConditionQueryString;
 import com.pulumi.aws.lb.outputs.GetListenerRuleConditionSourceIp;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -20,79 +20,79 @@ public final class GetListenerRuleCondition {
      * @return Contains a single attribute `values`, which contains a set of host names.
      * 
      */
-    private @Nullable GetListenerRuleConditionHostHeader hostHeader;
+    private @Nullable List<GetListenerRuleConditionHostHeader> hostHeaders;
     /**
      * @return HTTP header and values to match.
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleConditionHttpHeader httpHeader;
+    private @Nullable List<GetListenerRuleConditionHttpHeader> httpHeaders;
     /**
      * @return Contains a single attribute `values`, which contains a set of HTTP request methods.
      * 
      */
-    private @Nullable GetListenerRuleConditionHttpRequestMethod httpRequestMethod;
+    private @Nullable List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods;
     /**
      * @return Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
      * 
      */
-    private @Nullable GetListenerRuleConditionPathPattern pathPattern;
+    private @Nullable List<GetListenerRuleConditionPathPattern> pathPatterns;
     /**
      * @return Query string parameters to match.
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleConditionQueryString queryString;
+    private @Nullable List<GetListenerRuleConditionQueryString> queryStrings;
     /**
      * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
      * 
      */
-    private @Nullable GetListenerRuleConditionSourceIp sourceIp;
+    private @Nullable List<GetListenerRuleConditionSourceIp> sourceIps;
 
     private GetListenerRuleCondition() {}
     /**
      * @return Contains a single attribute `values`, which contains a set of host names.
      * 
      */
-    public Optional<GetListenerRuleConditionHostHeader> hostHeader() {
-        return Optional.ofNullable(this.hostHeader);
+    public List<GetListenerRuleConditionHostHeader> hostHeaders() {
+        return this.hostHeaders == null ? List.of() : this.hostHeaders;
     }
     /**
      * @return HTTP header and values to match.
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleConditionHttpHeader> httpHeader() {
-        return Optional.ofNullable(this.httpHeader);
+    public List<GetListenerRuleConditionHttpHeader> httpHeaders() {
+        return this.httpHeaders == null ? List.of() : this.httpHeaders;
     }
     /**
      * @return Contains a single attribute `values`, which contains a set of HTTP request methods.
      * 
      */
-    public Optional<GetListenerRuleConditionHttpRequestMethod> httpRequestMethod() {
-        return Optional.ofNullable(this.httpRequestMethod);
+    public List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods() {
+        return this.httpRequestMethods == null ? List.of() : this.httpRequestMethods;
     }
     /**
      * @return Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
      * 
      */
-    public Optional<GetListenerRuleConditionPathPattern> pathPattern() {
-        return Optional.ofNullable(this.pathPattern);
+    public List<GetListenerRuleConditionPathPattern> pathPatterns() {
+        return this.pathPatterns == null ? List.of() : this.pathPatterns;
     }
     /**
      * @return Query string parameters to match.
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleConditionQueryString> queryString() {
-        return Optional.ofNullable(this.queryString);
+    public List<GetListenerRuleConditionQueryString> queryStrings() {
+        return this.queryStrings == null ? List.of() : this.queryStrings;
     }
     /**
      * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
      * 
      */
-    public Optional<GetListenerRuleConditionSourceIp> sourceIp() {
-        return Optional.ofNullable(this.sourceIp);
+    public List<GetListenerRuleConditionSourceIp> sourceIps() {
+        return this.sourceIps == null ? List.of() : this.sourceIps;
     }
 
     public static Builder builder() {
@@ -104,67 +104,85 @@ public final class GetListenerRuleCondition {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable GetListenerRuleConditionHostHeader hostHeader;
-        private @Nullable GetListenerRuleConditionHttpHeader httpHeader;
-        private @Nullable GetListenerRuleConditionHttpRequestMethod httpRequestMethod;
-        private @Nullable GetListenerRuleConditionPathPattern pathPattern;
-        private @Nullable GetListenerRuleConditionQueryString queryString;
-        private @Nullable GetListenerRuleConditionSourceIp sourceIp;
+        private @Nullable List<GetListenerRuleConditionHostHeader> hostHeaders;
+        private @Nullable List<GetListenerRuleConditionHttpHeader> httpHeaders;
+        private @Nullable List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods;
+        private @Nullable List<GetListenerRuleConditionPathPattern> pathPatterns;
+        private @Nullable List<GetListenerRuleConditionQueryString> queryStrings;
+        private @Nullable List<GetListenerRuleConditionSourceIp> sourceIps;
         public Builder() {}
         public Builder(GetListenerRuleCondition defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.hostHeader = defaults.hostHeader;
-    	      this.httpHeader = defaults.httpHeader;
-    	      this.httpRequestMethod = defaults.httpRequestMethod;
-    	      this.pathPattern = defaults.pathPattern;
-    	      this.queryString = defaults.queryString;
-    	      this.sourceIp = defaults.sourceIp;
+    	      this.hostHeaders = defaults.hostHeaders;
+    	      this.httpHeaders = defaults.httpHeaders;
+    	      this.httpRequestMethods = defaults.httpRequestMethods;
+    	      this.pathPatterns = defaults.pathPatterns;
+    	      this.queryStrings = defaults.queryStrings;
+    	      this.sourceIps = defaults.sourceIps;
         }
 
         @CustomType.Setter
-        public Builder hostHeader(@Nullable GetListenerRuleConditionHostHeader hostHeader) {
+        public Builder hostHeaders(@Nullable List<GetListenerRuleConditionHostHeader> hostHeaders) {
 
-            this.hostHeader = hostHeader;
+            this.hostHeaders = hostHeaders;
             return this;
         }
-        @CustomType.Setter
-        public Builder httpHeader(@Nullable GetListenerRuleConditionHttpHeader httpHeader) {
-
-            this.httpHeader = httpHeader;
-            return this;
+        public Builder hostHeaders(GetListenerRuleConditionHostHeader... hostHeaders) {
+            return hostHeaders(List.of(hostHeaders));
         }
         @CustomType.Setter
-        public Builder httpRequestMethod(@Nullable GetListenerRuleConditionHttpRequestMethod httpRequestMethod) {
+        public Builder httpHeaders(@Nullable List<GetListenerRuleConditionHttpHeader> httpHeaders) {
 
-            this.httpRequestMethod = httpRequestMethod;
+            this.httpHeaders = httpHeaders;
             return this;
         }
-        @CustomType.Setter
-        public Builder pathPattern(@Nullable GetListenerRuleConditionPathPattern pathPattern) {
-
-            this.pathPattern = pathPattern;
-            return this;
+        public Builder httpHeaders(GetListenerRuleConditionHttpHeader... httpHeaders) {
+            return httpHeaders(List.of(httpHeaders));
         }
         @CustomType.Setter
-        public Builder queryString(@Nullable GetListenerRuleConditionQueryString queryString) {
+        public Builder httpRequestMethods(@Nullable List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods) {
 
-            this.queryString = queryString;
+            this.httpRequestMethods = httpRequestMethods;
             return this;
         }
+        public Builder httpRequestMethods(GetListenerRuleConditionHttpRequestMethod... httpRequestMethods) {
+            return httpRequestMethods(List.of(httpRequestMethods));
+        }
         @CustomType.Setter
-        public Builder sourceIp(@Nullable GetListenerRuleConditionSourceIp sourceIp) {
+        public Builder pathPatterns(@Nullable List<GetListenerRuleConditionPathPattern> pathPatterns) {
 
-            this.sourceIp = sourceIp;
+            this.pathPatterns = pathPatterns;
             return this;
+        }
+        public Builder pathPatterns(GetListenerRuleConditionPathPattern... pathPatterns) {
+            return pathPatterns(List.of(pathPatterns));
+        }
+        @CustomType.Setter
+        public Builder queryStrings(@Nullable List<GetListenerRuleConditionQueryString> queryStrings) {
+
+            this.queryStrings = queryStrings;
+            return this;
+        }
+        public Builder queryStrings(GetListenerRuleConditionQueryString... queryStrings) {
+            return queryStrings(List.of(queryStrings));
+        }
+        @CustomType.Setter
+        public Builder sourceIps(@Nullable List<GetListenerRuleConditionSourceIp> sourceIps) {
+
+            this.sourceIps = sourceIps;
+            return this;
+        }
+        public Builder sourceIps(GetListenerRuleConditionSourceIp... sourceIps) {
+            return sourceIps(List.of(sourceIps));
         }
         public GetListenerRuleCondition build() {
             final var _resultValue = new GetListenerRuleCondition();
-            _resultValue.hostHeader = hostHeader;
-            _resultValue.httpHeader = httpHeader;
-            _resultValue.httpRequestMethod = httpRequestMethod;
-            _resultValue.pathPattern = pathPattern;
-            _resultValue.queryString = queryString;
-            _resultValue.sourceIp = sourceIp;
+            _resultValue.hostHeaders = hostHeaders;
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.httpRequestMethods = httpRequestMethods;
+            _resultValue.pathPatterns = pathPatterns;
+            _resultValue.queryStrings = queryStrings;
+            _resultValue.sourceIps = sourceIps;
             return _resultValue;
         }
     }

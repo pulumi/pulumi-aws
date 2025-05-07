@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,7 @@ type LookupServerlessSecurityConfigArgs struct {
 	// The unique identifier of the security configuration.
 	Id string `pulumi:"id"`
 	// SAML options for the security configuration.
-	SamlOptions *GetServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
+	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 }
 
 // A collection of values returned by getServerlessSecurityConfig.
@@ -70,7 +70,7 @@ type LookupServerlessSecurityConfigResult struct {
 	// The date the configuration was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	// SAML options for the security configuration.
-	SamlOptions *GetServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
+	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 	// The type of security configuration.
 	Type string `pulumi:"type"`
 }
@@ -89,7 +89,7 @@ type LookupServerlessSecurityConfigOutputArgs struct {
 	// The unique identifier of the security configuration.
 	Id pulumi.StringInput `pulumi:"id"`
 	// SAML options for the security configuration.
-	SamlOptions GetServerlessSecurityConfigSamlOptionsPtrInput `pulumi:"samlOptions"`
+	SamlOptions GetServerlessSecurityConfigSamlOptionArrayInput `pulumi:"samlOptions"`
 }
 
 func (LookupServerlessSecurityConfigOutputArgs) ElementType() reflect.Type {
@@ -136,10 +136,10 @@ func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.St
 }
 
 // SAML options for the security configuration.
-func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *GetServerlessSecurityConfigSamlOptions {
+func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessSecurityConfigSamlOptionArrayOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) []GetServerlessSecurityConfigSamlOption {
 		return v.SamlOptions
-	}).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+	}).(GetServerlessSecurityConfigSamlOptionArrayOutput)
 }
 
 // The type of security configuration.

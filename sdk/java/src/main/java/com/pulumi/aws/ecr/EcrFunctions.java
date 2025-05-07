@@ -6,8 +6,6 @@ package com.pulumi.aws.ecr;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
 import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenPlainArgs;
-import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
-import com.pulumi.aws.ecr.inputs.GetCredentialsPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetImageArgs;
 import com.pulumi.aws.ecr.inputs.GetImagePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
@@ -19,7 +17,6 @@ import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplatePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryPlainArgs;
 import com.pulumi.aws.ecr.outputs.GetAuthorizationTokenResult;
-import com.pulumi.aws.ecr.outputs.GetCredentialsResult;
 import com.pulumi.aws.ecr.outputs.GetImageResult;
 import com.pulumi.aws.ecr.outputs.GetLifecyclePolicyDocumentResult;
 import com.pulumi.aws.ecr.outputs.GetPullThroughCacheRuleResult;
@@ -321,21 +318,6 @@ public final class EcrFunctions {
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args) {
-        return getCredentials(args, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args) {
-        return getCredentialsPlain(args, InvokeOptions.Empty);
-    }
-    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ecr/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:ecr/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
-    }
-    public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ecr/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.

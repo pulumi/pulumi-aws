@@ -452,8 +452,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-     * 
      */
     @Export(name="capacityReservationSpecification", refs={InstanceCapacityReservationSpecification.class}, tree="[0]")
     private Output<InstanceCapacityReservationSpecification> capacityReservationSpecification;
@@ -461,29 +459,9 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-     * 
      */
     public Output<InstanceCapacityReservationSpecification> capacityReservationSpecification() {
         return this.capacityReservationSpecification;
-    }
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     * @deprecated
-     * cpu_core_count is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuCoreCount;
-
-    /**
-     * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     */
-    public Output<Integer> cpuCoreCount() {
-        return this.cpuCoreCount;
     }
     /**
      * The CPU options for the instance. See CPU Options below for more details.
@@ -498,24 +476,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<InstanceCpuOptions> cpuOptions() {
         return this.cpuOptions;
-    }
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * @deprecated
-     * cpu_threads_per_core is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
-    private Output<Integer> cpuThreadsPerCore;
-
-    /**
-     * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     */
-    public Output<Integer> cpuThreadsPerCore() {
-        return this.cpuThreadsPerCore;
     }
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1164,14 +1124,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userData", refs={String.class}, tree="[0]")
-    private Output<String> userData;
+    private Output</* @Nullable */ String> userData;
 
     /**
      * @return User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    public Output<String> userData() {
-        return this.userData;
+    public Output<Optional<String>> userData() {
+        return Codegen.optional(this.userData);
     }
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.

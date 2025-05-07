@@ -40,8 +40,6 @@ __all__ = [
     'GameServerGroupLaunchTemplateArgsDict',
     'GameSessionQueuePlayerLatencyPolicyArgs',
     'GameSessionQueuePlayerLatencyPolicyArgsDict',
-    'MatchmakingConfigurationGamePropertyArgs',
-    'MatchmakingConfigurationGamePropertyArgsDict',
     'ScriptStorageLocationArgs',
     'ScriptStorageLocationArgsDict',
 ]
@@ -787,56 +785,6 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
     @policy_duration_seconds.setter
     def policy_duration_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "policy_duration_seconds", value)
-
-
-if not MYPY:
-    class MatchmakingConfigurationGamePropertyArgsDict(TypedDict):
-        key: pulumi.Input[builtins.str]
-        """
-        A game property key
-        """
-        value: pulumi.Input[builtins.str]
-        """
-        A game property value.
-        """
-elif False:
-    MatchmakingConfigurationGamePropertyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class MatchmakingConfigurationGamePropertyArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[builtins.str],
-                 value: pulumi.Input[builtins.str]):
-        """
-        :param pulumi.Input[builtins.str] key: A game property key
-        :param pulumi.Input[builtins.str] value: A game property value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[builtins.str]:
-        """
-        A game property key
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[builtins.str]:
-        """
-        A game property value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "value", value)
 
 
 if not MYPY:

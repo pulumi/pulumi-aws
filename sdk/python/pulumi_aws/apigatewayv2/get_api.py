@@ -28,7 +28,7 @@ class GetApiResult:
     """
     A collection of values returned by getApi.
     """
-    def __init__(__self__, api_endpoint=None, api_id=None, api_key_selection_expression=None, arn=None, cors_configurations=None, description=None, disable_execute_api_endpoint=None, execution_arn=None, id=None, name=None, protocol_type=None, route_selection_expression=None, tags=None, version=None):
+    def __init__(__self__, api_endpoint=None, api_id=None, api_key_selection_expression=None, arn=None, cors_configurations=None, description=None, disable_execute_api_endpoint=None, execution_arn=None, id=None, ip_address_type=None, name=None, protocol_type=None, route_selection_expression=None, tags=None, version=None):
         if api_endpoint and not isinstance(api_endpoint, str):
             raise TypeError("Expected argument 'api_endpoint' to be a str")
         pulumi.set(__self__, "api_endpoint", api_endpoint)
@@ -56,6 +56,9 @@ class GetApiResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -146,6 +149,11 @@ class GetApiResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> builtins.str:
+        return pulumi.get(self, "ip_address_type")
+
+    @property
     @pulumi.getter
     def name(self) -> builtins.str:
         """
@@ -201,6 +209,7 @@ class AwaitableGetApiResult(GetApiResult):
             disable_execute_api_endpoint=self.disable_execute_api_endpoint,
             execution_arn=self.execution_arn,
             id=self.id,
+            ip_address_type=self.ip_address_type,
             name=self.name,
             protocol_type=self.protocol_type,
             route_selection_expression=self.route_selection_expression,
@@ -243,6 +252,7 @@ def get_api(api_id: Optional[builtins.str] = None,
         disable_execute_api_endpoint=pulumi.get(__ret__, 'disable_execute_api_endpoint'),
         execution_arn=pulumi.get(__ret__, 'execution_arn'),
         id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         name=pulumi.get(__ret__, 'name'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
         route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
@@ -282,6 +292,7 @@ def get_api_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
         disable_execute_api_endpoint=pulumi.get(__response__, 'disable_execute_api_endpoint'),
         execution_arn=pulumi.get(__response__, 'execution_arn'),
         id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         name=pulumi.get(__response__, 'name'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
         route_selection_expression=pulumi.get(__response__, 'route_selection_expression'),

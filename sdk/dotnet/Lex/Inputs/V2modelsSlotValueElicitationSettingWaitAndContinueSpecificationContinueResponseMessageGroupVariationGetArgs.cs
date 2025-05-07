@@ -12,13 +12,8 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("customPayloads")]
-        private InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadGetArgs>? _customPayloads;
-        public InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadGetArgs> CustomPayloads
-        {
-            get => _customPayloads ?? (_customPayloads = new InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadGetArgs>());
-            set => _customPayloads = value;
-        }
+        [Input("customPayload")]
+        public Input<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadGetArgs>? CustomPayload { get; set; }
 
         [Input("imageResponseCard")]
         public Input<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardGetArgs>? ImageResponseCard { get; set; }

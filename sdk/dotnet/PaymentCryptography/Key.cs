@@ -14,6 +14,43 @@ namespace Pulumi.Aws.PaymentCryptography
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.PaymentCryptography.Key("test", new()
+    ///     {
+    ///         Exportable = true,
+    ///         KeyAttributes = new[]
+    ///         {
+    ///             new Aws.PaymentCryptography.Inputs.KeyKeyAttributeArgs
+    ///             {
+    ///                 KeyAlgorithm = "TDES_3KEY",
+    ///                 KeyClass = "SYMMETRIC_KEY",
+    ///                 KeyUsage = "TR31_P0_PIN_ENCRYPTION_KEY",
+    ///                 KeyModesOfUses = new[]
+    ///                 {
+    ///                     new Aws.PaymentCryptography.Inputs.KeyKeyAttributeKeyModesOfUseArgs
+    ///                     {
+    ///                         Decrypt = true,
+    ///                         Encrypt = true,
+    ///                         Wrap = true,
+    ///                         Unwrap = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
@@ -52,7 +89,7 @@ namespace Pulumi.Aws.PaymentCryptography
         /// The following arguments are optional:
         /// </summary>
         [Output("keyAttributes")]
-        public Output<Outputs.KeyKeyAttributes?> KeyAttributes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KeyKeyAttribute>> KeyAttributes { get; private set; } = null!;
 
         /// <summary>
         /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
@@ -154,13 +191,19 @@ namespace Pulumi.Aws.PaymentCryptography
         [Input("exportable", required: true)]
         public Input<bool> Exportable { get; set; } = null!;
 
+        [Input("keyAttributes")]
+        private InputList<Inputs.KeyKeyAttributeArgs>? _keyAttributes;
+
         /// <summary>
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("keyAttributes")]
-        public Input<Inputs.KeyKeyAttributesArgs>? KeyAttributes { get; set; }
+        public InputList<Inputs.KeyKeyAttributeArgs> KeyAttributes
+        {
+            get => _keyAttributes ?? (_keyAttributes = new InputList<Inputs.KeyKeyAttributeArgs>());
+            set => _keyAttributes = value;
+        }
 
         /// <summary>
         /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
@@ -212,13 +255,19 @@ namespace Pulumi.Aws.PaymentCryptography
         [Input("exportable")]
         public Input<bool>? Exportable { get; set; }
 
+        [Input("keyAttributes")]
+        private InputList<Inputs.KeyKeyAttributeGetArgs>? _keyAttributes;
+
         /// <summary>
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("keyAttributes")]
-        public Input<Inputs.KeyKeyAttributesGetArgs>? KeyAttributes { get; set; }
+        public InputList<Inputs.KeyKeyAttributeGetArgs> KeyAttributes
+        {
+            get => _keyAttributes ?? (_keyAttributes = new InputList<Inputs.KeyKeyAttributeGetArgs>());
+            set => _keyAttributes = value;
+        }
 
         /// <summary>
         /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.

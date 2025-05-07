@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,16 +21,16 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appflow"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appflow"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "example_source", &s3.BucketV2Args{
+//			exampleSourceBucket, err := s3.NewBucket(ctx, "example_source", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-source"),
 //			})
 //			if err != nil {
@@ -64,21 +64,21 @@ import (
 //				return err
 //			}
 //			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_source", &s3.BucketPolicyArgs{
-//				Bucket: exampleSourceBucketV2.ID(),
+//				Bucket: exampleSourceBucket.ID(),
 //				Policy: pulumi.String(exampleSource.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleSourceBucketV2.ID(),
+//				Bucket: exampleSourceBucket.ID(),
 //				Key:    pulumi.String("example_source.csv"),
 //				Source: pulumi.NewFileAsset("example_source.csv"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "example_destination", &s3.BucketV2Args{
+//			exampleDestinationBucket, err := s3.NewBucket(ctx, "example_destination", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-destination"),
 //			})
 //			if err != nil {
@@ -116,7 +116,7 @@ import (
 //				return err
 //			}
 //			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_destination", &s3.BucketPolicyArgs{
-//				Bucket: exampleDestinationBucketV2.ID(),
+//				Bucket: exampleDestinationBucket.ID(),
 //				Policy: pulumi.String(exampleDestination.Json),
 //			})
 //			if err != nil {

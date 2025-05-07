@@ -317,8 +317,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
             bucket=test.id,
             name="EntireBucketDaily",
@@ -340,8 +340,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
             name="DocumentsWeekly",
@@ -399,8 +399,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
             bucket=test.id,
             name="EntireBucketDaily",
@@ -422,8 +422,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
             name="DocumentsWeekly",

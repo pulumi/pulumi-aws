@@ -49,6 +49,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// ARN of the Kinesis data stream.
         /// </summary>
         public readonly string? StreamArn;
+        /// <summary>
+        /// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        /// </summary>
+        public readonly bool? UseLargeIntegerValue;
 
         [OutputConstructor]
         private EndpointKinesisSettings(
@@ -68,7 +72,9 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? serviceAccessRoleArn,
 
-            string? streamArn)
+            string? streamArn,
+
+            bool? useLargeIntegerValue)
         {
             IncludeControlDetails = includeControlDetails;
             IncludeNullAndEmpty = includeNullAndEmpty;
@@ -79,6 +85,7 @@ namespace Pulumi.Aws.Dms.Outputs
             PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
             ServiceAccessRoleArn = serviceAccessRoleArn;
             StreamArn = streamArn;
+            UseLargeIntegerValue = useLargeIntegerValue;
         }
     }
 }

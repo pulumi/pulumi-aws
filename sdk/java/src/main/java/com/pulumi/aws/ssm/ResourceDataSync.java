@@ -27,8 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hogeBucketV2 = new BucketV2("hogeBucketV2", BucketV2Args.builder()
+ *         var hogeBucket = new Bucket("hogeBucket", BucketArgs.builder()
  *             .bucket("tf-test-bucket-1234")
  *             .build());
  * 
@@ -83,15 +83,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(hogeBucketV2.id())
+ *             .bucket(hogeBucket.id())
  *             .policy(hoge.json())
  *             .build());
  * 
  *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()
  *             .name("foo")
  *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
- *                 .bucketName(hogeBucketV2.bucket())
- *                 .region(hogeBucketV2.region())
+ *                 .bucketName(hogeBucket.bucket())
+ *                 .region(hogeBucket.region())
  *                 .build())
  *             .build());
  * 

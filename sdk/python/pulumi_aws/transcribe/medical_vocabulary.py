@@ -238,7 +238,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="example-medical-vocab-123",
             force_destroy=True)
         object = aws.s3.BucketObjectv2("object",
@@ -294,7 +294,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket="example-medical-vocab-123",
             force_destroy=True)
         object = aws.s3.BucketObjectv2("object",

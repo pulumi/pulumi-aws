@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,9 +28,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +91,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example-transcribe"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Key:    pulumi.String("transcribe/test1.txt"),
 //				Source: pulumi.NewFileAsset("test1.txt"),
 //			})
@@ -111,7 +111,7 @@ import (
 //				BaseModelName: pulumi.String("NarrowBand"),
 //				InputDataConfig: &transcribe.LanguageModelInputDataConfigArgs{
 //					DataAccessRoleArn: exampleRole.Arn,
-//					S3Uri: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
+//					S3Uri: exampleBucket.ID().ApplyT(func(id string) (string, error) {
 //						return fmt.Sprintf("s3://%v/transcribe/", id), nil
 //					}).(pulumi.StringOutput),
 //				},

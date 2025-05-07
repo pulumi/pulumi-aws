@@ -292,7 +292,7 @@ class ConnectorProfile(pulumi.CustomResource):
                     },
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example-bucket")
+        example_bucket = aws.s3.Bucket("example", bucket="example-bucket")
         example_cluster = aws.redshift.Cluster("example",
             cluster_identifier="example_cluster",
             database_name="example_db",
@@ -313,7 +313,7 @@ class ConnectorProfile(pulumi.CustomResource):
                 },
                 "connector_profile_properties": {
                     "redshift": {
-                        "bucket_name": example_bucket_v2.name,
+                        "bucket_name": example_bucket.name,
                         "database_url": pulumi.Output.all(
                             endpoint=example_cluster.endpoint,
                             database_name=example_cluster.database_name
@@ -376,7 +376,7 @@ class ConnectorProfile(pulumi.CustomResource):
                     },
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example-bucket")
+        example_bucket = aws.s3.Bucket("example", bucket="example-bucket")
         example_cluster = aws.redshift.Cluster("example",
             cluster_identifier="example_cluster",
             database_name="example_db",
@@ -397,7 +397,7 @@ class ConnectorProfile(pulumi.CustomResource):
                 },
                 "connector_profile_properties": {
                     "redshift": {
-                        "bucket_name": example_bucket_v2.name,
+                        "bucket_name": example_bucket.name,
                         "database_url": pulumi.Output.all(
                             endpoint=example_cluster.endpoint,
                             database_name=example_cluster.database_name

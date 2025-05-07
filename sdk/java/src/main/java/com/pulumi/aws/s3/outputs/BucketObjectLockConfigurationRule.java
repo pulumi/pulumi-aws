@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class BucketObjectLockConfigurationRule {
     /**
-     * @return The default retention period that you want to apply to new objects placed in this bucket.
+     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
     private BucketObjectLockConfigurationRuleDefaultRetention defaultRetention;
 
     private BucketObjectLockConfigurationRule() {}
     /**
-     * @return The default retention period that you want to apply to new objects placed in this bucket.
+     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
     public BucketObjectLockConfigurationRuleDefaultRetention defaultRetention() {

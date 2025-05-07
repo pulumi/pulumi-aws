@@ -47,7 +47,7 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     * Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
      * 
      * The following arguments are optional:
      * 
@@ -56,7 +56,7 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     * @return Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
      * 
      * The following arguments are optional:
      * 
@@ -150,7 +150,7 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+         * @param name Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
          * 
          * The following arguments are optional:
          * 
@@ -163,7 +163,7 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+         * @param name Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
          * 
          * The following arguments are optional:
          * 

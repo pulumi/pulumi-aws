@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation
     {
-        public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload> CustomPayloads;
+        public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload? CustomPayload;
         public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard? ImageResponseCard;
         public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage? PlainTextMessage;
         public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage? SsmlMessage;
 
         [OutputConstructor]
         private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation(
-            ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload> customPayloads,
+            Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload? customPayload,
 
             Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard? imageResponseCard,
 
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage? ssmlMessage)
         {
-            CustomPayloads = customPayloads;
+            CustomPayload = customPayload;
             ImageResponseCard = imageResponseCard;
             PlainTextMessage = plainTextMessage;
             SsmlMessage = ssmlMessage;

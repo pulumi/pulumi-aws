@@ -120,6 +120,30 @@ class KeyAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.paymentcryptography.Key("test",
+            exportable=True,
+            key_attributes=[{
+                "key_algorithm": "TDES_3KEY",
+                "key_class": "SYMMETRIC_KEY",
+                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
+                "key_modes_of_uses": [{
+                    "decrypt": True,
+                    "encrypt": True,
+                    "wrap": True,
+                    "unwrap": True,
+                }],
+            }])
+        test_key_alias = aws.paymentcryptography.KeyAlias("test",
+            alias_name="alias/test-alias",
+            key_arn=test.arn)
+        ```
+
         ## Import
 
         Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
@@ -145,6 +169,30 @@ class KeyAlias(pulumi.CustomResource):
         Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.paymentcryptography.Key("test",
+            exportable=True,
+            key_attributes=[{
+                "key_algorithm": "TDES_3KEY",
+                "key_class": "SYMMETRIC_KEY",
+                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
+                "key_modes_of_uses": [{
+                    "decrypt": True,
+                    "encrypt": True,
+                    "wrap": True,
+                    "unwrap": True,
+                }],
+            }])
+        test_key_alias = aws.paymentcryptography.KeyAlias("test",
+            alias_name="alias/test-alias",
+            key_arn=test.arn)
+        ```
 
         ## Import
 

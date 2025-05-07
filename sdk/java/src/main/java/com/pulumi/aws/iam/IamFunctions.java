@@ -6011,8 +6011,8 @@ public final class IamFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.User;
      * import com.pulumi.aws.iam.UserArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.iam.UserPolicy;
      * import com.pulumi.aws.iam.UserPolicyArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -6040,14 +6040,14 @@ public final class IamFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+     *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
+     *             .policy(exampleBucket.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -6059,10 +6059,10 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
-     *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
+     *             .bucket(exampleBucket.bucket())
+     *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+     *                 var exampleBucketArn = values.t1;
+     *                 var exampleBucketArn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
      *                         jsonProperty("Version", "2012-10-17"),
@@ -6073,8 +6073,8 @@ public final class IamFunctions {
      *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
+     *                                 exampleBucketArn, 
+     *                                 String.format("%s/*", exampleBucketArn1)
      *                             ))
      *                         )))
      *                     ));
@@ -6084,7 +6084,7 @@ public final class IamFunctions {
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
-     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourceArns(exampleBucket.arn())
      *             .resourcePolicyJson(accountAccess.policy())
      *             .build());
      * 
@@ -6211,8 +6211,8 @@ public final class IamFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.User;
      * import com.pulumi.aws.iam.UserArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.iam.UserPolicy;
      * import com.pulumi.aws.iam.UserPolicyArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -6240,14 +6240,14 @@ public final class IamFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+     *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
+     *             .policy(exampleBucket.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -6259,10 +6259,10 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
-     *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
+     *             .bucket(exampleBucket.bucket())
+     *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+     *                 var exampleBucketArn = values.t1;
+     *                 var exampleBucketArn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
      *                         jsonProperty("Version", "2012-10-17"),
@@ -6273,8 +6273,8 @@ public final class IamFunctions {
      *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
+     *                                 exampleBucketArn, 
+     *                                 String.format("%s/*", exampleBucketArn1)
      *                             ))
      *                         )))
      *                     ));
@@ -6284,7 +6284,7 @@ public final class IamFunctions {
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
-     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourceArns(exampleBucket.arn())
      *             .resourcePolicyJson(accountAccess.policy())
      *             .build());
      * 
@@ -6411,8 +6411,8 @@ public final class IamFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.User;
      * import com.pulumi.aws.iam.UserArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.iam.UserPolicy;
      * import com.pulumi.aws.iam.UserPolicyArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -6440,14 +6440,14 @@ public final class IamFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+     *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
+     *             .policy(exampleBucket.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -6459,10 +6459,10 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
-     *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
+     *             .bucket(exampleBucket.bucket())
+     *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+     *                 var exampleBucketArn = values.t1;
+     *                 var exampleBucketArn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
      *                         jsonProperty("Version", "2012-10-17"),
@@ -6473,8 +6473,8 @@ public final class IamFunctions {
      *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
+     *                                 exampleBucketArn, 
+     *                                 String.format("%s/*", exampleBucketArn1)
      *                             ))
      *                         )))
      *                     ));
@@ -6484,7 +6484,7 @@ public final class IamFunctions {
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
-     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourceArns(exampleBucket.arn())
      *             .resourcePolicyJson(accountAccess.policy())
      *             .build());
      * 
@@ -6611,8 +6611,8 @@ public final class IamFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.User;
      * import com.pulumi.aws.iam.UserArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.iam.UserPolicy;
      * import com.pulumi.aws.iam.UserPolicyArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -6640,14 +6640,14 @@ public final class IamFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+     *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
+     *             .policy(exampleBucket.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -6659,10 +6659,10 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
-     *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
+     *             .bucket(exampleBucket.bucket())
+     *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+     *                 var exampleBucketArn = values.t1;
+     *                 var exampleBucketArn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
      *                         jsonProperty("Version", "2012-10-17"),
@@ -6673,8 +6673,8 @@ public final class IamFunctions {
      *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
+     *                                 exampleBucketArn, 
+     *                                 String.format("%s/*", exampleBucketArn1)
      *                             ))
      *                         )))
      *                     ));
@@ -6684,7 +6684,7 @@ public final class IamFunctions {
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
-     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourceArns(exampleBucket.arn())
      *             .resourcePolicyJson(accountAccess.policy())
      *             .build());
      * 
@@ -6811,8 +6811,8 @@ public final class IamFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.User;
      * import com.pulumi.aws.iam.UserArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.iam.UserPolicy;
      * import com.pulumi.aws.iam.UserPolicyArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -6840,14 +6840,14 @@ public final class IamFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+     *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
+     *             .policy(exampleBucket.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -6859,10 +6859,10 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
-     *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
+     *             .bucket(exampleBucket.bucket())
+     *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+     *                 var exampleBucketArn = values.t1;
+     *                 var exampleBucketArn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
      *                         jsonProperty("Version", "2012-10-17"),
@@ -6873,8 +6873,8 @@ public final class IamFunctions {
      *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
+     *                                 exampleBucketArn, 
+     *                                 String.format("%s/*", exampleBucketArn1)
      *                             ))
      *                         )))
      *                     ));
@@ -6884,7 +6884,7 @@ public final class IamFunctions {
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames("s3:GetObject")
      *             .policySourceArn(example.arn())
-     *             .resourceArns(exampleBucketV2.arn())
+     *             .resourceArns(exampleBucket.arn())
      *             .resourcePolicyJson(accountAccess.policy())
      *             .build());
      * 

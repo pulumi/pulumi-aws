@@ -283,14 +283,14 @@ class ReportGroup(pulumi.CustomResource):
             description="my test kms key",
             deletion_window_in_days=7,
             policy=example.json)
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_bucket = aws.s3.Bucket("example", bucket="my-test")
         example_report_group = aws.codebuild.ReportGroup("example",
             name="my test report group",
             type="TEST",
             export_config={
                 "type": "S3",
                 "s3_destination": {
-                    "bucket": example_bucket_v2.id,
+                    "bucket": example_bucket.id,
                     "encryption_disabled": False,
                     "encryption_key": example_key.arn,
                     "packaging": "NONE",
@@ -345,14 +345,14 @@ class ReportGroup(pulumi.CustomResource):
             description="my test kms key",
             deletion_window_in_days=7,
             policy=example.json)
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_bucket = aws.s3.Bucket("example", bucket="my-test")
         example_report_group = aws.codebuild.ReportGroup("example",
             name="my test report group",
             type="TEST",
             export_config={
                 "type": "S3",
                 "s3_destination": {
-                    "bucket": example_bucket_v2.id,
+                    "bucket": example_bucket.id,
                     "encryption_disabled": False,
                     "encryption_key": example_key.arn,
                     "packaging": "NONE",

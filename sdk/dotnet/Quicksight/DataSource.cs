@@ -62,11 +62,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.Bucket("example");
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.BucketName,
     ///         Key = "manifest.json",
     ///         Content = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {

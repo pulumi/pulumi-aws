@@ -627,8 +627,8 @@ class AppImageConfigKernelGatewayImageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "kernelSpec":
-            suggest = "kernel_spec"
+        if key == "kernelSpecs":
+            suggest = "kernel_specs"
         elif key == "fileSystemConfig":
             suggest = "file_system_config"
 
@@ -644,23 +644,23 @@ class AppImageConfigKernelGatewayImageConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 kernel_spec: 'outputs.AppImageConfigKernelGatewayImageConfigKernelSpec',
+                 kernel_specs: Sequence['outputs.AppImageConfigKernelGatewayImageConfigKernelSpec'],
                  file_system_config: Optional['outputs.AppImageConfigKernelGatewayImageConfigFileSystemConfig'] = None):
         """
-        :param 'AppImageConfigKernelGatewayImageConfigKernelSpecArgs' kernel_spec: The default branch for the Git repository. See Kernel Spec details below.
+        :param Sequence['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'] kernel_specs: The default branch for the Git repository. See Kernel Spec details below.
         :param 'AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs' file_system_config: The URL where the Git repository is located. See File System Config details below.
         """
-        pulumi.set(__self__, "kernel_spec", kernel_spec)
+        pulumi.set(__self__, "kernel_specs", kernel_specs)
         if file_system_config is not None:
             pulumi.set(__self__, "file_system_config", file_system_config)
 
     @property
-    @pulumi.getter(name="kernelSpec")
-    def kernel_spec(self) -> 'outputs.AppImageConfigKernelGatewayImageConfigKernelSpec':
+    @pulumi.getter(name="kernelSpecs")
+    def kernel_specs(self) -> Sequence['outputs.AppImageConfigKernelGatewayImageConfigKernelSpec']:
         """
         The default branch for the Git repository. See Kernel Spec details below.
         """
-        return pulumi.get(self, "kernel_spec")
+        return pulumi.get(self, "kernel_specs")
 
     @property
     @pulumi.getter(name="fileSystemConfig")

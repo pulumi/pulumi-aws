@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,8 +59,6 @@ type LookupDataSetArgs struct {
 	// The following arguments are optional:
 	DataSetId string            `pulumi:"dataSetId"`
 	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // A collection of values returned by getDataSet.
@@ -82,8 +80,6 @@ type LookupDataSetResult struct {
 	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
 	RowLevelPermissionTagConfigurations []GetDataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfigurations"`
 	Tags                                map[string]string                              `pulumi:"tags"`
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
@@ -104,8 +100,6 @@ type LookupDataSetOutputArgs struct {
 	// The following arguments are optional:
 	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
 func (LookupDataSetOutputArgs) ElementType() reflect.Type {
@@ -192,11 +186,6 @@ func (o LookupDataSetResultOutput) RowLevelPermissionTagConfigurations() GetData
 
 func (o LookupDataSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-func (o LookupDataSetResultOutput) TagsAll() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 func init() {

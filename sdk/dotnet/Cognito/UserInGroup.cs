@@ -56,6 +56,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
     public partial class UserInGroup : global::Pulumi.CustomResource

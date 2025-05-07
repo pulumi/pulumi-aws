@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifier;
-import com.pulumi.aws.identitystore.inputs.GetUserFilter;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,29 +29,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
-    }
-
-    /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    @Import(name="filter")
-    private @Nullable GetUserFilter filter;
-
-    /**
-     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    public Optional<GetUserFilter> filter() {
-        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -97,7 +73,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetUserPlainArgs(GetUserPlainArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
-        this.filter = $.filter;
         this.identityStoreId = $.identityStoreId;
         this.userId = $.userId;
     }
@@ -128,21 +103,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
-            return this;
-        }
-
-        /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * filter is deprecated. Use alternate_identifier instead.
-         * 
-         */
-        @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-        public Builder filter(@Nullable GetUserFilter filter) {
-            $.filter = filter;
             return this;
         }
 

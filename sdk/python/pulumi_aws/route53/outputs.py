@@ -977,7 +977,8 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates(dict):
                  latitude: builtins.str,
                  longitude: builtins.str):
         """
-        :param builtins.str latitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        :param builtins.str latitude: A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
+        :param builtins.str longitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
         """
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
@@ -986,13 +987,16 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates(dict):
     @pulumi.getter
     def latitude(self) -> builtins.str:
         """
-        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
         """
         return pulumi.get(self, "latitude")
 
     @property
     @pulumi.getter
     def longitude(self) -> builtins.str:
+        """
+        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        """
         return pulumi.get(self, "longitude")
 
 

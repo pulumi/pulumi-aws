@@ -98,25 +98,6 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.proposalId);
     }
 
-    /**
-     * @deprecated
-     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-     * 
-     */
-    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    @Import(name="vpnGatewayId")
-    private @Nullable Output<String> vpnGatewayId;
-
-    /**
-     * @deprecated
-     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-     * 
-     */
-    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    public Optional<Output<String>> vpnGatewayId() {
-        return Optional.ofNullable(this.vpnGatewayId);
-    }
-
     private GatewayAssociationArgs() {}
 
     private GatewayAssociationArgs(GatewayAssociationArgs $) {
@@ -125,7 +106,6 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         this.associatedGatewayOwnerAccountId = $.associatedGatewayOwnerAccountId;
         this.dxGatewayId = $.dxGatewayId;
         this.proposalId = $.proposalId;
-        this.vpnGatewayId = $.vpnGatewayId;
     }
 
     public static Builder builder() {
@@ -265,31 +245,6 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
          */
         public Builder proposalId(String proposalId) {
             return proposalId(Output.of(proposalId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-         * 
-         */
-        @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-        public Builder vpnGatewayId(@Nullable Output<String> vpnGatewayId) {
-            $.vpnGatewayId = vpnGatewayId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-         * 
-         */
-        @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-        public Builder vpnGatewayId(String vpnGatewayId) {
-            return vpnGatewayId(Output.of(vpnGatewayId));
         }
 
         public GatewayAssociationArgs build() {

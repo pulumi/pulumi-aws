@@ -27,8 +27,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v6"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	aws "github.com/pulumi/pulumi-aws/provider/v7"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func TestUpgradeCoverage(t *testing.T) {
@@ -62,7 +62,7 @@ type testProviderUpgradeOptions struct {
 	extraOpts       []opttest.Option
 }
 
-func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
+func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions, upgradeOpts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	skipIfShort(t)
 	t.Parallel()
 	t.Helper()
@@ -96,8 +96,13 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.region != "" {
 		test.SetConfig(t, "aws:region", opts.region)
 	}
-	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion,
-		optproviderupgrade.DisableAttach())
+	upOpts := []optproviderupgrade.PreviewProviderUpgradeOpt{
+		optproviderupgrade.DisableAttach(),
+	}
+	for _, opt := range upgradeOpts {
+		upOpts = append(upOpts, opt)
+	}
+	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion, upOpts...)
 	assertpreview.HasNoReplacements(t, result)
 }
 

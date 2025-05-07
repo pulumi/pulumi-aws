@@ -17,8 +17,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v6"
-	version "github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	aws "github.com/pulumi/pulumi-aws/provider/v7"
+	version "github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func createEditDir(dir string) integration.EditDir {
@@ -75,7 +75,7 @@ func validateAPITest(isValid func(body string)) func(t *testing.T, stack integra
 func init() {
 	// This is necessary for gRPC testing. It doesn't effect integration tests, since
 	// they use their own binary.
-	version.Version = "6.0.0"
+	version.Version = "7.0.0"
 }
 
 func replay(t *testing.T, sequence string) {

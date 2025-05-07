@@ -25,7 +25,7 @@ import (
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/stretchr/testify/require"
 
-	version "github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	version "github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func TestCheckConfigWithUnknownKeys(t *testing.T) {

@@ -224,7 +224,7 @@ if not MYPY:
     class ServiceHealthCheckCustomConfigArgsDict(TypedDict):
         failure_threshold: NotRequired[pulumi.Input[builtins.int]]
         """
-        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
         """
 elif False:
     ServiceHealthCheckCustomConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -234,16 +234,20 @@ class ServiceHealthCheckCustomConfigArgs:
     def __init__(__self__, *,
                  failure_threshold: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param pulumi.Input[builtins.int] failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
         """
+        if failure_threshold is not None:
+            warnings.warn("""failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""failure_threshold is deprecated: failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.""")
         if failure_threshold is not None:
             pulumi.set(__self__, "failure_threshold", failure_threshold)
 
     @property
     @pulumi.getter(name="failureThreshold")
+    @_utilities.deprecated("""failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.""")
     def failure_threshold(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
         """
         return pulumi.get(self, "failure_threshold")
 

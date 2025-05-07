@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivschat"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,17 +57,17 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivschat"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket"),
 //			})
 //			if err != nil {
@@ -106,7 +106,7 @@ import (
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   exampleRole.Arn,
-//					BucketArn: exampleBucketV2.Arn,
+//					BucketArn: exampleBucket.Arn,
 //				},
 //				Tags: pulumi.StringMap{
 //					"LogDeliveryEnabled": pulumi.String("true"),
@@ -115,8 +115,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
+//				Bucket: exampleBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {

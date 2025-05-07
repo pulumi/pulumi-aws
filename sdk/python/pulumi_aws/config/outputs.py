@@ -448,7 +448,6 @@ class Endpoints(dict):
                  opensearchingestion: Optional[builtins.str] = None,
                  opensearchserverless: Optional[builtins.str] = None,
                  opensearchservice: Optional[builtins.str] = None,
-                 opsworks: Optional[builtins.str] = None,
                  organizations: Optional[builtins.str] = None,
                  osis: Optional[builtins.str] = None,
                  outposts: Optional[builtins.str] = None,
@@ -495,7 +494,6 @@ class Endpoints(dict):
                  sagemaker: Optional[builtins.str] = None,
                  scheduler: Optional[builtins.str] = None,
                  schemas: Optional[builtins.str] = None,
-                 sdb: Optional[builtins.str] = None,
                  secretsmanager: Optional[builtins.str] = None,
                  securityhub: Optional[builtins.str] = None,
                  securitylake: Optional[builtins.str] = None,
@@ -511,7 +509,6 @@ class Endpoints(dict):
                  sfn: Optional[builtins.str] = None,
                  shield: Optional[builtins.str] = None,
                  signer: Optional[builtins.str] = None,
-                 simpledb: Optional[builtins.str] = None,
                  sns: Optional[builtins.str] = None,
                  sqs: Optional[builtins.str] = None,
                  ssm: Optional[builtins.str] = None,
@@ -539,7 +536,6 @@ class Endpoints(dict):
                  wafregional: Optional[builtins.str] = None,
                  wafv2: Optional[builtins.str] = None,
                  wellarchitected: Optional[builtins.str] = None,
-                 worklink: Optional[builtins.str] = None,
                  workspaces: Optional[builtins.str] = None,
                  workspacesweb: Optional[builtins.str] = None,
                  xray: Optional[builtins.str] = None):
@@ -749,7 +745,6 @@ class Endpoints(dict):
         :param builtins.str opensearchingestion: Use this to override the default service endpoint URL
         :param builtins.str opensearchserverless: Use this to override the default service endpoint URL
         :param builtins.str opensearchservice: Use this to override the default service endpoint URL
-        :param builtins.str opsworks: Use this to override the default service endpoint URL
         :param builtins.str organizations: Use this to override the default service endpoint URL
         :param builtins.str osis: Use this to override the default service endpoint URL
         :param builtins.str outposts: Use this to override the default service endpoint URL
@@ -796,7 +791,6 @@ class Endpoints(dict):
         :param builtins.str sagemaker: Use this to override the default service endpoint URL
         :param builtins.str scheduler: Use this to override the default service endpoint URL
         :param builtins.str schemas: Use this to override the default service endpoint URL
-        :param builtins.str sdb: Use this to override the default service endpoint URL
         :param builtins.str secretsmanager: Use this to override the default service endpoint URL
         :param builtins.str securityhub: Use this to override the default service endpoint URL
         :param builtins.str securitylake: Use this to override the default service endpoint URL
@@ -812,7 +806,6 @@ class Endpoints(dict):
         :param builtins.str sfn: Use this to override the default service endpoint URL
         :param builtins.str shield: Use this to override the default service endpoint URL
         :param builtins.str signer: Use this to override the default service endpoint URL
-        :param builtins.str simpledb: Use this to override the default service endpoint URL
         :param builtins.str sns: Use this to override the default service endpoint URL
         :param builtins.str sqs: Use this to override the default service endpoint URL
         :param builtins.str ssm: Use this to override the default service endpoint URL
@@ -840,7 +833,6 @@ class Endpoints(dict):
         :param builtins.str wafregional: Use this to override the default service endpoint URL
         :param builtins.str wafv2: Use this to override the default service endpoint URL
         :param builtins.str wellarchitected: Use this to override the default service endpoint URL
-        :param builtins.str worklink: Use this to override the default service endpoint URL
         :param builtins.str workspaces: Use this to override the default service endpoint URL
         :param builtins.str workspacesweb: Use this to override the default service endpoint URL
         :param builtins.str xray: Use this to override the default service endpoint URL
@@ -1255,8 +1247,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "opensearchserverless", opensearchserverless)
         if opensearchservice is not None:
             pulumi.set(__self__, "opensearchservice", opensearchservice)
-        if opsworks is not None:
-            pulumi.set(__self__, "opsworks", opsworks)
         if organizations is not None:
             pulumi.set(__self__, "organizations", organizations)
         if osis is not None:
@@ -1349,8 +1339,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "scheduler", scheduler)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
-        if sdb is not None:
-            pulumi.set(__self__, "sdb", sdb)
         if secretsmanager is not None:
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
@@ -1381,8 +1369,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "shield", shield)
         if signer is not None:
             pulumi.set(__self__, "signer", signer)
-        if simpledb is not None:
-            pulumi.set(__self__, "simpledb", simpledb)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
@@ -1437,8 +1423,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "wafv2", wafv2)
         if wellarchitected is not None:
             pulumi.set(__self__, "wellarchitected", wellarchitected)
-        if worklink is not None:
-            pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
         if workspacesweb is not None:
@@ -3088,14 +3072,6 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
-    def opsworks(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "opsworks")
-
-    @property
-    @pulumi.getter
     def organizations(self) -> Optional[builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3464,14 +3440,6 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
-    def sdb(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "sdb")
-
-    @property
-    @pulumi.getter
     def secretsmanager(self) -> Optional[builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3589,14 +3557,6 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "signer")
-
-    @property
-    @pulumi.getter
-    def simpledb(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "simpledb")
 
     @property
     @pulumi.getter
@@ -3813,14 +3773,6 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "wellarchitected")
-
-    @property
-    @pulumi.getter
-    def worklink(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "worklink")
 
     @property
     @pulumi.getter

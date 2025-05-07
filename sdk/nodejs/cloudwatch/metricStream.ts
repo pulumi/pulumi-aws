@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     name: "metric_stream_to_firehose_role",
  *     assumeRolePolicy: streamsAssumeRole.then(streamsAssumeRole => streamsAssumeRole.json),
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "metric-stream-test-bucket"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "metric-stream-test-bucket"});
  * const firehoseAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *     role: metricStreamToFirehoseRole.id,
  *     policy: metricStreamToFirehose.apply(metricStreamToFirehose => metricStreamToFirehose.json),
  * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });

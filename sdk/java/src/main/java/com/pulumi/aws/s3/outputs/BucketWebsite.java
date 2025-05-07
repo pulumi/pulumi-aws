@@ -3,10 +3,8 @@
 
 package com.pulumi.aws.s3.outputs;
 
-import com.pulumi.core.Either;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketWebsite {
     /**
-     * @return An absolute path to the document to return in case of a 4XX error.
+     * @return Absolute path to the document to return in case of a 4XX error.
      * 
      */
     private @Nullable String errorDocument;
@@ -24,22 +22,20 @@ public final class BucketWebsite {
      */
     private @Nullable String indexDocument;
     /**
-     * @return A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+     * @return Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
      * 
      */
     private @Nullable String redirectAllRequestsTo;
     /**
-     * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
      * 
-     * The `CORS` object supports the following:
-     * 
      */
-    private @Nullable Either<String,List<String>> routingRules;
+    private @Nullable String routingRules;
 
     private BucketWebsite() {}
     /**
-     * @return An absolute path to the document to return in case of a 4XX error.
+     * @return Absolute path to the document to return in case of a 4XX error.
      * 
      */
     public Optional<String> errorDocument() {
@@ -53,20 +49,18 @@ public final class BucketWebsite {
         return Optional.ofNullable(this.indexDocument);
     }
     /**
-     * @return A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+     * @return Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
      * 
      */
     public Optional<String> redirectAllRequestsTo() {
         return Optional.ofNullable(this.redirectAllRequestsTo);
     }
     /**
-     * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
      * 
-     * The `CORS` object supports the following:
-     * 
      */
-    public Optional<Either<String,List<String>>> routingRules() {
+    public Optional<String> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }
 
@@ -82,7 +76,7 @@ public final class BucketWebsite {
         private @Nullable String errorDocument;
         private @Nullable String indexDocument;
         private @Nullable String redirectAllRequestsTo;
-        private @Nullable Either<String,List<String>> routingRules;
+        private @Nullable String routingRules;
         public Builder() {}
         public Builder(BucketWebsite defaults) {
     	      Objects.requireNonNull(defaults);
@@ -111,7 +105,7 @@ public final class BucketWebsite {
             return this;
         }
         @CustomType.Setter
-        public Builder routingRules(@Nullable Either<String,List<String>> routingRules) {
+        public Builder routingRules(@Nullable String routingRules) {
 
             this.routingRules = routingRules;
             return this;

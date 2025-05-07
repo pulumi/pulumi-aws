@@ -35,36 +35,6 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     * 
-     */
-    @Import(name="computeEnvironmentName")
-    private @Nullable Output<String> computeEnvironmentName;
-
-    /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-     * 
-     */
-    public Optional<Output<String>> computeEnvironmentName() {
-        return Optional.ofNullable(this.computeEnvironmentName);
-    }
-
-    /**
-     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-     * 
-     */
-    @Import(name="computeEnvironmentNamePrefix")
-    private @Nullable Output<String> computeEnvironmentNamePrefix;
-
-    /**
-     * @return Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-     * 
-     */
-    public Optional<Output<String>> computeEnvironmentNamePrefix() {
-        return Optional.ofNullable(this.computeEnvironmentNamePrefix);
-    }
-
-    /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      * 
      */
@@ -107,6 +77,36 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
      */
     public Optional<Output<ComputeEnvironmentEksConfigurationArgs>> eksConfiguration() {
         return Optional.ofNullable(this.eksConfiguration);
+    }
+
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Import(name="namePrefix")
+    private @Nullable Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Optional<Output<String>> namePrefix() {
+        return Optional.ofNullable(this.namePrefix);
     }
 
     /**
@@ -241,11 +241,11 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
 
     private ComputeEnvironmentState(ComputeEnvironmentState $) {
         this.arn = $.arn;
-        this.computeEnvironmentName = $.computeEnvironmentName;
-        this.computeEnvironmentNamePrefix = $.computeEnvironmentNamePrefix;
         this.computeResources = $.computeResources;
         this.ecsClusterArn = $.ecsClusterArn;
         this.eksConfiguration = $.eksConfiguration;
+        this.name = $.name;
+        this.namePrefix = $.namePrefix;
         this.serviceRole = $.serviceRole;
         this.state = $.state;
         this.status = $.status;
@@ -293,48 +293,6 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
-        }
-
-        /**
-         * @param computeEnvironmentName The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder computeEnvironmentName(@Nullable Output<String> computeEnvironmentName) {
-            $.computeEnvironmentName = computeEnvironmentName;
-            return this;
-        }
-
-        /**
-         * @param computeEnvironmentName The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder computeEnvironmentName(String computeEnvironmentName) {
-            return computeEnvironmentName(Output.of(computeEnvironmentName));
-        }
-
-        /**
-         * @param computeEnvironmentNamePrefix Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder computeEnvironmentNamePrefix(@Nullable Output<String> computeEnvironmentNamePrefix) {
-            $.computeEnvironmentNamePrefix = computeEnvironmentNamePrefix;
-            return this;
-        }
-
-        /**
-         * @param computeEnvironmentNamePrefix Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder computeEnvironmentNamePrefix(String computeEnvironmentNamePrefix) {
-            return computeEnvironmentNamePrefix(Output.of(computeEnvironmentNamePrefix));
         }
 
         /**
@@ -398,6 +356,48 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
          */
         public Builder eksConfiguration(ComputeEnvironmentEksConfigurationArgs eksConfiguration) {
             return eksConfiguration(Output.of(eksConfiguration));
+        }
+
+        /**
+         * @param name The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
+        /**
+         * @param namePrefix Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namePrefix(@Nullable Output<String> namePrefix) {
+            $.namePrefix = namePrefix;
+            return this;
+        }
+
+        /**
+         * @param namePrefix Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namePrefix(String namePrefix) {
+            return namePrefix(Output.of(namePrefix));
         }
 
         /**

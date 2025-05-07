@@ -9,6 +9,33 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.verifiedpermissions.Schema("example", {
+ *     policyStoreId: exampleAwsVerifiedpermissionsPolicyStore.policyStoreId,
+ *     definition: {
+ *         value: JSON.stringify({
+ *             Namespace: {
+ *                 entityTypes: {},
+ *                 actions: {},
+ *             },
+ *         }),
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+ *
+ * console
+ *
+ *  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
  */
 export class Schema extends pulumi.CustomResource {
     /**

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {
+ * const example = new aws.s3.Bucket("example", {
  *     bucket: "example-medical-vocab-123",
  *     forceDestroy: true,
  * });

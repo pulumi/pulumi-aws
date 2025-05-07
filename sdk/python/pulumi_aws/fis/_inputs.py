@@ -24,6 +24,16 @@ __all__ = [
     'ExperimentTemplateActionTargetArgsDict',
     'ExperimentTemplateExperimentOptionsArgs',
     'ExperimentTemplateExperimentOptionsArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationArgs',
+    'ExperimentTemplateExperimentReportConfigurationArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesArgs',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationOutputsArgs',
+    'ExperimentTemplateExperimentReportConfigurationOutputsArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs',
+    'ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict',
     'ExperimentTemplateLogConfigurationArgs',
     'ExperimentTemplateLogConfigurationArgsDict',
     'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs',
@@ -328,6 +338,245 @@ class ExperimentTemplateExperimentOptionsArgs:
     @empty_target_resolution_mode.setter
     def empty_target_resolution_mode(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "empty_target_resolution_mode", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
+        data_sources: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict']]
+        """
+        The data sources for the experiment report. See below.
+        """
+        outputs: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgsDict']]
+        """
+        The outputs for the experiment report. See below.
+        """
+        post_experiment_duration: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The duration of the post-experiment period. Defaults to `PT20M`.
+        """
+        pre_experiment_duration: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The duration of the pre-experiment period. Defaults to `PT20M`.
+        """
+elif False:
+    ExperimentTemplateExperimentReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationArgs:
+    def __init__(__self__, *,
+                 data_sources: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs']] = None,
+                 outputs: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs']] = None,
+                 post_experiment_duration: Optional[pulumi.Input[builtins.str]] = None,
+                 pre_experiment_duration: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs'] data_sources: The data sources for the experiment report. See below.
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs'] outputs: The outputs for the experiment report. See below.
+        :param pulumi.Input[builtins.str] post_experiment_duration: The duration of the post-experiment period. Defaults to `PT20M`.
+        :param pulumi.Input[builtins.str] pre_experiment_duration: The duration of the pre-experiment period. Defaults to `PT20M`.
+        """
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if post_experiment_duration is not None:
+            pulumi.set(__self__, "post_experiment_duration", post_experiment_duration)
+        if pre_experiment_duration is not None:
+            pulumi.set(__self__, "pre_experiment_duration", pre_experiment_duration)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs']]:
+        """
+        The data sources for the experiment report. See below.
+        """
+        return pulumi.get(self, "data_sources")
+
+    @data_sources.setter
+    def data_sources(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs']]):
+        pulumi.set(self, "data_sources", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs']]:
+        """
+        The outputs for the experiment report. See below.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs']]):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="postExperimentDuration")
+    def post_experiment_duration(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The duration of the post-experiment period. Defaults to `PT20M`.
+        """
+        return pulumi.get(self, "post_experiment_duration")
+
+    @post_experiment_duration.setter
+    def post_experiment_duration(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "post_experiment_duration", value)
+
+    @property
+    @pulumi.getter(name="preExperimentDuration")
+    def pre_experiment_duration(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The duration of the pre-experiment period. Defaults to `PT20M`.
+        """
+        return pulumi.get(self, "pre_experiment_duration")
+
+    @pre_experiment_duration.setter
+    def pre_experiment_duration(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "pre_experiment_duration", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict(TypedDict):
+        cloudwatch_dashboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict']]]]
+        """
+        The data sources for the experiment report. See below.
+        """
+elif False:
+    ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationDataSourcesArgs:
+    def __init__(__self__, *,
+                 cloudwatch_dashboards: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]] cloudwatch_dashboards: The data sources for the experiment report. See below.
+        """
+        if cloudwatch_dashboards is not None:
+            pulumi.set(__self__, "cloudwatch_dashboards", cloudwatch_dashboards)
+
+    @property
+    @pulumi.getter(name="cloudwatchDashboards")
+    def cloudwatch_dashboards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]]]:
+        """
+        The data sources for the experiment report. See below.
+        """
+        return pulumi.get(self, "cloudwatch_dashboards")
+
+    @cloudwatch_dashboards.setter
+    def cloudwatch_dashboards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]]]):
+        pulumi.set(self, "cloudwatch_dashboards", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict(TypedDict):
+        dashboard_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the CloudWatch dashboard.
+        """
+elif False:
+    ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs:
+    def __init__(__self__, *,
+                 dashboard_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] dashboard_arn: The ARN of the CloudWatch dashboard.
+        """
+        if dashboard_arn is not None:
+            pulumi.set(__self__, "dashboard_arn", dashboard_arn)
+
+    @property
+    @pulumi.getter(name="dashboardArn")
+    def dashboard_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the CloudWatch dashboard.
+        """
+        return pulumi.get(self, "dashboard_arn")
+
+    @dashboard_arn.setter
+    def dashboard_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dashboard_arn", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationOutputsArgsDict(TypedDict):
+        s3_configuration: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict']]
+        """
+        The data sources for the experiment report. See below.
+        """
+elif False:
+    ExperimentTemplateExperimentReportConfigurationOutputsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationOutputsArgs:
+    def __init__(__self__, *,
+                 s3_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs'] s3_configuration: The data sources for the experiment report. See below.
+        """
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs']]:
+        """
+        The data sources for the experiment report. See below.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict(TypedDict):
+        bucket_name: pulumi.Input[builtins.str]
+        """
+        The name of the destination bucket.
+        """
+        prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The bucket prefix.
+        """
+elif False:
+    ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[builtins.str],
+                 prefix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] bucket_name: The name of the destination bucket.
+        :param pulumi.Input[builtins.str] prefix: The bucket prefix.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the destination bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "prefix", value)
 
 
 if not MYPY:

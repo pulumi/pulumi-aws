@@ -3,7 +3,7 @@ runtime: yaml
 resources:
 
   res:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
     properties:
       tags:
         that:

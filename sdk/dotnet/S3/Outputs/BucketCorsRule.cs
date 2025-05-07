@@ -14,19 +14,19 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketCorsRule
     {
         /// <summary>
-        /// Specifies which headers are allowed.
+        /// List of headers allowed.
         /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
-        /// Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        /// One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
-        /// Specifies which origins are allowed.
+        /// One or more origins you want customers to be able to access the bucket from.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>
-        /// Specifies expose header in the response.
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
         /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
         /// <summary>

@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,22 +21,22 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
      * See `source` argument reference below.
      * 
      */
-    @Import(name="source")
-    private @Nullable Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs> source;
+    @Import(name="sources")
+    private @Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>> sources;
 
     /**
      * @return Source of the grammar used to create the slot type.
      * See `source` argument reference below.
      * 
      */
-    public Optional<Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>> source() {
-        return Optional.ofNullable(this.source);
+    public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>>> sources() {
+        return Optional.ofNullable(this.sources);
     }
 
     private V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs() {}
 
     private V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs $) {
-        this.source = $.source;
+        this.sources = $.sources;
     }
 
     public static Builder builder() {
@@ -57,26 +58,37 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
         }
 
         /**
-         * @param source Source of the grammar used to create the slot type.
+         * @param sources Source of the grammar used to create the slot type.
          * See `source` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder source(@Nullable Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs> source) {
-            $.source = source;
+        public Builder sources(@Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>> sources) {
+            $.sources = sources;
             return this;
         }
 
         /**
-         * @param source Source of the grammar used to create the slot type.
+         * @param sources Source of the grammar used to create the slot type.
          * See `source` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder source(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs source) {
-            return source(Output.of(source));
+        public Builder sources(List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs> sources) {
+            return sources(Output.of(sources));
+        }
+
+        /**
+         * @param sources Source of the grammar used to create the slot type.
+         * See `source` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sources(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs... sources) {
+            return sources(List.of(sources));
         }
 
         public V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs build() {

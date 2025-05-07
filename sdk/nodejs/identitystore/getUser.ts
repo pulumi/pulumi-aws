@@ -33,7 +33,6 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "identityStoreId": args.identityStoreId,
         "userId": args.userId,
     }, opts);
@@ -47,12 +46,6 @@ export interface GetUserArgs {
      * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
     alternateIdentifier?: inputs.identitystore.GetUserAlternateIdentifier;
-    /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: inputs.identitystore.GetUserFilter;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
@@ -88,10 +81,6 @@ export interface GetUserResult {
      * List of identifiers issued to this resource by an external identity provider.
      */
     readonly externalIds: outputs.identitystore.GetUserExternalId[];
-    /**
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    readonly filter?: outputs.identitystore.GetUserFilter;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -165,7 +154,6 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "identityStoreId": args.identityStoreId,
         "userId": args.userId,
     }, opts);
@@ -179,12 +167,6 @@ export interface GetUserOutputArgs {
      * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
-    /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *

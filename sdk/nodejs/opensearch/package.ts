@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as std from "@pulumi/std";
  *
- * const myOpensearchPackages = new aws.s3.BucketV2("my_opensearch_packages", {bucket: "my-opensearch-packages"});
+ * const myOpensearchPackages = new aws.s3.Bucket("my_opensearch_packages", {bucket: "my-opensearch-packages"});
  * const example = new aws.s3.BucketObjectv2("example", {
  *     bucket: myOpensearchPackages.bucket,
  *     key: "example.txt",

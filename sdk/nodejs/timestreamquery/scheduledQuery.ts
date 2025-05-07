@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {
+ * const test = new aws.s3.Bucket("test", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });

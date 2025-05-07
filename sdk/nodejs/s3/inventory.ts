@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {bucket: "my-tf-test-bucket"});
- * const inventory = new aws.s3.BucketV2("inventory", {bucket: "my-tf-inventory-bucket"});
+ * const test = new aws.s3.Bucket("test", {bucket: "my-tf-test-bucket"});
+ * const inventory = new aws.s3.Bucket("inventory", {bucket: "my-tf-inventory-bucket"});
  * const testInventory = new aws.s3.Inventory("test", {
  *     bucket: test.id,
  *     name: "EntireBucketDaily",
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {bucket: "my-tf-test-bucket"});
- * const inventory = new aws.s3.BucketV2("inventory", {bucket: "my-tf-inventory-bucket"});
+ * const test = new aws.s3.Bucket("test", {bucket: "my-tf-test-bucket"});
+ * const inventory = new aws.s3.Bucket("inventory", {bucket: "my-tf-inventory-bucket"});
  * const test_prefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
  *     name: "DocumentsWeekly",

@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainNameEndpointConfigurationArgs Empty = new DomainNameEndpointConfigurationArgs();
+
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
 
     /**
      * A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
@@ -32,6 +41,7 @@ public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resour
     private DomainNameEndpointConfigurationArgs() {}
 
     private DomainNameEndpointConfigurationArgs(DomainNameEndpointConfigurationArgs $) {
+        this.ipAddressType = $.ipAddressType;
         this.types = $.types;
     }
 
@@ -51,6 +61,15 @@ public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resour
 
         public Builder(DomainNameEndpointConfigurationArgs defaults) {
             $ = new DomainNameEndpointConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

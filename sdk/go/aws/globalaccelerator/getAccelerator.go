@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/globalaccelerator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -63,7 +63,6 @@ func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ..
 type LookupAcceleratorArgs struct {
 	// Full ARN of the Global Accelerator.
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
 	// Unique name of the Global Accelerator.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
@@ -98,7 +97,6 @@ func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputAr
 type LookupAcceleratorOutputArgs struct {
 	// Full ARN of the Global Accelerator.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	Id  pulumi.StringPtrInput `pulumi:"id"`
 	// Unique name of the Global Accelerator.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.

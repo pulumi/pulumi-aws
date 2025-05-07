@@ -400,13 +400,13 @@ class StreamProcessorOutputS3DestinationArgs:
 
 if not MYPY:
     class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
+        bounding_box: pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']
+        """
+        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        """
         polygons: pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgsDict']]]
         """
         Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
-        """
-        bounding_box: NotRequired[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']]
-        """
-        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
         """
 elif False:
     StreamProcessorRegionsOfInterestArgsDict: TypeAlias = Mapping[str, Any]
@@ -414,15 +414,26 @@ elif False:
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestArgs:
     def __init__(__self__, *,
-                 polygons: pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]],
-                 bounding_box: Optional[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']] = None):
+                 bounding_box: pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs'],
+                 polygons: pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]] polygons: Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         :param pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs'] bounding_box: Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]] polygons: Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         """
+        pulumi.set(__self__, "bounding_box", bounding_box)
         pulumi.set(__self__, "polygons", polygons)
-        if bounding_box is not None:
-            pulumi.set(__self__, "bounding_box", bounding_box)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']:
+        """
+        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        """
+        return pulumi.get(self, "bounding_box")
+
+    @bounding_box.setter
+    def bounding_box(self, value: pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']):
+        pulumi.set(self, "bounding_box", value)
 
     @property
     @pulumi.getter
@@ -435,18 +446,6 @@ class StreamProcessorRegionsOfInterestArgs:
     @polygons.setter
     def polygons(self, value: pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]):
         pulumi.set(self, "polygons", value)
-
-    @property
-    @pulumi.getter(name="boundingBox")
-    def bounding_box(self) -> Optional[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']]:
-        """
-        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
-        """
-        return pulumi.get(self, "bounding_box")
-
-    @bounding_box.setter
-    def bounding_box(self, value: Optional[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']]):
-        pulumi.set(self, "bounding_box", value)
 
 
 if not MYPY:

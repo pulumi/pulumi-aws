@@ -486,7 +486,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -652,7 +652,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -722,7 +722,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -888,7 +888,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",

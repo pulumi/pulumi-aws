@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Example Using `containerDefinitions` and `inferenceAccelerator`
+ * ### Example Using `containerDefinitions`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -195,20 +195,10 @@ import * as utilities from "../utilities";
  *         "containerPort": 80,
  *         "hostPort": 8080
  *       }
- *     ],
- *         "resourceRequirements":[
- *             {
- *                 "type":"InferenceAccelerator",
- *                 "value":"device_1"
- *             }
- *         ]
+ *     ]
  *   }
  * ]
  * `,
- *     inferenceAccelerators: [{
- *         deviceName: "device_1",
- *         deviceType: "eia1.medium",
- *     }],
  * });
  * ```
  *
@@ -314,10 +304,6 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly family!: pulumi.Output<string>;
     /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    public readonly inferenceAccelerators!: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
-    /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
     public readonly ipcMode!: pulumi.Output<string | undefined>;
@@ -401,7 +387,6 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["family"] = state ? state.family : undefined;
-            resourceInputs["inferenceAccelerators"] = state ? state.inferenceAccelerators : undefined;
             resourceInputs["ipcMode"] = state ? state.ipcMode : undefined;
             resourceInputs["memory"] = state ? state.memory : undefined;
             resourceInputs["networkMode"] = state ? state.networkMode : undefined;
@@ -431,7 +416,6 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
             resourceInputs["ipcMode"] = args ? args.ipcMode : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
             resourceInputs["networkMode"] = args ? args.networkMode : undefined;
@@ -495,10 +479,6 @@ export interface TaskDefinitionState {
      * The following arguments are optional:
      */
     family?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -595,10 +575,6 @@ export interface TaskDefinitionArgs {
      * The following arguments are optional:
      */
     family: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */

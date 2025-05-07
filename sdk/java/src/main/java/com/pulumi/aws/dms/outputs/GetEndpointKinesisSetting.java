@@ -20,6 +20,7 @@ public final class GetEndpointKinesisSetting {
     private Boolean partitionIncludeSchemaTable;
     private String serviceAccessRoleArn;
     private String streamArn;
+    private Boolean useLargeIntegerValue;
 
     private GetEndpointKinesisSetting() {}
     public Boolean includeControlDetails() {
@@ -49,6 +50,9 @@ public final class GetEndpointKinesisSetting {
     public String streamArn() {
         return this.streamArn;
     }
+    public Boolean useLargeIntegerValue() {
+        return this.useLargeIntegerValue;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -68,6 +72,7 @@ public final class GetEndpointKinesisSetting {
         private Boolean partitionIncludeSchemaTable;
         private String serviceAccessRoleArn;
         private String streamArn;
+        private Boolean useLargeIntegerValue;
         public Builder() {}
         public Builder(GetEndpointKinesisSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,6 +85,7 @@ public final class GetEndpointKinesisSetting {
     	      this.partitionIncludeSchemaTable = defaults.partitionIncludeSchemaTable;
     	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
     	      this.streamArn = defaults.streamArn;
+    	      this.useLargeIntegerValue = defaults.useLargeIntegerValue;
         }
 
         @CustomType.Setter
@@ -154,6 +160,14 @@ public final class GetEndpointKinesisSetting {
             this.streamArn = streamArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder useLargeIntegerValue(Boolean useLargeIntegerValue) {
+            if (useLargeIntegerValue == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKinesisSetting", "useLargeIntegerValue");
+            }
+            this.useLargeIntegerValue = useLargeIntegerValue;
+            return this;
+        }
         public GetEndpointKinesisSetting build() {
             final var _resultValue = new GetEndpointKinesisSetting();
             _resultValue.includeControlDetails = includeControlDetails;
@@ -165,6 +179,7 @@ public final class GetEndpointKinesisSetting {
             _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
             _resultValue.streamArn = streamArn;
+            _resultValue.useLargeIntegerValue = useLargeIntegerValue;
             return _resultValue;
         }
     }

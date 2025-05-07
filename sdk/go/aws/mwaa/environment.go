@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+// A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.Bucket`).
 //
 // ### Basic Usage
 //
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mwaa"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mwaa"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,7 +97,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mwaa"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,7 +152,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mwaa"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

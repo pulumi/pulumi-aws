@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -408,6 +408,8 @@ type DomainNameDomainNameConfiguration struct {
 	EndpointType string `pulumi:"endpointType"`
 	// Amazon Route 53 Hosted Zone ID of the endpoint.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
 	// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
@@ -434,6 +436,8 @@ type DomainNameDomainNameConfigurationArgs struct {
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// Amazon Route 53 Hosted Zone ID of the endpoint.
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
 	// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
@@ -534,6 +538,11 @@ func (o DomainNameDomainNameConfigurationOutput) HostedZoneId() pulumi.StringPtr
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
+// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+func (o DomainNameDomainNameConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 func (o DomainNameDomainNameConfigurationOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
@@ -600,6 +609,16 @@ func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.String
 			return nil
 		}
 		return v.HostedZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+func (o DomainNameDomainNameConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
 	}).(pulumi.StringPtrOutput)
 }
 

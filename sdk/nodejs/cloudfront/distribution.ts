@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {
+ * const b = new aws.s3.Bucket("b", {
  *     bucket: "mybucket",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
- * const bAcl = new aws.s3.BucketAclV2("b_acl", {
+ * const bAcl = new aws.s3.BucketAcl("b_acl", {
  *     bucket: b.id,
  *     acl: "private",
  * });
@@ -247,6 +247,40 @@ import * as utilities from "../utilities";
  *     viewerCertificate: {
  *         cloudfrontDefaultCertificate: true,
  *     },
+ * });
+ * ```
+ *
+ * ### With V2 logging to S3
+ *
+ * The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.Distribution("example", {});
+ * const exampleLogDeliverySource = new aws.cloudwatch.LogDeliverySource("example", {
+ *     name: "example",
+ *     logType: "ACCESS_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const exampleBucket = new aws.s3.Bucket("example", {
+ *     bucket: "testbucket",
+ *     forceDestroy: true,
+ * });
+ * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
+ *     name: "s3-destination",
+ *     outputFormat: "parquet",
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: pulumi.interpolate`${exampleBucket.arn}/prefix`,
+ *     },
+ * });
+ * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
+ *     deliverySourceName: exampleLogDeliverySource.name,
+ *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
+ *     s3DeliveryConfigurations: [{
+ *         suffixPath: "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+ *     }],
  * });
  * ```
  *

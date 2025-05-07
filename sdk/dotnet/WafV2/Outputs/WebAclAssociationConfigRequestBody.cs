@@ -16,41 +16,41 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// <summary>
         /// Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyApiGateway> ApiGateways;
+        public readonly Outputs.WebAclAssociationConfigRequestBodyApiGateway? ApiGateway;
         /// <summary>
         /// Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyAppRunnerService> AppRunnerServices;
+        public readonly Outputs.WebAclAssociationConfigRequestBodyAppRunnerService? AppRunnerService;
         /// <summary>
         /// Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCloudfront> Cloudfronts;
+        public readonly Outputs.WebAclAssociationConfigRequestBodyCloudfront? Cloudfront;
         /// <summary>
         /// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool> CognitoUserPools;
+        public readonly Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool? CognitoUserPool;
         /// <summary>
         /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance> VerifiedAccessInstances;
+        public readonly Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance? VerifiedAccessInstance;
 
         [OutputConstructor]
         private WebAclAssociationConfigRequestBody(
-            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyApiGateway> apiGateways,
+            Outputs.WebAclAssociationConfigRequestBodyApiGateway? apiGateway,
 
-            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices,
+            Outputs.WebAclAssociationConfigRequestBodyAppRunnerService? appRunnerService,
 
-            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCloudfront> cloudfronts,
+            Outputs.WebAclAssociationConfigRequestBodyCloudfront? cloudfront,
 
-            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools,
+            Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool? cognitoUserPool,
 
-            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances)
+            Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance? verifiedAccessInstance)
         {
-            ApiGateways = apiGateways;
-            AppRunnerServices = appRunnerServices;
-            Cloudfronts = cloudfronts;
-            CognitoUserPools = cognitoUserPools;
-            VerifiedAccessInstances = verifiedAccessInstances;
+            ApiGateway = apiGateway;
+            AppRunnerService = appRunnerService;
+            Cloudfront = cloudfront;
+            CognitoUserPool = cognitoUserPool;
+            VerifiedAccessInstance = verifiedAccessInstance;
         }
     }
 }

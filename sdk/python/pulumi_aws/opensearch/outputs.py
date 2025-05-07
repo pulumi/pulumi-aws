@@ -71,7 +71,7 @@ __all__ = [
     'GetDomainSnapshotOptionResult',
     'GetDomainSoftwareUpdateOptionResult',
     'GetDomainVpcOptionResult',
-    'GetServerlessSecurityConfigSamlOptionsResult',
+    'GetServerlessSecurityConfigSamlOptionResult',
 ]
 
 @pulumi.output_type
@@ -2821,7 +2821,7 @@ class GetDomainVpcOptionResult(dict):
 
 
 @pulumi.output_type
-class GetServerlessSecurityConfigSamlOptionsResult(dict):
+class GetServerlessSecurityConfigSamlOptionResult(dict):
     def __init__(__self__, *,
                  group_attribute: builtins.str,
                  metadata: builtins.str,

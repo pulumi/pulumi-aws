@@ -30,16 +30,16 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///         Tags = 
     ///         {
     ///             { "Name", "My bucket" },
     ///         },
     ///     });
     /// 
-    ///     var bAcl = new Aws.S3.BucketAclV2("b_acl", new()
+    ///     var bAcl = new Aws.S3.BucketAcl("b_acl", new()
     ///     {
     ///         Bucket = b.Id,
     ///         Acl = "private",
@@ -330,6 +330,59 @@ namespace Pulumi.Aws.CloudFront
     ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
     ///         {
     ///             CloudfrontDefaultCertificate = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With V2 logging to S3
+    /// 
+    /// The example below creates a CloudFront distribution with [standard logging V2 to S3](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#enable-access-logging-api).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudFront.Distribution("example");
+    /// 
+    ///     var exampleLogDeliverySource = new Aws.CloudWatch.LogDeliverySource("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         LogType = "ACCESS_LOGS",
+    ///         ResourceArn = example.Arn,
+    ///     });
+    /// 
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = "testbucket",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
+    ///     {
+    ///         Name = "s3-destination",
+    ///         OutputFormat = "parquet",
+    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+    ///         {
+    ///             DestinationResourceArn = exampleBucket.Arn.Apply(arn =&gt; $"{arn}/prefix"),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()
+    ///     {
+    ///         DeliverySourceName = exampleLogDeliverySource.Name,
+    ///         DeliveryDestinationArn = exampleLogDeliveryDestination.Arn,
+    ///         S3DeliveryConfigurations = new[]
+    ///         {
+    ///             new Aws.CloudWatch.Inputs.LogDeliveryS3DeliveryConfigurationArgs
+    ///             {
+    ///                 SuffixPath = "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+    ///             },
     ///         },
     ///     });
     /// 

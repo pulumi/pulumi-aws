@@ -8,6 +8,7 @@ import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKer
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -36,22 +37,22 @@ public final class AppImageConfigKernelGatewayImageConfigArgs extends com.pulumi
      * The default branch for the Git repository. See Kernel Spec details below.
      * 
      */
-    @Import(name="kernelSpec", required=true)
-    private Output<AppImageConfigKernelGatewayImageConfigKernelSpecArgs> kernelSpec;
+    @Import(name="kernelSpecs", required=true)
+    private Output<List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs>> kernelSpecs;
 
     /**
      * @return The default branch for the Git repository. See Kernel Spec details below.
      * 
      */
-    public Output<AppImageConfigKernelGatewayImageConfigKernelSpecArgs> kernelSpec() {
-        return this.kernelSpec;
+    public Output<List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs>> kernelSpecs() {
+        return this.kernelSpecs;
     }
 
     private AppImageConfigKernelGatewayImageConfigArgs() {}
 
     private AppImageConfigKernelGatewayImageConfigArgs(AppImageConfigKernelGatewayImageConfigArgs $) {
         this.fileSystemConfig = $.fileSystemConfig;
-        this.kernelSpec = $.kernelSpec;
+        this.kernelSpecs = $.kernelSpecs;
     }
 
     public static Builder builder() {
@@ -94,29 +95,39 @@ public final class AppImageConfigKernelGatewayImageConfigArgs extends com.pulumi
         }
 
         /**
-         * @param kernelSpec The default branch for the Git repository. See Kernel Spec details below.
+         * @param kernelSpecs The default branch for the Git repository. See Kernel Spec details below.
          * 
          * @return builder
          * 
          */
-        public Builder kernelSpec(Output<AppImageConfigKernelGatewayImageConfigKernelSpecArgs> kernelSpec) {
-            $.kernelSpec = kernelSpec;
+        public Builder kernelSpecs(Output<List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs>> kernelSpecs) {
+            $.kernelSpecs = kernelSpecs;
             return this;
         }
 
         /**
-         * @param kernelSpec The default branch for the Git repository. See Kernel Spec details below.
+         * @param kernelSpecs The default branch for the Git repository. See Kernel Spec details below.
          * 
          * @return builder
          * 
          */
-        public Builder kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs kernelSpec) {
-            return kernelSpec(Output.of(kernelSpec));
+        public Builder kernelSpecs(List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs> kernelSpecs) {
+            return kernelSpecs(Output.of(kernelSpecs));
+        }
+
+        /**
+         * @param kernelSpecs The default branch for the Git repository. See Kernel Spec details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs... kernelSpecs) {
+            return kernelSpecs(List.of(kernelSpecs));
         }
 
         public AppImageConfigKernelGatewayImageConfigArgs build() {
-            if ($.kernelSpec == null) {
-                throw new MissingRequiredPropertyException("AppImageConfigKernelGatewayImageConfigArgs", "kernelSpec");
+            if ($.kernelSpecs == null) {
+                throw new MissingRequiredPropertyException("AppImageConfigKernelGatewayImageConfigArgs", "kernelSpecs");
             }
             return $;
         }

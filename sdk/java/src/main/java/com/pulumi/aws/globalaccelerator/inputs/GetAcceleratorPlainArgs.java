@@ -29,13 +29,6 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.arn);
     }
 
-    @Import(name="id")
-    private @Nullable String id;
-
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
-    }
-
     /**
      * Unique name of the Global Accelerator.
      * 
@@ -59,7 +52,6 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
 
     private GetAcceleratorPlainArgs(GetAcceleratorPlainArgs $) {
         this.arn = $.arn;
-        this.id = $.id;
         this.name = $.name;
     }
 
@@ -89,11 +81,6 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
-            return this;
-        }
-
-        public Builder id(@Nullable String id) {
-            $.id = id;
             return this;
         }
 

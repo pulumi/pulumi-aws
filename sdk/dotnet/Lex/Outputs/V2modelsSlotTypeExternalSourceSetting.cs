@@ -17,12 +17,12 @@ namespace Pulumi.Aws.Lex.Outputs
         /// Settings required for a slot type based on a grammar that you provide.
         /// See `grammar_slot_type_setting` argument reference below.
         /// </summary>
-        public readonly Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting? GrammarSlotTypeSetting;
+        public readonly ImmutableArray<Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> GrammarSlotTypeSettings;
 
         [OutputConstructor]
-        private V2modelsSlotTypeExternalSourceSetting(Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting? grammarSlotTypeSetting)
+        private V2modelsSlotTypeExternalSourceSetting(ImmutableArray<Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings)
         {
-            GrammarSlotTypeSetting = grammarSlotTypeSetting;
+            GrammarSlotTypeSettings = grammarSlotTypeSettings;
         }
     }
 }

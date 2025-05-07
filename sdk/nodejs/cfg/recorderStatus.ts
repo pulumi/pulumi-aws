@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {bucket: "awsconfig-example"});
+ * const b = new aws.s3.Bucket("b", {bucket: "awsconfig-example"});
  * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
  *     name: "example",
  *     s3BucketName: b.bucket,

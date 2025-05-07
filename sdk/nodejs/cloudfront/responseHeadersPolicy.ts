@@ -147,7 +147,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * The current version of the response headers policy.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * A unique name to identify the response headers policy.
      */
@@ -192,12 +192,12 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["corsConfig"] = args ? args.corsConfig : undefined;
             resourceInputs["customHeadersConfig"] = args ? args.customHeadersConfig : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["removeHeadersConfig"] = args ? args.removeHeadersConfig : undefined;
             resourceInputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
             resourceInputs["serverTimingHeadersConfig"] = args ? args.serverTimingHeadersConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts);
@@ -262,10 +262,6 @@ export interface ResponseHeadersPolicyArgs {
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
     customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
-    /**
-     * The current version of the response headers policy.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * A unique name to identify the response headers policy.
      */

@@ -77,28 +77,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
-     * 
-     */
-    @Import(name="blockDurationMinutes")
-    private @Nullable Output<Integer> blockDurationMinutes;
-
-    /**
-     * @return The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
-     * 
-     */
-    public Optional<Output<Integer>> blockDurationMinutes() {
-        return Optional.ofNullable(this.blockDurationMinutes);
-    }
-
-    /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-     * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     @Import(name="capacityReservationSpecification")
@@ -107,34 +86,9 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-     * 
      */
     public Optional<Output<SpotInstanceRequestCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
         return Optional.ofNullable(this.capacityReservationSpecification);
-    }
-
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     * @deprecated
-     * cpu_core_count is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    @Import(name="cpuCoreCount")
-    private @Nullable Output<Integer> cpuCoreCount;
-
-    /**
-     * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     * @deprecated
-     * cpu_core_count is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    public Optional<Output<Integer>> cpuCoreCount() {
-        return Optional.ofNullable(this.cpuCoreCount);
     }
 
     /**
@@ -150,29 +104,6 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
      */
     public Optional<Output<SpotInstanceRequestCpuOptionsArgs>> cpuOptions() {
         return Optional.ofNullable(this.cpuOptions);
-    }
-
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * @deprecated
-     * cpu_threads_per_core is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    @Import(name="cpuThreadsPerCore")
-    private @Nullable Output<Integer> cpuThreadsPerCore;
-
-    /**
-     * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * @deprecated
-     * cpu_threads_per_core is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    public Optional<Output<Integer>> cpuThreadsPerCore() {
-        return Optional.ofNullable(this.cpuThreadsPerCore);
     }
 
     /**
@@ -887,11 +818,8 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         this.ami = $.ami;
         this.associatePublicIpAddress = $.associatePublicIpAddress;
         this.availabilityZone = $.availabilityZone;
-        this.blockDurationMinutes = $.blockDurationMinutes;
         this.capacityReservationSpecification = $.capacityReservationSpecification;
-        this.cpuCoreCount = $.cpuCoreCount;
         this.cpuOptions = $.cpuOptions;
-        this.cpuThreadsPerCore = $.cpuThreadsPerCore;
         this.creditSpecification = $.creditSpecification;
         this.disableApiStop = $.disableApiStop;
         this.disableApiTermination = $.disableApiTermination;
@@ -1022,34 +950,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param blockDurationMinutes The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-         * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-         * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blockDurationMinutes(@Nullable Output<Integer> blockDurationMinutes) {
-            $.blockDurationMinutes = blockDurationMinutes;
-            return this;
-        }
-
-        /**
-         * @param blockDurationMinutes The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-         * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-         * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blockDurationMinutes(Integer blockDurationMinutes) {
-            return blockDurationMinutes(Output.of(blockDurationMinutes));
-        }
-
-        /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-         * 
-         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 
@@ -1062,42 +963,11 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
          * 
-         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-         * 
          * @return builder
          * 
          */
         public Builder capacityReservationSpecification(SpotInstanceRequestCapacityReservationSpecificationArgs capacityReservationSpecification) {
             return capacityReservationSpecification(Output.of(capacityReservationSpecification));
-        }
-
-        /**
-         * @param cpuCoreCount Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_core_count is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-        public Builder cpuCoreCount(@Nullable Output<Integer> cpuCoreCount) {
-            $.cpuCoreCount = cpuCoreCount;
-            return this;
-        }
-
-        /**
-         * @param cpuCoreCount Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_core_count is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-        public Builder cpuCoreCount(Integer cpuCoreCount) {
-            return cpuCoreCount(Output.of(cpuCoreCount));
         }
 
         /**
@@ -1119,35 +989,6 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          */
         public Builder cpuOptions(SpotInstanceRequestCpuOptionsArgs cpuOptions) {
             return cpuOptions(Output.of(cpuOptions));
-        }
-
-        /**
-         * @param cpuThreadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_threads_per_core is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-        public Builder cpuThreadsPerCore(@Nullable Output<Integer> cpuThreadsPerCore) {
-            $.cpuThreadsPerCore = cpuThreadsPerCore;
-            return this;
-        }
-
-        /**
-         * @param cpuThreadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_threads_per_core is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-        public Builder cpuThreadsPerCore(Integer cpuThreadsPerCore) {
-            return cpuThreadsPerCore(Output.of(cpuThreadsPerCore));
         }
 
         /**

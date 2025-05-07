@@ -28,7 +28,10 @@ class GetDetectorResult:
     """
     A collection of values returned by getDetector.
     """
-    def __init__(__self__, features=None, finding_publishing_frequency=None, id=None, service_role_arn=None, status=None):
+    def __init__(__self__, arn=None, features=None, finding_publishing_frequency=None, id=None, service_role_arn=None, status=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if features and not isinstance(features, list):
             raise TypeError("Expected argument 'features' to be a list")
         pulumi.set(__self__, "features", features)
@@ -44,6 +47,17 @@ class GetDetectorResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> builtins.str:
+        """
+        ARN of the detector.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -82,6 +96,14 @@ class GetDetectorResult:
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, builtins.str]:
+        """
+        Map of tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetDetectorResult(GetDetectorResult):
     # pylint: disable=using-constant-test
@@ -89,14 +111,17 @@ class AwaitableGetDetectorResult(GetDetectorResult):
         if False:
             yield self
         return GetDetectorResult(
+            arn=self.arn,
             features=self.features,
             finding_publishing_frequency=self.finding_publishing_frequency,
             id=self.id,
             service_role_arn=self.service_role_arn,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_detector(id: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDetectorResult:
     """
     Retrieve information about a GuardDuty detector.
@@ -112,19 +137,24 @@ def get_detector(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: ID of the detector.
+    :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
 
     return AwaitableGetDetectorResult(
+        arn=pulumi.get(__ret__, 'arn'),
         features=pulumi.get(__ret__, 'features'),
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         id=pulumi.get(__ret__, 'id'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
-        status=pulumi.get(__ret__, 'status'))
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_detector_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Retrieve information about a GuardDuty detector.
@@ -140,14 +170,18 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = Non
 
 
     :param builtins.str id: ID of the detector.
+    :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult)
     return __ret__.apply(lambda __response__: GetDetectorResult(
+        arn=pulumi.get(__response__, 'arn'),
         features=pulumi.get(__response__, 'features'),
         finding_publishing_frequency=pulumi.get(__response__, 'finding_publishing_frequency'),
         id=pulumi.get(__response__, 'id'),
         service_role_arn=pulumi.get(__response__, 'service_role_arn'),
-        status=pulumi.get(__response__, 'status')))
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

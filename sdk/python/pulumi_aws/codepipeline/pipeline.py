@@ -410,7 +410,7 @@ class Pipeline(pulumi.CustomResource):
         example = aws.codestarconnections.Connection("example",
             name="example-connection",
             provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
+        codepipeline_bucket = aws.s3.Bucket("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -566,7 +566,7 @@ class Pipeline(pulumi.CustomResource):
         example = aws.codestarconnections.Connection("example",
             name="example-connection",
             provider_type="GitHub")
-        codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
+        codepipeline_bucket = aws.s3.Bucket("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{

@@ -8,7 +8,6 @@ import com.pulumi.aws.lb.outputs.GetListenerRuleActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,7 +17,7 @@ public final class GetListenerRuleActionForward {
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleActionForwardStickiness stickiness;
+    private @Nullable List<GetListenerRuleActionForwardStickiness> stickinesses;
     /**
      * @return Set of target groups for the action.
      * Detailed below.
@@ -32,8 +31,8 @@ public final class GetListenerRuleActionForward {
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionForwardStickiness> stickiness() {
-        return Optional.ofNullable(this.stickiness);
+    public List<GetListenerRuleActionForwardStickiness> stickinesses() {
+        return this.stickinesses == null ? List.of() : this.stickinesses;
     }
     /**
      * @return Set of target groups for the action.
@@ -53,20 +52,23 @@ public final class GetListenerRuleActionForward {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable GetListenerRuleActionForwardStickiness stickiness;
+        private @Nullable List<GetListenerRuleActionForwardStickiness> stickinesses;
         private @Nullable List<GetListenerRuleActionForwardTargetGroup> targetGroups;
         public Builder() {}
         public Builder(GetListenerRuleActionForward defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.stickiness = defaults.stickiness;
+    	      this.stickinesses = defaults.stickinesses;
     	      this.targetGroups = defaults.targetGroups;
         }
 
         @CustomType.Setter
-        public Builder stickiness(@Nullable GetListenerRuleActionForwardStickiness stickiness) {
+        public Builder stickinesses(@Nullable List<GetListenerRuleActionForwardStickiness> stickinesses) {
 
-            this.stickiness = stickiness;
+            this.stickinesses = stickinesses;
             return this;
+        }
+        public Builder stickinesses(GetListenerRuleActionForwardStickiness... stickinesses) {
+            return stickinesses(List.of(stickinesses));
         }
         @CustomType.Setter
         public Builder targetGroups(@Nullable List<GetListenerRuleActionForwardTargetGroup> targetGroups) {
@@ -79,7 +81,7 @@ public final class GetListenerRuleActionForward {
         }
         public GetListenerRuleActionForward build() {
             final var _resultValue = new GetListenerRuleActionForward();
-            _resultValue.stickiness = stickiness;
+            _resultValue.stickinesses = stickinesses;
             _resultValue.targetGroups = targetGroups;
             return _resultValue;
         }

@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.paymentcryptography.Key("test", {
+ *     exportable: true,
+ *     keyAttributes: [{
+ *         keyAlgorithm: "TDES_3KEY",
+ *         keyClass: "SYMMETRIC_KEY",
+ *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
+ *         keyModesOfUses: [{
+ *             decrypt: true,
+ *             encrypt: true,
+ *             wrap: true,
+ *             unwrap: true,
+ *         }],
+ *     }],
+ * });
+ * const testKeyAlias = new aws.paymentcryptography.KeyAlias("test", {
+ *     aliasName: "alias/test-alias",
+ *     keyArn: test.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:

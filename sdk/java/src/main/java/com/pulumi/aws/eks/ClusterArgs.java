@@ -74,13 +74,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.computeConfig);
     }
 
-    @Import(name="defaultAddonsToRemoves")
-    private @Nullable Output<List<String>> defaultAddonsToRemoves;
-
-    public Optional<Output<List<String>>> defaultAddonsToRemoves() {
-        return Optional.ofNullable(this.defaultAddonsToRemoves);
-    }
-
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      * 
@@ -301,7 +294,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
         this.computeConfig = $.computeConfig;
-        this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.forceUpdateVersion = $.forceUpdateVersion;
@@ -397,19 +389,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder computeConfig(ClusterComputeConfigArgs computeConfig) {
             return computeConfig(Output.of(computeConfig));
-        }
-
-        public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
-            $.defaultAddonsToRemoves = defaultAddonsToRemoves;
-            return this;
-        }
-
-        public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
-        }
-
-        public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
 
         /**

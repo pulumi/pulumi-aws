@@ -15,11 +15,6 @@ export const getAuthorizationToken: typeof import("./getAuthorizationToken").get
 export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));
 
-export { GetCredentialsArgs, GetCredentialsResult, GetCredentialsOutputArgs } from "./getCredentials";
-export const getCredentials: typeof import("./getCredentials").getCredentials = null as any;
-export const getCredentialsOutput: typeof import("./getCredentials").getCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
-
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;

@@ -159,8 +159,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.sns.Topic;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.sqs.Queue;
@@ -193,7 +193,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2("test", BucketV2Args.builder()
+ *         var test = new Bucket("test", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());

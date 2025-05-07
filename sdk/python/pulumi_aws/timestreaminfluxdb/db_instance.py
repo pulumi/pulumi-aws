@@ -789,7 +789,7 @@ class DbInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
@@ -798,10 +798,10 @@ class DbInstance(pulumi.CustomResource):
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
-            "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_db_instance = aws.timestreaminfluxdb.DbInstance("example",
             allocated_storage=20,
@@ -815,7 +815,7 @@ class DbInstance(pulumi.CustomResource):
             name="example-db-instance",
             log_delivery_configuration={
                 "s3_configuration": {
-                    "bucket_name": example_bucket_v2.bucket,
+                    "bucket_name": example_bucket.bucket,
                     "enabled": True,
                 },
             })
@@ -948,7 +948,7 @@ class DbInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
@@ -957,10 +957,10 @@ class DbInstance(pulumi.CustomResource):
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
-            "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_db_instance = aws.timestreaminfluxdb.DbInstance("example",
             allocated_storage=20,
@@ -974,7 +974,7 @@ class DbInstance(pulumi.CustomResource):
             name="example-db-instance",
             log_delivery_configuration={
                 "s3_configuration": {
-                    "bucket_name": example_bucket_v2.bucket,
+                    "bucket_name": example_bucket.bucket,
                     "enabled": True,
                 },
             })

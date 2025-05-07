@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,10 +101,6 @@ type LookupDomainResult struct {
 	Id string `pulumi:"id"`
 	// Type of IP addresses supported by the endpoint for the domain.
 	IpAddressType string `pulumi:"ipAddressType"`
-	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-	//
-	// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
 	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Domain in transit encryption related options.
@@ -263,13 +259,6 @@ func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
 // Type of IP addresses supported by the endpoint for the domain.
 func (o LookupDomainResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.IpAddressType }).(pulumi.StringOutput)
-}
-
-// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-//
-// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }
 
 // Domain log publishing related options.

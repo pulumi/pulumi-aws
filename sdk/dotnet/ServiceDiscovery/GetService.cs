@@ -114,19 +114,6 @@ namespace Pulumi.Aws.ServiceDiscovery
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private Dictionary<string, string>? _tagsAll;
-
-        /// <summary>
-        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public Dictionary<string, string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
-            set => _tagsAll = value;
-        }
-
         public GetServiceArgs()
         {
         }
@@ -157,19 +144,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public GetServiceInvokeArgs()
@@ -215,10 +189,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> TagsAll;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -238,9 +208,7 @@ namespace Pulumi.Aws.ServiceDiscovery
 
             string namespaceId,
 
-            ImmutableDictionary<string, string>? tags,
-
-            ImmutableDictionary<string, string> tagsAll)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;
@@ -251,7 +219,6 @@ namespace Pulumi.Aws.ServiceDiscovery
             Name = name;
             NamespaceId = namespaceId;
             Tags = tags;
-            TagsAll = tagsAll;
         }
     }
 }

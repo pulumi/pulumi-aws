@@ -49,14 +49,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Elastic Network Interface ID to attach to
+     * Elastic Network Interface ID to attach to.
      * 
      */
     @Import(name="eniId")
     private @Nullable Output<String> eniId;
 
     /**
-     * @return Elastic Network Interface ID to attach to
+     * @return Elastic Network Interface ID to attach to.
      * 
      */
     public Optional<Output<String>> eniId() {
@@ -64,14 +64,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+     * ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+     * @return ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -79,14 +79,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+     * ARN of the logging destination.
      * 
      */
     @Import(name="logDestination")
     private @Nullable Output<String> logDestination;
 
     /**
-     * @return The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+     * @return ARN of the logging destination.
      * 
      */
     public Optional<Output<String>> logDestination() {
@@ -94,14 +94,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+     * Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     @Import(name="logDestinationType")
     private @Nullable Output<String> logDestinationType;
 
     /**
-     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+     * @return Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     public Optional<Output<String>> logDestinationType() {
@@ -124,43 +124,18 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-     * 
-     * @deprecated
-     * log_group_name is deprecated. Use log_destination instead.
-     * 
-     */
-    @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-    @Import(name="logGroupName")
-    private @Nullable Output<String> logGroupName;
-
-    /**
-     * @return **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-     * 
-     * @deprecated
-     * log_group_name is deprecated. Use log_destination instead.
-     * 
-     */
-    @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-    public Optional<Output<String>> logGroupName() {
-        return Optional.ofNullable(this.logGroupName);
-    }
-
-    /**
-     * The maximum interval of time
-     * during which a flow of packets is captured and aggregated into a flow
-     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+     * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+     * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     @Import(name="maxAggregationInterval")
     private @Nullable Output<Integer> maxAggregationInterval;
 
     /**
-     * @return The maximum interval of time
-     * during which a flow of packets is captured and aggregated into a flow
-     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+     * @return The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+     * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     public Optional<Output<Integer>> maxAggregationInterval() {
@@ -168,14 +143,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Subnet ID to attach to
+     * Subnet ID to attach to.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return Subnet ID to attach to
+     * @return Subnet ID to attach to.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -213,14 +188,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Transit Gateway Attachment ID to attach to
+     * Transit Gateway Attachment ID to attach to.
      * 
      */
     @Import(name="transitGatewayAttachmentId")
     private @Nullable Output<String> transitGatewayAttachmentId;
 
     /**
-     * @return Transit Gateway Attachment ID to attach to
+     * @return Transit Gateway Attachment ID to attach to.
      * 
      */
     public Optional<Output<String>> transitGatewayAttachmentId() {
@@ -228,14 +203,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Transit Gateway ID to attach to
+     * Transit Gateway ID to attach to.
      * 
      */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
     /**
-     * @return Transit Gateway ID to attach to
+     * @return Transit Gateway ID to attach to.
      * 
      */
     public Optional<Output<String>> transitGatewayId() {
@@ -243,14 +218,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * VPC ID to attach to
+     * VPC ID to attach to.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return VPC ID to attach to
+     * @return VPC ID to attach to.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -267,7 +242,6 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         this.logDestination = $.logDestination;
         this.logDestinationType = $.logDestinationType;
         this.logFormat = $.logFormat;
-        this.logGroupName = $.logGroupName;
         this.maxAggregationInterval = $.maxAggregationInterval;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -338,7 +312,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniId Elastic Network Interface ID to attach to
+         * @param eniId Elastic Network Interface ID to attach to.
          * 
          * @return builder
          * 
@@ -349,7 +323,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniId Elastic Network Interface ID to attach to
+         * @param eniId Elastic Network Interface ID to attach to.
          * 
          * @return builder
          * 
@@ -359,7 +333,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+         * @param iamRoleArn ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
          * 
          * @return builder
          * 
@@ -370,7 +344,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+         * @param iamRoleArn ARN of the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group.
          * 
          * @return builder
          * 
@@ -380,7 +354,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestination The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+         * @param logDestination ARN of the logging destination.
          * 
          * @return builder
          * 
@@ -391,7 +365,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestination The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+         * @param logDestination ARN of the logging destination.
          * 
          * @return builder
          * 
@@ -401,7 +375,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestinationType The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+         * @param logDestinationType Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
          * 
          * @return builder
          * 
@@ -412,7 +386,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestinationType The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+         * @param logDestinationType Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
          * 
          * @return builder
          * 
@@ -443,39 +417,9 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logGroupName **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * log_group_name is deprecated. Use log_destination instead.
-         * 
-         */
-        @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-        public Builder logGroupName(@Nullable Output<String> logGroupName) {
-            $.logGroupName = logGroupName;
-            return this;
-        }
-
-        /**
-         * @param logGroupName **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * log_group_name is deprecated. Use log_destination instead.
-         * 
-         */
-        @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-        public Builder logGroupName(String logGroupName) {
-            return logGroupName(Output.of(logGroupName));
-        }
-
-        /**
-         * @param maxAggregationInterval The maximum interval of time
-         * during which a flow of packets is captured and aggregated into a flow
-         * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+         * @param maxAggregationInterval The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+         * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+         * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -486,10 +430,9 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxAggregationInterval The maximum interval of time
-         * during which a flow of packets is captured and aggregated into a flow
-         * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+         * @param maxAggregationInterval The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+         * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
+         * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -499,7 +442,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId Subnet ID to attach to
+         * @param subnetId Subnet ID to attach to.
          * 
          * @return builder
          * 
@@ -510,7 +453,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId Subnet ID to attach to
+         * @param subnetId Subnet ID to attach to.
          * 
          * @return builder
          * 
@@ -562,7 +505,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to
+         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to.
          * 
          * @return builder
          * 
@@ -573,7 +516,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to
+         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to.
          * 
          * @return builder
          * 
@@ -583,7 +526,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayId Transit Gateway ID to attach to
+         * @param transitGatewayId Transit Gateway ID to attach to.
          * 
          * @return builder
          * 
@@ -594,7 +537,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayId Transit Gateway ID to attach to
+         * @param transitGatewayId Transit Gateway ID to attach to.
          * 
          * @return builder
          * 
@@ -604,7 +547,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId VPC ID to attach to
+         * @param vpcId VPC ID to attach to.
          * 
          * @return builder
          * 
@@ -615,7 +558,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId VPC ID to attach to
+         * @param vpcId VPC ID to attach to.
          * 
          * @return builder
          * 

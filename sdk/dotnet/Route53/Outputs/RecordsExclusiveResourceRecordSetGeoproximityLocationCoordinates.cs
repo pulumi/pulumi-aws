@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Route53.Outputs
     public sealed class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates
     {
         /// <summary>
-        /// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        /// A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
         /// </summary>
         public readonly string Latitude;
+        /// <summary>
+        /// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        /// </summary>
         public readonly string Longitude;
 
         [OutputConstructor]

@@ -8,7 +8,7 @@ const athenaConnectorApp = aws.serverlessrepository.getApplication({
     applicationId: "arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaCloudwatchConnector",
 }, providerOpts);
 
-const spillBucket = new aws.s3.BucketV2("spill-bucket", {
+const spillBucket = new aws.s3.Bucket("spill-bucket", {
     bucketPrefix: "spill-bucket",
     forceDestroy: true,
 }, providerOpts);

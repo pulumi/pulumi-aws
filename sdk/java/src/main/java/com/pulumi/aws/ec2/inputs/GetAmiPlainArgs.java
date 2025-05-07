@@ -19,6 +19,27 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiPlainArgs Empty = new GetAmiPlainArgs();
 
     /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     * 
+     */
+    @Import(name="allowUnsafeFilter")
+    private @Nullable Boolean allowUnsafeFilter;
+
+    /**
+     * @return If true, allow unsafe filter values. With unsafe
+     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     * 
+     */
+    public Optional<Boolean> allowUnsafeFilter() {
+        return Optional.ofNullable(this.allowUnsafeFilter);
+    }
+
+    /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
      * 
@@ -171,6 +192,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAmiPlainArgs() {}
 
     private GetAmiPlainArgs(GetAmiPlainArgs $) {
+        this.allowUnsafeFilter = $.allowUnsafeFilter;
         this.executableUsers = $.executableUsers;
         this.filters = $.filters;
         this.includeDeprecated = $.includeDeprecated;
@@ -197,6 +219,20 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetAmiPlainArgs defaults) {
             $ = new GetAmiPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
+         * filters and `most_recent` set to `true`, a third party may introduce a new image which
+         * will be returned by this data source. Consider filtering by owner or image ID rather
+         * than setting this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowUnsafeFilter(@Nullable Boolean allowUnsafeFilter) {
+            $.allowUnsafeFilter = allowUnsafeFilter;
+            return this;
         }
 
         /**

@@ -29,7 +29,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -93,9 +93,6 @@ class GetDomainResult:
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
-        if kibana_endpoint and not isinstance(kibana_endpoint, str):
-            raise TypeError("Expected argument 'kibana_endpoint' to be a str")
-        pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options and not isinstance(log_publishing_options, list):
             raise TypeError("Expected argument 'log_publishing_options' to be a list")
         pulumi.set(__self__, "log_publishing_options", log_publishing_options)
@@ -287,15 +284,6 @@ class GetDomainResult:
         return pulumi.get(self, "ip_address_type")
 
     @property
-    @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-    def kibana_endpoint(self) -> builtins.str:
-        """
-        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        """
-        return pulumi.get(self, "kibana_endpoint")
-
-    @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Sequence['outputs.GetDomainLogPublishingOptionResult']:
         """
@@ -387,7 +375,6 @@ class AwaitableGetDomainResult(GetDomainResult):
             engine_version=self.engine_version,
             id=self.id,
             ip_address_type=self.ip_address_type,
-            kibana_endpoint=self.kibana_endpoint,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryptions=self.node_to_node_encryptions,
             off_peak_window_options=self.off_peak_window_options,
@@ -448,7 +435,6 @@ def get_domain(domain_name: Optional[builtins.str] = None,
         engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
-        kibana_endpoint=pulumi.get(__ret__, 'kibana_endpoint'),
         log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
         node_to_node_encryptions=pulumi.get(__ret__, 'node_to_node_encryptions'),
         off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),
@@ -506,7 +492,6 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
         engine_version=pulumi.get(__response__, 'engine_version'),
         id=pulumi.get(__response__, 'id'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
-        kibana_endpoint=pulumi.get(__response__, 'kibana_endpoint'),
         log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
         node_to_node_encryptions=pulumi.get(__response__, 'node_to_node_encryptions'),
         off_peak_window_options=pulumi.get(__response__, 'off_peak_window_options'),

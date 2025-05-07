@@ -7,7 +7,7 @@ config:
       pulumi:template: aws-yaml
 resources:
   bucket1:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
   object1:
     type: aws:s3:BucketObject
     properties:

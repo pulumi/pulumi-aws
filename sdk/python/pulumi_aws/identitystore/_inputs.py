@@ -34,16 +34,12 @@ __all__ = [
     'GetGroupAlternateIdentifierExternalIdArgsDict',
     'GetGroupAlternateIdentifierUniqueAttributeArgs',
     'GetGroupAlternateIdentifierUniqueAttributeArgsDict',
-    'GetGroupFilterArgs',
-    'GetGroupFilterArgsDict',
     'GetUserAlternateIdentifierArgs',
     'GetUserAlternateIdentifierArgsDict',
     'GetUserAlternateIdentifierExternalIdArgs',
     'GetUserAlternateIdentifierExternalIdArgsDict',
     'GetUserAlternateIdentifierUniqueAttributeArgs',
     'GetUserAlternateIdentifierUniqueAttributeArgsDict',
-    'GetUserFilterArgs',
-    'GetUserFilterArgsDict',
 ]
 
 MYPY = False
@@ -763,56 +759,6 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
 
 
 if not MYPY:
-    class GetGroupFilterArgsDict(TypedDict):
-        attribute_path: builtins.str
-        """
-        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-        """
-        attribute_value: builtins.str
-        """
-        Value for an attribute.
-        """
-elif False:
-    GetGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetGroupFilterArgs:
-    def __init__(__self__, *,
-                 attribute_path: builtins.str,
-                 attribute_value: builtins.str):
-        """
-        :param builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-        :param builtins.str attribute_value: Value for an attribute.
-        """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
-
-    @property
-    @pulumi.getter(name="attributePath")
-    def attribute_path(self) -> builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-        """
-        return pulumi.get(self, "attribute_path")
-
-    @attribute_path.setter
-    def attribute_path(self, value: builtins.str):
-        pulumi.set(self, "attribute_path", value)
-
-    @property
-    @pulumi.getter(name="attributeValue")
-    def attribute_value(self) -> builtins.str:
-        """
-        Value for an attribute.
-        """
-        return pulumi.get(self, "attribute_value")
-
-    @attribute_value.setter
-    def attribute_value(self, value: builtins.str):
-        pulumi.set(self, "attribute_value", value)
-
-
-if not MYPY:
     class GetUserAlternateIdentifierArgsDict(TypedDict):
         external_id: NotRequired['GetUserAlternateIdentifierExternalIdArgsDict']
         """
@@ -950,56 +896,6 @@ class GetUserAlternateIdentifierUniqueAttributeArgs:
     def attribute_path(self) -> builtins.str:
         """
         Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        """
-        return pulumi.get(self, "attribute_path")
-
-    @attribute_path.setter
-    def attribute_path(self, value: builtins.str):
-        pulumi.set(self, "attribute_path", value)
-
-    @property
-    @pulumi.getter(name="attributeValue")
-    def attribute_value(self) -> builtins.str:
-        """
-        Value for an attribute.
-        """
-        return pulumi.get(self, "attribute_value")
-
-    @attribute_value.setter
-    def attribute_value(self, value: builtins.str):
-        pulumi.set(self, "attribute_value", value)
-
-
-if not MYPY:
-    class GetUserFilterArgsDict(TypedDict):
-        attribute_path: builtins.str
-        """
-        Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-        """
-        attribute_value: builtins.str
-        """
-        Value for an attribute.
-        """
-elif False:
-    GetUserFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetUserFilterArgs:
-    def __init__(__self__, *,
-                 attribute_path: builtins.str,
-                 attribute_value: builtins.str):
-        """
-        :param builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-        :param builtins.str attribute_value: Value for an attribute.
-        """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
-
-    @property
-    @pulumi.getter(name="attributePath")
-    def attribute_path(self) -> builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         """
         return pulumi.get(self, "attribute_path")
 

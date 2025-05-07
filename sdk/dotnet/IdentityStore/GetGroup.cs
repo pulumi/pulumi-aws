@@ -136,12 +136,6 @@ namespace Pulumi.Aws.IdentityStore
         public Inputs.GetGroupAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
-        /// </summary>
-        [Input("filter")]
-        public Inputs.GetGroupFilterArgs? Filter { get; set; }
-
-        /// <summary>
         /// The identifier for a group in the Identity Store.
         /// 
         /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
@@ -170,12 +164,6 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetGroupAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
-
-        /// <summary>
-        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
-        /// </summary>
-        [Input("filter")]
-        public Input<Inputs.GetGroupFilterInputArgs>? Filter { get; set; }
 
         /// <summary>
         /// The identifier for a group in the Identity Store.
@@ -216,7 +204,6 @@ namespace Pulumi.Aws.IdentityStore
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupExternalIdResult> ExternalIds;
-        public readonly Outputs.GetGroupFilterResult? Filter;
         public readonly string GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -234,8 +221,6 @@ namespace Pulumi.Aws.IdentityStore
 
             ImmutableArray<Outputs.GetGroupExternalIdResult> externalIds,
 
-            Outputs.GetGroupFilterResult? filter,
-
             string groupId,
 
             string id,
@@ -246,7 +231,6 @@ namespace Pulumi.Aws.IdentityStore
             Description = description;
             DisplayName = displayName;
             ExternalIds = externalIds;
-            Filter = filter;
             GroupId = groupId;
             Id = id;
             IdentityStoreId = identityStoreId;

@@ -228,7 +228,6 @@ import * as networkmonitor from "./networkmonitor";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
-import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
 import * as paymentcryptography from "./paymentcryptography";
@@ -275,7 +274,6 @@ import * as sesv2 from "./sesv2";
 import * as sfn from "./sfn";
 import * as shield from "./shield";
 import * as signer from "./signer";
-import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
@@ -298,7 +296,6 @@ import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
-import * as worklink from "./worklink";
 import * as workspaces from "./workspaces";
 import * as xray from "./xray";
 
@@ -452,7 +449,6 @@ export {
     oam,
     opensearch,
     opensearchingest,
-    opsworks,
     organizations,
     outposts,
     paymentcryptography,
@@ -499,7 +495,6 @@ export {
     sfn,
     shield,
     signer,
-    simpledb,
     sns,
     sqs,
     ssm,
@@ -522,7 +517,6 @@ export {
     waf,
     wafregional,
     wafv2,
-    worklink,
     workspaces,
     xray,
 };

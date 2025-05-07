@@ -72,6 +72,189 @@ namespace Pulumi.Aws.Fis
     /// });
     /// ```
     /// 
+    /// ### With Report Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = new[]
+    ///                         {
+    ///                             $"fis.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
+    ///         }),
+    ///     });
+    /// 
+    ///     var reportAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Version = "2012-10-17",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "logsDelivery",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogDelivery",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "ReportsBucket",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                     "s3:GetObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "GetDashboard",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "cloudwatch:GetDashboard",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "GetDashboardData",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "cloudwatch:getMetricWidgetImage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var reportAccessPolicy = new Aws.Iam.Policy("report_access", new()
+    ///     {
+    ///         Name = "report_access",
+    ///         PolicyDocument = reportAccess.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var reportAccessRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("report_access", new()
+    ///     {
+    ///         Role = test.Name,
+    ///         PolicyArn = reportAccessPolicy.Arn,
+    ///     });
+    /// 
+    ///     var exampleExperimentTemplate = new Aws.Fis.ExperimentTemplate("example", new()
+    ///     {
+    ///         Description = "example",
+    ///         RoleArn = example.Arn,
+    ///         StopConditions = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
+    ///             {
+    ///                 Source = "none",
+    ///             },
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
+    ///             {
+    ///                 Name = "example-action",
+    ///                 ActionId = "aws:ec2:terminate-instances",
+    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
+    ///                 {
+    ///                     Key = "Instances",
+    ///                     Value = "example-target",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
+    ///             {
+    ///                 Name = "example-target",
+    ///                 ResourceType = "aws:ec2:instance",
+    ///                 SelectionMode = "COUNT(1)",
+    ///                 ResourceTags = new[]
+    ///                 {
+    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
+    ///                     {
+    ///                         Key = "env",
+    ///                         Value = "example",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ExperimentReportConfiguration = new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationArgs
+    ///         {
+    ///             DataSources = new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs
+    ///             {
+    ///                 CloudwatchDashboards = new[]
+    ///                 {
+    ///                     new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs
+    ///                     {
+    ///                         DashboardArn = exampleAwsCloudwatchDashboard.DashboardArn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Outputs = new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationOutputsArgs
+    ///             {
+    ///                 S3Configuration = new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs
+    ///                 {
+    ///                     BucketName = exampleAwsS3Bucket.Bucket,
+    ///                     Prefix = "fis-example-reports",
+    ///                 },
+    ///             },
+    ///             PostExperimentDuration = "PT10M",
+    ///             PreExperimentDuration = "PT10M",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
@@ -100,6 +283,12 @@ namespace Pulumi.Aws.Fis
         /// </summary>
         [Output("experimentOptions")]
         public Output<Outputs.ExperimentTemplateExperimentOptions> ExperimentOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        /// </summary>
+        [Output("experimentReportConfiguration")]
+        public Output<Outputs.ExperimentTemplateExperimentReportConfiguration?> ExperimentReportConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for experiment logging. See below.
@@ -207,6 +396,12 @@ namespace Pulumi.Aws.Fis
         public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
 
         /// <summary>
+        /// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        /// </summary>
+        [Input("experimentReportConfiguration")]
+        public Input<Inputs.ExperimentTemplateExperimentReportConfigurationArgs>? ExperimentReportConfiguration { get; set; }
+
+        /// <summary>
         /// The configuration for experiment logging. See below.
         /// </summary>
         [Input("logConfiguration")]
@@ -287,6 +482,12 @@ namespace Pulumi.Aws.Fis
         /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsGetArgs>? ExperimentOptions { get; set; }
+
+        /// <summary>
+        /// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        /// </summary>
+        [Input("experimentReportConfiguration")]
+        public Input<Inputs.ExperimentTemplateExperimentReportConfigurationGetArgs>? ExperimentReportConfiguration { get; set; }
 
         /// <summary>
         /// The configuration for experiment logging. See below.

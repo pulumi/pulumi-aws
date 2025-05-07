@@ -11,7 +11,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -98,32 +97,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/organizationConfiguration:OrganizationConfiguration")
 public class OrganizationConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-     * 
-     * @deprecated
-     * auto_enable is deprecated. Use auto_enable_organization_members instead.
-     * 
-     */
-    @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-    @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> autoEnable;
-
-    /**
-     * @return *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-     * 
-     */
-    public Output<Boolean> autoEnable() {
-        return this.autoEnable;
-    }
-    /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+     * Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
     @Export(name="autoEnableOrganizationMembers", refs={String.class}, tree="[0]")
     private Output<String> autoEnableOrganizationMembers;
 
     /**
-     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+     * Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
     public Output<String> autoEnableOrganizationMembers() {
@@ -132,7 +115,11 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use ""aws.guardduty.OrganizationConfigurationFeature"" resources instead. */
     @Export(name="datasources", refs={OrganizationConfigurationDatasources.class}, tree="[0]")
     private Output<OrganizationConfigurationDatasources> datasources;
 

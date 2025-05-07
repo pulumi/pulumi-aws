@@ -84,6 +84,18 @@ namespace Pulumi.Aws.GuardDuty
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetDetectorArgs()
         {
         }
@@ -98,6 +110,18 @@ namespace Pulumi.Aws.GuardDuty
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public GetDetectorInvokeArgs()
         {
         }
@@ -108,6 +132,10 @@ namespace Pulumi.Aws.GuardDuty
     [OutputType]
     public sealed class GetDetectorResult
     {
+        /// <summary>
+        /// ARN of the detector.
+        /// </summary>
+        public readonly string Arn;
         /// <summary>
         /// Current configuration of the detector features.
         /// </summary>
@@ -125,9 +153,15 @@ namespace Pulumi.Aws.GuardDuty
         /// Current status of the detector.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetDetectorResult(
+            string arn,
+
             ImmutableArray<Outputs.GetDetectorFeatureResult> features,
 
             string findingPublishingFrequency,
@@ -136,13 +170,17 @@ namespace Pulumi.Aws.GuardDuty
 
             string serviceRoleArn,
 
-            string status)
+            string status,
+
+            ImmutableDictionary<string, string> tags)
         {
+            Arn = arn;
             Features = features;
             FindingPublishingFrequency = findingPublishingFrequency;
             Id = id;
             ServiceRoleArn = serviceRoleArn;
             Status = status;
+            Tags = tags;
         }
     }
 }

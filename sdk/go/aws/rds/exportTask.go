@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,25 +56,25 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
+//				Bucket: exampleBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -120,7 +120,7 @@ import (
 //							pulumi.String("s3:ListBucket"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
+//							exampleBucket.Arn,
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
@@ -130,7 +130,7 @@ import (
 //							pulumi.String("s3:DeleteObject"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -184,7 +184,7 @@ import (
 //			_, err = rds.NewExportTask(ctx, "example", &rds.ExportTaskArgs{
 //				ExportTaskIdentifier: pulumi.String("example"),
 //				SourceArn:            exampleSnapshot.DbSnapshotArn,
-//				S3BucketName:         exampleBucketV2.ID(),
+//				S3BucketName:         exampleBucket.ID(),
 //				IamRoleArn:           exampleRole.Arn,
 //				KmsKeyId:             exampleKey.Arn,
 //				ExportOnlies: pulumi.StringArray{

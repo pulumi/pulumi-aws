@@ -42,7 +42,7 @@ class RecordArgs:
         """
         The set of arguments for constructing a Record resource.
         :param pulumi.Input[builtins.str] name: The name of the record.
-        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         :param pulumi.Input[builtins.str] zone_id: The ID of the hosted zone to contain this record.
         :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
@@ -107,7 +107,7 @@ class RecordArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[builtins.str, 'RecordType']]:
         """
-        The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         """
         return pulumi.get(self, "type")
 
@@ -326,7 +326,7 @@ class _RecordState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         :param pulumi.Input[builtins.str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         :param pulumi.Input[builtins.int] ttl: The TTL of the record.
-        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         :param pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[builtins.str] zone_id: The ID of the hosted zone to contain this record.
         """
@@ -540,7 +540,7 @@ class _RecordState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[builtins.str, 'RecordType']]]:
         """
-        The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         """
         return pulumi.get(self, "type")
 
@@ -781,7 +781,7 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         :param pulumi.Input[builtins.str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         :param pulumi.Input[builtins.int] ttl: The TTL of the record.
-        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[builtins.str] zone_id: The ID of the hosted zone to contain this record.
         """
@@ -1070,7 +1070,7 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         :param pulumi.Input[builtins.str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         :param pulumi.Input[builtins.int] ttl: The TTL of the record.
-        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        :param pulumi.Input[Union[builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[builtins.str] zone_id: The ID of the hosted zone to contain this record.
         """
@@ -1216,7 +1216,7 @@ class Record(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
+        The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         """
         return pulumi.get(self, "type")
 

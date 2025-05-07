@@ -904,7 +904,7 @@ class AppImageConfigJupyterLabImageConfigFileSystemConfigArgs:
 
 if not MYPY:
     class AppImageConfigKernelGatewayImageConfigArgsDict(TypedDict):
-        kernel_spec: pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgsDict']
+        kernel_specs: pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgsDict']]]
         """
         The default branch for the Git repository. See Kernel Spec details below.
         """
@@ -918,27 +918,27 @@ elif False:
 @pulumi.input_type
 class AppImageConfigKernelGatewayImageConfigArgs:
     def __init__(__self__, *,
-                 kernel_spec: pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'],
+                 kernel_specs: pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']]],
                  file_system_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs']] = None):
         """
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'] kernel_spec: The default branch for the Git repository. See Kernel Spec details below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']]] kernel_specs: The default branch for the Git repository. See Kernel Spec details below.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs'] file_system_config: The URL where the Git repository is located. See File System Config details below.
         """
-        pulumi.set(__self__, "kernel_spec", kernel_spec)
+        pulumi.set(__self__, "kernel_specs", kernel_specs)
         if file_system_config is not None:
             pulumi.set(__self__, "file_system_config", file_system_config)
 
     @property
-    @pulumi.getter(name="kernelSpec")
-    def kernel_spec(self) -> pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']:
+    @pulumi.getter(name="kernelSpecs")
+    def kernel_specs(self) -> pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']]]:
         """
         The default branch for the Git repository. See Kernel Spec details below.
         """
-        return pulumi.get(self, "kernel_spec")
+        return pulumi.get(self, "kernel_specs")
 
-    @kernel_spec.setter
-    def kernel_spec(self, value: pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']):
-        pulumi.set(self, "kernel_spec", value)
+    @kernel_specs.setter
+    def kernel_specs(self, value: pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs']]]):
+        pulumi.set(self, "kernel_specs", value)
 
     @property
     @pulumi.getter(name="fileSystemConfig")

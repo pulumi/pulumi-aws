@@ -33,7 +33,6 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getGroup:getGroup", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
     }, opts);
@@ -47,12 +46,6 @@ export interface GetGroupArgs {
      * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
     alternateIdentifier?: inputs.identitystore.GetGroupAlternateIdentifier;
-    /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: inputs.identitystore.GetGroupFilter;
     /**
      * The identifier for a group in the Identity Store.
      *
@@ -84,10 +77,6 @@ export interface GetGroupResult {
      * List of identifiers issued to this resource by an external identity provider.
      */
     readonly externalIds: outputs.identitystore.GetGroupExternalId[];
-    /**
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    readonly filter?: outputs.identitystore.GetGroupFilter;
     readonly groupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -121,7 +110,6 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroup:getGroup", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
     }, opts);
@@ -135,12 +123,6 @@ export interface GetGroupOutputArgs {
      * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
-    /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
     /**
      * The identifier for a group in the Identity Store.
      *

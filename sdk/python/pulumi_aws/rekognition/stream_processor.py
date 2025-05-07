@@ -480,7 +480,7 @@ class StreamProcessor(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_topic = aws.sns.Topic("example", name="example-topic")
         example_video_stream = aws.kinesis.VideoStream("example",
             name="example-kinesis-input",
@@ -687,7 +687,7 @@ class StreamProcessor(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
+        example = aws.s3.Bucket("example", bucket="example-bucket")
         example_topic = aws.sns.Topic("example", name="example-topic")
         example_video_stream = aws.kinesis.VideoStream("example",
             name="example-kinesis-input",

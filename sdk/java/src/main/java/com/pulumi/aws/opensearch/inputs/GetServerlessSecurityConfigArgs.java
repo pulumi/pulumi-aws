@@ -3,11 +3,12 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
-import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,13 +38,13 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
      * 
      */
     @Import(name="samlOptions")
-    private @Nullable Output<GetServerlessSecurityConfigSamlOptionsArgs> samlOptions;
+    private @Nullable Output<List<GetServerlessSecurityConfigSamlOptionArgs>> samlOptions;
 
     /**
      * @return SAML options for the security configuration.
      * 
      */
-    public Optional<Output<GetServerlessSecurityConfigSamlOptionsArgs>> samlOptions() {
+    public Optional<Output<List<GetServerlessSecurityConfigSamlOptionArgs>>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
 
@@ -99,7 +100,7 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder samlOptions(@Nullable Output<GetServerlessSecurityConfigSamlOptionsArgs> samlOptions) {
+        public Builder samlOptions(@Nullable Output<List<GetServerlessSecurityConfigSamlOptionArgs>> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
@@ -110,8 +111,18 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder samlOptions(GetServerlessSecurityConfigSamlOptionsArgs samlOptions) {
+        public Builder samlOptions(List<GetServerlessSecurityConfigSamlOptionArgs> samlOptions) {
             return samlOptions(Output.of(samlOptions));
+        }
+
+        /**
+         * @param samlOptions SAML options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlOptions(GetServerlessSecurityConfigSamlOptionArgs... samlOptions) {
+            return samlOptions(List.of(samlOptions));
         }
 
         public GetServerlessSecurityConfigArgs build() {

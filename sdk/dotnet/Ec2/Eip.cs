@@ -305,18 +305,6 @@ namespace Pulumi.Aws.Ec2
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
-        /// Defaults to `true` unless the region supports EC2-Classic.
-        /// 
-        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-        /// 
-        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-        /// case both options are defined as the api only requires one or the other.
-        /// </summary>
-        [Output("vpc")]
-        public Output<bool> Vpc { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Eip resource with the given unique name, arguments, and options.
@@ -429,18 +417,6 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
-        /// Defaults to `true` unless the region supports EC2-Classic.
-        /// 
-        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-        /// 
-        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-        /// case both options are defined as the api only requires one or the other.
-        /// </summary>
-        [Input("vpc")]
-        public Input<bool>? Vpc { get; set; }
 
         public EipArgs()
         {
@@ -586,18 +562,6 @@ namespace Pulumi.Aws.Ec2
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
-
-        /// <summary>
-        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
-        /// Defaults to `true` unless the region supports EC2-Classic.
-        /// 
-        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-        /// 
-        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
-        /// case both options are defined as the api only requires one or the other.
-        /// </summary>
-        [Input("vpc")]
-        public Input<bool>? Vpc { get; set; }
 
         public EipState()
         {

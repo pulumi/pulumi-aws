@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +64,7 @@ type InternetGateway struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -137,7 +137,7 @@ type internetGatewayState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -181,7 +181,7 @@ type InternetGatewayState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -225,7 +225,7 @@ type internetGatewayArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -262,7 +262,7 @@ type InternetGatewayArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -395,7 +395,7 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

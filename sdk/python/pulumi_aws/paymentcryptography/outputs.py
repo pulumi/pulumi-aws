@@ -17,13 +17,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'KeyKeyAttributes',
-    'KeyKeyAttributesKeyModesOfUse',
+    'KeyKeyAttribute',
+    'KeyKeyAttributeKeyModesOfUse',
     'KeyTimeouts',
 ]
 
 @pulumi.output_type
-class KeyKeyAttributes(dict):
+class KeyKeyAttribute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33,36 +33,36 @@ class KeyKeyAttributes(dict):
             suggest = "key_class"
         elif key == "keyUsage":
             suggest = "key_usage"
-        elif key == "keyModesOfUse":
-            suggest = "key_modes_of_use"
+        elif key == "keyModesOfUses":
+            suggest = "key_modes_of_uses"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KeyKeyAttributes. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in KeyKeyAttribute. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KeyKeyAttributes.__key_warning(key)
+        KeyKeyAttribute.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KeyKeyAttributes.__key_warning(key)
+        KeyKeyAttribute.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  key_algorithm: builtins.str,
                  key_class: builtins.str,
                  key_usage: builtins.str,
-                 key_modes_of_use: Optional['outputs.KeyKeyAttributesKeyModesOfUse'] = None):
+                 key_modes_of_uses: Optional[Sequence['outputs.KeyKeyAttributeKeyModesOfUse']] = None):
         """
         :param builtins.str key_algorithm: Key algorithm to be use during creation of an AWS Payment Cryptography key.
         :param builtins.str key_class: Type of AWS Payment Cryptography key to create.
         :param builtins.str key_usage: Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        :param 'KeyKeyAttributesKeyModesOfUseArgs' key_modes_of_use: List of cryptographic operations that you can perform using the key.
+        :param Sequence['KeyKeyAttributeKeyModesOfUseArgs'] key_modes_of_uses: List of cryptographic operations that you can perform using the key.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "key_class", key_class)
         pulumi.set(__self__, "key_usage", key_usage)
-        if key_modes_of_use is not None:
-            pulumi.set(__self__, "key_modes_of_use", key_modes_of_use)
+        if key_modes_of_uses is not None:
+            pulumi.set(__self__, "key_modes_of_uses", key_modes_of_uses)
 
     @property
     @pulumi.getter(name="keyAlgorithm")
@@ -89,16 +89,16 @@ class KeyKeyAttributes(dict):
         return pulumi.get(self, "key_usage")
 
     @property
-    @pulumi.getter(name="keyModesOfUse")
-    def key_modes_of_use(self) -> Optional['outputs.KeyKeyAttributesKeyModesOfUse']:
+    @pulumi.getter(name="keyModesOfUses")
+    def key_modes_of_uses(self) -> Optional[Sequence['outputs.KeyKeyAttributeKeyModesOfUse']]:
         """
         List of cryptographic operations that you can perform using the key.
         """
-        return pulumi.get(self, "key_modes_of_use")
+        return pulumi.get(self, "key_modes_of_uses")
 
 
 @pulumi.output_type
-class KeyKeyAttributesKeyModesOfUse(dict):
+class KeyKeyAttributeKeyModesOfUse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -108,14 +108,14 @@ class KeyKeyAttributesKeyModesOfUse(dict):
             suggest = "no_restrictions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KeyKeyAttributesKeyModesOfUse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in KeyKeyAttributeKeyModesOfUse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KeyKeyAttributesKeyModesOfUse.__key_warning(key)
+        KeyKeyAttributeKeyModesOfUse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KeyKeyAttributesKeyModesOfUse.__key_warning(key)
+        KeyKeyAttributeKeyModesOfUse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage
     {
-        public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload> CustomPayloads;
+        public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload? CustomPayload;
         public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard? ImageResponseCard;
         public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage? PlainTextMessage;
         public readonly Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage? SsmlMessage;
 
         [OutputConstructor]
         private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage(
-            ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload> customPayloads,
+            Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload? customPayload,
 
             Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard? imageResponseCard,
 
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage? ssmlMessage)
         {
-            CustomPayloads = customPayloads;
+            CustomPayload = customPayload;
             ImageResponseCard = imageResponseCard;
             PlainTextMessage = plainTextMessage;
             SsmlMessage = ssmlMessage;

@@ -146,8 +146,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example-s3-bucket")
  *             .forceDestroy(true)
  *             .build());
@@ -181,12 +181,12 @@ import javax.annotation.Nullable;
  *                     .type("Service")
  *                     .identifiers("timestream-influxdb.amazonaws.com")
  *                     .build())
- *                 .resources(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+ *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(exampleBucket.id())
  *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *             .name("example-db-instance")
  *             .logDeliveryConfiguration(DbInstanceLogDeliveryConfigurationArgs.builder()
  *                 .s3Configuration(DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(exampleBucketV2.bucket())
+ *                     .bucketName(exampleBucket.bucket())
  *                     .enabled(true)
  *                     .build())
  *                 .build())

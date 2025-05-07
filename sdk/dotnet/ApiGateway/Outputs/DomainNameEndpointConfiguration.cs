@@ -13,14 +13,19 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class DomainNameEndpointConfiguration
     {
+        public readonly string? IpAddressType;
         /// <summary>
         /// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         /// </summary>
         public readonly string Types;
 
         [OutputConstructor]
-        private DomainNameEndpointConfiguration(string types)
+        private DomainNameEndpointConfiguration(
+            string? ipAddressType,
+
+            string types)
         {
+            IpAddressType = ipAddressType;
             Types = types;
         }
     }

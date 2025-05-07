@@ -97,29 +97,6 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    @Import(name="instanceId")
-    private @Nullable Output<String> instanceId;
-
-    /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    public Optional<Output<String>> instanceId() {
-        return Optional.ofNullable(this.instanceId);
-    }
-
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
@@ -281,7 +258,6 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         this.automationTargetParameterName = $.automationTargetParameterName;
         this.complianceSeverity = $.complianceSeverity;
         this.documentVersion = $.documentVersion;
-        this.instanceId = $.instanceId;
         this.maxConcurrency = $.maxConcurrency;
         this.maxErrors = $.maxErrors;
         this.name = $.name;
@@ -415,35 +391,6 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder documentVersion(String documentVersion) {
             return documentVersion(Output.of(documentVersion));
-        }
-
-        /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * instance_id is deprecated. Use targets instead.
-         * 
-         */
-        @Deprecated /* instance_id is deprecated. Use targets instead. */
-        public Builder instanceId(@Nullable Output<String> instanceId) {
-            $.instanceId = instanceId;
-            return this;
-        }
-
-        /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * instance_id is deprecated. Use targets instead.
-         * 
-         */
-        @Deprecated /* instance_id is deprecated. Use targets instead. */
-        public Builder instanceId(String instanceId) {
-            return instanceId(Output.of(instanceId));
         }
 
         /**

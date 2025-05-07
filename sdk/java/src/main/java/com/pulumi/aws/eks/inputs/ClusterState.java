@@ -87,13 +87,13 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="certificateAuthority")
-    private @Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority;
+    private @Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Optional<Output<ClusterCertificateAuthorityArgs>> certificateAuthority() {
+    public Optional<Output<List<ClusterCertificateAuthorityArgs>>> certificateAuthority() {
         return Optional.ofNullable(this.certificateAuthority);
     }
 
@@ -140,13 +140,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
-    }
-
-    @Import(name="defaultAddonsToRemoves")
-    private @Nullable Output<List<String>> defaultAddonsToRemoves;
-
-    public Optional<Output<List<String>>> defaultAddonsToRemoves() {
-        return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
 
     /**
@@ -457,7 +450,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.clusterId = $.clusterId;
         this.computeConfig = $.computeConfig;
         this.createdAt = $.createdAt;
-        this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.endpoint = $.endpoint;
@@ -579,7 +571,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder certificateAuthority(@Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority) {
+        public Builder certificateAuthority(@Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthority) {
             $.certificateAuthority = certificateAuthority;
             return this;
         }
@@ -590,8 +582,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder certificateAuthority(ClusterCertificateAuthorityArgs certificateAuthority) {
+        public Builder certificateAuthority(List<ClusterCertificateAuthorityArgs> certificateAuthority) {
             return certificateAuthority(Output.of(certificateAuthority));
+        }
+
+        /**
+         * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateAuthority(ClusterCertificateAuthorityArgs... certificateAuthority) {
+            return certificateAuthority(List.of(certificateAuthority));
         }
 
         /**
@@ -655,19 +657,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
-        }
-
-        public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
-            $.defaultAddonsToRemoves = defaultAddonsToRemoves;
-            return this;
-        }
-
-        public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
-        }
-
-        public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
 
         /**

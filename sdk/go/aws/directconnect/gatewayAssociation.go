@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,8 +74,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,8 +117,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -190,8 +190,6 @@ type GatewayAssociation struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
-	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
-	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewGatewayAssociation registers a new resource with the given unique name, arguments, and options.
@@ -246,8 +244,6 @@ type gatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type GatewayAssociationState struct {
@@ -270,8 +266,6 @@ type GatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
-	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationState) ElementType() reflect.Type {
@@ -292,8 +286,6 @@ type gatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a GatewayAssociation resource.
@@ -311,8 +303,6 @@ type GatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
-	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (GatewayAssociationArgs) ElementType() reflect.Type {
@@ -443,11 +433,6 @@ func (o GatewayAssociationOutput) DxGatewayOwnerAccountId() pulumi.StringOutput 
 // Used for cross-account Direct Connect gateway associations.
 func (o GatewayAssociationOutput) ProposalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.ProposalId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
-func (o GatewayAssociationOutput) VpnGatewayId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }
 
 type GatewayAssociationArrayOutput struct{ *pulumi.OutputState }

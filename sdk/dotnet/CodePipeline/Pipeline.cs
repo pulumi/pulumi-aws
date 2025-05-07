@@ -28,9 +28,9 @@ namespace Pulumi.Aws.CodePipeline
     ///         ProviderType = "GitHub",
     ///     });
     /// 
-    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipeline_bucket", new()
+    ///     var codepipelineBucket = new Aws.S3.Bucket("codepipeline_bucket", new()
     ///     {
-    ///         Bucket = "test-bucket",
+    ///         BucketName = "test-bucket",
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CodePipeline
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///             {
-    ///                 Location = codepipelineBucket.Bucket,
+    ///                 Location = codepipelineBucket.BucketName,
     ///                 Type = "S3",
     ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
     ///                 {

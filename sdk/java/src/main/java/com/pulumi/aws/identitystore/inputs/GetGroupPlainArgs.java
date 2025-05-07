@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifier;
-import com.pulumi.aws.identitystore.inputs.GetGroupFilter;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,29 +29,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<GetGroupAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
-    }
-
-    /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    @Import(name="filter")
-    private @Nullable GetGroupFilter filter;
-
-    /**
-     * @return Configuration block for filtering by a unique attribute of the group. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    public Optional<GetGroupFilter> filter() {
-        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -97,7 +73,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetGroupPlainArgs(GetGroupPlainArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
-        this.filter = $.filter;
         this.groupId = $.groupId;
         this.identityStoreId = $.identityStoreId;
     }
@@ -128,21 +103,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder alternateIdentifier(@Nullable GetGroupAlternateIdentifier alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
-            return this;
-        }
-
-        /**
-         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * filter is deprecated. Use alternate_identifier instead.
-         * 
-         */
-        @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-        public Builder filter(@Nullable GetGroupFilter filter) {
-            $.filter = filter;
             return this;
         }
 

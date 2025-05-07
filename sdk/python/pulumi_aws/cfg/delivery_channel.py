@@ -252,7 +252,7 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="example-awsconfig",
             force_destroy=True)
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -321,7 +321,7 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="example-awsconfig",
             force_destroy=True)
         assume_role = aws.iam.get_policy_document(statements=[{

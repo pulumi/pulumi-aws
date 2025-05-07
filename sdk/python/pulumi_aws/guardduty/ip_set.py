@@ -284,7 +284,7 @@ class IPSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        bucket = aws.s3.Bucket("bucket")
         my_ip_set = aws.s3.BucketObjectv2("MyIPSet",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
@@ -299,7 +299,7 @@ class IPSet(pulumi.CustomResource):
         ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
             name="MyIPSet")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
@@ -339,7 +339,7 @@ class IPSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        bucket = aws.s3.Bucket("bucket")
         my_ip_set = aws.s3.BucketObjectv2("MyIPSet",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
@@ -354,7 +354,7 @@ class IPSet(pulumi.CustomResource):
         ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
             name="MyIPSet")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```

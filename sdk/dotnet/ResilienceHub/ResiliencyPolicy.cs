@@ -12,6 +12,50 @@ namespace Pulumi.Aws.ResilienceHub
     /// <summary>
     /// Resource for managing an AWS Resilience Hub Resiliency Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ResilienceHub.ResiliencyPolicy("example", new()
+    ///     {
+    ///         Name = "testexample",
+    ///         Description = "testexample",
+    ///         Tier = "NonCritical",
+    ///         DataLocationConstraint = "AnyLocation",
+    ///         Policy = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyArgs
+    ///         {
+    ///             Region = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyRegionArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///             Az = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyAzArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///             Hardware = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyHardwareArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///             Software = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicySoftwareArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:

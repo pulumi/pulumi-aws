@@ -84,6 +84,57 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.s3.Bucket("example",
+            bucket="example",
+            force_destroy=True)
+        example_bucket_policy = aws.s3.BucketPolicy("example",
+            bucket=example.bucket,
+            policy=example.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect": "Allow",
+              "Principal": {{
+                "Service": "bedrock.amazonaws.com"
+              }},
+              "Action": [
+                "s3:*"
+              ],
+              "Resource": [
+                "{arn}/*"
+              ],
+              "Condition": {{
+                "StringEquals": {{
+                  "aws:SourceAccount": "{current.account_id}"
+                }},
+                "ArnLike": {{
+                  "aws:SourceArn": "arn:aws:bedrock:us-east-1:{current.account_id}:*"
+                }}
+              }}
+            }}
+          ]
+        }}
+        \"\"\"))
+        example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
+            "embedding_data_delivery_enabled": True,
+            "image_data_delivery_enabled": True,
+            "text_data_delivery_enabled": True,
+            "video_data_delivery_enabled": True,
+            "s3_config": {
+                "bucket_name": example.id,
+                "key_prefix": "bedrock",
+            },
+        },
+        opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
@@ -108,6 +159,57 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.s3.Bucket("example",
+            bucket="example",
+            force_destroy=True)
+        example_bucket_policy = aws.s3.BucketPolicy("example",
+            bucket=example.bucket,
+            policy=example.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect": "Allow",
+              "Principal": {{
+                "Service": "bedrock.amazonaws.com"
+              }},
+              "Action": [
+                "s3:*"
+              ],
+              "Resource": [
+                "{arn}/*"
+              ],
+              "Condition": {{
+                "StringEquals": {{
+                  "aws:SourceAccount": "{current.account_id}"
+                }},
+                "ArnLike": {{
+                  "aws:SourceArn": "arn:aws:bedrock:us-east-1:{current.account_id}:*"
+                }}
+              }}
+            }}
+          ]
+        }}
+        \"\"\"))
+        example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
+            "embedding_data_delivery_enabled": True,
+            "image_data_delivery_enabled": True,
+            "text_data_delivery_enabled": True,
+            "video_data_delivery_enabled": True,
+            "s3_config": {
+                "bucket_name": example.id,
+                "key_prefix": "bedrock",
+            },
+        },
+        opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
+        ```
 
         ## Import
 

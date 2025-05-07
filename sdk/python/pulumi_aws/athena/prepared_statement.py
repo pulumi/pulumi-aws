@@ -181,7 +181,7 @@ class PreparedStatement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="tf-test",
             force_destroy=True)
         test_workgroup = aws.athena.Workgroup("test", name="tf-test")
@@ -224,7 +224,7 @@ class PreparedStatement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="tf-test",
             force_destroy=True)
         test_workgroup = aws.athena.Workgroup("test", name="tf-test")

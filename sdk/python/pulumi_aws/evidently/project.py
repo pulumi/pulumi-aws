@@ -343,6 +343,8 @@ class Project(pulumi.CustomResource):
         """
         Provides a CloudWatch Evidently Project resource.
 
+        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+
         ## Example Usage
 
         ### Basic
@@ -421,6 +423,8 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Evidently Project resource.
+
+        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
 
         ## Example Usage
 

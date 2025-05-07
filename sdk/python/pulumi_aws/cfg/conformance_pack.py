@@ -303,9 +303,9 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="example-key",
             content=\"\"\"Resources:
           IAMPasswordPolicy:
@@ -319,7 +319,7 @@ class ConformancePack(pulumi.CustomResource):
         example = aws.cfg.ConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket_v2.bucket,
+                bucket=example_bucket.bucket,
                 key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
@@ -394,9 +394,9 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="example-key",
             content=\"\"\"Resources:
           IAMPasswordPolicy:
@@ -410,7 +410,7 @@ class ConformancePack(pulumi.CustomResource):
         example = aws.cfg.ConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket_v2.bucket,
+                bucket=example_bucket.bucket,
                 key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,

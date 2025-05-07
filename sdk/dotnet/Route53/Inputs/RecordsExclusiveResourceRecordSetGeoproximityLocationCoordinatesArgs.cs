@@ -13,11 +13,14 @@ namespace Pulumi.Aws.Route53.Inputs
     public sealed class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        /// A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
         /// </summary>
         [Input("latitude", required: true)]
         public Input<string> Latitude { get; set; } = null!;
 
+        /// <summary>
+        /// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        /// </summary>
         [Input("longitude", required: true)]
         public Input<string> Longitude { get; set; } = null!;
 

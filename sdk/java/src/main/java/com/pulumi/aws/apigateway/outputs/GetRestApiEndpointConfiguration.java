@@ -11,13 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRestApiEndpointConfiguration {
+    /**
+     * @return The IP address types that can invoke an API (RestApi).
+     * 
+     */
+    private String ipAddressType;
+    /**
+     * @return List of endpoint types.
+     * 
+     */
     private List<String> types;
+    /**
+     * @return Set of VPC Endpoint identifiers.
+     * 
+     */
     private List<String> vpcEndpointIds;
 
     private GetRestApiEndpointConfiguration() {}
+    /**
+     * @return The IP address types that can invoke an API (RestApi).
+     * 
+     */
+    public String ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
+     * @return List of endpoint types.
+     * 
+     */
     public List<String> types() {
         return this.types;
     }
+    /**
+     * @return Set of VPC Endpoint identifiers.
+     * 
+     */
     public List<String> vpcEndpointIds() {
         return this.vpcEndpointIds;
     }
@@ -31,15 +59,25 @@ public final class GetRestApiEndpointConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String ipAddressType;
         private List<String> types;
         private List<String> vpcEndpointIds;
         public Builder() {}
         public Builder(GetRestApiEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.types = defaults.types;
     	      this.vpcEndpointIds = defaults.vpcEndpointIds;
         }
 
+        @CustomType.Setter
+        public Builder ipAddressType(String ipAddressType) {
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetRestApiEndpointConfiguration", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
         @CustomType.Setter
         public Builder types(List<String> types) {
             if (types == null) {
@@ -64,6 +102,7 @@ public final class GetRestApiEndpointConfiguration {
         }
         public GetRestApiEndpointConfiguration build() {
             final var _resultValue = new GetRestApiEndpointConfiguration();
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.types = types;
             _resultValue.vpcEndpointIds = vpcEndpointIds;
             return _resultValue;

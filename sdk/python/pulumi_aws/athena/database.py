@@ -317,7 +317,7 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_database = aws.athena.Database("example",
             name="database_name",
             bucket=example.id)
@@ -358,7 +358,7 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_database = aws.athena.Database("example",
             name="database_name",
             bucket=example.id)

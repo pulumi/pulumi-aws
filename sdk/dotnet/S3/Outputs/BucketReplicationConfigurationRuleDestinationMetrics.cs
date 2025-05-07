@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly int? Minutes;
         /// <summary>
-        /// The status of replication metrics. Either `Enabled` or `Disabled`.
+        /// Status of replication metrics. Either `Enabled` or `Disabled`.
         /// </summary>
         public readonly string? Status;
 

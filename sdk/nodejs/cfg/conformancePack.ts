@@ -54,9 +54,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     key: "example-key",
  *     content: `Resources:
  *   IAMPasswordPolicy:
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.cfg.ConformancePack("example", {
  *     name: "example",
- *     templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`,
+ *     templateS3Uri: pulumi.interpolate`s3://${exampleBucket.bucket}/${exampleBucketObjectv2.key}`,
  * }, {
  *     dependsOn: [exampleAwsConfigConfigurationRecorder],
  * });

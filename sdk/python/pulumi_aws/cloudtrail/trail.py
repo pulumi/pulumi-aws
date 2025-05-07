@@ -665,7 +665,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="my-test-trail",
             force_destroy=True)
         current = aws.get_caller_identity()
@@ -680,7 +680,7 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:GetBucketAcl"],
-                "resources": [example_bucket_v2.arn],
+                "resources": [example_bucket.arn],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
@@ -695,7 +695,7 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:PutObject"],
-                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -711,11 +711,11 @@ class Trail(pulumi.CustomResource):
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_trail = aws.cloudtrail.Trail("example",
             name="example",
-            s3_bucket_name=example_bucket_v2.id,
+            s3_bucket_name=example_bucket.id,
             s3_key_prefix="prefix",
             include_global_service_events=False,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -948,7 +948,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="my-test-trail",
             force_destroy=True)
         current = aws.get_caller_identity()
@@ -963,7 +963,7 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:GetBucketAcl"],
-                "resources": [example_bucket_v2.arn],
+                "resources": [example_bucket.arn],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
@@ -978,7 +978,7 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:PutObject"],
-                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -994,11 +994,11 @@ class Trail(pulumi.CustomResource):
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_trail = aws.cloudtrail.Trail("example",
             name="example",
-            s3_bucket_name=example_bucket_v2.id,
+            s3_bucket_name=example_bucket.id,
             s3_key_prefix="prefix",
             include_global_service_events=False,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))

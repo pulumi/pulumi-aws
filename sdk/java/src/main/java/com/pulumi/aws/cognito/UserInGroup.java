@@ -81,6 +81,14 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
+ * ```
+ * 
  */
 @ResourceType(type="aws:cognito/userInGroup:UserInGroup")
 public class UserInGroup extends com.pulumi.resources.CustomResource {

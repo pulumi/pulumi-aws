@@ -9,8 +9,8 @@ import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfigRequestBodyCloudfront
 import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfigRequestBodyCognitoUserPool;
 import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance;
 import com.pulumi.core.annotations.CustomType;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,63 +19,63 @@ public final class WebAclAssociationConfigRequestBody {
      * @return Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
      * 
      */
-    private @Nullable List<WebAclAssociationConfigRequestBodyApiGateway> apiGateways;
+    private @Nullable WebAclAssociationConfigRequestBodyApiGateway apiGateway;
     /**
      * @return Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
      * 
      */
-    private @Nullable List<WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices;
+    private @Nullable WebAclAssociationConfigRequestBodyAppRunnerService appRunnerService;
     /**
      * @return Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
      * 
      */
-    private @Nullable List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts;
+    private @Nullable WebAclAssociationConfigRequestBodyCloudfront cloudfront;
     /**
      * @return Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
      * 
      */
-    private @Nullable List<WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools;
+    private @Nullable WebAclAssociationConfigRequestBodyCognitoUserPool cognitoUserPool;
     /**
      * @return Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
      * 
      */
-    private @Nullable List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances;
+    private @Nullable WebAclAssociationConfigRequestBodyVerifiedAccessInstance verifiedAccessInstance;
 
     private WebAclAssociationConfigRequestBody() {}
     /**
      * @return Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
      * 
      */
-    public List<WebAclAssociationConfigRequestBodyApiGateway> apiGateways() {
-        return this.apiGateways == null ? List.of() : this.apiGateways;
+    public Optional<WebAclAssociationConfigRequestBodyApiGateway> apiGateway() {
+        return Optional.ofNullable(this.apiGateway);
     }
     /**
      * @return Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
      * 
      */
-    public List<WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices() {
-        return this.appRunnerServices == null ? List.of() : this.appRunnerServices;
+    public Optional<WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerService() {
+        return Optional.ofNullable(this.appRunnerService);
     }
     /**
      * @return Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
      * 
      */
-    public List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts() {
-        return this.cloudfronts == null ? List.of() : this.cloudfronts;
+    public Optional<WebAclAssociationConfigRequestBodyCloudfront> cloudfront() {
+        return Optional.ofNullable(this.cloudfront);
     }
     /**
      * @return Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
      * 
      */
-    public List<WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools() {
-        return this.cognitoUserPools == null ? List.of() : this.cognitoUserPools;
+    public Optional<WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPool() {
+        return Optional.ofNullable(this.cognitoUserPool);
     }
     /**
      * @return Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
      * 
      */
-    public List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances() {
-        return this.verifiedAccessInstances == null ? List.of() : this.verifiedAccessInstances;
+    public Optional<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstance() {
+        return Optional.ofNullable(this.verifiedAccessInstance);
     }
 
     public static Builder builder() {
@@ -87,73 +87,58 @@ public final class WebAclAssociationConfigRequestBody {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<WebAclAssociationConfigRequestBodyApiGateway> apiGateways;
-        private @Nullable List<WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices;
-        private @Nullable List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts;
-        private @Nullable List<WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools;
-        private @Nullable List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances;
+        private @Nullable WebAclAssociationConfigRequestBodyApiGateway apiGateway;
+        private @Nullable WebAclAssociationConfigRequestBodyAppRunnerService appRunnerService;
+        private @Nullable WebAclAssociationConfigRequestBodyCloudfront cloudfront;
+        private @Nullable WebAclAssociationConfigRequestBodyCognitoUserPool cognitoUserPool;
+        private @Nullable WebAclAssociationConfigRequestBodyVerifiedAccessInstance verifiedAccessInstance;
         public Builder() {}
         public Builder(WebAclAssociationConfigRequestBody defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.apiGateways = defaults.apiGateways;
-    	      this.appRunnerServices = defaults.appRunnerServices;
-    	      this.cloudfronts = defaults.cloudfronts;
-    	      this.cognitoUserPools = defaults.cognitoUserPools;
-    	      this.verifiedAccessInstances = defaults.verifiedAccessInstances;
+    	      this.apiGateway = defaults.apiGateway;
+    	      this.appRunnerService = defaults.appRunnerService;
+    	      this.cloudfront = defaults.cloudfront;
+    	      this.cognitoUserPool = defaults.cognitoUserPool;
+    	      this.verifiedAccessInstance = defaults.verifiedAccessInstance;
         }
 
         @CustomType.Setter
-        public Builder apiGateways(@Nullable List<WebAclAssociationConfigRequestBodyApiGateway> apiGateways) {
+        public Builder apiGateway(@Nullable WebAclAssociationConfigRequestBodyApiGateway apiGateway) {
 
-            this.apiGateways = apiGateways;
+            this.apiGateway = apiGateway;
             return this;
-        }
-        public Builder apiGateways(WebAclAssociationConfigRequestBodyApiGateway... apiGateways) {
-            return apiGateways(List.of(apiGateways));
         }
         @CustomType.Setter
-        public Builder appRunnerServices(@Nullable List<WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices) {
+        public Builder appRunnerService(@Nullable WebAclAssociationConfigRequestBodyAppRunnerService appRunnerService) {
 
-            this.appRunnerServices = appRunnerServices;
+            this.appRunnerService = appRunnerService;
             return this;
-        }
-        public Builder appRunnerServices(WebAclAssociationConfigRequestBodyAppRunnerService... appRunnerServices) {
-            return appRunnerServices(List.of(appRunnerServices));
         }
         @CustomType.Setter
-        public Builder cloudfronts(@Nullable List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts) {
+        public Builder cloudfront(@Nullable WebAclAssociationConfigRequestBodyCloudfront cloudfront) {
 
-            this.cloudfronts = cloudfronts;
+            this.cloudfront = cloudfront;
             return this;
-        }
-        public Builder cloudfronts(WebAclAssociationConfigRequestBodyCloudfront... cloudfronts) {
-            return cloudfronts(List.of(cloudfronts));
         }
         @CustomType.Setter
-        public Builder cognitoUserPools(@Nullable List<WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools) {
+        public Builder cognitoUserPool(@Nullable WebAclAssociationConfigRequestBodyCognitoUserPool cognitoUserPool) {
 
-            this.cognitoUserPools = cognitoUserPools;
+            this.cognitoUserPool = cognitoUserPool;
             return this;
-        }
-        public Builder cognitoUserPools(WebAclAssociationConfigRequestBodyCognitoUserPool... cognitoUserPools) {
-            return cognitoUserPools(List.of(cognitoUserPools));
         }
         @CustomType.Setter
-        public Builder verifiedAccessInstances(@Nullable List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances) {
+        public Builder verifiedAccessInstance(@Nullable WebAclAssociationConfigRequestBodyVerifiedAccessInstance verifiedAccessInstance) {
 
-            this.verifiedAccessInstances = verifiedAccessInstances;
+            this.verifiedAccessInstance = verifiedAccessInstance;
             return this;
-        }
-        public Builder verifiedAccessInstances(WebAclAssociationConfigRequestBodyVerifiedAccessInstance... verifiedAccessInstances) {
-            return verifiedAccessInstances(List.of(verifiedAccessInstances));
         }
         public WebAclAssociationConfigRequestBody build() {
             final var _resultValue = new WebAclAssociationConfigRequestBody();
-            _resultValue.apiGateways = apiGateways;
-            _resultValue.appRunnerServices = appRunnerServices;
-            _resultValue.cloudfronts = cloudfronts;
-            _resultValue.cognitoUserPools = cognitoUserPools;
-            _resultValue.verifiedAccessInstances = verifiedAccessInstances;
+            _resultValue.apiGateway = apiGateway;
+            _resultValue.appRunnerService = appRunnerService;
+            _resultValue.cloudfront = cloudfront;
+            _resultValue.cognitoUserPool = cognitoUserPool;
+            _resultValue.verifiedAccessInstance = verifiedAccessInstance;
             return _resultValue;
         }
     }

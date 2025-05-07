@@ -4,7 +4,6 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionOverridesContainerOverride;
-import com.pulumi.aws.ecs.inputs.GetTaskExecutionOverridesInferenceAcceleratorOverride;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
@@ -63,29 +62,6 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
     }
 
     /**
-     * **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-     * 
-     * @deprecated
-     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
-    @Import(name="inferenceAcceleratorOverrides")
-    private @Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
-
-    /**
-     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-     * 
-     * @deprecated
-     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
-    public Optional<List<GetTaskExecutionOverridesInferenceAcceleratorOverride>> inferenceAcceleratorOverrides() {
-        return Optional.ofNullable(this.inferenceAcceleratorOverrides);
-    }
-
-    /**
      * The memory override for the task.
      * 
      */
@@ -121,7 +97,6 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
         this.containerOverrides = $.containerOverrides;
         this.cpu = $.cpu;
         this.executionRoleArn = $.executionRoleArn;
-        this.inferenceAcceleratorOverrides = $.inferenceAcceleratorOverrides;
         this.memory = $.memory;
         this.taskRoleArn = $.taskRoleArn;
     }
@@ -185,35 +160,6 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
         public Builder executionRoleArn(@Nullable String executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
-        }
-
-        /**
-         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-         * 
-         */
-        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
-        public Builder inferenceAcceleratorOverrides(@Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides) {
-            $.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
-            return this;
-        }
-
-        /**
-         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-         * 
-         */
-        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
-        public Builder inferenceAcceleratorOverrides(GetTaskExecutionOverridesInferenceAcceleratorOverride... inferenceAcceleratorOverrides) {
-            return inferenceAcceleratorOverrides(List.of(inferenceAcceleratorOverrides));
         }
 
         /**

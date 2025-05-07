@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
  * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
  *
- * > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+ * > **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
  *
  * ## Example Usage
  *
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
  * });
@@ -88,7 +88,7 @@ export interface GetServiceAccountResult {
  * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
  * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
  *
- * > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+ * > **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
  *
  * ## Example Usage
  *
@@ -97,7 +97,7 @@ export interface GetServiceAccountResult {
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
  * });

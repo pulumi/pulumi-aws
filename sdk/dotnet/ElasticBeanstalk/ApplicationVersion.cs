@@ -32,9 +32,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.S3.BucketV2("default", new()
+    ///     var @default = new Aws.S3.Bucket("default", new()
     ///     {
-    ///         Bucket = "tftest.applicationversion.bucket",
+    ///         BucketName = "tftest.applicationversion.bucket",
     ///     });
     /// 
     ///     var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("default", new()

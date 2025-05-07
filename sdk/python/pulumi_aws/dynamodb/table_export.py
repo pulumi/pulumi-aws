@@ -497,7 +497,7 @@ class TableExport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket_prefix="example",
             force_destroy=True)
         example_table = aws.dynamodb.Table("example",
@@ -582,7 +582,7 @@ class TableExport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example",
+        example = aws.s3.Bucket("example",
             bucket_prefix="example",
             force_destroy=True)
         example_table = aws.dynamodb.Table("example",

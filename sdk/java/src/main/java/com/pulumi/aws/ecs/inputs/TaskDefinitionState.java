@@ -4,7 +4,6 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.aws.ecs.inputs.TaskDefinitionEphemeralStorageArgs;
-import com.pulumi.aws.ecs.inputs.TaskDefinitionInferenceAcceleratorArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionPlacementConstraintArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionProxyConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionRuntimePlatformArgs;
@@ -151,21 +150,6 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> family() {
         return Optional.ofNullable(this.family);
-    }
-
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    @Import(name="inferenceAccelerators")
-    private @Nullable Output<List<TaskDefinitionInferenceAcceleratorArgs>> inferenceAccelerators;
-
-    /**
-     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    public Optional<Output<List<TaskDefinitionInferenceAcceleratorArgs>>> inferenceAccelerators() {
-        return Optional.ofNullable(this.inferenceAccelerators);
     }
 
     /**
@@ -412,7 +396,6 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         this.ephemeralStorage = $.ephemeralStorage;
         this.executionRoleArn = $.executionRoleArn;
         this.family = $.family;
-        this.inferenceAccelerators = $.inferenceAccelerators;
         this.ipcMode = $.ipcMode;
         this.memory = $.memory;
         this.networkMode = $.networkMode;
@@ -622,37 +605,6 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
          */
         public Builder family(String family) {
             return family(Output.of(family));
-        }
-
-        /**
-         * @param inferenceAccelerators Configuration block(s) with Inference Accelerators settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inferenceAccelerators(@Nullable Output<List<TaskDefinitionInferenceAcceleratorArgs>> inferenceAccelerators) {
-            $.inferenceAccelerators = inferenceAccelerators;
-            return this;
-        }
-
-        /**
-         * @param inferenceAccelerators Configuration block(s) with Inference Accelerators settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inferenceAccelerators(List<TaskDefinitionInferenceAcceleratorArgs> inferenceAccelerators) {
-            return inferenceAccelerators(Output.of(inferenceAccelerators));
-        }
-
-        /**
-         * @param inferenceAccelerators Configuration block(s) with Inference Accelerators settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inferenceAccelerators(TaskDefinitionInferenceAcceleratorArgs... inferenceAccelerators) {
-            return inferenceAccelerators(List.of(inferenceAccelerators));
         }
 
         /**

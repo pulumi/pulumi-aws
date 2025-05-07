@@ -43,6 +43,7 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmi:getAmi", {
+        "allowUnsafeFilter": args.allowUnsafeFilter,
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "includeDeprecated": args.includeDeprecated,
@@ -58,6 +59,13 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
  * A collection of arguments for invoking getAmi.
  */
 export interface GetAmiArgs {
+    /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     */
+    allowUnsafeFilter?: boolean;
     /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
@@ -111,6 +119,7 @@ export interface GetAmiArgs {
  * A collection of values returned by getAmi.
  */
 export interface GetAmiResult {
+    readonly allowUnsafeFilter?: boolean;
     /**
      * OS architecture of the AMI (ie: `i386` or `x8664`).
      */
@@ -305,6 +314,7 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getAmi:getAmi", {
+        "allowUnsafeFilter": args.allowUnsafeFilter,
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "includeDeprecated": args.includeDeprecated,
@@ -320,6 +330,13 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
  * A collection of arguments for invoking getAmi.
  */
 export interface GetAmiOutputArgs {
+    /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     */
+    allowUnsafeFilter?: pulumi.Input<boolean>;
     /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
