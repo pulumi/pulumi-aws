@@ -187,12 +187,21 @@ func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "elasticache-replication-group"), nil)
 }
 
-func TestS3BucketToBucketV2Upgrade(t *testing.T) {
-	testProviderUpgrade(t, "bucket-to-bucketv2",
+func TestS3BucketToBucketUpgrade(t *testing.T) {
+	testProviderUpgrade(t, "bucket-to-bucket",
 		&testProviderUpgradeOptions{
 			baselineVersion: "6.78.0",
 		},
-		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucketv2", "step1")),
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "step1")),
+	)
+}
+
+func TestS3BucketV2ToBucketV2Upgrade(t *testing.T) {
+	testProviderUpgrade(t, "bucketv2-to-bucket",
+		&testProviderUpgradeOptions{
+			baselineVersion: "6.78.0",
+		},
+		optproviderupgrade.NewSourcePath(filepath.Join("bucketv2-to-bucket", "step1")),
 	)
 }
 

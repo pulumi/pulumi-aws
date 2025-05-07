@@ -1,0 +1,182 @@
+name: test-aws-bucket-migration
+runtime: yaml
+resources:
+  provider:
+    type: pulumi:providers:aws
+    options:
+      version: 6.78.0
+  replication:
+    type: aws:iam:Role
+    options:
+      provider: ${provider}
+    properties:
+      name: tf-iam-role-replication-12345
+      assumeRolePolicy: |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "s3.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+  replicationPolicy:
+    type: aws:iam:Policy
+    options:
+      provider: ${provider}
+    name: replication
+    properties:
+      name: tf-iam-role-policy-replication-12345
+      policy: |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetReplicationConfiguration",
+                "s3:ListBucket"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "${migrationBucket.arn}"
+              ]
+            },
+            {
+              "Action": [
+                "s3:GetObjectVersionForReplication",
+                "s3:GetObjectVersionAcl",
+                 "s3:GetObjectVersionTagging"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "${migrationBucket.arn}/*"
+              ]
+            },
+            {
+              "Action": [
+                "s3:ReplicateObject",
+                "s3:ReplicateDelete",
+                "s3:ReplicateTags"
+              ],
+              "Effect": "Allow",
+              "Resource": "${destinationBucket.arn}/*"
+            }
+          ]
+        }
+  replicationRolePolicyAttachment:
+    type: aws:iam:RolePolicyAttachment
+    name: replication
+    options:
+      provider: ${provider}
+    properties:
+      role: ${replication.name}
+      policyArn: ${replicationPolicy.arn}
+  destinationBucket:
+    type: aws:s3:Bucket
+    options:
+      provider: ${provider}
+    properties:
+      forceDestroy: true
+      versioning:
+        enabled: true
+  loggingBucket:
+    type: aws:s3:Bucket
+    options:
+      provider: ${provider}
+    properties:
+      forceDestroy: true
+  exampleBucketOwnershipControls:
+    type: aws:s3:BucketOwnershipControls
+    options:
+      provider: ${provider}
+    properties:
+      bucket: ${loggingBucket.id}
+      rule:
+        objectOwnership: BucketOwnerPreferred
+  exampleBucketAclV2:
+    type: aws:s3:BucketAclV2
+    properties:
+      bucket: ${loggingBucket.id}
+      acl: log-delivery-write
+    options:
+      provider: ${provider}
+      dependsOn:
+        - ${exampleBucketOwnershipControls}
+  migrationBucket:
+    type: aws:s3:BucketV2
+    properties:
+      forceDestroy: true
+      serverSideEncryptionConfigurations:
+        - rules:
+          - applyServerSideEncryptionByDefaults:
+              - sseAlgorithm: "AES256"
+      corsRules:
+        - allowedHeaders:
+            - '*'
+          allowedMethods:
+            - PUT
+            - POST
+          allowedOrigins:
+            - https://s3-website-test.mydomain.com
+          exposeHeaders:
+            - ETag
+          maxAgeSeconds: 3000
+      lifecycleRules:
+         - id: noncurrent
+           enabled: true
+           expirations:
+             - days: 30
+           noncurrentVersionExpirations:
+             - days: 30
+         - id: log
+           enabled: true
+           prefix: log/
+           tags:
+             rule: log
+             autoclean: 'true'
+           transitions:
+             - days: 30
+               storageClass: STANDARD_IA
+      loggings:
+        - targetBucket: ${loggingBucket.bucket}
+          targetPrefix: /log
+      websites:
+        - indexDocument: index.html
+          errorDocument: error.html
+          routingRules: |
+            [{
+              "Condition": {
+                "KeyPrefixEquals": "docs"
+              },
+              "Redirect": {
+                "ReplaceKeyPrefixWith": "documents/"
+              }
+            }]
+      versionings:
+        - enabled: true
+      replicationConfigurations:
+        - role: ${replication.arn}
+          rules:
+            - id: foobar
+              status: Disabled
+              filters:
+                - tags: {}
+              # sourceSelectionCriterias:
+              #   - sseKmsEncryptedObjects:
+              #       - enabled: false
+              destinations:
+                - bucket: ${destinationBucket.arn}
+                  replicationTimes:
+                    - status: Disabled
+                      minutes: 15
+                  # not testing because we don't want to change the owner
+                  # accessControlTranslation:
+                  metrics:
+                    - status: Disabled
+                      minutes: 15
+
