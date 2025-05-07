@@ -186,7 +186,6 @@ export type ObjectCopy = import("./objectCopy").ObjectCopy;
 export const ObjectCopy: typeof import("./objectCopy").ObjectCopy = null as any;
 utilities.lazyLoad(exports, ["ObjectCopy"], () => require("./objectCopy"));
 
-export * from "./routingRules";
 export * from "./s3Mixins";
 
 // Export enums:

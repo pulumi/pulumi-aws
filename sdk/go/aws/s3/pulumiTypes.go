@@ -17615,6 +17615,365 @@ func (o ObjectCopyOverrideProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapO
 	}).(pulumi.StringMapOutput)
 }
 
+// A condition that must be met for the specified redirect to be applied.
+type Condition struct {
+	// The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
+	HttpErrorCodeReturnedEquals *string `pulumi:"HttpErrorCodeReturnedEquals"`
+	// The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
+	KeyPrefixEquals *string `pulumi:"KeyPrefixEquals"`
+}
+
+// ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
+// You can construct a concrete instance of `ConditionInput` via:
+//
+//	ConditionArgs{...}
+type ConditionInput interface {
+	pulumi.Input
+
+	ToConditionOutput() ConditionOutput
+	ToConditionOutputWithContext(context.Context) ConditionOutput
+}
+
+// A condition that must be met for the specified redirect to be applied.
+type ConditionArgs struct {
+	// The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
+	HttpErrorCodeReturnedEquals pulumi.StringPtrInput `pulumi:"HttpErrorCodeReturnedEquals"`
+	// The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
+	KeyPrefixEquals pulumi.StringPtrInput `pulumi:"KeyPrefixEquals"`
+}
+
+func (ConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Condition)(nil)).Elem()
+}
+
+func (i ConditionArgs) ToConditionOutput() ConditionOutput {
+	return i.ToConditionOutputWithContext(context.Background())
+}
+
+func (i ConditionArgs) ToConditionOutputWithContext(ctx context.Context) ConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionOutput)
+}
+
+func (i ConditionArgs) ToConditionPtrOutput() ConditionPtrOutput {
+	return i.ToConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ConditionArgs) ToConditionPtrOutputWithContext(ctx context.Context) ConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionOutput).ToConditionPtrOutputWithContext(ctx)
+}
+
+// ConditionPtrInput is an input type that accepts ConditionArgs, ConditionPtr and ConditionPtrOutput values.
+// You can construct a concrete instance of `ConditionPtrInput` via:
+//
+//	        ConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConditionPtrInput interface {
+	pulumi.Input
+
+	ToConditionPtrOutput() ConditionPtrOutput
+	ToConditionPtrOutputWithContext(context.Context) ConditionPtrOutput
+}
+
+type conditionPtrType ConditionArgs
+
+func ConditionPtr(v *ConditionArgs) ConditionPtrInput {
+	return (*conditionPtrType)(v)
+}
+
+func (*conditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Condition)(nil)).Elem()
+}
+
+func (i *conditionPtrType) ToConditionPtrOutput() ConditionPtrOutput {
+	return i.ToConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *conditionPtrType) ToConditionPtrOutputWithContext(ctx context.Context) ConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionPtrOutput)
+}
+
+// A condition that must be met for the specified redirect to be applied.
+type ConditionOutput struct{ *pulumi.OutputState }
+
+func (ConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Condition)(nil)).Elem()
+}
+
+func (o ConditionOutput) ToConditionOutput() ConditionOutput {
+	return o
+}
+
+func (o ConditionOutput) ToConditionOutputWithContext(ctx context.Context) ConditionOutput {
+	return o
+}
+
+func (o ConditionOutput) ToConditionPtrOutput() ConditionPtrOutput {
+	return o.ToConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ConditionOutput) ToConditionPtrOutputWithContext(ctx context.Context) ConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Condition) *Condition {
+		return &v
+	}).(ConditionPtrOutput)
+}
+
+// The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
+func (o ConditionOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.HttpErrorCodeReturnedEquals }).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
+func (o ConditionOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.KeyPrefixEquals }).(pulumi.StringPtrOutput)
+}
+
+type ConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Condition)(nil)).Elem()
+}
+
+func (o ConditionPtrOutput) ToConditionPtrOutput() ConditionPtrOutput {
+	return o
+}
+
+func (o ConditionPtrOutput) ToConditionPtrOutputWithContext(ctx context.Context) ConditionPtrOutput {
+	return o
+}
+
+func (o ConditionPtrOutput) Elem() ConditionOutput {
+	return o.ApplyT(func(v *Condition) Condition {
+		if v != nil {
+			return *v
+		}
+		var ret Condition
+		return ret
+	}).(ConditionOutput)
+}
+
+// The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both are specified, both must be true for the condition to be met.
+func (o ConditionPtrOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Condition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpErrorCodeReturnedEquals
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both are specified, both must be true for the condition to be met.
+func (o ConditionPtrOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Condition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefixEquals
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. At least one property must be set.
+type Redirect struct {
+	// The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.
+	HostName *string `pulumi:"HostName"`
+	// The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.
+	HttpRedirectCode *string `pulumi:"HttpRedirectCode"`
+	// The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.
+	Protocol *string `pulumi:"Protocol"`
+	// The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.
+	ReplaceKeyPrefixWith *string `pulumi:"ReplaceKeyPrefixWith"`
+	// The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.
+	ReplaceKeyWith *string `pulumi:"ReplaceKeyWith"`
+}
+
+// RedirectInput is an input type that accepts RedirectArgs and RedirectOutput values.
+// You can construct a concrete instance of `RedirectInput` via:
+//
+//	RedirectArgs{...}
+type RedirectInput interface {
+	pulumi.Input
+
+	ToRedirectOutput() RedirectOutput
+	ToRedirectOutputWithContext(context.Context) RedirectOutput
+}
+
+// Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. At least one property must be set.
+type RedirectArgs struct {
+	// The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.
+	HostName pulumi.StringPtrInput `pulumi:"HostName"`
+	// The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.
+	HttpRedirectCode pulumi.StringPtrInput `pulumi:"HttpRedirectCode"`
+	// The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.
+	Protocol pulumi.StringPtrInput `pulumi:"Protocol"`
+	// The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.
+	ReplaceKeyPrefixWith pulumi.StringPtrInput `pulumi:"ReplaceKeyPrefixWith"`
+	// The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.
+	ReplaceKeyWith pulumi.StringPtrInput `pulumi:"ReplaceKeyWith"`
+}
+
+func (RedirectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Redirect)(nil)).Elem()
+}
+
+func (i RedirectArgs) ToRedirectOutput() RedirectOutput {
+	return i.ToRedirectOutputWithContext(context.Background())
+}
+
+func (i RedirectArgs) ToRedirectOutputWithContext(ctx context.Context) RedirectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedirectOutput)
+}
+
+// Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. At least one property must be set.
+type RedirectOutput struct{ *pulumi.OutputState }
+
+func (RedirectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Redirect)(nil)).Elem()
+}
+
+func (o RedirectOutput) ToRedirectOutput() RedirectOutput {
+	return o
+}
+
+func (o RedirectOutput) ToRedirectOutputWithContext(ctx context.Context) RedirectOutput {
+	return o
+}
+
+// The hostname to be used in the Location header that is returned in the response. If another property is set, `HostName` is not required.
+func (o RedirectOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Redirect) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP redirect code to be used in the Location header that is returned in the response. If another property is set, `HttpRedirectCode` is not required.
+func (o RedirectOutput) HttpRedirectCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Redirect) *string { return v.HttpRedirectCode }).(pulumi.StringPtrOutput)
+}
+
+// The protocol, http or https, to be used in the Location header that is returned in the response. If another property is set, `Protocol` is not required.
+func (o RedirectOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Redirect) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If another property is set, `ReplaceKeyPrefixWith` is not required. It can be set only if `ReplaceKeyWith` is not set.
+func (o RedirectOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Redirect) *string { return v.ReplaceKeyPrefixWith }).(pulumi.StringPtrOutput)
+}
+
+// The object key to be used in the Location header that is returned in the response. If another property is set, `ReplaceKeyWith` is not required. It can be set only if `ReplaceKeyPrefixWith` is not set.
+func (o RedirectOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Redirect) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
+}
+
+// A rule that identifies a condition and the redirect that is applied when the condition is met. If a condition is not included, the rule is applied to all requests.
+type RoutingRule struct {
+	// A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.
+	Condition *Condition `pulumi:"Condition"`
+	// Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.
+	Redirect Redirect `pulumi:"Redirect"`
+}
+
+// RoutingRuleInput is an input type that accepts RoutingRuleArgs and RoutingRuleOutput values.
+// You can construct a concrete instance of `RoutingRuleInput` via:
+//
+//	RoutingRuleArgs{...}
+type RoutingRuleInput interface {
+	pulumi.Input
+
+	ToRoutingRuleOutput() RoutingRuleOutput
+	ToRoutingRuleOutputWithContext(context.Context) RoutingRuleOutput
+}
+
+// A rule that identifies a condition and the redirect that is applied when the condition is met. If a condition is not included, the rule is applied to all requests.
+type RoutingRuleArgs struct {
+	// A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.
+	Condition ConditionPtrInput `pulumi:"Condition"`
+	// Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.
+	Redirect RedirectInput `pulumi:"Redirect"`
+}
+
+func (RoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRule)(nil)).Elem()
+}
+
+func (i RoutingRuleArgs) ToRoutingRuleOutput() RoutingRuleOutput {
+	return i.ToRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleArgs) ToRoutingRuleOutputWithContext(ctx context.Context) RoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleOutput)
+}
+
+// RoutingRuleArrayInput is an input type that accepts RoutingRuleArray and RoutingRuleArrayOutput values.
+// You can construct a concrete instance of `RoutingRuleArrayInput` via:
+//
+//	RoutingRuleArray{ RoutingRuleArgs{...} }
+type RoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToRoutingRuleArrayOutput() RoutingRuleArrayOutput
+	ToRoutingRuleArrayOutputWithContext(context.Context) RoutingRuleArrayOutput
+}
+
+type RoutingRuleArray []RoutingRuleInput
+
+func (RoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRule)(nil)).Elem()
+}
+
+func (i RoutingRuleArray) ToRoutingRuleArrayOutput() RoutingRuleArrayOutput {
+	return i.ToRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleArray) ToRoutingRuleArrayOutputWithContext(ctx context.Context) RoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleArrayOutput)
+}
+
+// A rule that identifies a condition and the redirect that is applied when the condition is met. If a condition is not included, the rule is applied to all requests.
+type RoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRule)(nil)).Elem()
+}
+
+func (o RoutingRuleOutput) ToRoutingRuleOutput() RoutingRuleOutput {
+	return o
+}
+
+func (o RoutingRuleOutput) ToRoutingRuleOutputWithContext(ctx context.Context) RoutingRuleOutput {
+	return o
+}
+
+// A condition that must be met for the specified redirect to be applied. If not included, the rule is applied to all requests.
+func (o RoutingRuleOutput) Condition() ConditionPtrOutput {
+	return o.ApplyT(func(v RoutingRule) *Condition { return v.Condition }).(ConditionPtrOutput)
+}
+
+// Provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use.
+func (o RoutingRuleOutput) Redirect() RedirectOutput {
+	return o.ApplyT(func(v RoutingRule) Redirect { return v.Redirect }).(RedirectOutput)
+}
+
+type RoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRule)(nil)).Elem()
+}
+
+func (o RoutingRuleArrayOutput) ToRoutingRuleArrayOutput() RoutingRuleArrayOutput {
+	return o
+}
+
+func (o RoutingRuleArrayOutput) ToRoutingRuleArrayOutputWithContext(ctx context.Context) RoutingRuleArrayOutput {
+	return o
+}
+
+func (o RoutingRuleArrayOutput) Index(i pulumi.IntInput) RoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingRule {
+		return vs[0].([]RoutingRule)[vs[1].(int)]
+	}).(RoutingRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
@@ -17860,6 +18219,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionInput)(nil)).Elem(), ConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionPtrInput)(nil)).Elem(), ConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedirectInput)(nil)).Elem(), RedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleInput)(nil)).Elem(), RoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleArrayInput)(nil)).Elem(), RoutingRuleArray{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -18104,4 +18468,9 @@ func init() {
 	pulumi.RegisterOutputType(ObjectCopyOverrideProviderPtrOutput{})
 	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsOutput{})
 	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsPtrOutput{})
+	pulumi.RegisterOutputType(ConditionOutput{})
+	pulumi.RegisterOutputType(ConditionPtrOutput{})
+	pulumi.RegisterOutputType(RedirectOutput{})
+	pulumi.RegisterOutputType(RoutingRuleOutput{})
+	pulumi.RegisterOutputType(RoutingRuleArrayOutput{})
 }

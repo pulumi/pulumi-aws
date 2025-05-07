@@ -1953,7 +1953,6 @@
         "s3/index.ts",
         "s3/inventory.ts",
         "s3/objectCopy.ts",
-        "s3/routingRules.ts",
         "s3/s3Mixins.ts",
         "s3control/accessGrant.ts",
         "s3control/accessGrantsInstance.ts",

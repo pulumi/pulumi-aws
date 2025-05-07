@@ -37,7 +37,7 @@ namespace Pulumi.Aws.S3.Inputs
         /// The `CORS` object supports the following:
         /// </summary>
         [Input("routingRules")]
-        public InputUnion<string, ImmutableArray<string>>? RoutingRules { get; set; }
+        public InputUnion<string, ImmutableArray<Inputs.RoutingRuleArgs>>? RoutingRules { get; set; }
 
         public BucketWebsiteArgs()
         {
