@@ -53,10 +53,10 @@ namespace Pulumi.Aws.AutoScaling
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
         ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
         ///         },
         ///         TopicArn = "TOPIC ARN",
         ///     });
@@ -109,10 +109,10 @@ namespace Pulumi.Aws.AutoScaling
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
         ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
         ///         },
         ///         TopicArn = "TOPIC ARN",
         ///     });
@@ -165,10 +165,10 @@ namespace Pulumi.Aws.AutoScaling
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
         ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
         ///         },
         ///         TopicArn = "TOPIC ARN",
         ///     });

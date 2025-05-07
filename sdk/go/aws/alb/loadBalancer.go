@@ -142,11 +142,11 @@ type LoadBalancer struct {
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolOutput `pulumi:"internal"`
 	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
+	IpAddressType IpAddressTypeOutput `pulumi:"ipAddressType"`
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools LoadBalancerIpamPoolsPtrOutput `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType pulumi.StringPtrOutput `pulumi:"loadBalancerType"`
+	LoadBalancerType LoadBalancerTypePtrOutput `pulumi:"loadBalancerType"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -249,11 +249,11 @@ type loadBalancerState struct {
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal *bool `pulumi:"internal"`
 	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-	IpAddressType *string `pulumi:"ipAddressType"`
+	IpAddressType *IpAddressType `pulumi:"ipAddressType"`
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	LoadBalancerType *LoadBalancerType `pulumi:"loadBalancerType"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -321,11 +321,11 @@ type LoadBalancerState struct {
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolPtrInput
 	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-	IpAddressType pulumi.StringPtrInput
+	IpAddressType IpAddressTypePtrInput
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType pulumi.StringPtrInput
+	LoadBalancerType LoadBalancerTypePtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -391,11 +391,11 @@ type loadBalancerArgs struct {
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal *bool `pulumi:"internal"`
 	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-	IpAddressType *string `pulumi:"ipAddressType"`
+	IpAddressType *IpAddressType `pulumi:"ipAddressType"`
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	LoadBalancerType *LoadBalancerType `pulumi:"loadBalancerType"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -451,11 +451,11 @@ type LoadBalancerArgs struct {
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolPtrInput
 	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-	IpAddressType pulumi.StringPtrInput
+	IpAddressType IpAddressTypePtrInput
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType pulumi.StringPtrInput
+	LoadBalancerType LoadBalancerTypePtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -664,8 +664,8 @@ func (o LoadBalancerOutput) Internal() pulumi.BoolOutput {
 }
 
 // Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-func (o LoadBalancerOutput) IpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
+func (o LoadBalancerOutput) IpAddressType() IpAddressTypeOutput {
+	return o.ApplyT(func(v *LoadBalancer) IpAddressTypeOutput { return v.IpAddressType }).(IpAddressTypeOutput)
 }
 
 // . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
@@ -674,8 +674,8 @@ func (o LoadBalancerOutput) IpamPools() LoadBalancerIpamPoolsPtrOutput {
 }
 
 // Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-func (o LoadBalancerOutput) LoadBalancerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.LoadBalancerType }).(pulumi.StringPtrOutput)
+func (o LoadBalancerOutput) LoadBalancerType() LoadBalancerTypePtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTypePtrOutput { return v.LoadBalancerType }).(LoadBalancerTypePtrOutput)
 }
 
 // Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.

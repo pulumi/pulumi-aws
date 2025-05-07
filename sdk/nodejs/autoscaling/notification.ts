@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {NotificationType} from "./index";
 
 /**
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
@@ -28,10 +29,10 @@ import {NotificationType} from "./index";
  *         foo.name,
  *     ],
  *     notifications: [
- *         "autoscaling:EC2_INSTANCE_LAUNCH",
- *         "autoscaling:EC2_INSTANCE_TERMINATE",
- *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *         aws.autoscaling.NotificationType.InstanceLaunch,
+ *         aws.autoscaling.NotificationType.InstanceTerminate,
+ *         aws.autoscaling.NotificationType.InstanceLaunchError,
+ *         aws.autoscaling.NotificationType.InstanceTerminateError,
  *     ],
  *     topicArn: example.arn,
  * });
@@ -73,7 +74,7 @@ export class Notification extends pulumi.CustomResource {
      * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    public readonly notifications!: pulumi.Output<NotificationType[]>;
+    public readonly notifications!: pulumi.Output<enums.autoscaling.NotificationType[]>;
     /**
      * Topic ARN for notifications to be sent through
      */
@@ -127,7 +128,7 @@ export interface NotificationState {
      * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
+    notifications?: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
     /**
      * Topic ARN for notifications to be sent through
      */
@@ -146,7 +147,7 @@ export interface NotificationArgs {
      * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
+    notifications: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
     /**
      * Topic ARN for notifications to be sent through
      */

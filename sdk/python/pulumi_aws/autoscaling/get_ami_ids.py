@@ -111,10 +111,10 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
     slack_notifications = aws.autoscaling.Notification("slack_notifications",
         group_names=groups.names,
         notifications=[
-            "autoscaling:EC2_INSTANCE_LAUNCH",
-            "autoscaling:EC2_INSTANCE_TERMINATE",
-            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
         ],
         topic_arn="TOPIC ARN")
     ```
@@ -160,10 +160,10 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     slack_notifications = aws.autoscaling.Notification("slack_notifications",
         group_names=groups.names,
         notifications=[
-            "autoscaling:EC2_INSTANCE_LAUNCH",
-            "autoscaling:EC2_INSTANCE_TERMINATE",
-            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
         ],
         topic_arn="TOPIC ARN")
     ```

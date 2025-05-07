@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling;
 
+import com.pulumi.aws.autoscaling.enums.NotificationType;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -36,14 +37,14 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="notifications", required=true)
-    private Output<List<String>> notifications;
+    private Output<List<NotificationType>> notifications;
 
     /**
      * @return List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
-    public Output<List<String>> notifications() {
+    public Output<List<NotificationType>> notifications() {
         return this.notifications;
     }
 
@@ -126,7 +127,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notifications(Output<List<String>> notifications) {
+        public Builder notifications(Output<List<NotificationType>> notifications) {
             $.notifications = notifications;
             return this;
         }
@@ -138,7 +139,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notifications(List<String> notifications) {
+        public Builder notifications(List<NotificationType> notifications) {
             return notifications(Output.of(notifications));
         }
 
@@ -149,7 +150,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notifications(String... notifications) {
+        public Builder notifications(NotificationType... notifications) {
             return notifications(List.of(notifications));
         }
 

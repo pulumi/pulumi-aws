@@ -49,11 +49,11 @@ import (
 //			}
 //			_, err = autoscaling.NewNotification(ctx, "slack_notifications", &autoscaling.NotificationArgs{
 //				GroupNames: interface{}(groups.Names),
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
+//				Notifications: autoscaling.NotificationTypeArray{
+//					autoscaling.NotificationTypeInstanceLaunch,
+//					autoscaling.NotificationTypeInstanceTerminate,
+//					autoscaling.NotificationTypeInstanceLaunchError,
+//					autoscaling.NotificationTypeInstanceTerminateError,
 //				},
 //				TopicArn: pulumi.String("TOPIC ARN"),
 //			})
