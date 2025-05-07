@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -38,7 +39,7 @@ class ProviderArgs:
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
                  no_proxy: Optional[pulumi.Input[builtins.str]] = None,
                  profile: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input['Region']] = None,
                  retry_mode: Optional[pulumi.Input[builtins.str]] = None,
                  s3_us_east1_regional_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[builtins.bool]] = None,
@@ -74,7 +75,7 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
                `no_proxy` environment variables.
         :param pulumi.Input[builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
-        :param pulumi.Input[builtins.str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        :param pulumi.Input['Region'] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         :param pulumi.Input[builtins.str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
                `AWS_RETRY_MODE` environment variable.
         :param pulumi.Input[builtins.str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
@@ -132,8 +133,6 @@ class ProviderArgs:
             pulumi.set(__self__, "no_proxy", no_proxy)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
-        if region is None:
-            region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
         if region is not None:
             pulumi.set(__self__, "region", region)
         if retry_mode is not None:
@@ -368,14 +367,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+    def region(self) -> Optional[pulumi.Input['Region']]:
         """
         The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+    def region(self, value: Optional[pulumi.Input['Region']]):
         pulumi.set(self, "region", value)
 
     @property
@@ -591,7 +590,7 @@ class Provider(pulumi.ProviderResource):
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
                  no_proxy: Optional[pulumi.Input[builtins.str]] = None,
                  profile: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input['Region']] = None,
                  retry_mode: Optional[pulumi.Input[builtins.str]] = None,
                  s3_us_east1_regional_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[builtins.bool]] = None,
@@ -634,7 +633,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[builtins.str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
                `no_proxy` environment variables.
         :param pulumi.Input[builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
-        :param pulumi.Input[builtins.str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        :param pulumi.Input['Region'] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         :param pulumi.Input[builtins.str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
                `AWS_RETRY_MODE` environment variable.
         :param pulumi.Input[builtins.str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
@@ -702,7 +701,7 @@ class Provider(pulumi.ProviderResource):
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
                  no_proxy: Optional[pulumi.Input[builtins.str]] = None,
                  profile: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input['Region']] = None,
                  retry_mode: Optional[pulumi.Input[builtins.str]] = None,
                  s3_us_east1_regional_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[builtins.bool]] = None,
@@ -744,9 +743,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             __props__.__dict__["no_proxy"] = no_proxy
             __props__.__dict__["profile"] = profile
-            if region is None:
-                region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
-            __props__.__dict__["region"] = region
+            __props__.__dict__["region"] = pulumi.Output.from_input(region).apply(pulumi.runtime.to_json) if region is not None else None
             __props__.__dict__["retry_mode"] = retry_mode
             __props__.__dict__["s3_us_east1_regional_endpoint"] = s3_us_east1_regional_endpoint
             __props__.__dict__["s3_use_path_style"] = pulumi.Output.from_input(s3_use_path_style).apply(pulumi.runtime.to_json) if s3_use_path_style is not None else None
@@ -843,14 +840,6 @@ class Provider(pulumi.ProviderResource):
         The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         """
         return pulumi.get(self, "profile")
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        """
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retryMode")

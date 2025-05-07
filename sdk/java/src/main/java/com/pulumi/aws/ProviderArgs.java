@@ -3,6 +3,7 @@
 
 package com.pulumi.aws;
 
+import com.pulumi.aws.enums.Region;
 import com.pulumi.aws.inputs.ProviderAssumeRoleArgs;
 import com.pulumi.aws.inputs.ProviderAssumeRoleWithWebIdentityArgs;
 import com.pulumi.aws.inputs.ProviderDefaultTagsArgs;
@@ -255,14 +256,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      * 
      */
-    @Import(name="region")
-    private @Nullable Output<String> region;
+    @Import(name="region", json=true)
+    private @Nullable Output<Region> region;
 
     /**
      * @return The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      * 
      */
-    public Optional<Output<String>> region() {
+    public Optional<Output<Region>> region() {
         return Optional.ofNullable(this.region);
     }
 
@@ -888,7 +889,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder region(@Nullable Output<String> region) {
+        public Builder region(@Nullable Output<Region> region) {
             $.region = region;
             return this;
         }
@@ -899,7 +900,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder region(String region) {
+        public Builder region(Region region) {
             return region(Output.of(region));
         }
 
@@ -1253,7 +1254,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProviderArgs build() {
-            $.region = Codegen.stringProp("region").output().arg($.region).env("AWS_REGION", "AWS_DEFAULT_REGION").getNullable();
             $.skipCredentialsValidation = Codegen.booleanProp("skipCredentialsValidation").output().arg($.skipCredentialsValidation).def(false).getNullable();
             $.skipRegionValidation = Codegen.booleanProp("skipRegionValidation").output().arg($.skipRegionValidation).def(true).getNullable();
             return $;

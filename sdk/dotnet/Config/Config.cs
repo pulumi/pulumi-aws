@@ -193,11 +193,11 @@ namespace Pulumi.Aws
             set => _profile.Set(value);
         }
 
-        private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region") ?? Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION"));
+        private static readonly __Value<Pulumi.Aws.Region?> _region = new __Value<Pulumi.Aws.Region?>(() => __config.GetObject<Pulumi.Aws.Region>("region"));
         /// <summary>
         /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         /// </summary>
-        public static string? Region
+        public static Pulumi.Aws.Region? Region
         {
             get => _region.Get();
             set => _region.Set(value);

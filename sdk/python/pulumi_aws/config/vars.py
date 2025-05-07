@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _enums as _root_enums
 
 import types
 
@@ -137,7 +138,7 @@ class _ExportableConfig(types.ModuleType):
         """
         The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         """
-        return __config__.get('region') or _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
+        return __config__.get('region')
 
     @property
     def retry_mode(self) -> Optional[str]:

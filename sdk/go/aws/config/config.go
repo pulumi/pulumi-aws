@@ -94,15 +94,7 @@ func GetProfile(ctx *pulumi.Context) string {
 
 // The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 func GetRegion(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "aws:region")
-	if err == nil {
-		return v
-	}
-	var value string
-	if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
-		value = d.(string)
-	}
-	return value
+	return config.Get(ctx, "aws:region")
 }
 
 // Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the

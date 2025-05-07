@@ -8,6 +8,7 @@ import com.pulumi.aws.config.inputs.AssumeRoleWithWebIdentity;
 import com.pulumi.aws.config.inputs.DefaultTags;
 import com.pulumi.aws.config.inputs.Endpoints;
 import com.pulumi.aws.config.inputs.IgnoreTags;
+import com.pulumi.aws.enums.Region;
 import com.pulumi.core.TypeShape;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
@@ -128,8 +129,8 @@ public final class Config {
  * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
  * 
  */
-    public Optional<String> region() {
-        return Codegen.stringProp("region").config(config).env("AWS_REGION", "AWS_DEFAULT_REGION").get();
+    public Optional<Region> region() {
+        return Codegen.objectProp("region", Region.class).config(config).get();
     }
 /**
  * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
