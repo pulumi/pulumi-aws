@@ -257,10 +257,8 @@ class _ConstraintState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:servicecatalog/constraint:Constraint")
 class Constraint(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/constraint:Constraint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

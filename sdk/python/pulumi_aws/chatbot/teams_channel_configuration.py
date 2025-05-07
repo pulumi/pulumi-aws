@@ -482,10 +482,8 @@ class _TeamsChannelConfigurationState:
         pulumi.set(self, "user_authorization_required", value)
 
 
+@pulumi.type_token("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration")
 class TeamsChannelConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

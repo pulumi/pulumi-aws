@@ -64,10 +64,8 @@ class _AccountSuppressionAttributesState:
         pulumi.set(self, "suppressed_reasons", value)
 
 
+@pulumi.type_token("aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes")
 class AccountSuppressionAttributes(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

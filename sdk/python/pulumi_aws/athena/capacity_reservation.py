@@ -230,10 +230,8 @@ class _CapacityReservationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:athena/capacityReservation:CapacityReservation")
 class CapacityReservation(pulumi.CustomResource):
-
-    pulumi_type = "aws:athena/capacityReservation:CapacityReservation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

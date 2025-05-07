@@ -186,10 +186,8 @@ class _BucketLifecycleConfigurationV2State:
         pulumi.set(self, "transition_default_minimum_object_size", value)
 
 
+@pulumi.type_token("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")
 class BucketLifecycleConfigurationV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

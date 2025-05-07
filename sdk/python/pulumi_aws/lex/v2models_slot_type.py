@@ -432,10 +432,8 @@ class _V2modelsSlotTypeState:
         pulumi.set(self, "value_selection_setting", value)
 
 
+@pulumi.type_token("aws:lex/v2modelsSlotType:V2modelsSlotType")
 class V2modelsSlotType(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/v2modelsSlotType:V2modelsSlotType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

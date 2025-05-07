@@ -1241,10 +1241,8 @@ class _InstanceState:
         pulumi.set(self, "virtualization_type", value)
 
 
+@pulumi.type_token("aws:opsworks/instance:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/instance:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

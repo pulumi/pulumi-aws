@@ -190,10 +190,8 @@ class _GatewayAssociationProposalState:
         pulumi.set(self, "dx_gateway_owner_account_id", value)
 
 
+@pulumi.type_token("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")
 class GatewayAssociationProposal(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -586,10 +586,8 @@ class _ContainerRecipeState:
         pulumi.set(self, "working_directory", value)
 
 
+@pulumi.type_token("aws:imagebuilder/containerRecipe:ContainerRecipe")
 class ContainerRecipe(pulumi.CustomResource):
-
-    pulumi_type = "aws:imagebuilder/containerRecipe:ContainerRecipe"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

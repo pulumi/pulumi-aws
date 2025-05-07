@@ -227,10 +227,8 @@ class _LocationFsxLustreState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/locationFsxLustre:LocationFsxLustre")
 class LocationFsxLustre(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/locationFsxLustre:LocationFsxLustre"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

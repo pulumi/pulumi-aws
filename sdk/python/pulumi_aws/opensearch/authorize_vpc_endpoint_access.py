@@ -113,10 +113,8 @@ class _AuthorizeVpcEndpointAccessState:
         pulumi.set(self, "domain_name", value)
 
 
+@pulumi.type_token("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")
 class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

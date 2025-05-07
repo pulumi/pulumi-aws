@@ -769,10 +769,8 @@ class _JobState:
         pulumi.set(self, "worker_type", value)
 
 
+@pulumi.type_token("aws:glue/job:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/job:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

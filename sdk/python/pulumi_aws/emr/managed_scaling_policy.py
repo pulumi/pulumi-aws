@@ -97,10 +97,8 @@ class _ManagedScalingPolicyState:
         pulumi.set(self, "compute_limits", value)
 
 
+@pulumi.type_token("aws:emr/managedScalingPolicy:ManagedScalingPolicy")
 class ManagedScalingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:emr/managedScalingPolicy:ManagedScalingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

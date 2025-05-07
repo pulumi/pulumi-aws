@@ -204,10 +204,8 @@ class _PortfolioState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:servicecatalog/portfolio:Portfolio")
 class Portfolio(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/portfolio:Portfolio"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

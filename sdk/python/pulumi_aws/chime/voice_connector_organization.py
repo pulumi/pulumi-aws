@@ -132,11 +132,9 @@ class _VoiceConnectorOrganizationState:
 warnings.warn("""aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination""", DeprecationWarning)
 
 
+@pulumi.type_token("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")
 class VoiceConnectorOrganization(pulumi.CustomResource):
     warnings.warn("""aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination""", DeprecationWarning)
-
-
-    pulumi_type = "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization"
 
     @overload
     def __init__(__self__,

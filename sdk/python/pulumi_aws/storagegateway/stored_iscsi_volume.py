@@ -496,10 +496,8 @@ class _StoredIscsiVolumeState:
         pulumi.set(self, "volume_type", value)
 
 
+@pulumi.type_token("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume")
 class StoredIscsiVolume(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/storedIscsiVolume:StoredIscsiVolume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

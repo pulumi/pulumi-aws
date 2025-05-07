@@ -95,10 +95,8 @@ class _OrganizationConfigurationState:
         pulumi.set(self, "graph_arn", value)
 
 
+@pulumi.type_token("aws:detective/organizationConfiguration:OrganizationConfiguration")
 class OrganizationConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:detective/organizationConfiguration:OrganizationConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

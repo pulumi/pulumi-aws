@@ -113,10 +113,8 @@ class _TriggerState:
         pulumi.set(self, "triggers", value)
 
 
+@pulumi.type_token("aws:codecommit/trigger:Trigger")
 class Trigger(pulumi.CustomResource):
-
-    pulumi_type = "aws:codecommit/trigger:Trigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

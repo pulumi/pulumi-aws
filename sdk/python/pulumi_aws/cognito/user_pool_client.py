@@ -762,10 +762,8 @@ class _UserPoolClientState:
         pulumi.set(self, "write_attributes", value)
 
 
+@pulumi.type_token("aws:cognito/userPoolClient:UserPoolClient")
 class UserPoolClient(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/userPoolClient:UserPoolClient"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

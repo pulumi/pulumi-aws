@@ -334,10 +334,8 @@ class _InternetMonitorState:
         pulumi.set(self, "traffic_percentage_to_monitor", value)
 
 
+@pulumi.type_token("aws:cloudwatch/internetMonitor:InternetMonitor")
 class InternetMonitor(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/internetMonitor:InternetMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

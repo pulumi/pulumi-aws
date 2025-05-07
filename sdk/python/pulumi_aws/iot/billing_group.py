@@ -191,10 +191,8 @@ class _BillingGroupState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:iot/billingGroup:BillingGroup")
 class BillingGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/billingGroup:BillingGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

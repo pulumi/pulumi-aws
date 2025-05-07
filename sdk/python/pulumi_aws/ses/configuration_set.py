@@ -235,10 +235,8 @@ class _ConfigurationSetState:
         pulumi.set(self, "tracking_options", value)
 
 
+@pulumi.type_token("aws:ses/configurationSet:ConfigurationSet")
 class ConfigurationSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/configurationSet:ConfigurationSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

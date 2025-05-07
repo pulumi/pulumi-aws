@@ -192,10 +192,8 @@ class _LicenseGrantAccepterState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter")
 class LicenseGrantAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

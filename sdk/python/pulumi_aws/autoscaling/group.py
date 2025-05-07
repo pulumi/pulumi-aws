@@ -1498,10 +1498,8 @@ class _GroupState:
         pulumi.set(self, "warm_pool_size", value)
 
 
+@pulumi.type_token("aws:autoscaling/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

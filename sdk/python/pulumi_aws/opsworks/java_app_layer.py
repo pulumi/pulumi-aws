@@ -926,10 +926,8 @@ class _JavaAppLayerState:
         pulumi.set(self, "use_ebs_optimized_instances", value)
 
 
+@pulumi.type_token("aws:opsworks/javaAppLayer:JavaAppLayer")
 class JavaAppLayer(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/javaAppLayer:JavaAppLayer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

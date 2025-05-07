@@ -188,10 +188,8 @@ class _PlaybackKeyPairState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ivs/playbackKeyPair:PlaybackKeyPair")
 class PlaybackKeyPair(pulumi.CustomResource):
-
-    pulumi_type = "aws:ivs/playbackKeyPair:PlaybackKeyPair"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

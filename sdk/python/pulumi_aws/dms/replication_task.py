@@ -463,10 +463,8 @@ class _ReplicationTaskState:
         pulumi.set(self, "target_endpoint_arn", value)
 
 
+@pulumi.type_token("aws:dms/replicationTask:ReplicationTask")
 class ReplicationTask(pulumi.CustomResource):
-
-    pulumi_type = "aws:dms/replicationTask:ReplicationTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

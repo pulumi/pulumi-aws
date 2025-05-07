@@ -327,10 +327,8 @@ class _ProjectState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:evidently/project:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws:evidently/project:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -80,10 +80,8 @@ class _DomainIdentityVerificationState:
         pulumi.set(self, "domain", value)
 
 
+@pulumi.type_token("aws:ses/domainIdentityVerification:DomainIdentityVerification")
 class DomainIdentityVerification(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/domainIdentityVerification:DomainIdentityVerification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

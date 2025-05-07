@@ -597,10 +597,8 @@ class _EipState:
         pulumi.set(self, "vpc", value)
 
 
+@pulumi.type_token("aws:ec2/eip:Eip")
 class Eip(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/eip:Eip"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

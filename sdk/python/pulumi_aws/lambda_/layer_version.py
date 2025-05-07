@@ -520,10 +520,8 @@ class _LayerVersionState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:lambda/layerVersion:LayerVersion")
 class LayerVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/layerVersion:LayerVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -596,10 +596,8 @@ class _BotState:
         pulumi.set(self, "voice_id", value)
 
 
+@pulumi.type_token("aws:lex/bot:Bot")
 class Bot(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/bot:Bot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

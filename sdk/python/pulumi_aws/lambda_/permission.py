@@ -414,10 +414,8 @@ class _PermissionState:
         pulumi.set(self, "statement_id_prefix", value)
 
 
+@pulumi.type_token("aws:lambda/permission:Permission")
 class Permission(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/permission:Permission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

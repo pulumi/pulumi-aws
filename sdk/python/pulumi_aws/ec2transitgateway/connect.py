@@ -243,10 +243,8 @@ class _ConnectState:
         pulumi.set(self, "transport_attachment_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/connect:Connect")
 class Connect(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/connect:Connect"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

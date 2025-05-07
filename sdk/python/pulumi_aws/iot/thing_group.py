@@ -223,10 +223,8 @@ class _ThingGroupState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:iot/thingGroup:ThingGroup")
 class ThingGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/thingGroup:ThingGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

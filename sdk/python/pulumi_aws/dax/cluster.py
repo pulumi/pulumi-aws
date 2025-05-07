@@ -653,10 +653,8 @@ class _ClusterState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:dax/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:dax/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

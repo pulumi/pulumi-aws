@@ -128,10 +128,8 @@ class _SharedDirectoryAccepterState:
         pulumi.set(self, "shared_directory_id", value)
 
 
+@pulumi.type_token("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")
 class SharedDirectoryAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -224,10 +224,8 @@ class _OriginRequestPolicyState:
         pulumi.set(self, "query_strings_config", value)
 
 
+@pulumi.type_token("aws:cloudfront/originRequestPolicy:OriginRequestPolicy")
 class OriginRequestPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/originRequestPolicy:OriginRequestPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

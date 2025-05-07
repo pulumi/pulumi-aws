@@ -694,10 +694,8 @@ class _EnvironmentState:
         pulumi.set(self, "wait_for_ready_timeout", value)
 
 
+@pulumi.type_token("aws:elasticbeanstalk/environment:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticbeanstalk/environment:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

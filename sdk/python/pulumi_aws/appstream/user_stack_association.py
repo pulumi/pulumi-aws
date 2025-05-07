@@ -166,10 +166,8 @@ class _UserStackAssociationState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws:appstream/userStackAssociation:UserStackAssociation")
 class UserStackAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:appstream/userStackAssociation:UserStackAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

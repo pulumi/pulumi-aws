@@ -334,10 +334,8 @@ class _ScheduledActionState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("aws:appautoscaling/scheduledAction:ScheduledAction")
 class ScheduledAction(pulumi.CustomResource):
-
-    pulumi_type = "aws:appautoscaling/scheduledAction:ScheduledAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

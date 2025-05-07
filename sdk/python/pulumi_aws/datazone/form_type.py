@@ -333,10 +333,8 @@ class _FormTypeState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:datazone/formType:FormType")
 class FormType(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/formType:FormType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

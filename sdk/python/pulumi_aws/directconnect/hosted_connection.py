@@ -349,10 +349,8 @@ class _HostedConnectionState:
         pulumi.set(self, "vlan", value)
 
 
+@pulumi.type_token("aws:directconnect/hostedConnection:HostedConnection")
 class HostedConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/hostedConnection:HostedConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

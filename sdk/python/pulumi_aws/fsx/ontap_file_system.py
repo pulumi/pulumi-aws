@@ -723,10 +723,8 @@ class _OntapFileSystemState:
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
+@pulumi.type_token("aws:fsx/ontapFileSystem:OntapFileSystem")
 class OntapFileSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/ontapFileSystem:OntapFileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

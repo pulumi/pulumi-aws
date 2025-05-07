@@ -845,10 +845,8 @@ class _WindowsFileSystemState:
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
+@pulumi.type_token("aws:fsx/windowsFileSystem:WindowsFileSystem")
 class WindowsFileSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/windowsFileSystem:WindowsFileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

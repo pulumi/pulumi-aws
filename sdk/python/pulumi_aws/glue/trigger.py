@@ -437,10 +437,8 @@ class _TriggerState:
         pulumi.set(self, "workflow_name", value)
 
 
+@pulumi.type_token("aws:glue/trigger:Trigger")
 class Trigger(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/trigger:Trigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

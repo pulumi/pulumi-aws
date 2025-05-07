@@ -221,10 +221,8 @@ class _AlternativeContactState:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("aws:account/alternativeContact:AlternativeContact")
 class AlternativeContact(pulumi.CustomResource):
-
-    pulumi_type = "aws:account/alternativeContact:AlternativeContact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

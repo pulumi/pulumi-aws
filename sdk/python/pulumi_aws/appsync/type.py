@@ -174,10 +174,8 @@ class _TypeState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:appsync/type:Type")
 class Type(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/type:Type"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

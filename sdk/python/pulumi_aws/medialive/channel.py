@@ -502,10 +502,8 @@ class _ChannelState:
         pulumi.set(self, "vpc", value)
 
 
+@pulumi.type_token("aws:medialive/channel:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "aws:medialive/channel:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

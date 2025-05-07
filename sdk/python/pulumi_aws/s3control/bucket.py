@@ -195,10 +195,8 @@ class _BucketState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:s3control/bucket:Bucket")
 class Bucket(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3control/bucket:Bucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

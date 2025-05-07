@@ -113,10 +113,8 @@ class _GraphState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:detective/graph:Graph")
 class Graph(pulumi.CustomResource):
-
-    pulumi_type = "aws:detective/graph:Graph"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

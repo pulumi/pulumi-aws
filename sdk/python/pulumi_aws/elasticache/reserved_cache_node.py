@@ -350,10 +350,8 @@ class _ReservedCacheNodeState:
         pulumi.set(self, "usage_price", value)
 
 
+@pulumi.type_token("aws:elasticache/reservedCacheNode:ReservedCacheNode")
 class ReservedCacheNode(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticache/reservedCacheNode:ReservedCacheNode"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

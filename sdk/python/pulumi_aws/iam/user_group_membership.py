@@ -95,10 +95,8 @@ class _UserGroupMembershipState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("aws:iam/userGroupMembership:UserGroupMembership")
 class UserGroupMembership(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/userGroupMembership:UserGroupMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

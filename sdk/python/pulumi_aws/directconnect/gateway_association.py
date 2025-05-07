@@ -284,10 +284,8 @@ class _GatewayAssociationState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
+@pulumi.type_token("aws:directconnect/gatewayAssociation:GatewayAssociation")
 class GatewayAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/gatewayAssociation:GatewayAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

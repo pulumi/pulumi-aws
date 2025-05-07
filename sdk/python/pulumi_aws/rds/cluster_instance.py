@@ -999,10 +999,8 @@ class _ClusterInstanceState:
         pulumi.set(self, "writer", value)
 
 
+@pulumi.type_token("aws:rds/clusterInstance:ClusterInstance")
 class ClusterInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/clusterInstance:ClusterInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

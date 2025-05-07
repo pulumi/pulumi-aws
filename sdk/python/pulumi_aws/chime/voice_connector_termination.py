@@ -222,10 +222,8 @@ class _VoiceConnectorTerminationState:
         pulumi.set(self, "voice_connector_id", value)
 
 
+@pulumi.type_token("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")
 class VoiceConnectorTermination(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/voiceConnectorTermination:VoiceConnectorTermination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

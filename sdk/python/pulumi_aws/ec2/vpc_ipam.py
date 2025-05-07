@@ -344,10 +344,8 @@ class _VpcIpamState:
         pulumi.set(self, "tier", value)
 
 
+@pulumi.type_token("aws:ec2/vpcIpam:VpcIpam")
 class VpcIpam(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcIpam:VpcIpam"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

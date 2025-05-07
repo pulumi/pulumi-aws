@@ -475,10 +475,8 @@ class _SnapshotCopyState:
         pulumi.set(self, "volume_size", value)
 
 
+@pulumi.type_token("aws:ebs/snapshotCopy:SnapshotCopy")
 class SnapshotCopy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ebs/snapshotCopy:SnapshotCopy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

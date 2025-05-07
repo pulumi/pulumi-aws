@@ -130,10 +130,8 @@ class _BucketMetricState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:s3/bucketMetric:BucketMetric")
 class BucketMetric(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketMetric:BucketMetric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -467,10 +467,8 @@ class _Smsvoicev2PhoneNumberState:
         pulumi.set(self, "two_way_channel_enabled", value)
 
 
+@pulumi.type_token("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")
 class Smsvoicev2PhoneNumber(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

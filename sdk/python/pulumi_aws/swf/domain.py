@@ -228,10 +228,8 @@ class _DomainState:
         pulumi.set(self, "workflow_execution_retention_period_in_days", value)
 
 
+@pulumi.type_token("aws:swf/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:swf/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

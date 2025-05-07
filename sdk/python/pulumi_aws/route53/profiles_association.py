@@ -261,10 +261,8 @@ class _ProfilesAssociationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:route53/profilesAssociation:ProfilesAssociation")
 class ProfilesAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/profilesAssociation:ProfilesAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

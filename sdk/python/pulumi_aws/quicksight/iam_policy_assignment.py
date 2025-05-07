@@ -249,10 +249,8 @@ class _IamPolicyAssignmentState:
         pulumi.set(self, "policy_arn", value)
 
 
+@pulumi.type_token("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")
 class IamPolicyAssignment(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

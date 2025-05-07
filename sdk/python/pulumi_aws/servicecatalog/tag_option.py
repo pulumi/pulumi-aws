@@ -147,10 +147,8 @@ class _TagOptionState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("aws:servicecatalog/tagOption:TagOption")
 class TagOption(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/tagOption:TagOption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

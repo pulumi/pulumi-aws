@@ -95,10 +95,8 @@ class _LogDeliveryDestinationPolicyState:
         pulumi.set(self, "delivery_destination_policy", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")
 class LogDeliveryDestinationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

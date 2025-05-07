@@ -128,10 +128,8 @@ class _PermissionsBoundaryAttachmentState:
         pulumi.set(self, "permissions_boundary", value)
 
 
+@pulumi.type_token("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")
 class PermissionsBoundaryAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -253,10 +253,8 @@ class _EipAssociationState:
         pulumi.set(self, "public_ip", value)
 
 
+@pulumi.type_token("aws:ec2/eipAssociation:EipAssociation")
 class EipAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/eipAssociation:EipAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

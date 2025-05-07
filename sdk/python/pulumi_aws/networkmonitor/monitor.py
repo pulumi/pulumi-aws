@@ -172,10 +172,8 @@ class _MonitorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:networkmonitor/monitor:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmonitor/monitor:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

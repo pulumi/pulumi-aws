@@ -128,10 +128,8 @@ class _ConfigurationSetEventDestinationState:
         pulumi.set(self, "event_destination_name", value)
 
 
+@pulumi.type_token("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")
 class ConfigurationSetEventDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

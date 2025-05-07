@@ -390,10 +390,8 @@ class _DeviceState:
         pulumi.set(self, "vendor", value)
 
 
+@pulumi.type_token("aws:networkmanager/device:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/device:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

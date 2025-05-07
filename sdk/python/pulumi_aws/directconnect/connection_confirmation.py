@@ -64,10 +64,8 @@ class _ConnectionConfirmationState:
         pulumi.set(self, "connection_id", value)
 
 
+@pulumi.type_token("aws:directconnect/connectionConfirmation:ConnectionConfirmation")
 class ConnectionConfirmation(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/connectionConfirmation:ConnectionConfirmation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

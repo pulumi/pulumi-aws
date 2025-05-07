@@ -288,10 +288,8 @@ class _SlotTypeState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:lex/slotType:SlotType")
 class SlotType(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/slotType:SlotType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

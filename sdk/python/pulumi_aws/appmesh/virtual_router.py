@@ -277,10 +277,8 @@ class _VirtualRouterState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:appmesh/virtualRouter:VirtualRouter")
 class VirtualRouter(pulumi.CustomResource):
-
-    pulumi_type = "aws:appmesh/virtualRouter:VirtualRouter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

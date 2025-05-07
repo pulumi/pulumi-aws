@@ -133,10 +133,8 @@ class _GlobalNetworkState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:networkmanager/globalNetwork:GlobalNetwork")
 class GlobalNetwork(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/globalNetwork:GlobalNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

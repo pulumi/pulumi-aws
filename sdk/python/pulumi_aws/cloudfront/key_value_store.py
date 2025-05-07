@@ -175,10 +175,8 @@ class _KeyValueStoreState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:cloudfront/keyValueStore:KeyValueStore")
 class KeyValueStore(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/keyValueStore:KeyValueStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

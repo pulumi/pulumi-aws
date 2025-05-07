@@ -184,10 +184,8 @@ class _TrafficPolicyState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:route53/trafficPolicy:TrafficPolicy")
 class TrafficPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/trafficPolicy:TrafficPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

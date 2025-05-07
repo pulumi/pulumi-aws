@@ -191,10 +191,8 @@ class _CatalogTableOptimizerState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:glue/catalogTableOptimizer:CatalogTableOptimizer")
 class CatalogTableOptimizer(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/catalogTableOptimizer:CatalogTableOptimizer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

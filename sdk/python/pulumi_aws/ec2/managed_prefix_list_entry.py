@@ -127,10 +127,8 @@ class _ManagedPrefixListEntryState:
         pulumi.set(self, "prefix_list_id", value)
 
 
+@pulumi.type_token("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")
 class ManagedPrefixListEntry(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

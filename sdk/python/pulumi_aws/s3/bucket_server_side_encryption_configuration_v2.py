@@ -129,10 +129,8 @@ class _BucketServerSideEncryptionConfigurationV2State:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
 class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

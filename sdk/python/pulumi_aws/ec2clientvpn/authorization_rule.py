@@ -191,10 +191,8 @@ class _AuthorizationRuleState:
         pulumi.set(self, "target_network_cidr", value)
 
 
+@pulumi.type_token("aws:ec2clientvpn/authorizationRule:AuthorizationRule")
 class AuthorizationRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2clientvpn/authorizationRule:AuthorizationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

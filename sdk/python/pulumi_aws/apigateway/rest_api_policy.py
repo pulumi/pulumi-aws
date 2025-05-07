@@ -95,10 +95,8 @@ class _RestApiPolicyState:
         pulumi.set(self, "rest_api_id", value)
 
 
+@pulumi.type_token("aws:apigateway/restApiPolicy:RestApiPolicy")
 class RestApiPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/restApiPolicy:RestApiPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -397,10 +397,8 @@ class _ThemeState:
         pulumi.set(self, "version_number", value)
 
 
+@pulumi.type_token("aws:quicksight/theme:Theme")
 class Theme(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/theme:Theme"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

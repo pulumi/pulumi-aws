@@ -226,10 +226,8 @@ class _VpcConnectorState:
         pulumi.set(self, "vpc_connector_revision", value)
 
 
+@pulumi.type_token("aws:apprunner/vpcConnector:VpcConnector")
 class VpcConnector(pulumi.CustomResource):
-
-    pulumi_type = "aws:apprunner/vpcConnector:VpcConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -257,10 +257,8 @@ class _BotAliasState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:lex/botAlias:BotAlias")
 class BotAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/botAlias:BotAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

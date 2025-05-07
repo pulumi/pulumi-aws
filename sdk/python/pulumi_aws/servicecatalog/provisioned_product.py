@@ -687,10 +687,8 @@ class _ProvisionedProductState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:servicecatalog/provisionedProduct:ProvisionedProduct")
 class ProvisionedProduct(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/provisionedProduct:ProvisionedProduct"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

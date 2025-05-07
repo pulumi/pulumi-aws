@@ -362,10 +362,8 @@ class _IdentityPoolState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cognito/identityPool:IdentityPool")
 class IdentityPool(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/identityPool:IdentityPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

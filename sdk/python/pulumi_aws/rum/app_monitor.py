@@ -294,10 +294,8 @@ class _AppMonitorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:rum/appMonitor:AppMonitor")
 class AppMonitor(pulumi.CustomResource):
-
-    pulumi_type = "aws:rum/appMonitor:AppMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

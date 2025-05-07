@@ -95,10 +95,8 @@ class _EndpointPrivateDnsState:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
+@pulumi.type_token("aws:vpc/endpointPrivateDns:EndpointPrivateDns")
 class EndpointPrivateDns(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpc/endpointPrivateDns:EndpointPrivateDns"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

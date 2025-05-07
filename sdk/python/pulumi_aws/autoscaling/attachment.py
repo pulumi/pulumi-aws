@@ -128,10 +128,8 @@ class _AttachmentState:
         pulumi.set(self, "lb_target_group_arn", value)
 
 
+@pulumi.type_token("aws:autoscaling/attachment:Attachment")
 class Attachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/attachment:Attachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

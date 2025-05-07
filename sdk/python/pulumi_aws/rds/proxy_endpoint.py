@@ -302,10 +302,8 @@ class _ProxyEndpointState:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
+@pulumi.type_token("aws:rds/proxyEndpoint:ProxyEndpoint")
 class ProxyEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/proxyEndpoint:ProxyEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

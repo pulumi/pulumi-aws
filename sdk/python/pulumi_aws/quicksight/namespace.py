@@ -262,10 +262,8 @@ class _NamespaceState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:quicksight/namespace:Namespace")
 class Namespace(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/namespace:Namespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

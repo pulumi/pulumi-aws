@@ -221,10 +221,8 @@ class _IdentityProviderState:
         pulumi.set(self, "user_pool_id", value)
 
 
+@pulumi.type_token("aws:cognito/identityProvider:IdentityProvider")
 class IdentityProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/identityProvider:IdentityProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

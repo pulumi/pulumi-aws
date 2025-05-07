@@ -693,10 +693,8 @@ class _GatewayState:
         pulumi.set(self, "tape_drive_type", value)
 
 
+@pulumi.type_token("aws:storagegateway/gateway:Gateway")
 class Gateway(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/gateway:Gateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

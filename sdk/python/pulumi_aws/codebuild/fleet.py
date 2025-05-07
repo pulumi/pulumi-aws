@@ -472,10 +472,8 @@ class _FleetState:
         pulumi.set(self, "vpc_configs", value)
 
 
+@pulumi.type_token("aws:codebuild/fleet:Fleet")
 class Fleet(pulumi.CustomResource):
-
-    pulumi_type = "aws:codebuild/fleet:Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

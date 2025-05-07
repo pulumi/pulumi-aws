@@ -249,10 +249,8 @@ class _PodIdentityAssociationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:eks/podIdentityAssociation:PodIdentityAssociation")
 class PodIdentityAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:eks/podIdentityAssociation:PodIdentityAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

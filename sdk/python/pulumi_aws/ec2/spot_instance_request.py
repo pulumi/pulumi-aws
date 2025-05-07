@@ -2019,10 +2019,8 @@ class _SpotInstanceRequestState:
         pulumi.set(self, "wait_for_fulfillment", value)
 
 
+@pulumi.type_token("aws:ec2/spotInstanceRequest:SpotInstanceRequest")
 class SpotInstanceRequest(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/spotInstanceRequest:SpotInstanceRequest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

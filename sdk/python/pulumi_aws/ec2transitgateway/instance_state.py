@@ -135,10 +135,8 @@ class _InstanceStateState:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/instanceState:InstanceState")
 class InstanceState(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/instanceState:InstanceState"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

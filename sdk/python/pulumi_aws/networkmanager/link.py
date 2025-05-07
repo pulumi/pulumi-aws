@@ -292,10 +292,8 @@ class _LinkState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:networkmanager/link:Link")
 class Link(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/link:Link"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -145,10 +145,8 @@ class _AccountState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:macie2/account:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "aws:macie2/account:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

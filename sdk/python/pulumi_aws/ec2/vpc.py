@@ -601,10 +601,8 @@ class _VpcState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ec2/vpc:Vpc")
 class Vpc(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpc:Vpc"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

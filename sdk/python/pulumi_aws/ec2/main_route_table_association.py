@@ -115,10 +115,8 @@ class _MainRouteTableAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")
 class MainRouteTableAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

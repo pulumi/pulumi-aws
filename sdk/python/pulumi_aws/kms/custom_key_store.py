@@ -298,10 +298,8 @@ class _CustomKeyStoreState:
         pulumi.set(self, "xks_proxy_vpc_endpoint_service_name", value)
 
 
+@pulumi.type_token("aws:kms/customKeyStore:CustomKeyStore")
 class CustomKeyStore(pulumi.CustomResource):
-
-    pulumi_type = "aws:kms/customKeyStore:CustomKeyStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

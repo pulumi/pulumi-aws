@@ -271,10 +271,8 @@ class _ServiceState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:vpclattice/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpclattice/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

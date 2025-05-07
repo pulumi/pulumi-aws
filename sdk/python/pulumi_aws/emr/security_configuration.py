@@ -148,10 +148,8 @@ class _SecurityConfigurationState:
         pulumi.set(self, "name_prefix", value)
 
 
+@pulumi.type_token("aws:emr/securityConfiguration:SecurityConfiguration")
 class SecurityConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:emr/securityConfiguration:SecurityConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

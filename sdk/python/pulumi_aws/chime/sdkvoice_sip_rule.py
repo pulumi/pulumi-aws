@@ -200,10 +200,8 @@ class _SdkvoiceSipRuleState:
         pulumi.set(self, "trigger_value", value)
 
 
+@pulumi.type_token("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule")
 class SdkvoiceSipRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

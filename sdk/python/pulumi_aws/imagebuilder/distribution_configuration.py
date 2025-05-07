@@ -238,10 +238,8 @@ class _DistributionConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")
 class DistributionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:imagebuilder/distributionConfiguration:DistributionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

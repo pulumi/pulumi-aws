@@ -166,10 +166,8 @@ class _FolderMembershipState:
         pulumi.set(self, "member_type", value)
 
 
+@pulumi.type_token("aws:quicksight/folderMembership:FolderMembership")
 class FolderMembership(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/folderMembership:FolderMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

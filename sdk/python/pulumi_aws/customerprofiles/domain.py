@@ -301,10 +301,8 @@ class _DomainState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:customerprofiles/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:customerprofiles/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

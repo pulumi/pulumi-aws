@@ -131,10 +131,8 @@ class _PolicyStoreState:
         pulumi.set(self, "validation_settings", value)
 
 
+@pulumi.type_token("aws:verifiedpermissions/policyStore:PolicyStore")
 class PolicyStore(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedpermissions/policyStore:PolicyStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

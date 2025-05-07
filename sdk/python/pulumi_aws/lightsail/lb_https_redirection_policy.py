@@ -95,10 +95,8 @@ class _LbHttpsRedirectionPolicyState:
         pulumi.set(self, "lb_name", value)
 
 
+@pulumi.type_token("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")
 class LbHttpsRedirectionPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

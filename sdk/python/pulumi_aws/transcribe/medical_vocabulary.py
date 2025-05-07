@@ -214,10 +214,8 @@ class _MedicalVocabularyState:
         pulumi.set(self, "vocabulary_name", value)
 
 
+@pulumi.type_token("aws:transcribe/medicalVocabulary:MedicalVocabulary")
 class MedicalVocabulary(pulumi.CustomResource):
-
-    pulumi_type = "aws:transcribe/medicalVocabulary:MedicalVocabulary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

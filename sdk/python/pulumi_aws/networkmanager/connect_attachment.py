@@ -359,10 +359,8 @@ class _ConnectAttachmentState:
         pulumi.set(self, "transport_attachment_id", value)
 
 
+@pulumi.type_token("aws:networkmanager/connectAttachment:ConnectAttachment")
 class ConnectAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/connectAttachment:ConnectAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

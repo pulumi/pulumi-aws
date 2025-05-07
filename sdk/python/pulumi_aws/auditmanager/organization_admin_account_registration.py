@@ -80,10 +80,8 @@ class _OrganizationAdminAccountRegistrationState:
         pulumi.set(self, "organization_id", value)
 
 
+@pulumi.type_token("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")
 class OrganizationAdminAccountRegistration(pulumi.CustomResource):
-
-    pulumi_type = "aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

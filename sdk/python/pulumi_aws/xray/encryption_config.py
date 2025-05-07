@@ -96,10 +96,8 @@ class _EncryptionConfigState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:xray/encryptionConfig:EncryptionConfig")
 class EncryptionConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:xray/encryptionConfig:EncryptionConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

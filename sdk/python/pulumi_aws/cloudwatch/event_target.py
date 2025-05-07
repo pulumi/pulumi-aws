@@ -685,10 +685,8 @@ class _EventTargetState:
         pulumi.set(self, "target_id", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventTarget:EventTarget")
 class EventTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventTarget:EventTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

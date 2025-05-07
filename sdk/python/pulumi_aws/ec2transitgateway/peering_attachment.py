@@ -272,10 +272,8 @@ class _PeeringAttachmentState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/peeringAttachment:PeeringAttachment")
 class PeeringAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/peeringAttachment:PeeringAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

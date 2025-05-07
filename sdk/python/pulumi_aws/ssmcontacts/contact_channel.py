@@ -192,10 +192,8 @@ class _ContactChannelState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:ssmcontacts/contactChannel:ContactChannel")
 class ContactChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssmcontacts/contactChannel:ContactChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

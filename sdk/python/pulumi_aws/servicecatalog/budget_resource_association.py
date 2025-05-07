@@ -95,10 +95,8 @@ class _BudgetResourceAssociationState:
         pulumi.set(self, "resource_id", value)
 
 
+@pulumi.type_token("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")
 class BudgetResourceAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

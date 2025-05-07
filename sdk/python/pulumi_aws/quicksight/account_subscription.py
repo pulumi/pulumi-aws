@@ -565,10 +565,8 @@ class _AccountSubscriptionState:
         pulumi.set(self, "realm", value)
 
 
+@pulumi.type_token("aws:quicksight/accountSubscription:AccountSubscription")
 class AccountSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/accountSubscription:AccountSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

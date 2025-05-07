@@ -225,10 +225,8 @@ class _EventConnectionState:
         pulumi.set(self, "secret_arn", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventConnection:EventConnection")
 class EventConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventConnection:EventConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

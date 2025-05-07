@@ -1091,10 +1091,8 @@ class _ServiceState:
         pulumi.set(self, "wait_for_steady_state", value)
 
 
+@pulumi.type_token("aws:ecs/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecs/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

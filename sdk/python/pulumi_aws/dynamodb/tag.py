@@ -126,10 +126,8 @@ class _TagState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("aws:dynamodb/tag:Tag")
 class Tag(pulumi.CustomResource):
-
-    pulumi_type = "aws:dynamodb/tag:Tag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

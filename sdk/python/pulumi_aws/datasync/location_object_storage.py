@@ -402,10 +402,8 @@ class _LocationObjectStorageState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/locationObjectStorage:LocationObjectStorage")
 class LocationObjectStorage(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/locationObjectStorage:LocationObjectStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -126,10 +126,8 @@ class _ApplicationAssignmentState:
         pulumi.set(self, "principal_type", value)
 
 
+@pulumi.type_token("aws:ssoadmin/applicationAssignment:ApplicationAssignment")
 class ApplicationAssignment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/applicationAssignment:ApplicationAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

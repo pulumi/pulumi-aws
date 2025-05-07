@@ -195,10 +195,8 @@ class _ContributorManagedInsightRuleState:
         pulumi.set(self, "template_name", value)
 
 
+@pulumi.type_token("aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")
 class ContributorManagedInsightRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

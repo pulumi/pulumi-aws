@@ -129,10 +129,8 @@ class _BucketCorsConfigurationV2State:
         pulumi.set(self, "expected_bucket_owner", value)
 
 
+@pulumi.type_token("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")
 class BucketCorsConfigurationV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

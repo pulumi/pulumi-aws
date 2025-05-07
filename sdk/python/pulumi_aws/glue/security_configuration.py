@@ -98,10 +98,8 @@ class _SecurityConfigurationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:glue/securityConfiguration:SecurityConfiguration")
 class SecurityConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/securityConfiguration:SecurityConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

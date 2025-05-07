@@ -258,10 +258,8 @@ class _ProtectionGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:shield/protectionGroup:ProtectionGroup")
 class ProtectionGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:shield/protectionGroup:ProtectionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

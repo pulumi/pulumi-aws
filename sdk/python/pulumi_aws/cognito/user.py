@@ -479,10 +479,8 @@ class _UserState:
         pulumi.set(self, "validation_data", value)
 
 
+@pulumi.type_token("aws:cognito/user:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/user:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

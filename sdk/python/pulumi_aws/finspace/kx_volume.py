@@ -425,10 +425,8 @@ class _KxVolumeState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:finspace/kxVolume:KxVolume")
 class KxVolume(pulumi.CustomResource):
-
-    pulumi_type = "aws:finspace/kxVolume:KxVolume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

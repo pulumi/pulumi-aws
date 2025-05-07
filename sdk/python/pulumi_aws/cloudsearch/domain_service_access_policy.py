@@ -95,10 +95,8 @@ class _DomainServiceAccessPolicyState:
         pulumi.set(self, "domain_name", value)
 
 
+@pulumi.type_token("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")
 class DomainServiceAccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

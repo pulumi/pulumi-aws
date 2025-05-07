@@ -260,10 +260,8 @@ class _RateBasedRuleState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:waf/rateBasedRule:RateBasedRule")
 class RateBasedRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:waf/rateBasedRule:RateBasedRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

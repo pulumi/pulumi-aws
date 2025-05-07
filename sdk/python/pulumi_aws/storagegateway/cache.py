@@ -95,10 +95,8 @@ class _CacheState:
         pulumi.set(self, "gateway_arn", value)
 
 
+@pulumi.type_token("aws:storagegateway/cache:Cache")
 class Cache(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/cache:Cache"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

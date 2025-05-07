@@ -778,10 +778,8 @@ class _ManagedUserPoolClientState:
         pulumi.set(self, "write_attributes", value)
 
 
+@pulumi.type_token("aws:cognito/managedUserPoolClient:ManagedUserPoolClient")
 class ManagedUserPoolClient(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/managedUserPoolClient:ManagedUserPoolClient"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

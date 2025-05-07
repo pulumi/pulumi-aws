@@ -138,10 +138,8 @@ class _AccountVdmAttributesState:
         pulumi.set(self, "vdm_enabled", value)
 
 
+@pulumi.type_token("aws:sesv2/accountVdmAttributes:AccountVdmAttributes")
 class AccountVdmAttributes(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/accountVdmAttributes:AccountVdmAttributes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -213,10 +213,8 @@ class _ServiceNetworkResourceAssociationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")
 class ServiceNetworkResourceAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

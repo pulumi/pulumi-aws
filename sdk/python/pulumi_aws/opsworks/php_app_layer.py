@@ -766,10 +766,8 @@ class _PhpAppLayerState:
         pulumi.set(self, "use_ebs_optimized_instances", value)
 
 
+@pulumi.type_token("aws:opsworks/phpAppLayer:PhpAppLayer")
 class PhpAppLayer(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/phpAppLayer:PhpAppLayer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

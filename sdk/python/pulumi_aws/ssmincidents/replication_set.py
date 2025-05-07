@@ -184,10 +184,8 @@ class _ReplicationSetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ssmincidents/replicationSet:ReplicationSet")
 class ReplicationSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssmincidents/replicationSet:ReplicationSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

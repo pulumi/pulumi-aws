@@ -215,10 +215,8 @@ class _LanguageModelState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:transcribe/languageModel:LanguageModel")
 class LanguageModel(pulumi.CustomResource):
-
-    pulumi_type = "aws:transcribe/languageModel:LanguageModel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -210,10 +210,8 @@ class _ResourceLfTagsState:
         pulumi.set(self, "table_with_columns", value)
 
 
+@pulumi.type_token("aws:lakeformation/resourceLfTags:ResourceLfTags")
 class ResourceLfTags(pulumi.CustomResource):
-
-    pulumi_type = "aws:lakeformation/resourceLfTags:ResourceLfTags"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
