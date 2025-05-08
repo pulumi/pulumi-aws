@@ -433,10 +433,8 @@ class _DataSourceState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:appsync/dataSource:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/dataSource:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

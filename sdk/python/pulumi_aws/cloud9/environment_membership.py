@@ -142,10 +142,8 @@ class _EnvironmentMembershipState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("aws:cloud9/environmentMembership:EnvironmentMembership")
 class EnvironmentMembership(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloud9/environmentMembership:EnvironmentMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

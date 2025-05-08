@@ -96,10 +96,8 @@ class _CertificateValidationState:
         pulumi.set(self, "validation_record_fqdns", value)
 
 
+@pulumi.type_token("aws:acm/certificateValidation:CertificateValidation")
 class CertificateValidation(pulumi.CustomResource):
-
-    pulumi_type = "aws:acm/certificateValidation:CertificateValidation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

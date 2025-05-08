@@ -80,10 +80,8 @@ class _ResourceGroupState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws:inspector/resourceGroup:ResourceGroup")
 class ResourceGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:inspector/resourceGroup:ResourceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

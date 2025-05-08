@@ -271,10 +271,8 @@ class _ReplicatorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:msk/replicator:Replicator")
 class Replicator(pulumi.CustomResource):
-
-    pulumi_type = "aws:msk/replicator:Replicator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -133,10 +133,8 @@ class _Smsvoicev2OptOutListState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList")
 class Smsvoicev2OptOutList(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

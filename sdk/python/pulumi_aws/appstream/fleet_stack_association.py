@@ -95,10 +95,8 @@ class _FleetStackAssociationState:
         pulumi.set(self, "stack_name", value)
 
 
+@pulumi.type_token("aws:appstream/fleetStackAssociation:FleetStackAssociation")
 class FleetStackAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:appstream/fleetStackAssociation:FleetStackAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -356,10 +356,8 @@ class _ApnsVoipSandboxChannelState:
         pulumi.set(self, "token_key_id", value)
 
 
+@pulumi.type_token("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")
 class ApnsVoipSandboxChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

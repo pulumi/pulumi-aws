@@ -227,10 +227,8 @@ class _ClusterSnapshotState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:redshift/clusterSnapshot:ClusterSnapshot")
 class ClusterSnapshot(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/clusterSnapshot:ClusterSnapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

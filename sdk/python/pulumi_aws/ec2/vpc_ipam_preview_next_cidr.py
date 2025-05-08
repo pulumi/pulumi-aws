@@ -144,10 +144,8 @@ class _VpcIpamPreviewNextCidrState:
         pulumi.set(self, "netmask_length", value)
 
 
+@pulumi.type_token("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")
 class VpcIpamPreviewNextCidr(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

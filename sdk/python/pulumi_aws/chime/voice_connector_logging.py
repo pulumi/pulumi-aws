@@ -128,10 +128,8 @@ class _VoiceConnectorLoggingState:
         pulumi.set(self, "voice_connector_id", value)
 
 
+@pulumi.type_token("aws:chime/voiceConnectorLogging:VoiceConnectorLogging")
 class VoiceConnectorLogging(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/voiceConnectorLogging:VoiceConnectorLogging"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

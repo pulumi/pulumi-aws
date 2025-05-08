@@ -588,10 +588,8 @@ class _IntentState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:lex/intent:Intent")
 class Intent(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/intent:Intent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

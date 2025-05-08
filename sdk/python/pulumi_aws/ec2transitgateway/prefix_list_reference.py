@@ -179,10 +179,8 @@ class _PrefixListReferenceState:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/prefixListReference:PrefixListReference")
 class PrefixListReference(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/prefixListReference:PrefixListReference"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

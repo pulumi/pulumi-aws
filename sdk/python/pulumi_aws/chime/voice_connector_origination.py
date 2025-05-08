@@ -129,10 +129,8 @@ class _VoiceConnectorOriginationState:
         pulumi.set(self, "voice_connector_id", value)
 
 
+@pulumi.type_token("aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination")
 class VoiceConnectorOrigination(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

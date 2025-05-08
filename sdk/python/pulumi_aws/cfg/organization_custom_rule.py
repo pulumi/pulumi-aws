@@ -399,10 +399,8 @@ class _OrganizationCustomRuleState:
         pulumi.set(self, "trigger_types", value)
 
 
+@pulumi.type_token("aws:cfg/organizationCustomRule:OrganizationCustomRule")
 class OrganizationCustomRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/organizationCustomRule:OrganizationCustomRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

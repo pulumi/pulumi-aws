@@ -177,10 +177,8 @@ class _CustomDomainAssociationState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:apprunner/customDomainAssociation:CustomDomainAssociation")
 class CustomDomainAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:apprunner/customDomainAssociation:CustomDomainAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

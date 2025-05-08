@@ -174,10 +174,8 @@ class _SubnetCidrReservationState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("aws:ec2/subnetCidrReservation:SubnetCidrReservation")
 class SubnetCidrReservation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/subnetCidrReservation:SubnetCidrReservation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

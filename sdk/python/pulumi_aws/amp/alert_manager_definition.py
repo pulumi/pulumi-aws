@@ -95,10 +95,8 @@ class _AlertManagerDefinitionState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("aws:amp/alertManagerDefinition:AlertManagerDefinition")
 class AlertManagerDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:amp/alertManagerDefinition:AlertManagerDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

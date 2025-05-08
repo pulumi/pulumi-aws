@@ -170,10 +170,8 @@ class _ServiceActionState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:servicecatalog/serviceAction:ServiceAction")
 class ServiceAction(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/serviceAction:ServiceAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

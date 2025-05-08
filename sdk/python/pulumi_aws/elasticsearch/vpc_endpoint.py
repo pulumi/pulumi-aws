@@ -113,10 +113,8 @@ class _VpcEndpointState:
         pulumi.set(self, "vpc_options", value)
 
 
+@pulumi.type_token("aws:elasticsearch/vpcEndpoint:VpcEndpoint")
 class VpcEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticsearch/vpcEndpoint:VpcEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

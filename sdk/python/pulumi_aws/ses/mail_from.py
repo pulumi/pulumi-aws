@@ -135,10 +135,8 @@ class _MailFromState:
         pulumi.set(self, "mail_from_domain", value)
 
 
+@pulumi.type_token("aws:ses/mailFrom:MailFrom")
 class MailFrom(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/mailFrom:MailFrom"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

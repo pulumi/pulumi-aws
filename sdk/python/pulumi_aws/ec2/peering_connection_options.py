@@ -130,10 +130,8 @@ class _PeeringConnectionOptionsState:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+@pulumi.type_token("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")
 class PeeringConnectionOptions(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

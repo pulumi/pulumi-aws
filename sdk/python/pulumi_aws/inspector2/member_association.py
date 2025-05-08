@@ -112,10 +112,8 @@ class _MemberAssociationState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:inspector2/memberAssociation:MemberAssociation")
 class MemberAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:inspector2/memberAssociation:MemberAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

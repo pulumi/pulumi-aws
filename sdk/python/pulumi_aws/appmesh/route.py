@@ -308,10 +308,8 @@ class _RouteState:
         pulumi.set(self, "virtual_router_name", value)
 
 
+@pulumi.type_token("aws:appmesh/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "aws:appmesh/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

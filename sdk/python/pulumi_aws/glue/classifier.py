@@ -195,10 +195,8 @@ class _ClassifierState:
         pulumi.set(self, "xml_classifier", value)
 
 
+@pulumi.type_token("aws:glue/classifier:Classifier")
 class Classifier(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/classifier:Classifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

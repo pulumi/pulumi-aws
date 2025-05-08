@@ -481,10 +481,8 @@ class _ClusterSnapshotCopyState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy")
 class ClusterSnapshotCopy(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

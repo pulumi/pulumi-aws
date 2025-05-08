@@ -80,10 +80,8 @@ class _DomainState:
         pulumi.set(self, "domain_name", value)
 
 
+@pulumi.type_token("aws:lightsail/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -80,10 +80,8 @@ class _RetentionConfigurationState:
         pulumi.set(self, "retention_period_in_days", value)
 
 
+@pulumi.type_token("aws:cfg/retentionConfiguration:RetentionConfiguration")
 class RetentionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/retentionConfiguration:RetentionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

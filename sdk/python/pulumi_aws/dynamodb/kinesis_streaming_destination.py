@@ -127,10 +127,8 @@ class _KinesisStreamingDestinationState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")
 class KinesisStreamingDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

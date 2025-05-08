@@ -97,10 +97,8 @@ class _SubscriptionState:
         pulumi.set(self, "skip_destroy", value)
 
 
+@pulumi.type_token("aws:shield/subscription:Subscription")
 class Subscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:shield/subscription:Subscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

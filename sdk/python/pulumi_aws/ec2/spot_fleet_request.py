@@ -993,10 +993,8 @@ class _SpotFleetRequestState:
         pulumi.set(self, "wait_for_fulfillment", value)
 
 
+@pulumi.type_token("aws:ec2/spotFleetRequest:SpotFleetRequest")
 class SpotFleetRequest(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/spotFleetRequest:SpotFleetRequest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

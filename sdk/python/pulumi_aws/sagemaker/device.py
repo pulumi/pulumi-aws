@@ -125,10 +125,8 @@ class _DeviceState:
         pulumi.set(self, "device_fleet_name", value)
 
 
+@pulumi.type_token("aws:sagemaker/device:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/device:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

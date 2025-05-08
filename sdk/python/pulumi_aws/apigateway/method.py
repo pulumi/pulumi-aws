@@ -393,10 +393,8 @@ class _MethodState:
         pulumi.set(self, "rest_api", value)
 
 
+@pulumi.type_token("aws:apigateway/method:Method")
 class Method(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/method:Method"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

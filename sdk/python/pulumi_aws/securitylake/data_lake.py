@@ -206,10 +206,8 @@ class _DataLakeState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:securitylake/dataLake:DataLake")
 class DataLake(pulumi.CustomResource):
-
-    pulumi_type = "aws:securitylake/dataLake:DataLake"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

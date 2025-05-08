@@ -161,10 +161,8 @@ class _MultiplexProgramState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:medialive/multiplexProgram:MultiplexProgram")
 class MultiplexProgram(pulumi.CustomResource):
-
-    pulumi_type = "aws:medialive/multiplexProgram:MultiplexProgram"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -158,10 +158,8 @@ class _IndexState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:resourceexplorer/index:Index")
 class Index(pulumi.CustomResource):
-
-    pulumi_type = "aws:resourceexplorer/index:Index"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

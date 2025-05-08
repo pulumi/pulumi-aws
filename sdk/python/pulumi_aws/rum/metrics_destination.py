@@ -159,10 +159,8 @@ class _MetricsDestinationState:
         pulumi.set(self, "iam_role_arn", value)
 
 
+@pulumi.type_token("aws:rum/metricsDestination:MetricsDestination")
 class MetricsDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:rum/metricsDestination:MetricsDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

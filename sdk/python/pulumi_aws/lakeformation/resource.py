@@ -216,10 +216,8 @@ class _ResourceState:
         pulumi.set(self, "with_federation", value)
 
 
+@pulumi.type_token("aws:lakeformation/resource:Resource")
 class Resource(pulumi.CustomResource):
-
-    pulumi_type = "aws:lakeformation/resource:Resource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

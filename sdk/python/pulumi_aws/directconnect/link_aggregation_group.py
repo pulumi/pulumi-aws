@@ -339,10 +339,8 @@ class _LinkAggregationGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")
 class LinkAggregationGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/linkAggregationGroup:LinkAggregationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -220,10 +220,8 @@ class _AccountAssignmentState:
         pulumi.set(self, "target_type", value)
 
 
+@pulumi.type_token("aws:ssoadmin/accountAssignment:AccountAssignment")
 class AccountAssignment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/accountAssignment:AccountAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

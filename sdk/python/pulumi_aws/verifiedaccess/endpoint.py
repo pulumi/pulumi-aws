@@ -572,10 +572,8 @@ class _EndpointState:
         pulumi.set(self, "verified_access_instance_id", value)
 
 
+@pulumi.type_token("aws:verifiedaccess/endpoint:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedaccess/endpoint:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

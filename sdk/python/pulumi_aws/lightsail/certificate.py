@@ -231,10 +231,8 @@ class _CertificateState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:lightsail/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

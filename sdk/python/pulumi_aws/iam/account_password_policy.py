@@ -337,10 +337,8 @@ class _AccountPasswordPolicyState:
         pulumi.set(self, "require_uppercase_characters", value)
 
 
+@pulumi.type_token("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")
 class AccountPasswordPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/accountPasswordPolicy:AccountPasswordPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

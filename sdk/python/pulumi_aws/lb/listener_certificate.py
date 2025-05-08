@@ -95,10 +95,8 @@ class _ListenerCertificateState:
         pulumi.set(self, "listener_arn", value)
 
 
+@pulumi.type_token("aws:lb/listenerCertificate:ListenerCertificate")
 class ListenerCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:lb/listenerCertificate:ListenerCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

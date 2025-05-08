@@ -372,10 +372,8 @@ class _FaqState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:kendra/faq:Faq")
 class Faq(pulumi.CustomResource):
-
-    pulumi_type = "aws:kendra/faq:Faq"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

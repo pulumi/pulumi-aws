@@ -95,10 +95,8 @@ class _AvailabilityZoneGroupState:
         pulumi.set(self, "opt_in_status", value)
 
 
+@pulumi.type_token("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")
 class AvailabilityZoneGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

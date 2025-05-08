@@ -722,10 +722,8 @@ class _DistributionState:
         pulumi.set(self, "web_acl_id", value)
 
 
+@pulumi.type_token("aws:cloudfront/distribution:Distribution")
 class Distribution(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/distribution:Distribution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

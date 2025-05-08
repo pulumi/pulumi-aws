@@ -651,10 +651,8 @@ class _ReplicationInstanceState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws:dms/replicationInstance:ReplicationInstance")
 class ReplicationInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:dms/replicationInstance:ReplicationInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

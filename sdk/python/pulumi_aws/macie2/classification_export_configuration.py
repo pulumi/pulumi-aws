@@ -67,10 +67,8 @@ class _ClassificationExportConfigurationState:
         pulumi.set(self, "s3_destination", value)
 
 
+@pulumi.type_token("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")
 class ClassificationExportConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

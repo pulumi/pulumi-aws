@@ -264,10 +264,8 @@ class _PartitionState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("aws:glue/partition:Partition")
 class Partition(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/partition:Partition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

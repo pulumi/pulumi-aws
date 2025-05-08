@@ -512,10 +512,8 @@ class _DefaultSubnetState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/defaultSubnet:DefaultSubnet")
 class DefaultSubnet(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/defaultSubnet:DefaultSubnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

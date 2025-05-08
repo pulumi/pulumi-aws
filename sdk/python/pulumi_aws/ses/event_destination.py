@@ -281,10 +281,8 @@ class _EventDestinationState:
         pulumi.set(self, "sns_destination", value)
 
 
+@pulumi.type_token("aws:ses/eventDestination:EventDestination")
 class EventDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/eventDestination:EventDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

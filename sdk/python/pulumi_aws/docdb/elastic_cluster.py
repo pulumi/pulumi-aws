@@ -526,10 +526,8 @@ class _ElasticClusterState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws:docdb/elasticCluster:ElasticCluster")
 class ElasticCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:docdb/elasticCluster:ElasticCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

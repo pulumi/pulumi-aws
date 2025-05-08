@@ -242,10 +242,8 @@ class _ExtensionState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:appconfig/extension:Extension")
 class Extension(pulumi.CustomResource):
-
-    pulumi_type = "aws:appconfig/extension:Extension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

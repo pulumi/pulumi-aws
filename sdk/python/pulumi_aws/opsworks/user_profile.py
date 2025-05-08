@@ -159,10 +159,8 @@ class _UserProfileState:
         pulumi.set(self, "user_arn", value)
 
 
+@pulumi.type_token("aws:opsworks/userProfile:UserProfile")
 class UserProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/userProfile:UserProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

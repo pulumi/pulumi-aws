@@ -95,10 +95,8 @@ class _DomainPolicyState:
         pulumi.set(self, "domain_name", value)
 
 
+@pulumi.type_token("aws:opensearch/domainPolicy:DomainPolicy")
 class DomainPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/domainPolicy:DomainPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

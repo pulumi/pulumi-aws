@@ -95,10 +95,8 @@ class _ResourceAssociationState:
         pulumi.set(self, "resource_share_arn", value)
 
 
+@pulumi.type_token("aws:ram/resourceAssociation:ResourceAssociation")
 class ResourceAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ram/resourceAssociation:ResourceAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

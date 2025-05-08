@@ -675,10 +675,8 @@ class _BranchState:
         pulumi.set(self, "ttl", value)
 
 
+@pulumi.type_token("aws:amplify/branch:Branch")
 class Branch(pulumi.CustomResource):
-
-    pulumi_type = "aws:amplify/branch:Branch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

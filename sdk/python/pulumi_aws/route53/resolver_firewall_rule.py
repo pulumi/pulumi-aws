@@ -381,10 +381,8 @@ class _ResolverFirewallRuleState:
         pulumi.set(self, "q_type", value)
 
 
+@pulumi.type_token("aws:route53/resolverFirewallRule:ResolverFirewallRule")
 class ResolverFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverFirewallRule:ResolverFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -478,10 +478,8 @@ class _SnapshotImportState:
         pulumi.set(self, "volume_size", value)
 
 
+@pulumi.type_token("aws:ebs/snapshotImport:SnapshotImport")
 class SnapshotImport(pulumi.CustomResource):
-
-    pulumi_type = "aws:ebs/snapshotImport:SnapshotImport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

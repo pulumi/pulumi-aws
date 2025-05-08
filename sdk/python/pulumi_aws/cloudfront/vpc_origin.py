@@ -159,10 +159,8 @@ class _VpcOriginState:
         pulumi.set(self, "vpc_origin_endpoint_config", value)
 
 
+@pulumi.type_token("aws:cloudfront/vpcOrigin:VpcOrigin")
 class VpcOrigin(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/vpcOrigin:VpcOrigin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

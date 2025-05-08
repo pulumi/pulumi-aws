@@ -199,10 +199,8 @@ class _TestGridProjectState:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws:devicefarm/testGridProject:TestGridProject")
 class TestGridProject(pulumi.CustomResource):
-
-    pulumi_type = "aws:devicefarm/testGridProject:TestGridProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

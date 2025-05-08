@@ -126,10 +126,8 @@ class _LbStickinessPolicyState:
         pulumi.set(self, "lb_name", value)
 
 
+@pulumi.type_token("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")
 class LbStickinessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

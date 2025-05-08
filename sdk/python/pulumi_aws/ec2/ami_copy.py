@@ -777,10 +777,8 @@ class _AmiCopyState:
         pulumi.set(self, "virtualization_type", value)
 
 
+@pulumi.type_token("aws:ec2/amiCopy:AmiCopy")
 class AmiCopy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/amiCopy:AmiCopy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

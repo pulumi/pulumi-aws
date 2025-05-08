@@ -419,10 +419,8 @@ class _SlackChannelConfigurationState:
         pulumi.set(self, "user_authorization_required", value)
 
 
+@pulumi.type_token("aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration")
 class SlackChannelConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

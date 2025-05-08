@@ -287,10 +287,8 @@ class _InventoryState:
         pulumi.set(self, "schedule", value)
 
 
+@pulumi.type_token("aws:s3/inventory:Inventory")
 class Inventory(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/inventory:Inventory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

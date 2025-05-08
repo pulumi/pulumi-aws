@@ -445,10 +445,8 @@ class _GameServerGroupState:
         pulumi.set(self, "vpc_subnets", value)
 
 
+@pulumi.type_token("aws:gamelift/gameServerGroup:GameServerGroup")
 class GameServerGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:gamelift/gameServerGroup:GameServerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _PreparedStatementState:
         pulumi.set(self, "workgroup", value)
 
 
+@pulumi.type_token("aws:athena/preparedStatement:PreparedStatement")
 class PreparedStatement(pulumi.CustomResource):
-
-    pulumi_type = "aws:athena/preparedStatement:PreparedStatement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

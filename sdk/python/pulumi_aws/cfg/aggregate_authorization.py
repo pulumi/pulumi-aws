@@ -163,10 +163,8 @@ class _AggregateAuthorizationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cfg/aggregateAuthorization:AggregateAuthorization")
 class AggregateAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/aggregateAuthorization:AggregateAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

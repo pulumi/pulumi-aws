@@ -106,10 +106,8 @@ class _BlockPublicAccessConfigurationState:
         pulumi.set(self, "permitted_public_security_group_rule_ranges", value)
 
 
+@pulumi.type_token("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")
 class BlockPublicAccessConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

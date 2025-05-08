@@ -98,10 +98,8 @@ class _ResourceDataSyncState:
         pulumi.set(self, "s3_destination", value)
 
 
+@pulumi.type_token("aws:ssm/resourceDataSync:ResourceDataSync")
 class ResourceDataSync(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/resourceDataSync:ResourceDataSync"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

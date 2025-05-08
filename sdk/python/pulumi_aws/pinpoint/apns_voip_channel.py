@@ -356,10 +356,8 @@ class _ApnsVoipChannelState:
         pulumi.set(self, "token_key_id", value)
 
 
+@pulumi.type_token("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel")
 class ApnsVoipChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/apnsVoipChannel:ApnsVoipChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

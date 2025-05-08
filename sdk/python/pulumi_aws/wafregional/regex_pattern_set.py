@@ -97,10 +97,8 @@ class _RegexPatternSetState:
         pulumi.set(self, "regex_pattern_strings", value)
 
 
+@pulumi.type_token("aws:wafregional/regexPatternSet:RegexPatternSet")
 class RegexPatternSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafregional/regexPatternSet:RegexPatternSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,10 +191,8 @@ class _GlossaryState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:datazone/glossary:Glossary")
 class Glossary(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/glossary:Glossary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

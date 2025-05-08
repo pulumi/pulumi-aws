@@ -441,10 +441,8 @@ class _MultiRegionClusterState:
         pulumi.set(self, "update_strategy", value)
 
 
+@pulumi.type_token("aws:memorydb/multiRegionCluster:MultiRegionCluster")
 class MultiRegionCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:memorydb/multiRegionCluster:MultiRegionCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

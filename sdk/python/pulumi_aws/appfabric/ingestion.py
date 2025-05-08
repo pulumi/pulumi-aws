@@ -229,10 +229,8 @@ class _IngestionState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("aws:appfabric/ingestion:Ingestion")
 class Ingestion(pulumi.CustomResource):
-
-    pulumi_type = "aws:appfabric/ingestion:Ingestion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

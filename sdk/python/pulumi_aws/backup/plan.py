@@ -214,10 +214,8 @@ class _PlanState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:backup/plan:Plan")
 class Plan(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/plan:Plan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

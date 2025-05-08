@@ -318,10 +318,8 @@ class _InstanceConnectEndpointState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")
 class InstanceConnectEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

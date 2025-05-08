@@ -111,10 +111,8 @@ class _AccessPointPolicyState:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws:s3control/accessPointPolicy:AccessPointPolicy")
 class AccessPointPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3control/accessPointPolicy:AccessPointPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -337,10 +337,8 @@ class _TrafficMirrorSessionState:
         pulumi.set(self, "virtual_network_id", value)
 
 
+@pulumi.type_token("aws:ec2/trafficMirrorSession:TrafficMirrorSession")
 class TrafficMirrorSession(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/trafficMirrorSession:TrafficMirrorSession"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

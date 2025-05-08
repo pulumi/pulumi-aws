@@ -403,10 +403,8 @@ class _SecurityGroupIngressRuleState:
         pulumi.set(self, "to_port", value)
 
 
+@pulumi.type_token("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule")
 class SecurityGroupIngressRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _ApplicationSnapshotState:
         pulumi.set(self, "snapshot_name", value)
 
 
+@pulumi.type_token("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")
 class ApplicationSnapshot(pulumi.CustomResource):
-
-    pulumi_type = "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

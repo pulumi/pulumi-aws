@@ -103,10 +103,8 @@ class _ProxyProtocolPolicyState:
         pulumi.set(self, "load_balancer", value)
 
 
+@pulumi.type_token("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")
 class ProxyProtocolPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

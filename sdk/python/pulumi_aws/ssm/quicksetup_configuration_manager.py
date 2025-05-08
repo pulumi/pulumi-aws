@@ -247,10 +247,8 @@ class _QuicksetupConfigurationManagerState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")
 class QuicksetupConfigurationManager(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

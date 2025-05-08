@@ -403,10 +403,8 @@ class _ProxyState:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
+@pulumi.type_token("aws:rds/proxy:Proxy")
 class Proxy(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/proxy:Proxy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

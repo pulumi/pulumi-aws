@@ -144,10 +144,8 @@ class _InstanceStorageConfigState:
         pulumi.set(self, "storage_config", value)
 
 
+@pulumi.type_token("aws:connect/instanceStorageConfig:InstanceStorageConfig")
 class InstanceStorageConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:connect/instanceStorageConfig:InstanceStorageConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

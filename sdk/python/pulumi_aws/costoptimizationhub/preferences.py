@@ -97,10 +97,8 @@ class _PreferencesState:
         pulumi.set(self, "savings_estimation_mode", value)
 
 
+@pulumi.type_token("aws:costoptimizationhub/preferences:Preferences")
 class Preferences(pulumi.CustomResource):
-
-    pulumi_type = "aws:costoptimizationhub/preferences:Preferences"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

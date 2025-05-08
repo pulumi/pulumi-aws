@@ -95,10 +95,8 @@ class _AppregistryAttributeGroupAssociationState:
         pulumi.set(self, "attribute_group_id", value)
 
 
+@pulumi.type_token("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")
 class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

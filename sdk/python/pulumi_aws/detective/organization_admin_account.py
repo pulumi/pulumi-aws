@@ -64,10 +64,8 @@ class _OrganizationAdminAccountState:
         pulumi.set(self, "account_id", value)
 
 
+@pulumi.type_token("aws:detective/organizationAdminAccount:OrganizationAdminAccount")
 class OrganizationAdminAccount(pulumi.CustomResource):
-
-    pulumi_type = "aws:detective/organizationAdminAccount:OrganizationAdminAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

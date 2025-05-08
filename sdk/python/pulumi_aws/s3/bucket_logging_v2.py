@@ -224,10 +224,8 @@ class _BucketLoggingV2State:
         pulumi.set(self, "target_prefix", value)
 
 
+@pulumi.type_token("aws:s3/bucketLoggingV2:BucketLoggingV2")
 class BucketLoggingV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketLoggingV2:BucketLoggingV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

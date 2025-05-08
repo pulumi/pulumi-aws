@@ -99,10 +99,8 @@ class _VoiceConnectorGroupState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")
 class VoiceConnectorGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:chime/voiceConnectorGroup:VoiceConnectorGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

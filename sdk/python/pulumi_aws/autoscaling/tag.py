@@ -97,10 +97,8 @@ class _TagState:
         pulumi.set(self, "tag", value)
 
 
+@pulumi.type_token("aws:autoscaling/tag:Tag")
 class Tag(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/tag:Tag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

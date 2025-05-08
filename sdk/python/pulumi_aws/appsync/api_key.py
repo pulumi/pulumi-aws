@@ -160,10 +160,8 @@ class _ApiKeyState:
         pulumi.set(self, "key", value)
 
 
+@pulumi.type_token("aws:appsync/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/apiKey:ApiKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

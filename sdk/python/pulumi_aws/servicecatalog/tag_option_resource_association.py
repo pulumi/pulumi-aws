@@ -159,10 +159,8 @@ class _TagOptionResourceAssociationState:
         pulumi.set(self, "tag_option_id", value)
 
 
+@pulumi.type_token("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")
 class TagOptionResourceAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

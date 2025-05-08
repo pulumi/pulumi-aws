@@ -97,10 +97,8 @@ class _MonitoringSubscriptionState:
         pulumi.set(self, "monitoring_subscription", value)
 
 
+@pulumi.type_token("aws:cloudfront/monitoringSubscription:MonitoringSubscription")
 class MonitoringSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/monitoringSubscription:MonitoringSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

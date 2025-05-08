@@ -67,10 +67,8 @@ class _EventSourcesConfigState:
         pulumi.set(self, "event_sources", value)
 
 
+@pulumi.type_token("aws:devopsguru/eventSourcesConfig:EventSourcesConfig")
 class EventSourcesConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:devopsguru/eventSourcesConfig:EventSourcesConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

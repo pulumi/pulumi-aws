@@ -339,10 +339,8 @@ class _FleetState:
         pulumi.set(self, "optimize_for_end_user_location", value)
 
 
+@pulumi.type_token("aws:worklink/fleet:Fleet")
 class Fleet(pulumi.CustomResource):
-
-    pulumi_type = "aws:worklink/fleet:Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

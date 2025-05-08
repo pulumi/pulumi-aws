@@ -126,10 +126,8 @@ class _Disk_attachmentState:
         pulumi.set(self, "instance_name", value)
 
 
+@pulumi.type_token("aws:lightsail/disk_attachment:Disk_attachment")
 class Disk_attachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/disk_attachment:Disk_attachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

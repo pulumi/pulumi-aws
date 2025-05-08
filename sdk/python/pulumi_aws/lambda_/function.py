@@ -1295,10 +1295,8 @@ class _FunctionState:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws:lambda/function:Function")
 class Function(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/function:Function"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

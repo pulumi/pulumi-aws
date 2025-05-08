@@ -130,10 +130,8 @@ class _ClusterCapacityProvidersState:
         pulumi.set(self, "default_capacity_provider_strategies", value)
 
 
+@pulumi.type_token("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")
 class ClusterCapacityProviders(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

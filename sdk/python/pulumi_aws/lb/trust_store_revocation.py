@@ -174,10 +174,8 @@ class _TrustStoreRevocationState:
         pulumi.set(self, "trust_store_arn", value)
 
 
+@pulumi.type_token("aws:lb/trustStoreRevocation:TrustStoreRevocation")
 class TrustStoreRevocation(pulumi.CustomResource):
-
-    pulumi_type = "aws:lb/trustStoreRevocation:TrustStoreRevocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

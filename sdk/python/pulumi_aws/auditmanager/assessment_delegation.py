@@ -229,10 +229,8 @@ class _AssessmentDelegationState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:auditmanager/assessmentDelegation:AssessmentDelegation")
 class AssessmentDelegation(pulumi.CustomResource):
-
-    pulumi_type = "aws:auditmanager/assessmentDelegation:AssessmentDelegation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

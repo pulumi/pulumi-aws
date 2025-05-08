@@ -64,10 +64,8 @@ class _CertificateState:
         pulumi.set(self, "certificate_identifier", value)
 
 
+@pulumi.type_token("aws:rds/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

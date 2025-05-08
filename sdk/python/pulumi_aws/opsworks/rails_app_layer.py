@@ -958,10 +958,8 @@ class _RailsAppLayerState:
         pulumi.set(self, "use_ebs_optimized_instances", value)
 
 
+@pulumi.type_token("aws:opsworks/railsAppLayer:RailsAppLayer")
 class RailsAppLayer(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/railsAppLayer:RailsAppLayer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

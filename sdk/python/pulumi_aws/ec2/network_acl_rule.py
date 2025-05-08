@@ -405,10 +405,8 @@ class _NetworkAclRuleState:
         pulumi.set(self, "to_port", value)
 
 
+@pulumi.type_token("aws:ec2/networkAclRule:NetworkAclRule")
 class NetworkAclRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/networkAclRule:NetworkAclRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -188,10 +188,8 @@ class _PackageState:
         pulumi.set(self, "package_type", value)
 
 
+@pulumi.type_token("aws:opensearch/package:Package")
 class Package(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/package:Package"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

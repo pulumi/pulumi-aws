@@ -573,10 +573,8 @@ class _RecordState:
         pulumi.set(self, "zone_id", value)
 
 
+@pulumi.type_token("aws:route53/record:Record")
 class Record(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/record:Record"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

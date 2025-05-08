@@ -161,10 +161,8 @@ class _InstanceMetadataDefaultsState:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
+@pulumi.type_token("aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults")
 class InstanceMetadataDefaults(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

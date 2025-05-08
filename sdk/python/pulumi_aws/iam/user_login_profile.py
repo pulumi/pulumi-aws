@@ -208,10 +208,8 @@ class _UserLoginProfileState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("aws:iam/userLoginProfile:UserLoginProfile")
 class UserLoginProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/userLoginProfile:UserLoginProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

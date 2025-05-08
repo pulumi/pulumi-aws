@@ -195,10 +195,8 @@ class _RuleGroupNamespaceState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("aws:amp/ruleGroupNamespace:RuleGroupNamespace")
 class RuleGroupNamespace(pulumi.CustomResource):
-
-    pulumi_type = "aws:amp/ruleGroupNamespace:RuleGroupNamespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

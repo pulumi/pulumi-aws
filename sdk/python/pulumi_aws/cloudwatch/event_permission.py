@@ -197,10 +197,8 @@ class _EventPermissionState:
         pulumi.set(self, "statement_id", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventPermission:EventPermission")
 class EventPermission(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventPermission:EventPermission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

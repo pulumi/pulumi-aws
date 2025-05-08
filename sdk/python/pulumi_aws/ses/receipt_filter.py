@@ -143,10 +143,8 @@ class _ReceiptFilterState:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws:ses/receiptFilter:ReceiptFilter")
 class ReceiptFilter(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/receiptFilter:ReceiptFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

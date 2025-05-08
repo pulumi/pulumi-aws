@@ -95,10 +95,8 @@ class _PrincipalAssociationState:
         pulumi.set(self, "resource_share_arn", value)
 
 
+@pulumi.type_token("aws:ram/principalAssociation:PrincipalAssociation")
 class PrincipalAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ram/principalAssociation:PrincipalAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

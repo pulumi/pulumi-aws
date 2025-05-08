@@ -132,10 +132,8 @@ class _HostedPublicVirtualInterfaceAccepterState:
         pulumi.set(self, "virtual_interface_id", value)
 
 
+@pulumi.type_token("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter")
 class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -580,10 +580,8 @@ class _AgentAgentState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:bedrock/agentAgent:AgentAgent")
 class AgentAgent(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/agentAgent:AgentAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

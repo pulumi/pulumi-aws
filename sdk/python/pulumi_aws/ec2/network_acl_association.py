@@ -95,10 +95,8 @@ class _NetworkAclAssociationState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("aws:ec2/networkAclAssociation:NetworkAclAssociation")
 class NetworkAclAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/networkAclAssociation:NetworkAclAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

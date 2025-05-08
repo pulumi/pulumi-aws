@@ -471,10 +471,8 @@ class _WorkspaceSamlConfigurationState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")
 class WorkspaceSamlConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

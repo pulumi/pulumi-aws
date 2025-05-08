@@ -167,10 +167,8 @@ class _TargetGroupAttachmentState:
         pulumi.set(self, "target_id", value)
 
 
+@pulumi.type_token("aws:alb/targetGroupAttachment:TargetGroupAttachment")
 class TargetGroupAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:alb/targetGroupAttachment:TargetGroupAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

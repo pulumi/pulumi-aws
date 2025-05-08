@@ -191,10 +191,8 @@ class _ResponseState:
         pulumi.set(self, "status_code", value)
 
 
+@pulumi.type_token("aws:apigateway/response:Response")
 class Response(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/response:Response"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

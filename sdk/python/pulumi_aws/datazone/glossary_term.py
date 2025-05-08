@@ -322,10 +322,8 @@ class _GlossaryTermState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:datazone/glossaryTerm:GlossaryTerm")
 class GlossaryTerm(pulumi.CustomResource):
-
-    pulumi_type = "aws:datazone/glossaryTerm:GlossaryTerm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

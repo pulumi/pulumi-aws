@@ -97,10 +97,8 @@ class _InstancePublicPortsState:
         pulumi.set(self, "port_infos", value)
 
 
+@pulumi.type_token("aws:lightsail/instancePublicPorts:InstancePublicPorts")
 class InstancePublicPorts(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/instancePublicPorts:InstancePublicPorts"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

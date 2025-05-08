@@ -95,10 +95,8 @@ class _PolicyAttachmentState:
         pulumi.set(self, "target", value)
 
 
+@pulumi.type_token("aws:iot/policyAttachment:PolicyAttachment")
 class PolicyAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/policyAttachment:PolicyAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

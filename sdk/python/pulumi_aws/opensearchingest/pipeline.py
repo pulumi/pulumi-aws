@@ -399,10 +399,8 @@ class _PipelineState:
         pulumi.set(self, "vpc_options", value)
 
 
+@pulumi.type_token("aws:opensearchingest/pipeline:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearchingest/pipeline:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

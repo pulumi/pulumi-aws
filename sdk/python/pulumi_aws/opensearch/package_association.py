@@ -107,10 +107,8 @@ class _PackageAssociationState:
         pulumi.set(self, "reference_path", value)
 
 
+@pulumi.type_token("aws:opensearch/packageAssociation:PackageAssociation")
 class PackageAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/packageAssociation:PackageAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

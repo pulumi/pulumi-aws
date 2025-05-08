@@ -314,10 +314,8 @@ class _GroupState:
         pulumi.set(self, "verifiedaccess_instance_id", value)
 
 
+@pulumi.type_token("aws:verifiedaccess/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedaccess/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

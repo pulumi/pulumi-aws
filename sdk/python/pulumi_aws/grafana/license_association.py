@@ -159,10 +159,8 @@ class _LicenseAssociationState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("aws:grafana/licenseAssociation:LicenseAssociation")
 class LicenseAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:grafana/licenseAssociation:LicenseAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

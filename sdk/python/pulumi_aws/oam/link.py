@@ -280,10 +280,8 @@ class _LinkState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:oam/link:Link")
 class Link(pulumi.CustomResource):
-
-    pulumi_type = "aws:oam/link:Link"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

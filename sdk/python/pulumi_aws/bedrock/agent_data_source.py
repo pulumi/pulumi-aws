@@ -306,10 +306,8 @@ class _AgentDataSourceState:
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
+@pulumi.type_token("aws:bedrock/agentDataSource:AgentDataSource")
 class AgentDataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/agentDataSource:AgentDataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

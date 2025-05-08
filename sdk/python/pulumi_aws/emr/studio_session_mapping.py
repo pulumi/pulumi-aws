@@ -190,10 +190,8 @@ class _StudioSessionMappingState:
         pulumi.set(self, "studio_id", value)
 
 
+@pulumi.type_token("aws:emr/studioSessionMapping:StudioSessionMapping")
 class StudioSessionMapping(pulumi.CustomResource):
-
-    pulumi_type = "aws:emr/studioSessionMapping:StudioSessionMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

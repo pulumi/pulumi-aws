@@ -296,10 +296,8 @@ class _CustomerGatewayState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:ec2/customerGateway:CustomerGateway")
 class CustomerGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/customerGateway:CustomerGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

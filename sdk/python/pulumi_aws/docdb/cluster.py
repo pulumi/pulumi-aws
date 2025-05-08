@@ -1067,10 +1067,8 @@ class _ClusterState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws:docdb/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:docdb/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

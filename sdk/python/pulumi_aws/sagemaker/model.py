@@ -326,10 +326,8 @@ class _ModelState:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws:sagemaker/model:Model")
 class Model(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/model:Model"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

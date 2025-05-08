@@ -381,10 +381,8 @@ class _CapacityBlockReservationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:ec2/capacityBlockReservation:CapacityBlockReservation")
 class CapacityBlockReservation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/capacityBlockReservation:CapacityBlockReservation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

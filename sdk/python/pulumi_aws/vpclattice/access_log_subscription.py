@@ -207,10 +207,8 @@ class _AccessLogSubscriptionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:vpclattice/accessLogSubscription:AccessLogSubscription")
 class AccessLogSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpclattice/accessLogSubscription:AccessLogSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

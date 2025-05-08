@@ -577,10 +577,8 @@ class _EnvironmentState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:m2/environment:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws:m2/environment:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

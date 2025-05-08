@@ -96,10 +96,8 @@ class _VpcEndpointPolicyState:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
+@pulumi.type_token("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")
 class VpcEndpointPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

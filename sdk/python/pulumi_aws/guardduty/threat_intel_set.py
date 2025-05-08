@@ -257,10 +257,8 @@ class _ThreatIntelSetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:guardduty/threatIntelSet:ThreatIntelSet")
 class ThreatIntelSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:guardduty/threatIntelSet:ThreatIntelSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -953,10 +953,8 @@ class _ClusterState:
         pulumi.set(self, "tls_enabled", value)
 
 
+@pulumi.type_token("aws:memorydb/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:memorydb/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _ThingGroupMembershipState:
         pulumi.set(self, "thing_name", value)
 
 
+@pulumi.type_token("aws:iot/thingGroupMembership:ThingGroupMembership")
 class ThingGroupMembership(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/thingGroupMembership:ThingGroupMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

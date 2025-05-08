@@ -206,10 +206,8 @@ class _AnalyzerState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:accessanalyzer/analyzer:Analyzer")
 class Analyzer(pulumi.CustomResource):
-
-    pulumi_type = "aws:accessanalyzer/analyzer:Analyzer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws:iam/ManagedPolicy:ManagedPolicy")
 class ManagedPolicy(builtins.str, Enum):
     API_GATEWAY_SERVICE_ROLE_POLICY = "arn:aws:iam::aws:policy/aws-service-role/APIGatewayServiceRolePolicy"
     AWS_ACCOUNT_ACTIVITY_ACCESS = "arn:aws:iam::aws:policy/AWSAccountActivityAccess"

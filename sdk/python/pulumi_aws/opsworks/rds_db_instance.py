@@ -157,10 +157,8 @@ class _RdsDbInstanceState:
         pulumi.set(self, "stack_id", value)
 
 
+@pulumi.type_token("aws:opsworks/rdsDbInstance:RdsDbInstance")
 class RdsDbInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/rdsDbInstance:RdsDbInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

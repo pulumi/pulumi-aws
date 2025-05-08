@@ -261,10 +261,8 @@ class _ReportPlanState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:backup/reportPlan:ReportPlan")
 class ReportPlan(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/reportPlan:ReportPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

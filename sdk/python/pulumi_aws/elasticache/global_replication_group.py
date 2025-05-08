@@ -491,10 +491,8 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "transit_encryption_enabled", value)
 
 
+@pulumi.type_token("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")
 class GlobalReplicationGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

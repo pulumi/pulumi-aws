@@ -95,10 +95,8 @@ class _FunctionRecursionConfigState:
         pulumi.set(self, "recursive_loop", value)
 
 
+@pulumi.type_token("aws:lambda/functionRecursionConfig:FunctionRecursionConfig")
 class FunctionRecursionConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/functionRecursionConfig:FunctionRecursionConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

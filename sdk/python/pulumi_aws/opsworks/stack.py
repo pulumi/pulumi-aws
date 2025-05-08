@@ -796,10 +796,8 @@ class _StackState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:opsworks/stack:Stack")
 class Stack(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/stack:Stack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

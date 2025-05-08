@@ -202,10 +202,8 @@ class _CustomLogSourceState:
         pulumi.set(self, "source_version", value)
 
 
+@pulumi.type_token("aws:securitylake/customLogSource:CustomLogSource")
 class CustomLogSource(pulumi.CustomResource):
-
-    pulumi_type = "aws:securitylake/customLogSource:CustomLogSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

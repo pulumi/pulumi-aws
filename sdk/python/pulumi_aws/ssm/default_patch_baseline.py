@@ -159,10 +159,8 @@ class _DefaultPatchBaselineState:
         pulumi.set(self, "operating_system", value)
 
 
+@pulumi.type_token("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")
 class DefaultPatchBaseline(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

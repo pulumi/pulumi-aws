@@ -138,10 +138,8 @@ class _ResourceCollectionState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:devopsguru/resourceCollection:ResourceCollection")
 class ResourceCollection(pulumi.CustomResource):
-
-    pulumi_type = "aws:devopsguru/resourceCollection:ResourceCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

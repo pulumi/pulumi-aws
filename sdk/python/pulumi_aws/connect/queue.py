@@ -373,10 +373,8 @@ class _QueueState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:connect/queue:Queue")
 class Queue(pulumi.CustomResource):
-
-    pulumi_type = "aws:connect/queue:Queue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

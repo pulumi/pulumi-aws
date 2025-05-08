@@ -376,10 +376,8 @@ class _RemediationConfigurationState:
         pulumi.set(self, "target_version", value)
 
 
+@pulumi.type_token("aws:cfg/remediationConfiguration:RemediationConfiguration")
 class RemediationConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/remediationConfiguration:RemediationConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

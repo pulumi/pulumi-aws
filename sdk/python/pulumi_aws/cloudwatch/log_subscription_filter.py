@@ -222,10 +222,8 @@ class _LogSubscriptionFilterState:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")
 class LogSubscriptionFilter(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -95,10 +95,8 @@ class _UserPoliciesExclusiveState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws:iam/userPoliciesExclusive:UserPoliciesExclusive")
 class UserPoliciesExclusive(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/userPoliciesExclusive:UserPoliciesExclusive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

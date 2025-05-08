@@ -194,10 +194,8 @@ class _StudioLifecycleConfigState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")
 class StudioLifecycleConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

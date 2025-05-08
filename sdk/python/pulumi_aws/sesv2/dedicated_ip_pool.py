@@ -168,10 +168,8 @@ class _DedicatedIpPoolState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:sesv2/dedicatedIpPool:DedicatedIpPool")
 class DedicatedIpPool(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/dedicatedIpPool:DedicatedIpPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -307,10 +307,8 @@ class _InferenceProfileState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:bedrock/inferenceProfile:InferenceProfile")
 class InferenceProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/inferenceProfile:InferenceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

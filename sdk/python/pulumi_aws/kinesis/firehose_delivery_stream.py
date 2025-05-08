@@ -622,10 +622,8 @@ class _FirehoseDeliveryStreamState:
         pulumi.set(self, "version_id", value)
 
 
+@pulumi.type_token("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")
 class FirehoseDeliveryStream(pulumi.CustomResource):
-
-    pulumi_type = "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

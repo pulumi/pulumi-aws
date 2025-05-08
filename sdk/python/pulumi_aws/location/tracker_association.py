@@ -95,10 +95,8 @@ class _TrackerAssociationState:
         pulumi.set(self, "tracker_name", value)
 
 
+@pulumi.type_token("aws:location/trackerAssociation:TrackerAssociation")
 class TrackerAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:location/trackerAssociation:TrackerAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

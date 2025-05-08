@@ -167,10 +167,8 @@ class _RoleAssociationState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("aws:grafana/roleAssociation:RoleAssociation")
 class RoleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:grafana/roleAssociation:RoleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

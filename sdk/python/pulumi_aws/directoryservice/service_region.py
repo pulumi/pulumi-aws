@@ -212,10 +212,8 @@ class _ServiceRegionState:
         pulumi.set(self, "vpc_settings", value)
 
 
+@pulumi.type_token("aws:directoryservice/serviceRegion:ServiceRegion")
 class ServiceRegion(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/serviceRegion:ServiceRegion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

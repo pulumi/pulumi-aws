@@ -441,10 +441,8 @@ class _PermissionsState:
         pulumi.set(self, "table_with_columns", value)
 
 
+@pulumi.type_token("aws:lakeformation/permissions:Permissions")
 class Permissions(pulumi.CustomResource):
-
-    pulumi_type = "aws:lakeformation/permissions:Permissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

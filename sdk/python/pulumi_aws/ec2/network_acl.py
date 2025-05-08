@@ -246,10 +246,8 @@ class _NetworkAclState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/networkAcl:NetworkAcl")
 class NetworkAcl(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/networkAcl:NetworkAcl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

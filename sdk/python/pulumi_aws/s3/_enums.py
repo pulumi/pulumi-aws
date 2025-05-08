@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws:s3/CannedAcl:CannedAcl")
 class CannedAcl(builtins.str, Enum):
     """
     See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl

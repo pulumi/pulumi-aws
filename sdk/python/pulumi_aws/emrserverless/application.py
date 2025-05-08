@@ -453,10 +453,8 @@ class _ApplicationState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:emrserverless/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws:emrserverless/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

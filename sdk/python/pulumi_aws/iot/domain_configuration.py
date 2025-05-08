@@ -375,10 +375,8 @@ class _DomainConfigurationState:
         pulumi.set(self, "validation_certificate_arn", value)
 
 
+@pulumi.type_token("aws:iot/domainConfiguration:DomainConfiguration")
 class DomainConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/domainConfiguration:DomainConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -98,11 +98,9 @@ class _LogServiceState:
 warnings.warn("""aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription""", DeprecationWarning)
 
 
+@pulumi.type_token("aws:directoryservice/logService:LogService")
 class LogService(pulumi.CustomResource):
     warnings.warn("""aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription""", DeprecationWarning)
-
-
-    pulumi_type = "aws:directoryservice/logService:LogService"
 
     @overload
     def __init__(__self__,
