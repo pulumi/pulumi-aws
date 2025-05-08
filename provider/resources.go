@@ -5312,10 +5312,9 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					"arn.ts",    // ARN typedef
-					"region.ts", // Region constants
-					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
-					"utils.ts",  // Helpers
+					"arn.ts",   // ARN typedef
+					"tags.ts",  // Tags typedef (currently unused but left for compatibility)
+					"utils.ts", // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"applicationloadbalancing": {
