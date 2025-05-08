@@ -151,10 +151,8 @@ class _ResourcePolicyState:
         pulumi.set(self, "revision_id", value)
 
 
+@pulumi.type_token("aws:dynamodb/resourcePolicy:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:dynamodb/resourcePolicy:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

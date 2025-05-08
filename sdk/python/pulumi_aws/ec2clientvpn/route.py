@@ -190,10 +190,8 @@ class _RouteState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:ec2clientvpn/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2clientvpn/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

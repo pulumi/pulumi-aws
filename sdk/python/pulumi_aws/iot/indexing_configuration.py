@@ -99,10 +99,8 @@ class _IndexingConfigurationState:
         pulumi.set(self, "thing_indexing_configuration", value)
 
 
+@pulumi.type_token("aws:iot/indexingConfiguration:IndexingConfiguration")
 class IndexingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/indexingConfiguration:IndexingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -198,10 +198,8 @@ class _RuleState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:wafregional/rule:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafregional/rule:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

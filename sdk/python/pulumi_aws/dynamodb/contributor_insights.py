@@ -96,10 +96,8 @@ class _ContributorInsightsState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("aws:dynamodb/contributorInsights:ContributorInsights")
 class ContributorInsights(pulumi.CustomResource):
-
-    pulumi_type = "aws:dynamodb/contributorInsights:ContributorInsights"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -748,10 +748,8 @@ class _TopicRuleState:
         pulumi.set(self, "timestreams", value)
 
 
+@pulumi.type_token("aws:iot/topicRule:TopicRule")
 class TopicRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/topicRule:TopicRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

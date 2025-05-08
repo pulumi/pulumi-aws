@@ -260,10 +260,8 @@ class _SegmentState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:evidently/segment:Segment")
 class Segment(pulumi.CustomResource):
-
-    pulumi_type = "aws:evidently/segment:Segment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

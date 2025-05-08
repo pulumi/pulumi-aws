@@ -275,10 +275,8 @@ class _TrustStoreState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:lb/trustStore:TrustStore")
 class TrustStore(pulumi.CustomResource):
-
-    pulumi_type = "aws:lb/trustStore:TrustStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

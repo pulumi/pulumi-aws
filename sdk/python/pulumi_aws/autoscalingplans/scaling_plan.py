@@ -145,10 +145,8 @@ class _ScalingPlanState:
         pulumi.set(self, "scaling_plan_version", value)
 
 
+@pulumi.type_token("aws:autoscalingplans/scalingPlan:ScalingPlan")
 class ScalingPlan(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscalingplans/scalingPlan:ScalingPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -289,10 +289,8 @@ class _AccessState:
         pulumi.set(self, "server_id", value)
 
 
+@pulumi.type_token("aws:transfer/access:Access")
 class Access(pulumi.CustomResource):
-
-    pulumi_type = "aws:transfer/access:Access"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

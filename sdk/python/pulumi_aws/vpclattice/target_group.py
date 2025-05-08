@@ -222,10 +222,8 @@ class _TargetGroupState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:vpclattice/targetGroup:TargetGroup")
 class TargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpclattice/targetGroup:TargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -128,10 +128,8 @@ class _GatewayState:
         pulumi.set(self, "owner_account_id", value)
 
 
+@pulumi.type_token("aws:directconnect/gateway:Gateway")
 class Gateway(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/gateway:Gateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

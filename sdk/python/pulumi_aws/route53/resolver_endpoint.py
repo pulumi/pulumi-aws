@@ -328,10 +328,8 @@ class _ResolverEndpointState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:route53/resolverEndpoint:ResolverEndpoint")
 class ResolverEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverEndpoint:ResolverEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _CidrLocationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:route53/cidrLocation:CidrLocation")
 class CidrLocation(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/cidrLocation:CidrLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

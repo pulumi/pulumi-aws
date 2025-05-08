@@ -397,10 +397,8 @@ class _PipelineState:
         pulumi.set(self, "thumbnail_config_permissions", value)
 
 
+@pulumi.type_token("aws:elastictranscoder/pipeline:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws:elastictranscoder/pipeline:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

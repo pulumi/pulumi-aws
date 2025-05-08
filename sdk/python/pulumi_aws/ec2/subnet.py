@@ -664,10 +664,8 @@ class _SubnetState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/subnet:Subnet")
 class Subnet(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/subnet:Subnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

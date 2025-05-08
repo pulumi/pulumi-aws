@@ -2779,10 +2779,8 @@ class _InstanceState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws:rds/instance:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/instance:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

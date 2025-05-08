@@ -395,10 +395,8 @@ class _DataLakeSettingsState:
         pulumi.set(self, "trusted_resource_owners", value)
 
 
+@pulumi.type_token("aws:lakeformation/dataLakeSettings:DataLakeSettings")
 class DataLakeSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws:lakeformation/dataLakeSettings:DataLakeSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

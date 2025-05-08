@@ -506,10 +506,8 @@ class _IndexState:
         pulumi.set(self, "user_token_configurations", value)
 
 
+@pulumi.type_token("aws:kendra/index:Index")
 class Index(pulumi.CustomResource):
-
-    pulumi_type = "aws:kendra/index:Index"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

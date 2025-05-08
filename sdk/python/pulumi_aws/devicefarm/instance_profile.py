@@ -261,10 +261,8 @@ class _InstanceProfileState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:devicefarm/instanceProfile:InstanceProfile")
 class InstanceProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:devicefarm/instanceProfile:InstanceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

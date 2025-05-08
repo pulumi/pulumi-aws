@@ -230,10 +230,8 @@ class _ContactListState:
         pulumi.set(self, "topics", value)
 
 
+@pulumi.type_token("aws:sesv2/contactList:ContactList")
 class ContactList(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/contactList:ContactList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

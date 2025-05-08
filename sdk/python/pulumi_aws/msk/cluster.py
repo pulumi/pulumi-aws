@@ -676,10 +676,8 @@ class _ClusterState:
         pulumi.set(self, "zookeeper_connect_string_tls", value)
 
 
+@pulumi.type_token("aws:msk/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:msk/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

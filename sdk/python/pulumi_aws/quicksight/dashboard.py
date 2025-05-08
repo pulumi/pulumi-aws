@@ -489,10 +489,8 @@ class _DashboardState:
         pulumi.set(self, "version_number", value)
 
 
+@pulumi.type_token("aws:quicksight/dashboard:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/dashboard:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

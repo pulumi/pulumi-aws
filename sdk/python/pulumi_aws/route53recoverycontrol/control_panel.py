@@ -160,10 +160,8 @@ class _ControlPanelState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:route53recoverycontrol/controlPanel:ControlPanel")
 class ControlPanel(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53recoverycontrol/controlPanel:ControlPanel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

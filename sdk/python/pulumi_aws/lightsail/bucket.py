@@ -272,10 +272,8 @@ class _BucketState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws:lightsail/bucket:Bucket")
 class Bucket(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/bucket:Bucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

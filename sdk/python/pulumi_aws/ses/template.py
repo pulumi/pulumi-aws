@@ -177,10 +177,8 @@ class _TemplateState:
         pulumi.set(self, "text", value)
 
 
+@pulumi.type_token("aws:ses/template:Template")
 class Template(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/template:Template"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -97,10 +97,8 @@ class _BucketOwnershipControlsState:
         pulumi.set(self, "rule", value)
 
 
+@pulumi.type_token("aws:s3/bucketOwnershipControls:BucketOwnershipControls")
 class BucketOwnershipControls(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketOwnershipControls:BucketOwnershipControls"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

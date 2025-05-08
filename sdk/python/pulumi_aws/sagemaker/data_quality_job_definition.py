@@ -386,10 +386,8 @@ class _DataQualityJobDefinitionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition")
 class DataQualityJobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

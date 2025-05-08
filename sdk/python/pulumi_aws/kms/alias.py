@@ -164,10 +164,8 @@ class _AliasState:
         pulumi.set(self, "target_key_id", value)
 
 
+@pulumi.type_token("aws:kms/alias:Alias")
 class Alias(pulumi.CustomResource):
-
-    pulumi_type = "aws:kms/alias:Alias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

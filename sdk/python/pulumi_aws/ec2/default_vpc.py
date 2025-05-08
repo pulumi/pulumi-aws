@@ -437,10 +437,8 @@ class _DefaultVpcState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ec2/defaultVpc:DefaultVpc")
 class DefaultVpc(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/defaultVpc:DefaultVpc"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

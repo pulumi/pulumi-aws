@@ -470,10 +470,8 @@ class _DirectoryState:
         pulumi.set(self, "workspace_security_group_id", value)
 
 
+@pulumi.type_token("aws:workspaces/directory:Directory")
 class Directory(pulumi.CustomResource):
-
-    pulumi_type = "aws:workspaces/directory:Directory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

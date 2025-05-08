@@ -359,10 +359,8 @@ class _CatalogDatabaseState:
         pulumi.set(self, "target_database", value)
 
 
+@pulumi.type_token("aws:glue/catalogDatabase:CatalogDatabase")
 class CatalogDatabase(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/catalogDatabase:CatalogDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

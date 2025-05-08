@@ -95,10 +95,8 @@ class _LogResourcePolicyState:
         pulumi.set(self, "policy_name", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")
 class LogResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logResourcePolicy:LogResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

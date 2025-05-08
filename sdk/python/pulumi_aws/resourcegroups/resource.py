@@ -111,10 +111,8 @@ class _ResourceState:
         pulumi.set(self, "resource_type", value)
 
 
+@pulumi.type_token("aws:resourcegroups/resource:Resource")
 class Resource(pulumi.CustomResource):
-
-    pulumi_type = "aws:resourcegroups/resource:Resource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

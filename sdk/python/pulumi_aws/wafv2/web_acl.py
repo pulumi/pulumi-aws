@@ -560,10 +560,8 @@ class _WebAclState:
         pulumi.set(self, "visibility_config", value)
 
 
+@pulumi.type_token("aws:wafv2/webAcl:WebAcl")
 class WebAcl(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafv2/webAcl:WebAcl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

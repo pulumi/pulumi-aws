@@ -405,10 +405,8 @@ class _ExternalKeyState:
         pulumi.set(self, "valid_to", value)
 
 
+@pulumi.type_token("aws:kms/externalKey:ExternalKey")
 class ExternalKey(pulumi.CustomResource):
-
-    pulumi_type = "aws:kms/externalKey:ExternalKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

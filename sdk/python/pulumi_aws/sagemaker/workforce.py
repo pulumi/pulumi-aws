@@ -226,10 +226,8 @@ class _WorkforceState:
         pulumi.set(self, "workforce_vpc_config", value)
 
 
+@pulumi.type_token("aws:sagemaker/workforce:Workforce")
 class Workforce(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/workforce:Workforce"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

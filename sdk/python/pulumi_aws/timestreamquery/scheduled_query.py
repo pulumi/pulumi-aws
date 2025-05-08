@@ -513,10 +513,8 @@ class _ScheduledQueryState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:timestreamquery/scheduledQuery:ScheduledQuery")
 class ScheduledQuery(pulumi.CustomResource):
-
-    pulumi_type = "aws:timestreamquery/scheduledQuery:ScheduledQuery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

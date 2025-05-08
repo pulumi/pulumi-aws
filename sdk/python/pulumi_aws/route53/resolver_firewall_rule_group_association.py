@@ -258,10 +258,8 @@ class _ResolverFirewallRuleGroupAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")
 class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

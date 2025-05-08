@@ -183,10 +183,8 @@ class _IpGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:workspaces/ipGroup:IpGroup")
 class IpGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:workspaces/ipGroup:IpGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

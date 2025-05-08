@@ -243,10 +243,8 @@ class _ConformancePackState:
         pulumi.set(self, "template_s3_uri", value)
 
 
+@pulumi.type_token("aws:cfg/conformancePack:ConformancePack")
 class ConformancePack(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/conformancePack:ConformancePack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

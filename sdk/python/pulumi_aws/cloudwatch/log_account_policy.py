@@ -190,10 +190,8 @@ class _LogAccountPolicyState:
         pulumi.set(self, "selection_criteria", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logAccountPolicy:LogAccountPolicy")
 class LogAccountPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logAccountPolicy:LogAccountPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

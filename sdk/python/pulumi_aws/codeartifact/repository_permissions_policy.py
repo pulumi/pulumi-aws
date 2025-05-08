@@ -206,10 +206,8 @@ class _RepositoryPermissionsPolicyState:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")
 class RepositoryPermissionsPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -198,10 +198,8 @@ class _AliasState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:gamelift/alias:Alias")
 class Alias(pulumi.CustomResource):
-
-    pulumi_type = "aws:gamelift/alias:Alias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

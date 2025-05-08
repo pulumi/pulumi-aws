@@ -96,10 +96,8 @@ class _RegionSettingsState:
         pulumi.set(self, "resource_type_opt_in_preference", value)
 
 
+@pulumi.type_token("aws:backup/regionSettings:RegionSettings")
 class RegionSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/regionSettings:RegionSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -452,10 +452,8 @@ class _EntityRecognizerState:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws:comprehend/entityRecognizer:EntityRecognizer")
 class EntityRecognizer(pulumi.CustomResource):
-
-    pulumi_type = "aws:comprehend/entityRecognizer:EntityRecognizer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -284,10 +284,8 @@ class _LocationFsxOntapFileSystemState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem")
 class LocationFsxOntapFileSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

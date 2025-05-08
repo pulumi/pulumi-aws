@@ -95,10 +95,8 @@ class _VpnGatewayRoutePropagationState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
+@pulumi.type_token("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")
 class VpnGatewayRoutePropagation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,11 +129,9 @@ class _ConditionalForwaderState:
 warnings.warn("""aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder""", DeprecationWarning)
 
 
+@pulumi.type_token("aws:directoryservice/conditionalForwader:ConditionalForwader")
 class ConditionalForwader(pulumi.CustomResource):
     warnings.warn("""aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder""", DeprecationWarning)
-
-
-    pulumi_type = "aws:directoryservice/conditionalForwader:ConditionalForwader"
 
     @overload
     def __init__(__self__,

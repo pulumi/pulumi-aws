@@ -571,10 +571,8 @@ class _FlowLogState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/flowLog:FlowLog")
 class FlowLog(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/flowLog:FlowLog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

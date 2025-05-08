@@ -111,10 +111,8 @@ class _LifecyclePolicyState:
         pulumi.set(self, "repository", value)
 
 
+@pulumi.type_token("aws:ecr/lifecyclePolicy:LifecyclePolicy")
 class LifecyclePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecr/lifecyclePolicy:LifecyclePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

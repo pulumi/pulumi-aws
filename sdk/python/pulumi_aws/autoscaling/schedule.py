@@ -351,10 +351,8 @@ class _ScheduleState:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("aws:autoscaling/schedule:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/schedule:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

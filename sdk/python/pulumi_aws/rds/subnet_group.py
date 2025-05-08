@@ -264,10 +264,8 @@ class _SubnetGroupState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:rds/subnetGroup:SubnetGroup")
 class SubnetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/subnetGroup:SubnetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

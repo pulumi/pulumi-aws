@@ -498,10 +498,8 @@ class _CapacityReservationState:
         pulumi.set(self, "tenancy", value)
 
 
+@pulumi.type_token("aws:ec2/capacityReservation:CapacityReservation")
 class CapacityReservation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/capacityReservation:CapacityReservation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -231,10 +231,8 @@ class _ProjectState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:rekognition/project:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws:rekognition/project:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

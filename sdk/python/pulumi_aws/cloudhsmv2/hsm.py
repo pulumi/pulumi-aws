@@ -208,10 +208,8 @@ class _HsmState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("aws:cloudhsmv2/hsm:Hsm")
 class Hsm(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudhsmv2/hsm:Hsm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -809,10 +809,8 @@ class _MetricAlarmState:
         pulumi.set(self, "unit", value)
 
 
+@pulumi.type_token("aws:cloudwatch/metricAlarm:MetricAlarm")
 class MetricAlarm(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/metricAlarm:MetricAlarm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

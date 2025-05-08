@@ -80,10 +80,8 @@ class _InvitationAccepterState:
         pulumi.set(self, "invitation_id", value)
 
 
+@pulumi.type_token("aws:macie2/invitationAccepter:InvitationAccepter")
 class InvitationAccepter(pulumi.CustomResource):
-
-    pulumi_type = "aws:macie2/invitationAccepter:InvitationAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

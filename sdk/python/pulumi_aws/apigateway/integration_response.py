@@ -293,10 +293,8 @@ class _IntegrationResponseState:
         pulumi.set(self, "status_code", value)
 
 
+@pulumi.type_token("aws:apigateway/integrationResponse:IntegrationResponse")
 class IntegrationResponse(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/integrationResponse:IntegrationResponse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

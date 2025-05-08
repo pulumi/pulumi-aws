@@ -195,10 +195,8 @@ class _LogDestinationState:
         pulumi.set(self, "target_arn", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logDestination:LogDestination")
 class LogDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logDestination:LogDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

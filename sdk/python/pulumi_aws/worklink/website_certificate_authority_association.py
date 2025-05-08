@@ -143,10 +143,8 @@ class _WebsiteCertificateAuthorityAssociationState:
         pulumi.set(self, "website_ca_id", value)
 
 
+@pulumi.type_token("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")
 class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

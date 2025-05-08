@@ -128,10 +128,8 @@ class _CustomerManagedPolicyAttachmentState:
         pulumi.set(self, "permission_set_arn", value)
 
 
+@pulumi.type_token("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")
 class CustomerManagedPolicyAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

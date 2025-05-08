@@ -142,10 +142,8 @@ class _GroupMembershipState:
         pulumi.set(self, "membership_id", value)
 
 
+@pulumi.type_token("aws:identitystore/groupMembership:GroupMembership")
 class GroupMembership(pulumi.CustomResource):
-
-    pulumi_type = "aws:identitystore/groupMembership:GroupMembership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -310,10 +310,8 @@ class _OntapStorageVirtualMachineState:
         pulumi.set(self, "uuid", value)
 
 
+@pulumi.type_token("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")
 class OntapStorageVirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

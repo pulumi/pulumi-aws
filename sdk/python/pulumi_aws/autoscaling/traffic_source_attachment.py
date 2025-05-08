@@ -98,10 +98,8 @@ class _TrafficSourceAttachmentState:
         pulumi.set(self, "traffic_source", value)
 
 
+@pulumi.type_token("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")
 class TrafficSourceAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

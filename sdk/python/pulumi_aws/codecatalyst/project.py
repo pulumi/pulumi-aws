@@ -151,10 +151,8 @@ class _ProjectState:
         pulumi.set(self, "space_name", value)
 
 
+@pulumi.type_token("aws:codecatalyst/project:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws:codecatalyst/project:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -178,10 +178,8 @@ class _GuardrailVersionState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:bedrock/guardrailVersion:GuardrailVersion")
 class GuardrailVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/guardrailVersion:GuardrailVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

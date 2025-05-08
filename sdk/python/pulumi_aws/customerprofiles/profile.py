@@ -746,10 +746,8 @@ class _ProfileState:
         pulumi.set(self, "shipping_address", value)
 
 
+@pulumi.type_token("aws:customerprofiles/profile:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "aws:customerprofiles/profile:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

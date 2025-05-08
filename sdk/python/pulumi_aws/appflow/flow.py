@@ -371,10 +371,8 @@ class _FlowState:
         pulumi.set(self, "trigger_config", value)
 
 
+@pulumi.type_token("aws:appflow/flow:Flow")
 class Flow(pulumi.CustomResource):
-
-    pulumi_type = "aws:appflow/flow:Flow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

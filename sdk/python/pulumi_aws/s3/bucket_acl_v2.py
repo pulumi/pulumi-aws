@@ -162,10 +162,8 @@ class _BucketAclV2State:
         pulumi.set(self, "expected_bucket_owner", value)
 
 
+@pulumi.type_token("aws:s3/bucketAclV2:BucketAclV2")
 class BucketAclV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketAclV2:BucketAclV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -224,10 +224,8 @@ class _UserPoolUICustomizationState:
         pulumi.set(self, "user_pool_id", value)
 
 
+@pulumi.type_token("aws:cognito/userPoolUICustomization:UserPoolUICustomization")
 class UserPoolUICustomization(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/userPoolUICustomization:UserPoolUICustomization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

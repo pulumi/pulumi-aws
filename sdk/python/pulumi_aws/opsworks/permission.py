@@ -191,10 +191,8 @@ class _PermissionState:
         pulumi.set(self, "user_arn", value)
 
 
+@pulumi.type_token("aws:opsworks/permission:Permission")
 class Permission(pulumi.CustomResource):
-
-    pulumi_type = "aws:opsworks/permission:Permission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

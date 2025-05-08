@@ -261,10 +261,8 @@ class _InstanceProfileState:
         pulumi.set(self, "unique_id", value)
 
 
+@pulumi.type_token("aws:iam/instanceProfile:InstanceProfile")
 class InstanceProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/instanceProfile:InstanceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

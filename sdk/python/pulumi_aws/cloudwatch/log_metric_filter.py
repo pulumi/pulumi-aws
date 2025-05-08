@@ -164,10 +164,8 @@ class _LogMetricFilterState:
         pulumi.set(self, "pattern", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logMetricFilter:LogMetricFilter")
 class LogMetricFilter(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logMetricFilter:LogMetricFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

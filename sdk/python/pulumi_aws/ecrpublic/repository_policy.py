@@ -111,10 +111,8 @@ class _RepositoryPolicyState:
         pulumi.set(self, "repository_name", value)
 
 
+@pulumi.type_token("aws:ecrpublic/repositoryPolicy:RepositoryPolicy")
 class RepositoryPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecrpublic/repositoryPolicy:RepositoryPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

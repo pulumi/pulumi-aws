@@ -95,10 +95,8 @@ class _AssociationState:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws:licensemanager/association:Association")
 class Association(pulumi.CustomResource):
-
-    pulumi_type = "aws:licensemanager/association:Association"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -162,10 +162,8 @@ class _AnalyticsConfigurationState:
         pulumi.set(self, "storage_class_analysis", value)
 
 
+@pulumi.type_token("aws:s3/analyticsConfiguration:AnalyticsConfiguration")
 class AnalyticsConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/analyticsConfiguration:AnalyticsConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -185,10 +185,8 @@ class _SharedDirectoryState:
         pulumi.set(self, "target", value)
 
 
+@pulumi.type_token("aws:directoryservice/sharedDirectory:SharedDirectory")
 class SharedDirectory(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/sharedDirectory:SharedDirectory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

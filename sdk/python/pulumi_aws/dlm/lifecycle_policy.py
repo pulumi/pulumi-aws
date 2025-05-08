@@ -228,10 +228,8 @@ class _LifecyclePolicyState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:dlm/lifecyclePolicy:LifecyclePolicy")
 class LifecyclePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:dlm/lifecyclePolicy:LifecyclePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

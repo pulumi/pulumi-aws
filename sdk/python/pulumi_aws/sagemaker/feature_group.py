@@ -378,10 +378,8 @@ class _FeatureGroupState:
         pulumi.set(self, "throughput_config", value)
 
 
+@pulumi.type_token("aws:sagemaker/featureGroup:FeatureGroup")
 class FeatureGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/featureGroup:FeatureGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

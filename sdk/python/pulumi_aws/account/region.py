@@ -143,10 +143,8 @@ class _RegionState:
         pulumi.set(self, "region_name", value)
 
 
+@pulumi.type_token("aws:account/region:Region")
 class Region(pulumi.CustomResource):
-
-    pulumi_type = "aws:account/region:Region"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

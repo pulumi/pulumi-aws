@@ -183,10 +183,8 @@ class _LoggingConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ivschat/loggingConfiguration:LoggingConfiguration")
 class LoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:ivschat/loggingConfiguration:LoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

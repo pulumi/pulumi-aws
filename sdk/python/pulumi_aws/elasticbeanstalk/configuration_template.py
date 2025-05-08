@@ -238,10 +238,8 @@ class _ConfigurationTemplateState:
         pulumi.set(self, "solution_stack_name", value)
 
 
+@pulumi.type_token("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")
 class ConfigurationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

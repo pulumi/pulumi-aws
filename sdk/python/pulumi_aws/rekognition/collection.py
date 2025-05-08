@@ -182,10 +182,8 @@ class _CollectionState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:rekognition/collection:Collection")
 class Collection(pulumi.CustomResource):
-
-    pulumi_type = "aws:rekognition/collection:Collection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

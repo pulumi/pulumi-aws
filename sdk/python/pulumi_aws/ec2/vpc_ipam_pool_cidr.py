@@ -178,10 +178,8 @@ class _VpcIpamPoolCidrState:
         pulumi.set(self, "netmask_length", value)
 
 
+@pulumi.type_token("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")
 class VpcIpamPoolCidr(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

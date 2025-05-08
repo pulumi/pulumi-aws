@@ -95,10 +95,8 @@ class _TransitGatewayRegistrationState:
         pulumi.set(self, "transit_gateway_arn", value)
 
 
+@pulumi.type_token("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")
 class TransitGatewayRegistration(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

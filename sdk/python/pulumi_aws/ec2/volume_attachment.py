@@ -258,10 +258,8 @@ class _VolumeAttachmentState:
         pulumi.set(self, "volume_id", value)
 
 
+@pulumi.type_token("aws:ec2/volumeAttachment:VolumeAttachment")
 class VolumeAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/volumeAttachment:VolumeAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _IdentityPolicyState:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws:ses/identityPolicy:IdentityPolicy")
 class IdentityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/identityPolicy:IdentityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

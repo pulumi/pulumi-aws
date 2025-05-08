@@ -444,10 +444,8 @@ class _ImageRecipeState:
         pulumi.set(self, "working_directory", value)
 
 
+@pulumi.type_token("aws:imagebuilder/imageRecipe:ImageRecipe")
 class ImageRecipe(pulumi.CustomResource):
-
-    pulumi_type = "aws:imagebuilder/imageRecipe:ImageRecipe"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

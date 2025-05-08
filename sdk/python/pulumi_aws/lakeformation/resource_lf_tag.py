@@ -235,10 +235,8 @@ class _ResourceLfTagState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:lakeformation/resourceLfTag:ResourceLfTag")
 class ResourceLfTag(pulumi.CustomResource):
-
-    pulumi_type = "aws:lakeformation/resourceLfTag:ResourceLfTag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

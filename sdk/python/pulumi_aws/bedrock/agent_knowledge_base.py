@@ -338,10 +338,8 @@ class _AgentKnowledgeBaseState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase")
 class AgentKnowledgeBase(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

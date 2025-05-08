@@ -204,10 +204,8 @@ class _AppregistryAttributeGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup")
 class AppregistryAttributeGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

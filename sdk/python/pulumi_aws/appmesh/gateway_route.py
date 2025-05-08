@@ -308,10 +308,8 @@ class _GatewayRouteState:
         pulumi.set(self, "virtual_gateway_name", value)
 
 
+@pulumi.type_token("aws:appmesh/gatewayRoute:GatewayRoute")
 class GatewayRoute(pulumi.CustomResource):
-
-    pulumi_type = "aws:appmesh/gatewayRoute:GatewayRoute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

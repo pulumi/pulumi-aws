@@ -161,10 +161,8 @@ class _BucketVersioningV2State:
         pulumi.set(self, "versioning_configuration", value)
 
 
+@pulumi.type_token("aws:s3/bucketVersioningV2:BucketVersioningV2")
 class BucketVersioningV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketVersioningV2:BucketVersioningV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

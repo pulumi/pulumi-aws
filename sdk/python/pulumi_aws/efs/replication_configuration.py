@@ -165,10 +165,8 @@ class _ReplicationConfigurationState:
         pulumi.set(self, "source_file_system_region", value)
 
 
+@pulumi.type_token("aws:efs/replicationConfiguration:ReplicationConfiguration")
 class ReplicationConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:efs/replicationConfiguration:ReplicationConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

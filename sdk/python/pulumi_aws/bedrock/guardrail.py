@@ -513,10 +513,8 @@ class _GuardrailState:
         pulumi.set(self, "word_policy_config", value)
 
 
+@pulumi.type_token("aws:bedrock/guardrail:Guardrail")
 class Guardrail(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/guardrail:Guardrail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

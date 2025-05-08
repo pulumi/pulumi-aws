@@ -166,10 +166,8 @@ class _StandardsControlAssociationState:
         pulumi.set(self, "updated_reason", value)
 
 
+@pulumi.type_token("aws:securityhub/standardsControlAssociation:StandardsControlAssociation")
 class StandardsControlAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/standardsControlAssociation:StandardsControlAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

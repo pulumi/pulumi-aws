@@ -253,10 +253,8 @@ class _UserState:
         pulumi.set(self, "unique_id", value)
 
 
+@pulumi.type_token("aws:iam/user:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/user:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

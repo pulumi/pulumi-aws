@@ -248,10 +248,8 @@ class _ConnectorProfileState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:appflow/connectorProfile:ConnectorProfile")
 class ConnectorProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:appflow/connectorProfile:ConnectorProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

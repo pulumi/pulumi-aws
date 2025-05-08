@@ -199,10 +199,8 @@ class _SnapshotCopyState:
         pulumi.set(self, "snapshot_copy_grant_name", value)
 
 
+@pulumi.type_token("aws:redshift/snapshotCopy:SnapshotCopy")
 class SnapshotCopy(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/snapshotCopy:SnapshotCopy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

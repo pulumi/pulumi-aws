@@ -321,10 +321,8 @@ class _StatementState:
         pulumi.set(self, "workgroup_name", value)
 
 
+@pulumi.type_token("aws:redshiftdata/statement:Statement")
 class Statement(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshiftdata/statement:Statement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

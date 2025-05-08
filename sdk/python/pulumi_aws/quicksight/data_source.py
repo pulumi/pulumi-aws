@@ -396,10 +396,8 @@ class _DataSourceState:
         pulumi.set(self, "vpc_connection_properties", value)
 
 
+@pulumi.type_token("aws:quicksight/dataSource:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/dataSource:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

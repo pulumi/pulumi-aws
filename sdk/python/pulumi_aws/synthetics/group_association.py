@@ -123,10 +123,8 @@ class _GroupAssociationState:
         pulumi.set(self, "group_name", value)
 
 
+@pulumi.type_token("aws:synthetics/groupAssociation:GroupAssociation")
 class GroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:synthetics/groupAssociation:GroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -95,10 +95,8 @@ class _ApprovalRuleTemplateAssociationState:
         pulumi.set(self, "repository_name", value)
 
 
+@pulumi.type_token("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")
 class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

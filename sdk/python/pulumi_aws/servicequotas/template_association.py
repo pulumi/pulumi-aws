@@ -73,10 +73,8 @@ class _TemplateAssociationState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:servicequotas/templateAssociation:TemplateAssociation")
 class TemplateAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicequotas/templateAssociation:TemplateAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

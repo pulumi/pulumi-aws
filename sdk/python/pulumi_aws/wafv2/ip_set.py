@@ -303,10 +303,8 @@ class _IpSetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:wafv2/ipSet:IpSet")
 class IpSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafv2/ipSet:IpSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

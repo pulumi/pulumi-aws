@@ -426,10 +426,8 @@ class _AnalysisState:
         pulumi.set(self, "theme_arn", value)
 
 
+@pulumi.type_token("aws:quicksight/analysis:Analysis")
 class Analysis(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/analysis:Analysis"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

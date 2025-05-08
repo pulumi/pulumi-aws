@@ -356,10 +356,8 @@ class _WorkspaceState:
         pulumi.set(self, "workspace_properties", value)
 
 
+@pulumi.type_token("aws:workspaces/workspace:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "aws:workspaces/workspace:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

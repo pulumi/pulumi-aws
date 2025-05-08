@@ -175,10 +175,8 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
         pulumi.set(self, "statistic", value)
 
 
+@pulumi.type_token("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")
 class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

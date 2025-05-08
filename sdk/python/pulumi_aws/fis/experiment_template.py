@@ -343,10 +343,8 @@ class _ExperimentTemplateState:
         pulumi.set(self, "targets", value)
 
 
+@pulumi.type_token("aws:fis/experimentTemplate:ExperimentTemplate")
 class ExperimentTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:fis/experimentTemplate:ExperimentTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

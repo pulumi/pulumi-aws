@@ -536,10 +536,8 @@ class _DocumentClassifierState:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws:comprehend/documentClassifier:DocumentClassifier")
 class DocumentClassifier(pulumi.CustomResource):
-
-    pulumi_type = "aws:comprehend/documentClassifier:DocumentClassifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

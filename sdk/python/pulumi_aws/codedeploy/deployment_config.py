@@ -227,10 +227,8 @@ class _DeploymentConfigState:
         pulumi.set(self, "zonal_config", value)
 
 
+@pulumi.type_token("aws:codedeploy/deploymentConfig:DeploymentConfig")
 class DeploymentConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:codedeploy/deploymentConfig:DeploymentConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

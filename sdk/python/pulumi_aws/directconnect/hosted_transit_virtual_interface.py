@@ -408,10 +408,8 @@ class _HostedTransitVirtualInterfaceState:
         pulumi.set(self, "vlan", value)
 
 
+@pulumi.type_token("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface")
 class HostedTransitVirtualInterface(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

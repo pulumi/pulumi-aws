@@ -292,10 +292,8 @@ class _ActivationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ssm/activation:Activation")
 class Activation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/activation:Activation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

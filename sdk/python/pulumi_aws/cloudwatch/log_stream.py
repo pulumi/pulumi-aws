@@ -112,10 +112,8 @@ class _LogStreamState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logStream:LogStream")
 class LogStream(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logStream:LogStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

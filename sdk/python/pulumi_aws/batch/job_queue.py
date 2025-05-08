@@ -361,10 +361,8 @@ class _JobQueueState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:batch/jobQueue:JobQueue")
 class JobQueue(pulumi.CustomResource):
-
-    pulumi_type = "aws:batch/jobQueue:JobQueue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

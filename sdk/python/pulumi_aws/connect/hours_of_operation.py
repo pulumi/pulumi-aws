@@ -276,10 +276,8 @@ class _HoursOfOperationState:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("aws:connect/hoursOfOperation:HoursOfOperation")
 class HoursOfOperation(pulumi.CustomResource):
-
-    pulumi_type = "aws:connect/hoursOfOperation:HoursOfOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

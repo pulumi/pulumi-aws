@@ -1516,10 +1516,8 @@ class _ObjectCopyState:
         pulumi.set(self, "website_redirect", value)
 
 
+@pulumi.type_token("aws:s3/objectCopy:ObjectCopy")
 class ObjectCopy(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/objectCopy:ObjectCopy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

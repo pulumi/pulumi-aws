@@ -159,11 +159,9 @@ class _MatchmakingRuleSetState:
 warnings.warn("""This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead""", DeprecationWarning)
 
 
+@pulumi.type_token("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")
 class MatchmakingRuleSet(pulumi.CustomResource):
     warnings.warn("""This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead""", DeprecationWarning)
-
-
-    pulumi_type = "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet"
 
     @overload
     def __init__(__self__,

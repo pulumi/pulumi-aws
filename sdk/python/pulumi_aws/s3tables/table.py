@@ -390,10 +390,8 @@ class _TableState:
         pulumi.set(self, "warehouse_location", value)
 
 
+@pulumi.type_token("aws:s3tables/table:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3tables/table:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

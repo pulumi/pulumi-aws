@@ -96,10 +96,8 @@ class _ResourcePolicyState:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws:glue/resourcePolicy:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/resourcePolicy:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

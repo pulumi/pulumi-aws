@@ -169,10 +169,8 @@ class _PipelineDefinitionState:
         pulumi.set(self, "pipeline_objects", value)
 
 
+@pulumi.type_token("aws:datapipeline/pipelineDefinition:PipelineDefinition")
 class PipelineDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:datapipeline/pipelineDefinition:PipelineDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

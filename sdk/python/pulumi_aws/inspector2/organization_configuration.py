@@ -82,10 +82,8 @@ class _OrganizationConfigurationState:
         pulumi.set(self, "max_account_limit_reached", value)
 
 
+@pulumi.type_token("aws:inspector2/organizationConfiguration:OrganizationConfiguration")
 class OrganizationConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:inspector2/organizationConfiguration:OrganizationConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

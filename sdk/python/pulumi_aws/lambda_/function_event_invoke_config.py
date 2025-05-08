@@ -202,10 +202,8 @@ class _FunctionEventInvokeConfigState:
         pulumi.set(self, "qualifier", value)
 
 
+@pulumi.type_token("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")
 class FunctionEventInvokeConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

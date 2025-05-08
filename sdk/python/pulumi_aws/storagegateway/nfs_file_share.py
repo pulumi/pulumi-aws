@@ -739,10 +739,8 @@ class _NfsFileShareState:
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
+@pulumi.type_token("aws:storagegateway/nfsFileShare:NfsFileShare")
 class NfsFileShare(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/nfsFileShare:NfsFileShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

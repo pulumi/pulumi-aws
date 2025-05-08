@@ -238,10 +238,8 @@ class _EmailIdentityState:
         pulumi.set(self, "verified_for_sending_status", value)
 
 
+@pulumi.type_token("aws:sesv2/emailIdentity:EmailIdentity")
 class EmailIdentity(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/emailIdentity:EmailIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -65,10 +65,8 @@ class _DomainState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:simpledb/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:simpledb/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

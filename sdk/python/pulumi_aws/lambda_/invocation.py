@@ -239,10 +239,8 @@ class _InvocationState:
         pulumi.set(self, "triggers", value)
 
 
+@pulumi.type_token("aws:lambda/invocation:Invocation")
 class Invocation(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/invocation:Invocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

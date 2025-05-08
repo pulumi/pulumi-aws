@@ -891,10 +891,8 @@ class _TargetGroupState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:lb/targetGroup:TargetGroup")
 class TargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:lb/targetGroup:TargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

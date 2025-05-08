@@ -198,10 +198,8 @@ class _BucketObjectLockConfigurationV2State:
         pulumi.set(self, "token", value)
 
 
+@pulumi.type_token("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")
 class BucketObjectLockConfigurationV2(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

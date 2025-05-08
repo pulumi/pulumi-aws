@@ -208,10 +208,8 @@ class _EventArchiveState:
         pulumi.set(self, "retention_days", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventArchive:EventArchive")
 class EventArchive(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventArchive:EventArchive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

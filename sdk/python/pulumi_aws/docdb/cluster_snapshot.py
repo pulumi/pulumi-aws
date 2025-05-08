@@ -263,10 +263,8 @@ class _ClusterSnapshotState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:docdb/clusterSnapshot:ClusterSnapshot")
 class ClusterSnapshot(pulumi.CustomResource):
-
-    pulumi_type = "aws:docdb/clusterSnapshot:ClusterSnapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -143,10 +143,8 @@ class _ActionTargetState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws:securityhub/actionTarget:ActionTarget")
 class ActionTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/actionTarget:ActionTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

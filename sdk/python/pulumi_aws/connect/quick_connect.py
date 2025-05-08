@@ -245,10 +245,8 @@ class _QuickConnectState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:connect/quickConnect:QuickConnect")
 class QuickConnect(pulumi.CustomResource):
-
-    pulumi_type = "aws:connect/quickConnect:QuickConnect"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

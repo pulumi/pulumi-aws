@@ -646,10 +646,8 @@ class _GraphQLApiState:
         pulumi.set(self, "xray_enabled", value)
 
 
+@pulumi.type_token("aws:appsync/graphQLApi:GraphQLApi")
 class GraphQLApi(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/graphQLApi:GraphQLApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

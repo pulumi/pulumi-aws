@@ -1127,10 +1127,8 @@ class _ClusterState:
         pulumi.set(self, "transit_encryption_enabled", value)
 
 
+@pulumi.type_token("aws:elasticache/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticache/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

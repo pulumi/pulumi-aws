@@ -350,10 +350,8 @@ class _NetworkInsightsAnalysisState:
         pulumi.set(self, "warning_message", value)
 
 
+@pulumi.type_token("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis")
 class NetworkInsightsAnalysis(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

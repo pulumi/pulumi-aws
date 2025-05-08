@@ -1071,10 +1071,8 @@ class _UserPoolState:
         pulumi.set(self, "web_authn_configuration", value)
 
 
+@pulumi.type_token("aws:cognito/userPool:UserPool")
 class UserPool(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/userPool:UserPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

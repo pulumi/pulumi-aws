@@ -498,10 +498,8 @@ class _ReceiptRuleState:
         pulumi.set(self, "workmail_actions", value)
 
 
+@pulumi.type_token("aws:ses/receiptRule:ReceiptRule")
 class ReceiptRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/receiptRule:ReceiptRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

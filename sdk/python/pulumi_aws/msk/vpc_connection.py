@@ -256,10 +256,8 @@ class _VpcConnectionState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:msk/vpcConnection:VpcConnection")
 class VpcConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws:msk/vpcConnection:VpcConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

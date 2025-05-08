@@ -99,10 +99,8 @@ class _SqlInjectionMatchSetState:
         pulumi.set(self, "sql_injection_match_tuples", value)
 
 
+@pulumi.type_token("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet")
 class SqlInjectionMatchSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

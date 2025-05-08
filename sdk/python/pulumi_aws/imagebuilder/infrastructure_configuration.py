@@ -558,10 +558,8 @@ class _InfrastructureConfigurationState:
         pulumi.set(self, "terminate_instance_on_failure", value)
 
 
+@pulumi.type_token("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")
 class InfrastructureConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

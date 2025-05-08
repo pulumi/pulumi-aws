@@ -604,10 +604,8 @@ class _TaskSetState:
         pulumi.set(self, "wait_until_stable_timeout", value)
 
 
+@pulumi.type_token("aws:ecs/taskSet:TaskSet")
 class TaskSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecs/taskSet:TaskSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

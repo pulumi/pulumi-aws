@@ -475,10 +475,8 @@ class _SamplingRuleState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:xray/samplingRule:SamplingRule")
 class SamplingRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:xray/samplingRule:SamplingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

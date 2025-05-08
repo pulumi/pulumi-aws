@@ -149,10 +149,8 @@ class _ContainerState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:mediastore/container:Container")
 class Container(pulumi.CustomResource):
-
-    pulumi_type = "aws:mediastore/container:Container"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
