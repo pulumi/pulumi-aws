@@ -22,6 +22,6 @@ export function requireRegion(): Region {
     if (region === undefined) {
         throw new Error("No AWS region has been configured");
     }
-    return region;
+    return region as Region;
 }
 

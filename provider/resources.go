@@ -918,7 +918,6 @@ compatibility shim in favor of the new "name" field.`)
 				MaxItemsOne: tfbridge.True(),
 			},
 			"region": {
-				Type: awsTypeDefaultFile(awsMod, "Region"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
