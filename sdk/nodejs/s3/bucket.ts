@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
-import {RoutingRule} from "./index";
 
 /**
  * Provides a S3 bucket resource.

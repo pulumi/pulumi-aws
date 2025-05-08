@@ -5394,7 +5394,6 @@ compatibility shim in favor of the new "name" field.`)
 					"s3": {
 						DestFiles: []string{
 							"cannedAcl.ts", // CannedAcl constants
-							"routingRules.ts",
 							"s3Mixins.ts",
 						},
 					},
