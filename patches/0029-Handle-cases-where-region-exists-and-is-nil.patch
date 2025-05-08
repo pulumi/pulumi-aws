@@ -1,0 +1,21 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Tue, 13 May 2025 14:24:02 -0400
+Subject: [PATCH] Handle cases where region exists and is nil
+
+
+diff --git a/internal/provider/provider.go b/internal/provider/provider.go
+index 8512e5dfde..f4359bad72 100644
+--- a/internal/provider/provider.go
++++ b/internal/provider/provider.go
+@@ -533,7 +533,9 @@ func initialize(ctx context.Context, provider *schema.Provider) (map[string]conn
+ 
+ 					if isRegionOverrideEnabled && getAttribute != nil {
+ 						if region, ok := getAttribute(names.AttrRegion); ok {
+-							overrideRegion = region.(string)
++							if val, ok := region.(string); ok {
++								overrideRegion = val
++							}
+ 						}
+ 					}
+ 

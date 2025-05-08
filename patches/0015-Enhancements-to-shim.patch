@@ -12,10 +12,10 @@ This patch combines a couple of patches that all effect shim.go
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 0000000000..2af7c06925
+index 0000000000..858599b33f
 --- /dev/null
 +++ b/shim/shim.go
-@@ -0,0 +1,36 @@
+@@ -0,0 +1,40 @@
 +package shim
 +
 +import (
@@ -38,7 +38,11 @@ index 0000000000..2af7c06925
 +	if err != nil {
 +		return UpstreamProvider{}, err
 +	}
-+	pf := fwprovider.New(primary)
++	pf, err := fwprovider.New(ctx, primary)
++	if err != nil {
++		//lintignore:R009
++		panic(err)
++	}
 +	return UpstreamProvider{
 +		SDKV2Provider:           primary,
 +		PluginFrameworkProvider: pf,

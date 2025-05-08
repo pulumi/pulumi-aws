@@ -45,12 +45,12 @@ index 0000000000..79867519db
 +	}
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index af82165d09..91d20a1864 100644
+index fffa00e5a4..58fb9144d6 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
-@@ -165,6 +165,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
- 		lambda.WithEndpointResolverV2(newEndpointResolverV2()),
- 		withBaseEndpoint(config[names.AttrEndpoint].(string)),
+@@ -260,6 +260,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 			}
+ 		},
  		withExtraOptions(ctx, p, config),
 +		p.pulumiCustomizeLambdaRetries(cfg),
  	}
