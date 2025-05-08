@@ -5,9 +5,9 @@ package main
 import (
 	"encoding/json"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -30,19 +30,9 @@ func main() {
 			return err
 		}
 
-		tagsMap := pulumi.StringMap{}
-		for k, v := range s.ResourceTags {
-			tagsMap[k] = pulumi.String(v)
-		}
-
-		defaultTagsMap := pulumi.StringMap{}
-		for k, v := range s.DefaultTags {
-			defaultTagsMap[k] = pulumi.String(v)
-		}
-
 		p, err := aws.NewProvider(ctx, "prov", &aws.ProviderArgs{
 			DefaultTags: aws.ProviderDefaultTagsArgs{
-				Tags: defaultTagsMap,
+				Tags: pulumi.ToStringMap(s.DefaultTags),
 			},
 		})
 		if err != nil {
@@ -50,7 +40,7 @@ func main() {
 		}
 
 		bucket, err := s3.NewBucket(ctx, "bucketv2"+testIdent, &s3.BucketArgs{
-			Tags: tagsMap,
+			Tags: pulumi.ToStringMap(s.ResourceTags),
 		}, pulumi.Provider(p))
 		if err != nil {
 			return err
@@ -58,7 +48,7 @@ func main() {
 
 		app, err := appconfig.NewApplication(ctx, "testappconfigapp"+testIdent,
 			&appconfig.ApplicationArgs{
-				Tags: tagsMap,
+				Tags: pulumi.ToStringMap(s.ResourceTags),
 			}, pulumi.Provider(p))
 		if err != nil {
 			return err
@@ -66,7 +56,7 @@ func main() {
 
 		env, err := appconfig.NewEnvironment(ctx, "testappconfigenv"+testIdent, &appconfig.EnvironmentArgs{
 			ApplicationId: app.ID(),
-			Tags:          tagsMap,
+			Tags:          pulumi.ToStringMap(s.ResourceTags),
 		}, pulumi.Provider(p))
 		if err != nil {
 			return err
@@ -78,17 +68,23 @@ func main() {
 		}
 
 		getBucket, err := s3.GetBucket(ctx, "get-bucketv2"+testIdent, bucket.ID(), &s3.BucketState{}, pulumi.Provider(p))
+
+		getApp, err := appconfig.GetApplication(ctx, "get-testappconfigapp"+testIdent, app.ID(), &appconfig.ApplicationState{}, pulumi.Provider(p))
+		if err != nil {
+			return err
+		}
 		if err != nil {
 			return err
 		}
 
-		ctx.Export("bucket", exportTags(bucket.Tags))
-		ctx.Export("get-bucket", exportTags(getBucket.Tags))
+		ctx.Export("bucket", exportTags(bucket.TagsAll))
+		ctx.Export("get-bucket", exportTags(getBucket.TagsAll))
 		ctx.Export("bucket-name", bucket.Bucket)
-		ctx.Export("appconfig-app", exportTags(app.Tags))
+		ctx.Export("appconfig-app", exportTags(app.TagsAll))
 		ctx.Export("appconfig-app-arn", app.Arn)
-		ctx.Export("appconfig-env", exportTags(env.Tags))
-		ctx.Export("get-appconfig-env", exportTags(getEnv.Tags))
+		ctx.Export("get-appconfig-app", exportTags(getApp.TagsAll))
+		ctx.Export("appconfig-env", exportTags(env.TagsAll))
+		ctx.Export("get-appconfig-env", exportTags(getEnv.TagsAll))
 		ctx.Export("appconfig-env-arn", env.Arn)
 
 		return nil
