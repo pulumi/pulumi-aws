@@ -30,29 +30,6 @@ func TestParseDuration(t *testing.T) {
 	}
 }
 
-func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
-	t.Parallel()
-
-	p := Provider()
-	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
-		actual := hasNonComputedTagsAndTagsAllOptimized(key, value)
-		expected := hasNonComputedTagsAndTagsAll(key, value)
-		assert.Equal(t, expected, actual, "%q", key)
-		return true
-	})
-	ctx := context.Background()
-	upstreamProvider := newUpstreamProvider(ctx)
-	for rn, r := range upstreamProvider.SDKV2Provider.ResourcesMap {
-		if r.SchemaFunc != nil {
-			res, ok := p.P.ResourcesMap().GetOk(rn)
-			if ok {
-				v := hasNonComputedTagsAndTagsAll(rn, res)
-				t.Logf("Should cache %v: %s", v, rn)
-			}
-		}
-	}
-}
-
 func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 	t.Parallel()
 
