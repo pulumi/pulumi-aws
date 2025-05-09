@@ -4,10 +4,23 @@
 
 ### Bucket/BucketV2 Changes
 
-As part of this major version upgrade we are making a couple of changes to
-`Bucket` and `BucketV2`.
+As part of this major version upgrade we are removing the old `Bucket` resource
+and are renaming `BucketV2` to `Bucket`. This change should simplify things for
+users and make it easier to understand which bucket resources to use. There will
+now only be one version of bucket resources without any version information.
+
+As part of this change there will be breaking changes in the Bucket SDKs
+that fall into two categories.
+
+1. Renamed resources. Users will need to update their code to rename the
+   resource to the new name (e.g. `BucketV2` => `Bucket`)
+2. MaxItemsOne changes. Fields that were previously (in v6) lists that only
+   accepted a single item have been changed to no longer be lists. For example,
+   the `serverSideEncryptionConfigurations` field on `BucketV2` was a list that
+   only accepted a single configuration item. This is now
+   `serverSideEncryptionConfiguration`.
  
-- [ ] TODO: upgrade guide
+- [ ] TODO: See the upgrade guide for more detailed information.
 
 #### MaxItemsOne Changes
 
@@ -170,7 +183,40 @@ attribute reflecting a resource’s actual identifier. [#39236](https://github.c
 
 - `🟡` "aws:globalaccelerator/getAccelerator:getAccelerator": inputs: "id" missing input "id"
 
+### Tags Changes
+
+This release some changes to the way tags work in the Pulumi AWS Provider. In v6
+of the Pulumi AWS Provider we customized the tagging behavior of the provider
+through Pulumi level patches to the upstream Terraform provider along with other
+Pulumi level customizations. This resulted in tagging behavior that diverged
+from the upstream Terraform provider and has been difficult to maintain as the
+upstream Terraform provider has made changes to tagging.
+
+In v7 we are removing the Pulumi level customizations and going back to relying
+on the upstream provider's tagging behavior.
+
 ### Patch Related Changes
+
+We have created several Pulumi level patches to the upstream Terraform provider
+to address issues/limitations that existed in the upstream provider. Several of
+those issues/limitations have now been addressed in the upstream Terraform
+provider and we are removing the Pulumi level patch. Users will need to migrate
+their code to use the new features.
+
+- [ ] TODO: explain why removing patches is a good thing overall
+
+#### EKS Cluster
+
+We are removing the `defaultAddonsToRemoves` property. This property does not
+exist in the upstream `terraform-provider-aws` provider and was added to
+workaround some limitations. Since then the upstream provider has added the
+`bootstrapSelfManagedAddons` field which can be used instead.
+
+Users can replicate the behavior of `defaultAddonsToRemoves` by setting
+`bootstrapSelfManagedAddons` to `false` and then adding platform addons that
+they actually want as `aws.eks.Addon` resources.
+
+- [ ] TODO: create upgrade guide
 
 - "aws:eks/cluster:Cluster":
     - `🟡` inputs: "defaultAddonsToRemoves" missing
@@ -178,6 +224,14 @@ attribute reflecting a resource’s actual identifier. [#39236](https://github.c
         - `🟡` "certificateAuthority" type changed from "#/types/aws:eks/ClusterCertificateAuthority:ClusterCertificateAuthority" to "array":
             - `🟡` items had no type but now has &{Type: Ref:#/types/aws:eks/ClusterCertificateAuthority:ClusterCertificateAuthority AdditionalProperties:<nil> Items:<nil> OneOf:[] Discriminator:<nil> Plain:false}
         - `🟡` "defaultAddonsToRemoves" missing output "defaultAddonsToRemoves"
+
+#### ECR GetCredentials function
+
+The `ecr.getCredentials` function was added to address a functionality that did
+not exist in the upstream provider. The upstream Terraform provider now has a
+`aws.ecr.getAuthorizationToken` function that should be used instead.
+
+- [ ] TODO: create upgrade guide
 
 - `🔴` "aws:ecr/getCredentials:getCredentials" missing
 
