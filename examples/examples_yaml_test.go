@@ -804,7 +804,7 @@ func testTagsPulumiLifecycle(t *testing.T, step tagsTestStep) {
 		step.preImportHook(t, outputs)
 	}
 	generateTagsTest(t, step, fpath, id)
-	upRes, err = stack.Up(ctx, optup.Diff())
+	upRes, err = stack.Up(ctx, optup.Diff(), optup.ProgressStreams(os.Stdout), optup.ErrorProgressStreams(os.Stderr))
 	assert.NoError(t, err)
 	changes := *upRes.Summary.ResourceChanges
 	assert.Equal(t, 1, changes["import"])
@@ -1180,11 +1180,11 @@ func TestAccDefaultTags(t *testing.T) {
 			expected: sameAsDefault,
 		},
 		// TODO: This is not working as expected, requires refresh and run program
-		// {
-		// 	purpose:     "Don't specify any default tags (should be empty)",
-		// 	defaultTags: map[string]interface{}{},
-		// 	expected:    sameAsDefault,
-		// },
+		{
+			purpose:     "Don't specify any default tags (should be empty)",
+			defaultTags: map[string]interface{}{},
+			expected:    sameAsDefault,
+		},
 	}
 
 	// Apply sameAsDefault
@@ -1670,6 +1670,7 @@ func TestRegressUnknownTags(t *testing.T) {
 	    },
 	    "response": {
 	      "inputs": {
+					"tagsAll": {},
 		"__defaults": [
 		  "name"
 		],

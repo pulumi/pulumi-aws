@@ -35,7 +35,6 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		Dependencies: []string{
 			"github.com/pulumi/pulumi-aws/sdk/v7=" + rootSdkPath(),
-			"github.com/pulumi/pulumi-aws/sdk/v6=" + rootSdkPath(),
 		},
 		Config: map[string]string{
 			"aws:region": envRegion,
@@ -105,11 +104,11 @@ func TestTagsCombinationsGo(t *testing.T) {
 		// and then computes the diff
 		// For Pulumi to do this you have to run refresh with --run-program, otherwise refresh will
 		// use the old provider config
-		// {
-		// 	"only default tags, remove default tags",
-		// 	tagsState{DefaultTags: map[string]string{"x": "s", "y": "s"}, ResourceTags: map[string]string{}},
-		// 	tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{}},
-		// },
+		{
+			"only default tags, remove default tags",
+			tagsState{DefaultTags: map[string]string{"x": "s", "y": "s"}, ResourceTags: map[string]string{}},
+			tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{}},
+		},
 		{
 			"replace tags with empty",
 			tagsState{
@@ -143,7 +142,6 @@ func TestTagsCombinationsGo(t *testing.T) {
 		// 	"regress 2",
 		// 	tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{"x": "s", "y": ""}},
 		// 	tagsState{DefaultTags: map[string]string{"x": ""}, ResourceTags: map[string]string{}},
-		// 	false,
 		// },
 		{
 			"regress 3",

@@ -5508,11 +5508,28 @@ compatibility shim in favor of the new "name" field.`)
 	}
 
 	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
+		// only process sdkv2 resources
+		if _, ok := up.ResourcesMap[key]; !ok {
+			return true
+		}
 		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
 			return true
 		}
 
 		if _, ok := prov.Resources[key]; ok {
+			if callback := prov.Resources[key].PreCheckCallback; callback != nil {
+				prov.Resources[key].PreCheckCallback = func(
+					ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					config, err := callback(ctx, config, meta)
+					if err != nil {
+						return nil, err
+					}
+					return applyTags(ctx, config, meta)
+				}
+			} else {
+				prov.Resources[key].PreCheckCallback = applyTags
+			}
 			if prov.Resources[key].GetFields() == nil {
 				prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 			}
@@ -5676,7 +5693,7 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 		return false
 	}
 	// tags must be non-computed.
-	if tagsF.Computed() {
+	if tagsF.Computed() && !tagsF.Optional() {
 		return false
 	}
 	return true
