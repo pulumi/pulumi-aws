@@ -241,6 +241,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -309,6 +313,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["preserveHostHeader"] = state ? state.preserveHostHeader : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
             resourceInputs["subnets"] = state ? state.subnets : undefined;
@@ -342,6 +347,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["preserveHostHeader"] = args ? args.preserveHostHeader : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
@@ -470,6 +476,10 @@ export interface LoadBalancerState {
      */
     preserveHostHeader?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -596,6 +606,10 @@ export interface LoadBalancerArgs {
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */

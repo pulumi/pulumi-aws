@@ -87,6 +87,20 @@ public class LocationFsxOntapFileSystem extends com.pulumi.resources.CustomResou
         return this.protocol;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The security groups that provide access to your file system&#39;s preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
      * * Server Message Block (SMB): TCP port 445

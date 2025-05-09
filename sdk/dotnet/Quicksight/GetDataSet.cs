@@ -101,11 +101,12 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier for the data set.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataSetId", required: true)]
         public string DataSetId { get; set; } = null!;
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -131,11 +132,12 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier for the data set.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -171,6 +173,7 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetDataSetPermissionResult> Permissions;
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapResult> PhysicalTableMaps;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionDataSetResult> RowLevelPermissionDataSets;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> RowLevelPermissionTagConfigurations;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -203,6 +206,8 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetDataSetPhysicalTableMapResult> physicalTableMaps,
 
+            string region,
+
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionDataSetResult> rowLevelPermissionDataSets,
 
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> rowLevelPermissionTagConfigurations,
@@ -222,6 +227,7 @@ namespace Pulumi.Aws.Quicksight
             Name = name;
             Permissions = permissions;
             PhysicalTableMaps = physicalTableMaps;
+            Region = region;
             RowLevelPermissionDataSets = rowLevelPermissionDataSets;
             RowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             Tags = tags;

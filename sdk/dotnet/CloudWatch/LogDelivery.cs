@@ -81,6 +81,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<string>> RecordFields { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         /// </summary>
         [Output("s3DeliveryConfigurations")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.CloudWatch
             set => _recordFields = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("s3DeliveryConfigurations")]
         private InputList<Inputs.LogDeliveryS3DeliveryConfigurationArgs>? _s3DeliveryConfigurations;
 
@@ -241,6 +253,12 @@ namespace Pulumi.Aws.CloudWatch
             get => _recordFields ?? (_recordFields = new InputList<string>());
             set => _recordFields = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("s3DeliveryConfigurations")]
         private InputList<Inputs.LogDeliveryS3DeliveryConfigurationGetArgs>? _s3DeliveryConfigurations;

@@ -28,6 +28,7 @@ class SlackChannelConfigurationArgs:
                  slack_team_id: pulumi.Input[builtins.str],
                  guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  logging_level: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']] = None,
@@ -42,6 +43,7 @@ class SlackChannelConfigurationArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource.
         :param pulumi.Input[builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
@@ -54,6 +56,8 @@ class SlackChannelConfigurationArgs:
             pulumi.set(__self__, "guardrail_policy_arns", guardrail_policy_arns)
         if logging_level is not None:
             pulumi.set(__self__, "logging_level", logging_level)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns_topic_arns is not None:
             pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
         if tags is not None:
@@ -138,6 +142,18 @@ class SlackChannelConfigurationArgs:
         pulumi.set(self, "logging_level", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -191,6 +207,7 @@ class _SlackChannelConfigurationState:
                  guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_level: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slack_channel_id: Optional[pulumi.Input[builtins.str]] = None,
                  slack_channel_name: Optional[pulumi.Input[builtins.str]] = None,
                  slack_team_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -207,6 +224,7 @@ class _SlackChannelConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
         :param pulumi.Input[builtins.str] slack_channel_name: Name of the Slack channel.
         :param pulumi.Input[builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -228,6 +246,8 @@ class _SlackChannelConfigurationState:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if logging_level is not None:
             pulumi.set(__self__, "logging_level", logging_level)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slack_channel_id is not None:
             pulumi.set(__self__, "slack_channel_id", slack_channel_id)
         if slack_channel_name is not None:
@@ -306,6 +326,18 @@ class _SlackChannelConfigurationState:
     @logging_level.setter
     def logging_level(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="slackChannelId")
@@ -427,6 +459,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_level: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slack_channel_id: Optional[pulumi.Input[builtins.str]] = None,
                  slack_team_id: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -469,6 +502,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
         :param pulumi.Input[builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
                
@@ -531,6 +565,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_level: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slack_channel_id: Optional[pulumi.Input[builtins.str]] = None,
                  slack_team_id: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -554,6 +589,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'iam_role_arn'")
             __props__.__dict__["iam_role_arn"] = iam_role_arn
             __props__.__dict__["logging_level"] = logging_level
+            __props__.__dict__["region"] = region
             if slack_channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'slack_channel_id'")
             __props__.__dict__["slack_channel_id"] = slack_channel_id
@@ -583,6 +619,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             logging_level: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             slack_channel_id: Optional[pulumi.Input[builtins.str]] = None,
             slack_channel_name: Optional[pulumi.Input[builtins.str]] = None,
             slack_team_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -604,6 +641,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
         :param pulumi.Input[builtins.str] slack_channel_name: Name of the Slack channel.
         :param pulumi.Input[builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -624,6 +662,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         __props__.__dict__["guardrail_policy_arns"] = guardrail_policy_arns
         __props__.__dict__["iam_role_arn"] = iam_role_arn
         __props__.__dict__["logging_level"] = logging_level
+        __props__.__dict__["region"] = region
         __props__.__dict__["slack_channel_id"] = slack_channel_id
         __props__.__dict__["slack_channel_name"] = slack_channel_name
         __props__.__dict__["slack_team_id"] = slack_team_id
@@ -674,6 +713,14 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         Logging levels include `ERROR`, `INFO`, or `NONE`.
         """
         return pulumi.get(self, "logging_level")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="slackChannelId")

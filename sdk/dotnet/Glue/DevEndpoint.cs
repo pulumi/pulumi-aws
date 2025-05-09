@@ -166,6 +166,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<string>> PublicKeys { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM role for this endpoint.
         /// </summary>
         [Output("roleArn")]
@@ -344,6 +350,12 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The IAM role for this endpoint.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -494,6 +506,12 @@ namespace Pulumi.Aws.Glue
             get => _publicKeys ?? (_publicKeys = new InputList<string>());
             set => _publicKeys = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IAM role for this endpoint.

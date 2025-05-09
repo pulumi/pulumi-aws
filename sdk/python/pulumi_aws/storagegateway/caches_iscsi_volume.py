@@ -26,6 +26,7 @@ class CachesIscsiVolumeArgs:
                  volume_size_in_bytes: pulumi.Input[builtins.int],
                  kms_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_volume_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -37,6 +38,7 @@ class CachesIscsiVolumeArgs:
         :param pulumi.Input[builtins.int] volume_size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[builtins.bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         :param pulumi.Input[builtins.str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -49,6 +51,8 @@ class CachesIscsiVolumeArgs:
             pulumi.set(__self__, "kms_encrypted", kms_encrypted)
         if kms_key is not None:
             pulumi.set(__self__, "kms_key", kms_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if source_volume_arn is not None:
@@ -129,6 +133,18 @@ class CachesIscsiVolumeArgs:
         pulumi.set(self, "kms_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -176,6 +192,7 @@ class _CachesIscsiVolumeState:
                  lun_number: Optional[pulumi.Input[builtins.int]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_volume_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -195,6 +212,7 @@ class _CachesIscsiVolumeState:
         :param pulumi.Input[builtins.int] lun_number: Logical disk number.
         :param pulumi.Input[builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[builtins.int] network_interface_port: The port used to communicate with iSCSI targets.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -221,6 +239,8 @@ class _CachesIscsiVolumeState:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if network_interface_port is not None:
             pulumi.set(__self__, "network_interface_port", network_interface_port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if source_volume_arn is not None:
@@ -335,6 +355,18 @@ class _CachesIscsiVolumeState:
     @network_interface_port.setter
     def network_interface_port(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "network_interface_port", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="snapshotId")
@@ -457,6 +489,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
                  kms_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_volume_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -529,6 +562,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         :param pulumi.Input[builtins.str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -620,6 +654,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
                  kms_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_volume_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -642,6 +677,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["source_volume_arn"] = source_volume_arn
             __props__.__dict__["tags"] = tags
@@ -677,6 +713,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             lun_number: Optional[pulumi.Input[builtins.int]] = None,
             network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
             network_interface_port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             source_volume_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -701,6 +738,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] lun_number: Logical disk number.
         :param pulumi.Input[builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[builtins.int] network_interface_port: The port used to communicate with iSCSI targets.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -723,6 +761,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         __props__.__dict__["lun_number"] = lun_number
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["network_interface_port"] = network_interface_port
+        __props__.__dict__["region"] = region
         __props__.__dict__["snapshot_id"] = snapshot_id
         __props__.__dict__["source_volume_arn"] = source_volume_arn
         __props__.__dict__["tags"] = tags
@@ -797,6 +836,14 @@ class CachesIscsiVolume(pulumi.CustomResource):
         The port used to communicate with iSCSI targets.
         """
         return pulumi.get(self, "network_interface_port")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snapshotId")

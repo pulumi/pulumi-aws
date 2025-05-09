@@ -34,6 +34,7 @@ export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -50,6 +51,7 @@ export interface GetFileSystemArgs {
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: string;
+    region?: string;
     /**
      * Restricts the list to the file system with these tags.
      */
@@ -110,6 +112,7 @@ export interface GetFileSystemResult {
      * The throughput, measured in MiB/s, that you want to provision for the file system.
      */
     readonly provisionedThroughputInMibps: number;
+    readonly region: string;
     /**
      * Current byte count used by the file system.
      */
@@ -150,6 +153,7 @@ export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -166,6 +170,7 @@ export interface GetFileSystemOutputArgs {
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Restricts the list to the file system with these tags.
      */

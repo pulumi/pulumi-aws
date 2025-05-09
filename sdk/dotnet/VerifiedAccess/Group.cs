@@ -99,6 +99,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string?> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block to use KMS keys for server-side encryption.
         /// </summary>
         [Output("sseConfiguration")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? PolicyDocument { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block to use KMS keys for server-side encryption.
         /// </summary>
         [Input("sseConfiguration")]
@@ -268,6 +280,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block to use KMS keys for server-side encryption.

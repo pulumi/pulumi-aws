@@ -98,6 +98,10 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<outputs.s3.DirectoryBucketLocation | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Bucket type. Valid values: `Directory`.
      */
     public readonly type!: pulumi.Output<string>;
@@ -120,6 +124,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = state ? state.dataRedundancy : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DirectoryBucketArgs | undefined;
@@ -130,6 +135,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -163,6 +169,10 @@ export interface DirectoryBucketState {
      */
     location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Bucket type. Valid values: `Directory`.
      */
     type?: pulumi.Input<string>;
@@ -188,6 +198,10 @@ export interface DirectoryBucketArgs {
      * Bucket location. See Location below for more details.
      */
     location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Bucket type. Valid values: `Directory`.
      */

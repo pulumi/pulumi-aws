@@ -97,6 +97,12 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableArray<string>> LogExports { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Prefix applied to the log file names.
         /// </summary>
         [Output("s3KeyPrefix")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Prefix applied to the log file names.
         /// </summary>
         [Input("s3KeyPrefix")]
@@ -225,6 +237,12 @@ namespace Pulumi.Aws.RedShift
             get => _logExports ?? (_logExports = new InputList<string>());
             set => _logExports = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Prefix applied to the log file names.

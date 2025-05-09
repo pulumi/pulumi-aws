@@ -324,6 +324,20 @@ public class NfsFileShare extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.readOnly);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      * 
      */

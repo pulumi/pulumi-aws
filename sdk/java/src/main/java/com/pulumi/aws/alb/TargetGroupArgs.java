@@ -256,6 +256,21 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      * 
      */
@@ -413,6 +428,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.protocol = $.protocol;
         this.protocolVersion = $.protocolVersion;
         this.proxyProtocolV2 = $.proxyProtocolV2;
+        this.region = $.region;
         this.slowStart = $.slowStart;
         this.stickiness = $.stickiness;
         this.tags = $.tags;
@@ -760,6 +776,27 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder proxyProtocolV2(Boolean proxyProtocolV2) {
             return proxyProtocolV2(Output.of(proxyProtocolV2));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

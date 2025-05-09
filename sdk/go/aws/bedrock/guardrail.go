@@ -126,6 +126,8 @@ type Guardrail struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrOutput `pulumi:"sensitiveInformationPolicyConfig"`
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
@@ -200,6 +202,8 @@ type guardrailState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
@@ -239,6 +243,8 @@ type GuardrailState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
@@ -276,6 +282,8 @@ type guardrailArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -305,6 +313,8 @@ type GuardrailArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -455,6 +465,11 @@ func (o GuardrailOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o GuardrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GuardrailOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.

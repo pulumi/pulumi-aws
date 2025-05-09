@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<string>> HubSearchKeywords { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         /// </summary>
         [Output("s3StorageConfig")]
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         /// </summary>
         [Input("s3StorageConfig")]
@@ -241,6 +253,12 @@ namespace Pulumi.Aws.Sagemaker
             get => _hubSearchKeywords ?? (_hubSearchKeywords = new InputList<string>());
             set => _hubSearchKeywords = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.

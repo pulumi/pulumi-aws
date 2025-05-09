@@ -157,6 +157,8 @@ type V2modelsSlotType struct {
 	// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
 	// Only `AMAZON.AlphaNumeric` is supported.
 	ParentSlotTypeSignature pulumi.StringPtrOutput `pulumi:"parentSlotTypeSignature"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier for the slot type.
 	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -231,6 +233,8 @@ type v2modelsSlotTypeState struct {
 	// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
 	// Only `AMAZON.AlphaNumeric` is supported.
 	ParentSlotTypeSignature *string `pulumi:"parentSlotTypeSignature"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Unique identifier for the slot type.
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -267,6 +271,8 @@ type V2modelsSlotTypeState struct {
 	// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
 	// Only `AMAZON.AlphaNumeric` is supported.
 	ParentSlotTypeSignature pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Unique identifier for the slot type.
 	SlotTypeId pulumi.StringPtrInput
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -307,6 +313,8 @@ type v2modelsSlotTypeArgs struct {
 	// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
 	// Only `AMAZON.AlphaNumeric` is supported.
 	ParentSlotTypeSignature *string `pulumi:"parentSlotTypeSignature"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
@@ -342,6 +350,8 @@ type V2modelsSlotTypeArgs struct {
 	// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
 	// Only `AMAZON.AlphaNumeric` is supported.
 	ParentSlotTypeSignature pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of SlotTypeValue objects that defines the values that the slot type can take.
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
 	// See `slotTypeValues` argument reference below.
@@ -488,6 +498,11 @@ func (o V2modelsSlotTypeOutput) Name() pulumi.StringOutput {
 // Only `AMAZON.AlphaNumeric` is supported.
 func (o V2modelsSlotTypeOutput) ParentSlotTypeSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotType) pulumi.StringPtrOutput { return v.ParentSlotTypeSignature }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o V2modelsSlotTypeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsSlotType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Unique identifier for the slot type.

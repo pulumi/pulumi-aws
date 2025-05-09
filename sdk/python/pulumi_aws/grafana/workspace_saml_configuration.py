@@ -32,6 +32,7 @@ class WorkspaceSamlConfigurationArgs:
                  login_validity_duration: Optional[pulumi.Input[builtins.int]] = None,
                  name_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  org_assertion: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_assertion: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSamlConfiguration resource.
@@ -49,6 +50,7 @@ class WorkspaceSamlConfigurationArgs:
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         """
         pulumi.set(__self__, "editor_role_values", editor_role_values)
@@ -73,6 +75,8 @@ class WorkspaceSamlConfigurationArgs:
             pulumi.set(__self__, "name_assertion", name_assertion)
         if org_assertion is not None:
             pulumi.set(__self__, "org_assertion", org_assertion)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_assertion is not None:
             pulumi.set(__self__, "role_assertion", role_assertion)
 
@@ -223,6 +227,18 @@ class WorkspaceSamlConfigurationArgs:
         pulumi.set(self, "org_assertion", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleAssertion")
     def role_assertion(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -249,6 +265,7 @@ class _WorkspaceSamlConfigurationState:
                  login_validity_duration: Optional[pulumi.Input[builtins.int]] = None,
                  name_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  org_assertion: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -265,6 +282,7 @@ class _WorkspaceSamlConfigurationState:
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         :param pulumi.Input[builtins.str] status: The status of the SAML configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -293,6 +311,8 @@ class _WorkspaceSamlConfigurationState:
             pulumi.set(__self__, "name_assertion", name_assertion)
         if org_assertion is not None:
             pulumi.set(__self__, "org_assertion", org_assertion)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_assertion is not None:
             pulumi.set(__self__, "role_assertion", role_assertion)
         if status is not None:
@@ -433,6 +453,18 @@ class _WorkspaceSamlConfigurationState:
         pulumi.set(self, "org_assertion", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleAssertion")
     def role_assertion(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -490,6 +522,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
                  login_validity_duration: Optional[pulumi.Input[builtins.int]] = None,
                  name_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  org_assertion: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -550,6 +583,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
                
@@ -631,6 +665,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
                  login_validity_duration: Optional[pulumi.Input[builtins.int]] = None,
                  name_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  org_assertion: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_assertion: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -655,6 +690,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
             __props__.__dict__["login_validity_duration"] = login_validity_duration
             __props__.__dict__["name_assertion"] = name_assertion
             __props__.__dict__["org_assertion"] = org_assertion
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_assertion"] = role_assertion
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
@@ -681,6 +717,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
             login_validity_duration: Optional[pulumi.Input[builtins.int]] = None,
             name_assertion: Optional[pulumi.Input[builtins.str]] = None,
             org_assertion: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_assertion: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'WorkspaceSamlConfiguration':
@@ -702,6 +739,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         :param pulumi.Input[builtins.str] status: The status of the SAML configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -723,6 +761,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         __props__.__dict__["login_validity_duration"] = login_validity_duration
         __props__.__dict__["name_assertion"] = name_assertion
         __props__.__dict__["org_assertion"] = org_assertion
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_assertion"] = role_assertion
         __props__.__dict__["status"] = status
         __props__.__dict__["workspace_id"] = workspace_id
@@ -815,6 +854,14 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         The org assertion.
         """
         return pulumi.get(self, "org_assertion")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleAssertion")

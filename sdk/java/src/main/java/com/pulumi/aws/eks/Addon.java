@@ -305,6 +305,20 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preserve);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      * 
      */

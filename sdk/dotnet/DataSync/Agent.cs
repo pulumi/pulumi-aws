@@ -126,6 +126,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> PrivateLinkEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARNs of the security groups used to protect your data transfer task subnets.
         /// </summary>
         [Output("securityGroupArns")]
@@ -225,6 +231,12 @@ namespace Pulumi.Aws.DataSync
         [Input("privateLinkEndpoint")]
         public Input<string>? PrivateLinkEndpoint { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;
 
@@ -304,6 +316,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("privateLinkEndpoint")]
         public Input<string>? PrivateLinkEndpoint { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;

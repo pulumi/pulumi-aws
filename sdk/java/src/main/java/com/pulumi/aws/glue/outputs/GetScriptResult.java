@@ -28,6 +28,7 @@ public final class GetScriptResult {
      * 
      */
     private String pythonScript;
+    private String region;
     /**
      * @return Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      * 
@@ -58,6 +59,9 @@ public final class GetScriptResult {
     public String pythonScript() {
         return this.pythonScript;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      * 
@@ -80,6 +84,7 @@ public final class GetScriptResult {
         private String id;
         private @Nullable String language;
         private String pythonScript;
+        private String region;
         private String scalaCode;
         public Builder() {}
         public Builder(GetScriptResult defaults) {
@@ -89,6 +94,7 @@ public final class GetScriptResult {
     	      this.id = defaults.id;
     	      this.language = defaults.language;
     	      this.pythonScript = defaults.pythonScript;
+    	      this.region = defaults.region;
     	      this.scalaCode = defaults.scalaCode;
         }
 
@@ -137,6 +143,14 @@ public final class GetScriptResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetScriptResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scalaCode(String scalaCode) {
             if (scalaCode == null) {
               throw new MissingRequiredPropertyException("GetScriptResult", "scalaCode");
@@ -151,6 +165,7 @@ public final class GetScriptResult {
             _resultValue.id = id;
             _resultValue.language = language;
             _resultValue.pythonScript = pythonScript;
+            _resultValue.region = region;
             _resultValue.scalaCode = scalaCode;
             return _resultValue;
         }

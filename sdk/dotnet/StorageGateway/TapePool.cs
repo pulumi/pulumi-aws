@@ -55,6 +55,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> PoolName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         /// </summary>
         [Output("retentionLockTimeInDays")]
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         /// </summary>
         [Input("retentionLockTimeInDays")]
@@ -185,6 +197,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.

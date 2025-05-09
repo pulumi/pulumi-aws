@@ -26,6 +26,7 @@ public final class GetUserPoolClientsResult {
      * 
      */
     private String id;
+    private String region;
     private String userPoolId;
 
     private GetUserPoolClientsResult() {}
@@ -50,6 +51,9 @@ public final class GetUserPoolClientsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public String userPoolId() {
         return this.userPoolId;
     }
@@ -66,6 +70,7 @@ public final class GetUserPoolClientsResult {
         private List<String> clientIds;
         private List<String> clientNames;
         private String id;
+        private String region;
         private String userPoolId;
         public Builder() {}
         public Builder(GetUserPoolClientsResult defaults) {
@@ -73,6 +78,7 @@ public final class GetUserPoolClientsResult {
     	      this.clientIds = defaults.clientIds;
     	      this.clientNames = defaults.clientNames;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.userPoolId = defaults.userPoolId;
         }
 
@@ -107,6 +113,14 @@ public final class GetUserPoolClientsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             if (userPoolId == null) {
               throw new MissingRequiredPropertyException("GetUserPoolClientsResult", "userPoolId");
@@ -119,6 +133,7 @@ public final class GetUserPoolClientsResult {
             _resultValue.clientIds = clientIds;
             _resultValue.clientNames = clientNames;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.userPoolId = userPoolId;
             return _resultValue;
         }

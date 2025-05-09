@@ -20,6 +20,7 @@ public final class GetReleaseLabelsResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Returned release labels.
      * 
@@ -36,6 +37,9 @@ public final class GetReleaseLabelsResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Returned release labels.
@@ -56,12 +60,14 @@ public final class GetReleaseLabelsResult {
     public static final class Builder {
         private @Nullable GetReleaseLabelsFilters filters;
         private String id;
+        private String region;
         private List<String> releaseLabels;
         public Builder() {}
         public Builder(GetReleaseLabelsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.releaseLabels = defaults.releaseLabels;
         }
 
@@ -80,6 +86,14 @@ public final class GetReleaseLabelsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReleaseLabelsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder releaseLabels(List<String> releaseLabels) {
             if (releaseLabels == null) {
               throw new MissingRequiredPropertyException("GetReleaseLabelsResult", "releaseLabels");
@@ -94,6 +108,7 @@ public final class GetReleaseLabelsResult {
             final var _resultValue = new GetReleaseLabelsResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.releaseLabels = releaseLabels;
             return _resultValue;
         }

@@ -35,6 +35,7 @@ public final class GetConnectorResult {
      * 
      */
     private String loggingRole;
+    private String region;
     /**
      * @return Name of security policy.
      * 
@@ -93,6 +94,9 @@ public final class GetConnectorResult {
     public String loggingRole() {
         return this.loggingRole;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Name of security policy.
      * 
@@ -143,6 +147,7 @@ public final class GetConnectorResult {
         private List<GetConnectorAs2Config> as2Configs;
         private String id;
         private String loggingRole;
+        private String region;
         private String securityPolicyName;
         private List<String> serviceManagedEgressIpAddresses;
         private List<GetConnectorSftpConfig> sftpConfigs;
@@ -156,6 +161,7 @@ public final class GetConnectorResult {
     	      this.as2Configs = defaults.as2Configs;
     	      this.id = defaults.id;
     	      this.loggingRole = defaults.loggingRole;
+    	      this.region = defaults.region;
     	      this.securityPolicyName = defaults.securityPolicyName;
     	      this.serviceManagedEgressIpAddresses = defaults.serviceManagedEgressIpAddresses;
     	      this.sftpConfigs = defaults.sftpConfigs;
@@ -204,6 +210,14 @@ public final class GetConnectorResult {
               throw new MissingRequiredPropertyException("GetConnectorResult", "loggingRole");
             }
             this.loggingRole = loggingRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectorResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -259,6 +273,7 @@ public final class GetConnectorResult {
             _resultValue.as2Configs = as2Configs;
             _resultValue.id = id;
             _resultValue.loggingRole = loggingRole;
+            _resultValue.region = region;
             _resultValue.securityPolicyName = securityPolicyName;
             _resultValue.serviceManagedEgressIpAddresses = serviceManagedEgressIpAddresses;
             _resultValue.sftpConfigs = sftpConfigs;

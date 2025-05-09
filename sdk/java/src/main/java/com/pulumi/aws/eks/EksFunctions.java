@@ -16,6 +16,8 @@ import com.pulumi.aws.eks.inputs.GetClusterAuthPlainArgs;
 import com.pulumi.aws.eks.inputs.GetClusterPlainArgs;
 import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
 import com.pulumi.aws.eks.inputs.GetClusterVersionsPlainArgs;
+import com.pulumi.aws.eks.inputs.GetClustersArgs;
+import com.pulumi.aws.eks.inputs.GetClustersPlainArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupPlainArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupsArgs;
@@ -34,7 +36,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EksFunctions {
@@ -2049,48 +2050,48 @@ public final class EksFunctions {
      * 
      */
     public static Output<GetClustersResult> getClusters() {
-        return getClusters(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getClusters(GetClustersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain() {
-        return getClustersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getClustersPlain(GetClustersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
      * 
      */
-    public static Output<GetClustersResult> getClusters(InvokeArgs args) {
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args) {
         return getClusters(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
      * 
      */
-    public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args) {
+    public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args) {
         return getClustersPlain(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
      * 
      */
-    public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve EKS Clusters list
      * 
      */
-    public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve EKS Clusters list
      * 
      */
-    public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**

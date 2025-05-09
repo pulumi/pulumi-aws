@@ -21,6 +21,7 @@ public final class GetControlsResult {
      * 
      */
     private String id;
+    private String region;
     private String targetIdentifier;
 
     private GetControlsResult() {}
@@ -38,6 +39,9 @@ public final class GetControlsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public String targetIdentifier() {
         return this.targetIdentifier;
     }
@@ -53,12 +57,14 @@ public final class GetControlsResult {
     public static final class Builder {
         private List<String> enabledControls;
         private String id;
+        private String region;
         private String targetIdentifier;
         public Builder() {}
         public Builder(GetControlsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabledControls = defaults.enabledControls;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.targetIdentifier = defaults.targetIdentifier;
         }
 
@@ -82,6 +88,14 @@ public final class GetControlsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetControlsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder targetIdentifier(String targetIdentifier) {
             if (targetIdentifier == null) {
               throw new MissingRequiredPropertyException("GetControlsResult", "targetIdentifier");
@@ -93,6 +107,7 @@ public final class GetControlsResult {
             final var _resultValue = new GetControlsResult();
             _resultValue.enabledControls = enabledControls;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.targetIdentifier = targetIdentifier;
             return _resultValue;
         }

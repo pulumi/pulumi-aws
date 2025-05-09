@@ -452,6 +452,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
@@ -665,6 +671,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
@@ -873,6 +885,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and

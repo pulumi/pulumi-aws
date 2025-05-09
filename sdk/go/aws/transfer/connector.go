@@ -106,6 +106,8 @@ type Connector struct {
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the security policy for the connector.
 	SecurityPolicyName pulumi.StringOutput `pulumi:"securityPolicyName"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -163,6 +165,8 @@ type connectorState struct {
 	ConnectorId *string `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the security policy for the connector.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -185,6 +189,8 @@ type ConnectorState struct {
 	ConnectorId pulumi.StringPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the security policy for the connector.
 	SecurityPolicyName pulumi.StringPtrInput
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -207,6 +213,8 @@ type connectorArgs struct {
 	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the security policy for the connector.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -226,6 +234,8 @@ type ConnectorArgs struct {
 	As2Config ConnectorAs2ConfigPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the security policy for the connector.
 	SecurityPolicyName pulumi.StringPtrInput
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -347,6 +357,11 @@ func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 // The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConnectorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the security policy for the connector.

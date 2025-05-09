@@ -28,7 +28,7 @@ class GetParameterGroupResult:
     """
     A collection of values returned by getParameterGroup.
     """
-    def __init__(__self__, arn=None, description=None, family=None, id=None, name=None, parameters=None, tags=None):
+    def __init__(__self__, arn=None, description=None, family=None, id=None, name=None, parameters=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetParameterGroupResult:
         if parameters and not isinstance(parameters, list):
             raise TypeError("Expected argument 'parameters' to be a list")
         pulumi.set(__self__, "parameters", parameters)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -101,6 +104,11 @@ class GetParameterGroupResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the parameter group.
@@ -120,10 +128,12 @@ class AwaitableGetParameterGroupResult(GetParameterGroupResult):
             id=self.id,
             name=self.name,
             parameters=self.parameters,
+            region=self.region,
             tags=self.tags)
 
 
 def get_parameter_group(name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterGroupResult:
     """
@@ -144,6 +154,7 @@ def get_parameter_group(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getParameterGroup:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult).value
@@ -155,8 +166,10 @@ def get_parameter_group(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parameters=pulumi.get(__ret__, 'parameters'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_parameter_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
@@ -177,6 +190,7 @@ def get_parameter_group_output(name: Optional[pulumi.Input[builtins.str]] = None
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getParameterGroup:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult)
@@ -187,4 +201,5 @@ def get_parameter_group_output(name: Optional[pulumi.Input[builtins.str]] = None
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         parameters=pulumi.get(__response__, 'parameters'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

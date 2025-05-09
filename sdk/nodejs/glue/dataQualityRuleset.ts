@@ -129,6 +129,10 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     public /*out*/ readonly recommendationRunId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     public readonly ruleset!: pulumi.Output<string>;
@@ -164,6 +168,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             resourceInputs["lastModifiedOn"] = state ? state.lastModifiedOn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recommendationRunId"] = state ? state.recommendationRunId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleset"] = state ? state.ruleset : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -175,6 +180,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleset"] = args ? args.ruleset : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -218,6 +224,10 @@ export interface DataQualityRulesetState {
      */
     recommendationRunId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     ruleset?: pulumi.Input<string>;
@@ -247,6 +257,10 @@ export interface DataQualityRulesetArgs {
      * Name of the data quality ruleset.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */

@@ -96,6 +96,10 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
      */
     public readonly objectLockEnabled!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      */
     public readonly rule!: pulumi.Output<outputs.s3.BucketObjectLockConfigurationRule | undefined>;
@@ -121,6 +125,7 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["objectLockEnabled"] = state ? state.objectLockEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rule"] = state ? state.rule : undefined;
             resourceInputs["token"] = state ? state.token : undefined;
         } else {
@@ -131,6 +136,7 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rule"] = args ? args.rule : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
@@ -160,6 +166,10 @@ export interface BucketObjectLockConfigurationState {
      */
     objectLockEnabled?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      */
     rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationRule>;
@@ -186,6 +196,10 @@ export interface BucketObjectLockConfigurationArgs {
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
     objectLockEnabled?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      */

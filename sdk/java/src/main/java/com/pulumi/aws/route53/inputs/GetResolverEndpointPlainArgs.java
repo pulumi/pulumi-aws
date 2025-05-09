@@ -21,8 +21,6 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      * 
-     * In addition to all arguments above, the following attributes are exported:
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetResolverEndpointFilter> filters;
@@ -32,11 +30,16 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      * 
-     * In addition to all arguments above, the following attributes are exported:
-     * 
      */
     public Optional<List<GetResolverEndpointFilter>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -58,6 +61,7 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
 
     private GetResolverEndpointPlainArgs(GetResolverEndpointPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.resolverEndpointId = $.resolverEndpointId;
     }
 
@@ -84,8 +88,6 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
@@ -99,13 +101,16 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetResolverEndpointFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

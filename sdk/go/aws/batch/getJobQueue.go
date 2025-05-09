@@ -52,7 +52,8 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueArgs struct {
 	// Name of the job queue.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,7 +78,8 @@ type LookupJobQueueResult struct {
 	Name                     string                               `pulumi:"name"`
 	// Priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	Region   string `pulumi:"region"`
 	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
 	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
 	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
@@ -103,7 +105,8 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueOutputArgs struct {
 	// Name of the job queue.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -162,6 +165,10 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 // associated with the same compute environment.
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o LookupJobQueueResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.

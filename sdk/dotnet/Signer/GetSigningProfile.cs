@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Signer
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -158,6 +164,7 @@ namespace Pulumi.Aws.Signer
         /// ID of the platform that is used by the target signing profile.
         /// </summary>
         public readonly string PlatformId;
+        public readonly string Region;
         /// <summary>
         /// Revocation information for a signing profile.
         /// </summary>
@@ -195,6 +202,8 @@ namespace Pulumi.Aws.Signer
 
             string platformId,
 
+            string region,
+
             ImmutableArray<Outputs.GetSigningProfileRevocationRecordResult> revocationRecords,
 
             ImmutableArray<Outputs.GetSigningProfileSignatureValidityPeriodResult> signatureValidityPeriods,
@@ -212,6 +221,7 @@ namespace Pulumi.Aws.Signer
             Name = name;
             PlatformDisplayName = platformDisplayName;
             PlatformId = platformId;
+            Region = region;
             RevocationRecords = revocationRecords;
             SignatureValidityPeriods = signatureValidityPeriods;
             Status = status;

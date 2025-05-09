@@ -43,6 +43,7 @@ export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pul
     return pulumi.runtime.invoke("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetPeeringAttachmentArgs {
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
     id?: string;
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
@@ -91,6 +93,7 @@ export interface GetPeeringAttachmentResult {
      * Identifier of the peer EC2 Transit Gateway.
      */
     readonly peerTransitGatewayId: string;
+    readonly region: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
     /**
@@ -134,6 +137,7 @@ export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -150,6 +154,7 @@ export interface GetPeeringAttachmentOutputArgs {
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.

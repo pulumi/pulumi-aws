@@ -33,6 +33,7 @@ export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
+        "region": args.region,
         "serviceCode": args.serviceCode,
     }, opts);
 }
@@ -47,8 +48,11 @@ export interface GetServiceQuotaArgs {
     quotaCode?: string;
     /**
      * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaName` or `quotaCode` must be specified.
+     *
+     * > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
      */
     quotaName?: string;
+    region?: string;
     /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
@@ -81,6 +85,7 @@ export interface GetServiceQuotaResult {
     readonly id: string;
     readonly quotaCode: string;
     readonly quotaName: string;
+    readonly region: string;
     readonly serviceCode: string;
     /**
      * Name of the service.
@@ -121,6 +126,7 @@ export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pu
     return pulumi.runtime.invokeOutput("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
+        "region": args.region,
         "serviceCode": args.serviceCode,
     }, opts);
 }
@@ -135,8 +141,11 @@ export interface GetServiceQuotaOutputArgs {
     quotaCode?: pulumi.Input<string>;
     /**
      * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaName` or `quotaCode` must be specified.
+     *
+     * > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
      */
     quotaName?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */

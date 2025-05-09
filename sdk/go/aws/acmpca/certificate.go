@@ -106,6 +106,8 @@ type Certificate struct {
 	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringOutput `pulumi:"certificateSigningRequest"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm pulumi.StringOutput `pulumi:"signingAlgorithm"`
 	// Template to use when issuing a certificate.
@@ -169,6 +171,8 @@ type certificateState struct {
 	CertificateChain *string `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
 	// Template to use when issuing a certificate.
@@ -191,6 +195,8 @@ type CertificateState struct {
 	CertificateChain pulumi.StringPtrInput
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm pulumi.StringPtrInput
 	// Template to use when issuing a certificate.
@@ -211,6 +217,8 @@ type certificateArgs struct {
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm string `pulumi:"signingAlgorithm"`
 	// Template to use when issuing a certificate.
@@ -228,6 +236,8 @@ type CertificateArgs struct {
 	CertificateAuthorityArn pulumi.StringInput
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm pulumi.StringInput
 	// Template to use when issuing a certificate.
@@ -352,6 +362,11 @@ func (o CertificateOutput) CertificateChain() pulumi.StringOutput {
 // Certificate Signing Request in PEM format.
 func (o CertificateOutput) CertificateSigningRequest() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateSigningRequest }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.

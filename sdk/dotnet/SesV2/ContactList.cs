@@ -102,6 +102,12 @@ namespace Pulumi.Aws.SesV2
         public Output<string> LastUpdatedTimestamp { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -176,6 +182,12 @@ namespace Pulumi.Aws.SesV2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -236,6 +248,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("lastUpdatedTimestamp")]
         public Input<string>? LastUpdatedTimestamp { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

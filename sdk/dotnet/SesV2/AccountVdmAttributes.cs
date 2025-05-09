@@ -64,6 +64,12 @@ namespace Pulumi.Aws.SesV2
         public Output<Outputs.AccountVdmAttributesGuardianAttributes> GuardianAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.SesV2
         public Input<Inputs.AccountVdmAttributesGuardianAttributesArgs>? GuardianAttributes { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
@@ -156,6 +168,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("guardianAttributes")]
         public Input<Inputs.AccountVdmAttributesGuardianAttributesGetArgs>? GuardianAttributes { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.

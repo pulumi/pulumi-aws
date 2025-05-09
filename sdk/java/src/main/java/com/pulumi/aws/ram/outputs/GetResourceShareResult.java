@@ -32,6 +32,7 @@ public final class GetResourceShareResult {
      * 
      */
     private String owningAccountId;
+    private String region;
     /**
      * @return A list of resource ARNs associated with the resource share.
      * 
@@ -78,6 +79,9 @@ public final class GetResourceShareResult {
     public String owningAccountId() {
         return this.owningAccountId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A list of resource ARNs associated with the resource share.
      * 
@@ -120,6 +124,7 @@ public final class GetResourceShareResult {
         private String id;
         private String name;
         private String owningAccountId;
+        private String region;
         private List<String> resourceArns;
         private String resourceOwner;
         private @Nullable String resourceShareStatus;
@@ -133,6 +138,7 @@ public final class GetResourceShareResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.owningAccountId = defaults.owningAccountId;
+    	      this.region = defaults.region;
     	      this.resourceArns = defaults.resourceArns;
     	      this.resourceOwner = defaults.resourceOwner;
     	      this.resourceShareStatus = defaults.resourceShareStatus;
@@ -179,6 +185,14 @@ public final class GetResourceShareResult {
               throw new MissingRequiredPropertyException("GetResourceShareResult", "owningAccountId");
             }
             this.owningAccountId = owningAccountId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourceShareResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -229,6 +243,7 @@ public final class GetResourceShareResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.owningAccountId = owningAccountId;
+            _resultValue.region = region;
             _resultValue.resourceArns = resourceArns;
             _resultValue.resourceOwner = resourceOwner;
             _resultValue.resourceShareStatus = resourceShareStatus;

@@ -167,6 +167,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Concise argument description.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -208,6 +212,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["logLevel"] = state ? state.logLevel : undefined;
             resourceInputs["maintenance"] = state ? state.maintenance : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["startChannel"] = state ? state.startChannel : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -239,6 +244,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["logLevel"] = args ? args.logLevel : undefined;
             resourceInputs["maintenance"] = args ? args.maintenance : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["startChannel"] = args ? args.startChannel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -303,6 +309,10 @@ export interface ChannelState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Concise argument description.
      */
     roleArn?: pulumi.Input<string>;
@@ -363,6 +373,10 @@ export interface ChannelArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Concise argument description.
      */

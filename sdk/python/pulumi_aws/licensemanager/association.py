@@ -21,14 +21,18 @@ __all__ = ['AssociationArgs', 'Association']
 class AssociationArgs:
     def __init__(__self__, *,
                  license_configuration_arn: pulumi.Input[builtins.str],
-                 resource_arn: pulumi.Input[builtins.str]):
+                 resource_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Association resource.
         :param pulumi.Input[builtins.str] license_configuration_arn: ARN of the license configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource associated with the license configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="licenseConfigurationArn")
@@ -54,19 +58,35 @@ class AssociationArgs:
     def resource_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AssociationState:
     def __init__(__self__, *,
                  license_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Association resources.
         :param pulumi.Input[builtins.str] license_configuration_arn: ARN of the license configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource associated with the license configuration.
         """
         if license_configuration_arn is not None:
             pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
 
@@ -81,6 +101,18 @@ class _AssociationState:
     @license_configuration_arn.setter
     def license_configuration_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "license_configuration_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -104,6 +136,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -145,6 +178,7 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] license_configuration_arn: ARN of the license configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource associated with the license configuration.
         """
         ...
@@ -205,6 +239,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -218,6 +253,7 @@ class Association(pulumi.CustomResource):
             if license_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'license_configuration_arn'")
             __props__.__dict__["license_configuration_arn"] = license_configuration_arn
+            __props__.__dict__["region"] = region
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
@@ -232,6 +268,7 @@ class Association(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             license_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'Association':
         """
         Get an existing Association resource's state with the given name, id, and optional extra
@@ -241,6 +278,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] license_configuration_arn: ARN of the license configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource associated with the license configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -248,6 +286,7 @@ class Association(pulumi.CustomResource):
         __props__ = _AssociationState.__new__(_AssociationState)
 
         __props__.__dict__["license_configuration_arn"] = license_configuration_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         return Association(resource_name, opts=opts, __props__=__props__)
 
@@ -258,6 +297,14 @@ class Association(pulumi.CustomResource):
         ARN of the license configuration.
         """
         return pulumi.get(self, "license_configuration_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")

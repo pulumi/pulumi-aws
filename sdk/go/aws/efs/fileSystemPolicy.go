@@ -100,6 +100,8 @@ type FileSystemPolicy struct {
 	//
 	// The following arguments are optional:
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewFileSystemPolicy registers a new resource with the given unique name, arguments, and options.
@@ -146,6 +148,8 @@ type fileSystemPolicyState struct {
 	//
 	// The following arguments are optional:
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type FileSystemPolicyState struct {
@@ -157,6 +161,8 @@ type FileSystemPolicyState struct {
 	//
 	// The following arguments are optional:
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FileSystemPolicyState) ElementType() reflect.Type {
@@ -172,6 +178,8 @@ type fileSystemPolicyArgs struct {
 	//
 	// The following arguments are optional:
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FileSystemPolicy resource.
@@ -184,6 +192,8 @@ type FileSystemPolicyArgs struct {
 	//
 	// The following arguments are optional:
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FileSystemPolicyArgs) ElementType() reflect.Type {
@@ -288,6 +298,11 @@ func (o FileSystemPolicyOutput) FileSystemId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o FileSystemPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FileSystemPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type FileSystemPolicyArrayOutput struct{ *pulumi.OutputState }

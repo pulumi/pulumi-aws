@@ -109,6 +109,21 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
@@ -162,6 +177,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         this.deploymentStatus = $.deploymentStatus;
         this.description = $.description;
         this.name = $.name;
+        this.region = $.region;
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -319,6 +335,27 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

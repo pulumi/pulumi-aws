@@ -65,6 +65,21 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
      * 
      */
@@ -100,6 +115,7 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
         this.functionArn = $.functionArn;
         this.functionName = $.functionName;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.runtimeVersionArn = $.runtimeVersionArn;
         this.updateRuntimeOn = $.updateRuntimeOn;
     }
@@ -187,6 +203,27 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

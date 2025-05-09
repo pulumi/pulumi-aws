@@ -108,7 +108,10 @@ type LookupFirewallArgs struct {
 	// ARN of the firewall.
 	Arn *string `pulumi:"arn"`
 	// Descriptive name of the firewall.
-	Name *string `pulumi:"name"`
+	//
+	// One or more of these arguments is required.
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,6 +124,8 @@ type LookupFirewallResult struct {
 	DeleteProtection bool `pulumi:"deleteProtection"`
 	// Description of the firewall.
 	Description string `pulumi:"description"`
+	// Set of types for which to collect analysis metrics.
+	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
 	// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
 	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// ARN of the VPC Firewall policy.
@@ -132,7 +137,8 @@ type LookupFirewallResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Descriptive name of the firewall.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// A flag indicating whether the firewall is protected against changes to the subnet associations.
 	SubnetChangeProtection bool `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
@@ -159,7 +165,10 @@ type LookupFirewallOutputArgs struct {
 	// ARN of the firewall.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Descriptive name of the firewall.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	//
+	// One or more of these arguments is required.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -198,6 +207,11 @@ func (o LookupFirewallResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Set of types for which to collect analysis metrics.
+func (o LookupFirewallResultOutput) EnabledAnalysisTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupFirewallResult) []string { return v.EnabledAnalysisTypes }).(pulumi.StringArrayOutput)
+}
+
 // AWS Key Management Service (AWS KMS) encryption settings for the firewall.
 func (o LookupFirewallResultOutput) EncryptionConfigurations() GetFirewallEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallEncryptionConfiguration { return v.EncryptionConfigurations }).(GetFirewallEncryptionConfigurationArrayOutput)
@@ -226,6 +240,10 @@ func (o LookupFirewallResultOutput) Id() pulumi.StringOutput {
 // Descriptive name of the firewall.
 func (o LookupFirewallResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupFirewallResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A flag indicating whether the firewall is protected against changes to the subnet associations.

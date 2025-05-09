@@ -108,6 +108,10 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
      * The logging configuration values to set. See `loggingConfig` Block for details.
      */
     public readonly loggingConfig!: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InvocationLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -123,9 +127,11 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as InvocationLoggingConfigurationState | undefined;
             resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InvocationLoggingConfigurationArgs | undefined;
             resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InvocationLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -140,6 +146,10 @@ export interface InvocationLoggingConfigurationState {
      * The logging configuration values to set. See `loggingConfig` Block for details.
      */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -150,4 +160,8 @@ export interface InvocationLoggingConfigurationArgs {
      * The logging configuration values to set. See `loggingConfig` Block for details.
      */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

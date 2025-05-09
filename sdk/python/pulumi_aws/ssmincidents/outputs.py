@@ -64,8 +64,6 @@ class ReplicationSetRegion(dict):
         """
         :param builtins.str name: The name of the Region, such as `ap-southeast-2`.
         :param builtins.str kms_key_arn: The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-               
-               The following arguments are optional:
         :param builtins.str status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param builtins.str status_message: More information about the status of a Region.
@@ -91,8 +89,6 @@ class ReplicationSetRegion(dict):
     def kms_key_arn(self) -> Optional[builtins.str]:
         """
         The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "kms_key_arn")
 

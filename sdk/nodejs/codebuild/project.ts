@@ -338,6 +338,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
      * `projectVisibility` is `PUBLIC_READ`.
@@ -417,6 +421,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["projectVisibility"] = state ? state.projectVisibility : undefined;
             resourceInputs["publicProjectAlias"] = state ? state.publicProjectAlias : undefined;
             resourceInputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceAccessRole"] = state ? state.resourceAccessRole : undefined;
             resourceInputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
             resourceInputs["secondarySourceVersions"] = state ? state.secondarySourceVersions : undefined;
@@ -455,6 +460,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectVisibility"] = args ? args.projectVisibility : undefined;
             resourceInputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceAccessRole"] = args ? args.resourceAccessRole : undefined;
             resourceInputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
             resourceInputs["secondarySourceVersions"] = args ? args.secondarySourceVersions : undefined;
@@ -554,6 +560,10 @@ export interface ProjectState {
      * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -673,6 +683,10 @@ export interface ProjectArgs {
      * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if

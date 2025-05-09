@@ -67,6 +67,7 @@ type GetOrderableDbInstanceArgs struct {
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
+	Region                   *string  `pulumi:"region"`
 	// Enable to show only VPC.
 	Vpc *bool `pulumi:"vpc"`
 }
@@ -82,6 +83,7 @@ type GetOrderableDbInstanceResult struct {
 	InstanceClass            string   `pulumi:"instanceClass"`
 	LicenseModel             *string  `pulumi:"licenseModel"`
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
+	Region                   string   `pulumi:"region"`
 	Vpc                      bool     `pulumi:"vpc"`
 }
 
@@ -106,6 +108,7 @@ type GetOrderableDbInstanceOutputArgs struct {
 	LicenseModel pulumi.StringPtrInput `pulumi:"licenseModel"`
 	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
+	Region                   pulumi.StringPtrInput   `pulumi:"region"`
 	// Enable to show only VPC.
 	Vpc pulumi.BoolPtrInput `pulumi:"vpc"`
 }
@@ -157,6 +160,10 @@ func (o GetOrderableDbInstanceResultOutput) LicenseModel() pulumi.StringPtrOutpu
 
 func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.PreferredInstanceClasses }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) Vpc() pulumi.BoolOutput {

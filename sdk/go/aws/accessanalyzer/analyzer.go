@@ -80,6 +80,58 @@ import (
 //
 // ```
 //
+// ### Organization Unused Access Analyzer with analysis rule
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
+//				AnalyzerName: pulumi.String("example"),
+//				Type:         pulumi.String("ORGANIZATION_UNUSED_ACCESS"),
+//				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
+//					UnusedAccess: &accessanalyzer.AnalyzerConfigurationUnusedAccessArgs{
+//						UnusedAccessAge: pulumi.Int(180),
+//						AnalysisRule: &accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{
+//							Exclusions: accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray{
+//								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
+//									AccountIds: pulumi.StringArray{
+//										pulumi.String("123456789012"),
+//										pulumi.String("234567890123"),
+//									},
+//								},
+//								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
+//									ResourceTags: pulumi.StringMapArray{
+//										pulumi.StringMap{
+//											"key1": pulumi.String("value1"),
+//										},
+//										pulumi.StringMap{
+//											"key2": pulumi.String("value2"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
@@ -98,6 +150,8 @@ type Analyzer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration AnalyzerConfigurationPtrOutput `pulumi:"configuration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +201,8 @@ type analyzerState struct {
 	Arn *string `pulumi:"arn"`
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -164,6 +220,8 @@ type AnalyzerState struct {
 	Arn pulumi.StringPtrInput
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration AnalyzerConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -183,6 +241,8 @@ type analyzerArgs struct {
 	AnalyzerName string `pulumi:"analyzerName"`
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
@@ -197,6 +257,8 @@ type AnalyzerArgs struct {
 	AnalyzerName pulumi.StringInput
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration AnalyzerConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
@@ -305,6 +367,11 @@ func (o AnalyzerOutput) Arn() pulumi.StringOutput {
 // A block that specifies the configuration of the analyzer. Documented below
 func (o AnalyzerOutput) Configuration() AnalyzerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Analyzer) AnalyzerConfigurationPtrOutput { return v.Configuration }).(AnalyzerConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AnalyzerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

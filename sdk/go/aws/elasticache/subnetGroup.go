@@ -79,6 +79,8 @@ type SubnetGroup struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -130,6 +132,8 @@ type subnetGroupState struct {
 	Description *string `pulumi:"description"`
 	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -146,6 +150,8 @@ type SubnetGroupState struct {
 	Description pulumi.StringPtrInput
 	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -165,6 +171,8 @@ type subnetGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,6 +185,8 @@ type SubnetGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -282,6 +292,11 @@ func (o SubnetGroupOutput) Description() pulumi.StringOutput {
 // Name for the cache subnet group. ElastiCache converts this name to lowercase.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SubnetGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of VPC Subnet IDs for the cache subnet group

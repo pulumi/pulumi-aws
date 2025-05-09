@@ -61,12 +61,28 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
         return Optional.ofNullable(this.permissionsBoundary);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PermissionsBoundaryAttachmentState() {}
 
     private PermissionsBoundaryAttachmentState(PermissionsBoundaryAttachmentState $) {
         this.instanceArn = $.instanceArn;
         this.permissionSetArn = $.permissionSetArn;
         this.permissionsBoundary = $.permissionsBoundary;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -148,6 +164,27 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
          */
         public Builder permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs permissionsBoundary) {
             return permissionsBoundary(Output.of(permissionsBoundary));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PermissionsBoundaryAttachmentState build() {

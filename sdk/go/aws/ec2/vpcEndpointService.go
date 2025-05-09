@@ -111,6 +111,8 @@ type VpcEndpointService struct {
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayOutput `pulumi:"privateDnsNameConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The service name.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
@@ -180,6 +182,8 @@ type vpcEndpointServiceState struct {
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations []VpcEndpointServicePrivateDnsNameConfiguration `pulumi:"privateDnsNameConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The service name.
 	ServiceName *string `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
@@ -217,6 +221,8 @@ type VpcEndpointServiceState struct {
 	PrivateDnsName pulumi.StringPtrInput
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The service name.
 	ServiceName pulumi.StringPtrInput
 	// The service type, `Gateway` or `Interface`.
@@ -248,6 +254,8 @@ type vpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName *string `pulumi:"privateDnsName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// The set of regions from which service consumers can access the service.
@@ -268,6 +276,8 @@ type VpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes pulumi.StringArrayInput
 	// The set of regions from which service consumers can access the service.
@@ -413,6 +423,11 @@ func (o VpcEndpointServiceOutput) PrivateDnsNameConfigurations() VpcEndpointServ
 	return o.ApplyT(func(v *VpcEndpointService) VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
 		return v.PrivateDnsNameConfigurations
 	}).(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcEndpointServiceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The service name.

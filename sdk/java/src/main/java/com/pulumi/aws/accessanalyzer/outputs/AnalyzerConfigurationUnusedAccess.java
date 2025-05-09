@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.accessanalyzer.outputs;
 
+import com.pulumi.aws.accessanalyzer.outputs.AnalyzerConfigurationUnusedAccessAnalysisRule;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
@@ -12,12 +13,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyzerConfigurationUnusedAccess {
     /**
+     * @return A block for analysis rules. Documented below
+     * 
+     */
+    private @Nullable AnalyzerConfigurationUnusedAccessAnalysisRule analysisRule;
+    /**
      * @return The specified access age in days for which to generate findings for unused access.
      * 
      */
     private @Nullable Integer unusedAccessAge;
 
     private AnalyzerConfigurationUnusedAccess() {}
+    /**
+     * @return A block for analysis rules. Documented below
+     * 
+     */
+    public Optional<AnalyzerConfigurationUnusedAccessAnalysisRule> analysisRule() {
+        return Optional.ofNullable(this.analysisRule);
+    }
     /**
      * @return The specified access age in days for which to generate findings for unused access.
      * 
@@ -35,13 +48,21 @@ public final class AnalyzerConfigurationUnusedAccess {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AnalyzerConfigurationUnusedAccessAnalysisRule analysisRule;
         private @Nullable Integer unusedAccessAge;
         public Builder() {}
         public Builder(AnalyzerConfigurationUnusedAccess defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.analysisRule = defaults.analysisRule;
     	      this.unusedAccessAge = defaults.unusedAccessAge;
         }
 
+        @CustomType.Setter
+        public Builder analysisRule(@Nullable AnalyzerConfigurationUnusedAccessAnalysisRule analysisRule) {
+
+            this.analysisRule = analysisRule;
+            return this;
+        }
         @CustomType.Setter
         public Builder unusedAccessAge(@Nullable Integer unusedAccessAge) {
 
@@ -50,6 +71,7 @@ public final class AnalyzerConfigurationUnusedAccess {
         }
         public AnalyzerConfigurationUnusedAccess build() {
             final var _resultValue = new AnalyzerConfigurationUnusedAccess();
+            _resultValue.analysisRule = analysisRule;
             _resultValue.unusedAccessAge = unusedAccessAge;
             return _resultValue;
         }

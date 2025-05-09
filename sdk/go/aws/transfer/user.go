@@ -132,6 +132,8 @@ type User struct {
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile UserPosixProfilePtrOutput `pulumi:"posixProfile"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
@@ -195,6 +197,8 @@ type userState struct {
 	Policy *string `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
@@ -220,6 +224,8 @@ type UserState struct {
 	Policy pulumi.StringPtrInput
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile UserPosixProfilePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
@@ -247,6 +253,8 @@ type userArgs struct {
 	Policy *string `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role string `pulumi:"role"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
@@ -269,6 +277,8 @@ type UserArgs struct {
 	Policy pulumi.StringPtrInput
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile UserPosixProfilePtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
@@ -394,6 +404,11 @@ func (o UserOutput) Policy() pulumi.StringPtrOutput {
 // Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 func (o UserOutput) PosixProfile() UserPosixProfilePtrOutput {
 	return o.ApplyT(func(v *User) UserPosixProfilePtrOutput { return v.PosixProfile }).(UserPosixProfilePtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.

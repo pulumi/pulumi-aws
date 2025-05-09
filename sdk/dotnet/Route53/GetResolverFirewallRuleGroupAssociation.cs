@@ -101,11 +101,12 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The identifier for the association.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public string FirewallRuleGroupAssociationId { get; set; } = null!;
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetResolverFirewallRuleGroupAssociationArgs()
         {
@@ -117,11 +118,12 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The identifier for the association.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public Input<string> FirewallRuleGroupAssociationId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetResolverFirewallRuleGroupAssociationInvokeArgs()
         {
@@ -133,22 +135,59 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRuleGroupAssociationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the firewall rule group association.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string CreationTime;
+        /// <summary>
+        /// A unique string defined by you to identify the request.
+        /// </summary>
         public readonly string CreatorRequestId;
         public readonly string FirewallRuleGroupAssociationId;
+        /// <summary>
+        /// The unique identifier of the firewall rule group.
+        /// </summary>
         public readonly string FirewallRuleGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The owner of the association, used only for associations that are not managed by you.
+        /// </summary>
         public readonly string ManagedOwnerName;
+        /// <summary>
+        /// The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string ModificationTime;
+        /// <summary>
+        /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+        /// </summary>
         public readonly string MutationProtection;
+        /// <summary>
+        /// The name of the association.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+        /// </summary>
         public readonly int Priority;
+        public readonly string Region;
+        /// <summary>
+        /// The current status of the association.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Additional information about the status of the response, if available.
+        /// </summary>
         public readonly string StatusMessage;
+        /// <summary>
+        /// The unique identifier of the VPC that is associated with the rule group.
+        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]
@@ -175,6 +214,8 @@ namespace Pulumi.Aws.Route53
 
             int priority,
 
+            string region,
+
             string status,
 
             string statusMessage,
@@ -192,6 +233,7 @@ namespace Pulumi.Aws.Route53
             MutationProtection = mutationProtection;
             Name = name;
             Priority = priority;
+            Region = region;
             Status = status;
             StatusMessage = statusMessage;
             VpcId = vpcId;

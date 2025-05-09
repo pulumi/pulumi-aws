@@ -82,6 +82,10 @@ export class SourceApiAssociation extends pulumi.CustomResource {
      */
     public readonly mergedApiId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
     public readonly sourceApiArn!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class SourceApiAssociation extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["mergedApiArn"] = state ? state.mergedApiArn : undefined;
             resourceInputs["mergedApiId"] = state ? state.mergedApiId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceApiArn"] = state ? state.sourceApiArn : undefined;
             resourceInputs["sourceApiAssociationConfigs"] = state ? state.sourceApiAssociationConfigs : undefined;
             resourceInputs["sourceApiId"] = state ? state.sourceApiId : undefined;
@@ -119,6 +124,7 @@ export class SourceApiAssociation extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["mergedApiArn"] = args ? args.mergedApiArn : undefined;
             resourceInputs["mergedApiId"] = args ? args.mergedApiId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceApiArn"] = args ? args.sourceApiArn : undefined;
             resourceInputs["sourceApiAssociationConfigs"] = args ? args.sourceApiAssociationConfigs : undefined;
             resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
@@ -156,6 +162,10 @@ export interface SourceApiAssociationState {
      */
     mergedApiId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
     sourceApiArn?: pulumi.Input<string>;
@@ -183,6 +193,10 @@ export interface SourceApiAssociationArgs {
      * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
     mergedApiId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */

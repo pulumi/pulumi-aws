@@ -78,6 +78,10 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerDirectoryId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
     public readonly sharedDirectoryId!: pulumi.Output<string>;
@@ -99,12 +103,14 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
             resourceInputs["ownerDirectoryId"] = state ? state.ownerDirectoryId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedDirectoryId"] = state ? state.sharedDirectoryId : undefined;
         } else {
             const args = argsOrState as SharedDirectoryAccepterArgs | undefined;
             if ((!args || args.sharedDirectoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedDirectoryId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharedDirectoryId"] = args ? args.sharedDirectoryId : undefined;
             resourceInputs["method"] = undefined /*out*/;
             resourceInputs["notes"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export interface SharedDirectoryAccepterState {
      */
     ownerDirectoryId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
     sharedDirectoryId?: pulumi.Input<string>;
@@ -146,6 +156,10 @@ export interface SharedDirectoryAccepterState {
  * The set of arguments for constructing a SharedDirectoryAccepter resource.
  */
 export interface SharedDirectoryAccepterArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */

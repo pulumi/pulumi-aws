@@ -97,6 +97,13 @@ public final class GetClusterSnapshotPlainArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.mostRecent);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
      * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
@@ -141,6 +148,7 @@ public final class GetClusterSnapshotPlainArgs extends com.pulumi.resources.Invo
         this.includePublic = $.includePublic;
         this.includeShared = $.includeShared;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.snapshotType = $.snapshotType;
         this.tags = $.tags;
     }
@@ -218,6 +226,11 @@ public final class GetClusterSnapshotPlainArgs extends com.pulumi.resources.Invo
          */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

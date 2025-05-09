@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.inputs;
 
+import com.pulumi.aws.workspaces.inputs.DirectoryCertificateBasedAuthPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
@@ -34,6 +35,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
+    }
+
+    /**
+     * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     * 
+     */
+    @Import(name="certificateBasedAuthProperties")
+    private @Nullable Output<DirectoryCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties;
+
+    /**
+     * @return Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+     * 
+     */
+    public Optional<Output<DirectoryCertificateBasedAuthPropertiesArgs>> certificateBasedAuthProperties() {
+        return Optional.ofNullable(this.certificateBasedAuthProperties);
     }
 
     /**
@@ -139,6 +155,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> ipGroupIds() {
         return Optional.ofNullable(this.ipGroupIds);
+    }
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -280,6 +311,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
 
     private DirectoryState(DirectoryState $) {
         this.alias = $.alias;
+        this.certificateBasedAuthProperties = $.certificateBasedAuthProperties;
         this.customerUserName = $.customerUserName;
         this.directoryId = $.directoryId;
         this.directoryName = $.directoryName;
@@ -287,6 +319,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         this.dnsIpAddresses = $.dnsIpAddresses;
         this.iamRoleId = $.iamRoleId;
         this.ipGroupIds = $.ipGroupIds;
+        this.region = $.region;
         this.registrationCode = $.registrationCode;
         this.samlProperties = $.samlProperties;
         this.selfServicePermissions = $.selfServicePermissions;
@@ -335,6 +368,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(@Nullable Output<DirectoryCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties) {
+            $.certificateBasedAuthProperties = certificateBasedAuthProperties;
+            return this;
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(DirectoryCertificateBasedAuthPropertiesArgs certificateBasedAuthProperties) {
+            return certificateBasedAuthProperties(Output.of(certificateBasedAuthProperties));
         }
 
         /**
@@ -502,6 +556,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipGroupIds(String... ipGroupIds) {
             return ipGroupIds(List.of(ipGroupIds));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

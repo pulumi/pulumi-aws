@@ -91,6 +91,10 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.elasticache.ParameterGroupParameter[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -117,6 +121,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["family"] = state ? state.family : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -128,6 +133,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export interface ParameterGroupState {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -191,6 +201,10 @@ export interface ParameterGroupArgs {
      * A list of ElastiCache parameters to apply.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

@@ -149,6 +149,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string?> OrgAssertion { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The role assertion.
         /// </summary>
         [Output("roleAssertion")]
@@ -299,6 +305,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? OrgAssertion { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The role assertion.
         /// </summary>
         [Input("roleAssertion")]
@@ -403,6 +415,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("orgAssertion")]
         public Input<string>? OrgAssertion { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The role assertion.

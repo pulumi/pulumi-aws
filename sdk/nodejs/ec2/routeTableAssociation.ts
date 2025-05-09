@@ -80,6 +80,10 @@ export class RouteTableAssociation extends pulumi.CustomResource {
      */
     public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the routing table to associate with.
      */
     public readonly routeTableId!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
             resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -110,6 +115,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'routeTableId'");
             }
             resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
@@ -126,6 +132,10 @@ export interface RouteTableAssociationState {
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
     gatewayId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
      */
@@ -144,6 +154,10 @@ export interface RouteTableAssociationArgs {
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
     gatewayId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
      */

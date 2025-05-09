@@ -6,6 +6,7 @@ package com.pulumi.aws.macie2.inputs;
 import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ClassificationExportConfigurationState extends com.pulumi.resources.ResourceArgs {
 
     public static final ClassificationExportConfigurationState Empty = new ClassificationExportConfigurationState();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Configuration block for a S3 Destination. Defined below
@@ -33,6 +49,7 @@ public final class ClassificationExportConfigurationState extends com.pulumi.res
     private ClassificationExportConfigurationState() {}
 
     private ClassificationExportConfigurationState(ClassificationExportConfigurationState $) {
+        this.region = $.region;
         this.s3Destination = $.s3Destination;
     }
 
@@ -52,6 +69,27 @@ public final class ClassificationExportConfigurationState extends com.pulumi.res
 
         public Builder(ClassificationExportConfigurationState defaults) {
             $ = new ClassificationExportConfigurationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

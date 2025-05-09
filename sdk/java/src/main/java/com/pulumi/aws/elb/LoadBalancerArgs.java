@@ -221,6 +221,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC
      * 
@@ -308,6 +323,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         this.listeners = $.listeners;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.securityGroups = $.securityGroups;
         this.sourceSecurityGroup = $.sourceSecurityGroup;
         this.subnets = $.subnets;
@@ -635,6 +651,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

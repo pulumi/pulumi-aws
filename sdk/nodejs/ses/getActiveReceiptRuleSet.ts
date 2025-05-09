@@ -16,10 +16,19 @@ import * as utilities from "../utilities";
  * const main = aws.ses.getActiveReceiptRuleSet({});
  * ```
  */
-export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<GetActiveReceiptRuleSetResult> {
+export function getActiveReceiptRuleSet(args?: GetActiveReceiptRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveReceiptRuleSetResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getActiveReceiptRuleSet.
+ */
+export interface GetActiveReceiptRuleSetArgs {
+    region?: string;
 }
 
 /**
@@ -34,6 +43,7 @@ export interface GetActiveReceiptRuleSetResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Name of the rule set
      */
@@ -51,8 +61,17 @@ export interface GetActiveReceiptRuleSetResult {
  * const main = aws.ses.getActiveReceiptRuleSet({});
  * ```
  */
-export function getActiveReceiptRuleSetOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
+export function getActiveReceiptRuleSetOutput(args?: GetActiveReceiptRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getActiveReceiptRuleSet.
+ */
+export interface GetActiveReceiptRuleSetOutputArgs {
+    region?: pulumi.Input<string>;
 }

@@ -128,6 +128,21 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
@@ -321,6 +336,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.junctionPath = $.junctionPath;
         this.name = $.name;
         this.ontapVolumeType = $.ontapVolumeType;
+        this.region = $.region;
         this.securityStyle = $.securityStyle;
         this.sizeInBytes = $.sizeInBytes;
         this.sizeInMegabytes = $.sizeInMegabytes;
@@ -498,6 +514,27 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ontapVolumeType(String ontapVolumeType) {
             return ontapVolumeType(Output.of(ontapVolumeType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

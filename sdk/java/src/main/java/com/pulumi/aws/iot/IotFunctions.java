@@ -6,6 +6,8 @@ package com.pulumi.aws.iot;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.iot.inputs.GetEndpointArgs;
 import com.pulumi.aws.iot.inputs.GetEndpointPlainArgs;
+import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
+import com.pulumi.aws.iot.inputs.GetRegistrationCodePlainArgs;
 import com.pulumi.aws.iot.outputs.GetEndpointResult;
 import com.pulumi.aws.iot.outputs.GetRegistrationCodeResult;
 import com.pulumi.core.Output;
@@ -13,7 +15,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class IotFunctions {
@@ -115,6 +116,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -132,7 +134,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -152,7 +155,7 @@ public final class IotFunctions {
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode() {
-        return getRegistrationCode(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getRegistrationCode(GetRegistrationCodeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Gets a registration code used to register a CA certificate with AWS IoT.
@@ -168,6 +171,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -185,7 +189,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -205,7 +210,7 @@ public final class IotFunctions {
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain() {
-        return getRegistrationCodePlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getRegistrationCodePlain(GetRegistrationCodePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Gets a registration code used to register a CA certificate with AWS IoT.
@@ -221,6 +226,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -238,7 +244,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -257,7 +264,7 @@ public final class IotFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args) {
+    public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args) {
         return getRegistrationCode(args, InvokeOptions.Empty);
     }
     /**
@@ -274,6 +281,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -291,7 +299,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -310,7 +319,7 @@ public final class IotFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(InvokeArgs args) {
+    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(GetRegistrationCodePlainArgs args) {
         return getRegistrationCodePlain(args, InvokeOptions.Empty);
     }
     /**
@@ -327,6 +336,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -344,7 +354,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -363,7 +374,7 @@ public final class IotFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -380,6 +391,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -397,7 +409,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -416,7 +429,7 @@ public final class IotFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -433,6 +446,7 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
      * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
@@ -450,7 +464,8 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *             .build());
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -469,7 +484,7 @@ public final class IotFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(GetRegistrationCodePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
     }
 }

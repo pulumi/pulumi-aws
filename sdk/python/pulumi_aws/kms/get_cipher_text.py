@@ -27,7 +27,7 @@ class GetCipherTextResult:
     """
     A collection of values returned by getCipherText.
     """
-    def __init__(__self__, ciphertext_blob=None, context=None, id=None, key_id=None, plaintext=None):
+    def __init__(__self__, ciphertext_blob=None, context=None, id=None, key_id=None, plaintext=None, region=None):
         if ciphertext_blob and not isinstance(ciphertext_blob, str):
             raise TypeError("Expected argument 'ciphertext_blob' to be a str")
         pulumi.set(__self__, "ciphertext_blob", ciphertext_blob)
@@ -43,6 +43,9 @@ class GetCipherTextResult:
         if plaintext and not isinstance(plaintext, str):
             raise TypeError("Expected argument 'plaintext' to be a str")
         pulumi.set(__self__, "plaintext", plaintext)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="ciphertextBlob")
@@ -75,6 +78,11 @@ class GetCipherTextResult:
     def plaintext(self) -> builtins.str:
         return pulumi.get(self, "plaintext")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetCipherTextResult(GetCipherTextResult):
     # pylint: disable=using-constant-test
@@ -86,12 +94,14 @@ class AwaitableGetCipherTextResult(GetCipherTextResult):
             context=self.context,
             id=self.id,
             key_id=self.key_id,
-            plaintext=self.plaintext)
+            plaintext=self.plaintext,
+            region=self.region)
 
 
 def get_cipher_text(context: Optional[Mapping[str, builtins.str]] = None,
                     key_id: Optional[builtins.str] = None,
                     plaintext: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCipherTextResult:
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -125,6 +135,7 @@ def get_cipher_text(context: Optional[Mapping[str, builtins.str]] = None,
     __args__['context'] = context
     __args__['keyId'] = key_id
     __args__['plaintext'] = plaintext
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__, opts=opts, typ=GetCipherTextResult).value
 
@@ -133,10 +144,12 @@ def get_cipher_text(context: Optional[Mapping[str, builtins.str]] = None,
         context=pulumi.get(__ret__, 'context'),
         id=pulumi.get(__ret__, 'id'),
         key_id=pulumi.get(__ret__, 'key_id'),
-        plaintext=pulumi.get(__ret__, 'plaintext'))
+        plaintext=pulumi.get(__ret__, 'plaintext'),
+        region=pulumi.get(__ret__, 'region'))
 def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            key_id: Optional[pulumi.Input[builtins.str]] = None,
                            plaintext: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCipherTextResult]:
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -170,6 +183,7 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     __args__['context'] = context
     __args__['keyId'] = key_id
     __args__['plaintext'] = plaintext
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getCipherText:getCipherText', __args__, opts=opts, typ=GetCipherTextResult)
     return __ret__.apply(lambda __response__: GetCipherTextResult(
@@ -177,4 +191,5 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
         context=pulumi.get(__response__, 'context'),
         id=pulumi.get(__response__, 'id'),
         key_id=pulumi.get(__response__, 'key_id'),
-        plaintext=pulumi.get(__response__, 'plaintext')))
+        plaintext=pulumi.get(__response__, 'plaintext'),
+        region=pulumi.get(__response__, 'region')))

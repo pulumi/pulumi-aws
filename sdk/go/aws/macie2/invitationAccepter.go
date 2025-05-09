@@ -75,6 +75,8 @@ type InvitationAccepter struct {
 	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
 	// The unique identifier for the invitation.
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInvitationAccepter registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +116,8 @@ type invitationAccepterState struct {
 	AdministratorAccountId *string `pulumi:"administratorAccountId"`
 	// The unique identifier for the invitation.
 	InvitationId *string `pulumi:"invitationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type InvitationAccepterState struct {
@@ -121,6 +125,8 @@ type InvitationAccepterState struct {
 	AdministratorAccountId pulumi.StringPtrInput
 	// The unique identifier for the invitation.
 	InvitationId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvitationAccepterState) ElementType() reflect.Type {
@@ -130,12 +136,16 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 type invitationAccepterArgs struct {
 	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId string `pulumi:"administratorAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InvitationAccepter resource.
 type InvitationAccepterArgs struct {
 	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvitationAccepterArgs) ElementType() reflect.Type {
@@ -233,6 +243,11 @@ func (o InvitationAccepterOutput) AdministratorAccountId() pulumi.StringOutput {
 // The unique identifier for the invitation.
 func (o InvitationAccepterOutput) InvitationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InvitationAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type InvitationAccepterArrayOutput struct{ *pulumi.OutputState }

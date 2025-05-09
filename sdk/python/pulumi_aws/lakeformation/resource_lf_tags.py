@@ -25,6 +25,7 @@ class ResourceLfTagsArgs:
                  lf_tags: pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]],
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input['ResourceLfTagsTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None):
         """
@@ -34,6 +35,7 @@ class ResourceLfTagsArgs:
                Exactly one of the following is required:
         :param pulumi.Input[builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input['ResourceLfTagsDatabaseArgs'] database: Configuration block for a database resource. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ResourceLfTagsTableArgs'] table: Configuration block for a table resource. See below.
         :param pulumi.Input['ResourceLfTagsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See below.
                
@@ -44,6 +46,8 @@ class ResourceLfTagsArgs:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -89,6 +93,18 @@ class ResourceLfTagsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def table(self) -> Optional[pulumi.Input['ResourceLfTagsTableArgs']]:
         """
         Configuration block for a table resource. See below.
@@ -120,6 +136,7 @@ class _ResourceLfTagsState:
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']] = None,
                  lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input['ResourceLfTagsTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None):
         """
@@ -129,6 +146,7 @@ class _ResourceLfTagsState:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]] lf_tags: Set of LF-tags to attach to the resource. See below.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ResourceLfTagsTableArgs'] table: Configuration block for a table resource. See below.
         :param pulumi.Input['ResourceLfTagsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See below.
                
@@ -140,6 +158,8 @@ class _ResourceLfTagsState:
             pulumi.set(__self__, "database", database)
         if lf_tags is not None:
             pulumi.set(__self__, "lf_tags", lf_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -185,6 +205,18 @@ class _ResourceLfTagsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def table(self) -> Optional[pulumi.Input['ResourceLfTagsTableArgs']]:
         """
         Configuration block for a table resource. See below.
@@ -221,6 +253,7 @@ class ResourceLfTags(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
                  lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
                  table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None,
                  __props__=None):
@@ -309,6 +342,7 @@ class ResourceLfTags(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]] lf_tags: Set of LF-tags to attach to the resource. See below.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']] table: Configuration block for a table resource. See below.
         :param pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See below.
                
@@ -416,6 +450,7 @@ class ResourceLfTags(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
                  lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
                  table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None,
                  __props__=None):
@@ -432,6 +467,7 @@ class ResourceLfTags(pulumi.CustomResource):
             if lf_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'lf_tags'")
             __props__.__dict__["lf_tags"] = lf_tags
+            __props__.__dict__["region"] = region
             __props__.__dict__["table"] = table
             __props__.__dict__["table_with_columns"] = table_with_columns
         super(ResourceLfTags, __self__).__init__(
@@ -447,6 +483,7 @@ class ResourceLfTags(pulumi.CustomResource):
             catalog_id: Optional[pulumi.Input[builtins.str]] = None,
             database: Optional[pulumi.Input[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
             lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table: Optional[pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
             table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None) -> 'ResourceLfTags':
         """
@@ -461,6 +498,7 @@ class ResourceLfTags(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]] lf_tags: Set of LF-tags to attach to the resource. See below.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']] table: Configuration block for a table resource. See below.
         :param pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See below.
                
@@ -473,6 +511,7 @@ class ResourceLfTags(pulumi.CustomResource):
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["database"] = database
         __props__.__dict__["lf_tags"] = lf_tags
+        __props__.__dict__["region"] = region
         __props__.__dict__["table"] = table
         __props__.__dict__["table_with_columns"] = table_with_columns
         return ResourceLfTags(resource_name, opts=opts, __props__=__props__)
@@ -502,6 +541,14 @@ class ResourceLfTags(pulumi.CustomResource):
         Exactly one of the following is required:
         """
         return pulumi.get(self, "lf_tags")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

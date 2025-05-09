@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getSecrets:getSecrets", {
+        "region": args.region,
         "secrets": args.secrets,
     }, opts);
 }
@@ -30,6 +31,7 @@ export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsArgs {
+    region?: string;
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */
@@ -48,6 +50,7 @@ export interface GetSecretsResult {
      * Map containing each `secret` `name` as the key with its decrypted plaintext value
      */
     readonly plaintext: {[key: string]: string};
+    readonly region: string;
     readonly secrets: outputs.kms.GetSecretsSecret[];
 }
 /**
@@ -65,6 +68,7 @@ export interface GetSecretsResult {
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getSecrets:getSecrets", {
+        "region": args.region,
         "secrets": args.secrets,
     }, opts);
 }
@@ -73,6 +77,7 @@ export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */

@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Dms
     [AwsResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
     public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("replicationSubnetGroupArn")]
         public Output<string> ReplicationSubnetGroupArn { get; private set; } = null!;
 
@@ -207,6 +213,12 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Description for the subnet group.
         /// </summary>
         [Input("replicationSubnetGroupDescription", required: true)]
@@ -250,6 +262,12 @@ namespace Pulumi.Aws.Dms
 
     public sealed class ReplicationSubnetGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("replicationSubnetGroupArn")]
         public Input<string>? ReplicationSubnetGroupArn { get; set; }
 

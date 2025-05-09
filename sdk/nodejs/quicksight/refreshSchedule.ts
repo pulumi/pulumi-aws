@@ -125,6 +125,10 @@ export class RefreshSchedule extends pulumi.CustomResource {
      */
     public readonly dataSetId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
      *
      * The following arguments are optional:
@@ -151,6 +155,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["scheduleId"] = state ? state.scheduleId : undefined;
         } else {
@@ -163,6 +168,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
             }
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scheduleId"] = args ? args.scheduleId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -189,6 +195,10 @@ export interface RefreshScheduleState {
      */
     dataSetId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
      *
      * The following arguments are optional:
@@ -212,6 +222,10 @@ export interface RefreshScheduleArgs {
      * The ID of the dataset.
      */
     dataSetId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
      *

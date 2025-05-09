@@ -31,6 +31,7 @@ public final class GetPrefixListResult {
      */
     private String name;
     private @Nullable String prefixListId;
+    private String region;
 
     private GetPrefixListResult() {}
     /**
@@ -60,6 +61,9 @@ public final class GetPrefixListResult {
     public Optional<String> prefixListId() {
         return Optional.ofNullable(this.prefixListId);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -75,6 +79,7 @@ public final class GetPrefixListResult {
         private String id;
         private String name;
         private @Nullable String prefixListId;
+        private String region;
         public Builder() {}
         public Builder(GetPrefixListResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,6 +88,7 @@ public final class GetPrefixListResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.prefixListId = defaults.prefixListId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -127,6 +133,14 @@ public final class GetPrefixListResult {
             this.prefixListId = prefixListId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPrefixListResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPrefixListResult build() {
             final var _resultValue = new GetPrefixListResult();
             _resultValue.cidrBlocks = cidrBlocks;
@@ -134,6 +148,7 @@ public final class GetPrefixListResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.prefixListId = prefixListId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

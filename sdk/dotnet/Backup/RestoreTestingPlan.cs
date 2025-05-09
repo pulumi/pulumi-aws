@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Backup
         public Output<Outputs.RestoreTestingPlanRecoveryPointSelection?> RecoveryPointSelection { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The schedule expression for the restore testing plan.
         /// </summary>
         [Output("scheduleExpression")]
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.Backup
         public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionArgs>? RecoveryPointSelection { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The schedule expression for the restore testing plan.
         /// </summary>
         [Input("scheduleExpression", required: true)]
@@ -210,6 +222,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("recoveryPointSelection")]
         public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionGetArgs>? RecoveryPointSelection { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The schedule expression for the restore testing plan.

@@ -20,9 +20,6 @@ public final class GetVpcsPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetVpcsFilter> filters;
@@ -30,12 +27,16 @@ public final class GetVpcsPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     public Optional<List<GetVpcsFilter>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -59,6 +60,7 @@ public final class GetVpcsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetVpcsPlainArgs(GetVpcsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -83,9 +85,6 @@ public final class GetVpcsPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -97,14 +96,16 @@ public final class GetVpcsPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetVpcsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

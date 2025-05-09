@@ -164,6 +164,8 @@ type DataCatalog struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -219,6 +221,8 @@ type dataCatalogState struct {
 	Name *string `pulumi:"name"`
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -236,6 +240,8 @@ type DataCatalogState struct {
 	Name pulumi.StringPtrInput
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -255,6 +261,8 @@ type dataCatalogArgs struct {
 	Name *string `pulumi:"name"`
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
@@ -269,6 +277,8 @@ type DataCatalogArgs struct {
 	Name pulumi.StringPtrInput
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
@@ -380,6 +390,11 @@ func (o DataCatalogOutput) Name() pulumi.StringOutput {
 // Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 func (o DataCatalogOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataCatalogOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

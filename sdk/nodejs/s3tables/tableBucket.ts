@@ -83,6 +83,10 @@ export class TableBucket extends pulumi.CustomResource {
      * Account ID of the account that owns the table bucket.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a TableBucket resource with the given unique name, arguments, and options.
@@ -102,10 +106,12 @@ export class TableBucket extends pulumi.CustomResource {
             resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as TableBucketArgs | undefined;
             resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface TableBucketState {
      * Account ID of the account that owns the table bucket.
      */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -165,4 +175,8 @@ export interface TableBucketArgs {
      * The following argument is optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

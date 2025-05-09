@@ -1253,6 +1253,14 @@
     {
       "old": "For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.",
       "new": ""
+    },
+    {
+      "old": "### Terraform AWS Provider v5 (and below)\n",
+      "new": "### AWS Provider v6 (and below)\n"
+    },
+    {
+      "old": "### Terraform AWS Provider v6 (and above)\n",
+      "new": "### AWS Provider v7 (and above)\n"
     }
   ],
   "kms_secret.html.markdown": [
@@ -2465,6 +2473,14 @@
     {
       "old": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
+    },
+    {
+      "old": "### Cross-Account Peering Or Cross-Region Peering Terraform AWS Provider v5 (and below)\n",
+      "new": "### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)\n"
+    },
+    {
+      "old": "### Cross-Region Peering (Same Account) Terraform AWS Provider v6 (and above)\n",
+      "new": "### Cross-Region Peering (Same Account) AWS Provider v7 (and above)\n"
     }
   ],
   "vpc_peering_connections.html.markdown": [

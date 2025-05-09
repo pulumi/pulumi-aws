@@ -153,6 +153,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -190,6 +193,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             get => _filters ?? (_filters = new InputList<Inputs.GetAttachmentFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -236,6 +242,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// ID of the resource.
         /// </summary>
@@ -278,6 +285,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string id,
 
+            string region,
+
             string resourceId,
 
             string resourceOwnerId,
@@ -299,6 +308,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             AssociationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
             Filters = filters;
             Id = id;
+            Region = region;
             ResourceId = resourceId;
             ResourceOwnerId = resourceOwnerId;
             ResourceType = resourceType;

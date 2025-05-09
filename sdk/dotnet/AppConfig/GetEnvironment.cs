@@ -108,6 +108,9 @@ namespace Pulumi.Aws.AppConfig
         [Input("environmentId", required: true)]
         public string EnvironmentId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -139,6 +142,9 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -184,6 +190,7 @@ namespace Pulumi.Aws.AppConfig
         /// Name of the environment.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
         /// or `ROLLED_BACK`.
@@ -210,6 +217,8 @@ namespace Pulumi.Aws.AppConfig
 
             string name,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -221,6 +230,7 @@ namespace Pulumi.Aws.AppConfig
             Id = id;
             Monitors = monitors;
             Name = name;
+            Region = region;
             State = state;
             Tags = tags;
         }

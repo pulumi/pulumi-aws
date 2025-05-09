@@ -23,6 +23,7 @@ public final class GetEventCategoriesResult {
      * 
      */
     private String id;
+    private String region;
     private @Nullable String sourceType;
 
     private GetEventCategoriesResult() {}
@@ -40,6 +41,9 @@ public final class GetEventCategoriesResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> sourceType() {
         return Optional.ofNullable(this.sourceType);
     }
@@ -55,12 +59,14 @@ public final class GetEventCategoriesResult {
     public static final class Builder {
         private List<String> eventCategories;
         private String id;
+        private String region;
         private @Nullable String sourceType;
         public Builder() {}
         public Builder(GetEventCategoriesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventCategories = defaults.eventCategories;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.sourceType = defaults.sourceType;
         }
 
@@ -84,6 +90,14 @@ public final class GetEventCategoriesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEventCategoriesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourceType(@Nullable String sourceType) {
 
             this.sourceType = sourceType;
@@ -93,6 +107,7 @@ public final class GetEventCategoriesResult {
             final var _resultValue = new GetEventCategoriesResult();
             _resultValue.eventCategories = eventCategories;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.sourceType = sourceType;
             return _resultValue;
         }

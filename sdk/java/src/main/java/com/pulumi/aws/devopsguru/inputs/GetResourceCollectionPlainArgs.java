@@ -3,12 +3,9 @@
 
 package com.pulumi.aws.devopsguru.inputs;
 
-import com.pulumi.aws.devopsguru.inputs.GetResourceCollectionCloudformation;
-import com.pulumi.aws.devopsguru.inputs.GetResourceCollectionTag;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,34 +15,11 @@ public final class GetResourceCollectionPlainArgs extends com.pulumi.resources.I
 
     public static final GetResourceCollectionPlainArgs Empty = new GetResourceCollectionPlainArgs();
 
-    /**
-     * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
-    @Import(name="cloudformations")
-    private @Nullable List<GetResourceCollectionCloudformation> cloudformations;
+    @Import(name="region")
+    private @Nullable String region;
 
-    /**
-     * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
-    public Optional<List<GetResourceCollectionCloudformation>> cloudformations() {
-        return Optional.ofNullable(this.cloudformations);
-    }
-
-    /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
-    @Import(name="tags")
-    private @Nullable List<GetResourceCollectionTag> tags;
-
-    /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
-    public Optional<List<GetResourceCollectionTag>> tags() {
-        return Optional.ofNullable(this.tags);
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -66,8 +40,7 @@ public final class GetResourceCollectionPlainArgs extends com.pulumi.resources.I
     private GetResourceCollectionPlainArgs() {}
 
     private GetResourceCollectionPlainArgs(GetResourceCollectionPlainArgs $) {
-        this.cloudformations = $.cloudformations;
-        this.tags = $.tags;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -89,46 +62,9 @@ public final class GetResourceCollectionPlainArgs extends com.pulumi.resources.I
             $ = new GetResourceCollectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudformations A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cloudformations(@Nullable List<GetResourceCollectionCloudformation> cloudformations) {
-            $.cloudformations = cloudformations;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
-        }
-
-        /**
-         * @param cloudformations A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cloudformations(GetResourceCollectionCloudformation... cloudformations) {
-            return cloudformations(List.of(cloudformations));
-        }
-
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(@Nullable List<GetResourceCollectionTag> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(GetResourceCollectionTag... tags) {
-            return tags(List.of(tags));
         }
 
         /**

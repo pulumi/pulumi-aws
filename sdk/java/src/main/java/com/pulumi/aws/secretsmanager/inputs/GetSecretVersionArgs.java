@@ -16,6 +16,13 @@ public final class GetSecretVersionArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSecretVersionArgs Empty = new GetSecretVersionArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
@@ -64,6 +71,7 @@ public final class GetSecretVersionArgs extends com.pulumi.resources.InvokeArgs 
     private GetSecretVersionArgs() {}
 
     private GetSecretVersionArgs(GetSecretVersionArgs $) {
+        this.region = $.region;
         this.secretId = $.secretId;
         this.versionId = $.versionId;
         this.versionStage = $.versionStage;
@@ -85,6 +93,15 @@ public final class GetSecretVersionArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetSecretVersionArgs defaults) {
             $ = new GetSecretVersionArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

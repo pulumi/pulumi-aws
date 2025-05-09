@@ -19,7 +19,7 @@ public final class GetPrebuiltEcrImageResult {
      */
     private String id;
     private @Nullable String imageTag;
-    private @Nullable String region;
+    private String region;
     /**
      * @return Account ID containing the image. For example, `469771592824`.
      * 
@@ -46,8 +46,8 @@ public final class GetPrebuiltEcrImageResult {
     public Optional<String> imageTag() {
         return Optional.ofNullable(this.imageTag);
     }
-    public Optional<String> region() {
-        return Optional.ofNullable(this.region);
+    public String region() {
+        return this.region;
     }
     /**
      * @return Account ID containing the image. For example, `469771592824`.
@@ -79,7 +79,7 @@ public final class GetPrebuiltEcrImageResult {
         private @Nullable String dnsSuffix;
         private String id;
         private @Nullable String imageTag;
-        private @Nullable String region;
+        private String region;
         private String registryId;
         private String registryPath;
         private String repositoryName;
@@ -116,8 +116,10 @@ public final class GetPrebuiltEcrImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder region(@Nullable String region) {
-
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPrebuiltEcrImageResult", "region");
+            }
             this.region = region;
             return this;
         }

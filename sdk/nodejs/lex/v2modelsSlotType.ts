@@ -149,6 +149,10 @@ export class V2modelsSlotType extends pulumi.CustomResource {
      */
     public readonly parentSlotTypeSignature!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier for the slot type.
      */
     public /*out*/ readonly slotTypeId!: pulumi.Output<string>;
@@ -186,6 +190,7 @@ export class V2modelsSlotType extends pulumi.CustomResource {
             resourceInputs["localeId"] = state ? state.localeId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentSlotTypeSignature"] = state ? state.parentSlotTypeSignature : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["slotTypeId"] = state ? state.slotTypeId : undefined;
             resourceInputs["slotTypeValues"] = state ? state.slotTypeValues : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -209,6 +214,7 @@ export class V2modelsSlotType extends pulumi.CustomResource {
             resourceInputs["localeId"] = args ? args.localeId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentSlotTypeSignature"] = args ? args.parentSlotTypeSignature : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["slotTypeValues"] = args ? args.slotTypeValues : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["valueSelectionSetting"] = args ? args.valueSelectionSetting : undefined;
@@ -262,6 +268,10 @@ export interface V2modelsSlotTypeState {
      * Only `AMAZON.AlphaNumeric` is supported.
      */
     parentSlotTypeSignature?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier for the slot type.
      */
@@ -323,6 +333,10 @@ export interface V2modelsSlotTypeArgs {
      * Only `AMAZON.AlphaNumeric` is supported.
      */
     parentSlotTypeSignature?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of SlotTypeValue objects that defines the values that the slot type can take.
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.

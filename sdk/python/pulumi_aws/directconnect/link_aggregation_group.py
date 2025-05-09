@@ -26,6 +26,7 @@ class LinkAggregationGroupArgs:
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkAggregationGroup resource.
@@ -35,6 +36,7 @@ class LinkAggregationGroupArgs:
         :param pulumi.Input[builtins.bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[builtins.str] name: The name of the LAG.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the LAG.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connections_bandwidth", connections_bandwidth)
@@ -47,6 +49,8 @@ class LinkAggregationGroupArgs:
             pulumi.set(__self__, "name", name)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -124,6 +128,18 @@ class LinkAggregationGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,6 +164,7 @@ class _LinkAggregationGroupState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -162,6 +179,7 @@ class _LinkAggregationGroupState:
         :param pulumi.Input[builtins.str] name: The name of the LAG.
         :param pulumi.Input[builtins.str] owner_account_id: The ID of the AWS account that owns the LAG.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the LAG.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -185,6 +203,8 @@ class _LinkAggregationGroupState:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -312,6 +332,18 @@ class _LinkAggregationGroupState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -349,6 +381,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -385,6 +418,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[builtins.str] name: The name of the LAG.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the LAG.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -440,6 +474,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -460,6 +495,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_name"] = provider_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["has_logical_redundancy"] = None
@@ -486,6 +522,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
             provider_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'LinkAggregationGroup':
         """
@@ -505,6 +542,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the LAG.
         :param pulumi.Input[builtins.str] owner_account_id: The ID of the AWS account that owns the LAG.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the LAG.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -522,6 +560,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return LinkAggregationGroup(resource_name, opts=opts, __props__=__props__)
@@ -605,6 +644,14 @@ class LinkAggregationGroup(pulumi.CustomResource):
         The name of the service provider associated with the LAG.
         """
         return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

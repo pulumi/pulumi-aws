@@ -19,6 +19,21 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     public static final SecretRotationArgs Empty = new SecretRotationArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      * 
      */
@@ -81,6 +96,7 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     private SecretRotationArgs() {}
 
     private SecretRotationArgs(SecretRotationArgs $) {
+        this.region = $.region;
         this.rotateImmediately = $.rotateImmediately;
         this.rotationLambdaArn = $.rotationLambdaArn;
         this.rotationRules = $.rotationRules;
@@ -103,6 +119,27 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(SecretRotationArgs defaults) {
             $ = new SecretRotationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

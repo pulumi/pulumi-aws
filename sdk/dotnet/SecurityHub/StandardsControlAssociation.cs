@@ -56,6 +56,12 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> AssociationStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier for the security control whose enablement status you want to update.
         /// </summary>
         [Output("securityControlId")]
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string> AssociationStatus { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique identifier for the security control whose enablement status you want to update.
         /// </summary>
         [Input("securityControlId", required: true)]
@@ -160,6 +172,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("associationStatus")]
         public Input<string>? AssociationStatus { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The unique identifier for the security control whose enablement status you want to update.

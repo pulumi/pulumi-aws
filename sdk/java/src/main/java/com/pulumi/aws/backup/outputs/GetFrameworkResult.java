@@ -48,6 +48,7 @@ public final class GetFrameworkResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
@@ -109,6 +110,9 @@ public final class GetFrameworkResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
@@ -140,6 +144,7 @@ public final class GetFrameworkResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private String status;
         private Map<String,String> tags;
         public Builder() {}
@@ -152,6 +157,7 @@ public final class GetFrameworkResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
         }
@@ -216,6 +222,14 @@ public final class GetFrameworkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetFrameworkResult", "status");
@@ -240,6 +254,7 @@ public final class GetFrameworkResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.tags = tags;
             return _resultValue;

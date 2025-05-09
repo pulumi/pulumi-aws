@@ -164,6 +164,8 @@ type Pipeline struct {
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapOutput    `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput    `pulumi:"tagsAll"`
@@ -234,6 +236,8 @@ type pipelineState struct {
 	//
 	// The following arguments are optional:
 	PipelineName *string `pulumi:"pipelineName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
@@ -263,6 +267,8 @@ type PipelineState struct {
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
@@ -292,6 +298,8 @@ type pipelineArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineName string `pulumi:"pipelineName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *PipelineTimeouts `pulumi:"timeouts"`
@@ -317,6 +325,8 @@ type PipelineArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts PipelineTimeoutsPtrInput
@@ -456,6 +466,11 @@ func (o PipelineOutput) PipelineConfigurationBody() pulumi.StringOutput {
 // The following arguments are optional:
 func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PipelineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

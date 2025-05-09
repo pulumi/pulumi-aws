@@ -63,6 +63,8 @@ type GeoMatchSet struct {
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayOutput `pulumi:"geoMatchConstraints"`
 	// The name or description of the Geo Match Set.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGeoMatchSet registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type geoMatchSetState struct {
 	GeoMatchConstraints []GeoMatchSetGeoMatchConstraint `pulumi:"geoMatchConstraints"`
 	// The name or description of the Geo Match Set.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type GeoMatchSetState struct {
@@ -106,6 +110,8 @@ type GeoMatchSetState struct {
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayInput
 	// The name or description of the Geo Match Set.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GeoMatchSetState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type geoMatchSetArgs struct {
 	GeoMatchConstraints []GeoMatchSetGeoMatchConstraint `pulumi:"geoMatchConstraints"`
 	// The name or description of the Geo Match Set.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GeoMatchSet resource.
@@ -125,6 +133,8 @@ type GeoMatchSetArgs struct {
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayInput
 	// The name or description of the Geo Match Set.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GeoMatchSetArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o GeoMatchSetOutput) GeoMatchConstraints() GeoMatchSetGeoMatchConstraintAr
 // The name or description of the Geo Match Set.
 func (o GeoMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GeoMatchSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type GeoMatchSetArrayOutput struct{ *pulumi.OutputState }

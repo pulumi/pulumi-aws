@@ -71,6 +71,8 @@ type Vocabulary struct {
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Tags to apply to the vocabulary. If configured with a provider
@@ -135,6 +137,8 @@ type vocabularyState struct {
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State *string `pulumi:"state"`
 	// Tags to apply to the vocabulary. If configured with a provider
@@ -161,6 +165,8 @@ type VocabularyState struct {
 	LastModifiedTime pulumi.StringPtrInput
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State pulumi.StringPtrInput
 	// Tags to apply to the vocabulary. If configured with a provider
@@ -185,6 +191,8 @@ type vocabularyArgs struct {
 	LanguageCode string `pulumi:"languageCode"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the vocabulary. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -200,6 +208,8 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the vocabulary. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -325,6 +335,11 @@ func (o VocabularyOutput) LastModifiedTime() pulumi.StringOutput {
 // A unique name of the custom vocabulary. Must not be more than 140 characters.
 func (o VocabularyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VocabularyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.

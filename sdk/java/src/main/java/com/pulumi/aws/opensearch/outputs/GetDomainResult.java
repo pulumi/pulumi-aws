@@ -148,6 +148,7 @@ public final class GetDomainResult {
      * 
      */
     private Boolean processing;
+    private String region;
     /**
      * @return Domain snapshot related options.
      * 
@@ -341,6 +342,9 @@ public final class GetDomainResult {
     public Boolean processing() {
         return this.processing;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Domain snapshot related options.
      * 
@@ -404,6 +408,7 @@ public final class GetDomainResult {
         private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
         private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
         private Boolean processing;
+        private String region;
         private List<GetDomainSnapshotOption> snapshotOptions;
         private List<GetDomainSoftwareUpdateOption> softwareUpdateOptions;
         private Map<String,String> tags;
@@ -436,6 +441,7 @@ public final class GetDomainResult {
     	      this.nodeToNodeEncryptions = defaults.nodeToNodeEncryptions;
     	      this.offPeakWindowOptions = defaults.offPeakWindowOptions;
     	      this.processing = defaults.processing;
+    	      this.region = defaults.region;
     	      this.snapshotOptions = defaults.snapshotOptions;
     	      this.softwareUpdateOptions = defaults.softwareUpdateOptions;
     	      this.tags = defaults.tags;
@@ -665,6 +671,14 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotOptions(List<GetDomainSnapshotOption> snapshotOptions) {
             if (snapshotOptions == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "snapshotOptions");
@@ -732,6 +746,7 @@ public final class GetDomainResult {
             _resultValue.nodeToNodeEncryptions = nodeToNodeEncryptions;
             _resultValue.offPeakWindowOptions = offPeakWindowOptions;
             _resultValue.processing = processing;
+            _resultValue.region = region;
             _resultValue.snapshotOptions = snapshotOptions;
             _resultValue.softwareUpdateOptions = softwareUpdateOptions;
             _resultValue.tags = tags;

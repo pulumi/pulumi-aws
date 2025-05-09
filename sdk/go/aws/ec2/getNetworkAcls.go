@@ -115,10 +115,8 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
+	Region  *string                `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags map[string]string `pulumi:"tags"`
@@ -132,9 +130,10 @@ type GetNetworkAclsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all the network ACL ids found.
-	Ids   []string          `pulumi:"ids"`
-	Tags  map[string]string `pulumi:"tags"`
-	VpcId *string           `pulumi:"vpcId"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
+	VpcId  *string           `pulumi:"vpcId"`
 }
 
 func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, opts ...pulumi.InvokeOption) GetNetworkAclsResultOutput {
@@ -149,10 +148,8 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsOutputArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -191,6 +188,10 @@ func (o GetNetworkAclsResultOutput) Id() pulumi.StringOutput {
 // List of all the network ACL ids found.
 func (o GetNetworkAclsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetNetworkAclsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetNetworkAclsResultOutput) Tags() pulumi.StringMapOutput {

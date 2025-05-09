@@ -27,7 +27,7 @@ class GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, arns=None, id=None, identity_store_ids=None):
+    def __init__(__self__, arns=None, id=None, identity_store_ids=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -37,6 +37,9 @@ class GetInstancesResult:
         if identity_store_ids and not isinstance(identity_store_ids, list):
             raise TypeError("Expected argument 'identity_store_ids' to be a list")
         pulumi.set(__self__, "identity_store_ids", identity_store_ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -62,6 +65,11 @@ class GetInstancesResult:
         """
         return pulumi.get(self, "identity_store_ids")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
@@ -71,10 +79,12 @@ class AwaitableGetInstancesResult(GetInstancesResult):
         return GetInstancesResult(
             arns=self.arns,
             id=self.id,
-            identity_store_ids=self.identity_store_ids)
+            identity_store_ids=self.identity_store_ids,
+            region=self.region)
 
 
-def get_instances(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
+def get_instances(region: Optional[builtins.str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
     Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
 
@@ -90,14 +100,17 @@ def get_instances(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIn
     ```
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
     return AwaitableGetInstancesResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
-        identity_store_ids=pulumi.get(__ret__, 'identity_store_ids'))
-def get_instances_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
+        identity_store_ids=pulumi.get(__ret__, 'identity_store_ids'),
+        region=pulumi.get(__ret__, 'region'))
+def get_instances_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
 
@@ -113,9 +126,11 @@ def get_instances_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invok
     ```
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
     return __ret__.apply(lambda __response__: GetInstancesResult(
         arns=pulumi.get(__response__, 'arns'),
         id=pulumi.get(__response__, 'id'),
-        identity_store_ids=pulumi.get(__response__, 'identity_store_ids')))
+        identity_store_ids=pulumi.get(__response__, 'identity_store_ids'),
+        region=pulumi.get(__response__, 'region')))

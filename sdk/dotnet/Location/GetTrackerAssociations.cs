@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetTrackerAssociationsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Name of the tracker resource associated with a geofence collection.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetTrackerAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Name of the tracker resource associated with a geofence collection.
         /// </summary>
@@ -131,6 +137,7 @@ namespace Pulumi.Aws.Location
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string TrackerName;
 
         [OutputConstructor]
@@ -139,10 +146,13 @@ namespace Pulumi.Aws.Location
 
             string id,
 
+            string region,
+
             string trackerName)
         {
             ConsumerArns = consumerArns;
             Id = id;
+            Region = region;
             TrackerName = trackerName;
         }
     }

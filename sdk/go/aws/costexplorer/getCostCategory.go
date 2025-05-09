@@ -51,7 +51,8 @@ func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts 
 // A collection of arguments for invoking getCostCategory.
 type LookupCostCategoryArgs struct {
 	// Unique name for the Cost Category.
-	CostCategoryArn string `pulumi:"costCategoryArn"`
+	CostCategoryArn string  `pulumi:"costCategoryArn"`
+	Region          *string `pulumi:"region"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -66,8 +67,9 @@ type LookupCostCategoryResult struct {
 	// Effective state data of your Cost Category.
 	EffectiveStart string `pulumi:"effectiveStart"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion string `pulumi:"ruleVersion"`
 	// Configuration block for the `Expression` object used to categorize costs. See below.
@@ -90,7 +92,8 @@ func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutput
 // A collection of arguments for invoking getCostCategory.
 type LookupCostCategoryOutputArgs struct {
 	// Unique name for the Cost Category.
-	CostCategoryArn pulumi.StringInput `pulumi:"costCategoryArn"`
+	CostCategoryArn pulumi.StringInput    `pulumi:"costCategoryArn"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -140,6 +143,10 @@ func (o LookupCostCategoryResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupCostCategoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupCostCategoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Rule schema version in this particular Cost Category.

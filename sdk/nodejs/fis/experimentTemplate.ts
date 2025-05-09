@@ -207,6 +207,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -244,6 +248,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["experimentOptions"] = state ? state.experimentOptions : undefined;
             resourceInputs["experimentReportConfiguration"] = state ? state.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -268,6 +273,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
             resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -303,6 +309,10 @@ export interface ExperimentTemplateState {
      * The configuration for experiment logging. See below.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
@@ -348,6 +358,10 @@ export interface ExperimentTemplateArgs {
      * The configuration for experiment logging. See below.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */

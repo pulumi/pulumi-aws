@@ -45,6 +45,7 @@ export function getQueryLogConfig(args?: GetQueryLogConfigArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", {
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "resolverQueryLogConfigId": args.resolverQueryLogConfigId,
         "tags": args.tags,
     }, opts);
@@ -58,22 +59,19 @@ export interface GetQueryLogConfigArgs {
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
-     *
-     * In addition to all arguments above, the following attributes are exported:
      */
     filters?: inputs.route53.GetQueryLogConfigFilter[];
     /**
      * The name of the query logging configuration.
      */
     name?: string;
+    region?: string;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.
      */
     resolverQueryLogConfigId?: string;
     /**
      * Map of tags to assign to the service.
-     *
-     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      */
     tags?: {[key: string]: string};
 }
@@ -82,17 +80,36 @@ export interface GetQueryLogConfigArgs {
  * A collection of values returned by getQueryLogConfig.
  */
 export interface GetQueryLogConfigResult {
+    /**
+     * Computed ARN of the Route53 Resolver Query Logging Configuration.
+     */
     readonly arn: string;
+    /**
+     * The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
+     */
     readonly destinationArn: string;
     readonly filters?: outputs.route53.GetQueryLogConfigFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the query logging configuration.
+     */
     readonly name?: string;
+    /**
+     * The AWS account ID for the account that created the query logging configuration.
+     */
     readonly ownerId: string;
+    readonly region: string;
     readonly resolverQueryLogConfigId?: string;
+    /**
+     * An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
+     */
     readonly shareStatus: string;
+    /**
+     * Map of tags to assign to the service.
+     */
     readonly tags: {[key: string]: string};
 }
 /**
@@ -133,6 +150,7 @@ export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:route53/getQueryLogConfig:getQueryLogConfig", {
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "resolverQueryLogConfigId": args.resolverQueryLogConfigId,
         "tags": args.tags,
     }, opts);
@@ -146,22 +164,19 @@ export interface GetQueryLogConfigOutputArgs {
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
-     *
-     * In addition to all arguments above, the following attributes are exported:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetQueryLogConfigFilterArgs>[]>;
     /**
      * The name of the query logging configuration.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.
      */
     resolverQueryLogConfigId?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the service.
-     *
-     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

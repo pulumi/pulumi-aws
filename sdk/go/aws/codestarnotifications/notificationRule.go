@@ -113,6 +113,8 @@ type NotificationRule struct {
 	EventTypeIds pulumi.StringArrayOutput `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringOutput `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -173,6 +175,8 @@ type notificationRuleState struct {
 	EventTypeIds []string `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource *string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -195,6 +199,8 @@ type NotificationRuleState struct {
 	EventTypeIds pulumi.StringArrayInput
 	// The name of notification rule.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringPtrInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -219,6 +225,8 @@ type notificationRuleArgs struct {
 	EventTypeIds []string `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -238,6 +246,8 @@ type NotificationRuleArgs struct {
 	EventTypeIds pulumi.StringArrayInput
 	// The name of notification rule.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -354,6 +364,11 @@ func (o NotificationRuleOutput) EventTypeIds() pulumi.StringArrayOutput {
 // The name of notification rule.
 func (o NotificationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NotificationRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the resource to associate with the notification rule.

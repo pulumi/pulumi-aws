@@ -10,7 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourceCollectionResult {
@@ -18,17 +17,18 @@ public final class GetResourceCollectionResult {
      * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      * 
      */
-    private @Nullable List<GetResourceCollectionCloudformation> cloudformations;
+    private List<GetResourceCollectionCloudformation> cloudformations;
     /**
      * @return Type of AWS resource collection to create (same value as `type`).
      * 
      */
     private String id;
+    private String region;
     /**
      * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
-    private @Nullable List<GetResourceCollectionTag> tags;
+    private List<GetResourceCollectionTag> tags;
     private String type;
 
     private GetResourceCollectionResult() {}
@@ -37,7 +37,7 @@ public final class GetResourceCollectionResult {
      * 
      */
     public List<GetResourceCollectionCloudformation> cloudformations() {
-        return this.cloudformations == null ? List.of() : this.cloudformations;
+        return this.cloudformations;
     }
     /**
      * @return Type of AWS resource collection to create (same value as `type`).
@@ -46,12 +46,15 @@ public final class GetResourceCollectionResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
     public List<GetResourceCollectionTag> tags() {
-        return this.tags == null ? List.of() : this.tags;
+        return this.tags;
     }
     public String type() {
         return this.type;
@@ -66,22 +69,26 @@ public final class GetResourceCollectionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetResourceCollectionCloudformation> cloudformations;
+        private List<GetResourceCollectionCloudformation> cloudformations;
         private String id;
-        private @Nullable List<GetResourceCollectionTag> tags;
+        private String region;
+        private List<GetResourceCollectionTag> tags;
         private String type;
         public Builder() {}
         public Builder(GetResourceCollectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudformations = defaults.cloudformations;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder cloudformations(@Nullable List<GetResourceCollectionCloudformation> cloudformations) {
-
+        public Builder cloudformations(List<GetResourceCollectionCloudformation> cloudformations) {
+            if (cloudformations == null) {
+              throw new MissingRequiredPropertyException("GetResourceCollectionResult", "cloudformations");
+            }
             this.cloudformations = cloudformations;
             return this;
         }
@@ -97,8 +104,18 @@ public final class GetResourceCollectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable List<GetResourceCollectionTag> tags) {
-
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourceCollectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tags(List<GetResourceCollectionTag> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResourceCollectionResult", "tags");
+            }
             this.tags = tags;
             return this;
         }
@@ -117,6 +134,7 @@ public final class GetResourceCollectionResult {
             final var _resultValue = new GetResourceCollectionResult();
             _resultValue.cloudformations = cloudformations;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;

@@ -128,6 +128,21 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
@@ -196,6 +211,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.notifications = $.notifications;
         this.outputBucket = $.outputBucket;
+        this.region = $.region;
         this.role = $.role;
         this.thumbnailConfig = $.thumbnailConfig;
         this.thumbnailConfigPermissions = $.thumbnailConfigPermissions;
@@ -374,6 +390,27 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder outputBucket(String outputBucket) {
             return outputBucket(Output.of(outputBucket));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

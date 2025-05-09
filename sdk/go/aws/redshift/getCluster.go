@@ -25,7 +25,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Cluster identifier
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	ClusterIdentifier string  `pulumi:"clusterIdentifier"`
+	Region            *string `pulumi:"region"`
 	// Tags associated to the cluster
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -104,7 +105,8 @@ type LookupClusterResult struct {
 	// The maintenance window
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Whether the cluster is publicly accessible
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	Region             string `pulumi:"region"`
 	// Folder inside the S3 bucket where the log files are stored
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 	// Tags associated to the cluster
@@ -127,7 +129,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Cluster identifier
-	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
 	// Tags associated to the cluster
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -333,6 +336,10 @@ func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOut
 // Whether the cluster is publicly accessible
 func (o LookupClusterResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Folder inside the S3 bucket where the log files are stored

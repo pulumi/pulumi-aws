@@ -31,6 +31,7 @@ class KxDataviewArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -52,6 +53,7 @@ class KxDataviewArgs:
                * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
                * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
                * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,6 +72,8 @@ class KxDataviewArgs:
             pulumi.set(__self__, "name", name)
         if read_write is not None:
             pulumi.set(__self__, "read_write", read_write)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if segment_configurations is not None:
             pulumi.set(__self__, "segment_configurations", segment_configurations)
         if tags is not None:
@@ -193,6 +197,18 @@ class KxDataviewArgs:
         pulumi.set(self, "read_write", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]]:
         """
@@ -244,6 +260,7 @@ class _KxDataviewState:
                  last_modified_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -269,6 +286,7 @@ class _KxDataviewState:
                * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
                * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
                * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -297,6 +315,8 @@ class _KxDataviewState:
             pulumi.set(__self__, "name", name)
         if read_write is not None:
             pulumi.set(__self__, "read_write", read_write)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if segment_configurations is not None:
             pulumi.set(__self__, "segment_configurations", segment_configurations)
         if status is not None:
@@ -458,6 +478,18 @@ class _KxDataviewState:
         pulumi.set(self, "read_write", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]]:
         """
@@ -520,6 +552,7 @@ class KxDataview(pulumi.CustomResource):
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -575,6 +608,7 @@ class KxDataview(pulumi.CustomResource):
                * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
                * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
                * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -642,6 +676,7 @@ class KxDataview(pulumi.CustomResource):
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  read_write: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -671,6 +706,7 @@ class KxDataview(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["name"] = name
             __props__.__dict__["read_write"] = read_write
+            __props__.__dict__["region"] = region
             __props__.__dict__["segment_configurations"] = segment_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -700,6 +736,7 @@ class KxDataview(pulumi.CustomResource):
             last_modified_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             read_write: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -730,6 +767,7 @@ class KxDataview(pulumi.CustomResource):
                * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
                * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
                * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -750,6 +788,7 @@ class KxDataview(pulumi.CustomResource):
         __props__.__dict__["last_modified_timestamp"] = last_modified_timestamp
         __props__.__dict__["name"] = name
         __props__.__dict__["read_write"] = read_write
+        __props__.__dict__["region"] = region
         __props__.__dict__["segment_configurations"] = segment_configurations
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -858,6 +897,14 @@ class KxDataview(pulumi.CustomResource):
         * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         """
         return pulumi.get(self, "read_write")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="segmentConfigurations")

@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> DelegationId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
         [Output("roleArn")]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.Auditmanager
         public Input<string> ControlSetId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -199,6 +211,12 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         [Input("delegationId")]
         public Input<string>? DelegationId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.

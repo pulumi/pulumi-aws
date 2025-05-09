@@ -38,6 +38,7 @@ public final class GetWorkerConfigurationResult {
      * 
      */
     private String propertiesFileContent;
+    private String region;
     /**
      * @return A map of tags assigned to the resource.
      * 
@@ -83,6 +84,9 @@ public final class GetWorkerConfigurationResult {
     public String propertiesFileContent() {
         return this.propertiesFileContent;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A map of tags assigned to the resource.
      * 
@@ -106,6 +110,7 @@ public final class GetWorkerConfigurationResult {
         private Integer latestRevision;
         private String name;
         private String propertiesFileContent;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetWorkerConfigurationResult defaults) {
@@ -116,6 +121,7 @@ public final class GetWorkerConfigurationResult {
     	      this.latestRevision = defaults.latestRevision;
     	      this.name = defaults.name;
     	      this.propertiesFileContent = defaults.propertiesFileContent;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -168,6 +174,14 @@ public final class GetWorkerConfigurationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "tags");
@@ -183,6 +197,7 @@ public final class GetWorkerConfigurationResult {
             _resultValue.latestRevision = latestRevision;
             _resultValue.name = name;
             _resultValue.propertiesFileContent = propertiesFileContent;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

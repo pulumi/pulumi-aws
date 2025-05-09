@@ -6,6 +6,7 @@ package com.pulumi.aws.ssm.inputs;
 import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,10 +32,18 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetInstancesArgs() {}
 
     private GetInstancesArgs(GetInstancesArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -84,6 +93,15 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetInstancesFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetInstancesArgs build() {

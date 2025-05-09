@@ -77,6 +77,8 @@ type Tag struct {
 
 	// The tag name.
 	Key pulumi.StringOutput `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the EC2 resource to manage the tag for.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The value of the tag.
@@ -124,6 +126,8 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// The tag name.
 	Key *string `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the EC2 resource to manage the tag for.
 	ResourceId *string `pulumi:"resourceId"`
 	// The value of the tag.
@@ -133,6 +137,8 @@ type tagState struct {
 type TagState struct {
 	// The tag name.
 	Key pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the EC2 resource to manage the tag for.
 	ResourceId pulumi.StringPtrInput
 	// The value of the tag.
@@ -146,6 +152,8 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// The tag name.
 	Key string `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the EC2 resource to manage the tag for.
 	ResourceId string `pulumi:"resourceId"`
 	// The value of the tag.
@@ -156,6 +164,8 @@ type tagArgs struct {
 type TagArgs struct {
 	// The tag name.
 	Key pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the EC2 resource to manage the tag for.
 	ResourceId pulumi.StringInput
 	// The value of the tag.
@@ -252,6 +262,11 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // The tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the EC2 resource to manage the tag for.

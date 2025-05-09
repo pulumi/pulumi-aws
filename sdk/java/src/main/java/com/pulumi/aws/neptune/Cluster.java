@@ -478,6 +478,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.readerEndpoint;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      * 
      */

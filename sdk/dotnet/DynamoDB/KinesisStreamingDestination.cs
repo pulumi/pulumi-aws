@@ -70,6 +70,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> ApproximateCreationDateTimePrecision { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         /// </summary>
         [Output("streamArn")]
@@ -134,6 +140,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? ApproximateCreationDateTimePrecision { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         /// </summary>
         [Input("streamArn", required: true)]
@@ -158,6 +170,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("approximateCreationDateTimePrecision")]
         public Input<string>? ApproximateCreationDateTimePrecision { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.

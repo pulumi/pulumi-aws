@@ -60,6 +60,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> HsmClientCertificatePublicKey { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -123,6 +129,12 @@ namespace Pulumi.Aws.RedShift
         [Input("hsmClientCertificateIdentifier", required: true)]
         public Input<string> HsmClientCertificateIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -160,6 +172,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("hsmClientCertificatePublicKey")]
         public Input<string>? HsmClientCertificatePublicKey { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

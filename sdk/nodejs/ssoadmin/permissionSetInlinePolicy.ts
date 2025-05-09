@@ -81,6 +81,10 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
     public readonly permissionSetArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PermissionSetInlinePolicy resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
             resourceInputs["inlinePolicy"] = state ? state.inlinePolicy : undefined;
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
             resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PermissionSetInlinePolicyArgs | undefined;
             if ((!args || args.inlinePolicy === undefined) && !opts.urn) {
@@ -112,6 +117,7 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
             resourceInputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PermissionSetInlinePolicy.__pulumiType, name, resourceInputs, opts);
@@ -134,6 +140,10 @@ export interface PermissionSetInlinePolicyState {
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
     permissionSetArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -152,4 +162,8 @@ export interface PermissionSetInlinePolicyArgs {
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
     permissionSetArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

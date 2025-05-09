@@ -158,6 +158,10 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
      */
     public readonly accessLogs!: pulumi.Output<outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the Verified Access instance.
      */
     public readonly verifiedaccessInstanceId!: pulumi.Output<string>;
@@ -176,6 +180,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as InstanceLoggingConfigurationState | undefined;
             resourceInputs["accessLogs"] = state ? state.accessLogs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["verifiedaccessInstanceId"] = state ? state.verifiedaccessInstanceId : undefined;
         } else {
             const args = argsOrState as InstanceLoggingConfigurationArgs | undefined;
@@ -186,6 +191,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'verifiedaccessInstanceId'");
             }
             resourceInputs["accessLogs"] = args ? args.accessLogs : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -202,6 +208,10 @@ export interface InstanceLoggingConfigurationState {
      */
     accessLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the Verified Access instance.
      */
     verifiedaccessInstanceId?: pulumi.Input<string>;
@@ -215,6 +225,10 @@ export interface InstanceLoggingConfigurationArgs {
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      */
     accessLogs: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the Verified Access instance.
      */

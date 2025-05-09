@@ -123,6 +123,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> PutRestApiMode { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Resource ID of the REST API's root
         /// </summary>
         [Output("rootResourceId")]
@@ -270,6 +276,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("putRestApiMode")]
         public Input<string>? PutRestApiMode { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -393,6 +405,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("putRestApiMode")]
         public Input<string>? PutRestApiMode { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Resource ID of the REST API's root

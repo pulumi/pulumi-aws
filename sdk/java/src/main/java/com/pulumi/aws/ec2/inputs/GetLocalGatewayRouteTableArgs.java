@@ -70,6 +70,13 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.outpostArn);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * State of the local gateway route table.
      * 
@@ -89,8 +96,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateway Route Tables in the current region. The given filters must match exactly one
+     * Local Gateway Route Table whose data will be exported as attributes.
      * 
      */
     @Import(name="tags")
@@ -100,8 +108,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateway Route Tables in the current region. The given filters must match exactly one
+     * Local Gateway Route Table whose data will be exported as attributes.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -115,6 +124,7 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
         this.localGatewayId = $.localGatewayId;
         this.localGatewayRouteTableId = $.localGatewayRouteTableId;
         this.outpostArn = $.outpostArn;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
     }
@@ -213,6 +223,15 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
             return outpostArn(Output.of(outpostArn));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param state State of the local gateway route table.
          * 
@@ -238,8 +257,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired local gateway route table.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * Local Gateway Route Tables in the current region. The given filters must match exactly one
+         * Local Gateway Route Table whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -253,8 +273,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired local gateway route table.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * Local Gateway Route Tables in the current region. The given filters must match exactly one
+         * Local Gateway Route Table whose data will be exported as attributes.
          * 
          * @return builder
          * 

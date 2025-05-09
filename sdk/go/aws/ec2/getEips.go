@@ -58,6 +58,7 @@ func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption
 type GetEipsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetEipsFilter `pulumi:"filters"`
+	Region  *string         `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -71,6 +72,7 @@ type GetEipsResult struct {
 	Id string `pulumi:"id"`
 	// List of all the Elastic IP addresses.
 	PublicIps []string          `pulumi:"publicIps"`
+	Region    string            `pulumi:"region"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
@@ -87,6 +89,7 @@ func GetEipsOutput(ctx *pulumi.Context, args GetEipsOutputArgs, opts ...pulumi.I
 type GetEipsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetEipsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput   `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -127,6 +130,10 @@ func (o GetEipsResultOutput) Id() pulumi.StringOutput {
 // List of all the Elastic IP addresses.
 func (o GetEipsResultOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEipsResult) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEipsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEipsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetEipsResultOutput) Tags() pulumi.StringMapOutput {

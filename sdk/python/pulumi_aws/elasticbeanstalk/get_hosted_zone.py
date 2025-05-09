@@ -45,7 +45,7 @@ class GetHostedZoneResult:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[builtins.str]:
+    def region(self) -> builtins.str:
         """
         Region of the hosted zone.
         """

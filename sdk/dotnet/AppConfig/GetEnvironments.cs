@@ -102,6 +102,9 @@ namespace Pulumi.Aws.AppConfig
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEnvironmentsArgs()
         {
         }
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEnvironmentsInvokeArgs()
         {
@@ -135,6 +141,7 @@ namespace Pulumi.Aws.AppConfig
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEnvironmentsResult(
@@ -142,11 +149,14 @@ namespace Pulumi.Aws.AppConfig
 
             ImmutableArray<string> environmentIds,
 
-            string id)
+            string id,
+
+            string region)
         {
             ApplicationId = applicationId;
             EnvironmentIds = environmentIds;
             Id = id;
+            Region = region;
         }
     }
 }

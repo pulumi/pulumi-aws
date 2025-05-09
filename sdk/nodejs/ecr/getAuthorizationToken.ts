@@ -20,6 +20,7 @@ export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: p
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getAuthorizationToken:getAuthorizationToken", {
+        "region": args.region,
         "registryId": args.registryId,
     }, opts);
 }
@@ -28,6 +29,7 @@ export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: p
  * A collection of arguments for invoking getAuthorizationToken.
  */
 export interface GetAuthorizationTokenArgs {
+    region?: string;
     /**
      * AWS account ID of the ECR Repository. If not specified the default account is assumed.
      */
@@ -58,6 +60,7 @@ export interface GetAuthorizationTokenResult {
      * Registry URL to use in the docker login command.
      */
     readonly proxyEndpoint: string;
+    readonly region: string;
     readonly registryId?: string;
     /**
      * User name decoded from the authorization token.
@@ -80,6 +83,7 @@ export function getAuthorizationTokenOutput(args?: GetAuthorizationTokenOutputAr
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getAuthorizationToken:getAuthorizationToken", {
+        "region": args.region,
         "registryId": args.registryId,
     }, opts);
 }
@@ -88,6 +92,7 @@ export function getAuthorizationTokenOutput(args?: GetAuthorizationTokenOutputAr
  * A collection of arguments for invoking getAuthorizationToken.
  */
 export interface GetAuthorizationTokenOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * AWS account ID of the ECR Repository. If not specified the default account is assumed.
      */

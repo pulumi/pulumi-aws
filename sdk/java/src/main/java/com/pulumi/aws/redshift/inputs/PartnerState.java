@@ -76,6 +76,21 @@ public final class PartnerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * (Optional) The partner integration status.
      * 
      */
@@ -112,6 +127,7 @@ public final class PartnerState extends com.pulumi.resources.ResourceArgs {
         this.clusterIdentifier = $.clusterIdentifier;
         this.databaseName = $.databaseName;
         this.partnerName = $.partnerName;
+        this.region = $.region;
         this.status = $.status;
         this.statusMessage = $.statusMessage;
     }
@@ -216,6 +232,27 @@ public final class PartnerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder partnerName(String partnerName) {
             return partnerName(Output.of(partnerName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -254,6 +254,10 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly plannedLimits!: pulumi.Output<outputs.budgets.BudgetPlannedLimit[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -301,6 +305,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["notifications"] = state ? state.notifications : undefined;
             resourceInputs["plannedLimits"] = state ? state.plannedLimits : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timePeriodEnd"] = state ? state.timePeriodEnd : undefined;
@@ -325,6 +330,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
             resourceInputs["plannedLimits"] = args ? args.plannedLimits : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
@@ -389,6 +395,10 @@ export interface BudgetState {
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
     plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -461,6 +471,10 @@ export interface BudgetArgs {
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
     plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

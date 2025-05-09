@@ -3027,7 +3027,7 @@ func (o DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) Index(i 
 }
 
 type DistributionDefaultCacheBehaviorGrpcConfig struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -3043,7 +3043,7 @@ type DistributionDefaultCacheBehaviorGrpcConfigInput interface {
 }
 
 type DistributionDefaultCacheBehaviorGrpcConfigArgs struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -3124,7 +3124,7 @@ func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) ToDistributionDefaultC
 	}).(DistributionDefaultCacheBehaviorGrpcConfigPtrOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehaviorGrpcConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3153,7 +3153,7 @@ func (o DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) Elem() Distribution
 	}).(DistributionDefaultCacheBehaviorGrpcConfigOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehaviorGrpcConfig) *bool {
 		if v == nil {
@@ -4197,7 +4197,7 @@ func (o DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) Index(i 
 }
 
 type DistributionOrderedCacheBehaviorGrpcConfig struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -4213,7 +4213,7 @@ type DistributionOrderedCacheBehaviorGrpcConfigInput interface {
 }
 
 type DistributionOrderedCacheBehaviorGrpcConfigArgs struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -4294,7 +4294,7 @@ func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) ToDistributionOrderedC
 	}).(DistributionOrderedCacheBehaviorGrpcConfigPtrOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehaviorGrpcConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4323,7 +4323,7 @@ func (o DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) Elem() Distribution
 	}).(DistributionOrderedCacheBehaviorGrpcConfigOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorGrpcConfig) *bool {
 		if v == nil {
@@ -5215,7 +5215,7 @@ func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) Distr
 }
 
 type DistributionOriginOriginShield struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled bool `pulumi:"enabled"`
 	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
 	OriginShieldRegion *string `pulumi:"originShieldRegion"`
@@ -5233,7 +5233,7 @@ type DistributionOriginOriginShieldInput interface {
 }
 
 type DistributionOriginOriginShieldArgs struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
 	OriginShieldRegion pulumi.StringPtrInput `pulumi:"originShieldRegion"`
@@ -5316,7 +5316,7 @@ func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldPt
 	}).(DistributionOriginOriginShieldPtrOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionOriginOriginShieldOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionOriginOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -5350,7 +5350,7 @@ func (o DistributionOriginOriginShieldPtrOutput) Elem() DistributionOriginOrigin
 	}).(DistributionOriginOriginShieldOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionOriginOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginOriginShield) *bool {
 		if v == nil {
@@ -5964,7 +5964,7 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 }
 
 type DistributionTrustedKeyGroup struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
@@ -5982,7 +5982,7 @@ type DistributionTrustedKeyGroupInput interface {
 }
 
 type DistributionTrustedKeyGroupArgs struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
@@ -6039,7 +6039,7 @@ func (o DistributionTrustedKeyGroupOutput) ToDistributionTrustedKeyGroupOutputWi
 	return o
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6176,7 +6176,7 @@ func (o DistributionTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) Dis
 }
 
 type DistributionTrustedSigner struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedSignerItem `pulumi:"items"`
@@ -6194,7 +6194,7 @@ type DistributionTrustedSignerInput interface {
 }
 
 type DistributionTrustedSignerArgs struct {
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
@@ -6251,7 +6251,7 @@ func (o DistributionTrustedSignerOutput) ToDistributionTrustedSignerOutputWithCo
 	return o
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionTrustedSignerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedSigner) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

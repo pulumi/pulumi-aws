@@ -24,6 +24,7 @@ class GlossaryArgs:
                  owning_project_identifier: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Glossary resource.
@@ -32,6 +33,7 @@ class GlossaryArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the glossary. Must have a length between 0 and 4096.
         :param pulumi.Input[builtins.str] name: Name of the glossary. Must have length between 1 and 256.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -40,6 +42,8 @@ class GlossaryArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -92,6 +96,18 @@ class GlossaryArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Status of business glossary. Valid values are DISABLED and ENABLED.
@@ -110,6 +126,7 @@ class _GlossaryState:
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Glossary resources.
@@ -118,6 +135,7 @@ class _GlossaryState:
         :param pulumi.Input[builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         if description is not None:
@@ -128,6 +146,8 @@ class _GlossaryState:
             pulumi.set(__self__, "name", name)
         if owning_project_identifier is not None:
             pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -180,6 +200,18 @@ class _GlossaryState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Status of business glossary. Valid values are DISABLED and ENABLED.
@@ -203,6 +235,7 @@ class Glossary(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -305,6 +338,7 @@ class Glossary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         ...
@@ -425,6 +459,7 @@ class Glossary(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -443,6 +478,7 @@ class Glossary(pulumi.CustomResource):
             if owning_project_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'owning_project_identifier'")
             __props__.__dict__["owning_project_identifier"] = owning_project_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["status"] = status
         super(Glossary, __self__).__init__(
             'aws:datazone/glossary:Glossary',
@@ -458,6 +494,7 @@ class Glossary(pulumi.CustomResource):
             domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'Glossary':
         """
         Get an existing Glossary resource's state with the given name, id, and optional extra
@@ -471,6 +508,7 @@ class Glossary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -481,6 +519,7 @@ class Glossary(pulumi.CustomResource):
         __props__.__dict__["domain_identifier"] = domain_identifier
         __props__.__dict__["name"] = name
         __props__.__dict__["owning_project_identifier"] = owning_project_identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         return Glossary(resource_name, opts=opts, __props__=__props__)
 
@@ -514,6 +553,14 @@ class Glossary(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "owning_project_identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

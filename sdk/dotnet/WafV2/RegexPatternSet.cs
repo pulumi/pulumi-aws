@@ -87,6 +87,12 @@ namespace Pulumi.Aws.WafV2
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         /// </summary>
         [Output("regularExpressions")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.WafV2
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("regularExpressions")]
         private InputList<Inputs.RegexPatternSetRegularExpressionArgs>? _regularExpressions;
 
@@ -238,6 +250,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("regularExpressions")]
         private InputList<Inputs.RegexPatternSetRegularExpressionGetArgs>? _regularExpressions;

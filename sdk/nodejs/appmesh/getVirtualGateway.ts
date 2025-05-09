@@ -29,6 +29,7 @@ export function getVirtualGateway(args: GetVirtualGatewayArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:appmesh/getVirtualGateway:getVirtualGateway", {
         "meshName": args.meshName,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,7 @@ export interface GetVirtualGatewayArgs {
      * Name of the virtual gateway.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags.
      */
@@ -74,6 +76,7 @@ export interface GetVirtualGatewayResult {
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -109,6 +112,7 @@ export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualGateway:getVirtualGateway", {
         "meshName": args.meshName,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -125,6 +129,7 @@ export interface GetVirtualGatewayOutputArgs {
      * Name of the virtual gateway.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

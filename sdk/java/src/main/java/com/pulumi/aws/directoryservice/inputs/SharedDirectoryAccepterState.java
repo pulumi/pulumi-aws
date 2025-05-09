@@ -76,6 +76,21 @@ public final class SharedDirectoryAccepterState extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
@@ -97,6 +112,7 @@ public final class SharedDirectoryAccepterState extends com.pulumi.resources.Res
         this.notes = $.notes;
         this.ownerAccountId = $.ownerAccountId;
         this.ownerDirectoryId = $.ownerDirectoryId;
+        this.region = $.region;
         this.sharedDirectoryId = $.sharedDirectoryId;
     }
 
@@ -200,6 +216,27 @@ public final class SharedDirectoryAccepterState extends com.pulumi.resources.Res
          */
         public Builder ownerDirectoryId(String ownerDirectoryId) {
             return ownerDirectoryId(Output.of(ownerDirectoryId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

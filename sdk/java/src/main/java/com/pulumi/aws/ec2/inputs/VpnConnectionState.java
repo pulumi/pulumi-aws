@@ -159,6 +159,21 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
@@ -1115,6 +1130,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         this.localIpv4NetworkCidr = $.localIpv4NetworkCidr;
         this.localIpv6NetworkCidr = $.localIpv6NetworkCidr;
         this.outsideIpAddressType = $.outsideIpAddressType;
+        this.region = $.region;
         this.remoteIpv4NetworkCidr = $.remoteIpv4NetworkCidr;
         this.remoteIpv6NetworkCidr = $.remoteIpv6NetworkCidr;
         this.routes = $.routes;
@@ -1385,6 +1401,27 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder outsideIpAddressType(String outsideIpAddressType) {
             return outsideIpAddressType(Output.of(outsideIpAddressType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

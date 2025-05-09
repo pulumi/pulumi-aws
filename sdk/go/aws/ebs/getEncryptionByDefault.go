@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.LookupEncryptionByDefault(ctx, map[string]interface{}{}, nil)
+//			_, err := ebs.LookupEncryptionByDefault(ctx, &ebs.LookupEncryptionByDefaultArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,19 @@ import (
 //	}
 //
 // ```
-func LookupEncryptionByDefault(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {
+func LookupEncryptionByDefault(ctx *pulumi.Context, args *LookupEncryptionByDefaultArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionByDefaultResult
-	err := ctx.Invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getEncryptionByDefault.
+type LookupEncryptionByDefaultArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEncryptionByDefault.
@@ -51,14 +56,26 @@ type LookupEncryptionByDefaultResult struct {
 	// Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func LookupEncryptionByDefaultOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupEncryptionByDefaultResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupEncryptionByDefaultResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", nil, LookupEncryptionByDefaultResultOutput{}, options).(LookupEncryptionByDefaultResultOutput), nil
-	}).(LookupEncryptionByDefaultResultOutput)
+func LookupEncryptionByDefaultOutput(ctx *pulumi.Context, args LookupEncryptionByDefaultOutputArgs, opts ...pulumi.InvokeOption) LookupEncryptionByDefaultResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (LookupEncryptionByDefaultResultOutput, error) {
+			args := v.(LookupEncryptionByDefaultArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args, LookupEncryptionByDefaultResultOutput{}, options).(LookupEncryptionByDefaultResultOutput), nil
+		}).(LookupEncryptionByDefaultResultOutput)
+}
+
+// A collection of arguments for invoking getEncryptionByDefault.
+type LookupEncryptionByDefaultOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (LookupEncryptionByDefaultOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEncryptionByDefaultArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getEncryptionByDefault.
@@ -84,6 +101,10 @@ func (o LookupEncryptionByDefaultResultOutput) Enabled() pulumi.BoolOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupEncryptionByDefaultResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEncryptionByDefaultResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupEncryptionByDefaultResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionByDefaultResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -47,6 +47,13 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.offPeakWindowOptions);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags assigned to the domain.
      * 
@@ -67,6 +74,7 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetDomainPlainArgs(GetDomainPlainArgs $) {
         this.domainName = $.domainName;
         this.offPeakWindowOptions = $.offPeakWindowOptions;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -107,6 +115,11 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder offPeakWindowOptions(@Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions) {
             $.offPeakWindowOptions = offPeakWindowOptions;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

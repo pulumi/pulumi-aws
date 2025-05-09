@@ -96,6 +96,7 @@ public final class GetElasticIpResult {
      * 
      */
     private String publicIpv4Pool;
+    private String region;
     /**
      * @return Key-value map of tags associated with Elastic IP.
      * 
@@ -221,6 +222,9 @@ public final class GetElasticIpResult {
     public String publicIpv4Pool() {
         return this.publicIpv4Pool;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of tags associated with Elastic IP.
      * 
@@ -256,6 +260,7 @@ public final class GetElasticIpResult {
         private String publicDns;
         private String publicIp;
         private String publicIpv4Pool;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetElasticIpResult defaults) {
@@ -278,6 +283,7 @@ public final class GetElasticIpResult {
     	      this.publicDns = defaults.publicDns;
     	      this.publicIp = defaults.publicIp;
     	      this.publicIpv4Pool = defaults.publicIpv4Pool;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -427,6 +433,14 @@ public final class GetElasticIpResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetElasticIpResult", "tags");
@@ -454,6 +468,7 @@ public final class GetElasticIpResult {
             _resultValue.publicDns = publicDns;
             _resultValue.publicIp = publicIp;
             _resultValue.publicIpv4Pool = publicIpv4Pool;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

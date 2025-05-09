@@ -79,6 +79,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Indicates whether the data stored on the root volume is encrypted.
      * 
      */
@@ -205,6 +220,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.computerName = $.computerName;
         this.directoryId = $.directoryId;
         this.ipAddress = $.ipAddress;
+        this.region = $.region;
         this.rootVolumeEncryptionEnabled = $.rootVolumeEncryptionEnabled;
         this.state = $.state;
         this.tags = $.tags;
@@ -315,6 +331,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

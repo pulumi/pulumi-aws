@@ -48,8 +48,8 @@ namespace Pulumi.Aws.Iot
         /// });
         /// ```
         /// </summary>
-        public static Task<GetRegistrationCodeResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetRegistrationCodeResult> InvokeAsync(GetRegistrationCodeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", args ?? new GetRegistrationCodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a registration code used to register a CA certificate with AWS IoT.
@@ -88,8 +88,8 @@ namespace Pulumi.Aws.Iot
         /// });
         /// ```
         /// </summary>
-        public static Output<GetRegistrationCodeResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetRegistrationCodeResult> Invoke(GetRegistrationCodeInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", args ?? new GetRegistrationCodeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a registration code used to register a CA certificate with AWS IoT.
@@ -128,8 +128,31 @@ namespace Pulumi.Aws.Iot
         /// });
         /// ```
         /// </summary>
-        public static Output<GetRegistrationCodeResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetRegistrationCodeResult> Invoke(GetRegistrationCodeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", args ?? new GetRegistrationCodeInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetRegistrationCodeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetRegistrationCodeArgs()
+        {
+        }
+        public static new GetRegistrationCodeArgs Empty => new GetRegistrationCodeArgs();
+    }
+
+    public sealed class GetRegistrationCodeInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetRegistrationCodeInvokeArgs()
+        {
+        }
+        public static new GetRegistrationCodeInvokeArgs Empty => new GetRegistrationCodeInvokeArgs();
     }
 
 
@@ -140,6 +163,7 @@ namespace Pulumi.Aws.Iot
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// The CA certificate registration code.
         /// </summary>
@@ -149,9 +173,12 @@ namespace Pulumi.Aws.Iot
         private GetRegistrationCodeResult(
             string id,
 
+            string region,
+
             string registrationCode)
         {
             Id = id;
+            Region = region;
             RegistrationCode = registrationCode;
         }
     }

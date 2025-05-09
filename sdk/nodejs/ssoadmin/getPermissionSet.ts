@@ -27,6 +27,7 @@ export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.Invok
         "arn": args.arn,
         "instanceArn": args.instanceArn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -47,6 +48,7 @@ export interface GetPermissionSetArgs {
      * Name of the SSO Permission Set.
      */
     name?: string;
+    region?: string;
     /**
      * Key-value map of resource tags.
      */
@@ -69,6 +71,7 @@ export interface GetPermissionSetResult {
     readonly id: string;
     readonly instanceArn: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Relay state URL used to redirect users within the application during the federation authentication process.
      */
@@ -105,6 +108,7 @@ export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: 
         "arn": args.arn,
         "instanceArn": args.instanceArn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -125,6 +129,7 @@ export interface GetPermissionSetOutputArgs {
      * Name of the SSO Permission Set.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */

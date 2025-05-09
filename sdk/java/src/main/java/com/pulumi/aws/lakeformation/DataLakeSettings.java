@@ -348,6 +348,20 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
         return this.readOnlyAdmins;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.

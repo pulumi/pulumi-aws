@@ -62,14 +62,16 @@ func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulum
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthArgs struct {
 	// Name of the cluster
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusterAuth.
 type GetClusterAuthResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Token to use to authenticate with the cluster.
 	Token string `pulumi:"token"`
 }
@@ -86,7 +88,8 @@ func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, op
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthOutputArgs struct {
 	// Name of the cluster
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetClusterAuthOutputArgs) ElementType() reflect.Type {
@@ -115,6 +118,10 @@ func (o GetClusterAuthResultOutput) Id() pulumi.StringOutput {
 
 func (o GetClusterAuthResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAuthResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetClusterAuthResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterAuthResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Token to use to authenticate with the cluster.

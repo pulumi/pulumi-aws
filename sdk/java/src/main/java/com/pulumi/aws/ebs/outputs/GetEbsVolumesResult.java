@@ -26,6 +26,7 @@ public final class GetEbsVolumesResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetEbsVolumesResult() {}
@@ -47,6 +48,9 @@ public final class GetEbsVolumesResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -63,6 +67,7 @@ public final class GetEbsVolumesResult {
         private @Nullable List<GetEbsVolumesFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetEbsVolumesResult defaults) {
@@ -70,6 +75,7 @@ public final class GetEbsVolumesResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -102,6 +108,14 @@ public final class GetEbsVolumesResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEbsVolumesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -112,6 +126,7 @@ public final class GetEbsVolumesResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

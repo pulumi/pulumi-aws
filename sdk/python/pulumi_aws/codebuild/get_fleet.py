@@ -28,7 +28,7 @@ class GetFleetResult:
     """
     A collection of values returned by getFleet.
     """
-    def __init__(__self__, arn=None, base_capacity=None, compute_configurations=None, compute_type=None, created=None, environment_type=None, fleet_service_role=None, id=None, image_id=None, last_modified=None, name=None, overflow_behavior=None, scaling_configurations=None, statuses=None, tags=None, vpc_configs=None):
+    def __init__(__self__, arn=None, base_capacity=None, compute_configurations=None, compute_type=None, created=None, environment_type=None, fleet_service_role=None, id=None, image_id=None, last_modified=None, name=None, overflow_behavior=None, region=None, scaling_configurations=None, statuses=None, tags=None, vpc_configs=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -65,6 +65,9 @@ class GetFleetResult:
         if overflow_behavior and not isinstance(overflow_behavior, str):
             raise TypeError("Expected argument 'overflow_behavior' to be a str")
         pulumi.set(__self__, "overflow_behavior", overflow_behavior)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scaling_configurations and not isinstance(scaling_configurations, list):
             raise TypeError("Expected argument 'scaling_configurations' to be a list")
         pulumi.set(__self__, "scaling_configurations", scaling_configurations)
@@ -172,6 +175,11 @@ class GetFleetResult:
         return pulumi.get(self, "overflow_behavior")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="scalingConfigurations")
     def scaling_configurations(self) -> Sequence['outputs.GetFleetScalingConfigurationResult']:
         """
@@ -222,6 +230,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             last_modified=self.last_modified,
             name=self.name,
             overflow_behavior=self.overflow_behavior,
+            region=self.region,
             scaling_configurations=self.scaling_configurations,
             statuses=self.statuses,
             tags=self.tags,
@@ -229,6 +238,7 @@ class AwaitableGetFleetResult(GetFleetResult):
 
 
 def get_fleet(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
@@ -272,6 +282,7 @@ def get_fleet(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codebuild/getFleet:getFleet', __args__, opts=opts, typ=GetFleetResult).value
@@ -289,11 +300,13 @@ def get_fleet(name: Optional[builtins.str] = None,
         last_modified=pulumi.get(__ret__, 'last_modified'),
         name=pulumi.get(__ret__, 'name'),
         overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
+        region=pulumi.get(__ret__, 'region'),
         scaling_configurations=pulumi.get(__ret__, 'scaling_configurations'),
         statuses=pulumi.get(__ret__, 'statuses'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_configs=pulumi.get(__ret__, 'vpc_configs'))
 def get_fleet_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
@@ -337,6 +350,7 @@ def get_fleet_output(name: Optional[pulumi.Input[builtins.str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codebuild/getFleet:getFleet', __args__, opts=opts, typ=GetFleetResult)
@@ -353,6 +367,7 @@ def get_fleet_output(name: Optional[pulumi.Input[builtins.str]] = None,
         last_modified=pulumi.get(__response__, 'last_modified'),
         name=pulumi.get(__response__, 'name'),
         overflow_behavior=pulumi.get(__response__, 'overflow_behavior'),
+        region=pulumi.get(__response__, 'region'),
         scaling_configurations=pulumi.get(__response__, 'scaling_configurations'),
         statuses=pulumi.get(__response__, 'statuses'),
         tags=pulumi.get(__response__, 'tags'),

@@ -165,6 +165,8 @@ type ObjectCopy struct {
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringOutput                 `pulumi:"objectLockRetainUntilDate"`
 	OverrideProvider          ObjectCopyOverrideProviderPtrOutput `pulumi:"overrideProvider"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged pulumi.BoolOutput `pulumi:"requestCharged"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -331,6 +333,8 @@ type objectCopyState struct {
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string                     `pulumi:"objectLockRetainUntilDate"`
 	OverrideProvider          *ObjectCopyOverrideProvider `pulumi:"overrideProvider"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged *bool `pulumi:"requestCharged"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -440,6 +444,8 @@ type ObjectCopyState struct {
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
 	OverrideProvider          ObjectCopyOverrideProviderPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged pulumi.BoolPtrInput
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -535,6 +541,8 @@ type objectCopyArgs struct {
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string                     `pulumi:"objectLockRetainUntilDate"`
 	OverrideProvider          *ObjectCopyOverrideProvider `pulumi:"overrideProvider"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
@@ -619,6 +627,8 @@ type ObjectCopyArgs struct {
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
 	OverrideProvider          ObjectCopyOverrideProviderPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer pulumi.StringPtrInput
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
@@ -921,6 +931,11 @@ func (o ObjectCopyOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
 
 func (o ObjectCopyOutput) OverrideProvider() ObjectCopyOverrideProviderPtrOutput {
 	return o.ApplyT(func(v *ObjectCopy) ObjectCopyOverrideProviderPtrOutput { return v.OverrideProvider }).(ObjectCopyOverrideProviderPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ObjectCopyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // If present, indicates that the requester was successfully charged for the request.

@@ -94,7 +94,8 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getFleet.
 type LookupFleetArgs struct {
 	// Fleet name.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,6 +125,7 @@ type LookupFleetResult struct {
 	Name         string `pulumi:"name"`
 	// Overflow behavior for compute fleet.
 	OverflowBehavior string `pulumi:"overflowBehavior"`
+	Region           string `pulumi:"region"`
 	// Nested attribute containing information about the scaling configuration.
 	ScalingConfigurations []GetFleetScalingConfiguration `pulumi:"scalingConfigurations"`
 	// Nested attribute containing information about the current status of the fleet.
@@ -146,7 +148,8 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 // A collection of arguments for invoking getFleet.
 type LookupFleetOutputArgs struct {
 	// Fleet name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -227,6 +230,10 @@ func (o LookupFleetResultOutput) Name() pulumi.StringOutput {
 // Overflow behavior for compute fleet.
 func (o LookupFleetResultOutput) OverflowBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFleetResult) string { return v.OverflowBehavior }).(pulumi.StringOutput)
+}
+
+func (o LookupFleetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFleetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Nested attribute containing information about the scaling configuration.

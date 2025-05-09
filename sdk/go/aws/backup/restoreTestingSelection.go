@@ -105,6 +105,8 @@ type RestoreTestingSelection struct {
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrOutput `pulumi:"protectedResourceConditions"`
 	// The type of the protected resource.
 	ProtectedResourceType pulumi.StringOutput `pulumi:"protectedResourceType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 	RestoreMetadataOverrides pulumi.StringMapOutput `pulumi:"restoreMetadataOverrides"`
 	// The name of the restore testing plan.
@@ -162,6 +164,8 @@ type restoreTestingSelectionState struct {
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
 	// The type of the protected resource.
 	ProtectedResourceType *string `pulumi:"protectedResourceType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
 	// The name of the restore testing plan.
@@ -181,6 +185,8 @@ type RestoreTestingSelectionState struct {
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
 	// The type of the protected resource.
 	ProtectedResourceType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 	RestoreMetadataOverrides pulumi.StringMapInput
 	// The name of the restore testing plan.
@@ -204,6 +210,8 @@ type restoreTestingSelectionArgs struct {
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
 	// The type of the protected resource.
 	ProtectedResourceType string `pulumi:"protectedResourceType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
 	// The name of the restore testing plan.
@@ -224,6 +232,8 @@ type RestoreTestingSelectionArgs struct {
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
 	// The type of the protected resource.
 	ProtectedResourceType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 	RestoreMetadataOverrides pulumi.StringMapInput
 	// The name of the restore testing plan.
@@ -344,6 +354,11 @@ func (o RestoreTestingSelectionOutput) ProtectedResourceConditions() RestoreTest
 // The type of the protected resource.
 func (o RestoreTestingSelectionOutput) ProtectedResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.ProtectedResourceType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RestoreTestingSelectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .

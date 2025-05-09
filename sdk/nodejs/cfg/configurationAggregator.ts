@@ -115,6 +115,10 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      */
     public readonly organizationAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -142,6 +146,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["organizationAggregationSource"] = state ? state.organizationAggregationSource : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -149,6 +154,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             resourceInputs["accountAggregationSource"] = args ? args.accountAggregationSource : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -179,6 +185,10 @@ export interface ConfigurationAggregatorState {
      */
     organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
@@ -206,6 +216,10 @@ export interface ConfigurationAggregatorArgs {
      * The organization to aggregate config data from as documented below.
      */
     organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

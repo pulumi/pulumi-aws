@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPullThroughCacheRuleArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,10 +31,18 @@ public final class GetPullThroughCacheRuleArgs extends com.pulumi.resources.Invo
         return this.ecrRepositoryPrefix;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPullThroughCacheRuleArgs() {}
 
     private GetPullThroughCacheRuleArgs(GetPullThroughCacheRuleArgs $) {
         this.ecrRepositoryPrefix = $.ecrRepositoryPrefix;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,6 +82,15 @@ public final class GetPullThroughCacheRuleArgs extends com.pulumi.resources.Invo
          */
         public Builder ecrRepositoryPrefix(String ecrRepositoryPrefix) {
             return ecrRepositoryPrefix(Output.of(ecrRepositoryPrefix));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetPullThroughCacheRuleArgs build() {

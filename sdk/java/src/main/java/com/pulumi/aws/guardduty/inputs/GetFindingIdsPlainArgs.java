@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFindingIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,18 @@ public final class GetFindingIdsPlainArgs extends com.pulumi.resources.InvokeArg
         return this.detectorId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetFindingIdsPlainArgs() {}
 
     private GetFindingIdsPlainArgs(GetFindingIdsPlainArgs $) {
         this.detectorId = $.detectorId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,6 +70,11 @@ public final class GetFindingIdsPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder detectorId(String detectorId) {
             $.detectorId = detectorId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -55,7 +55,8 @@ type LookupServerlessCollectionArgs struct {
 	// ID of the collection.
 	Id *string `pulumi:"id"`
 	// Name of the collection.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServerlessCollection.
@@ -79,6 +80,7 @@ type LookupServerlessCollectionResult struct {
 	// Date the Collection was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 	// Indicates whether standby replicas should be used for a collection.
 	StandbyReplicas string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection.
@@ -101,7 +103,8 @@ type LookupServerlessCollectionOutputArgs struct {
 	// ID of the collection.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the collection.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupServerlessCollectionOutputArgs) ElementType() reflect.Type {
@@ -173,6 +176,10 @@ func (o LookupServerlessCollectionResultOutput) LastModifiedDate() pulumi.String
 
 func (o LookupServerlessCollectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessCollectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether standby replicas should be used for a collection.

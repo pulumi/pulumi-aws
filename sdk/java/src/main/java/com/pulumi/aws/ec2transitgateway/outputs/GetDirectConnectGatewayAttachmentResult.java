@@ -27,6 +27,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Attachment.
      * 
@@ -55,6 +56,9 @@ public final class GetDirectConnectGatewayAttachmentResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Attachment.
      * 
@@ -79,6 +83,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
         private @Nullable String dxGatewayId;
         private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
         private String id;
+        private String region;
         private Map<String,String> tags;
         private @Nullable String transitGatewayId;
         public Builder() {}
@@ -88,6 +93,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
     	      this.dxGatewayId = defaults.dxGatewayId;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
@@ -124,6 +130,14 @@ public final class GetDirectConnectGatewayAttachmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDirectConnectGatewayAttachmentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetDirectConnectGatewayAttachmentResult", "tags");
@@ -143,6 +157,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
             _resultValue.dxGatewayId = dxGatewayId;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.transitGatewayId = transitGatewayId;
             return _resultValue;

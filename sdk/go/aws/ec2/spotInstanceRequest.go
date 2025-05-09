@@ -154,6 +154,8 @@ type SpotInstanceRequest struct {
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -323,6 +325,8 @@ type spotInstanceRequestState struct {
 	PublicDns *string `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp *string `pulumi:"publicIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -463,6 +467,8 @@ type SpotInstanceRequestState struct {
 	PublicDns pulumi.StringPtrInput
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -593,6 +599,8 @@ type spotInstanceRequestArgs struct {
 	PrivateDnsNameOptions *SpotInstanceRequestPrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -707,6 +715,8 @@ type SpotInstanceRequestArgs struct {
 	PrivateDnsNameOptions SpotInstanceRequestPrivateDnsNameOptionsPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -1054,6 +1064,11 @@ func (o SpotInstanceRequestOutput) PublicDns() pulumi.StringOutput {
 // The public IP address assigned to the instance, if applicable.
 func (o SpotInstanceRequestOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SpotInstanceRequestOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.

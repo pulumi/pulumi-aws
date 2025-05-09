@@ -244,6 +244,12 @@ namespace Pulumi.Aws.GameLift
         public Output<int> MinSize { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
         [Output("roleArn")]
@@ -365,6 +371,12 @@ namespace Pulumi.Aws.GameLift
         public Input<int> MinSize { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -467,6 +479,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.

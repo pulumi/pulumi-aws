@@ -27,6 +27,7 @@ export function getLbs(args?: GetLbsArgs, opts?: pulumi.InvokeOptions): Promise<
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lb/getLbs:getLbs", {
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -35,6 +36,7 @@ export function getLbs(args?: GetLbsArgs, opts?: pulumi.InvokeOptions): Promise<
  * A collection of arguments for invoking getLbs.
  */
 export interface GetLbsArgs {
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired Load Balancers.
@@ -54,6 +56,7 @@ export interface GetLbsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -79,6 +82,7 @@ export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOutput
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lb/getLbs:getLbs", {
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -87,6 +91,7 @@ export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOutput
  * A collection of arguments for invoking getLbs.
  */
 export interface GetLbsOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired Load Balancers.

@@ -31,6 +31,7 @@ public final class GetClusterParameterGroupResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetClusterParameterGroupResult() {}
     /**
@@ -64,6 +65,9 @@ public final class GetClusterParameterGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +83,7 @@ public final class GetClusterParameterGroupResult {
         private String family;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetClusterParameterGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,6 +92,7 @@ public final class GetClusterParameterGroupResult {
     	      this.family = defaults.family;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -129,6 +135,14 @@ public final class GetClusterParameterGroupResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterParameterGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetClusterParameterGroupResult build() {
             final var _resultValue = new GetClusterParameterGroupResult();
             _resultValue.arn = arn;
@@ -136,6 +150,7 @@ public final class GetClusterParameterGroupResult {
             _resultValue.family = family;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

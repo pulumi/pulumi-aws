@@ -24,6 +24,7 @@ class VolumeAttachmentArgs:
                  instance_id: pulumi.Input[builtins.str],
                  volume_id: pulumi.Input[builtins.str],
                  force_detach: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  stop_instance_before_detaching: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -36,6 +37,7 @@ class VolumeAttachmentArgs:
                volume to detach. Useful if previous attempts failed, but use this option only
                as a last resort, as this can result in **data loss**. See
                [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set this to true if you do not wish
                to detach the volume from the instance to which it is attached at destroy
                time, and instead just remove the attachment from this provider state. This is
@@ -49,6 +51,8 @@ class VolumeAttachmentArgs:
         pulumi.set(__self__, "volume_id", volume_id)
         if force_detach is not None:
             pulumi.set(__self__, "force_detach", force_detach)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if stop_instance_before_detaching is not None:
@@ -107,6 +111,18 @@ class VolumeAttachmentArgs:
         pulumi.set(self, "force_detach", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -142,6 +158,7 @@ class _VolumeAttachmentState:
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  stop_instance_before_detaching: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -154,6 +171,7 @@ class _VolumeAttachmentState:
                as a last resort, as this can result in **data loss**. See
                [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         :param pulumi.Input[builtins.str] instance_id: ID of the Instance to attach to
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set this to true if you do not wish
                to detach the volume from the instance to which it is attached at destroy
                time, and instead just remove the attachment from this provider state. This is
@@ -169,6 +187,8 @@ class _VolumeAttachmentState:
             pulumi.set(__self__, "force_detach", force_detach)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if stop_instance_before_detaching is not None:
@@ -215,6 +235,18 @@ class _VolumeAttachmentState:
     @instance_id.setter
     def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="skipDestroy")
@@ -269,6 +301,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  stop_instance_before_detaching: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -318,6 +351,7 @@ class VolumeAttachment(pulumi.CustomResource):
                as a last resort, as this can result in **data loss**. See
                [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         :param pulumi.Input[builtins.str] instance_id: ID of the Instance to attach to
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set this to true if you do not wish
                to detach the volume from the instance to which it is attached at destroy
                time, and instead just remove the attachment from this provider state. This is
@@ -387,6 +421,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  stop_instance_before_detaching: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -406,6 +441,7 @@ class VolumeAttachment(pulumi.CustomResource):
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["stop_instance_before_detaching"] = stop_instance_before_detaching
             if volume_id is None and not opts.urn:
@@ -424,6 +460,7 @@ class VolumeAttachment(pulumi.CustomResource):
             device_name: Optional[pulumi.Input[builtins.str]] = None,
             force_detach: Optional[pulumi.Input[builtins.bool]] = None,
             instance_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             stop_instance_before_detaching: Optional[pulumi.Input[builtins.bool]] = None,
             volume_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VolumeAttachment':
@@ -441,6 +478,7 @@ class VolumeAttachment(pulumi.CustomResource):
                as a last resort, as this can result in **data loss**. See
                [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         :param pulumi.Input[builtins.str] instance_id: ID of the Instance to attach to
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set this to true if you do not wish
                to detach the volume from the instance to which it is attached at destroy
                time, and instead just remove the attachment from this provider state. This is
@@ -457,6 +495,7 @@ class VolumeAttachment(pulumi.CustomResource):
         __props__.__dict__["device_name"] = device_name
         __props__.__dict__["force_detach"] = force_detach
         __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["stop_instance_before_detaching"] = stop_instance_before_detaching
         __props__.__dict__["volume_id"] = volume_id
@@ -489,6 +528,14 @@ class VolumeAttachment(pulumi.CustomResource):
         ID of the Instance to attach to
         """
         return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipDestroy")

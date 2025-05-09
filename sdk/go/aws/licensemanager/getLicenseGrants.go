@@ -67,10 +67,8 @@ func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...p
 // A collection of arguments for invoking getLicenseGrants.
 type GetLicenseGrantsArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
+	Region  *string                  `pulumi:"region"`
 }
 
 // A collection of values returned by getLicenseGrants.
@@ -79,7 +77,8 @@ type GetLicenseGrantsResult struct {
 	Arns    []string                 `pulumi:"arns"`
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs, opts ...pulumi.InvokeOption) GetLicenseGrantsResultOutput {
@@ -94,10 +93,8 @@ func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs
 // A collection of arguments for invoking getLicenseGrants.
 type GetLicenseGrantsOutputArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetLicenseGrantsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput            `pulumi:"region"`
 }
 
 func (GetLicenseGrantsOutputArgs) ElementType() reflect.Type {
@@ -131,6 +128,10 @@ func (o GetLicenseGrantsResultOutput) Filters() GetLicenseGrantsFilterArrayOutpu
 // The provider-assigned unique ID for this managed resource.
 func (o GetLicenseGrantsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLicenseGrantsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLicenseGrantsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLicenseGrantsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

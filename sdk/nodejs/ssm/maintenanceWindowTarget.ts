@@ -109,6 +109,10 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
      */
     public readonly ownerInformation!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
     public readonly resourceType!: pulumi.Output<string>;
@@ -138,6 +142,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerInformation"] = state ? state.ownerInformation : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["targets"] = state ? state.targets : undefined;
             resourceInputs["windowId"] = state ? state.windowId : undefined;
@@ -155,6 +160,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownerInformation"] = args ? args.ownerInformation : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["windowId"] = args ? args.windowId : undefined;
@@ -180,6 +186,10 @@ export interface MaintenanceWindowTargetState {
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
     ownerInformation?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
@@ -211,6 +221,10 @@ export interface MaintenanceWindowTargetArgs {
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
     ownerInformation?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */

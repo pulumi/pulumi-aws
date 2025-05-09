@@ -54,6 +54,7 @@ type GetApisArgs struct {
 	Name *string `pulumi:"name"`
 	// API protocol.
 	ProtocolType *string `pulumi:"protocolType"`
+	Region       *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired APIs.
 	Tags map[string]string `pulumi:"tags"`
@@ -67,6 +68,7 @@ type GetApisResult struct {
 	Ids          []string          `pulumi:"ids"`
 	Name         *string           `pulumi:"name"`
 	ProtocolType *string           `pulumi:"protocolType"`
+	Region       string            `pulumi:"region"`
 	Tags         map[string]string `pulumi:"tags"`
 }
 
@@ -85,6 +87,7 @@ type GetApisOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// API protocol.
 	ProtocolType pulumi.StringPtrInput `pulumi:"protocolType"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired APIs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -125,6 +128,10 @@ func (o GetApisResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o GetApisResultOutput) ProtocolType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetApisResult) *string { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+func (o GetApisResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApisResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetApisResultOutput) Tags() pulumi.StringMapOutput {

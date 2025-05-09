@@ -27,6 +27,7 @@ public final class GetUserGroupResult {
      * 
      */
     private Integer precedence;
+    private String region;
     /**
      * @return ARN of the IAM role to be associated with the user group.
      * 
@@ -59,6 +60,9 @@ public final class GetUserGroupResult {
     public Integer precedence() {
         return this.precedence;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of the IAM role to be associated with the user group.
      * 
@@ -83,6 +87,7 @@ public final class GetUserGroupResult {
         private String id;
         private String name;
         private Integer precedence;
+        private String region;
         private String roleArn;
         private String userPoolId;
         public Builder() {}
@@ -92,6 +97,7 @@ public final class GetUserGroupResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.precedence = defaults.precedence;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.userPoolId = defaults.userPoolId;
         }
@@ -129,6 +135,14 @@ public final class GetUserGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetUserGroupResult", "roleArn");
@@ -150,6 +164,7 @@ public final class GetUserGroupResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.precedence = precedence;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.userPoolId = userPoolId;
             return _resultValue;

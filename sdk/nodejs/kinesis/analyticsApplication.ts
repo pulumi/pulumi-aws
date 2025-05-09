@@ -207,6 +207,10 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public readonly referenceDataSources!: pulumi.Output<outputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
@@ -251,6 +255,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputs"] = state ? state.outputs : undefined;
             resourceInputs["referenceDataSources"] = state ? state.referenceDataSources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["startApplication"] = state ? state.startApplication : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -265,6 +270,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputs"] = args ? args.outputs : undefined;
             resourceInputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["startApplication"] = args ? args.startApplication : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -326,6 +332,10 @@ export interface AnalyticsApplicationState {
      */
     referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
@@ -382,6 +392,10 @@ export interface AnalyticsApplicationArgs {
      * See Reference Data Sources below for more details.
      */
     referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.

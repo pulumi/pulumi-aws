@@ -38,6 +38,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     return pulumi.runtime.invoke("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
+        "region": args.region,
     }, opts);
 }
 
@@ -57,6 +58,10 @@ export interface GetKeyArgs {
      * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
     keyId: string;
+    /**
+     * The AWS Region of a primary or replica key in a multi-Region key.
+     */
+    region?: string;
 }
 
 /**
@@ -142,6 +147,10 @@ export interface GetKeyResult {
      */
     readonly pendingDeletionWindowInDays: number;
     /**
+     * The AWS Region of a primary or replica key in a multi-Region key.
+     */
+    readonly region: string;
+    /**
      * The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      */
     readonly validTo: string;
@@ -181,6 +190,7 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputO
     return pulumi.runtime.invokeOutput("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
+        "region": args.region,
     }, opts);
 }
 
@@ -200,4 +210,8 @@ export interface GetKeyOutputArgs {
      * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
     keyId: pulumi.Input<string>;
+    /**
+     * The AWS Region of a primary or replica key in a multi-Region key.
+     */
+    region?: pulumi.Input<string>;
 }

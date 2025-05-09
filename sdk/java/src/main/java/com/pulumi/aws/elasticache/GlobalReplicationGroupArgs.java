@@ -166,6 +166,21 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         return this.primaryReplicationGroupId;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GlobalReplicationGroupArgs() {}
 
     private GlobalReplicationGroupArgs(GlobalReplicationGroupArgs $) {
@@ -177,6 +192,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         this.numNodeGroups = $.numNodeGroups;
         this.parameterGroupName = $.parameterGroupName;
         this.primaryReplicationGroupId = $.primaryReplicationGroupId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -391,6 +407,27 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          */
         public Builder primaryReplicationGroupId(String primaryReplicationGroupId) {
             return primaryReplicationGroupId(Output.of(primaryReplicationGroupId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GlobalReplicationGroupArgs build() {

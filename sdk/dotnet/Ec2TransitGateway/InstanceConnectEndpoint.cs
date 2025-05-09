@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<bool> PreserveClientIp { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         /// </summary>
         [Output("securityGroupIds")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("preserveClientIp")]
         public Input<bool>? PreserveClientIp { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -256,6 +268,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("preserveClientIp")]
         public Input<bool>? PreserveClientIp { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

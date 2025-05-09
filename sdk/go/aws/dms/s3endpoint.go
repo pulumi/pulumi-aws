@@ -223,6 +223,8 @@ type S3Endpoint struct {
 	ParquetVersion pulumi.StringPtrOutput `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrOutput `pulumi:"preserveTransactions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrOutput `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -375,6 +377,8 @@ type s3endpointState struct {
 	ParquetVersion *string `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions *bool `pulumi:"preserveTransactions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -486,6 +490,8 @@ type S3EndpointState struct {
 	ParquetVersion pulumi.StringPtrInput
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrInput
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -595,6 +601,8 @@ type s3endpointArgs struct {
 	ParquetVersion *string `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions *bool `pulumi:"preserveTransactions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -697,6 +705,8 @@ type S3EndpointArgs struct {
 	ParquetVersion pulumi.StringPtrInput
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrInput
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -1014,6 +1024,11 @@ func (o S3EndpointOutput) ParquetVersion() pulumi.StringPtrOutput {
 // Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 func (o S3EndpointOutput) PreserveTransactions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.PreserveTransactions }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o S3EndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.

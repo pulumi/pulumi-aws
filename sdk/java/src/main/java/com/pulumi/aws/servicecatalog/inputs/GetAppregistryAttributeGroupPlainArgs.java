@@ -59,12 +59,20 @@ public final class GetAppregistryAttributeGroupPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetAppregistryAttributeGroupPlainArgs() {}
 
     private GetAppregistryAttributeGroupPlainArgs(GetAppregistryAttributeGroupPlainArgs $) {
         this.arn = $.arn;
         this.id = $.id;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -115,6 +123,11 @@ public final class GetAppregistryAttributeGroupPlainArgs extends com.pulumi.reso
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

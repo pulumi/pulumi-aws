@@ -78,6 +78,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificateWallet!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -103,6 +107,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateId"] = state ? state.certificateId : undefined;
             resourceInputs["certificatePem"] = state ? state.certificatePem : undefined;
             resourceInputs["certificateWallet"] = state ? state.certificateWallet : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -113,6 +118,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateId"] = args ? args.certificateId : undefined;
             resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
             resourceInputs["certificateWallet"] = args?.certificateWallet ? pulumi.secret(args.certificateWallet) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -147,6 +153,10 @@ export interface CertificateState {
      */
     certificateWallet?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -174,6 +184,10 @@ export interface CertificateArgs {
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
     certificateWallet?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

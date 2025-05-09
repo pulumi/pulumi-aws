@@ -23,15 +23,19 @@ __all__ = ['InputSecurityGroupArgs', 'InputSecurityGroup']
 class InputSecurityGroupArgs:
     def __init__(__self__, *,
                  whitelist_rules: pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a InputSecurityGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "whitelist_rules", whitelist_rules)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -51,6 +55,18 @@ class InputSecurityGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -67,6 +83,7 @@ class _InputSecurityGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]] = None):
@@ -74,6 +91,7 @@ class _InputSecurityGroupState:
         Input properties used for looking up and filtering InputSecurityGroup resources.
         :param pulumi.Input[builtins.str] arn: ARN of the InputSecurityGroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inputs: The list of inputs currently using this InputSecurityGroup.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
@@ -83,6 +101,8 @@ class _InputSecurityGroupState:
             pulumi.set(__self__, "arn", arn)
         if inputs is not None:
             pulumi.set(__self__, "inputs", inputs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -113,6 +133,18 @@ class _InputSecurityGroupState:
     @inputs.setter
     def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -158,6 +190,7 @@ class InputSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
@@ -191,6 +224,7 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
@@ -245,6 +279,7 @@ class InputSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
@@ -256,6 +291,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InputSecurityGroupArgs.__new__(InputSecurityGroupArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if whitelist_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'whitelist_rules'")
@@ -275,6 +311,7 @@ class InputSecurityGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             inputs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None) -> 'InputSecurityGroup':
@@ -287,6 +324,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the InputSecurityGroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inputs: The list of inputs currently using this InputSecurityGroup.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
@@ -298,6 +336,7 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["inputs"] = inputs
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["whitelist_rules"] = whitelist_rules
@@ -318,6 +357,14 @@ class InputSecurityGroup(pulumi.CustomResource):
         The list of inputs currently using this InputSecurityGroup.
         """
         return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

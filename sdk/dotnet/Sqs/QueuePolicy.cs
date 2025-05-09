@@ -159,6 +159,12 @@ namespace Pulumi.Aws.Sqs
         [Output("queueUrl")]
         public Output<string> QueueUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a QueuePolicy resource with the given unique name, arguments, and options.
@@ -214,6 +220,12 @@ namespace Pulumi.Aws.Sqs
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public QueuePolicyArgs()
         {
         }
@@ -230,6 +242,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Input("queueUrl")]
         public Input<string>? QueueUrl { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public QueuePolicyState()
         {

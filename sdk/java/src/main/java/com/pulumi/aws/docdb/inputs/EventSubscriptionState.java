@@ -108,6 +108,21 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.namePrefix);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="snsTopicArn")
     private @Nullable Output<String> snsTopicArn;
 
@@ -184,6 +199,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         this.eventCategories = $.eventCategories;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.snsTopicArn = $.snsTopicArn;
         this.sourceIds = $.sourceIds;
         this.sourceType = $.sourceType;
@@ -343,6 +359,27 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder snsTopicArn(@Nullable Output<String> snsTopicArn) {

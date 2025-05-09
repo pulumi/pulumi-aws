@@ -76,6 +76,8 @@ type GameSessionQueue struct {
 	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -126,6 +128,8 @@ type gameSessionQueueState struct {
 	NotificationTarget *string `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +151,8 @@ type GameSessionQueueState struct {
 	NotificationTarget pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -170,6 +176,8 @@ type gameSessionQueueArgs struct {
 	NotificationTarget *string `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Maximum time a game session request can remain in the queue.
@@ -188,6 +196,8 @@ type GameSessionQueueArgs struct {
 	NotificationTarget pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Maximum time a game session request can remain in the queue.
@@ -311,6 +321,11 @@ func (o GameSessionQueueOutput) PlayerLatencyPolicies() GameSessionQueuePlayerLa
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueuePlayerLatencyPolicyArrayOutput {
 		return v.PlayerLatencyPolicies
 	}).(GameSessionQueuePlayerLatencyPolicyArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GameSessionQueueOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -23,6 +23,7 @@ public final class GetResourceResult {
      * 
      */
     private String properties;
+    private String region;
     private @Nullable String roleArn;
     private String typeName;
     private @Nullable String typeVersionId;
@@ -44,6 +45,9 @@ public final class GetResourceResult {
      */
     public String properties() {
         return this.properties;
+    }
+    public String region() {
+        return this.region;
     }
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
@@ -67,6 +71,7 @@ public final class GetResourceResult {
         private String id;
         private String identifier;
         private String properties;
+        private String region;
         private @Nullable String roleArn;
         private String typeName;
         private @Nullable String typeVersionId;
@@ -76,6 +81,7 @@ public final class GetResourceResult {
     	      this.id = defaults.id;
     	      this.identifier = defaults.identifier;
     	      this.properties = defaults.properties;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.typeName = defaults.typeName;
     	      this.typeVersionId = defaults.typeVersionId;
@@ -106,6 +112,14 @@ public final class GetResourceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
 
             this.roleArn = roleArn;
@@ -130,6 +144,7 @@ public final class GetResourceResult {
             _resultValue.id = id;
             _resultValue.identifier = identifier;
             _resultValue.properties = properties;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.typeName = typeName;
             _resultValue.typeVersionId = typeVersionId;

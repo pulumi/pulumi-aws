@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Qualifier { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// String result of the lambda function invocation.
         /// </summary>
         [Output("result")]
@@ -207,6 +213,12 @@ namespace Pulumi.Aws.Lambda
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("terraformKey")]
         public Input<string>? TerraformKey { get; set; }
 
@@ -255,6 +267,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// String result of the lambda function invocation.

@@ -18,6 +18,7 @@ public final class GetCustomModelsResult {
      * 
      */
     private List<GetCustomModelsModelSummary> modelSummaries;
+    private String region;
 
     private GetCustomModelsResult() {}
     public String id() {
@@ -29,6 +30,9 @@ public final class GetCustomModelsResult {
      */
     public List<GetCustomModelsModelSummary> modelSummaries() {
         return this.modelSummaries;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -42,11 +46,13 @@ public final class GetCustomModelsResult {
     public static final class Builder {
         private String id;
         private List<GetCustomModelsModelSummary> modelSummaries;
+        private String region;
         public Builder() {}
         public Builder(GetCustomModelsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.modelSummaries = defaults.modelSummaries;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -68,10 +74,19 @@ public final class GetCustomModelsResult {
         public Builder modelSummaries(GetCustomModelsModelSummary... modelSummaries) {
             return modelSummaries(List.of(modelSummaries));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCustomModelsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetCustomModelsResult build() {
             final var _resultValue = new GetCustomModelsResult();
             _resultValue.id = id;
             _resultValue.modelSummaries = modelSummaries;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

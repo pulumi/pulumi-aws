@@ -161,6 +161,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly permissionType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role ARN that the workspace assumes.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -209,6 +213,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["organizationRoleName"] = state ? state.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = state ? state.organizationalUnits : undefined;
             resourceInputs["permissionType"] = state ? state.permissionType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["samlConfigurationStatus"] = state ? state.samlConfigurationStatus : undefined;
             resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
@@ -238,6 +243,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
             resourceInputs["permissionType"] = args ? args.permissionType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -315,6 +321,10 @@ export interface WorkspaceState {
      */
     permissionType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IAM role ARN that the workspace assumes.
      */
     roleArn?: pulumi.Input<string>;
@@ -391,6 +401,10 @@ export interface WorkspaceArgs {
      * The following arguments are optional:
      */
     permissionType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role ARN that the workspace assumes.
      */

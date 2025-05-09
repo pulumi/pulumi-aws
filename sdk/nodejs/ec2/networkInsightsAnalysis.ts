@@ -91,6 +91,10 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public /*out*/ readonly pathFound!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
     public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[]>;
@@ -143,6 +147,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["forwardPathComponents"] = state ? state.forwardPathComponents : undefined;
             resourceInputs["networkInsightsPathId"] = state ? state.networkInsightsPathId : undefined;
             resourceInputs["pathFound"] = state ? state.pathFound : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["returnPathComponents"] = state ? state.returnPathComponents : undefined;
             resourceInputs["startDate"] = state ? state.startDate : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -158,6 +163,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             }
             resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
             resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["waitForCompletion"] = args ? args.waitForCompletion : undefined;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
@@ -212,6 +218,10 @@ export interface NetworkInsightsAnalysisState {
      */
     pathFound?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
     returnPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisReturnPathComponent>[]>;
@@ -259,6 +269,10 @@ export interface NetworkInsightsAnalysisArgs {
      * The following arguments are optional:
      */
     networkInsightsPathId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

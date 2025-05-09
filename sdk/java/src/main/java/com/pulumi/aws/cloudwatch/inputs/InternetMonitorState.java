@@ -100,6 +100,21 @@ public final class InternetMonitorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      * 
      */
@@ -182,6 +197,7 @@ public final class InternetMonitorState extends com.pulumi.resources.ResourceArg
         this.internetMeasurementsLogDelivery = $.internetMeasurementsLogDelivery;
         this.maxCityNetworksToMonitor = $.maxCityNetworksToMonitor;
         this.monitorName = $.monitorName;
+        this.region = $.region;
         this.resources = $.resources;
         this.status = $.status;
         this.tags = $.tags;
@@ -314,6 +330,27 @@ public final class InternetMonitorState extends com.pulumi.resources.ResourceArg
          */
         public Builder monitorName(String monitorName) {
             return monitorName(Output.of(monitorName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

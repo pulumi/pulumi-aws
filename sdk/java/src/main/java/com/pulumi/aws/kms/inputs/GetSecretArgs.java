@@ -7,13 +7,23 @@ import com.pulumi.aws.kms.inputs.GetSecretSecretArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretArgs Empty = new GetSecretArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     @Import(name="secrets", required=true)
     private Output<List<GetSecretSecretArgs>> secrets;
@@ -25,6 +35,7 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
     private GetSecretArgs() {}
 
     private GetSecretArgs(GetSecretArgs $) {
+        this.region = $.region;
         this.secrets = $.secrets;
     }
 
@@ -44,6 +55,15 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetSecretArgs defaults) {
             $ = new GetSecretArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder secrets(Output<List<GetSecretSecretArgs>> secrets) {

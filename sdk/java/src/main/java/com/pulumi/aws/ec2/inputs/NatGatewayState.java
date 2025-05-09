@@ -109,6 +109,21 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      * 
      */
@@ -207,6 +222,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         this.networkInterfaceId = $.networkInterfaceId;
         this.privateIp = $.privateIp;
         this.publicIp = $.publicIp;
+        this.region = $.region;
         this.secondaryAllocationIds = $.secondaryAllocationIds;
         this.secondaryPrivateIpAddressCount = $.secondaryPrivateIpAddressCount;
         this.secondaryPrivateIpAddresses = $.secondaryPrivateIpAddresses;
@@ -357,6 +373,27 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicIp(String publicIp) {
             return publicIp(Output.of(publicIp));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

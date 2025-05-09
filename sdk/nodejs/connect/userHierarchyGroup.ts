@@ -118,6 +118,10 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
      */
     public readonly parentGroupId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -147,6 +151,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
             resourceInputs["levelId"] = state ? state.levelId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentGroupId"] = state ? state.parentGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -157,6 +162,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentGroupId"] = args ? args.parentGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hierarchyGroupId"] = undefined /*out*/;
@@ -202,6 +208,10 @@ export interface UserHierarchyGroupState {
      */
     parentGroupId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -228,6 +238,10 @@ export interface UserHierarchyGroupArgs {
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
     parentGroupId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

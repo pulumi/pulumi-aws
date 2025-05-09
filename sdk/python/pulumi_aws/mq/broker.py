@@ -39,6 +39,7 @@ class BrokerArgs:
                  logs: Optional[pulumi.Input['BrokerLogsArgs']] = None,
                  maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -64,6 +65,7 @@ class BrokerArgs:
         :param pulumi.Input['BrokerLogsArgs'] logs: Configuration block for the logging configuration of the broker. Detailed below.
         :param pulumi.Input['BrokerMaintenanceWindowStartTimeArgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -99,6 +101,8 @@ class BrokerArgs:
             pulumi.set(__self__, "maintenance_window_start_time", maintenance_window_start_time)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if storage_type is not None:
@@ -315,6 +319,18 @@ class BrokerArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -385,6 +401,7 @@ class _BrokerState:
                  maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']] = None,
                  pending_data_replication_mode: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -412,6 +429,7 @@ class _BrokerState:
         :param pulumi.Input['BrokerMaintenanceWindowStartTimeArgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[builtins.str] pending_data_replication_mode: (Optional) The data replication mode that will be applied after reboot.
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -459,6 +477,8 @@ class _BrokerState:
             pulumi.set(__self__, "pending_data_replication_mode", pending_data_replication_mode)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if storage_type is not None:
@@ -701,6 +721,18 @@ class _BrokerState:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -799,6 +831,7 @@ class Broker(pulumi.CustomResource):
                  logs: Optional[pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
                  maintenance_window_start_time: Optional[pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -939,6 +972,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']] logs: Configuration block for the logging configuration of the broker. Detailed below.
         :param pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -1100,6 +1134,7 @@ class Broker(pulumi.CustomResource):
                  logs: Optional[pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
                  maintenance_window_start_time: Optional[pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1136,6 +1171,7 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["logs"] = logs
             __props__.__dict__["maintenance_window_start_time"] = maintenance_window_start_time
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -1176,6 +1212,7 @@ class Broker(pulumi.CustomResource):
             maintenance_window_start_time: Optional[pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
             pending_data_replication_mode: Optional[pulumi.Input[builtins.str]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             storage_type: Optional[pulumi.Input[builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1208,6 +1245,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[builtins.str] pending_data_replication_mode: (Optional) The data replication mode that will be applied after reboot.
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -1240,6 +1278,7 @@ class Broker(pulumi.CustomResource):
         __props__.__dict__["maintenance_window_start_time"] = maintenance_window_start_time
         __props__.__dict__["pending_data_replication_mode"] = pending_data_replication_mode
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_groups"] = security_groups
         __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -1399,6 +1438,14 @@ class Broker(pulumi.CustomResource):
         Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroups")

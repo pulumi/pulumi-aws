@@ -151,6 +151,7 @@ public final class GetAmiResult {
      * 
      */
     private String ramdiskId;
+    private String region;
     /**
      * @return Device name of the root device.
      * 
@@ -408,6 +409,9 @@ public final class GetAmiResult {
     public String ramdiskId() {
         return this.ramdiskId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Device name of the root device.
      * 
@@ -531,6 +535,7 @@ public final class GetAmiResult {
         private List<GetAmiProductCode> productCodes;
         private Boolean public_;
         private String ramdiskId;
+        private String region;
         private String rootDeviceName;
         private String rootDeviceType;
         private String rootSnapshotId;
@@ -576,6 +581,7 @@ public final class GetAmiResult {
     	      this.productCodes = defaults.productCodes;
     	      this.public_ = defaults.public_;
     	      this.ramdiskId = defaults.ramdiskId;
+    	      this.region = defaults.region;
     	      this.rootDeviceName = defaults.rootDeviceName;
     	      this.rootDeviceType = defaults.rootDeviceType;
     	      this.rootSnapshotId = defaults.rootSnapshotId;
@@ -839,6 +845,14 @@ public final class GetAmiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootDeviceName(String rootDeviceName) {
             if (rootDeviceName == null) {
               throw new MissingRequiredPropertyException("GetAmiResult", "rootDeviceName");
@@ -957,6 +971,7 @@ public final class GetAmiResult {
             _resultValue.productCodes = productCodes;
             _resultValue.public_ = public_;
             _resultValue.ramdiskId = ramdiskId;
+            _resultValue.region = region;
             _resultValue.rootDeviceName = rootDeviceName;
             _resultValue.rootDeviceType = rootDeviceType;
             _resultValue.rootSnapshotId = rootSnapshotId;

@@ -135,8 +135,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available VPN gateways.
+        /// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
         /// </summary>
         [Input("amazonSideAsn")]
         public string? AmazonSideAsn { get; set; }
@@ -171,6 +171,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// State of the specific VPN Gateway to retrieve.
         /// </summary>
@@ -201,8 +204,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available VPN gateways.
+        /// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<string>? AmazonSideAsn { get; set; }
@@ -236,6 +239,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// State of the specific VPN Gateway to retrieve.
@@ -272,6 +278,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string AvailabilityZone;
         public readonly ImmutableArray<Outputs.GetVpnGatewayFilterResult> Filters;
         public readonly string Id;
+        public readonly string Region;
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -289,6 +296,8 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -299,6 +308,7 @@ namespace Pulumi.Aws.Ec2
             AvailabilityZone = availabilityZone;
             Filters = filters;
             Id = id;
+            Region = region;
             State = state;
             Tags = tags;
         }

@@ -21,10 +21,19 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> {
+export function getDefaultKmsKey(args?: GetDefaultKmsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getDefaultKmsKey.
+ */
+export interface GetDefaultKmsKeyArgs {
+    region?: string;
 }
 
 /**
@@ -39,6 +48,7 @@ export interface GetDefaultKmsKeyResult {
      * ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
      */
     readonly keyArn: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the default EBS encryption KMS key in the current region.
@@ -57,8 +67,17 @@ export interface GetDefaultKmsKeyResult {
  * });
  * ```
  */
-export function getDefaultKmsKeyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultKmsKeyResult> {
+export function getDefaultKmsKeyOutput(args?: GetDefaultKmsKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultKmsKeyResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getDefaultKmsKey.
+ */
+export interface GetDefaultKmsKeyOutputArgs {
+    region?: pulumi.Input<string>;
 }

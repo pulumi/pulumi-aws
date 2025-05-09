@@ -99,6 +99,12 @@ namespace Pulumi.Aws.SsmContacts
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.SsmContacts
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -223,6 +235,12 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

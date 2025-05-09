@@ -27,7 +27,7 @@ export function getApplicationAssignments(args: GetApplicationAssignmentsArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
         "applicationArn": args.applicationArn,
-        "applicationAssignments": args.applicationAssignments,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,10 +39,7 @@ export interface GetApplicationAssignmentsArgs {
      * ARN of the application.
      */
     applicationArn: string;
-    /**
-     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     */
-    applicationAssignments?: inputs.ssoadmin.GetApplicationAssignmentsApplicationAssignment[];
+    region?: string;
 }
 
 /**
@@ -56,8 +53,9 @@ export interface GetApplicationAssignmentsResult {
     /**
      * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      */
-    readonly applicationAssignments?: outputs.ssoadmin.GetApplicationAssignmentsApplicationAssignment[];
+    readonly applicationAssignments: outputs.ssoadmin.GetApplicationAssignmentsApplicationAssignment[];
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing AWS SSO Admin Application Assignments.
@@ -79,7 +77,7 @@ export function getApplicationAssignmentsOutput(args: GetApplicationAssignmentsO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
         "applicationArn": args.applicationArn,
-        "applicationAssignments": args.applicationAssignments,
+        "region": args.region,
     }, opts);
 }
 
@@ -91,8 +89,5 @@ export interface GetApplicationAssignmentsOutputArgs {
      * ARN of the application.
      */
     applicationArn: pulumi.Input<string>;
-    /**
-     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     */
-    applicationAssignments?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetApplicationAssignmentsApplicationAssignmentArgs>[]>;
+    region?: pulumi.Input<string>;
 }

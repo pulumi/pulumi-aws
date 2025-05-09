@@ -111,6 +111,9 @@ namespace Pulumi.Aws.DocDB
             set => _preferredVersions = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
@@ -149,6 +152,9 @@ namespace Pulumi.Aws.DocDB
             set => _preferredVersions = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
@@ -180,6 +186,7 @@ namespace Pulumi.Aws.DocDB
         public readonly string Id;
         public readonly string ParameterGroupFamily;
         public readonly ImmutableArray<string> PreferredVersions;
+        public readonly string Region;
         /// <summary>
         /// Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         /// </summary>
@@ -208,6 +215,8 @@ namespace Pulumi.Aws.DocDB
 
             ImmutableArray<string> preferredVersions,
 
+            string region,
+
             bool supportsLogExportsToCloudwatch,
 
             ImmutableArray<string> validUpgradeTargets,
@@ -222,6 +231,7 @@ namespace Pulumi.Aws.DocDB
             Id = id;
             ParameterGroupFamily = parameterGroupFamily;
             PreferredVersions = preferredVersions;
+            Region = region;
             SupportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             ValidUpgradeTargets = validUpgradeTargets;
             Version = version;

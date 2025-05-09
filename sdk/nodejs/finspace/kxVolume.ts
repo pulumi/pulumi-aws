@@ -108,6 +108,10 @@ export class KxVolume extends pulumi.CustomResource {
      */
     public readonly nas1Configurations!: pulumi.Output<outputs.finspace.KxVolumeNas1Configuration[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of volume creation.
      * * `CREATING` – The volume creation is in progress.
      * * `CREATE_FAILED` – The volume creation has failed.
@@ -157,6 +161,7 @@ export class KxVolume extends pulumi.CustomResource {
             resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nas1Configurations"] = state ? state.nas1Configurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -182,6 +187,7 @@ export class KxVolume extends pulumi.CustomResource {
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nas1Configurations"] = args ? args.nas1Configurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -242,6 +248,10 @@ export interface KxVolumeState {
      */
     nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of volume creation.
      * * `CREATING` – The volume creation is in progress.
      * * `CREATE_FAILED` – The volume creation has failed.
@@ -300,6 +310,10 @@ export interface KxVolumeArgs {
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      */
     nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      */

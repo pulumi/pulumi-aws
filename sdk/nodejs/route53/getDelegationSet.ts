@@ -35,8 +35,6 @@ export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.Invok
 export interface GetDelegationSetArgs {
     /**
      * Delegation set ID.
-     *
-     * The following attribute is additionally exported:
      */
     id: string;
 }
@@ -45,9 +43,18 @@ export interface GetDelegationSetArgs {
  * A collection of values returned by getDelegationSet.
  */
 export interface GetDelegationSetResult {
+    /**
+     * ARN of the Delegation Set.
+     */
     readonly arn: string;
+    /**
+     * Caller Reference of the delegation set.
+     */
     readonly callerReference: string;
     readonly id: string;
+    /**
+     * List of DNS name servers for the delegation set.
+     */
     readonly nameServers: string[];
 }
 /**
@@ -81,8 +88,6 @@ export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: 
 export interface GetDelegationSetOutputArgs {
     /**
      * Delegation set ID.
-     *
-     * The following attribute is additionally exported:
      */
     id: pulumi.Input<string>;
 }

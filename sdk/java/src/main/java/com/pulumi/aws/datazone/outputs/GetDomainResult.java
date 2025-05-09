@@ -47,6 +47,7 @@ public final class GetDomainResult {
      * 
      */
     private String portalUrl;
+    private String region;
     /**
      * @return Status of the Domain.
      * 
@@ -109,6 +110,9 @@ public final class GetDomainResult {
     public String portalUrl() {
         return this.portalUrl;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the Domain.
      * 
@@ -135,6 +139,7 @@ public final class GetDomainResult {
         private String managedAccountId;
         private String name;
         private String portalUrl;
+        private String region;
         private String status;
         public Builder() {}
         public Builder(GetDomainResult defaults) {
@@ -148,6 +153,7 @@ public final class GetDomainResult {
     	      this.managedAccountId = defaults.managedAccountId;
     	      this.name = defaults.name;
     	      this.portalUrl = defaults.portalUrl;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
         }
 
@@ -224,6 +230,14 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "status");
@@ -242,6 +256,7 @@ public final class GetDomainResult {
             _resultValue.managedAccountId = managedAccountId;
             _resultValue.name = name;
             _resultValue.portalUrl = portalUrl;
+            _resultValue.region = region;
             _resultValue.status = status;
             return _resultValue;
         }

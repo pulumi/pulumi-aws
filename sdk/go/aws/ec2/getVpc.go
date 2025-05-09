@@ -88,7 +88,8 @@ type LookupVpcArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcFilter `pulumi:"filters"`
 	// ID of the specific VPC to retrieve.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
@@ -128,6 +129,7 @@ type LookupVpcResult struct {
 	MainRouteTableId string `pulumi:"mainRouteTableId"`
 	// ID of the AWS account that owns the VPC.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// State of the association.
 	State string            `pulumi:"state"`
 	Tags  map[string]string `pulumi:"tags"`
@@ -154,7 +156,8 @@ type LookupVpcOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPC to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
@@ -254,6 +257,10 @@ func (o LookupVpcResultOutput) MainRouteTableId() pulumi.StringOutput {
 // ID of the AWS account that owns the VPC.
 func (o LookupVpcResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the association.

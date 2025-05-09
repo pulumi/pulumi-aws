@@ -176,6 +176,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly observabilityConfiguration!: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
@@ -226,6 +230,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["instanceConfiguration"] = state ? state.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             resourceInputs["observabilityConfiguration"] = state ? state.observabilityConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceId"] = state ? state.serviceId : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
@@ -247,6 +252,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["observabilityConfiguration"] = args ? args.observabilityConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -293,6 +299,10 @@ export interface ServiceState {
      * The observability configuration of your service. See Observability Configuration below for more details.
      */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
@@ -353,6 +363,10 @@ export interface ServiceArgs {
      * The observability configuration of your service. See Observability Configuration below for more details.
      */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the service.
      */

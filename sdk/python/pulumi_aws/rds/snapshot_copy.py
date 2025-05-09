@@ -27,6 +27,7 @@ class SnapshotCopyArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  presigned_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[builtins.str]] = None):
@@ -39,6 +40,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] target_custom_availability_zone: The external custom Availability Zone.
@@ -55,6 +57,8 @@ class SnapshotCopyArgs:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if presigned_url is not None:
             pulumi.set(__self__, "presigned_url", presigned_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_accounts is not None:
             pulumi.set(__self__, "shared_accounts", shared_accounts)
         if tags is not None:
@@ -147,6 +151,18 @@ class SnapshotCopyArgs:
         pulumi.set(self, "presigned_url", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -200,6 +216,7 @@ class _SnapshotCopyState:
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  presigned_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -225,6 +242,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[builtins.str] source_region: The region that the DB snapshot was created in or copied from.
@@ -263,6 +281,8 @@ class _SnapshotCopyState:
             pulumi.set(__self__, "port", port)
         if presigned_url is not None:
             pulumi.set(__self__, "presigned_url", presigned_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_accounts is not None:
             pulumi.set(__self__, "shared_accounts", shared_accounts)
         if snapshot_type is not None:
@@ -450,6 +470,18 @@ class _SnapshotCopyState:
         pulumi.set(self, "presigned_url", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -580,6 +612,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  presigned_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -629,6 +662,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -697,6 +731,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  presigned_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -716,6 +751,7 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["presigned_url"] = presigned_url
+            __props__.__dict__["region"] = region
             __props__.__dict__["shared_accounts"] = shared_accounts
             if source_db_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'source_db_snapshot_identifier'")
@@ -763,6 +799,7 @@ class SnapshotCopy(pulumi.CustomResource):
             option_group_name: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             presigned_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
             source_db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -793,6 +830,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[builtins.str] source_region: The region that the DB snapshot was created in or copied from.
@@ -821,6 +859,7 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["option_group_name"] = option_group_name
         __props__.__dict__["port"] = port
         __props__.__dict__["presigned_url"] = presigned_url
+        __props__.__dict__["region"] = region
         __props__.__dict__["shared_accounts"] = shared_accounts
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_snapshot_identifier"] = source_db_snapshot_identifier
@@ -941,6 +980,14 @@ class SnapshotCopy(pulumi.CustomResource):
         he URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sharedAccounts")

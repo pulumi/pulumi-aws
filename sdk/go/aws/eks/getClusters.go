@@ -12,14 +12,19 @@ import (
 )
 
 // Retrieve EKS Clusters list
-func GetClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
+func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClustersResult
-	err := ctx.Invoke("aws:eks/getClusters:getClusters", nil, &rv, opts...)
+	err := ctx.Invoke("aws:eks/getClusters:getClusters", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getClusters.
+type GetClustersArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusters.
@@ -27,14 +32,26 @@ type GetClustersResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of EKS clusters names
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
-func GetClustersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClustersResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetClustersResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:eks/getClusters:getClusters", nil, GetClustersResultOutput{}, options).(GetClustersResultOutput), nil
-	}).(GetClustersResultOutput)
+func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetClustersResultOutput, error) {
+			args := v.(GetClustersArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:eks/getClusters:getClusters", args, GetClustersResultOutput{}, options).(GetClustersResultOutput), nil
+		}).(GetClustersResultOutput)
+}
+
+// A collection of arguments for invoking getClusters.
+type GetClustersOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetClustersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClustersArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getClusters.
@@ -60,6 +77,10 @@ func (o GetClustersResultOutput) Id() pulumi.StringOutput {
 // Set of EKS clusters names
 func (o GetClustersResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClustersResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetClustersResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClustersResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

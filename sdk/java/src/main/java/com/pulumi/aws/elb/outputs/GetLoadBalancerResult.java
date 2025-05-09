@@ -36,6 +36,7 @@ public final class GetLoadBalancerResult {
     private Boolean internal;
     private List<GetLoadBalancerListener> listeners;
     private String name;
+    private String region;
     private List<String> securityGroups;
     private String sourceSecurityGroup;
     private String sourceSecurityGroupId;
@@ -93,6 +94,9 @@ public final class GetLoadBalancerResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> securityGroups() {
         return this.securityGroups;
     }
@@ -136,6 +140,7 @@ public final class GetLoadBalancerResult {
         private Boolean internal;
         private List<GetLoadBalancerListener> listeners;
         private String name;
+        private String region;
         private List<String> securityGroups;
         private String sourceSecurityGroup;
         private String sourceSecurityGroupId;
@@ -160,6 +165,7 @@ public final class GetLoadBalancerResult {
     	      this.internal = defaults.internal;
     	      this.listeners = defaults.listeners;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sourceSecurityGroup = defaults.sourceSecurityGroup;
     	      this.sourceSecurityGroupId = defaults.sourceSecurityGroupId;
@@ -298,6 +304,14 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "securityGroups");
@@ -368,6 +382,7 @@ public final class GetLoadBalancerResult {
             _resultValue.internal = internal;
             _resultValue.listeners = listeners;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.securityGroups = securityGroups;
             _resultValue.sourceSecurityGroup = sourceSecurityGroup;
             _resultValue.sourceSecurityGroupId = sourceSecurityGroupId;

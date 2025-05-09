@@ -55,6 +55,10 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Tag to create. The `tag` block is documented below.
      */
     public readonly tag!: pulumi.Output<outputs.autoscaling.TagTag>;
@@ -73,6 +77,7 @@ export class Tag extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
             resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tag"] = state ? state.tag : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
@@ -83,6 +88,7 @@ export class Tag extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tag'");
             }
             resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tag"] = args ? args.tag : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,6 +105,10 @@ export interface TagState {
      */
     autoscalingGroupName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Tag to create. The `tag` block is documented below.
      */
     tag?: pulumi.Input<inputs.autoscaling.TagTag>;
@@ -112,6 +122,10 @@ export interface TagArgs {
      * Name of the Autoscaling Group to apply the tag to.
      */
     autoscalingGroupName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tag to create. The `tag` block is documented below.
      */

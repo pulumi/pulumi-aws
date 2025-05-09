@@ -28,6 +28,7 @@ class AmiFromInstanceArgs:
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -40,6 +41,7 @@ class AmiFromInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
                inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -57,6 +59,8 @@ class AmiFromInstanceArgs:
             pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_without_reboot is not None:
             pulumi.set(__self__, "snapshot_without_reboot", snapshot_without_reboot)
         if tags is not None:
@@ -137,6 +141,18 @@ class AmiFromInstanceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snapshotWithoutReboot")
     def snapshot_without_reboot(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -189,6 +205,7 @@ class _AmiFromInstanceState:
                  platform_details: Optional[pulumi.Input[builtins.str]] = None,
                  public: Optional[pulumi.Input[builtins.bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  root_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -221,6 +238,7 @@ class _AmiFromInstanceState:
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -280,6 +298,8 @@ class _AmiFromInstanceState:
             pulumi.set(__self__, "public", public)
         if ramdisk_id is not None:
             pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_device_name is not None:
             pulumi.set(__self__, "root_device_name", root_device_name)
         if root_snapshot_id is not None:
@@ -549,6 +569,18 @@ class _AmiFromInstanceState:
         pulumi.set(self, "ramdisk_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -691,6 +723,7 @@ class AmiFromInstance(pulumi.CustomResource):
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[builtins.bool]] = None,
                  source_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -734,6 +767,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
                inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -797,6 +831,7 @@ class AmiFromInstance(pulumi.CustomResource):
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[builtins.bool]] = None,
                  source_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -814,6 +849,7 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["snapshot_without_reboot"] = snapshot_without_reboot
             if source_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_instance_id'")
@@ -876,6 +912,7 @@ class AmiFromInstance(pulumi.CustomResource):
             platform_details: Optional[pulumi.Input[builtins.str]] = None,
             public: Optional[pulumi.Input[builtins.bool]] = None,
             ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             root_device_name: Optional[pulumi.Input[builtins.str]] = None,
             root_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_without_reboot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -913,6 +950,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -954,6 +992,7 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__.__dict__["platform_details"] = platform_details
         __props__.__dict__["public"] = public
         __props__.__dict__["ramdisk_id"] = ramdisk_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["root_device_name"] = root_device_name
         __props__.__dict__["root_snapshot_id"] = root_snapshot_id
         __props__.__dict__["snapshot_without_reboot"] = snapshot_without_reboot
@@ -1123,6 +1162,14 @@ class AmiFromInstance(pulumi.CustomResource):
         created instances.
         """
         return pulumi.get(self, "ramdisk_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="rootDeviceName")

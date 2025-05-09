@@ -24,16 +24,20 @@ class SchedulingPolicyArgs:
     def __init__(__self__, *,
                  fair_share_policy: Optional[pulumi.Input['SchedulingPolicyFairSharePolicyArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SchedulingPolicy resource.
         :param pulumi.Input[builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if fair_share_policy is not None:
             pulumi.set(__self__, "fair_share_policy", fair_share_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,6 +64,18 @@ class SchedulingPolicyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -77,12 +93,14 @@ class _SchedulingPolicyState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  fair_share_policy: Optional[pulumi.Input['SchedulingPolicyFairSharePolicyArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SchedulingPolicy resources.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name of the scheduling policy.
         :param pulumi.Input[builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -92,6 +110,8 @@ class _SchedulingPolicyState:
             pulumi.set(__self__, "fair_share_policy", fair_share_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -132,6 +152,18 @@ class _SchedulingPolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -165,6 +197,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fair_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -208,6 +241,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -271,6 +305,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fair_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -283,6 +318,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
             __props__.__dict__["fair_share_policy"] = fair_share_policy
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -299,6 +335,7 @@ class SchedulingPolicy(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             fair_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'SchedulingPolicy':
         """
@@ -310,6 +347,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name of the scheduling policy.
         :param pulumi.Input[builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -320,6 +358,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["fair_share_policy"] = fair_share_policy
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return SchedulingPolicy(resource_name, opts=opts, __props__=__props__)
@@ -344,6 +383,14 @@ class SchedulingPolicy(pulumi.CustomResource):
         Specifies the name of the scheduling policy.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

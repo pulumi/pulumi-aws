@@ -192,23 +192,14 @@ namespace Pulumi.Aws.Emr
 
     public sealed class GetSupportedInstanceTypesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         /// </summary>
         [Input("releaseLabel", required: true)]
         public string ReleaseLabel { get; set; } = null!;
-
-        [Input("supportedInstanceTypes")]
-        private List<Inputs.GetSupportedInstanceTypesSupportedInstanceTypeArgs>? _supportedInstanceTypes;
-
-        /// <summary>
-        /// List of supported instance types. See `supported_instance_types` below.
-        /// </summary>
-        public List<Inputs.GetSupportedInstanceTypesSupportedInstanceTypeArgs> SupportedInstanceTypes
-        {
-            get => _supportedInstanceTypes ?? (_supportedInstanceTypes = new List<Inputs.GetSupportedInstanceTypesSupportedInstanceTypeArgs>());
-            set => _supportedInstanceTypes = value;
-        }
 
         public GetSupportedInstanceTypesArgs()
         {
@@ -218,23 +209,14 @@ namespace Pulumi.Aws.Emr
 
     public sealed class GetSupportedInstanceTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         /// </summary>
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
-
-        [Input("supportedInstanceTypes")]
-        private InputList<Inputs.GetSupportedInstanceTypesSupportedInstanceTypeInputArgs>? _supportedInstanceTypes;
-
-        /// <summary>
-        /// List of supported instance types. See `supported_instance_types` below.
-        /// </summary>
-        public InputList<Inputs.GetSupportedInstanceTypesSupportedInstanceTypeInputArgs> SupportedInstanceTypes
-        {
-            get => _supportedInstanceTypes ?? (_supportedInstanceTypes = new InputList<Inputs.GetSupportedInstanceTypesSupportedInstanceTypeInputArgs>());
-            set => _supportedInstanceTypes = value;
-        }
 
         public GetSupportedInstanceTypesInvokeArgs()
         {
@@ -247,6 +229,7 @@ namespace Pulumi.Aws.Emr
     public sealed class GetSupportedInstanceTypesResult
     {
         public readonly string Id;
+        public readonly string Region;
         public readonly string ReleaseLabel;
         /// <summary>
         /// List of supported instance types. See `supported_instance_types` below.
@@ -257,11 +240,14 @@ namespace Pulumi.Aws.Emr
         private GetSupportedInstanceTypesResult(
             string id,
 
+            string region,
+
             string releaseLabel,
 
             ImmutableArray<Outputs.GetSupportedInstanceTypesSupportedInstanceTypeResult> supportedInstanceTypes)
         {
             Id = id;
+            Region = region;
             ReleaseLabel = releaseLabel;
             SupportedInstanceTypes = supportedInstanceTypes;
         }

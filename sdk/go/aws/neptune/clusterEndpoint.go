@@ -64,6 +64,8 @@ type ClusterEndpoint struct {
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of DB instance identifiers that are part of the custom endpoint group.
 	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,6 +125,8 @@ type clusterEndpointState struct {
 	EndpointType *string `pulumi:"endpointType"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 	ExcludedMembers []string `pulumi:"excludedMembers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of DB instance identifiers that are part of the custom endpoint group.
 	StaticMembers []string `pulumi:"staticMembers"`
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -144,6 +148,8 @@ type ClusterEndpointState struct {
 	EndpointType pulumi.StringPtrInput
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 	ExcludedMembers pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of DB instance identifiers that are part of the custom endpoint group.
 	StaticMembers pulumi.StringArrayInput
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -165,6 +171,8 @@ type clusterEndpointArgs struct {
 	EndpointType string `pulumi:"endpointType"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 	ExcludedMembers []string `pulumi:"excludedMembers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of DB instance identifiers that are part of the custom endpoint group.
 	StaticMembers []string `pulumi:"staticMembers"`
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,6 +189,8 @@ type ClusterEndpointArgs struct {
 	EndpointType pulumi.StringInput
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 	ExcludedMembers pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of DB instance identifiers that are part of the custom endpoint group.
 	StaticMembers pulumi.StringArrayInput
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -302,6 +312,11 @@ func (o ClusterEndpointOutput) EndpointType() pulumi.StringOutput {
 // List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 func (o ClusterEndpointOutput) ExcludedMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringArrayOutput { return v.ExcludedMembers }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of DB instance identifiers that are part of the custom endpoint group.

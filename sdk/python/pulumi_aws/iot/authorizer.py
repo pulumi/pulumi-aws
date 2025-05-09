@@ -23,6 +23,7 @@ class AuthorizerArgs:
                  authorizer_function_arn: pulumi.Input[builtins.str],
                  enable_caching_for_http: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signing_disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -33,6 +34,7 @@ class AuthorizerArgs:
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -44,6 +46,8 @@ class AuthorizerArgs:
             pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if signing_disabled is not None:
             pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
@@ -90,6 +94,18 @@ class AuthorizerArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="signingDisabled")
@@ -159,6 +175,7 @@ class _AuthorizerState:
                  authorizer_function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  enable_caching_for_http: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signing_disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -171,6 +188,7 @@ class _AuthorizerState:
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -186,6 +204,8 @@ class _AuthorizerState:
             pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if signing_disabled is not None:
             pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
@@ -246,6 +266,18 @@ class _AuthorizerState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="signingDisabled")
@@ -331,6 +363,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  enable_caching_for_http: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signing_disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -374,6 +407,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -436,6 +470,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  enable_caching_for_http: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signing_disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -455,6 +490,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["authorizer_function_arn"] = authorizer_function_arn
             __props__.__dict__["enable_caching_for_http"] = enable_caching_for_http
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["signing_disabled"] = signing_disabled
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -478,6 +514,7 @@ class Authorizer(pulumi.CustomResource):
             authorizer_function_arn: Optional[pulumi.Input[builtins.str]] = None,
             enable_caching_for_http: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             signing_disabled: Optional[pulumi.Input[builtins.bool]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -495,6 +532,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -510,6 +548,7 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["authorizer_function_arn"] = authorizer_function_arn
         __props__.__dict__["enable_caching_for_http"] = enable_caching_for_http
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["signing_disabled"] = signing_disabled
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -549,6 +588,14 @@ class Authorizer(pulumi.CustomResource):
         The name of the authorizer.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="signingDisabled")

@@ -59,7 +59,8 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
 	// Full path of the resource.  If no path is found, an error will be returned.
-	Path string `pulumi:"path"`
+	Path   string  `pulumi:"path"`
+	Region *string `pulumi:"region"`
 	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -73,6 +74,7 @@ type LookupResourceResult struct {
 	Path     string `pulumi:"path"`
 	// Set to the path relative to the parent Resource.
 	PathPart  string `pulumi:"pathPart"`
+	Region    string `pulumi:"region"`
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -88,7 +90,8 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
 	// Full path of the resource.  If no path is found, an error will be returned.
-	Path pulumi.StringInput `pulumi:"path"`
+	Path   pulumi.StringInput    `pulumi:"path"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
@@ -129,6 +132,10 @@ func (o LookupResourceResultOutput) Path() pulumi.StringOutput {
 // Set to the path relative to the parent Resource.
 func (o LookupResourceResultOutput) PathPart() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.PathPart }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResourceResultOutput) RestApiId() pulumi.StringOutput {

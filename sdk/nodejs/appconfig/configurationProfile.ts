@@ -96,6 +96,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      */
     public readonly retrievalRoleArn!: pulumi.Output<string | undefined>;
@@ -136,6 +140,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["locationUri"] = state ? state.locationUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retrievalRoleArn"] = state ? state.retrievalRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -154,6 +159,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -200,6 +206,10 @@ export interface ConfigurationProfileState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      */
     retrievalRoleArn?: pulumi.Input<string>;
@@ -245,6 +255,10 @@ export interface ConfigurationProfileArgs {
      * Name for the configuration profile. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      */

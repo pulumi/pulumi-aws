@@ -82,6 +82,10 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * SNS topic arn to send events on.
      */
     public readonly snsTopicArn!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["eventCategories"] = state ? state.eventCategories : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
             resourceInputs["sourceIds"] = state ? state.sourceIds : undefined;
             resourceInputs["sourceType"] = state ? state.sourceType : undefined;
@@ -138,6 +143,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
             resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
             resourceInputs["sourceType"] = args ? args.sourceType : undefined;
@@ -170,6 +176,10 @@ export interface EventSubscriptionState {
      * Name of event subscription.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * SNS topic arn to send events on.
      */
@@ -208,6 +218,10 @@ export interface EventSubscriptionArgs {
      * Name of event subscription.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * SNS topic arn to send events on.
      */

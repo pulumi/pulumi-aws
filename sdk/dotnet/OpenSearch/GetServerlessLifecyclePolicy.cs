@@ -102,6 +102,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Type of lifecycle policy. Must be `retention`.
         /// </summary>
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of lifecycle policy. Must be `retention`.
@@ -160,6 +166,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Version of the policy.
         /// </summary>
         public readonly string PolicyVersion;
+        public readonly string Region;
         public readonly string Type;
 
         [OutputConstructor]
@@ -178,6 +185,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string policyVersion,
 
+            string region,
+
             string type)
         {
             CreatedDate = createdDate;
@@ -187,6 +196,7 @@ namespace Pulumi.Aws.OpenSearch
             Name = name;
             Policy = policy;
             PolicyVersion = policyVersion;
+            Region = region;
             Type = type;
         }
     }

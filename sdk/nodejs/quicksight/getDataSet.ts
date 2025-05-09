@@ -28,6 +28,7 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,
         "dataSetId": args.dataSetId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -42,10 +43,9 @@ export interface GetDataSetArgs {
     awsAccountId?: string;
     /**
      * Identifier for the data set.
-     *
-     * The following arguments are optional:
      */
     dataSetId: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -69,6 +69,7 @@ export interface GetDataSetResult {
     readonly name: string;
     readonly permissions: outputs.quicksight.GetDataSetPermission[];
     readonly physicalTableMaps: outputs.quicksight.GetDataSetPhysicalTableMap[];
+    readonly region: string;
     readonly rowLevelPermissionDataSets: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
     readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
@@ -94,6 +95,7 @@ export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,
         "dataSetId": args.dataSetId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -108,9 +110,8 @@ export interface GetDataSetOutputArgs {
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the data set.
-     *
-     * The following arguments are optional:
      */
     dataSetId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

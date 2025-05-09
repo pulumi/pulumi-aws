@@ -51,7 +51,8 @@ func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArg
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationArgs struct {
 	// The Amazon Resource Name (ARN) of the rotation.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getContactsRotation.
@@ -64,6 +65,7 @@ type LookupContactsRotationResult struct {
 	Name string `pulumi:"name"`
 	// Information about when an on-call rotation is in effect and how long the rotation period lasts.
 	Recurrences []GetContactsRotationRecurrence `pulumi:"recurrences"`
+	Region      string                          `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime string `pulumi:"startTime"`
 	// A map of tags to assign to the resource.
@@ -84,7 +86,8 @@ func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotati
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the rotation.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupContactsRotationOutputArgs) ElementType() reflect.Type {
@@ -127,6 +130,10 @@ func (o LookupContactsRotationResultOutput) Name() pulumi.StringOutput {
 // Information about when an on-call rotation is in effect and how long the rotation period lasts.
 func (o LookupContactsRotationResultOutput) Recurrences() GetContactsRotationRecurrenceArrayOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) []GetContactsRotationRecurrence { return v.Recurrences }).(GetContactsRotationRecurrenceArrayOutput)
+}
+
+func (o LookupContactsRotationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The date and time, in RFC 3339 format, that the rotation goes into effect.

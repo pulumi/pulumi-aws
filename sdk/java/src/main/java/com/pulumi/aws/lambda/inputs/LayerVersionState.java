@@ -174,6 +174,21 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      * 
      */
@@ -321,6 +336,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         this.layerArn = $.layerArn;
         this.layerName = $.layerName;
         this.licenseInfo = $.licenseInfo;
+        this.region = $.region;
         this.s3Bucket = $.s3Bucket;
         this.s3Key = $.s3Key;
         this.s3ObjectVersion = $.s3ObjectVersion;
@@ -582,6 +598,27 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder licenseInfo(String licenseInfo) {
             return licenseInfo(Output.of(licenseInfo));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

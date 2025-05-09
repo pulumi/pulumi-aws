@@ -25,6 +25,7 @@ export function getApiKeys(args?: GetApiKeysArgs, opts?: pulumi.InvokeOptions): 
     return pulumi.runtime.invoke("aws:apigateway/getApiKeys:getApiKeys", {
         "customerId": args.customerId,
         "includeValues": args.includeValues,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,7 @@ export interface GetApiKeysArgs {
      * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
      */
     includeValues?: boolean;
+    region?: string;
 }
 
 /**
@@ -59,6 +61,7 @@ export interface GetApiKeysResult {
      * List of objects containing API Key information. See below.
      */
     readonly items: outputs.apigateway.GetApiKeysItem[];
+    readonly region: string;
 }
 /**
  * Data source for managing AWS API Gateway API Keys.
@@ -78,6 +81,7 @@ export function getApiKeysOutput(args?: GetApiKeysOutputArgs, opts?: pulumi.Invo
     return pulumi.runtime.invokeOutput("aws:apigateway/getApiKeys:getApiKeys", {
         "customerId": args.customerId,
         "includeValues": args.includeValues,
+        "region": args.region,
     }, opts);
 }
 
@@ -93,4 +97,5 @@ export interface GetApiKeysOutputArgs {
      * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
      */
     includeValues?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
 }

@@ -171,6 +171,9 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -208,6 +211,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -253,6 +259,7 @@ namespace Pulumi.Aws.Connect
         /// Name of the hierarchy group.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Map of tags to assign to the hierarchy group.
         /// </summary>
@@ -274,6 +281,8 @@ namespace Pulumi.Aws.Connect
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -283,6 +292,7 @@ namespace Pulumi.Aws.Connect
             InstanceId = instanceId;
             LevelId = levelId;
             Name = name;
+            Region = region;
             Tags = tags;
         }
     }

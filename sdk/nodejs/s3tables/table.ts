@@ -119,6 +119,10 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
      * The following argument is optional:
@@ -162,6 +166,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["versionToken"] = state ? state.versionToken : undefined;
@@ -181,6 +186,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -254,6 +260,10 @@ export interface TableState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
      * The following argument is optional:
@@ -301,6 +311,10 @@ export interface TableArgs {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *

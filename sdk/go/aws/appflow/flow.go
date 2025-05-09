@@ -199,6 +199,8 @@ type Flow struct {
 	MetadataCatalogConfig FlowMetadataCatalogConfigOutput `pulumi:"metadataCatalogConfig"`
 	// Name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfigOutput `pulumi:"sourceFlowConfig"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,6 +269,8 @@ type flowState struct {
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Name of the flow.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig *FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -294,6 +298,8 @@ type FlowState struct {
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
 	// Name of the flow.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfigPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -321,6 +327,8 @@ type flowArgs struct {
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Name of the flow.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -343,6 +351,8 @@ type FlowArgs struct {
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
 	// Name of the flow.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfigInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -473,6 +483,11 @@ func (o FlowOutput) MetadataCatalogConfig() FlowMetadataCatalogConfigOutput {
 // Name of the flow.
 func (o FlowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FlowOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.

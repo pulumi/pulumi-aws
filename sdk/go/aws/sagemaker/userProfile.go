@@ -59,6 +59,8 @@ type UserProfile struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
 	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserIdentifier pulumi.StringPtrOutput `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -115,6 +117,8 @@ type userProfileState struct {
 	DomainId *string `pulumi:"domainId"`
 	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
 	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserIdentifier *string `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -136,6 +140,8 @@ type UserProfileState struct {
 	DomainId pulumi.StringPtrInput
 	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
 	HomeEfsFileSystemUid pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserIdentifier pulumi.StringPtrInput
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -157,6 +163,8 @@ func (UserProfileState) ElementType() reflect.Type {
 type userProfileArgs struct {
 	// The ID of the associated Domain.
 	DomainId string `pulumi:"domainId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserIdentifier *string `pulumi:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -173,6 +181,8 @@ type userProfileArgs struct {
 type UserProfileArgs struct {
 	// The ID of the associated Domain.
 	DomainId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserIdentifier pulumi.StringPtrInput
 	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -285,6 +295,11 @@ func (o UserProfileOutput) DomainId() pulumi.StringOutput {
 // The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
 func (o UserProfileOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.

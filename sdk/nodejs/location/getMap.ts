@@ -25,6 +25,7 @@ export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getMap:getMap", {
         "mapName": args.mapName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetMapArgs {
      * Name of the map resource.
      */
     mapName: string;
+    region?: string;
     /**
      * Key-value map of resource tags for the map.
      */
@@ -68,6 +70,7 @@ export interface GetMapResult {
      */
     readonly mapArn: string;
     readonly mapName: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the map.
      */
@@ -95,6 +98,7 @@ export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getMap:getMap", {
         "mapName": args.mapName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -107,6 +111,7 @@ export interface GetMapOutputArgs {
      * Name of the map resource.
      */
     mapName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the map.
      */

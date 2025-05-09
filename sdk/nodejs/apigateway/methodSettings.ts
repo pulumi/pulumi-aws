@@ -129,6 +129,10 @@ export class MethodSettings extends pulumi.CustomResource {
      */
     public readonly methodPath!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the REST API
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -155,6 +159,7 @@ export class MethodSettings extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MethodSettingsState | undefined;
             resourceInputs["methodPath"] = state ? state.methodPath : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["stageName"] = state ? state.stageName : undefined;
@@ -173,6 +178,7 @@ export class MethodSettings extends pulumi.CustomResource {
                 throw new Error("Missing required property 'stageName'");
             }
             resourceInputs["methodPath"] = args ? args.methodPath : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["stageName"] = args ? args.stageName : undefined;
@@ -190,6 +196,10 @@ export interface MethodSettingsState {
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     methodPath?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the REST API
      */
@@ -212,6 +222,10 @@ export interface MethodSettingsArgs {
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     methodPath: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the REST API
      */

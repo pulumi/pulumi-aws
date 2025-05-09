@@ -28,6 +28,7 @@ public final class GetEndpointResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetEndpointResult() {}
     /**
@@ -52,6 +53,9 @@ public final class GetEndpointResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -65,12 +69,14 @@ public final class GetEndpointResult {
         private String endpointAddress;
         private @Nullable String endpointType;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointAddress = defaults.endpointAddress;
     	      this.endpointType = defaults.endpointType;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -95,11 +101,20 @@ public final class GetEndpointResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEndpointResult build() {
             final var _resultValue = new GetEndpointResult();
             _resultValue.endpointAddress = endpointAddress;
             _resultValue.endpointType = endpointType;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -16,6 +16,13 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetWorkspacePlainArgs Empty = new GetWorkspacePlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Tags assigned to the resource.
      * 
@@ -49,6 +56,7 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
     private GetWorkspacePlainArgs() {}
 
     private GetWorkspacePlainArgs(GetWorkspacePlainArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.workspaceId = $.workspaceId;
     }
@@ -69,6 +77,11 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetWorkspacePlainArgs defaults) {
             $ = new GetWorkspacePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

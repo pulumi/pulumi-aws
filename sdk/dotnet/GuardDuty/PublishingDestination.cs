@@ -217,6 +217,12 @@ namespace Pulumi.Aws.GuardDuty
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -289,6 +295,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PublishingDestinationArgs()
         {
         }
@@ -322,6 +334,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public PublishingDestinationState()
         {

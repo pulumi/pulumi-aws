@@ -26,6 +26,7 @@ class V2modelsBotVersionArgs:
                  locale_specification: pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]],
                  bot_version: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotVersion resource.
@@ -36,6 +37,7 @@ class V2modelsBotVersionArgs:
                * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         :param pulumi.Input[builtins.str] bot_version: Version number assigned to the version.
         :param pulumi.Input[builtins.str] description: A description of the version. Use the description to help identify the version in lists.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "locale_specification", locale_specification)
@@ -43,6 +45,8 @@ class V2modelsBotVersionArgs:
             pulumi.set(__self__, "bot_version", bot_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -99,6 +103,18 @@ class V2modelsBotVersionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -114,6 +130,7 @@ class _V2modelsBotVersionState:
                  bot_version: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotVersion resources.
@@ -124,6 +141,7 @@ class _V2modelsBotVersionState:
                
                The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
                * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -133,6 +151,8 @@ class _V2modelsBotVersionState:
             pulumi.set(__self__, "description", description)
         if locale_specification is not None:
             pulumi.set(__self__, "locale_specification", locale_specification)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -189,6 +209,18 @@ class _V2modelsBotVersionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -209,6 +241,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
                  bot_version: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -248,6 +281,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
                
                The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
                * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -302,6 +336,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
                  bot_version: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,6 +355,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
             if locale_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'locale_specification'")
             __props__.__dict__["locale_specification"] = locale_specification
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
         super(V2modelsBotVersion, __self__).__init__(
             'aws:lex/v2modelsBotVersion:V2modelsBotVersion',
@@ -335,6 +371,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
             bot_version: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None) -> 'V2modelsBotVersion':
         """
         Get an existing V2modelsBotVersion resource's state with the given name, id, and optional extra
@@ -350,6 +387,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
                
                The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
                * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,6 +397,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         __props__.__dict__["bot_version"] = bot_version
         __props__.__dict__["description"] = description
         __props__.__dict__["locale_specification"] = locale_specification
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return V2modelsBotVersion(resource_name, opts=opts, __props__=__props__)
 
@@ -396,6 +435,14 @@ class V2modelsBotVersion(pulumi.CustomResource):
         * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         """
         return pulumi.get(self, "locale_specification")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

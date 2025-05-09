@@ -92,6 +92,21 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.peerTransitGatewayId);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="state")
     private @Nullable Output<String> state;
 
@@ -152,6 +167,7 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         this.peerAccountId = $.peerAccountId;
         this.peerRegion = $.peerRegion;
         this.peerTransitGatewayId = $.peerTransitGatewayId;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -279,6 +295,27 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
          */
         public Builder peerTransitGatewayId(String peerTransitGatewayId) {
             return peerTransitGatewayId(Output.of(peerTransitGatewayId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder state(@Nullable Output<String> state) {

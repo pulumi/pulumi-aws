@@ -116,6 +116,10 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role to associate with the VPC connection.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -161,6 +165,7 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["dnsResolvers"] = state ? state.dnsResolvers : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -185,6 +190,7 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["dnsResolvers"] = args ? args.dnsResolvers : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -224,6 +230,10 @@ export interface VpcConnectionState {
      * The display name for the VPC connection.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role to associate with the VPC connection.
      */
@@ -269,6 +279,10 @@ export interface VpcConnectionArgs {
      * The display name for the VPC connection.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role to associate with the VPC connection.
      */

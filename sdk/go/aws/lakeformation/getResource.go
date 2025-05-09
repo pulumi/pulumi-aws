@@ -51,7 +51,8 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
 	// ARN of the resource, an S3 path.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResource.
@@ -61,6 +62,7 @@ type LookupResourceResult struct {
 	Id string `pulumi:"id"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified string `pulumi:"lastModified"`
+	Region       string `pulumi:"region"`
 	// Role that the resource was registered with.
 	RoleArn string `pulumi:"roleArn"`
 }
@@ -77,7 +79,8 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
 	// ARN of the resource, an S3 path.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResourceOutputArgs) ElementType() reflect.Type {
@@ -111,6 +114,10 @@ func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
 // Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o LookupResourceResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Role that the resource was registered with.

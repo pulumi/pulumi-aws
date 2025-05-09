@@ -82,6 +82,8 @@ type RegistryPolicy struct {
 
 	// Resource Policy for EventBridge Schema Registry
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 }
@@ -124,6 +126,8 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 type registryPolicyState struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of EventBridge Schema Registry
 	RegistryName *string `pulumi:"registryName"`
 }
@@ -131,6 +135,8 @@ type registryPolicyState struct {
 type RegistryPolicyState struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringPtrInput
 }
@@ -142,6 +148,8 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 type registryPolicyArgs struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of EventBridge Schema Registry
 	RegistryName string `pulumi:"registryName"`
 }
@@ -150,6 +158,8 @@ type registryPolicyArgs struct {
 type RegistryPolicyArgs struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringInput
 }
@@ -244,6 +254,11 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 // Resource Policy for EventBridge Schema Registry
 func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RegistryPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of EventBridge Schema Registry

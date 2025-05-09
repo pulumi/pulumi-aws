@@ -56,6 +56,8 @@ type ConnectionAlias struct {
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// The identifier of the Amazon Web Services account that owns the connection alias.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the connection alias.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -102,6 +104,8 @@ type connectionAliasState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The identifier of the Amazon Web Services account that owns the connection alias.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current state of the connection alias.
 	State *string `pulumi:"state"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,6 +120,8 @@ type ConnectionAliasState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The identifier of the Amazon Web Services account that owns the connection alias.
 	OwnerAccountId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current state of the connection alias.
 	State pulumi.StringPtrInput
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,6 +138,8 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 type connectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
 	ConnectionString string `pulumi:"connectionString"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *ConnectionAliasTimeouts `pulumi:"timeouts"`
@@ -141,6 +149,8 @@ type connectionAliasArgs struct {
 type ConnectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
 	ConnectionString pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ConnectionAliasTimeoutsPtrInput
@@ -241,6 +251,11 @@ func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {
 // The identifier of the Amazon Web Services account that owns the connection alias.
 func (o ConnectionAliasOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConnectionAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current state of the connection alias.

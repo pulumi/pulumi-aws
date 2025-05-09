@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Eks
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetNodeGroupsArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetNodeGroupsInvokeArgs()
         {
@@ -132,6 +138,7 @@ namespace Pulumi.Aws.Eks
         /// Set of all node group names in an EKS Cluster.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetNodeGroupsResult(
@@ -139,11 +146,14 @@ namespace Pulumi.Aws.Eks
 
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             ClusterName = clusterName;
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

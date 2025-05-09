@@ -23,18 +23,22 @@ class ListenerPolicyArgs:
                  load_balancer_name: pulumi.Input[builtins.str],
                  load_balancer_port: pulumi.Input[builtins.int],
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ListenerPolicy resource.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "load_balancer_port", load_balancer_port)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -76,6 +80,18 @@ class ListenerPolicyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger an update.
@@ -93,12 +109,14 @@ class _ListenerPolicyState:
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
                  load_balancer_port: Optional[pulumi.Input[builtins.int]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ListenerPolicy resources.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         if load_balancer_name is not None:
@@ -107,6 +125,8 @@ class _ListenerPolicyState:
             pulumi.set(__self__, "load_balancer_port", load_balancer_port)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -148,6 +168,18 @@ class _ListenerPolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger an update.
@@ -170,6 +202,7 @@ class ListenerPolicy(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
                  load_balancer_port: Optional[pulumi.Input[builtins.int]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -258,6 +291,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         ...
@@ -365,6 +399,7 @@ class ListenerPolicy(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
                  load_balancer_port: Optional[pulumi.Input[builtins.int]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -382,6 +417,7 @@ class ListenerPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'load_balancer_port'")
             __props__.__dict__["load_balancer_port"] = load_balancer_port
             __props__.__dict__["policy_names"] = policy_names
+            __props__.__dict__["region"] = region
             __props__.__dict__["triggers"] = triggers
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/listenerPolicy:ListenerPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -398,6 +434,7 @@ class ListenerPolicy(pulumi.CustomResource):
             load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
             load_balancer_port: Optional[pulumi.Input[builtins.int]] = None,
             policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'ListenerPolicy':
         """
         Get an existing ListenerPolicy resource's state with the given name, id, and optional extra
@@ -409,6 +446,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -418,6 +456,7 @@ class ListenerPolicy(pulumi.CustomResource):
         __props__.__dict__["load_balancer_name"] = load_balancer_name
         __props__.__dict__["load_balancer_port"] = load_balancer_port
         __props__.__dict__["policy_names"] = policy_names
+        __props__.__dict__["region"] = region
         __props__.__dict__["triggers"] = triggers
         return ListenerPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -444,6 +483,14 @@ class ListenerPolicy(pulumi.CustomResource):
         List of Policy Names to apply to the backend server.
         """
         return pulumi.get(self, "policy_names")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

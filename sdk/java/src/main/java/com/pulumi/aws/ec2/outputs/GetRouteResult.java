@@ -26,6 +26,7 @@ public final class GetRouteResult {
     private String localGatewayId;
     private String natGatewayId;
     private String networkInterfaceId;
+    private String region;
     private String routeTableId;
     private String transitGatewayId;
     private String vpcPeeringConnectionId;
@@ -71,6 +72,9 @@ public final class GetRouteResult {
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    public String region() {
+        return this.region;
+    }
     public String routeTableId() {
         return this.routeTableId;
     }
@@ -102,6 +106,7 @@ public final class GetRouteResult {
         private String localGatewayId;
         private String natGatewayId;
         private String networkInterfaceId;
+        private String region;
         private String routeTableId;
         private String transitGatewayId;
         private String vpcPeeringConnectionId;
@@ -120,6 +125,7 @@ public final class GetRouteResult {
     	      this.localGatewayId = defaults.localGatewayId;
     	      this.natGatewayId = defaults.natGatewayId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
+    	      this.region = defaults.region;
     	      this.routeTableId = defaults.routeTableId;
     	      this.transitGatewayId = defaults.transitGatewayId;
     	      this.vpcPeeringConnectionId = defaults.vpcPeeringConnectionId;
@@ -222,6 +228,14 @@ public final class GetRouteResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
             if (routeTableId == null) {
               throw new MissingRequiredPropertyException("GetRouteResult", "routeTableId");
@@ -259,6 +273,7 @@ public final class GetRouteResult {
             _resultValue.localGatewayId = localGatewayId;
             _resultValue.natGatewayId = natGatewayId;
             _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.region = region;
             _resultValue.routeTableId = routeTableId;
             _resultValue.transitGatewayId = transitGatewayId;
             _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;

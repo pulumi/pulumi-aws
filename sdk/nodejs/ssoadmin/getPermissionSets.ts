@@ -25,6 +25,7 @@ export function getPermissionSets(args: GetPermissionSetsArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getPermissionSets:getPermissionSets", {
         "instanceArn": args.instanceArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetPermissionSetsArgs {
      * ARN of the SSO Instance associated with the permission set.
      */
     instanceArn: string;
+    region?: string;
 }
 
 /**
@@ -48,6 +50,7 @@ export interface GetPermissionSetsResult {
     readonly arns: string[];
     readonly id: string;
     readonly instanceArn: string;
+    readonly region: string;
 }
 /**
  * Data source returning the ARN of all AWS SSO Admin Permission Sets.
@@ -70,6 +73,7 @@ export function getPermissionSetsOutput(args: GetPermissionSetsOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getPermissionSets:getPermissionSets", {
         "instanceArn": args.instanceArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -81,4 +85,5 @@ export interface GetPermissionSetsOutputArgs {
      * ARN of the SSO Instance associated with the permission set.
      */
     instanceArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

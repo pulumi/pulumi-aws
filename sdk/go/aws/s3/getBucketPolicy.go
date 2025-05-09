@@ -54,7 +54,8 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 // A collection of arguments for invoking getBucketPolicy.
 type LookupBucketPolicyArgs struct {
 	// Bucket name.
-	Bucket string `pulumi:"bucket"`
+	Bucket string  `pulumi:"bucket"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBucketPolicy.
@@ -64,6 +65,7 @@ type LookupBucketPolicyResult struct {
 	Id string `pulumi:"id"`
 	// IAM bucket policy.
 	Policy string `pulumi:"policy"`
+	Region string `pulumi:"region"`
 }
 
 func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBucketPolicyResultOutput {
@@ -78,7 +80,8 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 // A collection of arguments for invoking getBucketPolicy.
 type LookupBucketPolicyOutputArgs struct {
 	// Bucket name.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupBucketPolicyOutputArgs) ElementType() reflect.Type {
@@ -112,6 +115,10 @@ func (o LookupBucketPolicyResultOutput) Id() pulumi.StringOutput {
 // IAM bucket policy.
 func (o LookupBucketPolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupBucketPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

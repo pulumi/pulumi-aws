@@ -80,6 +80,10 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly observabilityConfigurationRevision!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
             resourceInputs["latest"] = state ? state.latest : undefined;
             resourceInputs["observabilityConfigurationName"] = state ? state.observabilityConfigurationName : undefined;
             resourceInputs["observabilityConfigurationRevision"] = state ? state.observabilityConfigurationRevision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -123,6 +128,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'observabilityConfigurationName'");
             }
             resourceInputs["observabilityConfigurationName"] = args ? args.observabilityConfigurationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["traceConfiguration"] = args ? args.traceConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface ObservabilityConfigurationState {
      */
     observabilityConfigurationRevision?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
     status?: pulumi.Input<string>;
@@ -182,6 +192,10 @@ export interface ObservabilityConfigurationArgs {
      * Name of the observability configuration.
      */
     observabilityConfigurationName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

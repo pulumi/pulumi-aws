@@ -88,7 +88,8 @@ type LookupVpcAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetVpcAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -106,6 +107,7 @@ type LookupVpcAttachmentResult struct {
 	Id string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
 	Ipv6Support string `pulumi:"ipv6Support"`
+	Region      string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled.
 	SecurityGroupReferencingSupport string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
@@ -134,7 +136,8 @@ type LookupVpcAttachmentOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetVpcAttachmentFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -185,6 +188,10 @@ func (o LookupVpcAttachmentResultOutput) Id() pulumi.StringOutput {
 // Whether IPv6 support is enabled.
 func (o LookupVpcAttachmentResultOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Ipv6Support }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Security Group Referencing Support is enabled.

@@ -73,6 +73,21 @@ public final class GlossaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      * 
      */
@@ -94,6 +109,7 @@ public final class GlossaryArgs extends com.pulumi.resources.ResourceArgs {
         this.domainIdentifier = $.domainIdentifier;
         this.name = $.name;
         this.owningProjectIdentifier = $.owningProjectIdentifier;
+        this.region = $.region;
         this.status = $.status;
     }
 
@@ -189,6 +205,27 @@ public final class GlossaryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder owningProjectIdentifier(String owningProjectIdentifier) {
             return owningProjectIdentifier(Output.of(owningProjectIdentifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

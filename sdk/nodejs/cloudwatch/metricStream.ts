@@ -228,6 +228,10 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public readonly outputFormat!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -271,6 +275,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["outputFormat"] = state ? state.outputFormat : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["statisticsConfigurations"] = state ? state.statisticsConfigurations : undefined;
@@ -294,6 +299,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -355,6 +361,10 @@ export interface MetricStreamState {
      */
     outputFormat?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */
     roleArn?: pulumi.Input<string>;
@@ -410,6 +420,10 @@ export interface MetricStreamArgs {
      * The following arguments are optional:
      */
     outputFormat: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */

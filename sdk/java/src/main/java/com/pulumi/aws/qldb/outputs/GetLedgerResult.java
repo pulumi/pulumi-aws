@@ -22,6 +22,7 @@ public final class GetLedgerResult {
     private String kmsKey;
     private String name;
     private String permissionsMode;
+    private String region;
     private Map<String,String> tags;
 
     private GetLedgerResult() {}
@@ -47,6 +48,9 @@ public final class GetLedgerResult {
     public String permissionsMode() {
         return this.permissionsMode;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -66,6 +70,7 @@ public final class GetLedgerResult {
         private String kmsKey;
         private String name;
         private String permissionsMode;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetLedgerResult defaults) {
@@ -76,6 +81,7 @@ public final class GetLedgerResult {
     	      this.kmsKey = defaults.kmsKey;
     	      this.name = defaults.name;
     	      this.permissionsMode = defaults.permissionsMode;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -128,6 +134,14 @@ public final class GetLedgerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetLedgerResult", "tags");
@@ -143,6 +157,7 @@ public final class GetLedgerResult {
             _resultValue.kmsKey = kmsKey;
             _resultValue.name = name;
             _resultValue.permissionsMode = permissionsMode;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

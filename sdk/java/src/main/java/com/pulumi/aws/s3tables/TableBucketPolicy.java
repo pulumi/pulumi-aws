@@ -79,6 +79,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3tables/tableBucketPolicy:TableBucketPolicy")
 public class TableBucketPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Amazon Web Services resource-based policy document in JSON format.
      * 
      */

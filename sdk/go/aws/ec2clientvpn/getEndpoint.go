@@ -89,6 +89,7 @@ type LookupEndpointArgs struct {
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetEndpointFilter `pulumi:"filters"`
+	Region  *string             `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -116,7 +117,8 @@ type LookupEndpointResult struct {
 	DnsServers []string            `pulumi:"dnsServers"`
 	Filters    []GetEndpointFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// IDs of the security groups for the target network associated with the Client VPN endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Whether the self-service portal for the Client VPN endpoint is enabled.
@@ -153,6 +155,7 @@ type LookupEndpointOutputArgs struct {
 	ClientVpnEndpointId pulumi.StringPtrInput `pulumi:"clientVpnEndpointId"`
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetEndpointFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput       `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -232,6 +235,10 @@ func (o LookupEndpointResultOutput) Filters() GetEndpointFilterArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // IDs of the security groups for the target network associated with the Client VPN endpoint.

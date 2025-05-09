@@ -25,6 +25,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticsearch/getDomain:getDomain", {
         "domainName": args.domainName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetDomainArgs {
      * Name of the domain.
      */
     domainName: string;
+    region?: string;
     /**
      * Tags assigned to the domain.
      */
@@ -124,6 +126,7 @@ export interface GetDomainResult {
      * Status of a configuration change in the domain.
      */
     readonly processing: boolean;
+    readonly region: string;
     /**
      * Domain snapshot related options.
      */
@@ -155,6 +158,7 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticsearch/getDomain:getDomain", {
         "domainName": args.domainName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -167,6 +171,7 @@ export interface GetDomainOutputArgs {
      * Name of the domain.
      */
     domainName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Tags assigned to the domain.
      */

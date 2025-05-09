@@ -56,6 +56,7 @@ public final class GetQuerySuggestionsBlockListResult {
      */
     private String name;
     private String querySuggestionsBlockListId;
+    private String region;
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
@@ -145,6 +146,9 @@ public final class GetQuerySuggestionsBlockListResult {
     public String querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
@@ -200,6 +204,7 @@ public final class GetQuerySuggestionsBlockListResult {
         private Integer itemCount;
         private String name;
         private String querySuggestionsBlockListId;
+        private String region;
         private String roleArn;
         private List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
         private String status;
@@ -218,6 +223,7 @@ public final class GetQuerySuggestionsBlockListResult {
     	      this.itemCount = defaults.itemCount;
     	      this.name = defaults.name;
     	      this.querySuggestionsBlockListId = defaults.querySuggestionsBlockListId;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.sourceS3Paths = defaults.sourceS3Paths;
     	      this.status = defaults.status;
@@ -306,6 +312,14 @@ public final class GetQuerySuggestionsBlockListResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQuerySuggestionsBlockListResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetQuerySuggestionsBlockListResult", "roleArn");
@@ -360,6 +374,7 @@ public final class GetQuerySuggestionsBlockListResult {
             _resultValue.itemCount = itemCount;
             _resultValue.name = name;
             _resultValue.querySuggestionsBlockListId = querySuggestionsBlockListId;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.sourceS3Paths = sourceS3Paths;
             _resultValue.status = status;

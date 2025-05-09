@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Ec2
         [Input("poolId", required: true)]
         public string PoolId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("poolId", required: true)]
         public Input<string> PoolId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -162,6 +168,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string NetworkBorderGroup;
         public readonly ImmutableArray<Outputs.GetPublicIpv4PoolPoolAddressRangeResult> PoolAddressRanges;
         public readonly string PoolId;
+        public readonly string Region;
         /// <summary>
         /// Any tags for the address pool.
         /// </summary>
@@ -187,6 +194,8 @@ namespace Pulumi.Aws.Ec2
 
             string poolId,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             int totalAddressCount,
@@ -198,6 +207,7 @@ namespace Pulumi.Aws.Ec2
             NetworkBorderGroup = networkBorderGroup;
             PoolAddressRanges = poolAddressRanges;
             PoolId = poolId;
+            Region = region;
             Tags = tags;
             TotalAddressCount = totalAddressCount;
             TotalAvailableAddressCount = totalAvailableAddressCount;

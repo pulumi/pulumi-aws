@@ -49,7 +49,8 @@ func LookupHttpNamespace(ctx *pulumi.Context, args *LookupHttpNamespaceArgs, opt
 // A collection of arguments for invoking getHttpNamespace.
 type LookupHttpNamespaceArgs struct {
 	// Name of the http namespace.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,8 +64,9 @@ type LookupHttpNamespaceResult struct {
 	// Name of an HTTP namespace.
 	HttpName string `pulumi:"httpName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,7 +83,8 @@ func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutp
 // A collection of arguments for invoking getHttpNamespace.
 type LookupHttpNamespaceOutputArgs struct {
 	// Name of the http namespace.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -127,6 +130,10 @@ func (o LookupHttpNamespaceResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupHttpNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupHttpNamespaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

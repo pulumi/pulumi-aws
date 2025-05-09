@@ -40,6 +40,7 @@ class NetworkInterfaceArgs:
                  private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -64,6 +65,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -103,6 +105,8 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "private_ips", private_ips)
         if private_ips_count is not None:
             pulumi.set(__self__, "private_ips_count", private_ips_count)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if source_dest_check is not None:
@@ -326,6 +330,18 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "private_ips_count", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -387,6 +403,7 @@ class _NetworkInterfaceState:
                  private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -414,6 +431,7 @@ class _NetworkInterfaceState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to create the ENI in.
@@ -466,6 +484,8 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "private_ips", private_ips)
         if private_ips_count is not None:
             pulumi.set(__self__, "private_ips_count", private_ips_count)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if source_dest_check is not None:
@@ -736,6 +756,18 @@ class _NetworkInterfaceState:
         pulumi.set(self, "private_ips_count", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -823,6 +855,7 @@ class NetworkInterface(pulumi.CustomResource):
                  private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -890,6 +923,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to create the ENI in.
@@ -979,6 +1013,7 @@ class NetworkInterface(pulumi.CustomResource):
                  private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_ips_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1009,6 +1044,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["private_ip_lists"] = private_ip_lists
             __props__.__dict__["private_ips"] = private_ips
             __props__.__dict__["private_ips_count"] = private_ips_count
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["source_dest_check"] = source_dest_check
             if subnet_id is None and not opts.urn:
@@ -1053,6 +1089,7 @@ class NetworkInterface(pulumi.CustomResource):
             private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             private_ips_count: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             source_dest_check: Optional[pulumi.Input[builtins.bool]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1085,6 +1122,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to create the ENI in.
@@ -1119,6 +1157,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["private_ip_lists"] = private_ip_lists
         __props__.__dict__["private_ips"] = private_ips
         __props__.__dict__["private_ips_count"] = private_ips_count
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_groups"] = security_groups
         __props__.__dict__["source_dest_check"] = source_dest_check
         __props__.__dict__["subnet_id"] = subnet_id
@@ -1295,6 +1334,14 @@ class NetworkInterface(pulumi.CustomResource):
         Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         """
         return pulumi.get(self, "private_ips_count")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroups")

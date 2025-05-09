@@ -296,6 +296,8 @@ type Crawler struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy CrawlerRecrawlPolicyPtrOutput `pulumi:"recrawlPolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// List of nested Amazon S3 target arguments. See S3 Target below.
@@ -382,6 +384,8 @@ type crawlerState struct {
 	Name *string `pulumi:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role *string `pulumi:"role"`
 	// List of nested Amazon S3 target arguments. See S3 Target below.
@@ -433,6 +437,8 @@ type CrawlerState struct {
 	Name pulumi.StringPtrInput
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringPtrInput
 	// List of nested Amazon S3 target arguments. See S3 Target below.
@@ -486,6 +492,8 @@ type crawlerArgs struct {
 	Name *string `pulumi:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role string `pulumi:"role"`
 	// List of nested Amazon S3 target arguments. See S3 Target below.
@@ -534,6 +542,8 @@ type CrawlerArgs struct {
 	Name pulumi.StringPtrInput
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringInput
 	// List of nested Amazon S3 target arguments. See S3 Target below.
@@ -715,6 +725,11 @@ func (o CrawlerOutput) Name() pulumi.StringOutput {
 // A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 func (o CrawlerOutput) RecrawlPolicy() CrawlerRecrawlPolicyPtrOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerRecrawlPolicyPtrOutput { return v.RecrawlPolicy }).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CrawlerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.

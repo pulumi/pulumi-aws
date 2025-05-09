@@ -109,6 +109,10 @@ export class Analysis extends pulumi.CustomResource {
      */
     public readonly recoveryWindowInDays!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
@@ -152,6 +156,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceEntity"] = state ? state.sourceEntity : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -168,6 +173,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["themeArn"] = args ? args.themeArn : undefined;
@@ -227,6 +233,10 @@ export interface AnalysisState {
      */
     recoveryWindowInDays?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity>;
@@ -278,6 +288,10 @@ export interface AnalysisArgs {
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
     recoveryWindowInDays?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */

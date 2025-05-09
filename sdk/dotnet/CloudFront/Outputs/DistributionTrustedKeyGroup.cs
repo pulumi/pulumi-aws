@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedKeyGroup
     {
         /// <summary>
-        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        /// Whether the distribution is enabled to accept end user requests for content.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

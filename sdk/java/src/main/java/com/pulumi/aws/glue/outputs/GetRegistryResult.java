@@ -26,6 +26,7 @@ public final class GetRegistryResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetRegistryResult() {}
     /**
@@ -52,6 +53,9 @@ public final class GetRegistryResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -66,6 +70,7 @@ public final class GetRegistryResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetRegistryResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,6 +78,7 @@ public final class GetRegistryResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -107,12 +113,21 @@ public final class GetRegistryResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetRegistryResult build() {
             final var _resultValue = new GetRegistryResult();
             _resultValue.arn = arn;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -79,6 +79,10 @@ export class Host extends pulumi.CustomResource {
      * The name of the external provider where your third-party code repository is configured.
      */
     public readonly providerType!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.codeconnections.HostTimeouts | undefined>;
@@ -104,6 +108,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["providerEndpoint"] = state ? state.providerEndpoint : undefined;
             resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -119,6 +124,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["providerEndpoint"] = args ? args.providerEndpoint : undefined;
             resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
@@ -150,6 +156,10 @@ export interface HostState {
      * The name of the external provider where your third-party code repository is configured.
      */
     providerType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.codeconnections.HostTimeouts>;
@@ -175,6 +185,10 @@ export interface HostArgs {
      * The name of the external provider where your third-party code repository is configured.
      */
     providerType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.codeconnections.HostTimeouts>;
     /**

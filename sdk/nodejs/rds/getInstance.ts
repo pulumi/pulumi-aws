@@ -26,6 +26,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,7 @@ export interface GetInstanceArgs {
      * Name of the RDS instance.
      */
     dbInstanceIdentifier?: string;
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instance.
      */
@@ -189,6 +191,7 @@ export interface GetInstanceResult {
      * Accessibility options for the DB instance.
      */
     readonly publiclyAccessible: boolean;
+    readonly region: string;
     /**
      * Identifier of the source DB that this is a replica of.
      */
@@ -238,6 +241,7 @@ export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -250,6 +254,7 @@ export interface GetInstanceOutputArgs {
      * Name of the RDS instance.
      */
     dbInstanceIdentifier?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instance.
      */

@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getReplicationTask:getReplicationTask", {
+        "region": args.region,
         "replicationTaskId": args.replicationTaskId,
         "tags": args.tags,
     }, opts);
@@ -32,6 +33,7 @@ export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.I
  * A collection of arguments for invoking getReplicationTask.
  */
 export interface GetReplicationTaskArgs {
+    region?: string;
     /**
      * The replication task identifier.
      *
@@ -64,6 +66,7 @@ export interface GetReplicationTaskResult {
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     readonly migrationType: string;
+    readonly region: string;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
@@ -118,6 +121,7 @@ export interface GetReplicationTaskResult {
 export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getReplicationTask:getReplicationTask", {
+        "region": args.region,
         "replicationTaskId": args.replicationTaskId,
         "tags": args.tags,
     }, opts);
@@ -127,6 +131,7 @@ export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opt
  * A collection of arguments for invoking getReplicationTask.
  */
 export interface GetReplicationTaskOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * The replication task identifier.
      *

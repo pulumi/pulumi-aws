@@ -81,6 +81,10 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
      */
     public readonly provisionedModelName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -108,6 +112,7 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
             resourceInputs["modelUnits"] = state ? state.modelUnits : undefined;
             resourceInputs["provisionedModelArn"] = state ? state.provisionedModelArn : undefined;
             resourceInputs["provisionedModelName"] = state ? state.provisionedModelName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -126,6 +131,7 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
             resourceInputs["modelArn"] = args ? args.modelArn : undefined;
             resourceInputs["modelUnits"] = args ? args.modelUnits : undefined;
             resourceInputs["provisionedModelName"] = args ? args.provisionedModelName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["provisionedModelArn"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface ProvisionedModelThroughputState {
      */
     provisionedModelName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -191,6 +201,10 @@ export interface ProvisionedModelThroughputArgs {
      * Unique name for this Provisioned Throughput.
      */
     provisionedModelName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

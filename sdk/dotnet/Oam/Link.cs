@@ -170,6 +170,12 @@ namespace Pulumi.Aws.Oam
         public Output<string> LinkId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Types of data that the source account shares with the monitoring account.
         /// </summary>
         [Output("resourceTypes")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Oam
         [Input("linkConfiguration")]
         public Input<Inputs.LinkLinkConfigurationArgs>? LinkConfiguration { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
 
@@ -325,6 +337,12 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;

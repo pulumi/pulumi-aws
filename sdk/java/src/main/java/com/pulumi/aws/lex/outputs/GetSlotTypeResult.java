@@ -52,6 +52,7 @@ public final class GetSlotTypeResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -119,6 +120,9 @@ public final class GetSlotTypeResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -153,6 +157,7 @@ public final class GetSlotTypeResult {
         private String id;
         private String lastUpdatedDate;
         private String name;
+        private String region;
         private String valueSelectionStrategy;
         private @Nullable String version;
         public Builder() {}
@@ -165,6 +170,7 @@ public final class GetSlotTypeResult {
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.valueSelectionStrategy = defaults.valueSelectionStrategy;
     	      this.version = defaults.version;
         }
@@ -229,6 +235,14 @@ public final class GetSlotTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder valueSelectionStrategy(String valueSelectionStrategy) {
             if (valueSelectionStrategy == null) {
               throw new MissingRequiredPropertyException("GetSlotTypeResult", "valueSelectionStrategy");
@@ -251,6 +265,7 @@ public final class GetSlotTypeResult {
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.valueSelectionStrategy = valueSelectionStrategy;
             _resultValue.version = version;
             return _resultValue;

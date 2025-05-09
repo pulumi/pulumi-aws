@@ -63,8 +63,10 @@ type TrustProvider struct {
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions TrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName pulumi.StringOutput                 `pulumi:"policyReferenceName"`
-	SseSpecification    TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
+	PolicyReferenceName pulumi.StringOutput `pulumi:"policyReferenceName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           pulumi.StringOutput                 `pulumi:"region"`
+	SseSpecification TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -123,8 +125,10 @@ type trustProviderState struct {
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName *string                        `pulumi:"policyReferenceName"`
-	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
+	PolicyReferenceName *string `pulumi:"policyReferenceName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           *string                        `pulumi:"region"`
+	SseSpecification *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -149,7 +153,9 @@ type TrustProviderState struct {
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringPtrInput
-	SseSpecification    TrustProviderSseSpecificationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           pulumi.StringPtrInput
+	SseSpecification TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -177,8 +183,10 @@ type trustProviderArgs struct {
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName string                         `pulumi:"policyReferenceName"`
-	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
+	PolicyReferenceName string `pulumi:"policyReferenceName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           *string                        `pulumi:"region"`
+	SseSpecification *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -204,7 +212,9 @@ type TrustProviderArgs struct {
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringInput
-	SseSpecification    TrustProviderSseSpecificationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region           pulumi.StringPtrInput
+	SseSpecification TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -333,6 +343,11 @@ func (o TrustProviderOutput) OidcOptions() TrustProviderOidcOptionsPtrOutput {
 // The identifier to be used when working with policy rules.
 func (o TrustProviderOutput) PolicyReferenceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.PolicyReferenceName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TrustProviderOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o TrustProviderOutput) SseSpecification() TrustProviderSseSpecificationOutput {

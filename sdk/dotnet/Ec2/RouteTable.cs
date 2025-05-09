@@ -200,6 +200,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PropagatingVgws { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of route objects. Their keys are documented below.
         /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         /// </summary>
@@ -282,6 +288,12 @@ namespace Pulumi.Aws.Ec2
             set => _propagatingVgws = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routes")]
         private InputList<Inputs.RouteTableRouteArgs>? _routes;
 
@@ -344,6 +356,12 @@ namespace Pulumi.Aws.Ec2
             get => _propagatingVgws ?? (_propagatingVgws = new InputList<string>());
             set => _propagatingVgws = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.RouteTableRouteGetArgs>? _routes;

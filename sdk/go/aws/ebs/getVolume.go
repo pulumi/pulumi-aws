@@ -71,7 +71,8 @@ type LookupVolumeArgs struct {
 	Filters []GetVolumeFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent volume.
-	MostRecent *bool `pulumi:"mostRecent"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	Region     *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -98,6 +99,7 @@ type LookupVolumeResult struct {
 	MultiAttachEnabled bool `pulumi:"multiAttachEnabled"`
 	// ARN of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
+	Region     string `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size int `pulumi:"size"`
 	// Snapshot_id the EBS volume is based off.
@@ -129,7 +131,8 @@ type LookupVolumeOutputArgs struct {
 	Filters GetVolumeFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent volume.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -204,6 +207,10 @@ func (o LookupVolumeResultOutput) MultiAttachEnabled() pulumi.BoolOutput {
 // ARN of the Outpost.
 func (o LookupVolumeResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
+func (o LookupVolumeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Size of the drive in GiBs.

@@ -93,6 +93,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -154,6 +160,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Set of VPC Subnet ID-s of the subnet group.
         /// </summary>
@@ -177,6 +184,8 @@ namespace Pulumi.Aws.MemoryDb
 
             string name,
 
+            string region,
+
             ImmutableArray<string> subnetIds,
 
             ImmutableDictionary<string, string> tags,
@@ -187,6 +196,7 @@ namespace Pulumi.Aws.MemoryDb
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             SubnetIds = subnetIds;
             Tags = tags;
             VpcId = vpcId;

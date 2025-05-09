@@ -25,6 +25,7 @@ export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appintegrations/getEventIntegration:getEventIntegration", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetEventIntegrationArgs {
      * The AppIntegrations Event Integration name.
      */
     name: string;
+    region?: string;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
@@ -68,6 +70,7 @@ export interface GetEventIntegrationResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
@@ -91,6 +94,7 @@ export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appintegrations/getEventIntegration:getEventIntegration", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -103,6 +107,7 @@ export interface GetEventIntegrationOutputArgs {
      * The AppIntegrations Event Integration name.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */

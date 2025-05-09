@@ -132,6 +132,10 @@ export class ListenerPolicy extends pulumi.CustomResource {
      */
     public readonly policyNames!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -152,6 +156,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
             resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             resourceInputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
             resourceInputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
@@ -164,6 +169,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             resourceInputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
             resourceInputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -190,6 +196,10 @@ export interface ListenerPolicyState {
      */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -211,6 +221,10 @@ export interface ListenerPolicyArgs {
      * List of Policy Names to apply to the backend server.
      */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      */

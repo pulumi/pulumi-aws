@@ -89,6 +89,10 @@ export class EventApiDestination extends pulumi.CustomResource {
      * The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EventApiDestination resource with the given unique name, arguments, and options.
@@ -110,6 +114,7 @@ export class EventApiDestination extends pulumi.CustomResource {
             resourceInputs["invocationEndpoint"] = state ? state.invocationEndpoint : undefined;
             resourceInputs["invocationRateLimitPerSecond"] = state ? state.invocationRateLimitPerSecond : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EventApiDestinationArgs | undefined;
             if ((!args || args.connectionArn === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class EventApiDestination extends pulumi.CustomResource {
             resourceInputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
             resourceInputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -166,6 +172,10 @@ export interface EventApiDestinationState {
      * The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -196,4 +206,8 @@ export interface EventApiDestinationArgs {
      * The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

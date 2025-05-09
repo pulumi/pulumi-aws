@@ -78,6 +78,7 @@ type GetAmiIdsArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
+	Region *string  `pulumi:"region"`
 	// Used to sort AMIs by creation time.
 	// If no value is specified, the default value is `false`.
 	SortAscending *bool `pulumi:"sortAscending"`
@@ -88,11 +89,13 @@ type GetAmiIdsResult struct {
 	ExecutableUsers []string          `pulumi:"executableUsers"`
 	Filters         []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
 	Ids               []string `pulumi:"ids"`
 	IncludeDeprecated *bool    `pulumi:"includeDeprecated"`
 	NameRegex         *string  `pulumi:"nameRegex"`
 	Owners            []string `pulumi:"owners"`
+	Region            string   `pulumi:"region"`
 	SortAscending     *bool    `pulumi:"sortAscending"`
 }
 
@@ -125,6 +128,7 @@ type GetAmiIdsOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	Region pulumi.StringPtrInput   `pulumi:"region"`
 	// Used to sort AMIs by creation time.
 	// If no value is specified, the default value is `false`.
 	SortAscending pulumi.BoolPtrInput `pulumi:"sortAscending"`
@@ -162,6 +166,7 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
 func (o GetAmiIdsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
@@ -176,6 +181,10 @@ func (o GetAmiIdsResultOutput) NameRegex() pulumi.StringPtrOutput {
 
 func (o GetAmiIdsResultOutput) Owners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAmiIdsResultOutput) SortAscending() pulumi.BoolPtrOutput {

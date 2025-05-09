@@ -20,6 +20,7 @@ public final class GetDefaultScraperConfigurationResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetDefaultScraperConfigurationResult() {}
     /**
@@ -36,6 +37,9 @@ public final class GetDefaultScraperConfigurationResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,11 +52,13 @@ public final class GetDefaultScraperConfigurationResult {
     public static final class Builder {
         private String configuration;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetDefaultScraperConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configuration = defaults.configuration;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -71,10 +77,19 @@ public final class GetDefaultScraperConfigurationResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDefaultScraperConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetDefaultScraperConfigurationResult build() {
             final var _resultValue = new GetDefaultScraperConfigurationResult();
             _resultValue.configuration = configuration;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

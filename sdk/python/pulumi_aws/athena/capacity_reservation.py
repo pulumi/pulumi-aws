@@ -24,6 +24,7 @@ class CapacityReservationArgs:
     def __init__(__self__, *,
                  target_dpus: pulumi.Input[builtins.int],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['CapacityReservationTimeoutsArgs']] = None):
         """
@@ -32,11 +33,14 @@ class CapacityReservationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Name of the capacity reservation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "target_dpus", target_dpus)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -70,6 +74,18 @@ class CapacityReservationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -96,6 +112,7 @@ class _CapacityReservationState:
                  allocated_dpus: Optional[pulumi.Input[builtins.int]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -106,6 +123,7 @@ class _CapacityReservationState:
         :param pulumi.Input[builtins.int] allocated_dpus: Number of data processing units currently allocated.
         :param pulumi.Input[builtins.str] arn: ARN of the Capacity Reservation.
         :param pulumi.Input[builtins.str] name: Name of the capacity reservation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of the capacity reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -119,6 +137,8 @@ class _CapacityReservationState:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -165,6 +185,18 @@ class _CapacityReservationState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -235,6 +267,7 @@ class CapacityReservation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_dpus: Optional[pulumi.Input[builtins.int]] = None,
                  timeouts: Optional[pulumi.Input[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict']]] = None,
@@ -268,6 +301,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the capacity reservation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] target_dpus: Number of data processing units requested. Must be at least `24` units.
                
@@ -321,6 +355,7 @@ class CapacityReservation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_dpus: Optional[pulumi.Input[builtins.int]] = None,
                  timeouts: Optional[pulumi.Input[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict']]] = None,
@@ -334,6 +369,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if target_dpus is None and not opts.urn:
                 raise TypeError("Missing required property 'target_dpus'")
@@ -356,6 +392,7 @@ class CapacityReservation(pulumi.CustomResource):
             allocated_dpus: Optional[pulumi.Input[builtins.int]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -371,6 +408,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] allocated_dpus: Number of data processing units currently allocated.
         :param pulumi.Input[builtins.str] arn: ARN of the Capacity Reservation.
         :param pulumi.Input[builtins.str] name: Name of the capacity reservation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of the capacity reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -385,6 +423,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["allocated_dpus"] = allocated_dpus
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -415,6 +454,14 @@ class CapacityReservation(pulumi.CustomResource):
         Name of the capacity reservation.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

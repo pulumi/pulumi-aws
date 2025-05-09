@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string?> Ipv6Support { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
         [Output("securityGroupReferencingSupport")]
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Ipv6Support { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
         [Input("securityGroupReferencingSupport")]
@@ -273,6 +285,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("ipv6Support")]
         public Input<string>? Ipv6Support { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.

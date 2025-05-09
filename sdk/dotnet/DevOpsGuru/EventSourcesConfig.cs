@@ -59,6 +59,12 @@ namespace Pulumi.Aws.DevOpsGuru
         [Output("eventSources")]
         public Output<ImmutableArray<Outputs.EventSourcesConfigEventSource>> EventSources { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventSourcesConfig resource with the given unique name, arguments, and options.
@@ -117,6 +123,12 @@ namespace Pulumi.Aws.DevOpsGuru
             set => _eventSources = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EventSourcesConfigArgs()
         {
         }
@@ -136,6 +148,12 @@ namespace Pulumi.Aws.DevOpsGuru
             get => _eventSources ?? (_eventSources = new InputList<Inputs.EventSourcesConfigEventSourceGetArgs>());
             set => _eventSources = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public EventSourcesConfigState()
         {

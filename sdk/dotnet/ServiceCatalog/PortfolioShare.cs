@@ -78,6 +78,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         /// </summary>
         [Output("sharePrincipals")]
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         /// </summary>
         [Input("sharePrincipals")]
@@ -224,6 +236,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.

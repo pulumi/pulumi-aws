@@ -80,6 +80,7 @@ public final class GetClusterResult {
      * 
      */
     private Integer numberOfBrokerNodes;
+    private String region;
     /**
      * @return Map of key-value pairs assigned to the cluster.
      * 
@@ -191,6 +192,9 @@ public final class GetClusterResult {
     public Integer numberOfBrokerNodes() {
         return this.numberOfBrokerNodes;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of key-value pairs assigned to the cluster.
      * 
@@ -236,6 +240,7 @@ public final class GetClusterResult {
         private String id;
         private String kafkaVersion;
         private Integer numberOfBrokerNodes;
+        private String region;
         private Map<String,String> tags;
         private String zookeeperConnectString;
         private String zookeeperConnectStringTls;
@@ -256,6 +261,7 @@ public final class GetClusterResult {
     	      this.id = defaults.id;
     	      this.kafkaVersion = defaults.kafkaVersion;
     	      this.numberOfBrokerNodes = defaults.numberOfBrokerNodes;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.zookeeperConnectString = defaults.zookeeperConnectString;
     	      this.zookeeperConnectStringTls = defaults.zookeeperConnectStringTls;
@@ -377,6 +383,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "tags");
@@ -416,6 +430,7 @@ public final class GetClusterResult {
             _resultValue.id = id;
             _resultValue.kafkaVersion = kafkaVersion;
             _resultValue.numberOfBrokerNodes = numberOfBrokerNodes;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.zookeeperConnectString = zookeeperConnectString;
             _resultValue.zookeeperConnectStringTls = zookeeperConnectStringTls;

@@ -43,6 +43,7 @@ export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetTransitGatewayArgs {
      * Identifier of the EC2 Transit Gateway.
      */
     id?: string;
+    region?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway
      */
@@ -118,6 +120,7 @@ export interface GetTransitGatewayResult {
      * Identifier of the default propagation route table
      */
     readonly propagationDefaultRouteTableId: string;
+    readonly region: string;
     /**
      * Whether Security Group Referencing Support is enabled
      */
@@ -171,6 +174,7 @@ export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -187,6 +191,7 @@ export interface GetTransitGatewayOutputArgs {
      * Identifier of the EC2 Transit Gateway.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway
      */

@@ -231,6 +231,12 @@ namespace Pulumi.Aws.Ssm
         public Output<Outputs.ContactsRotationRecurrence?> Recurrence { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         /// </summary>
         [Output("startTime")]
@@ -327,6 +333,12 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.ContactsRotationRecurrenceArgs>? Recurrence { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         /// </summary>
         [Input("startTime")]
@@ -389,6 +401,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("recurrence")]
         public Input<Inputs.ContactsRotationRecurrenceGetArgs>? Recurrence { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.

@@ -77,6 +77,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */
     public readonly tableBucketArn!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
@@ -108,6 +113,7 @@ export class Namespace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -141,6 +147,10 @@ export interface NamespaceState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */
     tableBucketArn?: pulumi.Input<string>;
@@ -156,6 +166,10 @@ export interface NamespaceArgs {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */

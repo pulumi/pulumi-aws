@@ -27,7 +27,7 @@ class GetParameterResult:
     """
     A collection of values returned by getParameter.
     """
-    def __init__(__self__, arn=None, id=None, insecure_value=None, name=None, type=None, value=None, version=None, with_decryption=None):
+    def __init__(__self__, arn=None, id=None, insecure_value=None, name=None, region=None, type=None, value=None, version=None, with_decryption=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetParameterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -56,6 +59,9 @@ class GetParameterResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        ARN of the parameter.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -69,26 +75,46 @@ class GetParameterResult:
     @property
     @pulumi.getter(name="insecureValue")
     def insecure_value(self) -> builtins.str:
+        """
+        Value of the parameter. **Use caution:** This value is never marked as sensitive.
+        """
         return pulumi.get(self, "insecure_value")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def type(self) -> builtins.str:
+        """
+        Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> builtins.str:
+        """
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def version(self) -> builtins.int:
+        """
+        Version of the parameter.
+        """
         return pulumi.get(self, "version")
 
     @property
@@ -107,6 +133,7 @@ class AwaitableGetParameterResult(GetParameterResult):
             id=self.id,
             insecure_value=self.insecure_value,
             name=self.name,
+            region=self.region,
             type=self.type,
             value=self.value,
             version=self.version,
@@ -114,6 +141,7 @@ class AwaitableGetParameterResult(GetParameterResult):
 
 
 def get_parameter(name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   with_decryption: Optional[builtins.bool] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterResult:
     """
@@ -133,11 +161,10 @@ def get_parameter(name: Optional[builtins.str] = None,
 
     :param builtins.str name: Name of the parameter.
     :param builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
-           
-           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['withDecryption'] = with_decryption
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts, typ=GetParameterResult).value
@@ -147,11 +174,13 @@ def get_parameter(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         insecure_value=pulumi.get(__ret__, 'insecure_value'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'),
         version=pulumi.get(__ret__, 'version'),
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
 def get_parameter_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          with_decryption: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterResult]:
     """
@@ -171,11 +200,10 @@ def get_parameter_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str name: Name of the parameter.
     :param builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
-           
-           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['withDecryption'] = with_decryption
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getParameter:getParameter', __args__, opts=opts, typ=GetParameterResult)
@@ -184,6 +212,7 @@ def get_parameter_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         insecure_value=pulumi.get(__response__, 'insecure_value'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         type=pulumi.get(__response__, 'type'),
         value=pulumi.get(__response__, 'value'),
         version=pulumi.get(__response__, 'version'),

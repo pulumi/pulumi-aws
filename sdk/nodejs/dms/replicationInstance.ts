@@ -167,6 +167,10 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
     public /*out*/ readonly replicationInstanceArn!: pulumi.Output<string>;
@@ -232,6 +236,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
             resourceInputs["replicationInstanceClass"] = state ? state.replicationInstanceClass : undefined;
             resourceInputs["replicationInstanceId"] = state ? state.replicationInstanceId : undefined;
@@ -260,6 +265,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
             resourceInputs["replicationInstanceId"] = args ? args.replicationInstanceId : undefined;
             resourceInputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
@@ -328,6 +334,10 @@ export interface ReplicationInstanceState {
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
@@ -424,6 +434,10 @@ export interface ReplicationInstanceArgs {
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      */

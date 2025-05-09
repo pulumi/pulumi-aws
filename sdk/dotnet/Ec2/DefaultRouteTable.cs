@@ -114,6 +114,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PropagatingVgws { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of objects. Detailed below
         /// </summary>
         [Output("routes")]
@@ -203,6 +209,12 @@ namespace Pulumi.Aws.Ec2
             set => _propagatingVgws = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteArgs>? _routes;
 
@@ -266,6 +278,12 @@ namespace Pulumi.Aws.Ec2
             get => _propagatingVgws ?? (_propagatingVgws = new InputList<string>());
             set => _propagatingVgws = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteGetArgs>? _routes;

@@ -3,9 +3,8 @@
 
 package com.pulumi.aws.redshift.inputs;
 
-import com.pulumi.aws.redshift.inputs.GetDataSharesDataShare;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,25 +14,17 @@ public final class GetDataSharesPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetDataSharesPlainArgs Empty = new GetDataSharesPlainArgs();
 
-    /**
-     * An array of all data shares in the current region. See `data_shares` below.
-     * 
-     */
-    @Import(name="dataShares")
-    private @Nullable List<GetDataSharesDataShare> dataShares;
+    @Import(name="region")
+    private @Nullable String region;
 
-    /**
-     * @return An array of all data shares in the current region. See `data_shares` below.
-     * 
-     */
-    public Optional<List<GetDataSharesDataShare>> dataShares() {
-        return Optional.ofNullable(this.dataShares);
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetDataSharesPlainArgs() {}
 
     private GetDataSharesPlainArgs(GetDataSharesPlainArgs $) {
-        this.dataShares = $.dataShares;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -54,25 +45,9 @@ public final class GetDataSharesPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetDataSharesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataShares An array of all data shares in the current region. See `data_shares` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dataShares(@Nullable List<GetDataSharesDataShare> dataShares) {
-            $.dataShares = dataShares;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
-        }
-
-        /**
-         * @param dataShares An array of all data shares in the current region. See `data_shares` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dataShares(GetDataSharesDataShare... dataShares) {
-            return dataShares(List.of(dataShares));
         }
 
         public GetDataSharesPlainArgs build() {

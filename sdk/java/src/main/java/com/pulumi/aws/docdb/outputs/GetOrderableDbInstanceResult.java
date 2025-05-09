@@ -29,6 +29,7 @@ public final class GetOrderableDbInstanceResult {
     private String instanceClass;
     private @Nullable String licenseModel;
     private @Nullable List<String> preferredInstanceClasses;
+    private String region;
     private Boolean vpc;
 
     private GetOrderableDbInstanceResult() {}
@@ -61,6 +62,9 @@ public final class GetOrderableDbInstanceResult {
     public List<String> preferredInstanceClasses() {
         return this.preferredInstanceClasses == null ? List.of() : this.preferredInstanceClasses;
     }
+    public String region() {
+        return this.region;
+    }
     public Boolean vpc() {
         return this.vpc;
     }
@@ -81,6 +85,7 @@ public final class GetOrderableDbInstanceResult {
         private String instanceClass;
         private @Nullable String licenseModel;
         private @Nullable List<String> preferredInstanceClasses;
+        private String region;
         private Boolean vpc;
         public Builder() {}
         public Builder(GetOrderableDbInstanceResult defaults) {
@@ -92,6 +97,7 @@ public final class GetOrderableDbInstanceResult {
     	      this.instanceClass = defaults.instanceClass;
     	      this.licenseModel = defaults.licenseModel;
     	      this.preferredInstanceClasses = defaults.preferredInstanceClasses;
+    	      this.region = defaults.region;
     	      this.vpc = defaults.vpc;
         }
 
@@ -152,6 +158,14 @@ public final class GetOrderableDbInstanceResult {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpc(Boolean vpc) {
             if (vpc == null) {
               throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "vpc");
@@ -168,6 +182,7 @@ public final class GetOrderableDbInstanceResult {
             _resultValue.instanceClass = instanceClass;
             _resultValue.licenseModel = licenseModel;
             _resultValue.preferredInstanceClasses = preferredInstanceClasses;
+            _resultValue.region = region;
             _resultValue.vpc = vpc;
             return _resultValue;
         }

@@ -22,6 +22,7 @@ public final class GetProfilesProfilesResult {
      * 
      */
     private List<GetProfilesProfilesProfile> profiles;
+    private String region;
 
     private GetProfilesProfilesResult() {}
     /**
@@ -38,6 +39,9 @@ public final class GetProfilesProfilesResult {
     public List<GetProfilesProfilesProfile> profiles() {
         return this.profiles;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +54,13 @@ public final class GetProfilesProfilesResult {
     public static final class Builder {
         private String id;
         private List<GetProfilesProfilesProfile> profiles;
+        private String region;
         public Builder() {}
         public Builder(GetProfilesProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.profiles = defaults.profiles;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -76,10 +82,19 @@ public final class GetProfilesProfilesResult {
         public Builder profiles(GetProfilesProfilesProfile... profiles) {
             return profiles(List.of(profiles));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProfilesProfilesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetProfilesProfilesResult build() {
             final var _resultValue = new GetProfilesProfilesResult();
             _resultValue.id = id;
             _resultValue.profiles = profiles;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

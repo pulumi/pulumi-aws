@@ -379,6 +379,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.DataSetRefreshProperties?> RefreshProperties { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         /// </summary>
         [Output("rowLevelPermissionDataSet")]
@@ -559,6 +565,12 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.DataSetRefreshPropertiesArgs>? RefreshProperties { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         /// </summary>
         [Input("rowLevelPermissionDataSet")]
@@ -713,6 +725,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("refreshProperties")]
         public Input<Inputs.DataSetRefreshPropertiesGetArgs>? RefreshProperties { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.

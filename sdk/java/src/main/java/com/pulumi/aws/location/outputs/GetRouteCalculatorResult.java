@@ -37,6 +37,7 @@ public final class GetRouteCalculatorResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Key-value map of resource tags for the route calculator.
      * 
@@ -87,6 +88,9 @@ public final class GetRouteCalculatorResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the route calculator.
      * 
@@ -117,6 +121,7 @@ public final class GetRouteCalculatorResult {
         private String dataSource;
         private String description;
         private String id;
+        private String region;
         private Map<String,String> tags;
         private String updateTime;
         public Builder() {}
@@ -128,6 +133,7 @@ public final class GetRouteCalculatorResult {
     	      this.dataSource = defaults.dataSource;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.updateTime = defaults.updateTime;
         }
@@ -181,6 +187,14 @@ public final class GetRouteCalculatorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetRouteCalculatorResult", "tags");
@@ -204,6 +218,7 @@ public final class GetRouteCalculatorResult {
             _resultValue.dataSource = dataSource;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.updateTime = updateTime;
             return _resultValue;

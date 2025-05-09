@@ -45,6 +45,13 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.protocolType);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
@@ -67,6 +74,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetApisPlainArgs(GetApisPlainArgs $) {
         this.name = $.name;
         this.protocolType = $.protocolType;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -107,6 +115,11 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder protocolType(@Nullable String protocolType) {
             $.protocolType = protocolType;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

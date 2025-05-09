@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> PeerTransitGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -134,6 +140,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PeeringAttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("peerTransitGatewayId")]
         public Input<string>? PeerTransitGatewayId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

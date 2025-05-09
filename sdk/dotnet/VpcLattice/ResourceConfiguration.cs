@@ -154,6 +154,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
         /// 
         /// The following arguments are optional:
@@ -271,6 +277,12 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
         /// 
         /// The following arguments are optional:
@@ -354,6 +366,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.

@@ -98,6 +98,8 @@ type Dashboard struct {
 	DashboardBody pulumi.StringOutput `pulumi:"dashboardBody"`
 	// The name of the dashboard.
 	DashboardName pulumi.StringOutput `pulumi:"dashboardName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -142,6 +144,8 @@ type dashboardState struct {
 	DashboardBody *string `pulumi:"dashboardBody"`
 	// The name of the dashboard.
 	DashboardName *string `pulumi:"dashboardName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DashboardState struct {
@@ -151,6 +155,8 @@ type DashboardState struct {
 	DashboardBody pulumi.StringPtrInput
 	// The name of the dashboard.
 	DashboardName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DashboardState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type dashboardArgs struct {
 	DashboardBody string `pulumi:"dashboardBody"`
 	// The name of the dashboard.
 	DashboardName string `pulumi:"dashboardName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
@@ -170,6 +178,8 @@ type DashboardArgs struct {
 	DashboardBody pulumi.StringInput
 	// The name of the dashboard.
 	DashboardName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o DashboardOutput) DashboardBody() pulumi.StringOutput {
 // The name of the dashboard.
 func (o DashboardOutput) DashboardName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DashboardOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DashboardArrayOutput struct{ *pulumi.OutputState }

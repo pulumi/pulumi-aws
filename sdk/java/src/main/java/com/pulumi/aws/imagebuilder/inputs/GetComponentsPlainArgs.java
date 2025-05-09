@@ -46,11 +46,19 @@ public final class GetComponentsPlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.owner);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetComponentsPlainArgs() {}
 
     private GetComponentsPlainArgs(GetComponentsPlainArgs $) {
         this.filters = $.filters;
         this.owner = $.owner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -100,6 +108,11 @@ public final class GetComponentsPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -76,6 +76,10 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
      * The name of the load balancer to which you want to associate the SSL/TLS certificate.
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbCertificateAttachment resource with the given unique name, arguments, and options.
@@ -92,6 +96,7 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
             const state = argsOrState as LbCertificateAttachmentState | undefined;
             resourceInputs["certificateName"] = state ? state.certificateName : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbCertificateAttachmentArgs | undefined;
             if ((!args || args.certificateName === undefined) && !opts.urn) {
@@ -102,6 +107,7 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
             }
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbCertificateAttachment.__pulumiType, name, resourceInputs, opts);
@@ -120,6 +126,10 @@ export interface LbCertificateAttachmentState {
      * The name of the load balancer to which you want to associate the SSL/TLS certificate.
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -134,4 +144,8 @@ export interface LbCertificateAttachmentArgs {
      * The name of the load balancer to which you want to associate the SSL/TLS certificate.
      */
     lbName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

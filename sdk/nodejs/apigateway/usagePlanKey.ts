@@ -79,6 +79,10 @@ export class UsagePlanKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Id of the usage plan resource representing to associate the key to.
      */
     public readonly usagePlanId!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
             resourceInputs["keyId"] = state ? state.keyId : undefined;
             resourceInputs["keyType"] = state ? state.keyType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["usagePlanId"] = state ? state.usagePlanId : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
@@ -118,6 +123,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
             }
             resourceInputs["keyId"] = args ? args.keyId : undefined;
             resourceInputs["keyType"] = args ? args.keyType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["usagePlanId"] = args ? args.usagePlanId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
@@ -144,6 +150,10 @@ export interface UsagePlanKeyState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Id of the usage plan resource representing to associate the key to.
      */
     usagePlanId?: pulumi.Input<string>;
@@ -165,6 +175,10 @@ export interface UsagePlanKeyArgs {
      * Type of the API key resource. Currently, the valid key type is API_KEY.
      */
     keyType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Id of the usage plan resource representing to associate the key to.
      */

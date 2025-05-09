@@ -58,6 +58,7 @@ type GetQuicksightUserArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	Region    *string `pulumi:"region"`
 	// The name of the user that you want to match.
 	//
 	// The following arguments are optional:
@@ -80,6 +81,7 @@ type GetQuicksightUserResult struct {
 	Namespace    *string `pulumi:"namespace"`
 	// The principal ID of the user.
 	PrincipalId string `pulumi:"principalId"`
+	Region      string `pulumi:"region"`
 	UserName    string `pulumi:"userName"`
 	// The Amazon QuickSight role for the user. The user role can be one of the following:.
 	// - `READER`: A user who has read-only access to dashboards.
@@ -103,6 +105,7 @@ type GetQuicksightUserOutputArgs struct {
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the user that you want to match.
 	//
 	// The following arguments are optional:
@@ -164,6 +167,10 @@ func (o GetQuicksightUserResultOutput) Namespace() pulumi.StringPtrOutput {
 // The principal ID of the user.
 func (o GetQuicksightUserResultOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetQuicksightUserResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetQuicksightUserResultOutput) UserName() pulumi.StringOutput {

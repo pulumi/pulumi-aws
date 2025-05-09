@@ -22,17 +22,21 @@ class ManagedPrefixListEntryInitArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[builtins.str],
                  prefix_list_id: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrefixListEntry resource.
         :param pulumi.Input[builtins.str] cidr: CIDR block of this entry.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the prefix list.
         :param pulumi.Input[builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,18 +74,32 @@ class ManagedPrefixListEntryInitArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ManagedPrefixListEntryState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 prefix_list_id: Optional[pulumi.Input[builtins.str]] = None):
+                 prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixListEntry resources.
         :param pulumi.Input[builtins.str] cidr: CIDR block of this entry.
         :param pulumi.Input[builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the prefix list.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -89,6 +107,8 @@ class _ManagedPrefixListEntryState:
             pulumi.set(__self__, "description", description)
         if prefix_list_id is not None:
             pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -126,6 +146,18 @@ class _ManagedPrefixListEntryState:
     def prefix_list_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "prefix_list_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class ManagedPrefixListEntry(pulumi.CustomResource):
 
@@ -138,6 +170,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Use the `aws_prefix_list_entry` resource to manage a managed prefix list entry.
@@ -180,6 +213,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr: CIDR block of this entry.
         :param pulumi.Input[builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the prefix list.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -241,6 +275,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,6 +292,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
             if prefix_list_id is None and not opts.urn:
                 raise TypeError("Missing required property 'prefix_list_id'")
             __props__.__dict__["prefix_list_id"] = prefix_list_id
+            __props__.__dict__["region"] = region
         super(ManagedPrefixListEntry, __self__).__init__(
             'aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry',
             resource_name,
@@ -269,7 +305,8 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cidr: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
-            prefix_list_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ManagedPrefixListEntry':
+            prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ManagedPrefixListEntry':
         """
         Get an existing ManagedPrefixListEntry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -280,6 +317,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr: CIDR block of this entry.
         :param pulumi.Input[builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the prefix list.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -288,6 +326,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         __props__.__dict__["cidr"] = cidr
         __props__.__dict__["description"] = description
         __props__.__dict__["prefix_list_id"] = prefix_list_id
+        __props__.__dict__["region"] = region
         return ManagedPrefixListEntry(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -313,4 +352,12 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

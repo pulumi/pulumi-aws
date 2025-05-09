@@ -75,7 +75,8 @@ type GetAddonVersionArgs struct {
 	// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	// Determines if the most recent or default version of the addon should be returned.
-	MostRecent *bool `pulumi:"mostRecent"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAddonVersion.
@@ -85,6 +86,7 @@ type GetAddonVersionResult struct {
 	Id                string `pulumi:"id"`
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	MostRecent        *bool  `pulumi:"mostRecent"`
+	Region            string `pulumi:"region"`
 	// Version of the EKS add-on.
 	Version string `pulumi:"version"`
 }
@@ -106,7 +108,8 @@ type GetAddonVersionOutputArgs struct {
 	// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	KubernetesVersion pulumi.StringInput `pulumi:"kubernetesVersion"`
 	// Determines if the most recent or default version of the addon should be returned.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAddonVersionOutputArgs) ElementType() reflect.Type {
@@ -143,6 +146,10 @@ func (o GetAddonVersionResultOutput) KubernetesVersion() pulumi.StringOutput {
 
 func (o GetAddonVersionResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAddonVersionResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetAddonVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Version of the EKS add-on.

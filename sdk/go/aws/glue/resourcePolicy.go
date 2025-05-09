@@ -93,6 +93,8 @@ type ResourcePolicy struct {
 	EnableHybrid pulumi.StringPtrOutput `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -132,6 +134,8 @@ type resourcePolicyState struct {
 	EnableHybrid *string `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ResourcePolicyState struct {
@@ -139,6 +143,8 @@ type ResourcePolicyState struct {
 	EnableHybrid pulumi.StringPtrInput
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ResourcePolicyState) ElementType() reflect.Type {
@@ -150,6 +156,8 @@ type resourcePolicyArgs struct {
 	EnableHybrid *string `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
@@ -158,6 +166,8 @@ type ResourcePolicyArgs struct {
 	EnableHybrid pulumi.StringPtrInput
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -255,6 +265,11 @@ func (o ResourcePolicyOutput) EnableHybrid() pulumi.StringPtrOutput {
 // The policy to be applied to the aws glue data catalog.
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ResourcePolicyArrayOutput struct{ *pulumi.OutputState }

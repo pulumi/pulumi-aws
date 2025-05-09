@@ -26,6 +26,7 @@ class AgentKnowledgeBaseArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']] = None):
@@ -35,6 +36,7 @@ class AgentKnowledgeBaseArgs:
         :param pulumi.Input[builtins.str] description: Description of the knowledge base.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[builtins.str] name: Name of the knowledge base.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs'] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
                
                The following arguments are optional:
@@ -47,6 +49,8 @@ class AgentKnowledgeBaseArgs:
             pulumi.set(__self__, "knowledge_base_configuration", knowledge_base_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_configuration is not None:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
@@ -103,6 +107,18 @@ class AgentKnowledgeBaseArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]:
         """
@@ -147,6 +163,7 @@ class _AgentKnowledgeBaseState:
                  failure_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -160,6 +177,7 @@ class _AgentKnowledgeBaseState:
         :param pulumi.Input[builtins.str] description: Description of the knowledge base.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[builtins.str] name: Name of the knowledge base.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs'] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
                
@@ -180,6 +198,8 @@ class _AgentKnowledgeBaseState:
             pulumi.set(__self__, "knowledge_base_configuration", knowledge_base_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if storage_configuration is not None:
@@ -261,6 +281,18 @@ class _AgentKnowledgeBaseState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -345,6 +377,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -440,6 +473,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the knowledge base.
         :param pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[builtins.str] name: Name of the knowledge base.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         :param pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
                
@@ -555,6 +589,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -571,6 +606,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["knowledge_base_configuration"] = knowledge_base_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -598,6 +634,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             failure_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             knowledge_base_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             storage_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -616,6 +653,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the knowledge base.
         :param pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[builtins.str] name: Name of the knowledge base.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         :param pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
                
@@ -634,6 +672,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         __props__.__dict__["failure_reasons"] = failure_reasons
         __props__.__dict__["knowledge_base_configuration"] = knowledge_base_configuration
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["storage_configuration"] = storage_configuration
         __props__.__dict__["tags"] = tags
@@ -686,6 +725,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         Name of the knowledge base.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

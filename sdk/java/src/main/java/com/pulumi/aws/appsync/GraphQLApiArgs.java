@@ -200,6 +200,21 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      * 
      */
@@ -303,6 +318,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.openidConnectConfig = $.openidConnectConfig;
         this.queryDepthLimit = $.queryDepthLimit;
+        this.region = $.region;
         this.resolverCountLimit = $.resolverCountLimit;
         this.schema = $.schema;
         this.tags = $.tags;
@@ -576,6 +592,27 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder queryDepthLimit(Integer queryDepthLimit) {
             return queryDepthLimit(Output.of(queryDepthLimit));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

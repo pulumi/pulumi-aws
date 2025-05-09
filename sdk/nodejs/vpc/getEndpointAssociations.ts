@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
 export function getEndpointAssociations(args: GetEndpointAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", {
+        "region": args.region,
         "vpcEndpointId": args.vpcEndpointId,
     }, opts);
 }
@@ -34,6 +35,7 @@ export function getEndpointAssociations(args: GetEndpointAssociationsArgs, opts?
  * A collection of arguments for invoking getEndpointAssociations.
  */
 export interface GetEndpointAssociationsArgs {
+    region?: string;
     /**
      * ID of the specific VPC Endpoint to retrieve.
      */
@@ -52,6 +54,7 @@ export interface GetEndpointAssociationsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly vpcEndpointId: string;
 }
 /**
@@ -73,6 +76,7 @@ export interface GetEndpointAssociationsResult {
 export function getEndpointAssociationsOutput(args: GetEndpointAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", {
+        "region": args.region,
         "vpcEndpointId": args.vpcEndpointId,
     }, opts);
 }
@@ -81,6 +85,7 @@ export function getEndpointAssociationsOutput(args: GetEndpointAssociationsOutpu
  * A collection of arguments for invoking getEndpointAssociations.
  */
 export interface GetEndpointAssociationsOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * ID of the specific VPC Endpoint to retrieve.
      */

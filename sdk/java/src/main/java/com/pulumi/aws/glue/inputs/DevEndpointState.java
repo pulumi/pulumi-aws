@@ -229,6 +229,21 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IAM role for this endpoint.
      * 
      */
@@ -410,6 +425,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
         this.publicAddress = $.publicAddress;
         this.publicKey = $.publicKey;
         this.publicKeys = $.publicKeys;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.securityConfiguration = $.securityConfiguration;
         this.securityGroupIds = $.securityGroupIds;
@@ -743,6 +759,27 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicKeys(String... publicKeys) {
             return publicKeys(List.of(publicKeys));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

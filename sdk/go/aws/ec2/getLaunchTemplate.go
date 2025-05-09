@@ -88,7 +88,8 @@ type LookupLaunchTemplateArgs struct {
 	// ID of the specific launch template to retrieve.
 	Id *string `pulumi:"id"`
 	// Name of the launch template.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -128,6 +129,7 @@ type LookupLaunchTemplateResult struct {
 	Placements                        []GetLaunchTemplatePlacement            `pulumi:"placements"`
 	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
 	RamDiskId                         string                                  `pulumi:"ramDiskId"`
+	Region                            string                                  `pulumi:"region"`
 	SecurityGroupNames                []string                                `pulumi:"securityGroupNames"`
 	TagSpecifications                 []GetLaunchTemplateTagSpecification     `pulumi:"tagSpecifications"`
 	Tags                              map[string]string                       `pulumi:"tags"`
@@ -151,7 +153,8 @@ type LookupLaunchTemplateOutputArgs struct {
 	// ID of the specific launch template to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the launch template.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -314,6 +317,10 @@ func (o LookupLaunchTemplateResultOutput) PrivateDnsNameOptions() GetLaunchTempl
 
 func (o LookupLaunchTemplateResultOutput) RamDiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.RamDiskId }).(pulumi.StringOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {

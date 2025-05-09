@@ -56,6 +56,7 @@ public final class GetThemeResult {
      * 
      */
     private List<GetThemePermission> permissions;
+    private String region;
     /**
      * @return The theme creation status.
      * 
@@ -138,6 +139,9 @@ public final class GetThemeResult {
     public List<GetThemePermission> permissions() {
         return this.permissions;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The theme creation status.
      * 
@@ -188,6 +192,7 @@ public final class GetThemeResult {
         private String lastUpdatedTime;
         private String name;
         private List<GetThemePermission> permissions;
+        private String region;
         private String status;
         private Map<String,String> tags;
         private String themeId;
@@ -205,6 +210,7 @@ public final class GetThemeResult {
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.name = defaults.name;
     	      this.permissions = defaults.permissions;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.themeId = defaults.themeId;
@@ -291,6 +297,14 @@ public final class GetThemeResult {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetThemeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetThemeResult", "status");
@@ -341,6 +355,7 @@ public final class GetThemeResult {
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.name = name;
             _resultValue.permissions = permissions;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.tags = tags;
             _resultValue.themeId = themeId;

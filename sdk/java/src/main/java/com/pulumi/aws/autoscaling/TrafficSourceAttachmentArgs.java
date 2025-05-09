@@ -33,6 +33,21 @@ public final class TrafficSourceAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The unique identifiers of a traffic sources.
      * 
      */
@@ -51,6 +66,7 @@ public final class TrafficSourceAttachmentArgs extends com.pulumi.resources.Reso
 
     private TrafficSourceAttachmentArgs(TrafficSourceAttachmentArgs $) {
         this.autoscalingGroupName = $.autoscalingGroupName;
+        this.region = $.region;
         this.trafficSource = $.trafficSource;
     }
 
@@ -91,6 +107,27 @@ public final class TrafficSourceAttachmentArgs extends com.pulumi.resources.Reso
          */
         public Builder autoscalingGroupName(String autoscalingGroupName) {
             return autoscalingGroupName(Output.of(autoscalingGroupName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

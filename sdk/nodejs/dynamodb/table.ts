@@ -243,6 +243,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly readCapacity!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
@@ -331,6 +335,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
             resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
             resourceInputs["readCapacity"] = state ? state.readCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicas"] = state ? state.replicas : undefined;
             resourceInputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
             resourceInputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
@@ -360,6 +365,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
             resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
             resourceInputs["readCapacity"] = args ? args.readCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
             resourceInputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
@@ -440,6 +446,10 @@ export interface TableState {
      * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
     readCapacity?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
@@ -558,6 +568,10 @@ export interface TableArgs {
      * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
     readCapacity?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */

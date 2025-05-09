@@ -12,17 +12,17 @@ namespace Pulumi.Aws
     public static class GetRegion
     {
         /// <summary>
-        /// `aws.getRegion` provides details about a specific AWS region.
+        /// `aws.getRegion` provides details about a specific AWS Region.
         /// 
-        /// As well as validating a given region name this resource can be used to
-        /// discover the name of the region configured within the provider. The latter
+        /// As well as validating a given Region name this resource can be used to
+        /// discover the name of the Region configured within the provider. The latter
         /// can be useful in a child module which is inheriting an AWS provider
         /// configuration from its parent module.
         /// 
         /// ## Example Usage
         /// 
         /// The following example shows how the resource might be used to obtain
-        /// the name of the AWS region configured on the provider.
+        /// the name of the AWS Region configured on the provider.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -41,17 +41,17 @@ namespace Pulumi.Aws
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.getRegion` provides details about a specific AWS region.
+        /// `aws.getRegion` provides details about a specific AWS Region.
         /// 
-        /// As well as validating a given region name this resource can be used to
-        /// discover the name of the region configured within the provider. The latter
+        /// As well as validating a given Region name this resource can be used to
+        /// discover the name of the Region configured within the provider. The latter
         /// can be useful in a child module which is inheriting an AWS provider
         /// configuration from its parent module.
         /// 
         /// ## Example Usage
         /// 
         /// The following example shows how the resource might be used to obtain
-        /// the name of the AWS region configured on the provider.
+        /// the name of the AWS Region configured on the provider.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -70,17 +70,17 @@ namespace Pulumi.Aws
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.getRegion` provides details about a specific AWS region.
+        /// `aws.getRegion` provides details about a specific AWS Region.
         /// 
-        /// As well as validating a given region name this resource can be used to
-        /// discover the name of the region configured within the provider. The latter
+        /// As well as validating a given Region name this resource can be used to
+        /// discover the name of the Region configured within the provider. The latter
         /// can be useful in a child module which is inheriting an AWS provider
         /// configuration from its parent module.
         /// 
         /// ## Example Usage
         /// 
         /// The following example shows how the resource might be used to obtain
-        /// the name of the AWS region configured on the provider.
+        /// the name of the AWS Region configured on the provider.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -112,10 +112,16 @@ namespace Pulumi.Aws
         public string? Id { get; set; }
 
         /// <summary>
-        /// Full name of the region to select.
+        /// Full name of the region to select. Use `region` instead.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// Full name of the region to select (e.g. `us-east-1`)
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetRegionArgs()
         {
@@ -135,10 +141,16 @@ namespace Pulumi.Aws
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Full name of the region to select.
+        /// Full name of the region to select. Use `region` instead.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Full name of the region to select (e.g. `us-east-1`)
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetRegionInvokeArgs()
         {
@@ -154,15 +166,10 @@ namespace Pulumi.Aws
         /// Region's description in this format: "Location (Region name)".
         /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// EC2 endpoint for the selected region.
-        /// </summary>
         public readonly string Endpoint;
         public readonly string Id;
-        /// <summary>
-        /// Name of the selected region.
-        /// </summary>
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetRegionResult(
@@ -172,12 +179,15 @@ namespace Pulumi.Aws
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             Description = description;
             Endpoint = endpoint;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

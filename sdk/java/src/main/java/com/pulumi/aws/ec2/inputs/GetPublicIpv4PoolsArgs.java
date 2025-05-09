@@ -33,6 +33,13 @@ public final class GetPublicIpv4PoolsArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      * 
@@ -58,6 +65,7 @@ public final class GetPublicIpv4PoolsArgs extends com.pulumi.resources.InvokeArg
 
     private GetPublicIpv4PoolsArgs(GetPublicIpv4PoolsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -108,6 +116,15 @@ public final class GetPublicIpv4PoolsArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder filters(GetPublicIpv4PoolsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

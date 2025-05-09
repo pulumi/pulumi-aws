@@ -99,6 +99,10 @@ export class Studio extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
      */
     public readonly serviceRole!: pulumi.Output<string>;
@@ -152,6 +156,7 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["idpAuthUrl"] = state ? state.idpAuthUrl : undefined;
             resourceInputs["idpRelayStateParameterName"] = state ? state.idpRelayStateParameterName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -191,6 +196,7 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
             resourceInputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -246,6 +252,10 @@ export interface StudioState {
      * A descriptive name for the Amazon EMR Studio.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
      */
@@ -315,6 +325,10 @@ export interface StudioArgs {
      * A descriptive name for the Amazon EMR Studio.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
      */

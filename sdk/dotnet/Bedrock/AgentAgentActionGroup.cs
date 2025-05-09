@@ -251,6 +251,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<bool> PrepareAgent { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
         [Output("skipResourceInUseCheck")]
@@ -370,6 +376,12 @@ namespace Pulumi.Aws.Bedrock
         public Input<bool>? PrepareAgent { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
         [Input("skipResourceInUseCheck")]
@@ -455,6 +467,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.

@@ -427,6 +427,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      * 
      */
@@ -577,6 +592,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.readerEndpoint = $.readerEndpoint;
+        this.region = $.region;
         this.restoreToPointInTime = $.restoreToPointInTime;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
@@ -1197,6 +1213,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder readerEndpoint(String readerEndpoint) {
             return readerEndpoint(Output.of(readerEndpoint));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -76,6 +76,10 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
      * The policy document.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccessGrantsInstanceResourcePolicy resource with the given unique name, arguments, and options.
@@ -92,6 +96,7 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
             const state = argsOrState as AccessGrantsInstanceResourcePolicyState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccessGrantsInstanceResourcePolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -99,6 +104,7 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessGrantsInstanceResourcePolicy.__pulumiType, name, resourceInputs, opts);
@@ -114,6 +120,10 @@ export interface AccessGrantsInstanceResourcePolicyState {
      * The policy document.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -125,4 +135,8 @@ export interface AccessGrantsInstanceResourcePolicyArgs {
      * The policy document.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

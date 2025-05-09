@@ -102,6 +102,9 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("namespaceId", required: true)]
         public string NamespaceId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -133,6 +136,9 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -185,6 +191,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// ID of the namespace to use for DNS configuration.
         /// </summary>
         public readonly string NamespaceId;
+        public readonly string Region;
         /// <summary>
         /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -208,6 +215,8 @@ namespace Pulumi.Aws.ServiceDiscovery
 
             string namespaceId,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
@@ -218,6 +227,7 @@ namespace Pulumi.Aws.ServiceDiscovery
             Id = id;
             Name = name;
             NamespaceId = namespaceId;
+            Region = region;
             Tags = tags;
         }
     }

@@ -69,6 +69,7 @@ type GetOutpostInstanceTypeArgs struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
+	Region                 *string  `pulumi:"region"`
 }
 
 // A collection of values returned by getOutpostInstanceType.
@@ -78,6 +79,7 @@ type GetOutpostInstanceTypeResult struct {
 	Id                     string   `pulumi:"id"`
 	InstanceType           string   `pulumi:"instanceType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
+	Region                 string   `pulumi:"region"`
 }
 
 func GetOutpostInstanceTypeOutput(ctx *pulumi.Context, args GetOutpostInstanceTypeOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypeResultOutput {
@@ -99,6 +101,7 @@ type GetOutpostInstanceTypeOutputArgs struct {
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
 	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
+	Region                 pulumi.StringPtrInput   `pulumi:"region"`
 }
 
 func (GetOutpostInstanceTypeOutputArgs) ElementType() reflect.Type {
@@ -135,6 +138,10 @@ func (o GetOutpostInstanceTypeResultOutput) InstanceType() pulumi.StringOutput {
 
 func (o GetOutpostInstanceTypeResultOutput) PreferredInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostInstanceTypeResult) []string { return v.PreferredInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOutpostInstanceTypeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -19,10 +19,19 @@ import * as utilities from "../utilities";
  * const available = aws.directconnect.getLocations({});
  * ```
  */
-export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
+export function getLocations(args?: GetLocationsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getLocations:getLocations", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getLocations.
+ */
+export interface GetLocationsArgs {
+    region?: string;
 }
 
 /**
@@ -37,6 +46,7 @@ export interface GetLocationsResult {
      * Code for the locations.
      */
     readonly locationCodes: string[];
+    readonly region: string;
 }
 /**
  * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -53,8 +63,17 @@ export interface GetLocationsResult {
  * const available = aws.directconnect.getLocations({});
  * ```
  */
-export function getLocationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationsResult> {
+export function getLocationsOutput(args?: GetLocationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getLocations:getLocations", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getLocations.
+ */
+export interface GetLocationsOutputArgs {
+    region?: pulumi.Input<string>;
 }

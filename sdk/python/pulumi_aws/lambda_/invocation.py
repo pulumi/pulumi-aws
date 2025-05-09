@@ -24,6 +24,7 @@ class InvocationArgs:
                  input: pulumi.Input[builtins.str],
                  lifecycle_scope: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class InvocationArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
@@ -42,6 +44,8 @@ class InvocationArgs:
             pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if terraform_key is not None:
             pulumi.set(__self__, "terraform_key", terraform_key)
         if triggers is not None:
@@ -98,6 +102,18 @@ class InvocationArgs:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="terraformKey")
     def terraform_key(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "terraform_key")
@@ -126,6 +142,7 @@ class _InvocationState:
                  input: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_scope: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  result: Optional[pulumi.Input[builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -137,6 +154,7 @@ class _InvocationState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -148,6 +166,8 @@ class _InvocationState:
             pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if result is not None:
             pulumi.set(__self__, "result", result)
         if terraform_key is not None:
@@ -207,6 +227,18 @@ class _InvocationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def result(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         String result of the lambda function invocation.
@@ -251,6 +283,7 @@ class Invocation(pulumi.CustomResource):
                  input: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_scope: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -319,6 +352,7 @@ class Invocation(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         ...
@@ -403,6 +437,7 @@ class Invocation(pulumi.CustomResource):
                  input: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_scope: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  terraform_key: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -422,6 +457,7 @@ class Invocation(pulumi.CustomResource):
             __props__.__dict__["input"] = input
             __props__.__dict__["lifecycle_scope"] = lifecycle_scope
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["terraform_key"] = terraform_key
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["result"] = None
@@ -439,6 +475,7 @@ class Invocation(pulumi.CustomResource):
             input: Optional[pulumi.Input[builtins.str]] = None,
             lifecycle_scope: Optional[pulumi.Input[builtins.str]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             result: Optional[pulumi.Input[builtins.str]] = None,
             terraform_key: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Invocation':
@@ -455,6 +492,7 @@ class Invocation(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -466,6 +504,7 @@ class Invocation(pulumi.CustomResource):
         __props__.__dict__["input"] = input
         __props__.__dict__["lifecycle_scope"] = lifecycle_scope
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["result"] = result
         __props__.__dict__["terraform_key"] = terraform_key
         __props__.__dict__["triggers"] = triggers
@@ -504,6 +543,14 @@ class Invocation(pulumi.CustomResource):
         Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

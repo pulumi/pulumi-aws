@@ -237,6 +237,21 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region of the container image.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region of the container image.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -313,6 +328,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         this.osVersion = $.osVersion;
         this.outputResources = $.outputResources;
         this.platform = $.platform;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.version = $.version;
@@ -643,6 +659,27 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platform(String platform) {
             return platform(Output.of(platform));
+        }
+
+        /**
+         * @param region Region of the container image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region of the container image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

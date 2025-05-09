@@ -82,6 +82,20 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
         return this.originalRouteTableId;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC
      * 

@@ -277,6 +277,21 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
      * 
      */
@@ -495,6 +510,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.ownerId = $.ownerId;
         this.preferredSubnetId = $.preferredSubnetId;
+        this.region = $.region;
         this.rootVolumeConfiguration = $.rootVolumeConfiguration;
         this.rootVolumeId = $.rootVolumeId;
         this.routeTableIds = $.routeTableIds;
@@ -903,6 +919,27 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
          */
         public Builder preferredSubnetId(String preferredSubnetId) {
             return preferredSubnetId(Output.of(preferredSubnetId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

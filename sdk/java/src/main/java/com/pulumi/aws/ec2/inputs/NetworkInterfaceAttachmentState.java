@@ -77,6 +77,21 @@ public final class NetworkInterfaceAttachmentState extends com.pulumi.resources.
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The status of the Network Interface Attachment.
      * 
      */
@@ -98,6 +113,7 @@ public final class NetworkInterfaceAttachmentState extends com.pulumi.resources.
         this.deviceIndex = $.deviceIndex;
         this.instanceId = $.instanceId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.region = $.region;
         this.status = $.status;
     }
 
@@ -201,6 +217,27 @@ public final class NetworkInterfaceAttachmentState extends com.pulumi.resources.
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

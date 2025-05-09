@@ -31,6 +31,7 @@ export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invoke("aws:imagebuilder/getImageRecipes:getImageRecipes", {
         "filters": args.filters,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,7 @@ export interface GetImageRecipesArgs {
      * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: string;
+    region?: string;
 }
 
 /**
@@ -66,6 +68,7 @@ export interface GetImageRecipesResult {
      */
     readonly names: string[];
     readonly owner?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
@@ -91,6 +94,7 @@ export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: p
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", {
         "filters": args.filters,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -106,4 +110,5 @@ export interface GetImageRecipesOutputArgs {
      * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

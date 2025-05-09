@@ -22,6 +22,11 @@ public final class GetBucketResult {
      */
     private String bucketDomainName;
     /**
+     * @return AWS region this bucket resides in.
+     * 
+     */
+    private String bucketRegion;
+    /**
      * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
@@ -36,10 +41,6 @@ public final class GetBucketResult {
      * 
      */
     private String id;
-    /**
-     * @return AWS region this bucket resides in.
-     * 
-     */
     private String region;
     /**
      * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -71,6 +72,13 @@ public final class GetBucketResult {
         return this.bucketDomainName;
     }
     /**
+     * @return AWS region this bucket resides in.
+     * 
+     */
+    public String bucketRegion() {
+        return this.bucketRegion;
+    }
+    /**
      * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      * 
      */
@@ -91,10 +99,6 @@ public final class GetBucketResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return AWS region this bucket resides in.
-     * 
-     */
     public String region() {
         return this.region;
     }
@@ -125,6 +129,7 @@ public final class GetBucketResult {
         private String arn;
         private String bucket;
         private String bucketDomainName;
+        private String bucketRegion;
         private String bucketRegionalDomainName;
         private String hostedZoneId;
         private String id;
@@ -137,6 +142,7 @@ public final class GetBucketResult {
     	      this.arn = defaults.arn;
     	      this.bucket = defaults.bucket;
     	      this.bucketDomainName = defaults.bucketDomainName;
+    	      this.bucketRegion = defaults.bucketRegion;
     	      this.bucketRegionalDomainName = defaults.bucketRegionalDomainName;
     	      this.hostedZoneId = defaults.hostedZoneId;
     	      this.id = defaults.id;
@@ -167,6 +173,14 @@ public final class GetBucketResult {
               throw new MissingRequiredPropertyException("GetBucketResult", "bucketDomainName");
             }
             this.bucketDomainName = bucketDomainName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bucketRegion(String bucketRegion) {
+            if (bucketRegion == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "bucketRegion");
+            }
+            this.bucketRegion = bucketRegion;
             return this;
         }
         @CustomType.Setter
@@ -222,6 +236,7 @@ public final class GetBucketResult {
             _resultValue.arn = arn;
             _resultValue.bucket = bucket;
             _resultValue.bucketDomainName = bucketDomainName;
+            _resultValue.bucketRegion = bucketRegion;
             _resultValue.bucketRegionalDomainName = bucketRegionalDomainName;
             _resultValue.hostedZoneId = hostedZoneId;
             _resultValue.id = id;

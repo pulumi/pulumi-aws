@@ -32,6 +32,21 @@ public final class UserStackAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
@@ -84,6 +99,7 @@ public final class UserStackAssociationState extends com.pulumi.resources.Resour
 
     private UserStackAssociationState(UserStackAssociationState $) {
         this.authenticationType = $.authenticationType;
+        this.region = $.region;
         this.sendEmailNotification = $.sendEmailNotification;
         this.stackName = $.stackName;
         this.userName = $.userName;
@@ -126,6 +142,27 @@ public final class UserStackAssociationState extends com.pulumi.resources.Resour
          */
         public Builder authenticationType(String authenticationType) {
             return authenticationType(Output.of(authenticationType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

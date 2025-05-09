@@ -28,7 +28,7 @@ class GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
+    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, region=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -80,6 +80,9 @@ class GetBrokerResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -185,6 +188,11 @@ class GetBrokerResult:
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[builtins.str]:
         return pulumi.get(self, "security_groups")
@@ -233,6 +241,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             logs=self.logs,
             maintenance_window_start_time=self.maintenance_window_start_time,
             publicly_accessible=self.publicly_accessible,
+            region=self.region,
             security_groups=self.security_groups,
             storage_type=self.storage_type,
             subnet_ids=self.subnet_ids,
@@ -242,6 +251,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
 
 def get_broker(broker_id: Optional[builtins.str] = None,
                broker_name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerResult:
     """
@@ -271,6 +281,7 @@ def get_broker(broker_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__, opts=opts, typ=GetBrokerResult).value
@@ -293,6 +304,7 @@ def get_broker(broker_id: Optional[builtins.str] = None,
         logs=pulumi.get(__ret__, 'logs'),
         maintenance_window_start_time=pulumi.get(__ret__, 'maintenance_window_start_time'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        region=pulumi.get(__ret__, 'region'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
@@ -300,6 +312,7 @@ def get_broker(broker_id: Optional[builtins.str] = None,
         users=pulumi.get(__ret__, 'users'))
 def get_broker_output(broker_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       broker_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
@@ -329,6 +342,7 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[builtins.str]]] 
     __args__ = dict()
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getBroker:getBroker', __args__, opts=opts, typ=GetBrokerResult)
@@ -350,6 +364,7 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[builtins.str]]] 
         logs=pulumi.get(__response__, 'logs'),
         maintenance_window_start_time=pulumi.get(__response__, 'maintenance_window_start_time'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        region=pulumi.get(__response__, 'region'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),

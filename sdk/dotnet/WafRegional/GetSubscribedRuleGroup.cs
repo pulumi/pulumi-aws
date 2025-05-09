@@ -161,6 +161,8 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// Name of the WAF rule group.
+        /// 
+        /// At least one of `name` or `metric_name` must be configured.
         /// </summary>
         [Input("metricName")]
         public string? MetricName { get; set; }
@@ -170,6 +172,9 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetSubscribedRuleGroupArgs()
         {
@@ -181,6 +186,8 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// Name of the WAF rule group.
+        /// 
+        /// At least one of `name` or `metric_name` must be configured.
         /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
@@ -190,6 +197,9 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetSubscribedRuleGroupInvokeArgs()
         {
@@ -207,6 +217,7 @@ namespace Pulumi.Aws.WafRegional
         public readonly string Id;
         public readonly string? MetricName;
         public readonly string? Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSubscribedRuleGroupResult(
@@ -214,11 +225,14 @@ namespace Pulumi.Aws.WafRegional
 
             string? metricName,
 
-            string? name)
+            string? name,
+
+            string region)
         {
             Id = id;
             MetricName = metricName;
             Name = name;
+            Region = region;
         }
     }
 }

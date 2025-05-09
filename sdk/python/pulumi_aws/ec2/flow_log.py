@@ -30,6 +30,7 @@ class FlowLogArgs:
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_format: Optional[pulumi.Input[builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -48,6 +49,7 @@ class FlowLogArgs:
         :param pulumi.Input[builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -71,6 +73,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "log_format", log_format)
         if max_aggregation_interval is not None:
             pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -183,6 +187,18 @@ class FlowLogArgs:
         pulumi.set(self, "max_aggregation_interval", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -267,6 +283,7 @@ class _FlowLogState:
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_format: Optional[pulumi.Input[builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -287,6 +304,7 @@ class _FlowLogState:
         :param pulumi.Input[builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -313,6 +331,8 @@ class _FlowLogState:
             pulumi.set(__self__, "log_format", log_format)
         if max_aggregation_interval is not None:
             pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -439,6 +459,18 @@ class _FlowLogState:
         pulumi.set(self, "max_aggregation_interval", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -539,6 +571,7 @@ class FlowLog(pulumi.CustomResource):
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_format: Optional[pulumi.Input[builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -644,6 +677,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -766,6 +800,7 @@ class FlowLog(pulumi.CustomResource):
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_format: Optional[pulumi.Input[builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -789,6 +824,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["log_destination_type"] = log_destination_type
             __props__.__dict__["log_format"] = log_format
             __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
+            __props__.__dict__["region"] = region
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_type"] = traffic_type
@@ -816,6 +852,7 @@ class FlowLog(pulumi.CustomResource):
             log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
             log_format: Optional[pulumi.Input[builtins.str]] = None,
             max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -841,6 +878,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
                Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -862,6 +900,7 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["log_destination_type"] = log_destination_type
         __props__.__dict__["log_format"] = log_format
         __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
+        __props__.__dict__["region"] = region
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -944,6 +983,14 @@ class FlowLog(pulumi.CustomResource):
         When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="subnetId")

@@ -27,6 +27,7 @@ class DomainArgs:
                  dead_letter_queue_url: Optional[pulumi.Input[builtins.str]] = None,
                  default_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -39,6 +40,7 @@ class DomainArgs:
         :param pulumi.Input[builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
         :param pulumi.Input[builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
         :param pulumi.Input['DomainMatchingArgs'] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,6 +53,8 @@ class DomainArgs:
             pulumi.set(__self__, "default_encryption_key", default_encryption_key)
         if matching is not None:
             pulumi.set(__self__, "matching", matching)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_based_matching is not None:
             pulumi.set(__self__, "rule_based_matching", rule_based_matching)
         if tags is not None:
@@ -121,6 +125,18 @@ class DomainArgs:
         pulumi.set(self, "matching", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
         """
@@ -166,6 +182,7 @@ class _DomainState:
                  default_expiration_days: Optional[pulumi.Input[builtins.int]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -179,6 +196,7 @@ class _DomainState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
         :param pulumi.Input['DomainMatchingArgs'] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -195,6 +213,8 @@ class _DomainState:
             pulumi.set(__self__, "domain_name", domain_name)
         if matching is not None:
             pulumi.set(__self__, "matching", matching)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_based_matching is not None:
             pulumi.set(__self__, "rule_based_matching", rule_based_matching)
         if tags is not None:
@@ -277,6 +297,18 @@ class _DomainState:
         pulumi.set(self, "matching", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
         """
@@ -326,6 +358,7 @@ class Domain(pulumi.CustomResource):
                  default_expiration_days: Optional[pulumi.Input[builtins.int]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -415,6 +448,7 @@ class Domain(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
         :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -521,6 +555,7 @@ class Domain(pulumi.CustomResource):
                  default_expiration_days: Optional[pulumi.Input[builtins.int]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -542,6 +577,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["matching"] = matching
+            __props__.__dict__["region"] = region
             __props__.__dict__["rule_based_matching"] = rule_based_matching
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -562,6 +598,7 @@ class Domain(pulumi.CustomResource):
             default_expiration_days: Optional[pulumi.Input[builtins.int]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Domain':
@@ -580,6 +617,7 @@ class Domain(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
         :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -594,6 +632,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["default_expiration_days"] = default_expiration_days
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["matching"] = matching
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_based_matching"] = rule_based_matching
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -648,6 +687,14 @@ class Domain(pulumi.CustomResource):
         A block that specifies the process of matching duplicate profiles. Documented below.
         """
         return pulumi.get(self, "matching")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleBasedMatching")

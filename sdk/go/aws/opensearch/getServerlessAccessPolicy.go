@@ -54,7 +54,8 @@ func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAcc
 // A collection of arguments for invoking getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyArgs struct {
 	// Name of the policy.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	Type string `pulumi:"type"`
 }
@@ -69,6 +70,7 @@ type LookupServerlessAccessPolicyResult struct {
 	Policy string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion string `pulumi:"policyVersion"`
+	Region        string `pulumi:"region"`
 	Type          string `pulumi:"type"`
 }
 
@@ -84,7 +86,8 @@ func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerle
 // A collection of arguments for invoking getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyOutputArgs struct {
 	// Name of the policy.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -129,6 +132,10 @@ func (o LookupServerlessAccessPolicyResultOutput) Policy() pulumi.StringOutput {
 // Version of the policy.
 func (o LookupServerlessAccessPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessAccessPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServerlessAccessPolicyResultOutput) Type() pulumi.StringOutput {

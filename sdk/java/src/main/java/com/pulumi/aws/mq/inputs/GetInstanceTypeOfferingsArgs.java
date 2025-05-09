@@ -45,6 +45,13 @@ public final class GetInstanceTypeOfferingsArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.hostInstanceType);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Filter response by storage type.
      * 
@@ -65,6 +72,7 @@ public final class GetInstanceTypeOfferingsArgs extends com.pulumi.resources.Inv
     private GetInstanceTypeOfferingsArgs(GetInstanceTypeOfferingsArgs $) {
         this.engineType = $.engineType;
         this.hostInstanceType = $.hostInstanceType;
+        this.region = $.region;
         this.storageType = $.storageType;
     }
 
@@ -126,6 +134,15 @@ public final class GetInstanceTypeOfferingsArgs extends com.pulumi.resources.Inv
          */
         public Builder hostInstanceType(String hostInstanceType) {
             return hostInstanceType(Output.of(hostInstanceType));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

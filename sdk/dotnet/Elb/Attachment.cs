@@ -54,6 +54,12 @@ namespace Pulumi.Aws.Elb
         [Output("instance")]
         public Output<string> Instance { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Attachment resource with the given unique name, arguments, and options.
@@ -116,6 +122,12 @@ namespace Pulumi.Aws.Elb
         [Input("instance", required: true)]
         public Input<string> Instance { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public AttachmentArgs()
         {
         }
@@ -135,6 +147,12 @@ namespace Pulumi.Aws.Elb
         /// </summary>
         [Input("instance")]
         public Input<string>? Instance { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public AttachmentState()
         {

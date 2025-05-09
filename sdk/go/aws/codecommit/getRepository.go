@@ -50,6 +50,7 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
+	Region *string `pulumi:"region"`
 	// Name for the repository. This needs to be less than 100 characters.
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -66,6 +67,7 @@ type LookupRepositoryResult struct {
 	Id string `pulumi:"id"`
 	// The ID of the encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	Region   string `pulumi:"region"`
 	// ID of the repository.
 	RepositoryId   string `pulumi:"repositoryId"`
 	RepositoryName string `pulumi:"repositoryName"`
@@ -82,6 +84,7 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 }
@@ -128,6 +131,10 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 // The ID of the encryption key.
 func (o LookupRepositoryResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the repository.

@@ -188,6 +188,12 @@ namespace Pulumi.Aws.Lambda
         [Output("qualifier")]
         public Output<string?> Qualifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FunctionEventInvokeConfig resource with the given unique name, arguments, and options.
@@ -266,6 +272,12 @@ namespace Pulumi.Aws.Lambda
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public FunctionEventInvokeConfigArgs()
         {
         }
@@ -305,6 +317,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public FunctionEventInvokeConfigState()
         {

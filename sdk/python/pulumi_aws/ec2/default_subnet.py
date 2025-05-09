@@ -32,6 +32,7 @@ class DefaultSubnetArgs:
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultSubnet resource.
@@ -41,6 +42,7 @@ class DefaultSubnetArgs:
                
                This resource supports the following additional arguments:
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if assign_ipv6_address_on_creation is not None:
@@ -65,6 +67,8 @@ class DefaultSubnetArgs:
             pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
         if private_dns_hostname_type_on_launch is not None:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -188,6 +192,18 @@ class DefaultSubnetArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -219,6 +235,7 @@ class _DefaultSubnetState:
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -232,6 +249,7 @@ class _DefaultSubnetState:
         :param pulumi.Input[builtins.str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         if arn is not None:
@@ -274,6 +292,8 @@ class _DefaultSubnetState:
             pulumi.set(__self__, "owner_id", owner_id)
         if private_dns_hostname_type_on_launch is not None:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -479,6 +499,18 @@ class _DefaultSubnetState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -528,6 +560,7 @@ class DefaultSubnet(pulumi.CustomResource):
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -569,6 +602,7 @@ class DefaultSubnet(pulumi.CustomResource):
                
                This resource supports the following additional arguments:
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -634,6 +668,7 @@ class DefaultSubnet(pulumi.CustomResource):
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[builtins.bool]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -658,6 +693,7 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
@@ -699,6 +735,7 @@ class DefaultSubnet(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             private_dns_hostname_type_on_launch: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'DefaultSubnet':
@@ -717,6 +754,7 @@ class DefaultSubnet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -743,6 +781,7 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_id"] = vpc_id
@@ -863,6 +902,14 @@ class DefaultSubnet(pulumi.CustomResource):
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
     def private_dns_hostname_type_on_launch(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "private_dns_hostname_type_on_launch")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

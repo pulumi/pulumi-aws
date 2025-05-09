@@ -213,6 +213,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether the certificate is eligible for managed renewal.
      */
     public /*out*/ readonly renewalEligibility!: pulumi.Output<string>;
@@ -280,6 +284,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["pendingRenewal"] = state ? state.pendingRenewal : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["renewalEligibility"] = state ? state.renewalEligibility : undefined;
             resourceInputs["renewalSummaries"] = state ? state.renewalSummaries : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -300,6 +305,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -387,6 +393,10 @@ export interface CertificateState {
      */
     privateKey?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether the certificate is eligible for managed renewal.
      */
     renewalEligibility?: pulumi.Input<string>;
@@ -470,6 +480,10 @@ export interface CertificateArgs {
      * Certificate's PEM-formatted private key
      */
     privateKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */

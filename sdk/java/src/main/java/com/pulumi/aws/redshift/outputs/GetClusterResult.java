@@ -196,6 +196,7 @@ public final class GetClusterResult {
      * 
      */
     private Boolean publiclyAccessible;
+    private String region;
     /**
      * @return Folder inside the S3 bucket where the log files are stored
      * 
@@ -473,6 +474,9 @@ public final class GetClusterResult {
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Folder inside the S3 bucket where the log files are stored
      * 
@@ -548,6 +552,7 @@ public final class GetClusterResult {
         private Integer port;
         private String preferredMaintenanceWindow;
         private Boolean publiclyAccessible;
+        private String region;
         private String s3KeyPrefix;
         private Map<String,String> tags;
         private String vpcId;
@@ -592,6 +597,7 @@ public final class GetClusterResult {
     	      this.port = defaults.port;
     	      this.preferredMaintenanceWindow = defaults.preferredMaintenanceWindow;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
+    	      this.region = defaults.region;
     	      this.s3KeyPrefix = defaults.s3KeyPrefix;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
@@ -904,6 +910,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             if (s3KeyPrefix == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "s3KeyPrefix");
@@ -977,6 +991,7 @@ public final class GetClusterResult {
             _resultValue.port = port;
             _resultValue.preferredMaintenanceWindow = preferredMaintenanceWindow;
             _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.region = region;
             _resultValue.s3KeyPrefix = s3KeyPrefix;
             _resultValue.tags = tags;
             _resultValue.vpcId = vpcId;

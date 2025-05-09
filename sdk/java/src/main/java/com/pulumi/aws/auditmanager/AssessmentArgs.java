@@ -82,18 +82,33 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of roles for the assessment. See `roles` below.
      * 
      */
-    @Import(name="roles", required=true)
-    private Output<List<AssessmentRoleArgs>> roles;
+    @Import(name="roles")
+    private @Nullable Output<List<AssessmentRoleArgs>> roles;
 
     /**
      * @return List of roles for the assessment. See `roles` below.
      * 
      */
-    public Output<List<AssessmentRoleArgs>> roles() {
-        return this.roles;
+    public Optional<Output<List<AssessmentRoleArgs>>> roles() {
+        return Optional.ofNullable(this.roles);
     }
 
     /**
@@ -137,6 +152,7 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.frameworkId = $.frameworkId;
         this.name = $.name;
+        this.region = $.region;
         this.roles = $.roles;
         this.scope = $.scope;
         this.tags = $.tags;
@@ -245,12 +261,33 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param roles List of roles for the assessment. See `roles` below.
          * 
          * @return builder
          * 
          */
-        public Builder roles(Output<List<AssessmentRoleArgs>> roles) {
+        public Builder roles(@Nullable Output<List<AssessmentRoleArgs>> roles) {
             $.roles = roles;
             return this;
         }
@@ -324,9 +361,6 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
         public AssessmentArgs build() {
             if ($.frameworkId == null) {
                 throw new MissingRequiredPropertyException("AssessmentArgs", "frameworkId");
-            }
-            if ($.roles == null) {
-                throw new MissingRequiredPropertyException("AssessmentArgs", "roles");
             }
             return $;
         }

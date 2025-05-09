@@ -318,6 +318,8 @@ type MetricAlarm struct {
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrOutput `pulumi:"period"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
@@ -413,6 +415,8 @@ type metricAlarmState struct {
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
@@ -473,6 +477,8 @@ type MetricAlarmState struct {
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
@@ -535,6 +541,8 @@ type metricAlarmArgs struct {
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
@@ -592,6 +600,8 @@ type MetricAlarmArgs struct {
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
@@ -785,6 +795,11 @@ func (o MetricAlarmOutput) OkActions() pulumi.StringArrayOutput {
 // Valid values are `10`, `30`, or any multiple of `60`.
 func (o MetricAlarmOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MetricAlarmOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The statistic to apply to the alarm's associated metric.

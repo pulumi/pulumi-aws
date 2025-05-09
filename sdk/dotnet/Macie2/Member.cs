@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Macie2
         public Output<string> MasterAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The current status of the relationship between the account and the administrator account.
         /// </summary>
         [Output("relationshipStatus")]
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.Macie2
         public Input<bool>? Invite { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Input("status")]
@@ -286,6 +298,12 @@ namespace Pulumi.Aws.Macie2
 
         [Input("masterAccountId")]
         public Input<string>? MasterAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The current status of the relationship between the account and the administrator account.

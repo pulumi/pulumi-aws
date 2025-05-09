@@ -73,6 +73,8 @@ type AgentDataSource struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          AgentDataSourceTimeoutsPtrOutput                          `pulumi:"timeouts"`
@@ -127,6 +129,8 @@ type agentDataSourceState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          *AgentDataSourceTimeouts                          `pulumi:"timeouts"`
@@ -149,6 +153,8 @@ type AgentDataSourceState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
 	Timeouts                          AgentDataSourceTimeoutsPtrInput
@@ -173,6 +179,8 @@ type agentDataSourceArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          *AgentDataSourceTimeouts                          `pulumi:"timeouts"`
@@ -194,6 +202,8 @@ type AgentDataSourceArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
 	Timeouts                          AgentDataSourceTimeoutsPtrInput
@@ -320,6 +330,11 @@ func (o AgentDataSourceOutput) KnowledgeBaseId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o AgentDataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentDataSourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.

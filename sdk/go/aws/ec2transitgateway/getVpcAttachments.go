@@ -28,6 +28,7 @@ func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ..
 type GetVpcAttachmentsArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetVpcAttachmentsFilter `pulumi:"filters"`
+	Region  *string                   `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcAttachments.
@@ -36,7 +37,8 @@ type GetVpcAttachmentsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
 func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetVpcAttachmentsResultOutput {
@@ -52,6 +54,7 @@ func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputAr
 type GetVpcAttachmentsOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetVpcAttachmentsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
 }
 
 func (GetVpcAttachmentsOutputArgs) ElementType() reflect.Type {
@@ -85,6 +88,10 @@ func (o GetVpcAttachmentsResultOutput) Id() pulumi.StringOutput {
 // A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
 func (o GetVpcAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetVpcAttachmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcAttachmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

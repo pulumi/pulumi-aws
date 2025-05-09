@@ -65,6 +65,20 @@ public class DefaultRouteTableAssociation extends com.pulumi.resources.CustomRes
     public Output<String> originalDefaultRouteTableId() {
         return this.originalDefaultRouteTableId;
     }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
     @Export(name="timeouts", refs={DefaultRouteTableAssociationTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ DefaultRouteTableAssociationTimeouts> timeouts;
 

@@ -27,6 +27,7 @@ export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulum
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterface:getNetworkInterface", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,7 @@ export interface GetNetworkInterfaceArgs {
      * Identifier for the network interface.
      */
     id?: string;
+    region?: string;
     /**
      * Any tags assigned to the network interface.
      */
@@ -104,6 +106,7 @@ export interface GetNetworkInterfaceResult {
      * Private IPv4 addresses associated with the network interface.
      */
     readonly privateIps: string[];
+    readonly region: string;
     /**
      * ID of the entity that launched the instance on your behalf.
      */
@@ -145,6 +148,7 @@ export function getNetworkInterfaceOutput(args?: GetNetworkInterfaceOutputArgs, 
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInterface:getNetworkInterface", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -161,6 +165,7 @@ export interface GetNetworkInterfaceOutputArgs {
      * Identifier for the network interface.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the network interface.
      */

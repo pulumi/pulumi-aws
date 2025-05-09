@@ -73,6 +73,8 @@ type ServerlessCluster struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// UUID of the serverless cluster, for use in IAM policies.
 	ClusterUuid pulumi.StringOutput `pulumi:"clusterUuid"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +127,8 @@ type serverlessClusterState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// UUID of the serverless cluster, for use in IAM policies.
 	ClusterUuid *string `pulumi:"clusterUuid"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -142,6 +146,8 @@ type ServerlessClusterState struct {
 	ClusterName pulumi.StringPtrInput
 	// UUID of the serverless cluster, for use in IAM policies.
 	ClusterUuid pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -159,6 +165,8 @@ type serverlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
 	ClusterName *string `pulumi:"clusterName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC configuration information. See below.
@@ -171,6 +179,8 @@ type ServerlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// VPC configuration information. See below.
@@ -282,6 +292,11 @@ func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 // UUID of the serverless cluster, for use in IAM policies.
 func (o ServerlessClusterOutput) ClusterUuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterUuid }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServerlessClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

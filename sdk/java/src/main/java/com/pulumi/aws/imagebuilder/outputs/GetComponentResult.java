@@ -64,6 +64,7 @@ public final class GetComponentResult {
      * 
      */
     private String platform;
+    private String region;
     /**
      * @return Operating Systems (OSes) supported by the component.
      * 
@@ -159,6 +160,9 @@ public final class GetComponentResult {
     public String platform() {
         return this.platform;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Operating Systems (OSes) supported by the component.
      * 
@@ -208,6 +212,7 @@ public final class GetComponentResult {
         private String name;
         private String owner;
         private String platform;
+        private String region;
         private List<String> supportedOsVersions;
         private Map<String,String> tags;
         private String type;
@@ -226,6 +231,7 @@ public final class GetComponentResult {
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.platform = defaults.platform;
+    	      this.region = defaults.region;
     	      this.supportedOsVersions = defaults.supportedOsVersions;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
@@ -321,6 +327,14 @@ public final class GetComponentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetComponentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportedOsVersions(List<String> supportedOsVersions) {
             if (supportedOsVersions == null) {
               throw new MissingRequiredPropertyException("GetComponentResult", "supportedOsVersions");
@@ -368,6 +382,7 @@ public final class GetComponentResult {
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.platform = platform;
+            _resultValue.region = region;
             _resultValue.supportedOsVersions = supportedOsVersions;
             _resultValue.tags = tags;
             _resultValue.type = type;

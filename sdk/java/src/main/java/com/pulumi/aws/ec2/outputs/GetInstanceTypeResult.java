@@ -291,6 +291,7 @@ public final class GetInstanceTypeResult {
      * 
      */
     private String phcSupport;
+    private String region;
     /**
      * @return A list of strings of architectures supported by the instance type.
      * 
@@ -736,6 +737,9 @@ public final class GetInstanceTypeResult {
     public String phcSupport() {
         return this.phcSupport;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A list of strings of architectures supported by the instance type.
      * 
@@ -900,6 +904,7 @@ public final class GetInstanceTypeResult {
         private String nitroTpmSupport;
         private List<String> nitroTpmSupportedVersions;
         private String phcSupport;
+        private String region;
         private List<String> supportedArchitectures;
         private List<String> supportedCpuFeatures;
         private List<String> supportedPlacementStrategies;
@@ -967,6 +972,7 @@ public final class GetInstanceTypeResult {
     	      this.nitroTpmSupport = defaults.nitroTpmSupport;
     	      this.nitroTpmSupportedVersions = defaults.nitroTpmSupportedVersions;
     	      this.phcSupport = defaults.phcSupport;
+    	      this.region = defaults.region;
     	      this.supportedArchitectures = defaults.supportedArchitectures;
     	      this.supportedCpuFeatures = defaults.supportedCpuFeatures;
     	      this.supportedPlacementStrategies = defaults.supportedPlacementStrategies;
@@ -1407,6 +1413,14 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportedArchitectures(List<String> supportedArchitectures) {
             if (supportedArchitectures == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedArchitectures");
@@ -1601,6 +1615,7 @@ public final class GetInstanceTypeResult {
             _resultValue.nitroTpmSupport = nitroTpmSupport;
             _resultValue.nitroTpmSupportedVersions = nitroTpmSupportedVersions;
             _resultValue.phcSupport = phcSupport;
+            _resultValue.region = region;
             _resultValue.supportedArchitectures = supportedArchitectures;
             _resultValue.supportedCpuFeatures = supportedCpuFeatures;
             _resultValue.supportedPlacementStrategies = supportedPlacementStrategies;

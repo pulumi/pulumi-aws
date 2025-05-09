@@ -38,6 +38,7 @@ public final class GetReservedInstanceOfferingResult {
     private String offeringId;
     private String offeringType;
     private String productDescription;
+    private String region;
 
     private GetReservedInstanceOfferingResult() {}
     /**
@@ -83,6 +84,9 @@ public final class GetReservedInstanceOfferingResult {
     public String productDescription() {
         return this.productDescription;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -102,6 +106,7 @@ public final class GetReservedInstanceOfferingResult {
         private String offeringId;
         private String offeringType;
         private String productDescription;
+        private String region;
         public Builder() {}
         public Builder(GetReservedInstanceOfferingResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,6 +119,7 @@ public final class GetReservedInstanceOfferingResult {
     	      this.offeringId = defaults.offeringId;
     	      this.offeringType = defaults.offeringType;
     	      this.productDescription = defaults.productDescription;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -188,6 +194,14 @@ public final class GetReservedInstanceOfferingResult {
             this.productDescription = productDescription;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetReservedInstanceOfferingResult build() {
             final var _resultValue = new GetReservedInstanceOfferingResult();
             _resultValue.currencyCode = currencyCode;
@@ -199,6 +213,7 @@ public final class GetReservedInstanceOfferingResult {
             _resultValue.offeringId = offeringId;
             _resultValue.offeringType = offeringType;
             _resultValue.productDescription = productDescription;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

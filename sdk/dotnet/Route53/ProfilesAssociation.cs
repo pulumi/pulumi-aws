@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Route53
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Resource ID of the VPC the profile to be associated with.
         /// </summary>
         [Output("resourceId")]
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.Route53
         public Input<string> ProfileId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Resource ID of the VPC the profile to be associated with.
         /// </summary>
         [Input("resourceId", required: true)]
@@ -180,6 +192,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("profileId")]
         public Input<string>? ProfileId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Resource ID of the VPC the profile to be associated with.

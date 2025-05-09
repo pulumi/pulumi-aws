@@ -53,6 +53,7 @@ public final class GetMulticastDomainResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return EC2 Multicast Domain Group Sources
      * 
@@ -134,6 +135,9 @@ public final class GetMulticastDomainResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return EC2 Multicast Domain Group Sources
      * 
@@ -193,6 +197,7 @@ public final class GetMulticastDomainResult {
         private String igmpv2Support;
         private List<GetMulticastDomainMember> members;
         private String ownerId;
+        private String region;
         private List<GetMulticastDomainSource> sources;
         private String state;
         private String staticSourcesSupport;
@@ -211,6 +216,7 @@ public final class GetMulticastDomainResult {
     	      this.igmpv2Support = defaults.igmpv2Support;
     	      this.members = defaults.members;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.sources = defaults.sources;
     	      this.state = defaults.state;
     	      this.staticSourcesSupport = defaults.staticSourcesSupport;
@@ -292,6 +298,14 @@ public final class GetMulticastDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sources(List<GetMulticastDomainSource> sources) {
             if (sources == null) {
               throw new MissingRequiredPropertyException("GetMulticastDomainResult", "sources");
@@ -360,6 +374,7 @@ public final class GetMulticastDomainResult {
             _resultValue.igmpv2Support = igmpv2Support;
             _resultValue.members = members;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.sources = sources;
             _resultValue.state = state;
             _resultValue.staticSourcesSupport = staticSourcesSupport;

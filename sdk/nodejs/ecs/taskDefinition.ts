@@ -328,6 +328,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
@@ -391,6 +395,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["pidMode"] = state ? state.pidMode : undefined;
             resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             resourceInputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
@@ -420,6 +425,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["pidMode"] = args ? args.pidMode : undefined;
             resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             resourceInputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
             resourceInputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
@@ -501,6 +507,10 @@ export interface TaskDefinitionState {
      * Configuration block for the App Mesh proxy. Detailed below.
      */
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -595,6 +605,10 @@ export interface TaskDefinitionArgs {
      * Configuration block for the App Mesh proxy. Detailed below.
      */
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */

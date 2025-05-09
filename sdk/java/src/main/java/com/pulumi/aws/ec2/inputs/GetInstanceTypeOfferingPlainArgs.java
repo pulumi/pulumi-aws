@@ -61,12 +61,20 @@ public final class GetInstanceTypeOfferingPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.preferredInstanceTypes);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetInstanceTypeOfferingPlainArgs() {}
 
     private GetInstanceTypeOfferingPlainArgs(GetInstanceTypeOfferingPlainArgs $) {
         this.filters = $.filters;
         this.locationType = $.locationType;
         this.preferredInstanceTypes = $.preferredInstanceTypes;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -138,6 +146,11 @@ public final class GetInstanceTypeOfferingPlainArgs extends com.pulumi.resources
          */
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetInstanceTypeOfferingPlainArgs build() {

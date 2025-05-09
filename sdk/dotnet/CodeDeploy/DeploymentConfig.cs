@@ -176,6 +176,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<Outputs.DeploymentConfigMinimumHealthyHosts?> MinimumHealthyHosts { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         /// </summary>
         [Output("trafficRoutingConfig")]
@@ -252,6 +258,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsArgs>? MinimumHealthyHosts { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         /// </summary>
         [Input("trafficRoutingConfig")]
@@ -300,6 +312,12 @@ namespace Pulumi.Aws.CodeDeploy
         /// </summary>
         [Input("minimumHealthyHosts")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsGetArgs>? MinimumHealthyHosts { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A traffic_routing_config block. Traffic Routing Config is documented below.

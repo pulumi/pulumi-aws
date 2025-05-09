@@ -67,6 +67,10 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IDs of the security groups.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -107,6 +111,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             const state = argsOrState as ServiceNetworkVpcAssociationState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["serviceNetworkIdentifier"] = state ? state.serviceNetworkIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -121,6 +126,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcIdentifier'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -147,6 +153,10 @@ export interface ServiceNetworkVpcAssociationState {
      * The account that created the association.
      */
     createdBy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IDs of the security groups.
      */
@@ -178,6 +188,10 @@ export interface ServiceNetworkVpcAssociationState {
  * The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
  */
 export interface ServiceNetworkVpcAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IDs of the security groups.
      */

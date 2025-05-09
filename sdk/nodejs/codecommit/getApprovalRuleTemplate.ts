@@ -22,6 +22,7 @@ export function getApprovalRuleTemplate(args: GetApprovalRuleTemplateArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetApprovalRuleTemplateArgs {
      * Name for the approval rule template. This needs to be less than 100 characters.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -68,6 +70,7 @@ export interface GetApprovalRuleTemplateResult {
      */
     readonly lastModifiedUser: string;
     readonly name: string;
+    readonly region: string;
     /**
      * SHA-256 hash signature for the content of the approval rule template.
      */
@@ -91,6 +94,7 @@ export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -102,4 +106,5 @@ export interface GetApprovalRuleTemplateOutputArgs {
      * Name for the approval rule template. This needs to be less than 100 characters.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

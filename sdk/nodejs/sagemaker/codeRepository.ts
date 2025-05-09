@@ -100,6 +100,10 @@ export class CodeRepository extends pulumi.CustomResource {
      */
     public readonly gitConfig!: pulumi.Output<outputs.sagemaker.CodeRepositoryGitConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -124,6 +128,7 @@ export class CodeRepository extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["codeRepositoryName"] = state ? state.codeRepositoryName : undefined;
             resourceInputs["gitConfig"] = state ? state.gitConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -136,6 +141,7 @@ export class CodeRepository extends pulumi.CustomResource {
             }
             resourceInputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
             resourceInputs["gitConfig"] = args ? args.gitConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export interface CodeRepositoryState {
      */
     gitConfig?: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -183,6 +193,10 @@ export interface CodeRepositoryArgs {
      * Specifies details about the repository. see Git Config details below.
      */
     gitConfig: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

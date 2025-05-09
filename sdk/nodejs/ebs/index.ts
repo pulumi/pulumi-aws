@@ -20,7 +20,7 @@ export type FastSnapshotRestore = import("./fastSnapshotRestore").FastSnapshotRe
 export const FastSnapshotRestore: typeof import("./fastSnapshotRestore").FastSnapshotRestore = null as any;
 utilities.lazyLoad(exports, ["FastSnapshotRestore"], () => require("./fastSnapshotRestore"));
 
-export { GetDefaultKmsKeyResult } from "./getDefaultKmsKey";
+export { GetDefaultKmsKeyArgs, GetDefaultKmsKeyResult, GetDefaultKmsKeyOutputArgs } from "./getDefaultKmsKey";
 export const getDefaultKmsKey: typeof import("./getDefaultKmsKey").getDefaultKmsKey = null as any;
 export const getDefaultKmsKeyOutput: typeof import("./getDefaultKmsKey").getDefaultKmsKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultKmsKey","getDefaultKmsKeyOutput"], () => require("./getDefaultKmsKey"));
@@ -30,7 +30,7 @@ export const getEbsVolumes: typeof import("./getEbsVolumes").getEbsVolumes = nul
 export const getEbsVolumesOutput: typeof import("./getEbsVolumes").getEbsVolumesOutput = null as any;
 utilities.lazyLoad(exports, ["getEbsVolumes","getEbsVolumesOutput"], () => require("./getEbsVolumes"));
 
-export { GetEncryptionByDefaultResult } from "./getEncryptionByDefault";
+export { GetEncryptionByDefaultArgs, GetEncryptionByDefaultResult, GetEncryptionByDefaultOutputArgs } from "./getEncryptionByDefault";
 export const getEncryptionByDefault: typeof import("./getEncryptionByDefault").getEncryptionByDefault = null as any;
 export const getEncryptionByDefaultOutput: typeof import("./getEncryptionByDefault").getEncryptionByDefaultOutput = null as any;
 utilities.lazyLoad(exports, ["getEncryptionByDefault","getEncryptionByDefaultOutput"], () => require("./getEncryptionByDefault"));

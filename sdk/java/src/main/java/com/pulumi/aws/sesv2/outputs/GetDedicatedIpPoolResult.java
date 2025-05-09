@@ -29,6 +29,7 @@ public final class GetDedicatedIpPoolResult {
      */
     private String id;
     private String poolName;
+    private String region;
     /**
      * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      * 
@@ -65,6 +66,9 @@ public final class GetDedicatedIpPoolResult {
     public String poolName() {
         return this.poolName;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      * 
@@ -93,6 +97,7 @@ public final class GetDedicatedIpPoolResult {
         private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
         private String id;
         private String poolName;
+        private String region;
         private String scalingMode;
         private Map<String,String> tags;
         public Builder() {}
@@ -102,6 +107,7 @@ public final class GetDedicatedIpPoolResult {
     	      this.dedicatedIps = defaults.dedicatedIps;
     	      this.id = defaults.id;
     	      this.poolName = defaults.poolName;
+    	      this.region = defaults.region;
     	      this.scalingMode = defaults.scalingMode;
     	      this.tags = defaults.tags;
         }
@@ -142,6 +148,14 @@ public final class GetDedicatedIpPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scalingMode(String scalingMode) {
             if (scalingMode == null) {
               throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "scalingMode");
@@ -163,6 +177,7 @@ public final class GetDedicatedIpPoolResult {
             _resultValue.dedicatedIps = dedicatedIps;
             _resultValue.id = id;
             _resultValue.poolName = poolName;
+            _resultValue.region = region;
             _resultValue.scalingMode = scalingMode;
             _resultValue.tags = tags;
             return _resultValue;

@@ -109,6 +109,8 @@ type TaskSet struct {
 	NetworkConfiguration TaskSetNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScaleOutput `pulumi:"scale"`
 	// The short name or ARN of the ECS service.
@@ -192,6 +194,8 @@ type taskSetState struct {
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale *TaskSetScale `pulumi:"scale"`
 	// The short name or ARN of the ECS service.
@@ -237,6 +241,8 @@ type TaskSetState struct {
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScalePtrInput
 	// The short name or ARN of the ECS service.
@@ -284,6 +290,8 @@ type taskSetArgs struct {
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale *TaskSetScale `pulumi:"scale"`
 	// The short name or ARN of the ECS service.
@@ -320,6 +328,8 @@ type TaskSetArgs struct {
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScalePtrInput
 	// The short name or ARN of the ECS service.
@@ -468,6 +478,11 @@ func (o TaskSetOutput) NetworkConfiguration() TaskSetNetworkConfigurationPtrOutp
 // The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o TaskSetOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TaskSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.

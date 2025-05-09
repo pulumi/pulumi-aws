@@ -31,6 +31,13 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         return this.identifier;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ARN of the IAM Role to assume for operations.
      * 
@@ -84,6 +91,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetResourceArgs(GetResourceArgs $) {
         this.identifier = $.identifier;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.typeName = $.typeName;
         this.typeVersionId = $.typeVersionId;
@@ -126,6 +134,15 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

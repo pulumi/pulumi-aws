@@ -26,6 +26,7 @@ class WebAclArgs:
                  metric_name: pulumi.Input[builtins.str],
                  logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class WebAclArgs:
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input['WebAclLoggingConfigurationArgs'] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[builtins.str] name: The name or description of the web ACL.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +45,8 @@ class WebAclArgs:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -98,6 +102,18 @@ class WebAclArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
         Set of configuration blocks containing rules for the web ACL. Detailed below.
@@ -129,6 +145,7 @@ class _WebAclState:
                  logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -139,6 +156,7 @@ class _WebAclState:
         :param pulumi.Input['WebAclLoggingConfigurationArgs'] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[builtins.str] name: The name or description of the web ACL.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -153,6 +171,8 @@ class _WebAclState:
             pulumi.set(__self__, "metric_name", metric_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -222,6 +242,18 @@ class _WebAclState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
         Set of configuration blocks containing rules for the web ACL. Detailed below.
@@ -269,6 +301,7 @@ class WebAcl(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict']]] = None,
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -373,6 +406,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[builtins.str] name: The name or description of the web ACL.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -496,6 +530,7 @@ class WebAcl(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict']]] = None,
                  metric_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -515,6 +550,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'metric_name'")
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -534,6 +570,7 @@ class WebAcl(pulumi.CustomResource):
             logging_configuration: Optional[pulumi.Input[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict']]] = None,
             metric_name: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'WebAcl':
@@ -549,6 +586,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[builtins.str] name: The name or description of the web ACL.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -562,6 +600,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["logging_configuration"] = logging_configuration
         __props__.__dict__["metric_name"] = metric_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -606,6 +645,14 @@ class WebAcl(pulumi.CustomResource):
         The name or description of the web ACL.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

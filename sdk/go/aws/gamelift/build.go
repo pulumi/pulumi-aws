@@ -62,6 +62,8 @@ type Build struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +116,8 @@ type buildState struct {
 	Name *string `pulumi:"name"`
 	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,6 +135,8 @@ type BuildState struct {
 	Name pulumi.StringPtrInput
 	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -150,6 +156,8 @@ type buildArgs struct {
 	Name *string `pulumi:"name"`
 	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem string `pulumi:"operatingSystem"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,6 +172,8 @@ type BuildArgs struct {
 	Name pulumi.StringPtrInput
 	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -272,6 +282,11 @@ func (o BuildOutput) Name() pulumi.StringOutput {
 // Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 func (o BuildOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BuildOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Information indicating where your game build files are stored. See below.

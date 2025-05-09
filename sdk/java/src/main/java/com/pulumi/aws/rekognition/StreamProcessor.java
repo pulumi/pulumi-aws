@@ -425,6 +425,20 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.output);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
      * 
      */

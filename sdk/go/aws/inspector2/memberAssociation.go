@@ -56,6 +56,8 @@ type MemberAssociation struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Account ID of the delegated administrator account
 	DelegatedAdminAccountId pulumi.StringOutput `pulumi:"delegatedAdminAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the member relationship
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 	// Date and time of the last update of the relationship
@@ -99,6 +101,8 @@ type memberAssociationState struct {
 	AccountId *string `pulumi:"accountId"`
 	// Account ID of the delegated administrator account
 	DelegatedAdminAccountId *string `pulumi:"delegatedAdminAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the member relationship
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 	// Date and time of the last update of the relationship
@@ -110,6 +114,8 @@ type MemberAssociationState struct {
 	AccountId pulumi.StringPtrInput
 	// Account ID of the delegated administrator account
 	DelegatedAdminAccountId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the member relationship
 	RelationshipStatus pulumi.StringPtrInput
 	// Date and time of the last update of the relationship
@@ -123,12 +129,16 @@ func (MemberAssociationState) ElementType() reflect.Type {
 type memberAssociationArgs struct {
 	// ID of the account to associate
 	AccountId string `pulumi:"accountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MemberAssociation resource.
 type MemberAssociationArgs struct {
 	// ID of the account to associate
 	AccountId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MemberAssociationArgs) ElementType() reflect.Type {
@@ -226,6 +236,11 @@ func (o MemberAssociationOutput) AccountId() pulumi.StringOutput {
 // Account ID of the delegated administrator account
 func (o MemberAssociationOutput) DelegatedAdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.DelegatedAdminAccountId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MemberAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the member relationship

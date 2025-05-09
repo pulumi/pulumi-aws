@@ -249,6 +249,10 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
      * Number of firewall policies that use this TLS inspection configuration.
      */
     public /*out*/ readonly numberOfAssociations!: pulumi.Output<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTimeouts | undefined>;
@@ -287,6 +291,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
             resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["numberOfAssociations"] = state ? state.numberOfAssociations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -298,6 +303,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["tlsInspectionConfiguration"] = args ? args.tlsInspectionConfiguration : undefined;
@@ -346,6 +352,10 @@ export interface TlsInspectionConfigurationState {
      * Number of firewall policies that use this TLS inspection configuration.
      */
     numberOfAssociations?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts>;
@@ -381,6 +391,10 @@ export interface TlsInspectionConfigurationArgs {
      * Descriptive name of the TLS inspection configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts>;
     /**

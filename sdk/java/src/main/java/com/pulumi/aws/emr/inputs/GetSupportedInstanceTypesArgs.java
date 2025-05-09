@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.emr.inputs;
 
-import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesSupportedInstanceTypeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +15,13 @@ import javax.annotation.Nullable;
 public final class GetSupportedInstanceTypesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSupportedInstanceTypesArgs Empty = new GetSupportedInstanceTypesArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -33,26 +38,11 @@ public final class GetSupportedInstanceTypesArgs extends com.pulumi.resources.In
         return this.releaseLabel;
     }
 
-    /**
-     * List of supported instance types. See `supported_instance_types` below.
-     * 
-     */
-    @Import(name="supportedInstanceTypes")
-    private @Nullable Output<List<GetSupportedInstanceTypesSupportedInstanceTypeArgs>> supportedInstanceTypes;
-
-    /**
-     * @return List of supported instance types. See `supported_instance_types` below.
-     * 
-     */
-    public Optional<Output<List<GetSupportedInstanceTypesSupportedInstanceTypeArgs>>> supportedInstanceTypes() {
-        return Optional.ofNullable(this.supportedInstanceTypes);
-    }
-
     private GetSupportedInstanceTypesArgs() {}
 
     private GetSupportedInstanceTypesArgs(GetSupportedInstanceTypesArgs $) {
+        this.region = $.region;
         this.releaseLabel = $.releaseLabel;
-        this.supportedInstanceTypes = $.supportedInstanceTypes;
     }
 
     public static Builder builder() {
@@ -71,6 +61,15 @@ public final class GetSupportedInstanceTypesArgs extends com.pulumi.resources.In
 
         public Builder(GetSupportedInstanceTypesArgs defaults) {
             $ = new GetSupportedInstanceTypesArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -92,37 +91,6 @@ public final class GetSupportedInstanceTypesArgs extends com.pulumi.resources.In
          */
         public Builder releaseLabel(String releaseLabel) {
             return releaseLabel(Output.of(releaseLabel));
-        }
-
-        /**
-         * @param supportedInstanceTypes List of supported instance types. See `supported_instance_types` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder supportedInstanceTypes(@Nullable Output<List<GetSupportedInstanceTypesSupportedInstanceTypeArgs>> supportedInstanceTypes) {
-            $.supportedInstanceTypes = supportedInstanceTypes;
-            return this;
-        }
-
-        /**
-         * @param supportedInstanceTypes List of supported instance types. See `supported_instance_types` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder supportedInstanceTypes(List<GetSupportedInstanceTypesSupportedInstanceTypeArgs> supportedInstanceTypes) {
-            return supportedInstanceTypes(Output.of(supportedInstanceTypes));
-        }
-
-        /**
-         * @param supportedInstanceTypes List of supported instance types. See `supported_instance_types` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder supportedInstanceTypes(GetSupportedInstanceTypesSupportedInstanceTypeArgs... supportedInstanceTypes) {
-            return supportedInstanceTypes(List.of(supportedInstanceTypes));
         }
 
         public GetSupportedInstanceTypesArgs build() {

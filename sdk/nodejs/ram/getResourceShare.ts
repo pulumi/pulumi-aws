@@ -42,6 +42,7 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "resourceOwner": args.resourceOwner,
         "resourceShareStatus": args.resourceShareStatus,
         "tags": args.tags,
@@ -60,6 +61,7 @@ export interface GetResourceShareArgs {
      * Name of the resource share to retrieve.
      */
     name?: string;
+    region?: string;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
@@ -92,6 +94,7 @@ export interface GetResourceShareResult {
      * ID of the AWS account that owns the resource share.
      */
     readonly owningAccountId: string;
+    readonly region: string;
     /**
      * A list of resource ARNs associated with the resource share.
      */
@@ -142,6 +145,7 @@ export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: 
     return pulumi.runtime.invokeOutput("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "resourceOwner": args.resourceOwner,
         "resourceShareStatus": args.resourceShareStatus,
         "tags": args.tags,
@@ -160,6 +164,7 @@ export interface GetResourceShareOutputArgs {
      * Name of the resource share to retrieve.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */

@@ -26,6 +26,7 @@ public final class GetTableItemResult {
     private String item;
     private String key;
     private @Nullable String projectionExpression;
+    private String region;
     private String tableName;
 
     private GetTableItemResult() {}
@@ -52,6 +53,9 @@ public final class GetTableItemResult {
     public Optional<String> projectionExpression() {
         return Optional.ofNullable(this.projectionExpression);
     }
+    public String region() {
+        return this.region;
+    }
     public String tableName() {
         return this.tableName;
     }
@@ -70,6 +74,7 @@ public final class GetTableItemResult {
         private String item;
         private String key;
         private @Nullable String projectionExpression;
+        private String region;
         private String tableName;
         public Builder() {}
         public Builder(GetTableItemResult defaults) {
@@ -79,6 +84,7 @@ public final class GetTableItemResult {
     	      this.item = defaults.item;
     	      this.key = defaults.key;
     	      this.projectionExpression = defaults.projectionExpression;
+    	      this.region = defaults.region;
     	      this.tableName = defaults.tableName;
         }
 
@@ -119,6 +125,14 @@ public final class GetTableItemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTableItemResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             if (tableName == null) {
               throw new MissingRequiredPropertyException("GetTableItemResult", "tableName");
@@ -133,6 +147,7 @@ public final class GetTableItemResult {
             _resultValue.item = item;
             _resultValue.key = key;
             _resultValue.projectionExpression = projectionExpression;
+            _resultValue.region = region;
             _resultValue.tableName = tableName;
             return _resultValue;
         }

@@ -74,9 +74,12 @@ func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArg
 // A collection of arguments for invoking getSubscribedRuleGroup.
 type GetSubscribedRuleGroupArgs struct {
 	// Name of the WAF rule group.
+	//
+	// At least one of `name` or `metricName` must be configured.
 	MetricName *string `pulumi:"metricName"`
 	// Name of the WAF rule group.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSubscribedRuleGroup.
@@ -85,6 +88,7 @@ type GetSubscribedRuleGroupResult struct {
 	Id         string  `pulumi:"id"`
 	MetricName *string `pulumi:"metricName"`
 	Name       *string `pulumi:"name"`
+	Region     string  `pulumi:"region"`
 }
 
 func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGroupOutputArgs, opts ...pulumi.InvokeOption) GetSubscribedRuleGroupResultOutput {
@@ -99,9 +103,12 @@ func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGro
 // A collection of arguments for invoking getSubscribedRuleGroup.
 type GetSubscribedRuleGroupOutputArgs struct {
 	// Name of the WAF rule group.
+	//
+	// At least one of `name` or `metricName` must be configured.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// Name of the WAF rule group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSubscribedRuleGroupOutputArgs) ElementType() reflect.Type {
@@ -134,6 +141,10 @@ func (o GetSubscribedRuleGroupResultOutput) MetricName() pulumi.StringPtrOutput 
 
 func (o GetSubscribedRuleGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSubscribedRuleGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetSubscribedRuleGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubscribedRuleGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

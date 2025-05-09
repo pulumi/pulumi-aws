@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// </summary>
-        public static Task<GetFunctionsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetFunctionsResult> InvokeAsync(GetFunctionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", args ?? new GetFunctionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data resource to get a list of Lambda Functions.
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// </summary>
-        public static Output<GetFunctionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetFunctionsResult> Invoke(GetFunctionsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", args ?? new GetFunctionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data resource to get a list of Lambda Functions.
@@ -71,8 +71,31 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// </summary>
-        public static Output<GetFunctionsResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetFunctionsResult> Invoke(GetFunctionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", args ?? new GetFunctionsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetFunctionsArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetFunctionsArgs()
+        {
+        }
+        public static new GetFunctionsArgs Empty => new GetFunctionsArgs();
+    }
+
+    public sealed class GetFunctionsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetFunctionsInvokeArgs()
+        {
+        }
+        public static new GetFunctionsInvokeArgs Empty => new GetFunctionsInvokeArgs();
     }
 
 
@@ -91,6 +114,7 @@ namespace Pulumi.Aws.Lambda
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetFunctionsResult(
@@ -98,11 +122,14 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableArray<string> functionNames,
 
-            string id)
+            string id,
+
+            string region)
         {
             FunctionArns = functionArns;
             FunctionNames = functionNames;
             Id = id;
+            Region = region;
         }
     }
 }

@@ -159,6 +159,8 @@ type EnvironmentEC2 struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn pulumi.StringOutput `pulumi:"ownerArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -229,6 +231,8 @@ type environmentEC2State struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn *string `pulumi:"ownerArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -264,6 +268,8 @@ type EnvironmentEC2State struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -301,6 +307,8 @@ type environmentEC2Args struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn *string `pulumi:"ownerArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -331,6 +339,8 @@ type EnvironmentEC2Args struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -470,6 +480,11 @@ func (o EnvironmentEC2Output) Name() pulumi.StringOutput {
 // The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 func (o EnvironmentEC2Output) OwnerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.OwnerArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EnvironmentEC2Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.

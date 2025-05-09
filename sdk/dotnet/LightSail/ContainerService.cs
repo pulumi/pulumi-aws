@@ -218,6 +218,12 @@ namespace Pulumi.Aws.LightSail
         public Output<Outputs.ContainerServicePublicDomainNames?> PublicDomainNames { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Lightsail resource type of the container service (i.e., ContainerService).
         /// </summary>
         [Output("resourceType")]
@@ -343,6 +349,12 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.ContainerServicePublicDomainNamesArgs>? PublicDomainNames { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The scale specification for the container service. The scale specifies the allocated compute
         /// nodes of the container service.
         /// </summary>
@@ -444,6 +456,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("publicDomainNames")]
         public Input<Inputs.ContainerServicePublicDomainNamesGetArgs>? PublicDomainNames { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Lightsail resource type of the container service (i.e., ContainerService).

@@ -25,6 +25,7 @@ public final class GetPublicIpv4PoolsResult {
      * 
      */
     private List<String> poolIds;
+    private String region;
     private Map<String,String> tags;
 
     private GetPublicIpv4PoolsResult() {}
@@ -45,6 +46,9 @@ public final class GetPublicIpv4PoolsResult {
     public List<String> poolIds() {
         return this.poolIds;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -61,6 +65,7 @@ public final class GetPublicIpv4PoolsResult {
         private @Nullable List<GetPublicIpv4PoolsFilter> filters;
         private String id;
         private List<String> poolIds;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetPublicIpv4PoolsResult defaults) {
@@ -68,6 +73,7 @@ public final class GetPublicIpv4PoolsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.poolIds = defaults.poolIds;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -100,6 +106,14 @@ public final class GetPublicIpv4PoolsResult {
             return poolIds(List.of(poolIds));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPublicIpv4PoolsResult", "tags");
@@ -112,6 +126,7 @@ public final class GetPublicIpv4PoolsResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.poolIds = poolIds;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

@@ -60,6 +60,12 @@ namespace Pulumi.Aws.DataExchange
         public Output<string> DataSetId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Id of the revision.
         /// </summary>
         [Output("revisionId")]
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.DataExchange
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -172,6 +184,12 @@ namespace Pulumi.Aws.DataExchange
         /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Id of the revision.

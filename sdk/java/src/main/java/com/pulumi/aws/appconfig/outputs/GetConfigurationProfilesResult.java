@@ -22,6 +22,7 @@ public final class GetConfigurationProfilesResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetConfigurationProfilesResult() {}
     public String applicationId() {
@@ -41,6 +42,9 @@ public final class GetConfigurationProfilesResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -54,12 +58,14 @@ public final class GetConfigurationProfilesResult {
         private String applicationId;
         private List<String> configurationProfileIds;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetConfigurationProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationId = defaults.applicationId;
     	      this.configurationProfileIds = defaults.configurationProfileIds;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -89,11 +95,20 @@ public final class GetConfigurationProfilesResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfilesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetConfigurationProfilesResult build() {
             final var _resultValue = new GetConfigurationProfilesResult();
             _resultValue.applicationId = applicationId;
             _resultValue.configurationProfileIds = configurationProfileIds;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

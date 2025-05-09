@@ -62,6 +62,7 @@ public final class GetServerResult {
      * 
      */
     private List<String> protocols;
+    private String region;
     /**
      * @return The name of the security policy that is attached to the server.
      * 
@@ -155,6 +156,9 @@ public final class GetServerResult {
     public List<String> protocols() {
         return this.protocols;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The name of the security policy that is attached to the server.
      * 
@@ -206,6 +210,7 @@ public final class GetServerResult {
         private String invocationRole;
         private String loggingRole;
         private List<String> protocols;
+        private String region;
         private String securityPolicyName;
         private String serverId;
         private List<String> structuredLogDestinations;
@@ -224,6 +229,7 @@ public final class GetServerResult {
     	      this.invocationRole = defaults.invocationRole;
     	      this.loggingRole = defaults.loggingRole;
     	      this.protocols = defaults.protocols;
+    	      this.region = defaults.region;
     	      this.securityPolicyName = defaults.securityPolicyName;
     	      this.serverId = defaults.serverId;
     	      this.structuredLogDestinations = defaults.structuredLogDestinations;
@@ -315,6 +321,14 @@ public final class GetServerResult {
             return protocols(List.of(protocols));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityPolicyName(String securityPolicyName) {
             if (securityPolicyName == null) {
               throw new MissingRequiredPropertyException("GetServerResult", "securityPolicyName");
@@ -369,6 +383,7 @@ public final class GetServerResult {
             _resultValue.invocationRole = invocationRole;
             _resultValue.loggingRole = loggingRole;
             _resultValue.protocols = protocols;
+            _resultValue.region = region;
             _resultValue.securityPolicyName = securityPolicyName;
             _resultValue.serverId = serverId;
             _resultValue.structuredLogDestinations = structuredLogDestinations;

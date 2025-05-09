@@ -82,6 +82,10 @@ export class SigningProfile extends pulumi.CustomResource {
      */
     public readonly platformId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
     public /*out*/ readonly revocationRecords!: pulumi.Output<outputs.signer.SigningProfileRevocationRecord[]>;
@@ -132,6 +136,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
             resourceInputs["platformId"] = state ? state.platformId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
             resourceInputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
             resourceInputs["signingMaterial"] = state ? state.signingMaterial : undefined;
@@ -148,6 +153,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["platformId"] = args ? args.platformId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
             resourceInputs["signingMaterial"] = args ? args.signingMaterial : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -182,6 +188,10 @@ export interface SigningProfileState {
      * The ID of the platform that is used by the target signing profile.
      */
     platformId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
@@ -226,6 +236,10 @@ export interface SigningProfileArgs {
      * The ID of the platform that is used by the target signing profile.
      */
     platformId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      */

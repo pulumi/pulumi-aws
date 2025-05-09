@@ -26,7 +26,8 @@ class TableArgs:
                  namespace: pulumi.Input[builtins.str],
                  table_bucket_arn: pulumi.Input[builtins.str],
                  maintenance_configuration: Optional[pulumi.Input['TableMaintenanceConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[builtins.str] format: Format of the table.
@@ -43,6 +44,7 @@ class TableArgs:
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
                A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "namespace", namespace)
@@ -51,6 +53,8 @@ class TableArgs:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -121,6 +125,18 @@ class TableArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TableState:
@@ -136,6 +152,7 @@ class _TableState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  version_token: Optional[pulumi.Input[builtins.str]] = None,
@@ -160,6 +177,7 @@ class _TableState:
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following argument is optional:
@@ -190,6 +208,8 @@ class _TableState:
             pulumi.set(__self__, "namespace", namespace)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_bucket_arn is not None:
             pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
         if type is not None:
@@ -339,6 +359,18 @@ class _TableState:
         pulumi.set(self, "owner_account_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -402,6 +434,7 @@ class Table(pulumi.CustomResource):
                  maintenance_configuration: Optional[pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -447,6 +480,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace: Name of the namespace for this table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following argument is optional:
@@ -506,6 +540,7 @@ class Table(pulumi.CustomResource):
                  maintenance_configuration: Optional[pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -524,6 +559,7 @@ class Table(pulumi.CustomResource):
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["region"] = region
             if table_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'table_bucket_arn'")
             __props__.__dict__["table_bucket_arn"] = table_bucket_arn
@@ -558,6 +594,7 @@ class Table(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             namespace: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
             version_token: Optional[pulumi.Input[builtins.str]] = None,
@@ -587,6 +624,7 @@ class Table(pulumi.CustomResource):
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following argument is optional:
@@ -610,6 +648,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["namespace"] = namespace
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_bucket_arn"] = table_bucket_arn
         __props__.__dict__["type"] = type
         __props__.__dict__["version_token"] = version_token
@@ -710,6 +749,14 @@ class Table(pulumi.CustomResource):
         Account ID of the account that owns the namespace.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableBucketArn")

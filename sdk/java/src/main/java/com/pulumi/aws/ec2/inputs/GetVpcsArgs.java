@@ -21,9 +21,6 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcsFilterArgs>> filters;
@@ -31,12 +28,16 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     public Optional<Output<List<GetVpcsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -60,6 +61,7 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetVpcsArgs(GetVpcsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -84,9 +86,6 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -98,9 +97,6 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -111,14 +107,20 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetVpcsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

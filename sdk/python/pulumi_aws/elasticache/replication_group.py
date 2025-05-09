@@ -48,6 +48,7 @@ class ReplicationGroupArgs:
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[builtins.int]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -111,6 +112,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[builtins.str] parameter_group_name: Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[builtins.int] port: Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_cache_cluster_azs: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
@@ -187,6 +189,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "port", port)
         if preferred_cache_cluster_azs is not None:
             pulumi.set(__self__, "preferred_cache_cluster_azs", preferred_cache_cluster_azs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas_per_node_group is not None:
             pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
@@ -549,6 +553,18 @@ class ReplicationGroupArgs:
         pulumi.set(self, "preferred_cache_cluster_azs", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -752,6 +768,7 @@ class _ReplicationGroupState:
                  preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  primary_endpoint_address: Optional[pulumi.Input[builtins.str]] = None,
                  reader_endpoint_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[builtins.int]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -823,6 +840,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_cache_cluster_azs: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
         :param pulumi.Input[builtins.str] primary_endpoint_address: (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[builtins.str] reader_endpoint_address: (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
@@ -915,6 +933,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "primary_endpoint_address", primary_endpoint_address)
         if reader_endpoint_address is not None:
             pulumi.set(__self__, "reader_endpoint_address", reader_endpoint_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas_per_node_group is not None:
             pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
@@ -1363,6 +1383,18 @@ class _ReplicationGroupState:
         pulumi.set(self, "reader_endpoint_address", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -1576,6 +1608,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[builtins.int]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1826,6 +1859,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parameter_group_name: Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[builtins.int] port: Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_cache_cluster_azs: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
@@ -2084,6 +2118,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[builtins.int]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -2134,6 +2169,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_cache_cluster_azs"] = preferred_cache_cluster_azs
+            __props__.__dict__["region"] = region
             __props__.__dict__["replicas_per_node_group"] = replicas_per_node_group
             __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -2200,6 +2236,7 @@ class ReplicationGroup(pulumi.CustomResource):
             preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             primary_endpoint_address: Optional[pulumi.Input[builtins.str]] = None,
             reader_endpoint_address: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replicas_per_node_group: Optional[pulumi.Input[builtins.int]] = None,
             replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -2276,6 +2313,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_cache_cluster_azs: List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
         :param pulumi.Input[builtins.str] primary_endpoint_address: (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         :param pulumi.Input[builtins.str] reader_endpoint_address: (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
@@ -2339,6 +2377,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["preferred_cache_cluster_azs"] = preferred_cache_cluster_azs
         __props__.__dict__["primary_endpoint_address"] = primary_endpoint_address
         __props__.__dict__["reader_endpoint_address"] = reader_endpoint_address
+        __props__.__dict__["region"] = region
         __props__.__dict__["replicas_per_node_group"] = replicas_per_node_group
         __props__.__dict__["replication_group_id"] = replication_group_id
         __props__.__dict__["security_group_ids"] = security_group_ids
@@ -2640,6 +2679,14 @@ class ReplicationGroup(pulumi.CustomResource):
         (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
         """
         return pulumi.get(self, "reader_endpoint_address")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")

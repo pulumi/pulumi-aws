@@ -28,7 +28,7 @@ class GetBudgetResult:
     """
     A collection of values returned by getBudget.
     """
-    def __init__(__self__, account_id=None, arn=None, auto_adjust_datas=None, budget_exceeded=None, budget_limits=None, budget_type=None, calculated_spends=None, cost_filters=None, cost_types=None, id=None, name=None, name_prefix=None, notifications=None, planned_limits=None, tags=None, time_period_end=None, time_period_start=None, time_unit=None):
+    def __init__(__self__, account_id=None, arn=None, auto_adjust_datas=None, budget_exceeded=None, budget_limits=None, budget_type=None, calculated_spends=None, cost_filters=None, cost_types=None, id=None, name=None, name_prefix=None, notifications=None, planned_limits=None, region=None, tags=None, time_period_end=None, time_period_start=None, time_unit=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -71,6 +71,9 @@ class GetBudgetResult:
         if planned_limits and not isinstance(planned_limits, list):
             raise TypeError("Expected argument 'planned_limits' to be a list")
         pulumi.set(__self__, "planned_limits", planned_limits)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -186,6 +189,11 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the resource.
@@ -237,6 +245,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             name_prefix=self.name_prefix,
             notifications=self.notifications,
             planned_limits=self.planned_limits,
+            region=self.region,
             tags=self.tags,
             time_period_end=self.time_period_end,
             time_period_start=self.time_period_start,
@@ -246,6 +255,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
 def get_budget(account_id: Optional[builtins.str] = None,
                name: Optional[builtins.str] = None,
                name_prefix: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
@@ -274,6 +284,7 @@ def get_budget(account_id: Optional[builtins.str] = None,
     __args__['accountId'] = account_id
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:budgets/getBudget:getBudget', __args__, opts=opts, typ=GetBudgetResult).value
@@ -293,6 +304,7 @@ def get_budget(account_id: Optional[builtins.str] = None,
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         notifications=pulumi.get(__ret__, 'notifications'),
         planned_limits=pulumi.get(__ret__, 'planned_limits'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         time_period_end=pulumi.get(__ret__, 'time_period_end'),
         time_period_start=pulumi.get(__ret__, 'time_period_start'),
@@ -300,6 +312,7 @@ def get_budget(account_id: Optional[builtins.str] = None,
 def get_budget_output(account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       name: Optional[pulumi.Input[builtins.str]] = None,
                       name_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
@@ -328,6 +341,7 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[builtins.str]]]
     __args__['accountId'] = account_id
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:budgets/getBudget:getBudget', __args__, opts=opts, typ=GetBudgetResult)
@@ -346,6 +360,7 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[builtins.str]]]
         name_prefix=pulumi.get(__response__, 'name_prefix'),
         notifications=pulumi.get(__response__, 'notifications'),
         planned_limits=pulumi.get(__response__, 'planned_limits'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         time_period_end=pulumi.get(__response__, 'time_period_end'),
         time_period_start=pulumi.get(__response__, 'time_period_start'),

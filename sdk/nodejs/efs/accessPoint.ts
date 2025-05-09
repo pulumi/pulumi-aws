@@ -73,6 +73,10 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
     public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
@@ -103,6 +107,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["posixUser"] = state ? state.posixUser : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootDirectory"] = state ? state.rootDirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -113,6 +118,7 @@ export class AccessPoint extends pulumi.CustomResource {
             }
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["posixUser"] = args ? args.posixUser : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootDirectory"] = args ? args.rootDirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -147,6 +153,10 @@ export interface AccessPointState {
      */
     posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
     rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
@@ -172,6 +182,10 @@ export interface AccessPointArgs {
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
     posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */

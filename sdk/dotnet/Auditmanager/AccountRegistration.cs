@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string?> KmsKey { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the account registration request.
         /// </summary>
         [Output("status")]
@@ -146,6 +152,12 @@ namespace Pulumi.Aws.Auditmanager
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public AccountRegistrationArgs()
         {
         }
@@ -171,6 +183,12 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the account registration request.

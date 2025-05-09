@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Xray
         [Output("policyRevisionId")]
         public Output<string> PolicyRevisionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Xray
         [Input("policyRevisionId")]
         public Input<string>? PolicyRevisionId { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ResourcePolicyArgs()
         {
         }
@@ -188,6 +200,12 @@ namespace Pulumi.Aws.Xray
         /// </summary>
         [Input("policyRevisionId")]
         public Input<string>? PolicyRevisionId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ResourcePolicyState()
         {

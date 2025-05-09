@@ -445,21 +445,20 @@ class GetApplicationAssignmentsApplicationAssignmentResult(dict):
 @pulumi.output_type
 class GetApplicationPortalOptionResult(dict):
     def __init__(__self__, *,
-                 visibility: builtins.str,
-                 sign_in_options: Optional[Sequence['outputs.GetApplicationPortalOptionSignInOptionResult']] = None):
+                 sign_in_options: Sequence['outputs.GetApplicationPortalOptionSignInOptionResult'],
+                 visibility: builtins.str):
+        pulumi.set(__self__, "sign_in_options", sign_in_options)
         pulumi.set(__self__, "visibility", visibility)
-        if sign_in_options is not None:
-            pulumi.set(__self__, "sign_in_options", sign_in_options)
+
+    @property
+    @pulumi.getter(name="signInOptions")
+    def sign_in_options(self) -> Sequence['outputs.GetApplicationPortalOptionSignInOptionResult']:
+        return pulumi.get(self, "sign_in_options")
 
     @property
     @pulumi.getter
     def visibility(self) -> builtins.str:
         return pulumi.get(self, "visibility")
-
-    @property
-    @pulumi.getter(name="signInOptions")
-    def sign_in_options(self) -> Optional[Sequence['outputs.GetApplicationPortalOptionSignInOptionResult']]:
-        return pulumi.get(self, "sign_in_options")
 
 
 @pulumi.output_type
@@ -485,17 +484,16 @@ class GetApplicationPortalOptionSignInOptionResult(dict):
 class GetApplicationProvidersApplicationProviderResult(dict):
     def __init__(__self__, *,
                  application_provider_arn: builtins.str,
-                 federation_protocol: builtins.str,
-                 display_datas: Optional[Sequence['outputs.GetApplicationProvidersApplicationProviderDisplayDataResult']] = None):
+                 display_datas: Sequence['outputs.GetApplicationProvidersApplicationProviderDisplayDataResult'],
+                 federation_protocol: builtins.str):
         """
         :param builtins.str application_provider_arn: ARN of the application provider.
-        :param builtins.str federation_protocol: Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
         :param Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgs'] display_datas: An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+        :param builtins.str federation_protocol: Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
         """
         pulumi.set(__self__, "application_provider_arn", application_provider_arn)
+        pulumi.set(__self__, "display_datas", display_datas)
         pulumi.set(__self__, "federation_protocol", federation_protocol)
-        if display_datas is not None:
-            pulumi.set(__self__, "display_datas", display_datas)
 
     @property
     @pulumi.getter(name="applicationProviderArn")
@@ -506,20 +504,20 @@ class GetApplicationProvidersApplicationProviderResult(dict):
         return pulumi.get(self, "application_provider_arn")
 
     @property
+    @pulumi.getter(name="displayDatas")
+    def display_datas(self) -> Sequence['outputs.GetApplicationProvidersApplicationProviderDisplayDataResult']:
+        """
+        An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+        """
+        return pulumi.get(self, "display_datas")
+
+    @property
     @pulumi.getter(name="federationProtocol")
     def federation_protocol(self) -> builtins.str:
         """
         Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
         """
         return pulumi.get(self, "federation_protocol")
-
-    @property
-    @pulumi.getter(name="displayDatas")
-    def display_datas(self) -> Optional[Sequence['outputs.GetApplicationProvidersApplicationProviderDisplayDataResult']]:
-        """
-        An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
-        """
-        return pulumi.get(self, "display_datas")
 
 
 @pulumi.output_type

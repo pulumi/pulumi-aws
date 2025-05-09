@@ -38,6 +38,7 @@ public final class GetOpenZfsSnapshotResult {
      * 
      */
     private @Nullable String name;
+    private String region;
     /**
      * @return ID of the snapshot.
      * 
@@ -90,6 +91,9 @@ public final class GetOpenZfsSnapshotResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the snapshot.
      * 
@@ -130,6 +134,7 @@ public final class GetOpenZfsSnapshotResult {
         private String id;
         private @Nullable Boolean mostRecent;
         private @Nullable String name;
+        private String region;
         private String snapshotId;
         private @Nullable List<String> snapshotIds;
         private Map<String,String> tags;
@@ -143,6 +148,7 @@ public final class GetOpenZfsSnapshotResult {
     	      this.id = defaults.id;
     	      this.mostRecent = defaults.mostRecent;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.snapshotId = defaults.snapshotId;
     	      this.snapshotIds = defaults.snapshotIds;
     	      this.tags = defaults.tags;
@@ -195,6 +201,14 @@ public final class GetOpenZfsSnapshotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
             if (snapshotId == null) {
               throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "snapshotId");
@@ -235,6 +249,7 @@ public final class GetOpenZfsSnapshotResult {
             _resultValue.id = id;
             _resultValue.mostRecent = mostRecent;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.snapshotId = snapshotId;
             _resultValue.snapshotIds = snapshotIds;
             _resultValue.tags = tags;

@@ -16,7 +16,9 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         private InputList<Inputs.ListenerRuleMatchHttpMatchHeaderMatchGetArgs>? _headerMatches;
 
         /// <summary>
-        /// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        /// The header matches.
+        /// Matches incoming requests with rule based on request header value before applying rule action.
+        /// See `header_matches` Block for details.
         /// </summary>
         public InputList<Inputs.ListenerRuleMatchHttpMatchHeaderMatchGetArgs> HeaderMatches
         {
@@ -32,6 +34,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
         /// <summary>
         /// The path match.
+        /// See `path_match` Block for details.
         /// </summary>
         [Input("pathMatch")]
         public Input<Inputs.ListenerRuleMatchHttpMatchPathMatchGetArgs>? PathMatch { get; set; }

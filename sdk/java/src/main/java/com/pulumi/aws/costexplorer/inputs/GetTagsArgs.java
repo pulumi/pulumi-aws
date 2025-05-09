@@ -35,6 +35,13 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filter);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Value that you want to search for.
      * 
@@ -83,16 +90,12 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="timePeriod", required=true)
     private Output<GetTagsTimePeriodArgs> timePeriod;
 
     /**
      * @return Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<GetTagsTimePeriodArgs> timePeriod() {
@@ -103,6 +106,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetTagsArgs(GetTagsArgs $) {
         this.filter = $.filter;
+        this.region = $.region;
         this.searchString = $.searchString;
         this.sortBies = $.sortBies;
         this.tagKey = $.tagKey;
@@ -146,6 +150,15 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filter(GetTagsFilterArgs filter) {
             return filter(Output.of(filter));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -224,8 +237,6 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -236,8 +247,6 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

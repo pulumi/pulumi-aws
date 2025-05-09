@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AggregateAuthorization("example", AggregateAuthorizationArgs.builder()
  *             .accountId("123456789012")
- *             .region("eu-west-2")
+ *             .authorizedAwsRegion("eu-west-2")
  *             .build());
  * 
  *     }
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
+ * Using `pulumi import`, import Config aggregate authorizations using `account_id:authorized_aws_region`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cfg/aggregateAuthorization:AggregateAuthorization")
 public class AggregateAuthorization extends com.pulumi.resources.CustomResource {
     /**
-     * Account ID
+     * Account ID.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return Account ID
+     * @return Account ID.
      * 
      */
     public Output<String> accountId() {
@@ -94,18 +94,36 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * Region
+     * The region authorized to collect aggregated data.
      * 
      */
-    @Export(name="region", refs={String.class}, tree="[0]")
-    private Output<String> region;
+    @Export(name="authorizedAwsRegion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authorizedAwsRegion;
 
     /**
-     * @return Region
+     * @return The region authorized to collect aggregated data.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Output<Optional<String>> authorizedAwsRegion() {
+        return Codegen.optional(this.authorizedAwsRegion);
+    }
+    /**
+     * The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use authorized_aws_region instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> region;
+
+    /**
+     * @return The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * 
+     */
+    public Output<Optional<String>> region() {
+        return Codegen.optional(this.region);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

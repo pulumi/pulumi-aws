@@ -30,6 +30,13 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.policy);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
@@ -64,6 +71,7 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetAuthPolicyPlainArgs(GetAuthPolicyPlainArgs $) {
         this.policy = $.policy;
+        this.region = $.region;
         this.resourceIdentifier = $.resourceIdentifier;
         this.state = $.state;
     }
@@ -94,6 +102,11 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder policy(@Nullable String policy) {
             $.policy = policy;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

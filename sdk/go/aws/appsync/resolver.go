@@ -203,6 +203,8 @@ type Resolver struct {
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrOutput `pulumi:"requestTemplate"`
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
@@ -272,6 +274,8 @@ type resolverState struct {
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
@@ -303,6 +307,8 @@ type ResolverState struct {
 	MaxBatchSize pulumi.IntPtrInput
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
@@ -336,6 +342,8 @@ type resolverArgs struct {
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
@@ -366,6 +374,8 @@ type ResolverArgs struct {
 	MaxBatchSize pulumi.IntPtrInput
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
@@ -508,6 +518,11 @@ func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
 // The caching configuration for the resolver. See Pipeline Config.
 func (o ResolverOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverPipelineConfigPtrOutput { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResolverOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.

@@ -116,6 +116,21 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -147,6 +162,7 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
         this.ipamScopeType = $.ipamScopeType;
         this.isDefault = $.isDefault;
         this.poolCount = $.poolCount;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -302,6 +318,27 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder poolCount(Integer poolCount) {
             return poolCount(Output.of(poolCount));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

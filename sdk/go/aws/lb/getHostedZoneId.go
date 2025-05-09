@@ -76,7 +76,7 @@ type GetHostedZoneIdResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id               string  `pulumi:"id"`
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
-	Region           *string `pulumi:"region"`
+	Region           string  `pulumi:"region"`
 }
 
 func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneIdResultOutput {
@@ -125,8 +125,8 @@ func (o GetHostedZoneIdResultOutput) LoadBalancerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetHostedZoneIdResult) *string { return v.LoadBalancerType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetHostedZoneIdResultOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetHostedZoneIdResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o GetHostedZoneIdResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostedZoneIdResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

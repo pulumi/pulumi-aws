@@ -106,6 +106,21 @@ public final class UploadState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The upload&#39;s upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
      * 
      */
@@ -144,6 +159,7 @@ public final class UploadState extends com.pulumi.resources.ResourceArgs {
         this.metadata = $.metadata;
         this.name = $.name;
         this.projectArn = $.projectArn;
+        this.region = $.region;
         this.type = $.type;
         this.url = $.url;
     }
@@ -290,6 +306,27 @@ public final class UploadState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectArn(String projectArn) {
             return projectArn(Output.of(projectArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

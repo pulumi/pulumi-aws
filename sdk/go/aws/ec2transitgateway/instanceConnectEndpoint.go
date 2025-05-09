@@ -64,6 +64,8 @@ type InstanceConnectEndpoint struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp pulumi.BoolOutput `pulumi:"preserveClientIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -124,6 +126,8 @@ type instanceConnectEndpointState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp *bool `pulumi:"preserveClientIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -152,6 +156,8 @@ type InstanceConnectEndpointState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -172,6 +178,8 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 type instanceConnectEndpointArgs struct {
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp *bool `pulumi:"preserveClientIp"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -185,6 +193,8 @@ type instanceConnectEndpointArgs struct {
 type InstanceConnectEndpointArgs struct {
 	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 	PreserveClientIp pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -314,6 +324,11 @@ func (o InstanceConnectEndpointOutput) OwnerId() pulumi.StringOutput {
 // Indicates whether your client's IP address is preserved as the source. Default: `true`.
 func (o InstanceConnectEndpointOutput) PreserveClientIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.BoolOutput { return v.PreserveClientIp }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InstanceConnectEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.

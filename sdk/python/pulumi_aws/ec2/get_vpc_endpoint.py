@@ -29,7 +29,7 @@ class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
-    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, dns_options=None, filters=None, id=None, ip_address_type=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, dns_options=None, filters=None, id=None, ip_address_type=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, region=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -66,6 +66,9 @@ class GetVpcEndpointResult:
         if private_dns_enabled and not isinstance(private_dns_enabled, bool):
             raise TypeError("Expected argument 'private_dns_enabled' to be a bool")
         pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if requester_managed and not isinstance(requester_managed, bool):
             raise TypeError("Expected argument 'requester_managed' to be a bool")
         pulumi.set(__self__, "requester_managed", requester_managed)
@@ -182,6 +185,11 @@ class GetVpcEndpointResult:
         return pulumi.get(self, "private_dns_enabled")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requesterManaged")
     def requester_managed(self) -> builtins.bool:
         """
@@ -260,6 +268,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             policy=self.policy,
             prefix_list_id=self.prefix_list_id,
             private_dns_enabled=self.private_dns_enabled,
+            region=self.region,
             requester_managed=self.requester_managed,
             route_table_ids=self.route_table_ids,
             security_group_ids=self.security_group_ids,
@@ -273,6 +282,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
 
 def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']]] = None,
                      id: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      service_name: Optional[builtins.str] = None,
                      state: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
@@ -305,12 +315,13 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
            a pair on the specific VPC Endpoint to retrieve.
     :param builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC endpoints.
+           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['serviceName'] = service_name
     __args__['state'] = state
     __args__['tags'] = tags
@@ -331,6 +342,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
         policy=pulumi.get(__ret__, 'policy'),
         prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
         private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
+        region=pulumi.get(__ret__, 'region'),
         requester_managed=pulumi.get(__ret__, 'requester_managed'),
         route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
@@ -342,6 +354,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']]]]] = None,
                             id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             service_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -374,12 +387,13 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
            a pair on the specific VPC Endpoint to retrieve.
     :param builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC endpoints.
+           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['serviceName'] = service_name
     __args__['state'] = state
     __args__['tags'] = tags
@@ -399,6 +413,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
         policy=pulumi.get(__response__, 'policy'),
         prefix_list_id=pulumi.get(__response__, 'prefix_list_id'),
         private_dns_enabled=pulumi.get(__response__, 'private_dns_enabled'),
+        region=pulumi.get(__response__, 'region'),
         requester_managed=pulumi.get(__response__, 'requester_managed'),
         route_table_ids=pulumi.get(__response__, 'route_table_ids'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),

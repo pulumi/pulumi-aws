@@ -47,6 +47,13 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      * 
@@ -67,6 +74,7 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
     private GetRouteTablePlainArgs(GetRouteTablePlainArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -117,6 +125,11 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder id(@Nullable String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

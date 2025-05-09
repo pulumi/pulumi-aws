@@ -83,6 +83,10 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
     public readonly targetNetworkCidr!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
             resourceInputs["authorizeAllGroups"] = state ? state.authorizeAllGroups : undefined;
             resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetNetworkCidr"] = state ? state.targetNetworkCidr : undefined;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
@@ -117,6 +122,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
             resourceInputs["authorizeAllGroups"] = args ? args.authorizeAllGroups : undefined;
             resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -145,6 +151,10 @@ export interface AuthorizationRuleState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
     targetNetworkCidr?: pulumi.Input<string>;
@@ -170,6 +180,10 @@ export interface AuthorizationRuleArgs {
      * A brief description of the authorization rule.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      */

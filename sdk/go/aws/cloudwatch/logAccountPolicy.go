@@ -173,6 +173,8 @@ type LogAccountPolicy struct {
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
@@ -224,6 +226,8 @@ type logAccountPolicyState struct {
 	PolicyName *string `pulumi:"policyName"`
 	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType *string `pulumi:"policyType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope *string `pulumi:"scope"`
 	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
@@ -237,6 +241,8 @@ type LogAccountPolicyState struct {
 	PolicyName pulumi.StringPtrInput
 	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope pulumi.StringPtrInput
 	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
@@ -254,6 +260,8 @@ type logAccountPolicyArgs struct {
 	PolicyName string `pulumi:"policyName"`
 	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType string `pulumi:"policyType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope *string `pulumi:"scope"`
 	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
@@ -268,6 +276,8 @@ type LogAccountPolicyArgs struct {
 	PolicyName pulumi.StringInput
 	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope pulumi.StringPtrInput
 	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
@@ -374,6 +384,11 @@ func (o LogAccountPolicyOutput) PolicyName() pulumi.StringOutput {
 // Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 func (o LogAccountPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogAccountPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Currently defaults to and only accepts the value: `ALL`.

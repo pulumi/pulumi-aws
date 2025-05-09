@@ -12,6 +12,7 @@ export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("aws:outposts/getAsset:getAsset", {
         "arn": args.arn,
         "assetId": args.assetId,
+        "region": args.region,
     }, opts);
 }
 
@@ -27,6 +28,7 @@ export interface GetAssetArgs {
      * ID of the asset.
      */
     assetId: string;
+    region?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export interface GetAssetResult {
      * Rack ID of the asset.
      */
     readonly rackId: string;
+    readonly region: string;
 }
 /**
  * Information about a specific hardware asset in an Outpost.
@@ -64,6 +67,7 @@ export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("aws:outposts/getAsset:getAsset", {
         "arn": args.arn,
         "assetId": args.assetId,
+        "region": args.region,
     }, opts);
 }
 
@@ -79,4 +83,5 @@ export interface GetAssetOutputArgs {
      * ID of the asset.
      */
     assetId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

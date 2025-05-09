@@ -47,6 +47,13 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
         return this.querySuggestionsBlockListId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Metadata that helps organize the block list you create.
      * 
@@ -67,6 +74,7 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
     private GetQuerySuggestionsBlockListArgs(GetQuerySuggestionsBlockListArgs $) {
         this.indexId = $.indexId;
         this.querySuggestionsBlockListId = $.querySuggestionsBlockListId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -128,6 +136,15 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
          */
         public Builder querySuggestionsBlockListId(String querySuggestionsBlockListId) {
             return querySuggestionsBlockListId(Output.of(querySuggestionsBlockListId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

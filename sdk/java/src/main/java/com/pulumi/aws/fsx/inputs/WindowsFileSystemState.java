@@ -278,6 +278,21 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      * 
      */
@@ -481,6 +496,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         this.ownerId = $.ownerId;
         this.preferredFileServerIp = $.preferredFileServerIp;
         this.preferredSubnetId = $.preferredSubnetId;
+        this.region = $.region;
         this.remoteAdministrationEndpoint = $.remoteAdministrationEndpoint;
         this.securityGroupIds = $.securityGroupIds;
         this.selfManagedActiveDirectory = $.selfManagedActiveDirectory;
@@ -888,6 +904,27 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
          */
         public Builder preferredSubnetId(String preferredSubnetId) {
             return preferredSubnetId(Output.of(preferredSubnetId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

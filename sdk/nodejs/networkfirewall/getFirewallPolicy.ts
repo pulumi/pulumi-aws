@@ -56,6 +56,7 @@ export function getFirewallPolicy(args?: GetFirewallPolicyArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -70,8 +71,11 @@ export interface GetFirewallPolicyArgs {
     arn?: string;
     /**
      * Descriptive name of the firewall policy.
+     *
+     * One or more of these arguments is required.
      */
     name?: string;
+    region?: string;
     /**
      * Key-value tags for the firewall policy.
      */
@@ -96,6 +100,7 @@ export interface GetFirewallPolicyResult {
      */
     readonly id: string;
     readonly name?: string;
+    readonly region: string;
     /**
      * Key-value tags for the firewall policy.
      */
@@ -154,6 +159,7 @@ export function getFirewallPolicyOutput(args?: GetFirewallPolicyOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -168,8 +174,11 @@ export interface GetFirewallPolicyOutputArgs {
     arn?: pulumi.Input<string>;
     /**
      * Descriptive name of the firewall policy.
+     *
+     * One or more of these arguments is required.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the firewall policy.
      */

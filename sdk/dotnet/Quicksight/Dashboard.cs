@@ -118,6 +118,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<Outputs.DashboardPermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
         [Output("sourceEntity")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
         [Input("sourceEntity")]
@@ -357,6 +369,12 @@ namespace Pulumi.Aws.Quicksight
             get => _permissions ?? (_permissions = new InputList<Inputs.DashboardPermissionGetArgs>());
             set => _permissions = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.

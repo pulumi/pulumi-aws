@@ -83,6 +83,8 @@ type VirtualRouter struct {
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// Virtual router specification to apply.
@@ -141,6 +143,8 @@ type virtualRouterState struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Virtual router specification to apply.
@@ -164,6 +168,8 @@ type VirtualRouterState struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
 	// Virtual router specification to apply.
@@ -185,6 +191,8 @@ type virtualRouterArgs struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Virtual router specification to apply.
 	Spec VirtualRouterSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -199,6 +207,8 @@ type VirtualRouterArgs struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Virtual router specification to apply.
 	Spec VirtualRouterSpecInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -320,6 +330,11 @@ func (o VirtualRouterOutput) MeshOwner() pulumi.StringOutput {
 // Name to use for the virtual router. Must be between 1 and 255 characters in length.
 func (o VirtualRouterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VirtualRouterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

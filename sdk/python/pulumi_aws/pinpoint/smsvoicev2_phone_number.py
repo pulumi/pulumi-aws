@@ -28,6 +28,7 @@ class Smsvoicev2PhoneNumberArgs:
                  number_type: pulumi.Input[builtins.str],
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  opt_out_list_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_id: Optional[pulumi.Input[builtins.str]] = None,
                  self_managed_opt_outs_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -42,6 +43,7 @@ class Smsvoicev2PhoneNumberArgs:
         :param pulumi.Input[builtins.str] number_type: The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: By default this is set to `false`. When set to true the phone number can’t be deleted.
         :param pulumi.Input[builtins.str] opt_out_list_name: The name of the opt-out list to associate with the phone number.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_id: Use this field to attach your phone number for an external registration process.
         :param pulumi.Input[builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         :param pulumi.Input[builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel.
@@ -55,6 +57,8 @@ class Smsvoicev2PhoneNumberArgs:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if opt_out_list_name is not None:
             pulumi.set(__self__, "opt_out_list_name", opt_out_list_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_id is not None:
             pulumi.set(__self__, "registration_id", registration_id)
         if self_managed_opt_outs_enabled is not None:
@@ -141,6 +145,18 @@ class Smsvoicev2PhoneNumberArgs:
         pulumi.set(self, "opt_out_list_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationId")
     def registration_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -219,6 +235,7 @@ class _Smsvoicev2PhoneNumberState:
                  number_type: Optional[pulumi.Input[builtins.str]] = None,
                  opt_out_list_name: Optional[pulumi.Input[builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_id: Optional[pulumi.Input[builtins.str]] = None,
                  self_managed_opt_outs_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -237,6 +254,7 @@ class _Smsvoicev2PhoneNumberState:
         :param pulumi.Input[builtins.str] number_type: The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         :param pulumi.Input[builtins.str] opt_out_list_name: The name of the opt-out list to associate with the phone number.
         :param pulumi.Input[builtins.str] phone_number: The new phone number that was requested.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_id: Use this field to attach your phone number for an external registration process.
         :param pulumi.Input[builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -261,6 +279,8 @@ class _Smsvoicev2PhoneNumberState:
             pulumi.set(__self__, "opt_out_list_name", opt_out_list_name)
         if phone_number is not None:
             pulumi.set(__self__, "phone_number", phone_number)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_id is not None:
             pulumi.set(__self__, "registration_id", registration_id)
         if self_managed_opt_outs_enabled is not None:
@@ -385,6 +405,18 @@ class _Smsvoicev2PhoneNumberState:
         pulumi.set(self, "phone_number", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationId")
     def registration_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -477,6 +509,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                  number_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  number_type: Optional[pulumi.Input[builtins.str]] = None,
                  opt_out_list_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_id: Optional[pulumi.Input[builtins.str]] = None,
                  self_managed_opt_outs_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -516,6 +549,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] number_capabilities: Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
         :param pulumi.Input[builtins.str] number_type: The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         :param pulumi.Input[builtins.str] opt_out_list_name: The name of the opt-out list to associate with the phone number.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_id: Use this field to attach your phone number for an external registration process.
         :param pulumi.Input[builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         :param pulumi.Input[builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel.
@@ -572,6 +606,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                  number_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  number_type: Optional[pulumi.Input[builtins.str]] = None,
                  opt_out_list_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_id: Optional[pulumi.Input[builtins.str]] = None,
                  self_managed_opt_outs_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -601,6 +636,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                 raise TypeError("Missing required property 'number_type'")
             __props__.__dict__["number_type"] = number_type
             __props__.__dict__["opt_out_list_name"] = opt_out_list_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["registration_id"] = registration_id
             __props__.__dict__["self_managed_opt_outs_enabled"] = self_managed_opt_outs_enabled
             __props__.__dict__["tags"] = tags
@@ -630,6 +666,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
             number_type: Optional[pulumi.Input[builtins.str]] = None,
             opt_out_list_name: Optional[pulumi.Input[builtins.str]] = None,
             phone_number: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registration_id: Optional[pulumi.Input[builtins.str]] = None,
             self_managed_opt_outs_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -653,6 +690,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] number_type: The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         :param pulumi.Input[builtins.str] opt_out_list_name: The name of the opt-out list to associate with the phone number.
         :param pulumi.Input[builtins.str] phone_number: The new phone number that was requested.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_id: Use this field to attach your phone number for an external registration process.
         :param pulumi.Input[builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -672,6 +710,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         __props__.__dict__["number_type"] = number_type
         __props__.__dict__["opt_out_list_name"] = opt_out_list_name
         __props__.__dict__["phone_number"] = phone_number
+        __props__.__dict__["region"] = region
         __props__.__dict__["registration_id"] = registration_id
         __props__.__dict__["self_managed_opt_outs_enabled"] = self_managed_opt_outs_enabled
         __props__.__dict__["tags"] = tags
@@ -752,6 +791,14 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         The new phone number that was requested.
         """
         return pulumi.get(self, "phone_number")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registrationId")

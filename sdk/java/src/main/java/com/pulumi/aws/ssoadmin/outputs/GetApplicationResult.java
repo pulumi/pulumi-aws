@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationResult {
@@ -48,7 +47,8 @@ public final class GetApplicationResult {
      * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
      * 
      */
-    private @Nullable List<GetApplicationPortalOption> portalOptions;
+    private List<GetApplicationPortalOption> portalOptions;
+    private String region;
     /**
      * @return Status of the application.
      * 
@@ -106,7 +106,10 @@ public final class GetApplicationResult {
      * 
      */
     public List<GetApplicationPortalOption> portalOptions() {
-        return this.portalOptions == null ? List.of() : this.portalOptions;
+        return this.portalOptions;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Status of the application.
@@ -132,7 +135,8 @@ public final class GetApplicationResult {
         private String id;
         private String instanceArn;
         private String name;
-        private @Nullable List<GetApplicationPortalOption> portalOptions;
+        private List<GetApplicationPortalOption> portalOptions;
+        private String region;
         private String status;
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
@@ -145,6 +149,7 @@ public final class GetApplicationResult {
     	      this.instanceArn = defaults.instanceArn;
     	      this.name = defaults.name;
     	      this.portalOptions = defaults.portalOptions;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
         }
 
@@ -205,13 +210,23 @@ public final class GetApplicationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder portalOptions(@Nullable List<GetApplicationPortalOption> portalOptions) {
-
+        public Builder portalOptions(List<GetApplicationPortalOption> portalOptions) {
+            if (portalOptions == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "portalOptions");
+            }
             this.portalOptions = portalOptions;
             return this;
         }
         public Builder portalOptions(GetApplicationPortalOption... portalOptions) {
             return portalOptions(List.of(portalOptions));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "region");
+            }
+            this.region = region;
+            return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
@@ -231,6 +246,7 @@ public final class GetApplicationResult {
             _resultValue.instanceArn = instanceArn;
             _resultValue.name = name;
             _resultValue.portalOptions = portalOptions;
+            _resultValue.region = region;
             _resultValue.status = status;
             return _resultValue;
         }

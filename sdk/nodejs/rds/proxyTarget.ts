@@ -122,6 +122,10 @@ export class ProxyTarget extends pulumi.CustomResource {
      */
     public /*out*/ readonly rdsResourceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
     public /*out*/ readonly targetArn!: pulumi.Output<string>;
@@ -157,6 +161,7 @@ export class ProxyTarget extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["rdsResourceId"] = state ? state.rdsResourceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetArn"] = state ? state.targetArn : undefined;
             resourceInputs["targetGroupName"] = state ? state.targetGroupName : undefined;
             resourceInputs["trackedClusterId"] = state ? state.trackedClusterId : undefined;
@@ -172,6 +177,7 @@ export class ProxyTarget extends pulumi.CustomResource {
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -216,6 +222,10 @@ export interface ProxyTargetState {
      */
     rdsResourceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
     targetArn?: pulumi.Input<string>;
@@ -251,6 +261,10 @@ export interface ProxyTargetArgs {
      * The name of the DB proxy.
      */
     dbProxyName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the target group.
      */

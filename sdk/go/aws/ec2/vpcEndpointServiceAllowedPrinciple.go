@@ -58,6 +58,8 @@ type VpcEndpointServiceAllowedPrinciple struct {
 
 	// The ARN of the principal to allow permissions.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
 }
@@ -100,6 +102,8 @@ func GetVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 type vpcEndpointServiceAllowedPrincipleState struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn *string `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
 }
@@ -107,6 +111,8 @@ type vpcEndpointServiceAllowedPrincipleState struct {
 type VpcEndpointServiceAllowedPrincipleState struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId pulumi.StringPtrInput
 }
@@ -118,6 +124,8 @@ func (VpcEndpointServiceAllowedPrincipleState) ElementType() reflect.Type {
 type vpcEndpointServiceAllowedPrincipleArgs struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn string `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId string `pulumi:"vpcEndpointServiceId"`
 }
@@ -126,6 +134,8 @@ type vpcEndpointServiceAllowedPrincipleArgs struct {
 type VpcEndpointServiceAllowedPrincipleArgs struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId pulumi.StringInput
 }
@@ -220,6 +230,11 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 // The ARN of the principal to allow permissions.
 func (o VpcEndpointServiceAllowedPrincipleOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcEndpointServiceAllowedPrincipleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the VPC endpoint service to allow permission.

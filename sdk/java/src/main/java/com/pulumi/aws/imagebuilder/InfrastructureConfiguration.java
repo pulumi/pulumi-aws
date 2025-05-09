@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.InfrastructureConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationState;
 import com.pulumi.aws.imagebuilder.outputs.InfrastructureConfigurationInstanceMetadataOptions;
 import com.pulumi.aws.imagebuilder.outputs.InfrastructureConfigurationLogging;
+import com.pulumi.aws.imagebuilder.outputs.InfrastructureConfigurationPlacement;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -230,6 +231,34 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     * 
+     */
+    @Export(name="placement", refs={InfrastructureConfigurationPlacement.class}, tree="[0]")
+    private Output</* @Nullable */ InfrastructureConfigurationPlacement> placement;
+
+    /**
+     * @return Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     * 
+     */
+    public Output<Optional<InfrastructureConfigurationPlacement>> placement() {
+        return Codegen.optional(this.placement);
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.

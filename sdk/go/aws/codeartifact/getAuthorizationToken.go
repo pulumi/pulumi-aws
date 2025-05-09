@@ -55,7 +55,8 @@ type GetAuthorizationTokenArgs struct {
 	// Account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
 	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-	DurationSeconds *int `pulumi:"durationSeconds"`
+	DurationSeconds *int    `pulumi:"durationSeconds"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAuthorizationToken.
@@ -68,7 +69,8 @@ type GetAuthorizationTokenResult struct {
 	// Time in UTC RFC3339 format when the authorization token expires.
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationTokenOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
@@ -87,7 +89,8 @@ type GetAuthorizationTokenOutputArgs struct {
 	// Account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
 	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAuthorizationTokenOutputArgs) ElementType() reflect.Type {
@@ -134,6 +137,10 @@ func (o GetAuthorizationTokenResultOutput) Expiration() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAuthorizationTokenResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

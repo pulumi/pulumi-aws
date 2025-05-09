@@ -55,6 +55,13 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.mostRecent);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags for the resource.
      * 
@@ -75,6 +82,7 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
     private GetVolumeArgs(GetVolumeArgs $) {
         this.filters = $.filters;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -154,6 +162,15 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

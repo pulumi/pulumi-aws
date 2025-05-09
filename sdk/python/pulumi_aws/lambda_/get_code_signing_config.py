@@ -28,7 +28,7 @@ class GetCodeSigningConfigResult:
     """
     A collection of values returned by getCodeSigningConfig.
     """
-    def __init__(__self__, allowed_publishers=None, arn=None, config_id=None, description=None, id=None, last_modified=None, policies=None):
+    def __init__(__self__, allowed_publishers=None, arn=None, config_id=None, description=None, id=None, last_modified=None, policies=None, region=None):
         if allowed_publishers and not isinstance(allowed_publishers, list):
             raise TypeError("Expected argument 'allowed_publishers' to be a list")
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -50,6 +50,9 @@ class GetCodeSigningConfigResult:
         if policies and not isinstance(policies, list):
             raise TypeError("Expected argument 'policies' to be a list")
         pulumi.set(__self__, "policies", policies)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -104,6 +107,11 @@ class GetCodeSigningConfigResult:
         """
         return pulumi.get(self, "policies")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetCodeSigningConfigResult(GetCodeSigningConfigResult):
     # pylint: disable=using-constant-test
@@ -117,10 +125,12 @@ class AwaitableGetCodeSigningConfigResult(GetCodeSigningConfigResult):
             description=self.description,
             id=self.id,
             last_modified=self.last_modified,
-            policies=self.policies)
+            policies=self.policies,
+            region=self.region)
 
 
 def get_code_signing_config(arn: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeSigningConfigResult:
     """
     Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
@@ -141,6 +151,7 @@ def get_code_signing_config(arn: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getCodeSigningConfig:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult).value
 
@@ -151,8 +162,10 @@ def get_code_signing_config(arn: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         last_modified=pulumi.get(__ret__, 'last_modified'),
-        policies=pulumi.get(__ret__, 'policies'))
+        policies=pulumi.get(__ret__, 'policies'),
+        region=pulumi.get(__ret__, 'region'))
 def get_code_signing_config_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
     Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
@@ -173,6 +186,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[builtins.str]] = N
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getCodeSigningConfig:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult)
     return __ret__.apply(lambda __response__: GetCodeSigningConfigResult(
@@ -182,4 +196,5 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[builtins.str]] = N
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         last_modified=pulumi.get(__response__, 'last_modified'),
-        policies=pulumi.get(__response__, 'policies')))
+        policies=pulumi.get(__response__, 'policies'),
+        region=pulumi.get(__response__, 'region')))

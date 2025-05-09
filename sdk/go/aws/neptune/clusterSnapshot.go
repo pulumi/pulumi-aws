@@ -70,7 +70,9 @@ type ClusterSnapshot struct {
 	// License model information for the restored DB cluster.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntOutput    `pulumi:"port"`
+	Port pulumi.IntOutput `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                     pulumi.StringOutput `pulumi:"region"`
 	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
@@ -136,7 +138,9 @@ type clusterSnapshotState struct {
 	// License model information for the restored DB cluster.
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                     *string `pulumi:"region"`
 	SnapshotType               *string `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
@@ -167,7 +171,9 @@ type ClusterSnapshotState struct {
 	// License model information for the restored DB cluster.
 	LicenseModel pulumi.StringPtrInput
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntPtrInput
+	Port pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                     pulumi.StringPtrInput
 	SnapshotType               pulumi.StringPtrInput
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
 	// The status of this DB Cluster Snapshot.
@@ -187,6 +193,8 @@ type clusterSnapshotArgs struct {
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
@@ -195,6 +203,8 @@ type ClusterSnapshotArgs struct {
 	DbClusterIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {
@@ -332,6 +342,11 @@ func (o ClusterSnapshotOutput) LicenseModel() pulumi.StringOutput {
 // Port that the DB cluster was listening on at the time of the snapshot.
 func (o ClusterSnapshotOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterSnapshotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ClusterSnapshotOutput) SnapshotType() pulumi.StringOutput {

@@ -90,12 +90,20 @@ export class VpcOrigin extends pulumi.CustomResource {
      * The current version of the origin.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.cloudfront.VpcOriginTimeouts | undefined>;
+    /**
+     * The VPC origin endpoint configuration.
+     *
+     * The following arguments are optional:
+     */
     public readonly vpcOriginEndpointConfig!: pulumi.Output<outputs.cloudfront.VpcOriginVpcOriginEndpointConfig | undefined>;
 
     /**
@@ -143,12 +151,20 @@ export interface VpcOriginState {
      * The current version of the origin.
      */
     etag?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.VpcOriginTimeouts>;
+    /**
+     * The VPC origin endpoint configuration.
+     *
+     * The following arguments are optional:
+     */
     vpcOriginEndpointConfig?: pulumi.Input<inputs.cloudfront.VpcOriginVpcOriginEndpointConfig>;
 }
 
@@ -156,7 +172,15 @@ export interface VpcOriginState {
  * The set of arguments for constructing a VpcOrigin resource.
  */
 export interface VpcOriginArgs {
+    /**
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.VpcOriginTimeouts>;
+    /**
+     * The VPC origin endpoint configuration.
+     *
+     * The following arguments are optional:
+     */
     vpcOriginEndpointConfig?: pulumi.Input<inputs.cloudfront.VpcOriginVpcOriginEndpointConfig>;
 }

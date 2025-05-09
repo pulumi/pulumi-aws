@@ -35,6 +35,7 @@ public final class GetDocumentResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetDocumentResult() {}
     /**
@@ -74,6 +75,9 @@ public final class GetDocumentResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -91,6 +95,7 @@ public final class GetDocumentResult {
         private @Nullable String documentVersion;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -101,6 +106,7 @@ public final class GetDocumentResult {
     	      this.documentVersion = defaults.documentVersion;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -155,6 +161,14 @@ public final class GetDocumentResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDocumentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetDocumentResult build() {
             final var _resultValue = new GetDocumentResult();
             _resultValue.arn = arn;
@@ -164,6 +178,7 @@ public final class GetDocumentResult {
             _resultValue.documentVersion = documentVersion;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

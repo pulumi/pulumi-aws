@@ -16,6 +16,7 @@ export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -28,6 +29,7 @@ export interface GetResponsePlanArgs {
      * The Amazon Resource Name (ARN) of the response plan.
      */
     arn: string;
+    region?: string;
     /**
      * The tags applied to the response plan.
      */
@@ -68,6 +70,7 @@ export interface GetResponsePlanResult {
      * The name of the PagerDuty configuration.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * The tags applied to the response plan.
      */
@@ -82,6 +85,7 @@ export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmincidents/getResponsePlan:getResponsePlan", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -94,6 +98,7 @@ export interface GetResponsePlanOutputArgs {
      * The Amazon Resource Name (ARN) of the response plan.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The tags applied to the response plan.
      */

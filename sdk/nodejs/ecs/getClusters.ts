@@ -18,10 +18,19 @@ import * as utilities from "../utilities";
  * const example = aws.ecs.getClusters({});
  * ```
  */
-export function getClusters(opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
+export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getClusters:getClusters", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getClusters.
+ */
+export interface GetClustersArgs {
+    region?: string;
 }
 
 /**
@@ -36,6 +45,7 @@ export interface GetClustersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS ECS (Elastic Container) Clusters.
@@ -51,8 +61,17 @@ export interface GetClustersResult {
  * const example = aws.ecs.getClusters({});
  * ```
  */
-export function getClustersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {
+export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getClusters:getClusters", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getClusters.
+ */
+export interface GetClustersOutputArgs {
+    region?: pulumi.Input<string>;
 }

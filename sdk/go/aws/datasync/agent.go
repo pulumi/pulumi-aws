@@ -126,6 +126,8 @@ type Agent struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
 	PrivateLinkEndpoint pulumi.StringOutput `pulumi:"privateLinkEndpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -178,6 +180,8 @@ type agentState struct {
 	Name *string `pulumi:"name"`
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
 	PrivateLinkEndpoint *string `pulumi:"privateLinkEndpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -201,6 +205,8 @@ type AgentState struct {
 	Name pulumi.StringPtrInput
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
 	PrivateLinkEndpoint pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns pulumi.StringArrayInput
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -226,6 +232,8 @@ type agentArgs struct {
 	Name *string `pulumi:"name"`
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
 	PrivateLinkEndpoint *string `pulumi:"privateLinkEndpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -246,6 +254,8 @@ type AgentArgs struct {
 	Name pulumi.StringPtrInput
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
 	PrivateLinkEndpoint pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns pulumi.StringArrayInput
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -366,6 +376,11 @@ func (o AgentOutput) Name() pulumi.StringOutput {
 // The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
 func (o AgentOutput) PrivateLinkEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.PrivateLinkEndpoint }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARNs of the security groups used to protect your data transfer task subnets.

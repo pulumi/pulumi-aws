@@ -46,6 +46,7 @@ public final class GetJobDefinitionResult {
      * 
      */
     private List<GetJobDefinitionNodeProperty> nodeProperties;
+    private String region;
     /**
      * @return The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that&#39;s specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn&#39;t retried.
      * 
@@ -112,6 +113,9 @@ public final class GetJobDefinitionResult {
     public List<GetJobDefinitionNodeProperty> nodeProperties() {
         return this.nodeProperties;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that&#39;s specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn&#39;t retried.
      * 
@@ -166,6 +170,7 @@ public final class GetJobDefinitionResult {
         private String id;
         private @Nullable String name;
         private List<GetJobDefinitionNodeProperty> nodeProperties;
+        private String region;
         private List<GetJobDefinitionRetryStrategy> retryStrategies;
         private @Nullable Integer revision;
         private Integer schedulingPriority;
@@ -183,6 +188,7 @@ public final class GetJobDefinitionResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.nodeProperties = defaults.nodeProperties;
+    	      this.region = defaults.region;
     	      this.retryStrategies = defaults.retryStrategies;
     	      this.revision = defaults.revision;
     	      this.schedulingPriority = defaults.schedulingPriority;
@@ -251,6 +257,14 @@ public final class GetJobDefinitionResult {
             return nodeProperties(List.of(nodeProperties));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetJobDefinitionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder retryStrategies(List<GetJobDefinitionRetryStrategy> retryStrategies) {
             if (retryStrategies == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionResult", "retryStrategies");
@@ -317,6 +331,7 @@ public final class GetJobDefinitionResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.nodeProperties = nodeProperties;
+            _resultValue.region = region;
             _resultValue.retryStrategies = retryStrategies;
             _resultValue.revision = revision;
             _resultValue.schedulingPriority = schedulingPriority;

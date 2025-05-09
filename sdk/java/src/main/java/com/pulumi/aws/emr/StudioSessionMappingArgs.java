@@ -62,6 +62,21 @@ public final class StudioSessionMappingArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      * 
      */
@@ -97,6 +112,7 @@ public final class StudioSessionMappingArgs extends com.pulumi.resources.Resourc
         this.identityId = $.identityId;
         this.identityName = $.identityName;
         this.identityType = $.identityType;
+        this.region = $.region;
         this.sessionPolicyArn = $.sessionPolicyArn;
         this.studioId = $.studioId;
     }
@@ -180,6 +196,27 @@ public final class StudioSessionMappingArgs extends com.pulumi.resources.Resourc
          */
         public Builder identityType(String identityType) {
             return identityType(Output.of(identityType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

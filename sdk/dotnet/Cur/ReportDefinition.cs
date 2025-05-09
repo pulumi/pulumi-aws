@@ -95,6 +95,12 @@ namespace Pulumi.Aws.Cur
         public Output<bool?> RefreshClosedReports { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
         [Output("reportName")]
@@ -231,6 +237,12 @@ namespace Pulumi.Aws.Cur
         public Input<bool>? RefreshClosedReports { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
         [Input("reportName", required: true)]
@@ -333,6 +345,12 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         [Input("refreshClosedReports")]
         public Input<bool>? RefreshClosedReports { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.

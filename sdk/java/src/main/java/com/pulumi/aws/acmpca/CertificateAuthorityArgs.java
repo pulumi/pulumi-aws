@@ -82,6 +82,21 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Nested argument containing revocation configuration. Defined below.
      * 
      */
@@ -148,6 +163,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         this.enabled = $.enabled;
         this.keyStorageSecurityStandard = $.keyStorageSecurityStandard;
         this.permanentDeletionTimeInDays = $.permanentDeletionTimeInDays;
+        this.region = $.region;
         this.revocationConfiguration = $.revocationConfiguration;
         this.tags = $.tags;
         this.type = $.type;
@@ -254,6 +270,27 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
          */
         public Builder permanentDeletionTimeInDays(Integer permanentDeletionTimeInDays) {
             return permanentDeletionTimeInDays(Output.of(permanentDeletionTimeInDays));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

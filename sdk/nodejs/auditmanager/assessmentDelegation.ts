@@ -76,6 +76,10 @@ export class AssessmentDelegation extends pulumi.CustomResource {
      */
     public /*out*/ readonly delegationId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM role.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class AssessmentDelegation extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["controlSetId"] = state ? state.controlSetId : undefined;
             resourceInputs["delegationId"] = state ? state.delegationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["roleType"] = state ? state.roleType : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -127,6 +132,7 @@ export class AssessmentDelegation extends pulumi.CustomResource {
             resourceInputs["assessmentId"] = args ? args.assessmentId : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["controlSetId"] = args ? args.controlSetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["roleType"] = args ? args.roleType : undefined;
             resourceInputs["delegationId"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface AssessmentDelegationState {
      * Unique identifier for the delegation.
      */
     delegationId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      */
@@ -189,6 +199,10 @@ export interface AssessmentDelegationArgs {
      * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
      */
     controlSetId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      */

@@ -45,8 +45,10 @@ import (
 type DefaultRouteTablePropagation struct {
 	pulumi.CustomResourceState
 
-	OriginalDefaultRouteTableId pulumi.StringOutput                           `pulumi:"originalDefaultRouteTableId"`
-	Timeouts                    DefaultRouteTablePropagationTimeoutsPtrOutput `pulumi:"timeouts"`
+	OriginalDefaultRouteTableId pulumi.StringOutput `pulumi:"originalDefaultRouteTableId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput                           `pulumi:"region"`
+	Timeouts DefaultRouteTablePropagationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// ID of the Transit Gateway to change the default association route table on.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 	// ID of the Transit Gateway Route Table to be made the default association route table.
@@ -89,8 +91,10 @@ func GetDefaultRouteTablePropagation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultRouteTablePropagation resources.
 type defaultRouteTablePropagationState struct {
-	OriginalDefaultRouteTableId *string                               `pulumi:"originalDefaultRouteTableId"`
-	Timeouts                    *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
+	OriginalDefaultRouteTableId *string `pulumi:"originalDefaultRouteTableId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                               `pulumi:"region"`
+	Timeouts *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
 	// ID of the Transit Gateway to change the default association route table on.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// ID of the Transit Gateway Route Table to be made the default association route table.
@@ -99,7 +103,9 @@ type defaultRouteTablePropagationState struct {
 
 type DefaultRouteTablePropagationState struct {
 	OriginalDefaultRouteTableId pulumi.StringPtrInput
-	Timeouts                    DefaultRouteTablePropagationTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts DefaultRouteTablePropagationTimeoutsPtrInput
 	// ID of the Transit Gateway to change the default association route table on.
 	TransitGatewayId pulumi.StringPtrInput
 	// ID of the Transit Gateway Route Table to be made the default association route table.
@@ -111,6 +117,8 @@ func (DefaultRouteTablePropagationState) ElementType() reflect.Type {
 }
 
 type defaultRouteTablePropagationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                               `pulumi:"region"`
 	Timeouts *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
 	// ID of the Transit Gateway to change the default association route table on.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
@@ -120,6 +128,8 @@ type defaultRouteTablePropagationArgs struct {
 
 // The set of arguments for constructing a DefaultRouteTablePropagation resource.
 type DefaultRouteTablePropagationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Timeouts DefaultRouteTablePropagationTimeoutsPtrInput
 	// ID of the Transit Gateway to change the default association route table on.
 	TransitGatewayId pulumi.StringInput
@@ -216,6 +226,11 @@ func (o DefaultRouteTablePropagationOutput) ToDefaultRouteTablePropagationOutput
 
 func (o DefaultRouteTablePropagationOutput) OriginalDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.OriginalDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DefaultRouteTablePropagationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o DefaultRouteTablePropagationOutput) Timeouts() DefaultRouteTablePropagationTimeoutsPtrOutput {

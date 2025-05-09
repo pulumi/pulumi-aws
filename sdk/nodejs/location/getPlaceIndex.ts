@@ -25,6 +25,7 @@ export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getPlaceIndex:getPlaceIndex", {
         "indexName": args.indexName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetPlaceIndexArgs {
      * Name of the place index resource.
      */
     indexName: string;
+    region?: string;
     /**
      * Key-value map of resource tags for the place index.
      */
@@ -72,6 +74,7 @@ export interface GetPlaceIndexResult {
      */
     readonly indexArn: string;
     readonly indexName: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the place index.
      */
@@ -99,6 +102,7 @@ export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getPlaceIndex:getPlaceIndex", {
         "indexName": args.indexName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -111,6 +115,7 @@ export interface GetPlaceIndexOutputArgs {
      * Name of the place index resource.
      */
     indexName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the place index.
      */

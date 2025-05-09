@@ -53,7 +53,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Name of the cluster.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -87,6 +88,7 @@ type LookupClusterResult struct {
 	OutpostConfigs []GetClusterOutpostConfig `pulumi:"outpostConfigs"`
 	// Platform version for the cluster.
 	PlatformVersion string `pulumi:"platformVersion"`
+	Region          string `pulumi:"region"`
 	// Contains remote network configuration for EKS Hybrid Nodes.
 	RemoteNetworkConfigs []GetClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfigs"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
@@ -119,7 +121,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Name of the cluster.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -210,6 +213,10 @@ func (o LookupClusterResultOutput) OutpostConfigs() GetClusterOutpostConfigArray
 // Platform version for the cluster.
 func (o LookupClusterResultOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Contains remote network configuration for EKS Hybrid Nodes.

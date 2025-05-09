@@ -89,6 +89,8 @@ type SecretPolicy struct {
 	BlockPublicPolicy pulumi.BoolPtrOutput `pulumi:"blockPublicPolicy"`
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Secret ARN.
 	//
 	// The following arguments are optional:
@@ -135,6 +137,8 @@ type secretPolicyState struct {
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secret ARN.
 	//
 	// The following arguments are optional:
@@ -146,6 +150,8 @@ type SecretPolicyState struct {
 	BlockPublicPolicy pulumi.BoolPtrInput
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secret ARN.
 	//
 	// The following arguments are optional:
@@ -161,6 +167,8 @@ type secretPolicyArgs struct {
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secret ARN.
 	//
 	// The following arguments are optional:
@@ -173,6 +181,8 @@ type SecretPolicyArgs struct {
 	BlockPublicPolicy pulumi.BoolPtrInput
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secret ARN.
 	//
 	// The following arguments are optional:
@@ -274,6 +284,11 @@ func (o SecretPolicyOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 // Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 func (o SecretPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SecretPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Secret ARN.

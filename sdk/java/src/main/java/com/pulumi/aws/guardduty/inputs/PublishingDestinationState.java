@@ -79,6 +79,21 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PublishingDestinationState() {}
 
     private PublishingDestinationState(PublishingDestinationState $) {
@@ -86,6 +101,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         this.destinationType = $.destinationType;
         this.detectorId = $.detectorId;
         this.kmsKeyArn = $.kmsKeyArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -192,6 +208,27 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
          */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PublishingDestinationState build() {

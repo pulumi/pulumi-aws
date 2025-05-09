@@ -25,6 +25,7 @@ class RecordingConfigurationArgs:
                  destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
@@ -32,6 +33,7 @@ class RecordingConfigurationArgs:
         :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where recorded video will be stored.
         :param pulumi.Input[builtins.str] name: Recording Configuration name.
         :param pulumi.Input[builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
@@ -40,6 +42,8 @@ class RecordingConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if recording_reconnect_window_seconds is not None:
             pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if thumbnail_configuration is not None:
@@ -83,6 +87,18 @@ class RecordingConfigurationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,6 +129,7 @@ class _RecordingConfigurationState:
                  destination_configuration: Optional[pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -123,6 +140,7 @@ class _RecordingConfigurationState:
         :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where recorded video will be stored.
         :param pulumi.Input[builtins.str] name: Recording Configuration name.
         :param pulumi.Input[builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The current state of the Recording Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -136,6 +154,8 @@ class _RecordingConfigurationState:
             pulumi.set(__self__, "name", name)
         if recording_reconnect_window_seconds is not None:
             pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -192,6 +212,18 @@ class _RecordingConfigurationState:
     @recording_reconnect_window_seconds.setter
     def recording_reconnect_window_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "recording_reconnect_window_seconds", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -253,6 +285,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -289,6 +322,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where recorded video will be stored.
         :param pulumi.Input[builtins.str] name: Recording Configuration name.
         :param pulumi.Input[builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
@@ -344,6 +378,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -360,6 +395,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
@@ -379,6 +415,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -394,6 +431,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where recorded video will be stored.
         :param pulumi.Input[builtins.str] name: Recording Configuration name.
         :param pulumi.Input[builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The current state of the Recording Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -407,6 +445,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         __props__.__dict__["destination_configuration"] = destination_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -444,6 +483,14 @@ class RecordingConfiguration(pulumi.CustomResource):
         If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         """
         return pulumi.get(self, "recording_reconnect_window_seconds")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

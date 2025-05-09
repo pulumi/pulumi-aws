@@ -32,6 +32,21 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the Verified Access instance.
      * 
      */
@@ -50,6 +65,7 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
 
     private InstanceLoggingConfigurationState(InstanceLoggingConfigurationState $) {
         this.accessLogs = $.accessLogs;
+        this.region = $.region;
         this.verifiedaccessInstanceId = $.verifiedaccessInstanceId;
     }
 
@@ -90,6 +106,27 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
          */
         public Builder accessLogs(InstanceLoggingConfigurationAccessLogsArgs accessLogs) {
             return accessLogs(Output.of(accessLogs));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

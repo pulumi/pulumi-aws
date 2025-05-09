@@ -46,6 +46,13 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags to assign to the User.
      * 
@@ -81,6 +88,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserPlainArgs(GetUserPlainArgs $) {
         this.instanceId = $.instanceId;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.userId = $.userId;
     }
@@ -122,6 +130,11 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

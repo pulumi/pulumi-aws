@@ -17,6 +17,7 @@ public final class GetLambdaFunctionAssociationResult {
      */
     private String id;
     private String instanceId;
+    private String region;
 
     private GetLambdaFunctionAssociationResult() {}
     public String functionArn() {
@@ -32,6 +33,9 @@ public final class GetLambdaFunctionAssociationResult {
     public String instanceId() {
         return this.instanceId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -45,12 +49,14 @@ public final class GetLambdaFunctionAssociationResult {
         private String functionArn;
         private String id;
         private String instanceId;
+        private String region;
         public Builder() {}
         public Builder(GetLambdaFunctionAssociationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionArn = defaults.functionArn;
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -77,11 +83,20 @@ public final class GetLambdaFunctionAssociationResult {
             this.instanceId = instanceId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLambdaFunctionAssociationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLambdaFunctionAssociationResult build() {
             final var _resultValue = new GetLambdaFunctionAssociationResult();
             _resultValue.functionArn = functionArn;
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

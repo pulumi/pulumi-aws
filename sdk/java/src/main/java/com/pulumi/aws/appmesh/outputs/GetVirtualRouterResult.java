@@ -36,6 +36,7 @@ public final class GetVirtualRouterResult {
     private String meshName;
     private String meshOwner;
     private String name;
+    private String region;
     /**
      * @return Resource owner&#39;s AWS account ID.
      * 
@@ -90,6 +91,9 @@ public final class GetVirtualRouterResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Resource owner&#39;s AWS account ID.
      * 
@@ -128,6 +132,7 @@ public final class GetVirtualRouterResult {
         private String meshName;
         private String meshOwner;
         private String name;
+        private String region;
         private String resourceOwner;
         private List<GetVirtualRouterSpec> specs;
         private Map<String,String> tags;
@@ -141,6 +146,7 @@ public final class GetVirtualRouterResult {
     	      this.meshName = defaults.meshName;
     	      this.meshOwner = defaults.meshOwner;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.resourceOwner = defaults.resourceOwner;
     	      this.specs = defaults.specs;
     	      this.tags = defaults.tags;
@@ -203,6 +209,14 @@ public final class GetVirtualRouterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVirtualRouterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
             if (resourceOwner == null) {
               throw new MissingRequiredPropertyException("GetVirtualRouterResult", "resourceOwner");
@@ -238,6 +252,7 @@ public final class GetVirtualRouterResult {
             _resultValue.meshName = meshName;
             _resultValue.meshOwner = meshOwner;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.resourceOwner = resourceOwner;
             _resultValue.specs = specs;
             _resultValue.tags = tags;

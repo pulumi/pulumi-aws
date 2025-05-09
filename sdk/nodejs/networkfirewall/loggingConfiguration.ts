@@ -117,6 +117,10 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -133,6 +137,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             const state = argsOrState as LoggingConfigurationState | undefined;
             resourceInputs["firewallArn"] = state ? state.firewallArn : undefined;
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LoggingConfigurationArgs | undefined;
             if ((!args || args.firewallArn === undefined) && !opts.urn) {
@@ -143,6 +148,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -161,6 +167,10 @@ export interface LoggingConfigurationState {
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
     loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -175,4 +185,8 @@ export interface LoggingConfigurationArgs {
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
     loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

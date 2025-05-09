@@ -53,7 +53,8 @@ func LookupWindowsFileSystem(ctx *pulumi.Context, args *LookupWindowsFileSystemA
 // A collection of arguments for invoking getWindowsFileSystem.
 type LookupWindowsFileSystemArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// The tags to associate with the file system.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -92,6 +93,7 @@ type LookupWindowsFileSystemResult struct {
 	PreferredFileServerIp string `pulumi:"preferredFileServerIp"`
 	// Specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId string   `pulumi:"preferredSubnetId"`
+	Region            string   `pulumi:"region"`
 	SecurityGroupIds  []string `pulumi:"securityGroupIds"`
 	SkipFinalBackup   bool     `pulumi:"skipFinalBackup"`
 	// The storage capacity of the file system in gibibytes (GiB).
@@ -122,7 +124,8 @@ func LookupWindowsFileSystemOutput(ctx *pulumi.Context, args LookupWindowsFileSy
 // A collection of arguments for invoking getWindowsFileSystem.
 type LookupWindowsFileSystemOutputArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The tags to associate with the file system.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -231,6 +234,10 @@ func (o LookupWindowsFileSystemResultOutput) PreferredFileServerIp() pulumi.Stri
 // Specifies the subnet in which you want the preferred file server to be located.
 func (o LookupWindowsFileSystemResultOutput) PreferredSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.PreferredSubnetId }).(pulumi.StringOutput)
+}
+
+func (o LookupWindowsFileSystemResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupWindowsFileSystemResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {

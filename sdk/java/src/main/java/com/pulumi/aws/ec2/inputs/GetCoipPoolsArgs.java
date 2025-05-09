@@ -39,6 +39,13 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
@@ -60,6 +67,7 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetCoipPoolsArgs(GetCoipPoolsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -119,6 +127,15 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetCoipPoolsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

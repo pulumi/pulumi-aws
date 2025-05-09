@@ -26,6 +26,7 @@ class LayerVersionArgs:
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  license_info: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[builtins.str]] = None,
                  s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -41,6 +42,7 @@ class LayerVersionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] compatible_runtimes: List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         :param pulumi.Input[builtins.str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[builtins.str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
@@ -58,6 +60,8 @@ class LayerVersionArgs:
             pulumi.set(__self__, "description", description)
         if license_info is not None:
             pulumi.set(__self__, "license_info", license_info)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
@@ -144,6 +148,18 @@ class LayerVersionArgs:
         pulumi.set(self, "license_info", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -217,6 +233,7 @@ class _LayerVersionState:
                  layer_arn: Optional[pulumi.Input[builtins.str]] = None,
                  layer_name: Optional[pulumi.Input[builtins.str]] = None,
                  license_info: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[builtins.str]] = None,
                  s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -240,6 +257,7 @@ class _LayerVersionState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[builtins.str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
@@ -270,6 +288,8 @@ class _LayerVersionState:
             pulumi.set(__self__, "layer_name", layer_name)
         if license_info is not None:
             pulumi.set(__self__, "license_info", license_info)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
@@ -412,6 +432,18 @@ class _LayerVersionState:
         pulumi.set(self, "license_info", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -534,6 +566,7 @@ class LayerVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  layer_name: Optional[pulumi.Input[builtins.str]] = None,
                  license_info: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[builtins.str]] = None,
                  s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -588,6 +621,7 @@ class LayerVersion(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[builtins.str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
@@ -659,6 +693,7 @@ class LayerVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  layer_name: Optional[pulumi.Input[builtins.str]] = None,
                  license_info: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[builtins.str]] = None,
                  s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -681,6 +716,7 @@ class LayerVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'layer_name'")
             __props__.__dict__["layer_name"] = layer_name
             __props__.__dict__["license_info"] = license_info
+            __props__.__dict__["region"] = region
             __props__.__dict__["s3_bucket"] = s3_bucket
             __props__.__dict__["s3_key"] = s3_key
             __props__.__dict__["s3_object_version"] = s3_object_version
@@ -714,6 +750,7 @@ class LayerVersion(pulumi.CustomResource):
             layer_arn: Optional[pulumi.Input[builtins.str]] = None,
             layer_name: Optional[pulumi.Input[builtins.str]] = None,
             license_info: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
             s3_key: Optional[pulumi.Input[builtins.str]] = None,
             s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -742,6 +779,7 @@ class LayerVersion(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[builtins.str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
@@ -766,6 +804,7 @@ class LayerVersion(pulumi.CustomResource):
         __props__.__dict__["layer_arn"] = layer_arn
         __props__.__dict__["layer_name"] = layer_name
         __props__.__dict__["license_info"] = license_info
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_bucket"] = s3_bucket
         __props__.__dict__["s3_key"] = s3_key
         __props__.__dict__["s3_object_version"] = s3_object_version
@@ -858,6 +897,14 @@ class LayerVersion(pulumi.CustomResource):
         License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         """
         return pulumi.get(self, "license_info")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="s3Bucket")

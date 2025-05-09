@@ -245,6 +245,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the security group created by the directory.
         /// </summary>
         [Output("securityGroupId")]
@@ -395,6 +401,12 @@ namespace Pulumi.Aws.DirectoryService
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The short name of the directory, such as `CORP`.
         /// </summary>
         [Input("shortName")]
@@ -513,6 +525,12 @@ namespace Pulumi.Aws.DirectoryService
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the security group created by the directory.

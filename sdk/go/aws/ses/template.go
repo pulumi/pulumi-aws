@@ -58,6 +58,8 @@ type Template struct {
 	Html pulumi.StringPtrOutput `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The subject line of the email.
 	Subject pulumi.StringPtrOutput `pulumi:"subject"`
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
@@ -100,6 +102,8 @@ type templateState struct {
 	Html *string `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The subject line of the email.
 	Subject *string `pulumi:"subject"`
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
@@ -113,6 +117,8 @@ type TemplateState struct {
 	Html pulumi.StringPtrInput
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The subject line of the email.
 	Subject pulumi.StringPtrInput
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
@@ -128,6 +134,8 @@ type templateArgs struct {
 	Html *string `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The subject line of the email.
 	Subject *string `pulumi:"subject"`
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
@@ -140,6 +148,8 @@ type TemplateArgs struct {
 	Html pulumi.StringPtrInput
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The subject line of the email.
 	Subject pulumi.StringPtrInput
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
@@ -246,6 +256,11 @@ func (o TemplateOutput) Html() pulumi.StringPtrOutput {
 // The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 func (o TemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The subject line of the email.

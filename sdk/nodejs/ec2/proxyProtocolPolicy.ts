@@ -78,6 +78,10 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
      * should be attached.
      */
     public readonly loadBalancer!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ProxyProtocolPolicy resource with the given unique name, arguments, and options.
@@ -94,6 +98,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             const state = argsOrState as ProxyProtocolPolicyState | undefined;
             resourceInputs["instancePorts"] = state ? state.instancePorts : undefined;
             resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ProxyProtocolPolicyArgs | undefined;
             if ((!args || args.instancePorts === undefined) && !opts.urn) {
@@ -104,6 +109,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             }
             resourceInputs["instancePorts"] = args ? args.instancePorts : undefined;
             resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProxyProtocolPolicy.__pulumiType, name, resourceInputs, opts);
@@ -124,6 +130,10 @@ export interface ProxyProtocolPolicyState {
      * should be attached.
      */
     loadBalancer?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -140,4 +150,8 @@ export interface ProxyProtocolPolicyArgs {
      * should be attached.
      */
     loadBalancer: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

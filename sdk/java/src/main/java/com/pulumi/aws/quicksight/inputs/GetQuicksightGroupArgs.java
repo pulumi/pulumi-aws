@@ -65,12 +65,20 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.namespace);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetQuicksightGroupArgs() {}
 
     private GetQuicksightGroupArgs(GetQuicksightGroupArgs $) {
         this.awsAccountId = $.awsAccountId;
         this.groupName = $.groupName;
         this.namespace = $.namespace;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -156,6 +164,15 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetQuicksightGroupArgs build() {

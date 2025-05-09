@@ -116,6 +116,10 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
@@ -145,6 +149,7 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["pgpKey"] = state ? state.pgpKey : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -153,6 +158,7 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["pgpKey"] = args ? args.pgpKey : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["encryptedFingerprint"] = undefined /*out*/;
@@ -204,6 +210,10 @@ export interface KeyPairState {
      */
     publicKey?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
@@ -229,6 +239,10 @@ export interface KeyPairArgs {
      * The public key material. This public key will be imported into Lightsail
      */
     publicKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

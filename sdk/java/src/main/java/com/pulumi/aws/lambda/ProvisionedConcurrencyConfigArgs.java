@@ -68,6 +68,21 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
      * 
      */
@@ -88,6 +103,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         this.functionName = $.functionName;
         this.provisionedConcurrentExecutions = $.provisionedConcurrentExecutions;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
     }
 
@@ -174,6 +190,27 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

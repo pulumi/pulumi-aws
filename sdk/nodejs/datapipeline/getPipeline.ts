@@ -22,6 +22,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetPipelineArgs {
      * ID of the pipeline.
      */
     pipelineId: string;
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -57,6 +59,7 @@ export interface GetPipelineResult {
      */
     readonly name: string;
     readonly pipelineId: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -80,6 +83,7 @@ export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +96,7 @@ export interface GetPipelineOutputArgs {
      * ID of the pipeline.
      */
     pipelineId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

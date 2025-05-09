@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecretRotationArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretRotationArgs Empty = new GetSecretRotationArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -32,6 +41,7 @@ public final class GetSecretRotationArgs extends com.pulumi.resources.InvokeArgs
     private GetSecretRotationArgs() {}
 
     private GetSecretRotationArgs(GetSecretRotationArgs $) {
+        this.region = $.region;
         this.secretId = $.secretId;
     }
 
@@ -51,6 +61,15 @@ public final class GetSecretRotationArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetSecretRotationArgs defaults) {
             $ = new GetSecretRotationArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -46,6 +46,13 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
      * 
@@ -81,6 +88,7 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
     private GetRoutingProfilePlainArgs(GetRoutingProfilePlainArgs $) {
         this.instanceId = $.instanceId;
         this.name = $.name;
+        this.region = $.region;
         this.routingProfileId = $.routingProfileId;
         this.tags = $.tags;
     }
@@ -122,6 +130,11 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

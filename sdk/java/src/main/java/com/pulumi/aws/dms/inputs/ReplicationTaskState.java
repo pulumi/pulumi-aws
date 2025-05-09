@@ -63,6 +63,21 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the replication instance.
      * 
      */
@@ -248,6 +263,7 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
         this.cdcStartPosition = $.cdcStartPosition;
         this.cdcStartTime = $.cdcStartTime;
         this.migrationType = $.migrationType;
+        this.region = $.region;
         this.replicationInstanceArn = $.replicationInstanceArn;
         this.replicationTaskArn = $.replicationTaskArn;
         this.replicationTaskId = $.replicationTaskId;
@@ -341,6 +357,27 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
          */
         public Builder migrationType(String migrationType) {
             return migrationType(Output.of(migrationType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

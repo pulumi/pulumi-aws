@@ -82,6 +82,7 @@ type LookupInstanceArgs struct {
 	InstanceAlias *string `pulumi:"instanceAlias"`
 	// Returns information on a specific connect instance by id
 	InstanceId *string `pulumi:"instanceId"`
+	Region     *string `pulumi:"region"`
 	// A map of tags to assigned to the instance.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,7 +111,8 @@ type LookupInstanceResult struct {
 	// Whether multi-party calls/conference is enabled.
 	MultiPartyConferenceEnabled bool `pulumi:"multiPartyConferenceEnabled"`
 	// Whether outbound calls are enabled.
-	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
+	OutboundCallsEnabled bool   `pulumi:"outboundCallsEnabled"`
+	Region               string `pulumi:"region"`
 	// Service role of the instance.
 	ServiceRole string `pulumi:"serviceRole"`
 	// State of the instance.
@@ -134,6 +136,7 @@ type LookupInstanceOutputArgs struct {
 	InstanceAlias pulumi.StringPtrInput `pulumi:"instanceAlias"`
 	// Returns information on a specific connect instance by id
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assigned to the instance.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -217,6 +220,10 @@ func (o LookupInstanceResultOutput) MultiPartyConferenceEnabled() pulumi.BoolOut
 // Whether outbound calls are enabled.
 func (o LookupInstanceResultOutput) OutboundCallsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.OutboundCallsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Service role of the instance.

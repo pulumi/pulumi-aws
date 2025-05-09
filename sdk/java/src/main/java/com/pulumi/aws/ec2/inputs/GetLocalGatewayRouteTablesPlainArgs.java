@@ -38,6 +38,13 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
@@ -59,6 +66,7 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
 
     private GetLocalGatewayRouteTablesPlainArgs(GetLocalGatewayRouteTablesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -105,6 +113,11 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
          */
         public Builder filters(GetLocalGatewayRouteTablesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

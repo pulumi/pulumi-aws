@@ -101,8 +101,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Delegation set ID.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -117,8 +115,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// Delegation set ID.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -133,9 +129,18 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetDelegationSetResult
     {
+        /// <summary>
+        /// ARN of the Delegation Set.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Caller Reference of the delegation set.
+        /// </summary>
         public readonly string CallerReference;
         public readonly string Id;
+        /// <summary>
+        /// List of DNS name servers for the delegation set.
+        /// </summary>
         public readonly ImmutableArray<string> NameServers;
 
         [OutputConstructor]

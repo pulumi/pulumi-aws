@@ -17,6 +17,21 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
     public static final SecurityGroupAssociationState Empty = new SecurityGroupAssociationState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
@@ -64,6 +79,7 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
     private SecurityGroupAssociationState() {}
 
     private SecurityGroupAssociationState(SecurityGroupAssociationState $) {
+        this.region = $.region;
         this.replaceDefaultAssociation = $.replaceDefaultAssociation;
         this.securityGroupId = $.securityGroupId;
         this.vpcEndpointId = $.vpcEndpointId;
@@ -85,6 +101,27 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
 
         public Builder(SecurityGroupAssociationState defaults) {
             $ = new SecurityGroupAssociationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

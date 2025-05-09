@@ -286,6 +286,21 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
      * 
@@ -450,6 +465,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         this.objectLockConfiguration = $.objectLockConfiguration;
         this.objectLockEnabled = $.objectLockEnabled;
         this.policy = $.policy;
+        this.region = $.region;
         this.replicationConfiguration = $.replicationConfiguration;
         this.requestPayer = $.requestPayer;
         this.serverSideEncryptionConfiguration = $.serverSideEncryptionConfiguration;
@@ -847,6 +863,27 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

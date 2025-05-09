@@ -55,13 +55,15 @@ func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...p
 type GetReleaseLabelsArgs struct {
 	// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
 	Filters *GetReleaseLabelsFilters `pulumi:"filters"`
+	Region  *string                  `pulumi:"region"`
 }
 
 // A collection of values returned by getReleaseLabels.
 type GetReleaseLabelsResult struct {
 	Filters *GetReleaseLabelsFilters `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Returned release labels.
 	ReleaseLabels []string `pulumi:"releaseLabels"`
 }
@@ -79,6 +81,7 @@ func GetReleaseLabelsOutput(ctx *pulumi.Context, args GetReleaseLabelsOutputArgs
 type GetReleaseLabelsOutputArgs struct {
 	// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
 	Filters GetReleaseLabelsFiltersPtrInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput           `pulumi:"region"`
 }
 
 func (GetReleaseLabelsOutputArgs) ElementType() reflect.Type {
@@ -107,6 +110,10 @@ func (o GetReleaseLabelsResultOutput) Filters() GetReleaseLabelsFiltersPtrOutput
 // The provider-assigned unique ID for this managed resource.
 func (o GetReleaseLabelsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseLabelsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReleaseLabelsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReleaseLabelsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Returned release labels.

@@ -53,7 +53,8 @@ func LookupOntapFileSystem(ctx *pulumi.Context, args *LookupOntapFileSystemArgs,
 // A collection of arguments for invoking getOntapFileSystem.
 type LookupOntapFileSystemArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// The tags associated with the file system.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -88,6 +89,7 @@ type LookupOntapFileSystemResult struct {
 	OwnerId string `pulumi:"ownerId"`
 	// Specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId string `pulumi:"preferredSubnetId"`
+	Region            string `pulumi:"region"`
 	// (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// The storage capacity of the file system in gibibytes (GiB).
@@ -120,7 +122,8 @@ func LookupOntapFileSystemOutput(ctx *pulumi.Context, args LookupOntapFileSystem
 // A collection of arguments for invoking getOntapFileSystem.
 type LookupOntapFileSystemOutputArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The tags associated with the file system.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -214,6 +217,10 @@ func (o LookupOntapFileSystemResultOutput) OwnerId() pulumi.StringOutput {
 // Specifies the subnet in which you want the preferred file server to be located.
 func (o LookupOntapFileSystemResultOutput) PreferredSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.PreferredSubnetId }).(pulumi.StringOutput)
+}
+
+func (o LookupOntapFileSystemResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.

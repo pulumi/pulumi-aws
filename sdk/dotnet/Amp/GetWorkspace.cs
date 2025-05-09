@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Amp
 
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -119,6 +122,9 @@ namespace Pulumi.Aws.Amp
 
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -171,6 +177,7 @@ namespace Pulumi.Aws.Amp
         /// Endpoint of the Prometheus workspace.
         /// </summary>
         public readonly string PrometheusEndpoint;
+        public readonly string Region;
         /// <summary>
         /// Status of the Prometheus workspace.
         /// </summary>
@@ -195,6 +202,8 @@ namespace Pulumi.Aws.Amp
 
             string prometheusEndpoint,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
@@ -207,6 +216,7 @@ namespace Pulumi.Aws.Amp
             Id = id;
             KmsKeyArn = kmsKeyArn;
             PrometheusEndpoint = prometheusEndpoint;
+            Region = region;
             Status = status;
             Tags = tags;
             WorkspaceId = workspaceId;

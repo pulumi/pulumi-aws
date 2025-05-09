@@ -78,6 +78,13 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
         return this.principalType;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPrincipalApplicationAssignmentsArgs() {}
 
     private GetPrincipalApplicationAssignmentsArgs(GetPrincipalApplicationAssignmentsArgs $) {
@@ -85,6 +92,7 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
         this.instanceArn = $.instanceArn;
         this.principalId = $.principalId;
         this.principalType = $.principalType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -197,6 +205,15 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
          */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetPrincipalApplicationAssignmentsArgs build() {

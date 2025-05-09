@@ -129,6 +129,9 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -160,6 +163,9 @@ namespace Pulumi.Aws.Ec2
             get => _filters ?? (_filters = new InputList<Inputs.GetEipsFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -196,6 +202,7 @@ namespace Pulumi.Aws.Ec2
         /// List of all the Elastic IP addresses.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
@@ -208,12 +215,15 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> publicIps,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags)
         {
             AllocationIds = allocationIds;
             Filters = filters;
             Id = id;
             PublicIps = publicIps;
+            Region = region;
             Tags = tags;
         }
     }

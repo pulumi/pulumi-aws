@@ -27,7 +27,7 @@ class GetFunctionsResult:
     """
     A collection of values returned by getFunctions.
     """
-    def __init__(__self__, function_arns=None, function_names=None, id=None):
+    def __init__(__self__, function_arns=None, function_names=None, id=None, region=None):
         if function_arns and not isinstance(function_arns, list):
             raise TypeError("Expected argument 'function_arns' to be a list")
         pulumi.set(__self__, "function_arns", function_arns)
@@ -37,6 +37,9 @@ class GetFunctionsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionArns")
@@ -62,6 +65,11 @@ class GetFunctionsResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetFunctionsResult(GetFunctionsResult):
     # pylint: disable=using-constant-test
@@ -71,10 +79,12 @@ class AwaitableGetFunctionsResult(GetFunctionsResult):
         return GetFunctionsResult(
             function_arns=self.function_arns,
             function_names=self.function_names,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsResult:
+def get_functions(region: Optional[builtins.str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsResult:
     """
     Data resource to get a list of Lambda Functions.
 
@@ -88,14 +98,17 @@ def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFu
     ```
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult).value
 
     return AwaitableGetFunctionsResult(
         function_arns=pulumi.get(__ret__, 'function_arns'),
         function_names=pulumi.get(__ret__, 'function_names'),
-        id=pulumi.get(__ret__, 'id'))
-def get_functions_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionsResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_functions_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionsResult]:
     """
     Data resource to get a list of Lambda Functions.
 
@@ -109,9 +122,11 @@ def get_functions_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invok
     ```
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult)
     return __ret__.apply(lambda __response__: GetFunctionsResult(
         function_arns=pulumi.get(__response__, 'function_arns'),
         function_names=pulumi.get(__response__, 'function_names'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

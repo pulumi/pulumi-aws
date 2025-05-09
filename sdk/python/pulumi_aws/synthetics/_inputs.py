@@ -28,8 +28,6 @@ __all__ = [
     'CanaryTimelineArgsDict',
     'CanaryVpcConfigArgs',
     'CanaryVpcConfigArgsDict',
-    'GetRuntimeVersionsRuntimeVersionArgs',
-    'GetRuntimeVersionsRuntimeVersionArgsDict',
 ]
 
 MYPY = False
@@ -423,96 +421,5 @@ class CanaryVpcConfigArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "vpc_id", value)
-
-
-if not MYPY:
-    class GetRuntimeVersionsRuntimeVersionArgsDict(TypedDict):
-        deprecation_date: builtins.str
-        """
-        Date of deprecation if the runtme version is deprecated.
-        """
-        description: builtins.str
-        """
-        Description of the runtime version, created by Amazon.
-        """
-        release_date: builtins.str
-        """
-        Date that the runtime version was released.
-        """
-        version_name: builtins.str
-        """
-        Name of the runtime version.
-        For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-        """
-elif False:
-    GetRuntimeVersionsRuntimeVersionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetRuntimeVersionsRuntimeVersionArgs:
-    def __init__(__self__, *,
-                 deprecation_date: builtins.str,
-                 description: builtins.str,
-                 release_date: builtins.str,
-                 version_name: builtins.str):
-        """
-        :param builtins.str deprecation_date: Date of deprecation if the runtme version is deprecated.
-        :param builtins.str description: Description of the runtime version, created by Amazon.
-        :param builtins.str release_date: Date that the runtime version was released.
-        :param builtins.str version_name: Name of the runtime version.
-               For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-        """
-        pulumi.set(__self__, "deprecation_date", deprecation_date)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "release_date", release_date)
-        pulumi.set(__self__, "version_name", version_name)
-
-    @property
-    @pulumi.getter(name="deprecationDate")
-    def deprecation_date(self) -> builtins.str:
-        """
-        Date of deprecation if the runtme version is deprecated.
-        """
-        return pulumi.get(self, "deprecation_date")
-
-    @deprecation_date.setter
-    def deprecation_date(self, value: builtins.str):
-        pulumi.set(self, "deprecation_date", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> builtins.str:
-        """
-        Description of the runtime version, created by Amazon.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: builtins.str):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="releaseDate")
-    def release_date(self) -> builtins.str:
-        """
-        Date that the runtime version was released.
-        """
-        return pulumi.get(self, "release_date")
-
-    @release_date.setter
-    def release_date(self, value: builtins.str):
-        pulumi.set(self, "release_date", value)
-
-    @property
-    @pulumi.getter(name="versionName")
-    def version_name(self) -> builtins.str:
-        """
-        Name of the runtime version.
-        For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-        """
-        return pulumi.get(self, "version_name")
-
-    @version_name.setter
-    def version_name(self, value: builtins.str):
-        pulumi.set(self, "version_name", value)
 
 

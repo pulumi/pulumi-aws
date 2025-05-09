@@ -298,6 +298,12 @@ namespace Pulumi.Aws.Mq
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of security group IDs assigned to the broker.
         /// </summary>
         [Output("securityGroups")]
@@ -476,6 +482,12 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -660,6 +672,12 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

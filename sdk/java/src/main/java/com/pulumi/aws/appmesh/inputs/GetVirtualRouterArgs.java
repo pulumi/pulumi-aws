@@ -54,6 +54,13 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags.
      * 
@@ -75,6 +82,7 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
         this.meshName = $.meshName;
         this.meshOwner = $.meshOwner;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -145,6 +153,15 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

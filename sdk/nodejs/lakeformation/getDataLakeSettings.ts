@@ -26,6 +26,7 @@ export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", {
         "catalogId": args.catalogId,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,6 +38,7 @@ export interface GetDataLakeSettingsArgs {
      * Identifier for the Data Catalog. By default, the account ID.
      */
     catalogId?: string;
+    region?: string;
 }
 
 /**
@@ -84,6 +86,7 @@ export interface GetDataLakeSettingsResult {
      * List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
     readonly readOnlyAdmins: string[];
+    readonly region: string;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
@@ -108,6 +111,7 @@ export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", {
         "catalogId": args.catalogId,
+        "region": args.region,
     }, opts);
 }
 
@@ -119,4 +123,5 @@ export interface GetDataLakeSettingsOutputArgs {
      * Identifier for the Data Catalog. By default, the account ID.
      */
     catalogId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -24,6 +24,7 @@ export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
+        "region": args.region,
         "taskDefinition": args.taskDefinition,
     }, opts);
 }
@@ -36,6 +37,7 @@ export interface GetContainerDefinitionArgs {
      * Name of the container definition
      */
     containerName: string;
+    region?: string;
     /**
      * ARN of the task definition which contains the container
      */
@@ -83,6 +85,7 @@ export interface GetContainerDefinitionResult {
      * Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      */
     readonly memoryReservation: number;
+    readonly region: string;
     readonly taskDefinition: string;
 }
 /**
@@ -105,6 +108,7 @@ export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
+        "region": args.region,
         "taskDefinition": args.taskDefinition,
     }, opts);
 }
@@ -117,6 +121,7 @@ export interface GetContainerDefinitionOutputArgs {
      * Name of the container definition
      */
     containerName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ARN of the task definition which contains the container
      */

@@ -99,6 +99,9 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("protocolType")]
         public string? ProtocolType { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -165,6 +171,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public readonly ImmutableArray<string> Ids;
         public readonly string? Name;
         public readonly string? ProtocolType;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
@@ -177,12 +184,15 @@ namespace Pulumi.Aws.ApiGatewayV2
 
             string? protocolType,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags)
         {
             Id = id;
             Ids = ids;
             Name = name;
             ProtocolType = protocolType;
+            Region = region;
             Tags = tags;
         }
     }

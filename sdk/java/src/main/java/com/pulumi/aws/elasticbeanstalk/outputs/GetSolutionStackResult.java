@@ -25,6 +25,7 @@ public final class GetSolutionStackResult {
      */
     private String name;
     private String nameRegex;
+    private String region;
 
     private GetSolutionStackResult() {}
     /**
@@ -47,6 +48,9 @@ public final class GetSolutionStackResult {
     public String nameRegex() {
         return this.nameRegex;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,6 +65,7 @@ public final class GetSolutionStackResult {
         private @Nullable Boolean mostRecent;
         private String name;
         private String nameRegex;
+        private String region;
         public Builder() {}
         public Builder(GetSolutionStackResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,6 +73,7 @@ public final class GetSolutionStackResult {
     	      this.mostRecent = defaults.mostRecent;
     	      this.name = defaults.name;
     	      this.nameRegex = defaults.nameRegex;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -100,12 +106,21 @@ public final class GetSolutionStackResult {
             this.nameRegex = nameRegex;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSolutionStackResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetSolutionStackResult build() {
             final var _resultValue = new GetSolutionStackResult();
             _resultValue.id = id;
             _resultValue.mostRecent = mostRecent;
             _resultValue.name = name;
             _resultValue.nameRegex = nameRegex;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

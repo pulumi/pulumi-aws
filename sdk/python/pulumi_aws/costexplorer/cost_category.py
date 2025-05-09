@@ -27,6 +27,7 @@ class CostCategoryArgs:
                  default_value: Optional[pulumi.Input[builtins.str]] = None,
                  effective_start: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -38,6 +39,7 @@ class CostCategoryArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Unique name for the Cost Category.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -49,6 +51,8 @@ class CostCategoryArgs:
             pulumi.set(__self__, "effective_start", effective_start)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if split_charge_rules is not None:
             pulumi.set(__self__, "split_charge_rules", split_charge_rules)
         if tags is not None:
@@ -117,6 +121,18 @@ class CostCategoryArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
         """
@@ -149,6 +165,7 @@ class _CostCategoryState:
                  effective_end: Optional[pulumi.Input[builtins.str]] = None,
                  effective_start: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_version: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
@@ -163,6 +180,7 @@ class _CostCategoryState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Unique name for the Cost Category.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
@@ -179,6 +197,8 @@ class _CostCategoryState:
             pulumi.set(__self__, "effective_start", effective_start)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_version is not None:
             pulumi.set(__self__, "rule_version", rule_version)
         if rules is not None:
@@ -253,6 +273,18 @@ class _CostCategoryState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -324,6 +356,7 @@ class CostCategory(pulumi.CustomResource):
                  default_value: Optional[pulumi.Input[builtins.str]] = None,
                  effective_start: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_version: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
@@ -390,6 +423,7 @@ class CostCategory(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Unique name for the Cost Category.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
@@ -473,6 +507,7 @@ class CostCategory(pulumi.CustomResource):
                  default_value: Optional[pulumi.Input[builtins.str]] = None,
                  effective_start: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_version: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
@@ -489,6 +524,7 @@ class CostCategory(pulumi.CustomResource):
             __props__.__dict__["default_value"] = default_value
             __props__.__dict__["effective_start"] = effective_start
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if rule_version is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_version'")
             __props__.__dict__["rule_version"] = rule_version
@@ -515,6 +551,7 @@ class CostCategory(pulumi.CustomResource):
             effective_end: Optional[pulumi.Input[builtins.str]] = None,
             effective_start: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_version: Optional[pulumi.Input[builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
             split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
@@ -534,6 +571,7 @@ class CostCategory(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Unique name for the Cost Category.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
@@ -549,6 +587,7 @@ class CostCategory(pulumi.CustomResource):
         __props__.__dict__["effective_end"] = effective_end
         __props__.__dict__["effective_start"] = effective_start
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_version"] = rule_version
         __props__.__dict__["rules"] = rules
         __props__.__dict__["split_charge_rules"] = split_charge_rules
@@ -597,6 +636,14 @@ class CostCategory(pulumi.CustomResource):
         Unique name for the Cost Category.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleVersion")

@@ -144,6 +144,8 @@ type CatalogTableOptimizer struct {
 	Configuration CatalogTableOptimizerConfigurationPtrOutput `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
@@ -198,6 +200,8 @@ type catalogTableOptimizerState struct {
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName *string `pulumi:"databaseName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the table.
 	TableName *string `pulumi:"tableName"`
 	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
@@ -211,6 +215,8 @@ type CatalogTableOptimizerState struct {
 	Configuration CatalogTableOptimizerConfigurationPtrInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the table.
 	TableName pulumi.StringPtrInput
 	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
@@ -228,6 +234,8 @@ type catalogTableOptimizerArgs struct {
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName string `pulumi:"databaseName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the table.
 	TableName string `pulumi:"tableName"`
 	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
@@ -242,6 +250,8 @@ type CatalogTableOptimizerArgs struct {
 	Configuration CatalogTableOptimizerConfigurationPtrInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the table.
 	TableName pulumi.StringInput
 	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
@@ -348,6 +358,11 @@ func (o CatalogTableOptimizerOutput) Configuration() CatalogTableOptimizerConfig
 // The name of the database in the catalog in which the table resides.
 func (o CatalogTableOptimizerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CatalogTableOptimizerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the table.

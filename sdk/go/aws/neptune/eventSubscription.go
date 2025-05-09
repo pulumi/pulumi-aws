@@ -110,6 +110,8 @@ type EventSubscription struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
@@ -167,6 +169,8 @@ type eventSubscriptionState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
@@ -192,6 +196,8 @@ type EventSubscriptionState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn pulumi.StringPtrInput
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
@@ -217,6 +223,8 @@ type eventSubscriptionArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
@@ -237,6 +245,8 @@ type EventSubscriptionArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn pulumi.StringInput
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
@@ -362,6 +372,11 @@ func (o EventSubscriptionOutput) Name() pulumi.StringOutput {
 // The name of the Neptune event subscription. Conflicts with `name`.
 func (o EventSubscriptionOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the SNS topic to send events to.

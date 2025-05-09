@@ -43,6 +43,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationsAccess resource with the given unique name, arguments, and options.
@@ -95,6 +101,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationsAccessArgs()
         {
         }
@@ -108,6 +120,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationsAccessState()
         {

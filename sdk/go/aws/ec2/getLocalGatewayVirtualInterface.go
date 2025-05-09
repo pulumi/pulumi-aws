@@ -27,7 +27,8 @@ type GetLocalGatewayVirtualInterfaceArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
 	Filters []GetLocalGatewayVirtualInterfaceFilter `pulumi:"filters"`
 	// Identifier of EC2 Local Gateway Virtual Interface.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -47,6 +48,7 @@ type GetLocalGatewayVirtualInterfaceResult struct {
 	PeerAddress string `pulumi:"peerAddress"`
 	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
 	PeerBgpAsn int               `pulumi:"peerBgpAsn"`
+	Region     string            `pulumi:"region"`
 	Tags       map[string]string `pulumi:"tags"`
 	// Virtual Local Area Network.
 	Vlan int `pulumi:"vlan"`
@@ -66,7 +68,8 @@ type GetLocalGatewayVirtualInterfaceOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
 	Filters GetLocalGatewayVirtualInterfaceFilterArrayInput `pulumi:"filters"`
 	// Identifier of EC2 Local Gateway Virtual Interface.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -127,6 +130,10 @@ func (o GetLocalGatewayVirtualInterfaceResultOutput) PeerAddress() pulumi.String
 // Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
 func (o GetLocalGatewayVirtualInterfaceResultOutput) PeerBgpAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) int { return v.PeerBgpAsn }).(pulumi.IntOutput)
+}
+
+func (o GetLocalGatewayVirtualInterfaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetLocalGatewayVirtualInterfaceResultOutput) Tags() pulumi.StringMapOutput {

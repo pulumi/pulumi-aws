@@ -62,6 +62,8 @@ type Stream struct {
 	KinesisConfiguration StreamKinesisConfigurationOutput `pulumi:"kinesisConfiguration"`
 	// The name of the QLDB ledger.
 	LedgerName pulumi.StringOutput `pulumi:"ledgerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -127,6 +129,8 @@ type streamState struct {
 	KinesisConfiguration *StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
 	// The name of the QLDB ledger.
 	LedgerName *string `pulumi:"ledgerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -148,6 +152,8 @@ type StreamState struct {
 	KinesisConfiguration StreamKinesisConfigurationPtrInput
 	// The name of the QLDB ledger.
 	LedgerName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	RoleArn pulumi.StringPtrInput
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -171,6 +177,8 @@ type streamArgs struct {
 	KinesisConfiguration StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
 	// The name of the QLDB ledger.
 	LedgerName string `pulumi:"ledgerName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	RoleArn string `pulumi:"roleArn"`
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -189,6 +197,8 @@ type StreamArgs struct {
 	KinesisConfiguration StreamKinesisConfigurationInput
 	// The name of the QLDB ledger.
 	LedgerName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	RoleArn pulumi.StringInput
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -307,6 +317,11 @@ func (o StreamOutput) KinesisConfiguration() StreamKinesisConfigurationOutput {
 // The name of the QLDB ledger.
 func (o StreamOutput) LedgerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.LedgerName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StreamOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.

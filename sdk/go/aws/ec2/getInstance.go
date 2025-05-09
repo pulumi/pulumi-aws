@@ -83,6 +83,7 @@ type LookupInstanceArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags map[string]string `pulumi:"instanceTags"`
+	Region       *string           `pulumi:"region"`
 	// Map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -160,6 +161,7 @@ type LookupInstanceResult struct {
 	PublicDns string `pulumi:"publicDns"`
 	// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp string `pulumi:"publicIp"`
+	Region   string `pulumi:"region"`
 	// Root block device mappings of the Instance
 	RootBlockDevices []GetInstanceRootBlockDevice `pulumi:"rootBlockDevices"`
 	// Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
@@ -212,6 +214,7 @@ type LookupInstanceOutputArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags pulumi.StringMapInput `pulumi:"instanceTags"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the Instance.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -418,6 +421,10 @@ func (o LookupInstanceResultOutput) PublicDns() pulumi.StringOutput {
 // Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 func (o LookupInstanceResultOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+func (o LookupInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Root block device mappings of the Instance

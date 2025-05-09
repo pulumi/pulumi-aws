@@ -63,12 +63,28 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.organizationConfiguration);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private OrganizationConfigurationArgs() {}
 
     private OrganizationConfigurationArgs(OrganizationConfigurationArgs $) {
         this.autoEnable = $.autoEnable;
         this.autoEnableStandards = $.autoEnableStandards;
         this.organizationConfiguration = $.organizationConfiguration;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -150,6 +166,27 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          */
         public Builder organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs organizationConfiguration) {
             return organizationConfiguration(Output.of(organizationConfiguration));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public OrganizationConfigurationArgs build() {

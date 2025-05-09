@@ -89,6 +89,10 @@ export class DomainSamlOptions extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */
     public readonly samlOptions!: pulumi.Output<outputs.elasticsearch.DomainSamlOptionsSamlOptions | undefined>;
@@ -107,6 +111,7 @@ export class DomainSamlOptions extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DomainSamlOptionsState | undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["samlOptions"] = state ? state.samlOptions : undefined;
         } else {
             const args = argsOrState as DomainSamlOptionsArgs | undefined;
@@ -114,6 +119,7 @@ export class DomainSamlOptions extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domainName'");
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,6 +138,10 @@ export interface DomainSamlOptionsState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */
     samlOptions?: pulumi.Input<inputs.elasticsearch.DomainSamlOptionsSamlOptions>;
@@ -147,6 +157,10 @@ export interface DomainSamlOptionsArgs {
      * The following arguments are optional:
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */

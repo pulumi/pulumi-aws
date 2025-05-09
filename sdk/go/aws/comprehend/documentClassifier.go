@@ -98,6 +98,8 @@ type DocumentClassifier struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig DocumentClassifierOutputDataConfigOutput `pulumi:"outputDataConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -188,6 +190,8 @@ type documentClassifierState struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -240,6 +244,8 @@ type DocumentClassifierState struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -294,6 +300,8 @@ type documentClassifierArgs struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Name for the version of the Document Classifier.
@@ -343,6 +351,8 @@ type DocumentClassifierArgs struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Name for the version of the Document Classifier.
@@ -501,6 +511,11 @@ func (o DocumentClassifierOutput) Name() pulumi.StringOutput {
 // See the `outputDataConfig` Configuration Block section below.
 func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDataConfigOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DocumentClassifierOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.

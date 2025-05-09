@@ -255,11 +255,11 @@ class GetTemplatesTemplateResult(dict):
         :param builtins.bool global_quota: Indicates whether the quota is global.
         :param builtins.str quota_code: Quota identifier.
         :param builtins.str quota_name: Quota name.
-        :param builtins.str region: AWS Region to which the quota increases apply.
-        :param builtins.str service_code: (Required) Service identifier.
+        :param builtins.str region: AWS Region to which the quota increases apply. Use `get_region` instead.
+        :param builtins.str service_code: Service identifier.
         :param builtins.str service_name: Service name.
         :param builtins.str unit: Unit of measurement.
-        :param builtins.float value: (Required) The new, increased value for the quota.
+        :param builtins.float value: The new, increased value for the quota.
         """
         pulumi.set(__self__, "global_quota", global_quota)
         pulumi.set(__self__, "quota_code", quota_code)
@@ -298,7 +298,7 @@ class GetTemplatesTemplateResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        AWS Region to which the quota increases apply.
+        AWS Region to which the quota increases apply. Use `get_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -306,7 +306,7 @@ class GetTemplatesTemplateResult(dict):
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> builtins.str:
         """
-        (Required) Service identifier.
+        Service identifier.
         """
         return pulumi.get(self, "service_code")
 
@@ -330,7 +330,7 @@ class GetTemplatesTemplateResult(dict):
     @pulumi.getter
     def value(self) -> builtins.float:
         """
-        (Required) The new, increased value for the quota.
+        The new, increased value for the quota.
         """
         return pulumi.get(self, "value")
 

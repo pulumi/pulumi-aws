@@ -49,6 +49,21 @@ public final class BucketLoggingState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
@@ -113,6 +128,7 @@ public final class BucketLoggingState extends com.pulumi.resources.ResourceArgs 
     private BucketLoggingState(BucketLoggingState $) {
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
+        this.region = $.region;
         this.targetBucket = $.targetBucket;
         this.targetGrants = $.targetGrants;
         this.targetObjectKeyFormat = $.targetObjectKeyFormat;
@@ -177,6 +193,27 @@ public final class BucketLoggingState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

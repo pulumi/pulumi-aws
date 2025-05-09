@@ -56,7 +56,8 @@ type LookupAliasArgs struct {
 	// Description of state machine alias.
 	Description *string `pulumi:"description"`
 	// Name of the State Machine alias.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn string `pulumi:"statemachineArn"`
 }
@@ -70,8 +71,9 @@ type LookupAliasResult struct {
 	// Description of state machine alias.
 	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Routing Configuration of state machine alias
 	RoutingConfigurations []GetAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	StatemachineArn       string                         `pulumi:"statemachineArn"`
@@ -91,7 +93,8 @@ type LookupAliasOutputArgs struct {
 	// Description of state machine alias.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Name of the State Machine alias.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn pulumi.StringInput `pulumi:"statemachineArn"`
 }
@@ -137,6 +140,10 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAliasResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Routing Configuration of state machine alias

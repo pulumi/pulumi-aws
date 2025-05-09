@@ -109,6 +109,10 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
     public readonly rootVolumeSecurityStyle!: pulumi.Output<string | undefined>;
@@ -151,6 +155,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
             resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootVolumeSecurityStyle"] = state ? state.rootVolumeSecurityStyle : undefined;
             resourceInputs["subtype"] = state ? state.subtype : undefined;
             resourceInputs["svmAdminPassword"] = state ? state.svmAdminPassword : undefined;
@@ -165,6 +170,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
             resourceInputs["activeDirectoryConfiguration"] = args ? args.activeDirectoryConfiguration : undefined;
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootVolumeSecurityStyle"] = args ? args.rootVolumeSecurityStyle : undefined;
             resourceInputs["svmAdminPassword"] = args?.svmAdminPassword ? pulumi.secret(args.svmAdminPassword) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -205,6 +211,10 @@ export interface OntapStorageVirtualMachineState {
      * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
@@ -247,6 +257,10 @@ export interface OntapStorageVirtualMachineArgs {
      * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */

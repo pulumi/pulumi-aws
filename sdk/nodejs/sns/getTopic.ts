@@ -24,6 +24,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,7 @@ export interface GetTopicArgs {
      * Friendly name of the topic to match.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -55,6 +57,7 @@ export interface GetTopicResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags for the resource.
      */
@@ -80,6 +83,7 @@ export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sns/getTopic:getTopic", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +96,7 @@ export interface GetTopicOutputArgs {
      * Friendly name of the topic to match.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

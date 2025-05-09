@@ -88,7 +88,8 @@ type LookupTransitGatewayArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetTransitGatewayFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,6 +121,7 @@ type LookupTransitGatewayResult struct {
 	OwnerId string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId string `pulumi:"propagationDefaultRouteTableId"`
+	Region                         string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled
 	SecurityGroupReferencingSupport string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway
@@ -144,7 +146,8 @@ type LookupTransitGatewayOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetTransitGatewayFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -230,6 +233,10 @@ func (o LookupTransitGatewayResultOutput) OwnerId() pulumi.StringOutput {
 // Identifier of the default propagation route table
 func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+func (o LookupTransitGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Security Group Referencing Support is enabled

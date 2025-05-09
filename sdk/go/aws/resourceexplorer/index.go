@@ -52,6 +52,8 @@ type Index struct {
 
 	// Amazon Resource Name (ARN) of the Resource Explorer index.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -96,6 +98,8 @@ func GetIndex(ctx *pulumi.Context,
 type indexState struct {
 	// Amazon Resource Name (ARN) of the Resource Explorer index.
 	Arn *string `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -108,6 +112,8 @@ type indexState struct {
 type IndexState struct {
 	// Amazon Resource Name (ARN) of the Resource Explorer index.
 	Arn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,6 +128,8 @@ func (IndexState) ElementType() reflect.Type {
 }
 
 type indexArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *IndexTimeouts    `pulumi:"timeouts"`
@@ -131,6 +139,8 @@ type indexArgs struct {
 
 // The set of arguments for constructing a Index resource.
 type IndexArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts IndexTimeoutsPtrInput
@@ -228,6 +238,11 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 // Amazon Resource Name (ARN) of the Resource Explorer index.
 func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IndexOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

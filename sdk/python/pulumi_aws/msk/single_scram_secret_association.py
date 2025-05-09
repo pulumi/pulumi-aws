@@ -21,14 +21,18 @@ __all__ = ['SingleScramSecretAssociationArgs', 'SingleScramSecretAssociation']
 class SingleScramSecretAssociationArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[builtins.str],
-                 secret_arn: pulumi.Input[builtins.str]):
+                 secret_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SingleScramSecretAssociation resource.
         :param pulumi.Input[builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[builtins.str] secret_arn: AWS Secrets Manager secret ARN.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -54,19 +58,35 @@ class SingleScramSecretAssociationArgs:
     def secret_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "secret_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SingleScramSecretAssociationState:
     def __init__(__self__, *,
                  cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SingleScramSecretAssociation resources.
         :param pulumi.Input[builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -81,6 +101,18 @@ class _SingleScramSecretAssociationState:
     @cluster_arn.setter
     def cluster_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "cluster_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -104,6 +136,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -131,6 +164,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
         ...
@@ -177,6 +211,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -190,6 +225,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
             if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")
             __props__.__dict__["cluster_arn"] = cluster_arn
+            __props__.__dict__["region"] = region
             if secret_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_arn'")
             __props__.__dict__["secret_arn"] = secret_arn
@@ -204,6 +240,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'SingleScramSecretAssociation':
         """
         Get an existing SingleScramSecretAssociation resource's state with the given name, id, and optional extra
@@ -213,6 +250,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -220,6 +258,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         __props__ = _SingleScramSecretAssociationState.__new__(_SingleScramSecretAssociationState)
 
         __props__.__dict__["cluster_arn"] = cluster_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_arn"] = secret_arn
         return SingleScramSecretAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -230,6 +269,14 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the MSK cluster.
         """
         return pulumi.get(self, "cluster_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretArn")

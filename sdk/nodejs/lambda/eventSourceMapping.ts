@@ -268,6 +268,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly queues!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
     public readonly scalingConfig!: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
@@ -355,6 +359,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["parallelizationFactor"] = state ? state.parallelizationFactor : undefined;
             resourceInputs["provisionedPollerConfig"] = state ? state.provisionedPollerConfig : undefined;
             resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingConfig"] = state ? state.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = state ? state.selfManagedEventSource : undefined;
             resourceInputs["selfManagedKafkaEventSourceConfig"] = state ? state.selfManagedKafkaEventSourceConfig : undefined;
@@ -391,6 +396,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
             resourceInputs["provisionedPollerConfig"] = args ? args.provisionedPollerConfig : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
             resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
@@ -506,6 +512,10 @@ export interface EventSourceMappingState {
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
     queues?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
@@ -636,6 +646,10 @@ export interface EventSourceMappingArgs {
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
     queues?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */

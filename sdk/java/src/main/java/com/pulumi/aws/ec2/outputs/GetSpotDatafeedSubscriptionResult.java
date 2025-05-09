@@ -25,6 +25,7 @@ public final class GetSpotDatafeedSubscriptionResult {
      * 
      */
     private String prefix;
+    private String region;
 
     private GetSpotDatafeedSubscriptionResult() {}
     /**
@@ -48,6 +49,9 @@ public final class GetSpotDatafeedSubscriptionResult {
     public String prefix() {
         return this.prefix;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +65,14 @@ public final class GetSpotDatafeedSubscriptionResult {
         private String bucket;
         private String id;
         private String prefix;
+        private String region;
         public Builder() {}
         public Builder(GetSpotDatafeedSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.id = defaults.id;
     	      this.prefix = defaults.prefix;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -93,11 +99,20 @@ public final class GetSpotDatafeedSubscriptionResult {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSpotDatafeedSubscriptionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetSpotDatafeedSubscriptionResult build() {
             final var _resultValue = new GetSpotDatafeedSubscriptionResult();
             _resultValue.bucket = bucket;
             _resultValue.id = id;
             _resultValue.prefix = prefix;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

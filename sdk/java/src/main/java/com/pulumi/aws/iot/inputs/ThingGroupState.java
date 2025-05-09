@@ -88,6 +88,21 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value mapping of resource tags
      * 
      */
@@ -132,6 +147,7 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.parentGroupName = $.parentGroupName;
         this.properties = $.properties;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.version = $.version;
@@ -250,6 +266,27 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder properties(ThingGroupPropertiesArgs properties) {
             return properties(Output.of(properties));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

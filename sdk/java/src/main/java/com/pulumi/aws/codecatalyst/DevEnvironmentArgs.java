@@ -108,6 +108,21 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The source repository that contains the branch to clone into the Dev Environment.
      * 
      */
@@ -146,6 +161,7 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
         this.instanceType = $.instanceType;
         this.persistentStorage = $.persistentStorage;
         this.projectName = $.projectName;
+        this.region = $.region;
         this.repositories = $.repositories;
         this.spaceName = $.spaceName;
     }
@@ -284,6 +300,27 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

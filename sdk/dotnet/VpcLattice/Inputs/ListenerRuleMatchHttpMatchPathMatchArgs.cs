@@ -13,13 +13,15 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ListenerRuleMatchHttpMatchPathMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the match is case sensitive. Defaults to false.
+        /// Indicates whether the match is case sensitive.
+        /// Default is `false`.
         /// </summary>
         [Input("caseSensitive")]
         public Input<bool>? CaseSensitive { get; set; }
 
         /// <summary>
         /// The header match type.
+        /// See Path Match `match` Block for details.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs> Match { get; set; } = null!;

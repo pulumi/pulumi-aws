@@ -28,7 +28,7 @@ class GetApiKeysResult:
     """
     A collection of values returned by getApiKeys.
     """
-    def __init__(__self__, customer_id=None, id=None, include_values=None, items=None):
+    def __init__(__self__, customer_id=None, id=None, include_values=None, items=None, region=None):
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
         pulumi.set(__self__, "customer_id", customer_id)
@@ -41,6 +41,9 @@ class GetApiKeysResult:
         if items and not isinstance(items, list):
             raise TypeError("Expected argument 'items' to be a list")
         pulumi.set(__self__, "items", items)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="customerId")
@@ -71,6 +74,11 @@ class GetApiKeysResult:
         """
         return pulumi.get(self, "items")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetApiKeysResult(GetApiKeysResult):
     # pylint: disable=using-constant-test
@@ -81,11 +89,13 @@ class AwaitableGetApiKeysResult(GetApiKeysResult):
             customer_id=self.customer_id,
             id=self.id,
             include_values=self.include_values,
-            items=self.items)
+            items=self.items,
+            region=self.region)
 
 
 def get_api_keys(customer_id: Optional[builtins.str] = None,
                  include_values: Optional[builtins.bool] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiKeysResult:
     """
     Data source for managing AWS API Gateway API Keys.
@@ -106,6 +116,7 @@ def get_api_keys(customer_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['customerId'] = customer_id
     __args__['includeValues'] = include_values
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getApiKeys:getApiKeys', __args__, opts=opts, typ=GetApiKeysResult).value
 
@@ -113,9 +124,11 @@ def get_api_keys(customer_id: Optional[builtins.str] = None,
         customer_id=pulumi.get(__ret__, 'customer_id'),
         id=pulumi.get(__ret__, 'id'),
         include_values=pulumi.get(__ret__, 'include_values'),
-        items=pulumi.get(__ret__, 'items'))
+        items=pulumi.get(__ret__, 'items'),
+        region=pulumi.get(__ret__, 'region'))
 def get_api_keys_output(customer_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         include_values: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeysResult]:
     """
     Data source for managing AWS API Gateway API Keys.
@@ -136,10 +149,12 @@ def get_api_keys_output(customer_id: Optional[pulumi.Input[Optional[builtins.str
     __args__ = dict()
     __args__['customerId'] = customer_id
     __args__['includeValues'] = include_values
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getApiKeys:getApiKeys', __args__, opts=opts, typ=GetApiKeysResult)
     return __ret__.apply(lambda __response__: GetApiKeysResult(
         customer_id=pulumi.get(__response__, 'customer_id'),
         id=pulumi.get(__response__, 'id'),
         include_values=pulumi.get(__response__, 'include_values'),
-        items=pulumi.get(__response__, 'items')))
+        items=pulumi.get(__response__, 'items'),
+        region=pulumi.get(__response__, 'region')))

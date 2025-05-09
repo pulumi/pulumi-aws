@@ -25,6 +25,7 @@ export function getInfrastructureConfiguration(args: GetInfrastructureConfigurat
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
         "arn": args.arn,
+        "region": args.region,
         "resourceTags": args.resourceTags,
         "tags": args.tags,
     }, opts);
@@ -38,6 +39,7 @@ export interface GetInfrastructureConfigurationArgs {
      * ARN of the infrastructure configuration.
      */
     arn: string;
+    region?: string;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
@@ -91,6 +93,11 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly name: string;
     /**
+     * Placement settings that define where the instances that are launched from your image will run.
+     */
+    readonly placements: outputs.imagebuilder.GetInfrastructureConfigurationPlacement[];
+    readonly region: string;
+    /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
     readonly resourceTags: {[key: string]: string};
@@ -133,6 +140,7 @@ export function getInfrastructureConfigurationOutput(args: GetInfrastructureConf
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
         "arn": args.arn,
+        "region": args.region,
         "resourceTags": args.resourceTags,
         "tags": args.tags,
     }, opts);
@@ -146,6 +154,7 @@ export interface GetInfrastructureConfigurationOutputArgs {
      * ARN of the infrastructure configuration.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */

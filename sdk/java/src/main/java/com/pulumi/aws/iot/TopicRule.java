@@ -299,6 +299,20 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
     @Export(name="republishes", refs={List.class,TopicRuleRepublish.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicRuleRepublish>> republishes;
 

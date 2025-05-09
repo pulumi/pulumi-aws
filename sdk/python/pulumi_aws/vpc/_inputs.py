@@ -172,6 +172,7 @@ if not MYPY:
         values: Sequence[builtins.str]
         """
         Set of values that are accepted for the given field.
+
         Security group rule IDs will be selected if any one of the given values match.
         """
 elif False:
@@ -186,6 +187,7 @@ class GetSecurityGroupRulesFilterArgs:
         :param builtins.str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
         :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
+               
                Security group rule IDs will be selected if any one of the given values match.
         """
         pulumi.set(__self__, "name", name)
@@ -209,6 +211,7 @@ class GetSecurityGroupRulesFilterArgs:
     def values(self) -> Sequence[builtins.str]:
         """
         Set of values that are accepted for the given field.
+
         Security group rule IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")

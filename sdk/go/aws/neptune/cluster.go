@@ -122,6 +122,8 @@ type Cluster struct {
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
 	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
@@ -228,6 +230,8 @@ type clusterState struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
@@ -305,6 +309,8 @@ type ClusterState struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
@@ -374,6 +380,8 @@ type clusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
@@ -438,6 +446,8 @@ type ClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
@@ -681,6 +691,11 @@ func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 // A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReaderEndpoint }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.

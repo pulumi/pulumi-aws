@@ -27,6 +27,7 @@ class AssetTypeArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AssetType resource.
@@ -37,6 +38,7 @@ class AssetTypeArgs:
         :param pulumi.Input[builtins.str] description: The description of the custom asset type.
         :param pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
         :param pulumi.Input[builtins.str] name: The name of the custom asset type.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
@@ -46,6 +48,8 @@ class AssetTypeArgs:
             pulumi.set(__self__, "forms_inputs", forms_inputs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -113,6 +117,18 @@ class AssetTypeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['AssetTypeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -131,6 +147,7 @@ class _AssetTypeState:
                  forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revision: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
         """
@@ -144,6 +161,7 @@ class _AssetTypeState:
         :param pulumi.Input[builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revision: The revision of the asset type.
         """
         if created_at is not None:
@@ -160,6 +178,8 @@ class _AssetTypeState:
             pulumi.set(__self__, "name", name)
         if owning_project_identifier is not None:
             pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
         if timeouts is not None:
@@ -253,6 +273,18 @@ class _AssetTypeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The revision of the asset type.
@@ -286,6 +318,7 @@ class AssetType(pulumi.CustomResource):
                  forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -323,6 +356,7 @@ class AssetType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -376,6 +410,7 @@ class AssetType(pulumi.CustomResource):
                  forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -395,6 +430,7 @@ class AssetType(pulumi.CustomResource):
             if owning_project_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'owning_project_identifier'")
             __props__.__dict__["owning_project_identifier"] = owning_project_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
@@ -416,6 +452,7 @@ class AssetType(pulumi.CustomResource):
             forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             revision: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None) -> 'AssetType':
         """
@@ -434,6 +471,7 @@ class AssetType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revision: The revision of the asset type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -447,6 +485,7 @@ class AssetType(pulumi.CustomResource):
         __props__.__dict__["forms_inputs"] = forms_inputs
         __props__.__dict__["name"] = name
         __props__.__dict__["owning_project_identifier"] = owning_project_identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["revision"] = revision
         __props__.__dict__["timeouts"] = timeouts
         return AssetType(resource_name, opts=opts, __props__=__props__)
@@ -508,6 +547,14 @@ class AssetType(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "owning_project_identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

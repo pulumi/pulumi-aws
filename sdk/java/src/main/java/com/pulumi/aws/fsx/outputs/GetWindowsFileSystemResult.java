@@ -93,6 +93,7 @@ public final class GetWindowsFileSystemResult {
      * 
      */
     private String preferredSubnetId;
+    private String region;
     private List<String> securityGroupIds;
     private Boolean skipFinalBackup;
     /**
@@ -243,6 +244,9 @@ public final class GetWindowsFileSystemResult {
     public String preferredSubnetId() {
         return this.preferredSubnetId;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
@@ -325,6 +329,7 @@ public final class GetWindowsFileSystemResult {
         private String ownerId;
         private String preferredFileServerIp;
         private String preferredSubnetId;
+        private String region;
         private List<String> securityGroupIds;
         private Boolean skipFinalBackup;
         private Integer storageCapacity;
@@ -354,6 +359,7 @@ public final class GetWindowsFileSystemResult {
     	      this.ownerId = defaults.ownerId;
     	      this.preferredFileServerIp = defaults.preferredFileServerIp;
     	      this.preferredSubnetId = defaults.preferredSubnetId;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.skipFinalBackup = defaults.skipFinalBackup;
     	      this.storageCapacity = defaults.storageCapacity;
@@ -514,6 +520,14 @@ public final class GetWindowsFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             if (securityGroupIds == null) {
               throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "securityGroupIds");
@@ -610,6 +624,7 @@ public final class GetWindowsFileSystemResult {
             _resultValue.ownerId = ownerId;
             _resultValue.preferredFileServerIp = preferredFileServerIp;
             _resultValue.preferredSubnetId = preferredSubnetId;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.skipFinalBackup = skipFinalBackup;
             _resultValue.storageCapacity = storageCapacity;

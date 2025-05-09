@@ -59,6 +59,7 @@ public final class GetRestApiResult {
      * 
      */
     private String policy;
+    private String region;
     /**
      * @return Set to the ID of the API Gateway Resource on the found REST API where the route matches &#39;/&#39;.
      * 
@@ -137,6 +138,9 @@ public final class GetRestApiResult {
     public String policy() {
         return this.policy;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Set to the ID of the API Gateway Resource on the found REST API where the route matches &#39;/&#39;.
      * 
@@ -171,6 +175,7 @@ public final class GetRestApiResult {
         private String minimumCompressionSize;
         private String name;
         private String policy;
+        private String region;
         private String rootResourceId;
         private Map<String,String> tags;
         public Builder() {}
@@ -186,6 +191,7 @@ public final class GetRestApiResult {
     	      this.minimumCompressionSize = defaults.minimumCompressionSize;
     	      this.name = defaults.name;
     	      this.policy = defaults.policy;
+    	      this.region = defaults.region;
     	      this.rootResourceId = defaults.rootResourceId;
     	      this.tags = defaults.tags;
         }
@@ -277,6 +283,14 @@ public final class GetRestApiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootResourceId(String rootResourceId) {
             if (rootResourceId == null) {
               throw new MissingRequiredPropertyException("GetRestApiResult", "rootResourceId");
@@ -304,6 +318,7 @@ public final class GetRestApiResult {
             _resultValue.minimumCompressionSize = minimumCompressionSize;
             _resultValue.name = name;
             _resultValue.policy = policy;
+            _resultValue.region = region;
             _resultValue.rootResourceId = rootResourceId;
             _resultValue.tags = tags;
             return _resultValue;

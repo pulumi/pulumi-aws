@@ -30,6 +30,7 @@ public final class GetReservedCacheNodeOfferingResult {
     private String offeringId;
     private String offeringType;
     private String productDescription;
+    private String region;
 
     private GetReservedCacheNodeOfferingResult() {}
     public String cacheNodeType() {
@@ -65,6 +66,9 @@ public final class GetReservedCacheNodeOfferingResult {
     public String productDescription() {
         return this.productDescription;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -82,6 +86,7 @@ public final class GetReservedCacheNodeOfferingResult {
         private String offeringId;
         private String offeringType;
         private String productDescription;
+        private String region;
         public Builder() {}
         public Builder(GetReservedCacheNodeOfferingResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -92,6 +97,7 @@ public final class GetReservedCacheNodeOfferingResult {
     	      this.offeringId = defaults.offeringId;
     	      this.offeringType = defaults.offeringType;
     	      this.productDescription = defaults.productDescription;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -150,6 +156,14 @@ public final class GetReservedCacheNodeOfferingResult {
             this.productDescription = productDescription;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReservedCacheNodeOfferingResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetReservedCacheNodeOfferingResult build() {
             final var _resultValue = new GetReservedCacheNodeOfferingResult();
             _resultValue.cacheNodeType = cacheNodeType;
@@ -159,6 +173,7 @@ public final class GetReservedCacheNodeOfferingResult {
             _resultValue.offeringId = offeringId;
             _resultValue.offeringType = offeringType;
             _resultValue.productDescription = productDescription;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

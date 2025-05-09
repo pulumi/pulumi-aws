@@ -18,14 +18,14 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
     public static final AggregateAuthorizationArgs Empty = new AggregateAuthorizationArgs();
 
     /**
-     * Account ID
+     * Account ID.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return Account ID
+     * @return Account ID.
      * 
      */
     public Output<String> accountId() {
@@ -33,18 +33,41 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Region
+     * The region authorized to collect aggregated data.
      * 
      */
-    @Import(name="region", required=true)
-    private Output<String> region;
+    @Import(name="authorizedAwsRegion")
+    private @Nullable Output<String> authorizedAwsRegion;
 
     /**
-     * @return Region
+     * @return The region authorized to collect aggregated data.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Optional<Output<String>> authorizedAwsRegion() {
+        return Optional.ofNullable(this.authorizedAwsRegion);
+    }
+
+    /**
+     * The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use authorized_aws_region instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use authorized_aws_region instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -66,6 +89,7 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
 
     private AggregateAuthorizationArgs(AggregateAuthorizationArgs $) {
         this.accountId = $.accountId;
+        this.authorizedAwsRegion = $.authorizedAwsRegion;
         this.region = $.region;
         this.tags = $.tags;
     }
@@ -89,7 +113,7 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accountId Account ID
+         * @param accountId Account ID.
          * 
          * @return builder
          * 
@@ -100,7 +124,7 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accountId Account ID
+         * @param accountId Account ID.
          * 
          * @return builder
          * 
@@ -110,22 +134,51 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param region Region
+         * @param authorizedAwsRegion The region authorized to collect aggregated data.
          * 
          * @return builder
          * 
          */
-        public Builder region(Output<String> region) {
+        public Builder authorizedAwsRegion(@Nullable Output<String> authorizedAwsRegion) {
+            $.authorizedAwsRegion = authorizedAwsRegion;
+            return this;
+        }
+
+        /**
+         * @param authorizedAwsRegion The region authorized to collect aggregated data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizedAwsRegion(String authorizedAwsRegion) {
+            return authorizedAwsRegion(Output.of(authorizedAwsRegion));
+        }
+
+        /**
+         * @param region The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use authorized_aws_region instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+        public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region Region
+         * @param region The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use authorized_aws_region instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -154,9 +207,6 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         public AggregateAuthorizationArgs build() {
             if ($.accountId == null) {
                 throw new MissingRequiredPropertyException("AggregateAuthorizationArgs", "accountId");
-            }
-            if ($.region == null) {
-                throw new MissingRequiredPropertyException("AggregateAuthorizationArgs", "region");
             }
             return $;
         }

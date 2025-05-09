@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Lambda
         [Input("qualifier")]
         public string? Qualifier { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -132,6 +135,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -233,6 +239,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string QualifiedInvokeArn;
         public readonly string? Qualifier;
+        public readonly string Region;
         /// <summary>
         /// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
         /// </summary>
@@ -325,6 +332,8 @@ namespace Pulumi.Aws.Lambda
 
             string? qualifier,
 
+            string region,
+
             int reservedConcurrentExecutions,
 
             string role,
@@ -371,6 +380,7 @@ namespace Pulumi.Aws.Lambda
             QualifiedArn = qualifiedArn;
             QualifiedInvokeArn = qualifiedInvokeArn;
             Qualifier = qualifier;
+            Region = region;
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
             Role = role;
             Runtime = runtime;

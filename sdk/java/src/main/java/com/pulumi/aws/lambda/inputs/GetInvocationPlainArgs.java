@@ -62,12 +62,20 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.qualifier);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetInvocationPlainArgs() {}
 
     private GetInvocationPlainArgs(GetInvocationPlainArgs $) {
         this.functionName = $.functionName;
         this.input = $.input;
         this.qualifier = $.qualifier;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -119,6 +127,11 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

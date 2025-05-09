@@ -28,6 +28,7 @@ export function getQuicksightAnalysis(args: GetQuicksightAnalysisArgs, opts?: pu
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
         "analysisId": args.analysisId,
         "awsAccountId": args.awsAccountId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,14 +39,13 @@ export function getQuicksightAnalysis(args: GetQuicksightAnalysisArgs, opts?: pu
 export interface GetQuicksightAnalysisArgs {
     /**
      * Identifier for the analysis.
-     *
-     * The following arguments are optional:
      */
     analysisId: string;
     /**
      * AWS account ID.
      */
     awsAccountId?: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -65,6 +65,7 @@ export interface GetQuicksightAnalysisResult {
     readonly lastUpdatedTime: string;
     readonly name: string;
     readonly permissions: outputs.quicksight.GetQuicksightAnalysisPermission[];
+    readonly region: string;
     readonly status: string;
     readonly tags: {[key: string]: string};
     readonly themeArn: string;
@@ -90,6 +91,7 @@ export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArg
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
         "analysisId": args.analysisId,
         "awsAccountId": args.awsAccountId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -100,13 +102,12 @@ export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArg
 export interface GetQuicksightAnalysisOutputArgs {
     /**
      * Identifier for the analysis.
-     *
-     * The following arguments are optional:
      */
     analysisId: pulumi.Input<string>;
     /**
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

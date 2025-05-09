@@ -126,6 +126,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The number of managed instances that are currently registered using this activation.
         /// </summary>
         [Output("registrationCount")]
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
         /// </summary>
         [Input("registrationLimit")]
@@ -280,6 +292,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The number of managed instances that are currently registered using this activation.

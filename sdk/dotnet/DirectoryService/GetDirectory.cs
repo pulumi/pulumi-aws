@@ -93,6 +93,9 @@ namespace Pulumi.Aws.DirectoryService
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -176,6 +182,7 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> RadiusSettings;
+        public readonly string Region;
         /// <summary>
         /// ID of the security group created by the directory/connector.
         /// </summary>
@@ -222,6 +229,8 @@ namespace Pulumi.Aws.DirectoryService
 
             ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> radiusSettings,
 
+            string region,
+
             string securityGroupId,
 
             string shortName,
@@ -245,6 +254,7 @@ namespace Pulumi.Aws.DirectoryService
             Id = id;
             Name = name;
             RadiusSettings = radiusSettings;
+            Region = region;
             SecurityGroupId = securityGroupId;
             ShortName = shortName;
             Size = size;

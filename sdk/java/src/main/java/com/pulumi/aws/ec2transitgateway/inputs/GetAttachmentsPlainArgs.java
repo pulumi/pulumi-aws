@@ -32,6 +32,13 @@ public final class GetAttachmentsPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -43,6 +50,7 @@ public final class GetAttachmentsPlainArgs extends com.pulumi.resources.InvokeAr
 
     private GetAttachmentsPlainArgs(GetAttachmentsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -83,6 +91,11 @@ public final class GetAttachmentsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder filters(GetAttachmentsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public Builder tags(@Nullable Map<String,String> tags) {

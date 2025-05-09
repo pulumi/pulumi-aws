@@ -96,6 +96,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An array of VPC subnet IDs.
         /// </summary>
         [Output("subnetIds")]
@@ -171,6 +177,12 @@ namespace Pulumi.Aws.RedShift
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
@@ -221,6 +233,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

@@ -59,6 +59,7 @@ type LookupBotAssociationArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBot `pulumi:"lexBot"`
+	Region *string                 `pulumi:"region"`
 }
 
 // A collection of values returned by getBotAssociation.
@@ -67,6 +68,7 @@ type LookupBotAssociationResult struct {
 	Id         string                  `pulumi:"id"`
 	InstanceId string                  `pulumi:"instanceId"`
 	LexBot     GetBotAssociationLexBot `pulumi:"lexBot"`
+	Region     string                  `pulumi:"region"`
 }
 
 func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupBotAssociationResultOutput {
@@ -84,6 +86,7 @@ type LookupBotAssociationOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBotInput `pulumi:"lexBot"`
+	Region pulumi.StringPtrInput        `pulumi:"region"`
 }
 
 func (LookupBotAssociationOutputArgs) ElementType() reflect.Type {
@@ -116,6 +119,10 @@ func (o LookupBotAssociationResultOutput) InstanceId() pulumi.StringOutput {
 
 func (o LookupBotAssociationResultOutput) LexBot() GetBotAssociationLexBotOutput {
 	return o.ApplyT(func(v LookupBotAssociationResult) GetBotAssociationLexBot { return v.LexBot }).(GetBotAssociationLexBotOutput)
+}
+
+func (o LookupBotAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAssociationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

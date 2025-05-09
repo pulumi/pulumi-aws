@@ -83,7 +83,8 @@ type LookupVocabularyArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Vocabulary by name
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary.
 	Tags map[string]string `pulumi:"tags"`
 	// Returns information on a specific Vocabulary by Vocabulary id
@@ -106,6 +107,7 @@ type LookupVocabularyResult struct {
 	// The timestamp when the custom vocabulary was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State string `pulumi:"state"`
 	// A map of tags to assign to the Vocabulary.
@@ -128,7 +130,8 @@ type LookupVocabularyOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Vocabulary by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Returns information on a specific Vocabulary by Vocabulary id
@@ -190,6 +193,10 @@ func (o LookupVocabularyResultOutput) LastModifiedTime() pulumi.StringOutput {
 
 func (o LookupVocabularyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVocabularyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.

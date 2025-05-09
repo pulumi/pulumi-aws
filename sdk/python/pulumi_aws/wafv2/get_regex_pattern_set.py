@@ -28,7 +28,7 @@ class GetRegexPatternSetResult:
     """
     A collection of values returned by getRegexPatternSet.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, regular_expressions=None, scope=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, region=None, regular_expressions=None, scope=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetRegexPatternSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if regular_expressions and not isinstance(regular_expressions, list):
             raise TypeError("Expected argument 'regular_expressions' to be a list")
         pulumi.set(__self__, "regular_expressions", regular_expressions)
@@ -78,6 +81,11 @@ class GetRegexPatternSetResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="regularExpressions")
     def regular_expressions(self) -> Sequence['outputs.GetRegexPatternSetRegularExpressionResult']:
         """
@@ -101,11 +109,13 @@ class AwaitableGetRegexPatternSetResult(GetRegexPatternSetResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             regular_expressions=self.regular_expressions,
             scope=self.scope)
 
 
 def get_regex_pattern_set(name: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           scope: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegexPatternSetResult:
     """
@@ -127,6 +137,7 @@ def get_regex_pattern_set(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getRegexPatternSet:getRegexPatternSet', __args__, opts=opts, typ=GetRegexPatternSetResult).value
@@ -136,9 +147,11 @@ def get_regex_pattern_set(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         regular_expressions=pulumi.get(__ret__, 'regular_expressions'),
         scope=pulumi.get(__ret__, 'scope'))
 def get_regex_pattern_set_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  scope: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
@@ -160,6 +173,7 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[builtins.str]] = No
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['scope'] = scope
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getRegexPatternSet:getRegexPatternSet', __args__, opts=opts, typ=GetRegexPatternSetResult)
@@ -168,5 +182,6 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[builtins.str]] = No
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         regular_expressions=pulumi.get(__response__, 'regular_expressions'),
         scope=pulumi.get(__response__, 'scope')))

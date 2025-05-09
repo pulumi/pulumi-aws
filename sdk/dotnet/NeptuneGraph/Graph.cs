@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NeptuneGraph
 {
     /// <summary>
-    /// The AWS::NeptuneGraph::Graph resource creates an Amazon Analytics Graph.
+    /// The `aws.neptunegraph.Graph` resource creates an Amazon Analytics Graph.
     /// 
     /// ## Example Usage
     /// 
@@ -67,8 +67,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
-        /// protection is enabled.
+        /// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool> DeletionProtection { get; private set; } = null!;
@@ -95,32 +94,40 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<string?> GraphNamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+        /// The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string> KmsKeyIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("provisionedMemory")]
         public Output<int> ProvisionedMemory { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-        /// the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-        /// internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-        /// the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Output("publicConnectivity")]
         public Output<bool> PublicConnectivity { get; private set; } = null!;
 
         /// <summary>
-        /// The number of replicas in other AZs. Value must be between 0 and 2.
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         /// </summary>
         [Output("replicaCount")]
         public Output<int> ReplicaCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags associated with this graph. (see below for nested schema of tags)
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -131,7 +138,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<Outputs.GraphTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Vector search configuration for the Neptune Graph
+        /// Vector Search Configuration (see below for nested schema of vector_search_configuration)
         /// </summary>
         [Output("vectorSearchConfiguration")]
         public Output<Outputs.GraphVectorSearchConfiguration?> VectorSearchConfiguration { get; private set; } = null!;
@@ -183,8 +190,7 @@ namespace Pulumi.Aws.NeptuneGraph
     public sealed class GraphArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
-        /// protection is enabled.
+        /// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -205,34 +211,43 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<string>? GraphNamePrefix { get; set; }
 
         /// <summary>
-        /// Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+        /// The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("provisionedMemory", required: true)]
         public Input<int> ProvisionedMemory { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-        /// the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-        /// internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-        /// the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Input("publicConnectivity")]
         public Input<bool>? PublicConnectivity { get; set; }
 
         /// <summary>
-        /// The number of replicas in other AZs. Value must be between 0 and 2.
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags associated with this graph. (see below for nested schema of tags)
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -243,7 +258,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<Inputs.GraphTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Vector search configuration for the Neptune Graph
+        /// Vector Search Configuration (see below for nested schema of vector_search_configuration)
         /// </summary>
         [Input("vectorSearchConfiguration")]
         public Input<Inputs.GraphVectorSearchConfigurationArgs>? VectorSearchConfiguration { get; set; }
@@ -263,8 +278,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
-        /// protection is enabled.
+        /// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -291,34 +305,43 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<string>? GraphNamePrefix { get; set; }
 
         /// <summary>
-        /// Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+        /// The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("provisionedMemory")]
         public Input<int>? ProvisionedMemory { get; set; }
 
         /// <summary>
-        /// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-        /// the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-        /// internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-        /// the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Input("publicConnectivity")]
         public Input<bool>? PublicConnectivity { get; set; }
 
         /// <summary>
-        /// The number of replicas in other AZs. Value must be between 0 and 2.
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags associated with this graph. (see below for nested schema of tags)
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -337,7 +360,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<Inputs.GraphTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Vector search configuration for the Neptune Graph
+        /// Vector Search Configuration (see below for nested schema of vector_search_configuration)
         /// </summary>
         [Input("vectorSearchConfiguration")]
         public Input<Inputs.GraphVectorSearchConfigurationGetArgs>? VectorSearchConfiguration { get; set; }

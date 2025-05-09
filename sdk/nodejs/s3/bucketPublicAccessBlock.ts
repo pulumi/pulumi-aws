@@ -82,6 +82,10 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
      */
     public readonly ignorePublicAcls!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      */
@@ -104,6 +108,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             resourceInputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["ignorePublicAcls"] = state ? state.ignorePublicAcls : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restrictPublicBuckets"] = state ? state.restrictPublicBuckets : undefined;
         } else {
             const args = argsOrState as BucketPublicAccessBlockArgs | undefined;
@@ -114,6 +119,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -146,6 +152,10 @@ export interface BucketPublicAccessBlockState {
      */
     ignorePublicAcls?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      */
@@ -176,6 +186,10 @@ export interface BucketPublicAccessBlockArgs {
      * * Ignore public ACLs on this bucket and any objects that it contains.
      */
     ignorePublicAcls?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.

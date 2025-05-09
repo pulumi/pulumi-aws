@@ -92,6 +92,8 @@ type Input struct {
 	MediaConnectFlows InputMediaConnectFlowArrayOutput `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -160,6 +162,8 @@ type inputState struct {
 	MediaConnectFlows []InputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn *string `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -196,6 +200,8 @@ type InputState struct {
 	MediaConnectFlows InputMediaConnectFlowArrayInput
 	// Name of the input.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringPtrInput
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -226,6 +232,8 @@ type inputArgs struct {
 	MediaConnectFlows []InputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn *string `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -252,6 +260,8 @@ type InputArgs struct {
 	MediaConnectFlows InputMediaConnectFlowArrayInput
 	// Name of the input.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringPtrInput
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -401,6 +411,11 @@ func (o InputOutput) MediaConnectFlows() InputMediaConnectFlowArrayOutput {
 // Name of the input.
 func (o InputOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InputOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the role this input assumes during and after creation.

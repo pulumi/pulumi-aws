@@ -212,6 +212,9 @@ namespace Pulumi.Aws.LB
         [Input("priority")]
         public int? Priority { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetListenerRuleArgs()
         {
         }
@@ -267,6 +270,9 @@ namespace Pulumi.Aws.LB
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetListenerRuleInvokeArgs()
         {
         }
@@ -297,6 +303,7 @@ namespace Pulumi.Aws.LB
         public readonly string Id;
         public readonly string ListenerArn;
         public readonly int Priority;
+        public readonly string Region;
         /// <summary>
         /// Tags assigned to the Listener Rule.
         /// </summary>
@@ -316,6 +323,8 @@ namespace Pulumi.Aws.LB
 
             int priority,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Actions = actions;
@@ -324,6 +333,7 @@ namespace Pulumi.Aws.LB
             Id = id;
             ListenerArn = listenerArn;
             Priority = priority;
+            Region = region;
             Tags = tags;
         }
     }

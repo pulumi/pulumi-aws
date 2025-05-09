@@ -142,6 +142,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
     public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
@@ -173,6 +177,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = state ? state.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["matching"] = state ? state.matching : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleBasedMatching"] = state ? state.ruleBasedMatching : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -189,6 +194,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["matching"] = args ? args.matching : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -230,6 +236,10 @@ export interface DomainState {
      */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
     ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
@@ -269,6 +279,10 @@ export interface DomainArgs {
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */

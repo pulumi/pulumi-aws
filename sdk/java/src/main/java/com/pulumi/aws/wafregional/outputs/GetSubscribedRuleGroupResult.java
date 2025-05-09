@@ -19,6 +19,7 @@ public final class GetSubscribedRuleGroupResult {
     private String id;
     private @Nullable String metricName;
     private @Nullable String name;
+    private String region;
 
     private GetSubscribedRuleGroupResult() {}
     /**
@@ -34,6 +35,9 @@ public final class GetSubscribedRuleGroupResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -47,12 +51,14 @@ public final class GetSubscribedRuleGroupResult {
         private String id;
         private @Nullable String metricName;
         private @Nullable String name;
+        private String region;
         public Builder() {}
         public Builder(GetSubscribedRuleGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.metricName = defaults.metricName;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -75,11 +81,20 @@ public final class GetSubscribedRuleGroupResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSubscribedRuleGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetSubscribedRuleGroupResult build() {
             final var _resultValue = new GetSubscribedRuleGroupResult();
             _resultValue.id = id;
             _resultValue.metricName = metricName;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

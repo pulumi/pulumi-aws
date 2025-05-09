@@ -48,6 +48,7 @@ public final class GetCertificateResult {
      * 
      */
     private Integer keyLength;
+    private String region;
     /**
      * @return The algorithm for the certificate.
      * 
@@ -118,6 +119,9 @@ public final class GetCertificateResult {
     public Integer keyLength() {
         return this.keyLength;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The algorithm for the certificate.
      * 
@@ -160,6 +164,7 @@ public final class GetCertificateResult {
         private String certificateWallet;
         private String id;
         private Integer keyLength;
+        private String region;
         private String signingAlgorithm;
         private Map<String,String> tags;
         private String validFromDate;
@@ -175,6 +180,7 @@ public final class GetCertificateResult {
     	      this.certificateWallet = defaults.certificateWallet;
     	      this.id = defaults.id;
     	      this.keyLength = defaults.keyLength;
+    	      this.region = defaults.region;
     	      this.signingAlgorithm = defaults.signingAlgorithm;
     	      this.tags = defaults.tags;
     	      this.validFromDate = defaults.validFromDate;
@@ -246,6 +252,14 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder signingAlgorithm(String signingAlgorithm) {
             if (signingAlgorithm == null) {
               throw new MissingRequiredPropertyException("GetCertificateResult", "signingAlgorithm");
@@ -287,6 +301,7 @@ public final class GetCertificateResult {
             _resultValue.certificateWallet = certificateWallet;
             _resultValue.id = id;
             _resultValue.keyLength = keyLength;
+            _resultValue.region = region;
             _resultValue.signingAlgorithm = signingAlgorithm;
             _resultValue.tags = tags;
             _resultValue.validFromDate = validFromDate;

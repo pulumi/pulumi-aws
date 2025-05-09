@@ -99,6 +99,12 @@ namespace Pulumi.Aws.NetworkMonitor
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the subnet.
         /// </summary>
         [Output("sourceArn")]
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.NetworkMonitor
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the subnet.
         /// </summary>
         [Input("sourceArn", required: true)]
@@ -266,6 +278,12 @@ namespace Pulumi.Aws.NetworkMonitor
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the subnet.

@@ -52,6 +52,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public /*out*/ readonly operationId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     public readonly serviceArn!: pulumi.Output<string>;
@@ -75,6 +79,7 @@ export class Deployment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
             resourceInputs["operationId"] = state ? state.operationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -83,6 +88,7 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.serviceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["operationId"] = undefined /*out*/;
@@ -102,6 +108,10 @@ export interface DeploymentState {
      */
     operationId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     serviceArn?: pulumi.Input<string>;
@@ -116,6 +126,10 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */

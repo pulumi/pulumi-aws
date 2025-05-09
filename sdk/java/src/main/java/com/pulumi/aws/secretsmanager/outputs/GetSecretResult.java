@@ -47,6 +47,7 @@ public final class GetSecretResult {
      * 
      */
     private String policy;
+    private String region;
     /**
      * @return Tags of the secret.
      * 
@@ -106,6 +107,9 @@ public final class GetSecretResult {
     public String policy() {
         return this.policy;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Tags of the secret.
      * 
@@ -131,6 +135,7 @@ public final class GetSecretResult {
         private String lastChangedDate;
         private String name;
         private String policy;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetSecretResult defaults) {
@@ -143,6 +148,7 @@ public final class GetSecretResult {
     	      this.lastChangedDate = defaults.lastChangedDate;
     	      this.name = defaults.name;
     	      this.policy = defaults.policy;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -211,6 +217,14 @@ public final class GetSecretResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecretResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetSecretResult", "tags");
@@ -228,6 +242,7 @@ public final class GetSecretResult {
             _resultValue.lastChangedDate = lastChangedDate;
             _resultValue.name = name;
             _resultValue.policy = policy;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

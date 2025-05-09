@@ -39,6 +39,7 @@ export function getContactFlow(args: GetContactFlowArgs, opts?: pulumi.InvokeOpt
         "contactFlowId": args.contactFlowId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "type": args.type,
     }, opts);
@@ -60,6 +61,7 @@ export interface GetContactFlowArgs {
      * Returns information on a specific Contact Flow by name
      */
     name?: string;
+    region?: string;
     /**
      * Tags to assign to the Contact Flow.
      */
@@ -93,6 +95,7 @@ export interface GetContactFlowResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Tags to assign to the Contact Flow.
      */
@@ -137,6 +140,7 @@ export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulu
         "contactFlowId": args.contactFlowId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "type": args.type,
     }, opts);
@@ -158,6 +162,7 @@ export interface GetContactFlowOutputArgs {
      * Returns information on a specific Contact Flow by name
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Tags to assign to the Contact Flow.
      */

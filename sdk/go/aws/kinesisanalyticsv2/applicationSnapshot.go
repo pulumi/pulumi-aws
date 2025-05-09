@@ -56,6 +56,8 @@ type ApplicationSnapshot struct {
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
 	// The current application version ID when the snapshot was created.
 	ApplicationVersionId pulumi.IntOutput `pulumi:"applicationVersionId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The timestamp of the application snapshot.
 	SnapshotCreationTimestamp pulumi.StringOutput `pulumi:"snapshotCreationTimestamp"`
 	// The name of the application snapshot.
@@ -102,6 +104,8 @@ type applicationSnapshotState struct {
 	ApplicationName *string `pulumi:"applicationName"`
 	// The current application version ID when the snapshot was created.
 	ApplicationVersionId *int `pulumi:"applicationVersionId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The timestamp of the application snapshot.
 	SnapshotCreationTimestamp *string `pulumi:"snapshotCreationTimestamp"`
 	// The name of the application snapshot.
@@ -113,6 +117,8 @@ type ApplicationSnapshotState struct {
 	ApplicationName pulumi.StringPtrInput
 	// The current application version ID when the snapshot was created.
 	ApplicationVersionId pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The timestamp of the application snapshot.
 	SnapshotCreationTimestamp pulumi.StringPtrInput
 	// The name of the application snapshot.
@@ -126,6 +132,8 @@ func (ApplicationSnapshotState) ElementType() reflect.Type {
 type applicationSnapshotArgs struct {
 	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName string `pulumi:"applicationName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the application snapshot.
 	SnapshotName string `pulumi:"snapshotName"`
 }
@@ -134,6 +142,8 @@ type applicationSnapshotArgs struct {
 type ApplicationSnapshotArgs struct {
 	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the application snapshot.
 	SnapshotName pulumi.StringInput
 }
@@ -233,6 +243,11 @@ func (o ApplicationSnapshotOutput) ApplicationName() pulumi.StringOutput {
 // The current application version ID when the snapshot was created.
 func (o ApplicationSnapshotOutput) ApplicationVersionId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.IntOutput { return v.ApplicationVersionId }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApplicationSnapshotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The timestamp of the application snapshot.

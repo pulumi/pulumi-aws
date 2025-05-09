@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of roles for the assessment. See `roles` below.
         /// </summary>
         [Output("roles")]
@@ -209,7 +215,13 @@ namespace Pulumi.Aws.Auditmanager
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("roles", required: true)]
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        [Input("roles")]
         private InputList<Inputs.AssessmentRoleArgs>? _roles;
 
         /// <summary>
@@ -278,6 +290,12 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("roles")]
         private InputList<Inputs.AssessmentRoleGetArgs>? _roles;

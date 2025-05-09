@@ -48,6 +48,21 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The retention period for the replicated automated backups, defaults to `7`.
      * 
      */
@@ -82,6 +97,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     private InstanceAutomatedBackupsReplicationArgs(InstanceAutomatedBackupsReplicationArgs $) {
         this.kmsKeyId = $.kmsKeyId;
         this.preSignedUrl = $.preSignedUrl;
+        this.region = $.region;
         this.retentionPeriod = $.retentionPeriod;
         this.sourceDbInstanceArn = $.sourceDbInstanceArn;
     }
@@ -144,6 +160,27 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
          */
         public Builder preSignedUrl(String preSignedUrl) {
             return preSignedUrl(Output.of(preSignedUrl));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

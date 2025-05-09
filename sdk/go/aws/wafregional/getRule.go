@@ -51,14 +51,16 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getRule.
 type LookupRuleArgs struct {
 	// Name of the WAF Regional rule.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRule.
 type LookupRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
@@ -73,7 +75,8 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 // A collection of arguments for invoking getRule.
 type LookupRuleOutputArgs struct {
 	// Name of the WAF Regional rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupRuleOutputArgs) ElementType() reflect.Type {
@@ -102,6 +105,10 @@ func (o LookupRuleResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

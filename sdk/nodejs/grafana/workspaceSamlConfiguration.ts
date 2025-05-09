@@ -123,6 +123,10 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
      */
     public readonly orgAssertion!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The role assertion.
      */
     public readonly roleAssertion!: pulumi.Output<string | undefined>;
@@ -161,6 +165,7 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
             resourceInputs["loginValidityDuration"] = state ? state.loginValidityDuration : undefined;
             resourceInputs["nameAssertion"] = state ? state.nameAssertion : undefined;
             resourceInputs["orgAssertion"] = state ? state.orgAssertion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleAssertion"] = state ? state.roleAssertion : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
@@ -183,6 +188,7 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
             resourceInputs["loginValidityDuration"] = args ? args.loginValidityDuration : undefined;
             resourceInputs["nameAssertion"] = args ? args.nameAssertion : undefined;
             resourceInputs["orgAssertion"] = args ? args.orgAssertion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleAssertion"] = args ? args.roleAssertion : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["status"] = undefined /*out*/;
@@ -240,6 +246,10 @@ export interface WorkspaceSamlConfigurationState {
      * The org assertion.
      */
     orgAssertion?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The role assertion.
      */
@@ -304,6 +314,10 @@ export interface WorkspaceSamlConfigurationArgs {
      * The org assertion.
      */
     orgAssertion?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The role assertion.
      */

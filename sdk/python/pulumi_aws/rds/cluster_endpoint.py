@@ -24,6 +24,7 @@ class ClusterEndpointArgs:
                  cluster_identifier: pulumi.Input[builtins.str],
                  custom_endpoint_type: pulumi.Input[builtins.str],
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,6 +33,7 @@ class ClusterEndpointArgs:
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -40,6 +42,8 @@ class ClusterEndpointArgs:
         pulumi.set(__self__, "custom_endpoint_type", custom_endpoint_type)
         if excluded_members is not None:
             pulumi.set(__self__, "excluded_members", excluded_members)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if static_members is not None:
             pulumi.set(__self__, "static_members", static_members)
         if tags is not None:
@@ -94,6 +98,18 @@ class ClusterEndpointArgs:
         pulumi.set(self, "excluded_members", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="staticMembers")
     def static_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -127,6 +143,7 @@ class _ClusterEndpointState:
                  custom_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -138,6 +155,7 @@ class _ClusterEndpointState:
         :param pulumi.Input[builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[builtins.str] endpoint: A custom endpoint for the Aurora cluster
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -154,6 +172,8 @@ class _ClusterEndpointState:
             pulumi.set(__self__, "endpoint", endpoint)
         if excluded_members is not None:
             pulumi.set(__self__, "excluded_members", excluded_members)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if static_members is not None:
             pulumi.set(__self__, "static_members", static_members)
         if tags is not None:
@@ -234,6 +254,18 @@ class _ClusterEndpointState:
         pulumi.set(self, "excluded_members", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="staticMembers")
     def static_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -282,6 +314,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  custom_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -360,6 +393,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -457,6 +491,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  custom_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -478,6 +513,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'custom_endpoint_type'")
             __props__.__dict__["custom_endpoint_type"] = custom_endpoint_type
             __props__.__dict__["excluded_members"] = excluded_members
+            __props__.__dict__["region"] = region
             __props__.__dict__["static_members"] = static_members
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -499,6 +535,7 @@ class ClusterEndpoint(pulumi.CustomResource):
             custom_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
             excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             static_members: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'ClusterEndpoint':
@@ -515,6 +552,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[builtins.str] endpoint: A custom endpoint for the Aurora cluster
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -529,6 +567,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         __props__.__dict__["custom_endpoint_type"] = custom_endpoint_type
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["excluded_members"] = excluded_members
+        __props__.__dict__["region"] = region
         __props__.__dict__["static_members"] = static_members
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -581,6 +620,14 @@ class ClusterEndpoint(pulumi.CustomResource):
         List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         """
         return pulumi.get(self, "excluded_members")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="staticMembers")

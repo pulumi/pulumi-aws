@@ -66,6 +66,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The snapshot schedule identifier.
         /// </summary>
         [Output("scheduleIdentifier")]
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The snapshot schedule identifier.
         /// </summary>
         [Input("scheduleIdentifier", required: true)]
@@ -142,6 +154,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The snapshot schedule identifier.

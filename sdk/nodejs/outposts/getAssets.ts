@@ -49,6 +49,7 @@ export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("aws:outposts/getAssets:getAssets", {
         "arn": args.arn,
         "hostIdFilters": args.hostIdFilters,
+        "region": args.region,
         "statusIdFilters": args.statusIdFilters,
     }, opts);
 }
@@ -65,6 +66,7 @@ export interface GetAssetsArgs {
      * Filters by list of Host IDs of a Dedicated Host.
      */
     hostIdFilters?: string[];
+    region?: string;
     /**
      * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
      */
@@ -85,6 +87,7 @@ export interface GetAssetsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly statusIdFilters?: string[];
 }
 /**
@@ -132,6 +135,7 @@ export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invokeOutput("aws:outposts/getAssets:getAssets", {
         "arn": args.arn,
         "hostIdFilters": args.hostIdFilters,
+        "region": args.region,
         "statusIdFilters": args.statusIdFilters,
     }, opts);
 }
@@ -148,6 +152,7 @@ export interface GetAssetsOutputArgs {
      * Filters by list of Host IDs of a Dedicated Host.
      */
     hostIdFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
      */

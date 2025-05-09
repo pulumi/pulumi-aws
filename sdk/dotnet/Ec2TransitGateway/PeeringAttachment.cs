@@ -97,6 +97,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("peerTransitGatewayId")]
         public Output<string> PeerTransitGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("peerTransitGatewayId", required: true)]
         public Input<string> PeerTransitGatewayId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -243,6 +255,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("peerTransitGatewayId")]
         public Input<string>? PeerTransitGatewayId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("state")]
         public Input<string>? State { get; set; }

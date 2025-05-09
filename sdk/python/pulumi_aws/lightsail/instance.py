@@ -29,6 +29,7 @@ class InstanceArgs:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -47,6 +48,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[builtins.str] name: The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_data: Single lined launch script as a string to configure server with additional user data
         """
@@ -61,6 +63,8 @@ class InstanceArgs:
             pulumi.set(__self__, "key_pair_name", key_pair_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_data is not None:
@@ -159,6 +163,18 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -200,6 +216,7 @@ class _InstanceState:
                  private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  public_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  ram_size: Optional[pulumi.Input[builtins.float]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
@@ -228,6 +245,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.str] private_ip_address: The private IP address of the instance.
         :param pulumi.Input[builtins.str] public_ip_address: The public IP address of the instance.
         :param pulumi.Input[builtins.float] ram_size: The amount of RAM in GB on the instance (e.g., 1.0).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_data: Single lined launch script as a string to configure server with additional user data
@@ -263,6 +281,8 @@ class _InstanceState:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
         if ram_size is not None:
             pulumi.set(__self__, "ram_size", ram_size)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -461,6 +481,18 @@ class _InstanceState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -523,6 +555,7 @@ class Instance(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -614,6 +647,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[builtins.str] name: The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_data: Single lined launch script as a string to configure server with additional user data
         """
@@ -717,6 +751,7 @@ class Instance(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -741,6 +776,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["key_pair_name"] = key_pair_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["arn"] = None
@@ -778,6 +814,7 @@ class Instance(pulumi.CustomResource):
             private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
             public_ip_address: Optional[pulumi.Input[builtins.str]] = None,
             ram_size: Optional[pulumi.Input[builtins.float]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             user_data: Optional[pulumi.Input[builtins.str]] = None,
@@ -811,6 +848,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_ip_address: The private IP address of the instance.
         :param pulumi.Input[builtins.str] public_ip_address: The public IP address of the instance.
         :param pulumi.Input[builtins.float] ram_size: The amount of RAM in GB on the instance (e.g., 1.0).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_data: Single lined launch script as a string to configure server with additional user data
@@ -835,6 +873,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["private_ip_address"] = private_ip_address
         __props__.__dict__["public_ip_address"] = public_ip_address
         __props__.__dict__["ram_size"] = ram_size
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["user_data"] = user_data
@@ -967,6 +1006,14 @@ class Instance(pulumi.CustomResource):
         The amount of RAM in GB on the instance (e.g., 1.0).
         """
         return pulumi.get(self, "ram_size")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

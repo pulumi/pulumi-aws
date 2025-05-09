@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetHostedZoneIdResult {
@@ -17,7 +15,7 @@ public final class GetHostedZoneIdResult {
      * 
      */
     private String id;
-    private @Nullable String region;
+    private String region;
 
     private GetHostedZoneIdResult() {}
     /**
@@ -27,8 +25,8 @@ public final class GetHostedZoneIdResult {
     public String id() {
         return this.id;
     }
-    public Optional<String> region() {
-        return Optional.ofNullable(this.region);
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -41,7 +39,7 @@ public final class GetHostedZoneIdResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable String region;
+        private String region;
         public Builder() {}
         public Builder(GetHostedZoneIdResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,8 +56,10 @@ public final class GetHostedZoneIdResult {
             return this;
         }
         @CustomType.Setter
-        public Builder region(@Nullable String region) {
-
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetHostedZoneIdResult", "region");
+            }
             this.region = region;
             return this;
         }

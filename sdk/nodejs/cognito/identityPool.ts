@@ -114,6 +114,10 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly openidConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
     public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
@@ -150,6 +154,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["developerProviderName"] = state ? state.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = state ? state.identityPoolName : undefined;
             resourceInputs["openidConnectProviderArns"] = state ? state.openidConnectProviderArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["samlProviderArns"] = state ? state.samlProviderArns : undefined;
             resourceInputs["supportedLoginProviders"] = state ? state.supportedLoginProviders : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -165,6 +170,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
             resourceInputs["openidConnectProviderArns"] = args ? args.openidConnectProviderArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
             resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -209,6 +215,10 @@ export interface IdentityPoolState {
      * Set of OpendID Connect provider ARNs.
      */
     openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
@@ -256,6 +266,10 @@ export interface IdentityPoolArgs {
      * Set of OpendID Connect provider ARNs.
      */
     openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */

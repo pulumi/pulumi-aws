@@ -173,6 +173,21 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the role this input assumes during and after creation.
      * 
      */
@@ -271,6 +286,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         this.inputSourceType = $.inputSourceType;
         this.mediaConnectFlows = $.mediaConnectFlows;
         this.name = $.name;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.sources = $.sources;
         this.tags = $.tags;
@@ -565,6 +581,27 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

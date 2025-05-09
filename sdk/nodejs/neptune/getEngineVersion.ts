@@ -29,6 +29,7 @@ export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.Invo
         "engine": args.engine,
         "parameterGroupFamily": args.parameterGroupFamily,
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -49,6 +50,7 @@ export interface GetEngineVersionArgs {
      * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
     preferredVersions?: string[];
+    region?: string;
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
@@ -74,6 +76,7 @@ export interface GetEngineVersionResult {
     readonly id: string;
     readonly parameterGroupFamily: string;
     readonly preferredVersions?: string[];
+    readonly region: string;
     /**
      * Set of the time zones supported by this engine.
      */
@@ -121,6 +124,7 @@ export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?:
         "engine": args.engine,
         "parameterGroupFamily": args.parameterGroupFamily,
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -141,6 +145,7 @@ export interface GetEngineVersionOutputArgs {
      * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */

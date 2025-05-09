@@ -28,7 +28,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, description=None, dns_configs=None, health_check_configs=None, health_check_custom_configs=None, id=None, name=None, namespace_id=None, tags=None):
+    def __init__(__self__, arn=None, description=None, dns_configs=None, health_check_configs=None, health_check_custom_configs=None, id=None, name=None, namespace_id=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetServiceResult:
         if namespace_id and not isinstance(namespace_id, str):
             raise TypeError("Expected argument 'namespace_id' to be a str")
         pulumi.set(__self__, "namespace_id", namespace_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -120,6 +123,11 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
         Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,11 +149,13 @@ class AwaitableGetServiceResult(GetServiceResult):
             id=self.id,
             name=self.name,
             namespace_id=self.namespace_id,
+            region=self.region,
             tags=self.tags)
 
 
 def get_service(name: Optional[builtins.str] = None,
                 namespace_id: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
@@ -169,6 +179,7 @@ def get_service(name: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
@@ -182,9 +193,11 @@ def get_service(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
                        namespace_id: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -208,6 +221,7 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult)
@@ -220,4 +234,5 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

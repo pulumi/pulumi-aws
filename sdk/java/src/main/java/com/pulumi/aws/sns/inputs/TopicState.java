@@ -379,6 +379,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      * 
      */
@@ -510,6 +525,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.owner = $.owner;
         this.policy = $.policy;
+        this.region = $.region;
         this.signatureVersion = $.signatureVersion;
         this.sqsFailureFeedbackRoleArn = $.sqsFailureFeedbackRoleArn;
         this.sqsSuccessFeedbackRoleArn = $.sqsSuccessFeedbackRoleArn;
@@ -1039,6 +1055,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

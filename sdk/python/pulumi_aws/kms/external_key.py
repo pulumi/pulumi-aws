@@ -27,6 +27,7 @@ class ExternalKeyArgs:
                  key_material_base64: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -38,6 +39,7 @@ class ExternalKeyArgs:
         :param pulumi.Input[builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         :param pulumi.Input[builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
@@ -55,6 +57,8 @@ class ExternalKeyArgs:
             pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if valid_to is not None:
@@ -146,6 +150,18 @@ class ExternalKeyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,6 +199,7 @@ class _ExternalKeyState:
                  key_usage: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None):
@@ -199,6 +216,7 @@ class _ExternalKeyState:
         :param pulumi.Input[builtins.str] key_usage: The cryptographic operations for which you can use the CMK.
         :param pulumi.Input[builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -225,6 +243,8 @@ class _ExternalKeyState:
             pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -366,6 +386,18 @@ class _ExternalKeyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -416,6 +448,7 @@ class ExternalKey(pulumi.CustomResource):
                  key_material_base64: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -449,6 +482,7 @@ class ExternalKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         :param pulumi.Input[builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
@@ -501,6 +535,7 @@ class ExternalKey(pulumi.CustomResource):
                  key_material_base64: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  valid_to: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -519,6 +554,7 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["key_material_base64"] = None if key_material_base64 is None else pulumi.Output.secret(key_material_base64)
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["valid_to"] = valid_to
             __props__.__dict__["arn"] = None
@@ -549,6 +585,7 @@ class ExternalKey(pulumi.CustomResource):
             key_usage: Optional[pulumi.Input[builtins.str]] = None,
             multi_region: Optional[pulumi.Input[builtins.bool]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             valid_to: Optional[pulumi.Input[builtins.str]] = None) -> 'ExternalKey':
@@ -570,6 +607,7 @@ class ExternalKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_usage: The cryptographic operations for which you can use the CMK.
         :param pulumi.Input[builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         :param pulumi.Input[builtins.str] policy: A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -589,6 +627,7 @@ class ExternalKey(pulumi.CustomResource):
         __props__.__dict__["key_usage"] = key_usage
         __props__.__dict__["multi_region"] = multi_region
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["valid_to"] = valid_to
@@ -681,6 +720,14 @@ class ExternalKey(pulumi.CustomResource):
         A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

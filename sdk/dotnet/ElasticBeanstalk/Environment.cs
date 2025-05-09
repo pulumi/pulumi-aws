@@ -204,6 +204,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
@@ -354,6 +360,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         [Input("pollInterval")]
         public Input<string>? PollInterval { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.EnvironmentSettingArgs>? _settings;
@@ -557,6 +569,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
             get => _queues ?? (_queues = new InputList<string>());
             set => _queues = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.EnvironmentSettingGetArgs>? _settings;

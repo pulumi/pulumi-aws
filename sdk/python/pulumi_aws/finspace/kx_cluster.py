@@ -38,6 +38,7 @@ class KxClusterArgs:
                  execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  initialization_script: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
                  scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -70,6 +71,7 @@ class KxClusterArgs:
         :param pulumi.Input[builtins.str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         :param pulumi.Input[builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[builtins.str] name: Unique name for the cluster that you want to create.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -103,6 +105,8 @@ class KxClusterArgs:
             pulumi.set(__self__, "initialization_script", initialization_script)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if savedown_storage_configuration is not None:
             pulumi.set(__self__, "savedown_storage_configuration", savedown_storage_configuration)
         if scaling_group_configuration is not None:
@@ -316,6 +320,18 @@ class KxClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="savedownStorageConfiguration")
     def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
         """
@@ -395,6 +411,7 @@ class _KxClusterState:
                  initialization_script: Optional[pulumi.Input[builtins.str]] = None,
                  last_modified_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_label: Optional[pulumi.Input[builtins.str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
                  scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
@@ -425,6 +442,7 @@ class _KxClusterState:
         :param pulumi.Input[builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[builtins.str] last_modified_timestamp: Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[builtins.str] name: Unique name for the cluster that you want to create.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
@@ -473,6 +491,8 @@ class _KxClusterState:
             pulumi.set(__self__, "last_modified_timestamp", last_modified_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_label is not None:
             pulumi.set(__self__, "release_label", release_label)
         if savedown_storage_configuration is not None:
@@ -689,6 +709,18 @@ class _KxClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -831,6 +863,7 @@ class KxCluster(pulumi.CustomResource):
                  execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  initialization_script: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_label: Optional[pulumi.Input[builtins.str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
                  scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
@@ -870,6 +903,7 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         :param pulumi.Input[builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[builtins.str] name: Unique name for the cluster that you want to create.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
@@ -933,6 +967,7 @@ class KxCluster(pulumi.CustomResource):
                  execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  initialization_script: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_label: Optional[pulumi.Input[builtins.str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
                  scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
@@ -967,6 +1002,7 @@ class KxCluster(pulumi.CustomResource):
             __props__.__dict__["execution_role"] = execution_role
             __props__.__dict__["initialization_script"] = initialization_script
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
@@ -1012,6 +1048,7 @@ class KxCluster(pulumi.CustomResource):
             initialization_script: Optional[pulumi.Input[builtins.str]] = None,
             last_modified_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             release_label: Optional[pulumi.Input[builtins.str]] = None,
             savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
             scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
@@ -1047,6 +1084,7 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[builtins.str] last_modified_timestamp: Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[builtins.str] name: Unique name for the cluster that you want to create.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
@@ -1083,6 +1121,7 @@ class KxCluster(pulumi.CustomResource):
         __props__.__dict__["initialization_script"] = initialization_script
         __props__.__dict__["last_modified_timestamp"] = last_modified_timestamp
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["release_label"] = release_label
         __props__.__dict__["savedown_storage_configuration"] = savedown_storage_configuration
         __props__.__dict__["scaling_group_configuration"] = scaling_group_configuration
@@ -1224,6 +1263,14 @@ class KxCluster(pulumi.CustomResource):
         Unique name for the cluster that you want to create.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="releaseLabel")

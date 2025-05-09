@@ -92,6 +92,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Qualifier { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         /// </summary>
         [Output("runtimeVersionArn")]
@@ -164,6 +170,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Qualifier { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         /// </summary>
         [Input("runtimeVersionArn")]
@@ -202,6 +214,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.

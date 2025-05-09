@@ -228,6 +228,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Output("subnetId")]
@@ -366,6 +372,12 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? MaxAggregationInterval { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Input("subnetId")]
@@ -470,6 +482,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Subnet ID to attach to.

@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
         [Output("routingConfigurations")]
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.Bedrock
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routingConfigurations")]
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs>? _routingConfigurations;
 
@@ -210,6 +222,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routingConfigurations")]
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs>? _routingConfigurations;

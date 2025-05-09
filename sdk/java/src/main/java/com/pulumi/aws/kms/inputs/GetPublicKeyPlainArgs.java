@@ -54,11 +54,19 @@ public final class GetPublicKeyPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.keyId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPublicKeyPlainArgs() {}
 
     private GetPublicKeyPlainArgs(GetPublicKeyPlainArgs $) {
         this.grantTokens = $.grantTokens;
         this.keyId = $.keyId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -112,6 +120,11 @@ public final class GetPublicKeyPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder keyId(String keyId) {
             $.keyId = keyId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

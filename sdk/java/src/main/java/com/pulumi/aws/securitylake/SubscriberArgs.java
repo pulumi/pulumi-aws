@@ -36,6 +36,21 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
@@ -121,6 +136,7 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
 
     private SubscriberArgs(SubscriberArgs $) {
         this.accessType = $.accessType;
+        this.region = $.region;
         this.sources = $.sources;
         this.subscriberDescription = $.subscriberDescription;
         this.subscriberIdentity = $.subscriberIdentity;
@@ -166,6 +182,27 @@ public final class SubscriberArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accessType(String accessType) {
             return accessType(Output.of(accessType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

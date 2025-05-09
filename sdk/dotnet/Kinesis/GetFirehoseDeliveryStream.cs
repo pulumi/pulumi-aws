@@ -94,10 +94,13 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Kinesis Stream.
+        /// Name of the Kinesis Firehose Delivery Stream.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetFirehoseDeliveryStreamArgs()
         {
@@ -108,10 +111,13 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Kinesis Stream.
+        /// Name of the Kinesis Firehose Delivery Stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetFirehoseDeliveryStreamInvokeArgs()
         {
@@ -124,7 +130,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamResult
     {
         /// <summary>
-        /// ARN of the Kinesis Stream (same as id).
+        /// ARN of the Kinesis Firehose Delivery Stream (same as `id`).
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -132,6 +138,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetFirehoseDeliveryStreamResult(
@@ -139,11 +146,14 @@ namespace Pulumi.Aws.Kinesis
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             Arn = arn;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

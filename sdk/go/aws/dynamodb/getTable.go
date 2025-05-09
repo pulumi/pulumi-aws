@@ -52,6 +52,7 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 type LookupTableArgs struct {
 	// Name of the DynamoDB table.
 	Name                 string                        `pulumi:"name"`
+	Region               *string                       `pulumi:"region"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
 	Tags                 map[string]string             `pulumi:"tags"`
 }
@@ -72,6 +73,7 @@ type LookupTableResult struct {
 	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
 	RangeKey              string                        `pulumi:"rangeKey"`
 	ReadCapacity          int                           `pulumi:"readCapacity"`
+	Region                string                        `pulumi:"region"`
 	Replicas              []GetTableReplicaType         `pulumi:"replicas"`
 	ServerSideEncryption  GetTableServerSideEncryption  `pulumi:"serverSideEncryption"`
 	StreamArn             string                        `pulumi:"streamArn"`
@@ -97,6 +99,7 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 type LookupTableOutputArgs struct {
 	// Name of the DynamoDB table.
 	Name                 pulumi.StringInput                   `pulumi:"name"`
+	Region               pulumi.StringPtrInput                `pulumi:"region"`
 	ServerSideEncryption GetTableServerSideEncryptionPtrInput `pulumi:"serverSideEncryption"`
 	Tags                 pulumi.StringMapInput                `pulumi:"tags"`
 }
@@ -171,6 +174,10 @@ func (o LookupTableResultOutput) RangeKey() pulumi.StringOutput {
 
 func (o LookupTableResultOutput) ReadCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTableResult) int { return v.ReadCapacity }).(pulumi.IntOutput)
+}
+
+func (o LookupTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupTableResultOutput) Replicas() GetTableReplicaTypeArrayOutput {

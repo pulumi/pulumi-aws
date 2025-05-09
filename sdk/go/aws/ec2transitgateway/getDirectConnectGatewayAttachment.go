@@ -57,6 +57,7 @@ type GetDirectConnectGatewayAttachmentArgs struct {
 	DxGatewayId *string `pulumi:"dxGatewayId"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
+	Region  *string                                   `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
@@ -70,7 +71,8 @@ type GetDirectConnectGatewayAttachmentResult struct {
 	DxGatewayId *string                                   `pulumi:"dxGatewayId"`
 	Filters     []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Attachment.
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
@@ -91,6 +93,7 @@ type GetDirectConnectGatewayAttachmentOutputArgs struct {
 	DxGatewayId pulumi.StringPtrInput `pulumi:"dxGatewayId"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetDirectConnectGatewayAttachmentFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                             `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
@@ -134,6 +137,10 @@ func (o GetDirectConnectGatewayAttachmentResultOutput) Filters() GetDirectConnec
 // The provider-assigned unique ID for this managed resource.
 func (o GetDirectConnectGatewayAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Attachment.

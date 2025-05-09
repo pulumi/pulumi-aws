@@ -49,11 +49,19 @@ public final class GetLaunchPathsPlainArgs extends com.pulumi.resources.InvokeAr
         return this.productId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetLaunchPathsPlainArgs() {}
 
     private GetLaunchPathsPlainArgs(GetLaunchPathsPlainArgs $) {
         this.acceptLanguage = $.acceptLanguage;
         this.productId = $.productId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -95,6 +103,11 @@ public final class GetLaunchPathsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder productId(String productId) {
             $.productId = productId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

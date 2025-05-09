@@ -71,6 +71,8 @@ type EventSubscription struct {
 	EventCategories pulumi.StringArrayOutput `pulumi:"eventCategories"`
 	// Name of event subscription.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
@@ -130,6 +132,8 @@ type eventSubscriptionState struct {
 	EventCategories []string `pulumi:"eventCategories"`
 	// Name of event subscription.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// SNS topic arn to send events on.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
@@ -151,6 +155,8 @@ type EventSubscriptionState struct {
 	EventCategories pulumi.StringArrayInput
 	// Name of event subscription.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringPtrInput
 	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
@@ -174,6 +180,8 @@ type eventSubscriptionArgs struct {
 	EventCategories []string `pulumi:"eventCategories"`
 	// Name of event subscription.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// SNS topic arn to send events on.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
@@ -192,6 +200,8 @@ type EventSubscriptionArgs struct {
 	EventCategories pulumi.StringArrayInput
 	// Name of event subscription.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringInput
 	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
@@ -307,6 +317,11 @@ func (o EventSubscriptionOutput) EventCategories() pulumi.StringArrayOutput {
 // Name of event subscription.
 func (o EventSubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // SNS topic arn to send events on.

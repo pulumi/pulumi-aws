@@ -21,14 +21,18 @@ __all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
 class LifecyclePolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
-                 repository: pulumi.Input[builtins.str]):
+                 repository: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "repository", repository)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,21 +58,37 @@ class LifecyclePolicyArgs:
     def repository(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "repository", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LifecyclePolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_id is not None:
             pulumi.set(__self__, "registry_id", registry_id)
         if repository is not None:
@@ -85,6 +105,18 @@ class _LifecyclePolicyState:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="registryId")
@@ -120,6 +152,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -200,6 +233,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
         """
         ...
@@ -299,6 +333,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -312,6 +347,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -327,6 +363,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None,
             repository: Optional[pulumi.Input[builtins.str]] = None) -> 'LifecyclePolicy':
         """
@@ -337,6 +374,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
         """
@@ -345,6 +383,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__ = _LifecyclePolicyState.__new__(_LifecyclePolicyState)
 
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["registry_id"] = registry_id
         __props__.__dict__["repository"] = repository
         return LifecyclePolicy(resource_name, opts=opts, __props__=__props__)
@@ -356,6 +395,14 @@ class LifecyclePolicy(pulumi.CustomResource):
         The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registryId")

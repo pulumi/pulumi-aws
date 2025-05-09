@@ -51,6 +51,7 @@ export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.Invok
         "platformVersion": args.platformVersion,
         "propagateTags": args.propagateTags,
         "referenceId": args.referenceId,
+        "region": args.region,
         "startedBy": args.startedBy,
         "tags": args.tags,
         "taskDefinition": args.taskDefinition,
@@ -121,6 +122,7 @@ export interface GetTaskExecutionArgs {
      * The reference ID to use for the task.
      */
     referenceId?: string;
+    region?: string;
     /**
      * An optional tag specified when a task is started.
      */
@@ -160,6 +162,7 @@ export interface GetTaskExecutionResult {
     readonly platformVersion?: string;
     readonly propagateTags?: string;
     readonly referenceId?: string;
+    readonly region: string;
     readonly startedBy?: string;
     readonly tags?: {[key: string]: string};
     /**
@@ -212,6 +215,7 @@ export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: 
         "platformVersion": args.platformVersion,
         "propagateTags": args.propagateTags,
         "referenceId": args.referenceId,
+        "region": args.region,
         "startedBy": args.startedBy,
         "tags": args.tags,
         "taskDefinition": args.taskDefinition,
@@ -282,6 +286,7 @@ export interface GetTaskExecutionOutputArgs {
      * The reference ID to use for the task.
      */
     referenceId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * An optional tag specified when a task is started.
      */

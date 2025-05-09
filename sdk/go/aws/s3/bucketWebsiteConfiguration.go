@@ -132,6 +132,8 @@ type BucketWebsiteConfiguration struct {
 	IndexDocument BucketWebsiteConfigurationIndexDocumentPtrOutput `pulumi:"indexDocument"`
 	// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
 	RedirectAllRequestsTo BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput `pulumi:"redirectAllRequestsTo"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails pulumi.StringOutput `pulumi:"routingRuleDetails"`
@@ -195,6 +197,8 @@ type bucketWebsiteConfigurationState struct {
 	IndexDocument *BucketWebsiteConfigurationIndexDocument `pulumi:"indexDocument"`
 	// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
 	RedirectAllRequestsTo *BucketWebsiteConfigurationRedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails *string `pulumi:"routingRuleDetails"`
@@ -217,6 +221,8 @@ type BucketWebsiteConfigurationState struct {
 	IndexDocument BucketWebsiteConfigurationIndexDocumentPtrInput
 	// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
 	RedirectAllRequestsTo BucketWebsiteConfigurationRedirectAllRequestsToPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails pulumi.StringPtrInput
@@ -243,6 +249,8 @@ type bucketWebsiteConfigurationArgs struct {
 	IndexDocument *BucketWebsiteConfigurationIndexDocument `pulumi:"indexDocument"`
 	// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
 	RedirectAllRequestsTo *BucketWebsiteConfigurationRedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails *string `pulumi:"routingRuleDetails"`
@@ -262,6 +270,8 @@ type BucketWebsiteConfigurationArgs struct {
 	IndexDocument BucketWebsiteConfigurationIndexDocumentPtrInput
 	// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
 	RedirectAllRequestsTo BucketWebsiteConfigurationRedirectAllRequestsToPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails pulumi.StringPtrInput
@@ -385,6 +395,11 @@ func (o BucketWebsiteConfigurationOutput) RedirectAllRequestsTo() BucketWebsiteC
 	return o.ApplyT(func(v *BucketWebsiteConfiguration) BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput {
 		return v.RedirectAllRequestsTo
 	}).(BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketWebsiteConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)

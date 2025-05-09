@@ -21,7 +21,8 @@ __all__ = ['EnablerArgs', 'Enabler']
 class EnablerArgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 resource_types: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+                 resource_types: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Enabler resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
@@ -29,9 +30,12 @@ class EnablerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         pulumi.set(__self__, "resource_types", resource_types)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -60,22 +64,38 @@ class EnablerArgs:
     def resource_types(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
         pulumi.set(self, "resource_types", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EnablerState:
     def __init__(__self__, *,
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Enabler resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
         """
         if account_ids is not None:
             pulumi.set(__self__, "account_ids", account_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
 
@@ -91,6 +111,18 @@ class _EnablerState:
     @account_ids.setter
     def account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "account_ids", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceTypes")
@@ -116,6 +148,7 @@ class Enabler(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -155,6 +188,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
@@ -214,6 +248,7 @@ class Enabler(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -227,6 +262,7 @@ class Enabler(pulumi.CustomResource):
             if account_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'account_ids'")
             __props__.__dict__["account_ids"] = account_ids
+            __props__.__dict__["region"] = region
             if resource_types is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_types'")
             __props__.__dict__["resource_types"] = resource_types
@@ -241,6 +277,7 @@ class Enabler(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'Enabler':
         """
         Get an existing Enabler resource's state with the given name, id, and optional extra
@@ -251,6 +288,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
@@ -260,6 +298,7 @@ class Enabler(pulumi.CustomResource):
         __props__ = _EnablerState.__new__(_EnablerState)
 
         __props__.__dict__["account_ids"] = account_ids
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_types"] = resource_types
         return Enabler(resource_name, opts=opts, __props__=__props__)
 
@@ -271,6 +310,14 @@ class Enabler(pulumi.CustomResource):
         Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         """
         return pulumi.get(self, "account_ids")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceTypes")

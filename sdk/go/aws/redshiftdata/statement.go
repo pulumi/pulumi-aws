@@ -90,6 +90,8 @@ type Statement struct {
 	// The database user name.
 	DbUser     pulumi.StringPtrOutput        `pulumi:"dbUser"`
 	Parameters StatementParameterArrayOutput `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
 	// The SQL statement text to run.
@@ -147,6 +149,8 @@ type statementState struct {
 	// The database user name.
 	DbUser     *string              `pulumi:"dbUser"`
 	Parameters []StatementParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
@@ -169,6 +173,8 @@ type StatementState struct {
 	// The database user name.
 	DbUser     pulumi.StringPtrInput
 	Parameters StatementParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
@@ -195,6 +201,8 @@ type statementArgs struct {
 	// The database user name.
 	DbUser     *string              `pulumi:"dbUser"`
 	Parameters []StatementParameter `pulumi:"parameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
@@ -218,6 +226,8 @@ type StatementArgs struct {
 	// The database user name.
 	DbUser     pulumi.StringPtrInput
 	Parameters StatementParameterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
@@ -336,6 +346,11 @@ func (o StatementOutput) DbUser() pulumi.StringPtrOutput {
 
 func (o StatementOutput) Parameters() StatementParameterArrayOutput {
 	return o.ApplyT(func(v *Statement) StatementParameterArrayOutput { return v.Parameters }).(StatementParameterArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StatementOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name or ARN of the secret that enables access to the database.

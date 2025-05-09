@@ -81,7 +81,8 @@ type LookupSecretArgs struct {
 	// ARN of the secret to retrieve.
 	Arn *string `pulumi:"arn"`
 	// Name of the secret to retrieve.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -103,6 +104,7 @@ type LookupSecretResult struct {
 	Name            string `pulumi:"name"`
 	// Resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
+	Region string `pulumi:"region"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,7 +123,8 @@ type LookupSecretOutputArgs struct {
 	// ARN of the secret to retrieve.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name of the secret to retrieve.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags of the secret.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -182,6 +185,10 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 // Resource-based policy document that's attached to the secret.
 func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags of the secret.

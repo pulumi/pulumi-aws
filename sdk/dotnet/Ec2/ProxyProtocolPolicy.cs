@@ -78,6 +78,12 @@ namespace Pulumi.Aws.Ec2
         [Output("loadBalancer")]
         public Output<string> LoadBalancer { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ProxyProtocolPolicy resource with the given unique name, arguments, and options.
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.Ec2
         [Input("loadBalancer", required: true)]
         public Input<string> LoadBalancer { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ProxyProtocolPolicyArgs()
         {
         }
@@ -171,6 +183,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("loadBalancer")]
         public Input<string>? LoadBalancer { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ProxyProtocolPolicyState()
         {

@@ -85,6 +85,10 @@ export class DataIntegration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
     public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
@@ -118,6 +122,7 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleConfig"] = state ? state.scheduleConfig : undefined;
             resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -136,6 +141,7 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
             resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +173,10 @@ export interface DataIntegrationState {
      * Specifies the name of the Data Integration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
@@ -201,6 +211,10 @@ export interface DataIntegrationArgs {
      * Specifies the name of the Data Integration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */

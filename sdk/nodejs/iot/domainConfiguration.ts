@@ -81,6 +81,10 @@ export class DomainConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
      */
     public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
@@ -127,6 +131,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainType"] = state ? state.domainType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverCertificateArns"] = state ? state.serverCertificateArns : undefined;
             resourceInputs["serviceType"] = state ? state.serviceType : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -139,6 +144,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
             resourceInputs["serviceType"] = args ? args.serviceType : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -178,6 +184,10 @@ export interface DomainConfigurationState {
      * The name of the domain configuration. This value must be unique to a region.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
      */
@@ -224,6 +234,10 @@ export interface DomainConfigurationArgs {
      * The name of the domain configuration. This value must be unique to a region.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
      */

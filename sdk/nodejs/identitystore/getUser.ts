@@ -34,6 +34,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
         "userId": args.userId,
     }, opts);
 }
@@ -52,6 +53,10 @@ export interface GetUserArgs {
      * The following arguments are optional:
      */
     identityStoreId: string;
+    /**
+     * The region of the address.
+     */
+    region?: string;
     /**
      * The identifier for a user in the Identity Store.
      *
@@ -111,6 +116,10 @@ export interface GetUserResult {
      */
     readonly profileUrl: string;
     /**
+     * The region of the address.
+     */
+    readonly region: string;
+    /**
      * The user's time zone.
      */
     readonly timezone: string;
@@ -155,6 +164,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
     return pulumi.runtime.invokeOutput("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
         "userId": args.userId,
     }, opts);
 }
@@ -173,6 +183,10 @@ export interface GetUserOutputArgs {
      * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * The region of the address.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier for a user in the Identity Store.
      *

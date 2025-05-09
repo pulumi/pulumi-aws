@@ -53,7 +53,8 @@ func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.
 // A collection of arguments for invoking getFindingIds.
 type GetFindingIdsArgs struct {
 	// ID of the GuardDuty detector.
-	DetectorId string `pulumi:"detectorId"`
+	DetectorId string  `pulumi:"detectorId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFindingIds.
@@ -64,6 +65,7 @@ type GetFindingIdsResult struct {
 	// Indicates whether findings are present for the specified detector.
 	HasFindings bool   `pulumi:"hasFindings"`
 	Id          string `pulumi:"id"`
+	Region      string `pulumi:"region"`
 }
 
 func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts ...pulumi.InvokeOption) GetFindingIdsResultOutput {
@@ -78,7 +80,8 @@ func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts
 // A collection of arguments for invoking getFindingIds.
 type GetFindingIdsOutputArgs struct {
 	// ID of the GuardDuty detector.
-	DetectorId pulumi.StringInput `pulumi:"detectorId"`
+	DetectorId pulumi.StringInput    `pulumi:"detectorId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetFindingIdsOutputArgs) ElementType() reflect.Type {
@@ -116,6 +119,10 @@ func (o GetFindingIdsResultOutput) HasFindings() pulumi.BoolOutput {
 
 func (o GetFindingIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetFindingIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFindingIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

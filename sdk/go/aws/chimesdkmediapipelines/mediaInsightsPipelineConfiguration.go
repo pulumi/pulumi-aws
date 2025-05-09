@@ -425,6 +425,8 @@ type MediaInsightsPipelineConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput `pulumi:"realTimeAlertConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringOutput `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
@@ -476,6 +478,8 @@ type mediaInsightsPipelineConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration `pulumi:"realTimeAlertConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn *string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
@@ -492,6 +496,8 @@ type MediaInsightsPipelineConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringPtrInput
 	// Key-value map of tags for the resource.
@@ -510,6 +516,8 @@ type mediaInsightsPipelineConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration `pulumi:"realTimeAlertConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
@@ -524,6 +532,8 @@ type MediaInsightsPipelineConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringInput
 	// Key-value map of tags for the resource.
@@ -639,6 +649,11 @@ func (o MediaInsightsPipelineConfigurationOutput) RealTimeAlertConfiguration() M
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
 		return v.RealTimeAlertConfiguration
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MediaInsightsPipelineConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.

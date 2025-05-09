@@ -149,6 +149,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> LastUpdatedDateTime { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Fully qualified domain name of the remote Directory.
         /// </summary>
         [Output("remoteDomainName")]
@@ -277,6 +283,12 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string> DirectoryId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Fully qualified domain name of the remote Directory.
         /// </summary>
         [Input("remoteDomainName", required: true)]
@@ -358,6 +370,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("lastUpdatedDateTime")]
         public Input<string>? LastUpdatedDateTime { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Fully qualified domain name of the remote Directory.

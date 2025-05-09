@@ -182,6 +182,9 @@ namespace Pulumi.Aws.Ebs
             set => _owners = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("restorableByUserIds")]
         private List<string>? _restorableByUserIds;
 
@@ -228,6 +231,9 @@ namespace Pulumi.Aws.Ebs
             set => _owners = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("restorableByUserIds")]
         private InputList<string>? _restorableByUserIds;
 
@@ -260,6 +266,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> Owners;
+        public readonly string Region;
         public readonly ImmutableArray<string> RestorableByUserIds;
 
         [OutputConstructor]
@@ -272,12 +279,15 @@ namespace Pulumi.Aws.Ebs
 
             ImmutableArray<string> owners,
 
+            string region,
+
             ImmutableArray<string> restorableByUserIds)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
             Owners = owners;
+            Region = region;
             RestorableByUserIds = restorableByUserIds;
         }
     }

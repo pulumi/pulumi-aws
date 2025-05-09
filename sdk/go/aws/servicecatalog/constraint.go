@@ -79,7 +79,9 @@ type Constraint struct {
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringOutput `pulumi:"productId"`
-	Status    pulumi.StringOutput `pulumi:"status"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -140,7 +142,9 @@ type constraintState struct {
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId *string `pulumi:"productId"`
-	Status    *string `pulumi:"status"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	Status *string `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -160,7 +164,9 @@ type ConstraintState struct {
 	PortfolioId pulumi.StringPtrInput
 	// Product identifier.
 	ProductId pulumi.StringPtrInput
-	Status    pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Status pulumi.StringPtrInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -182,6 +188,8 @@ type constraintArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId string `pulumi:"productId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -200,6 +208,8 @@ type ConstraintArgs struct {
 	PortfolioId pulumi.StringInput
 	// Product identifier.
 	ProductId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -321,6 +331,11 @@ func (o ConstraintOutput) PortfolioId() pulumi.StringOutput {
 // Product identifier.
 func (o ConstraintOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConstraintOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ConstraintOutput) Status() pulumi.StringOutput {

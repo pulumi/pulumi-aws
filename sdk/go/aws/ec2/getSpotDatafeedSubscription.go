@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSpotDatafeedSubscription(ctx, map[string]interface{}{}, nil)
+//			_, err := ec2.LookupSpotDatafeedSubscription(ctx, &ec2.LookupSpotDatafeedSubscriptionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,19 @@ import (
 //	}
 //
 // ```
-func LookupSpotDatafeedSubscription(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSpotDatafeedSubscriptionResult, error) {
+func LookupSpotDatafeedSubscription(ctx *pulumi.Context, args *LookupSpotDatafeedSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSpotDatafeedSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpotDatafeedSubscriptionResult
-	err := ctx.Invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getSpotDatafeedSubscription.
+type LookupSpotDatafeedSubscriptionArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSpotDatafeedSubscription.
@@ -56,13 +61,25 @@ type LookupSpotDatafeedSubscriptionResult struct {
 	Id string `pulumi:"id"`
 	// The prefix for the data feed files.
 	Prefix string `pulumi:"prefix"`
+	Region string `pulumi:"region"`
 }
 
-func LookupSpotDatafeedSubscriptionOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSpotDatafeedSubscriptionResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSpotDatafeedSubscriptionResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", nil, LookupSpotDatafeedSubscriptionResultOutput{}, options).(LookupSpotDatafeedSubscriptionResultOutput), nil
-	}).(LookupSpotDatafeedSubscriptionResultOutput)
+func LookupSpotDatafeedSubscriptionOutput(ctx *pulumi.Context, args LookupSpotDatafeedSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupSpotDatafeedSubscriptionResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (LookupSpotDatafeedSubscriptionResultOutput, error) {
+			args := v.(LookupSpotDatafeedSubscriptionArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args, LookupSpotDatafeedSubscriptionResultOutput{}, options).(LookupSpotDatafeedSubscriptionResultOutput), nil
+		}).(LookupSpotDatafeedSubscriptionResultOutput)
+}
+
+// A collection of arguments for invoking getSpotDatafeedSubscription.
+type LookupSpotDatafeedSubscriptionOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (LookupSpotDatafeedSubscriptionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSpotDatafeedSubscriptionArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSpotDatafeedSubscription.
@@ -93,6 +110,10 @@ func (o LookupSpotDatafeedSubscriptionResultOutput) Id() pulumi.StringOutput {
 // The prefix for the data feed files.
 func (o LookupSpotDatafeedSubscriptionResultOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o LookupSpotDatafeedSubscriptionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

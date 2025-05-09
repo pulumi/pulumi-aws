@@ -60,6 +60,8 @@ type ServiceNetworkVpcAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The account that created the association.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -115,6 +117,8 @@ type serviceNetworkVpcAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// The account that created the association.
 	CreatedBy *string `pulumi:"createdBy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IDs of the security groups.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -135,6 +139,8 @@ type ServiceNetworkVpcAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// The account that created the association.
 	CreatedBy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -155,6 +161,8 @@ func (ServiceNetworkVpcAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkVpcAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IDs of the security groups.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -168,6 +176,8 @@ type serviceNetworkVpcAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
 type ServiceNetworkVpcAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -274,6 +284,11 @@ func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringOutput {
 // The account that created the association.
 func (o ServiceNetworkVpcAssociationOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceNetworkVpcAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IDs of the security groups.

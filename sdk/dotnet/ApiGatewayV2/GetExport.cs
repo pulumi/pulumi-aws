@@ -117,6 +117,9 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("outputType", required: true)]
         public string OutputType { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
         /// </summary>
@@ -161,6 +164,9 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("outputType", required: true)]
         public Input<string> OutputType { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
         /// </summary>
@@ -195,6 +201,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public readonly string Id;
         public readonly bool? IncludeExtensions;
         public readonly string OutputType;
+        public readonly string Region;
         public readonly string Specification;
         public readonly string? StageName;
 
@@ -212,6 +219,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
             string outputType,
 
+            string region,
+
             string specification,
 
             string? stageName)
@@ -222,6 +231,7 @@ namespace Pulumi.Aws.ApiGatewayV2
             Id = id;
             IncludeExtensions = includeExtensions;
             OutputType = outputType;
+            Region = region;
             Specification = specification;
             StageName = stageName;
         }

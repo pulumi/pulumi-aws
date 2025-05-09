@@ -76,6 +76,21 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.policyStoreId);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PolicyState() {}
 
     private PolicyState(PolicyState $) {
@@ -83,6 +98,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         this.definition = $.definition;
         this.policyId = $.policyId;
         this.policyStoreId = $.policyStoreId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PolicyState build() {

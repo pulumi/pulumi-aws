@@ -62,6 +62,8 @@ type BgpPeer struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
 }
@@ -123,6 +125,8 @@ type bgpPeerState struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress *string `pulumi:"customerAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
 }
@@ -146,6 +150,8 @@ type BgpPeerState struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringPtrInput
 }
@@ -167,6 +173,8 @@ type bgpPeerArgs struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress *string `pulumi:"customerAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
 }
@@ -185,6 +193,8 @@ type BgpPeerArgs struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringInput
 }
@@ -316,6 +326,11 @@ func (o BgpPeerOutput) BgpStatus() pulumi.StringOutput {
 // Required for IPv4 BGP peers on public virtual interfaces.
 func (o BgpPeerOutput) CustomerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BgpPeerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the Direct Connect virtual interface on which to create the BGP peer.

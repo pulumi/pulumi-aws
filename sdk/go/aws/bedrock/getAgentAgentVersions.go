@@ -56,6 +56,7 @@ type GetAgentAgentVersionsArgs struct {
 	AgentId string `pulumi:"agentId"`
 	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
+	Region                *string                                    `pulumi:"region"`
 }
 
 // A collection of values returned by getAgentAgentVersions.
@@ -64,7 +65,8 @@ type GetAgentAgentVersionsResult struct {
 	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersionsOutputArgs, opts ...pulumi.InvokeOption) GetAgentAgentVersionsResultOutput {
@@ -82,6 +84,7 @@ type GetAgentAgentVersionsOutputArgs struct {
 	AgentId pulumi.StringInput `pulumi:"agentId"`
 	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
 	AgentVersionSummaries GetAgentAgentVersionsAgentVersionSummaryArrayInput `pulumi:"agentVersionSummaries"`
+	Region                pulumi.StringPtrInput                              `pulumi:"region"`
 }
 
 func (GetAgentAgentVersionsOutputArgs) ElementType() reflect.Type {
@@ -117,6 +120,10 @@ func (o GetAgentAgentVersionsResultOutput) AgentVersionSummaries() GetAgentAgent
 // The provider-assigned unique ID for this managed resource.
 func (o GetAgentAgentVersionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAgentAgentVersionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentAgentVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

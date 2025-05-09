@@ -71,6 +71,8 @@ type EfsLocation struct {
 	FileSystemAccessRoleArn pulumi.StringPtrOutput `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption pulumi.StringPtrOutput `pulumi:"inTransitEncryption"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,6 +130,8 @@ type efsLocationState struct {
 	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption *string `pulumi:"inTransitEncryption"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -150,6 +154,8 @@ type EfsLocationState struct {
 	FileSystemAccessRoleArn pulumi.StringPtrInput
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,6 +180,8 @@ type efsLocationArgs struct {
 	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption *string `pulumi:"inTransitEncryption"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -192,6 +200,8 @@ type EfsLocationArgs struct {
 	FileSystemAccessRoleArn pulumi.StringPtrInput
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -313,6 +323,11 @@ func (o EfsLocationOutput) FileSystemAccessRoleArn() pulumi.StringPtrOutput {
 // Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 func (o EfsLocationOutput) InTransitEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.InTransitEncryption }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EfsLocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Subdirectory to perform actions as source or destination. Default `/`.

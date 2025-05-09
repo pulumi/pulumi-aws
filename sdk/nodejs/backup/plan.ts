@@ -84,6 +84,10 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
     public readonly rules!: pulumi.Output<outputs.backup.PlanRule[]>;
@@ -116,6 +120,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["advancedBackupSettings"] = state ? state.advancedBackupSettings : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -127,6 +132,7 @@ export class Plan extends pulumi.CustomResource {
             }
             resourceInputs["advancedBackupSettings"] = args ? args.advancedBackupSettings : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -154,6 +160,10 @@ export interface PlanState {
      * The display name of a backup plan.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
@@ -184,6 +194,10 @@ export interface PlanArgs {
      * The display name of a backup plan.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */

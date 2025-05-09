@@ -52,7 +52,8 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-	Identifier string `pulumi:"identifier"`
+	Identifier string  `pulumi:"identifier"`
+	Region     *string `pulumi:"region"`
 	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -70,6 +71,7 @@ type LookupResourceResult struct {
 	Identifier string `pulumi:"identifier"`
 	// JSON string matching the CloudFormation resource type schema with current configuration.
 	Properties    string  `pulumi:"properties"`
+	Region        string  `pulumi:"region"`
 	RoleArn       *string `pulumi:"roleArn"`
 	TypeName      string  `pulumi:"typeName"`
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -87,7 +89,8 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-	Identifier pulumi.StringInput `pulumi:"identifier"`
+	Identifier pulumi.StringInput    `pulumi:"identifier"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -129,6 +132,10 @@ func (o LookupResourceResultOutput) Identifier() pulumi.StringOutput {
 // JSON string matching the CloudFormation resource type schema with current configuration.
 func (o LookupResourceResultOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Properties }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResourceResultOutput) RoleArn() pulumi.StringPtrOutput {

@@ -68,6 +68,10 @@ export class LogStream extends pulumi.CustomResource {
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogStream resource with the given unique name, arguments, and options.
@@ -85,6 +89,7 @@ export class LogStream extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogStreamArgs | undefined;
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
@@ -92,6 +97,7 @@ export class LogStream extends pulumi.CustomResource {
             }
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -115,6 +121,10 @@ export interface LogStreamState {
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -129,4 +139,8 @@ export interface LogStreamArgs {
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

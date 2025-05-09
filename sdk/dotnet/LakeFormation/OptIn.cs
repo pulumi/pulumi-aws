@@ -54,6 +54,12 @@ namespace Pulumi.Aws.LakeFormation
         public Output<ImmutableArray<Outputs.OptInPrincipal>> Principals { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Structure for the resource. See Resource for more details.
         /// </summary>
         [Output("resourceDatas")]
@@ -129,6 +135,12 @@ namespace Pulumi.Aws.LakeFormation
             set => _principals = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceDatas")]
         private InputList<Inputs.OptInResourceDataArgs>? _resourceDatas;
 
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.LakeFormation
             get => _principals ?? (_principals = new InputList<Inputs.OptInPrincipalGetArgs>());
             set => _principals = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceDatas")]
         private InputList<Inputs.OptInResourceDataGetArgs>? _resourceDatas;

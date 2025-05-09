@@ -30,6 +30,8 @@ type RoleAlias struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrOutput `pulumi:"credentialDuration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -80,6 +82,8 @@ type roleAliasState struct {
 	Arn *string `pulumi:"arn"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration *int `pulumi:"credentialDuration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The identity of the role to which the alias refers.
 	RoleArn *string `pulumi:"roleArn"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -95,6 +99,8 @@ type RoleAliasState struct {
 	Arn pulumi.StringPtrInput
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +118,8 @@ type roleAliasArgs struct {
 	Alias string `pulumi:"alias"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration *int `pulumi:"credentialDuration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The identity of the role to which the alias refers.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -124,6 +132,8 @@ type RoleAliasArgs struct {
 	Alias pulumi.StringInput
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -230,6 +240,11 @@ func (o RoleAliasOutput) Arn() pulumi.StringOutput {
 // The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 func (o RoleAliasOutput) CredentialDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.IntPtrOutput { return v.CredentialDuration }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RoleAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The identity of the role to which the alias refers.

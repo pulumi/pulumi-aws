@@ -36,6 +36,7 @@ public final class GetRouteTableResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Route Table
      * 
@@ -79,6 +80,9 @@ public final class GetRouteTableResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Route Table
      * 
@@ -108,6 +112,7 @@ public final class GetRouteTableResult {
         private Boolean defaultPropagationRouteTable;
         private @Nullable List<GetRouteTableFilter> filters;
         private String id;
+        private String region;
         private Map<String,String> tags;
         private String transitGatewayId;
         public Builder() {}
@@ -118,6 +123,7 @@ public final class GetRouteTableResult {
     	      this.defaultPropagationRouteTable = defaults.defaultPropagationRouteTable;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
@@ -164,6 +170,14 @@ public final class GetRouteTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetRouteTableResult", "tags");
@@ -186,6 +200,7 @@ public final class GetRouteTableResult {
             _resultValue.defaultPropagationRouteTable = defaultPropagationRouteTable;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.transitGatewayId = transitGatewayId;
             return _resultValue;

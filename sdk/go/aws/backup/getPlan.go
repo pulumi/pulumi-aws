@@ -51,7 +51,8 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getPlan.
 type LookupPlanArgs struct {
 	// Backup plan ID.
-	PlanId string `pulumi:"planId"`
+	PlanId string  `pulumi:"planId"`
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,6 +66,7 @@ type LookupPlanResult struct {
 	// Display name of a backup plan.
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
+	Region string `pulumi:"region"`
 	// Rules of a backup plan.
 	Rules []GetPlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
@@ -85,7 +87,8 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 // A collection of arguments for invoking getPlan.
 type LookupPlanOutputArgs struct {
 	// Backup plan ID.
-	PlanId pulumi.StringInput `pulumi:"planId"`
+	PlanId pulumi.StringInput    `pulumi:"planId"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -126,6 +129,10 @@ func (o LookupPlanResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupPlanResultOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Rules of a backup plan.

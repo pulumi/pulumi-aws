@@ -34,6 +34,7 @@ class TableArgs:
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -62,6 +63,7 @@ class TableArgs:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -101,6 +103,8 @@ class TableArgs:
             pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
             pulumi.set(__self__, "read_capacity", read_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if restore_date_time is not None:
@@ -274,6 +278,18 @@ class TableArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
         """
         Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -435,6 +451,7 @@ class _TableState:
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -467,6 +484,7 @@ class _TableState:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -511,6 +529,8 @@ class _TableState:
             pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
             pulumi.set(__self__, "read_capacity", read_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if restore_date_time is not None:
@@ -699,6 +719,18 @@ class _TableState:
     @read_capacity.setter
     def read_capacity(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "read_capacity", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -903,6 +935,7 @@ class Table(pulumi.CustomResource):
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1079,6 +1112,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1274,6 +1308,7 @@ class Table(pulumi.CustomResource):
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1307,6 +1342,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
             __props__.__dict__["range_key"] = range_key
             __props__.__dict__["read_capacity"] = read_capacity
+            __props__.__dict__["region"] = region
             __props__.__dict__["replicas"] = replicas
             __props__.__dict__["restore_date_time"] = restore_date_time
             __props__.__dict__["restore_source_name"] = restore_source_name
@@ -1346,6 +1382,7 @@ class Table(pulumi.CustomResource):
             point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
             range_key: Optional[pulumi.Input[builtins.str]] = None,
             read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
             restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
             restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1383,6 +1420,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1418,6 +1456,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
         __props__.__dict__["range_key"] = range_key
         __props__.__dict__["read_capacity"] = read_capacity
+        __props__.__dict__["region"] = region
         __props__.__dict__["replicas"] = replicas
         __props__.__dict__["restore_date_time"] = restore_date_time
         __props__.__dict__["restore_source_name"] = restore_source_name
@@ -1540,6 +1579,14 @@ class Table(pulumi.CustomResource):
         Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "read_capacity")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

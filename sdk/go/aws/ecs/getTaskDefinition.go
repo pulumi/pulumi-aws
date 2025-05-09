@@ -89,6 +89,7 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, o
 
 // A collection of arguments for invoking getTaskDefinition.
 type LookupTaskDefinitionArgs struct {
+	Region *string `pulumi:"region"`
 	// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -126,6 +127,7 @@ type LookupTaskDefinitionResult struct {
 	PlacementConstraints []GetTaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfigurations []GetTaskDefinitionProxyConfiguration `pulumi:"proxyConfigurations"`
+	Region              string                                `pulumi:"region"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
@@ -152,6 +154,7 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 
 // A collection of arguments for invoking getTaskDefinition.
 type LookupTaskDefinitionOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }
@@ -251,6 +254,10 @@ func (o LookupTaskDefinitionResultOutput) PlacementConstraints() GetTaskDefiniti
 // Configuration block for the App Mesh proxy. Detailed below.
 func (o LookupTaskDefinitionResultOutput) ProxyConfigurations() GetTaskDefinitionProxyConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionProxyConfiguration { return v.ProxyConfigurations }).(GetTaskDefinitionProxyConfigurationArrayOutput)
+}
+
+func (o LookupTaskDefinitionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.

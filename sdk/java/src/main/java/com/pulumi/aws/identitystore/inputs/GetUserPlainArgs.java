@@ -51,6 +51,21 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * The region of the address.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return The region of the address.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The identifier for a user in the Identity Store.
      * 
      * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
@@ -74,6 +89,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserPlainArgs(GetUserPlainArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
         this.identityStoreId = $.identityStoreId;
+        this.region = $.region;
         this.userId = $.userId;
     }
 
@@ -116,6 +132,17 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder identityStoreId(String identityStoreId) {
             $.identityStoreId = identityStoreId;
+            return this;
+        }
+
+        /**
+         * @param region The region of the address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

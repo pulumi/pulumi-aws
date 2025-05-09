@@ -9,16 +9,15 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationPortalOption {
-    private @Nullable List<GetApplicationPortalOptionSignInOption> signInOptions;
+    private List<GetApplicationPortalOptionSignInOption> signInOptions;
     private String visibility;
 
     private GetApplicationPortalOption() {}
     public List<GetApplicationPortalOptionSignInOption> signInOptions() {
-        return this.signInOptions == null ? List.of() : this.signInOptions;
+        return this.signInOptions;
     }
     public String visibility() {
         return this.visibility;
@@ -33,7 +32,7 @@ public final class GetApplicationPortalOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetApplicationPortalOptionSignInOption> signInOptions;
+        private List<GetApplicationPortalOptionSignInOption> signInOptions;
         private String visibility;
         public Builder() {}
         public Builder(GetApplicationPortalOption defaults) {
@@ -43,8 +42,10 @@ public final class GetApplicationPortalOption {
         }
 
         @CustomType.Setter
-        public Builder signInOptions(@Nullable List<GetApplicationPortalOptionSignInOption> signInOptions) {
-
+        public Builder signInOptions(List<GetApplicationPortalOptionSignInOption> signInOptions) {
+            if (signInOptions == null) {
+              throw new MissingRequiredPropertyException("GetApplicationPortalOption", "signInOptions");
+            }
             this.signInOptions = signInOptions;
             return this;
         }

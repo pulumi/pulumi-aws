@@ -88,6 +88,11 @@ public final class GetImageResult {
      */
     private String platform;
     /**
+     * @return Region of the container image.
+     * 
+     */
+    private String region;
+    /**
      * @return Key-value map of resource tags for the image.
      * 
      */
@@ -201,6 +206,13 @@ public final class GetImageResult {
         return this.platform;
     }
     /**
+     * @return Region of the container image.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return Key-value map of resource tags for the image.
      * 
      */
@@ -239,6 +251,7 @@ public final class GetImageResult {
         private String osVersion;
         private List<GetImageOutputResource> outputResources;
         private String platform;
+        private String region;
         private Map<String,String> tags;
         private String version;
         public Builder() {}
@@ -259,6 +272,7 @@ public final class GetImageResult {
     	      this.osVersion = defaults.osVersion;
     	      this.outputResources = defaults.outputResources;
     	      this.platform = defaults.platform;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
         }
@@ -393,6 +407,14 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetImageResult", "tags");
@@ -425,6 +447,7 @@ public final class GetImageResult {
             _resultValue.osVersion = osVersion;
             _resultValue.outputResources = outputResources;
             _resultValue.platform = platform;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.version = version;
             return _resultValue;

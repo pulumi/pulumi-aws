@@ -68,6 +68,10 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
     public readonly sqlInjectionMatchTuples!: pulumi.Output<outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
@@ -86,10 +90,12 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SqlInjectionMatchSetState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
         } else {
             const args = argsOrState as SqlInjectionMatchSetArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,6 +112,10 @@ export interface SqlInjectionMatchSetState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
     sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple>[]>;
@@ -119,6 +129,10 @@ export interface SqlInjectionMatchSetArgs {
      * The name or description of the SizeConstraintSet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */

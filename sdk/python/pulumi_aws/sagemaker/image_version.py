@@ -27,6 +27,7 @@ class ImageVersionArgs:
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -38,6 +39,7 @@ class ImageVersionArgs:
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         """
@@ -53,6 +55,8 @@ class ImageVersionArgs:
             pulumi.set(__self__, "processor", processor)
         if programming_lang is not None:
             pulumi.set(__self__, "programming_lang", programming_lang)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_notes is not None:
             pulumi.set(__self__, "release_notes", release_notes)
         if vendor_guidance is not None:
@@ -143,6 +147,18 @@ class ImageVersionArgs:
         pulumi.set(self, "programming_lang", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseNotes")
     def release_notes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -180,6 +196,7 @@ class _ImageVersionState:
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
@@ -194,6 +211,7 @@ class _ImageVersionState:
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         :param pulumi.Input[builtins.int] version: The version of the image. If not specified, the latest version is described.
@@ -218,6 +236,8 @@ class _ImageVersionState:
             pulumi.set(__self__, "processor", processor)
         if programming_lang is not None:
             pulumi.set(__self__, "programming_lang", programming_lang)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_notes is not None:
             pulumi.set(__self__, "release_notes", release_notes)
         if vendor_guidance is not None:
@@ -343,6 +363,18 @@ class _ImageVersionState:
         pulumi.set(self, "programming_lang", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseNotes")
     def release_notes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -394,6 +426,7 @@ class ImageVersion(pulumi.CustomResource):
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -430,6 +463,7 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         """
@@ -485,6 +519,7 @@ class ImageVersion(pulumi.CustomResource):
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -507,6 +542,7 @@ class ImageVersion(pulumi.CustomResource):
             __props__.__dict__["ml_framework"] = ml_framework
             __props__.__dict__["processor"] = processor
             __props__.__dict__["programming_lang"] = programming_lang
+            __props__.__dict__["region"] = region
             __props__.__dict__["release_notes"] = release_notes
             __props__.__dict__["vendor_guidance"] = vendor_guidance
             __props__.__dict__["arn"] = None
@@ -533,6 +569,7 @@ class ImageVersion(pulumi.CustomResource):
             ml_framework: Optional[pulumi.Input[builtins.str]] = None,
             processor: Optional[pulumi.Input[builtins.str]] = None,
             programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             release_notes: Optional[pulumi.Input[builtins.str]] = None,
             vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'ImageVersion':
@@ -552,6 +589,7 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         :param pulumi.Input[builtins.int] version: The version of the image. If not specified, the latest version is described.
@@ -570,6 +608,7 @@ class ImageVersion(pulumi.CustomResource):
         __props__.__dict__["ml_framework"] = ml_framework
         __props__.__dict__["processor"] = processor
         __props__.__dict__["programming_lang"] = programming_lang
+        __props__.__dict__["region"] = region
         __props__.__dict__["release_notes"] = release_notes
         __props__.__dict__["vendor_guidance"] = vendor_guidance
         __props__.__dict__["version"] = version
@@ -651,6 +690,14 @@ class ImageVersion(pulumi.CustomResource):
         The supported programming language and its version.
         """
         return pulumi.get(self, "programming_lang")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="releaseNotes")

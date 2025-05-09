@@ -54,7 +54,8 @@ type LookupCertificateArgs struct {
 	// ARN of the certificate issued by the private certificate authority.
 	Arn string `pulumi:"arn"`
 	// ARN of the certificate authority.
-	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	CertificateAuthorityArn string  `pulumi:"certificateAuthorityArn"`
+	Region                  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCertificate.
@@ -66,7 +67,8 @@ type LookupCertificateResult struct {
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 	CertificateChain string `pulumi:"certificateChain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -83,7 +85,8 @@ type LookupCertificateOutputArgs struct {
 	// ARN of the certificate issued by the private certificate authority.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ARN of the certificate authority.
-	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
+	CertificateAuthorityArn pulumi.StringInput    `pulumi:"certificateAuthorityArn"`
+	Region                  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {
@@ -126,6 +129,10 @@ func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

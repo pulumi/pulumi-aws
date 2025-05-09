@@ -62,6 +62,10 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
     public readonly scalingInstructions!: pulumi.Output<outputs.autoscalingplans.ScalingPlanScalingInstruction[]>;
@@ -85,6 +89,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             const state = argsOrState as ScalingPlanState | undefined;
             resourceInputs["applicationSource"] = state ? state.applicationSource : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingInstructions"] = state ? state.scalingInstructions : undefined;
             resourceInputs["scalingPlanVersion"] = state ? state.scalingPlanVersion : undefined;
         } else {
@@ -97,6 +102,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             }
             resourceInputs["applicationSource"] = args ? args.applicationSource : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingInstructions"] = args ? args.scalingInstructions : undefined;
             resourceInputs["scalingPlanVersion"] = undefined /*out*/;
         }
@@ -117,6 +123,10 @@ export interface ScalingPlanState {
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
@@ -139,6 +149,10 @@ export interface ScalingPlanArgs {
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */

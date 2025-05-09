@@ -23,6 +23,7 @@ func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
+	Region  *string           `pulumi:"region"`
 	Secrets []GetSecretSecret `pulumi:"secrets"`
 }
 
@@ -30,6 +31,7 @@ type GetSecretArgs struct {
 type GetSecretResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id      string            `pulumi:"id"`
+	Region  string            `pulumi:"region"`
 	Secrets []GetSecretSecret `pulumi:"secrets"`
 }
 
@@ -44,6 +46,7 @@ func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getSecret.
 type GetSecretOutputArgs struct {
+	Region  pulumi.StringPtrInput     `pulumi:"region"`
 	Secrets GetSecretSecretArrayInput `pulumi:"secrets"`
 }
 
@@ -69,6 +72,10 @@ func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Co
 // The provider-assigned unique ID for this managed resource.
 func (o GetSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSecretResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecretResultOutput) Secrets() GetSecretSecretArrayOutput {

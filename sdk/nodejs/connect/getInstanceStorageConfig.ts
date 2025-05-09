@@ -28,6 +28,7 @@ export function getInstanceStorageConfig(args: GetInstanceStorageConfigArgs, opt
     return pulumi.runtime.invoke("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", {
         "associationId": args.associationId,
         "instanceId": args.instanceId,
+        "region": args.region,
         "resourceType": args.resourceType,
     }, opts);
 }
@@ -44,6 +45,7 @@ export interface GetInstanceStorageConfigArgs {
      * Reference to the hosting Amazon Connect Instance
      */
     instanceId: string;
+    region?: string;
     /**
      * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
      */
@@ -60,6 +62,7 @@ export interface GetInstanceStorageConfigResult {
      */
     readonly id: string;
     readonly instanceId: string;
+    readonly region: string;
     readonly resourceType: string;
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
@@ -87,6 +90,7 @@ export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOut
     return pulumi.runtime.invokeOutput("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", {
         "associationId": args.associationId,
         "instanceId": args.instanceId,
+        "region": args.region,
         "resourceType": args.resourceType,
     }, opts);
 }
@@ -103,6 +107,7 @@ export interface GetInstanceStorageConfigOutputArgs {
      * Reference to the hosting Amazon Connect Instance
      */
     instanceId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
      */

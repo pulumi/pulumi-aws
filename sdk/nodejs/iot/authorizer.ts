@@ -84,6 +84,10 @@ export class Authorizer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      */
     public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
@@ -125,6 +129,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["authorizerFunctionArn"] = state ? state.authorizerFunctionArn : undefined;
             resourceInputs["enableCachingForHttp"] = state ? state.enableCachingForHttp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["signingDisabled"] = state ? state.signingDisabled : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -139,6 +144,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
             resourceInputs["enableCachingForHttp"] = args ? args.enableCachingForHttp : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -174,6 +180,10 @@ export interface AuthorizerState {
      * The name of the authorizer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      */
@@ -216,6 +226,10 @@ export interface AuthorizerArgs {
      * The name of the authorizer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      */

@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class GetEndpointAssociationsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ID of the specific VPC Endpoint to retrieve.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class GetEndpointAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the specific VPC Endpoint to retrieve.
         /// </summary>
@@ -131,6 +137,7 @@ namespace Pulumi.Aws.Vpc
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string VpcEndpointId;
 
         [OutputConstructor]
@@ -139,10 +146,13 @@ namespace Pulumi.Aws.Vpc
 
             string id,
 
+            string region,
+
             string vpcEndpointId)
         {
             Associations = associations;
             Id = id;
+            Region = region;
             VpcEndpointId = vpcEndpointId;
         }
     }

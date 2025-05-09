@@ -13,18 +13,78 @@ namespace Pulumi.Aws.AppMesh
     {
         /// <summary>
         /// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppMesh.GetRoute.Invoke(new()
+        ///     {
+        ///         Name = "test-route",
+        ///         MeshName = "test-mesh",
+        ///         VirtualRouterName = "test-router",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:appmesh/getRoute:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppMesh.GetRoute.Invoke(new()
+        ///     {
+        ///         Name = "test-route",
+        ///         MeshName = "test-mesh",
+        ///         VirtualRouterName = "test-router",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:appmesh/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppMesh.GetRoute.Invoke(new()
+        ///     {
+        ///         Name = "test-route",
+        ///         MeshName = "test-mesh",
+        ///         VirtualRouterName = "test-router",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:appmesh/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
@@ -50,6 +110,9 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -94,6 +157,9 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +208,7 @@ namespace Pulumi.Aws.AppMesh
         public readonly string MeshName;
         public readonly string MeshOwner;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Resource owner's AWS account ID.
         /// </summary>
@@ -172,6 +239,8 @@ namespace Pulumi.Aws.AppMesh
 
             string name,
 
+            string region,
+
             string resourceOwner,
 
             ImmutableArray<Outputs.GetRouteSpecResult> specs,
@@ -187,6 +256,7 @@ namespace Pulumi.Aws.AppMesh
             MeshName = meshName;
             MeshOwner = meshOwner;
             Name = name;
+            Region = region;
             ResourceOwner = resourceOwner;
             Specs = specs;
             Tags = tags;

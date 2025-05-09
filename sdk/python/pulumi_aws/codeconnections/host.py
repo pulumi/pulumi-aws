@@ -25,6 +25,7 @@ class HostArgs:
                  provider_endpoint: pulumi.Input[builtins.str],
                  provider_type: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['HostTimeoutsArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
@@ -33,12 +34,15 @@ class HostArgs:
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         pulumi.set(__self__, "provider_endpoint", provider_endpoint)
         pulumi.set(__self__, "provider_type", provider_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -84,6 +88,18 @@ class HostArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -120,6 +136,7 @@ class _HostState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['HostTimeoutsArgs']] = None,
@@ -130,6 +147,7 @@ class _HostState:
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         if arn is not None:
@@ -140,6 +158,8 @@ class _HostState:
             pulumi.set(__self__, "provider_endpoint", provider_endpoint)
         if provider_type is not None:
             pulumi.set(__self__, "provider_type", provider_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -199,6 +219,18 @@ class _HostState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -248,6 +280,7 @@ class Host(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
@@ -284,6 +317,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         ...
@@ -337,6 +371,7 @@ class Host(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
@@ -356,6 +391,7 @@ class Host(pulumi.CustomResource):
             if provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_type'")
             __props__.__dict__["provider_type"] = provider_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["vpc_configuration"] = vpc_configuration
@@ -375,6 +411,7 @@ class Host(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             provider_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             provider_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
@@ -390,6 +427,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -400,6 +438,7 @@ class Host(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["provider_endpoint"] = provider_endpoint
         __props__.__dict__["provider_type"] = provider_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -437,6 +476,14 @@ class Host(pulumi.CustomResource):
         The name of the external provider where your third-party code repository is configured.
         """
         return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

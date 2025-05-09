@@ -28,6 +28,7 @@ public final class GetRegexPatternSetResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
      * 
@@ -60,6 +61,9 @@ public final class GetRegexPatternSetResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
      * 
@@ -84,6 +88,7 @@ public final class GetRegexPatternSetResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private List<GetRegexPatternSetRegularExpression> regularExpressions;
         private String scope;
         public Builder() {}
@@ -93,6 +98,7 @@ public final class GetRegexPatternSetResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.regularExpressions = defaults.regularExpressions;
     	      this.scope = defaults.scope;
         }
@@ -130,6 +136,14 @@ public final class GetRegexPatternSetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRegexPatternSetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regularExpressions(List<GetRegexPatternSetRegularExpression> regularExpressions) {
             if (regularExpressions == null) {
               throw new MissingRequiredPropertyException("GetRegexPatternSetResult", "regularExpressions");
@@ -154,6 +168,7 @@ public final class GetRegexPatternSetResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.regularExpressions = regularExpressions;
             _resultValue.scope = scope;
             return _resultValue;

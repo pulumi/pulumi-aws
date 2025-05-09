@@ -50,14 +50,14 @@ func GetRuntimeVersions(ctx *pulumi.Context, args *GetRuntimeVersionsArgs, opts 
 
 // A collection of arguments for invoking getRuntimeVersions.
 type GetRuntimeVersionsArgs struct {
-	// List of runtime versions. See `runtimeVersions` attribute reference.
-	RuntimeVersions []GetRuntimeVersionsRuntimeVersion `pulumi:"runtimeVersions"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRuntimeVersions.
 type GetRuntimeVersionsResult struct {
 	// Name of the AWS region from which runtime versions are fetched.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// List of runtime versions. See `runtimeVersions` attribute reference.
 	RuntimeVersions []GetRuntimeVersionsRuntimeVersion `pulumi:"runtimeVersions"`
 }
@@ -73,8 +73,7 @@ func GetRuntimeVersionsOutput(ctx *pulumi.Context, args GetRuntimeVersionsOutput
 
 // A collection of arguments for invoking getRuntimeVersions.
 type GetRuntimeVersionsOutputArgs struct {
-	// List of runtime versions. See `runtimeVersions` attribute reference.
-	RuntimeVersions GetRuntimeVersionsRuntimeVersionArrayInput `pulumi:"runtimeVersions"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetRuntimeVersionsOutputArgs) ElementType() reflect.Type {
@@ -99,6 +98,10 @@ func (o GetRuntimeVersionsResultOutput) ToGetRuntimeVersionsResultOutputWithCont
 // Name of the AWS region from which runtime versions are fetched.
 func (o GetRuntimeVersionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRuntimeVersionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of runtime versions. See `runtimeVersions` attribute reference.

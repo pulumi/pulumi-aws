@@ -47,6 +47,13 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         return this.namespaceId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -67,6 +74,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     private GetServiceArgs(GetServiceArgs $) {
         this.name = $.name;
         this.namespaceId = $.namespaceId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -128,6 +136,15 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder namespaceId(String namespaceId) {
             return namespaceId(Output.of(namespaceId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

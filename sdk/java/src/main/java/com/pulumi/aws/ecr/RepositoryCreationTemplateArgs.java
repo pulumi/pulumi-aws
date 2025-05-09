@@ -124,6 +124,21 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
         return this.prefix;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="repositoryPolicy")
     private @Nullable Output<String> repositoryPolicy;
 
@@ -156,6 +171,7 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
         this.imageTagMutability = $.imageTagMutability;
         this.lifecyclePolicy = $.lifecyclePolicy;
         this.prefix = $.prefix;
+        this.region = $.region;
         this.repositoryPolicy = $.repositoryPolicy;
         this.resourceTags = $.resourceTags;
     }
@@ -343,6 +359,27 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder repositoryPolicy(@Nullable Output<String> repositoryPolicy) {

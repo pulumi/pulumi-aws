@@ -245,6 +245,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Output("secretArn")]
@@ -326,6 +332,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EventConnectionArgs()
         {
         }
@@ -369,6 +381,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.

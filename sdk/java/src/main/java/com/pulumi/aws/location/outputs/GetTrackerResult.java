@@ -36,6 +36,7 @@ public final class GetTrackerResult {
      * 
      */
     private String positionFiltering;
+    private String region;
     /**
      * @return Key-value map of resource tags for the tracker.
      * 
@@ -89,6 +90,9 @@ public final class GetTrackerResult {
     public String positionFiltering() {
         return this.positionFiltering;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the tracker.
      * 
@@ -128,6 +132,7 @@ public final class GetTrackerResult {
         private String id;
         private String kmsKeyId;
         private String positionFiltering;
+        private String region;
         private Map<String,String> tags;
         private String trackerArn;
         private String trackerName;
@@ -140,6 +145,7 @@ public final class GetTrackerResult {
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.positionFiltering = defaults.positionFiltering;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.trackerArn = defaults.trackerArn;
     	      this.trackerName = defaults.trackerName;
@@ -187,6 +193,14 @@ public final class GetTrackerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetTrackerResult", "tags");
@@ -225,6 +239,7 @@ public final class GetTrackerResult {
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.positionFiltering = positionFiltering;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.trackerArn = trackerArn;
             _resultValue.trackerName = trackerName;

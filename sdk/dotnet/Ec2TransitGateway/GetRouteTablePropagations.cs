@@ -108,10 +108,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public string TransitGatewayRouteTableId { get; set; } = null!;
@@ -139,10 +140,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
@@ -166,6 +168,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Set of Transit Gateway Route Table Association identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
         public readonly string TransitGatewayRouteTableId;
 
         [OutputConstructor]
@@ -176,11 +179,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             ImmutableArray<string> ids,
 
+            string region,
+
             string transitGatewayRouteTableId)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
+            Region = region;
             TransitGatewayRouteTableId = transitGatewayRouteTableId;
         }
     }

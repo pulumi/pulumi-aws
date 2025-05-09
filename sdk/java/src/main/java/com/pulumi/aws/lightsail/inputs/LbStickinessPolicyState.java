@@ -62,12 +62,28 @@ public final class LbStickinessPolicyState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.lbName);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private LbStickinessPolicyState() {}
 
     private LbStickinessPolicyState(LbStickinessPolicyState $) {
         this.cookieDuration = $.cookieDuration;
         this.enabled = $.enabled;
         this.lbName = $.lbName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -149,6 +165,27 @@ public final class LbStickinessPolicyState extends com.pulumi.resources.Resource
          */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public LbStickinessPolicyState build() {

@@ -81,6 +81,10 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly principal!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The grant status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentArn"] = state ? state.parentArn : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -117,6 +122,7 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'grantArn'");
             }
             resourceInputs["grantArn"] = args ? args.grantArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["allowedOperations"] = undefined /*out*/;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["licenseArn"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface LicenseGrantAccepterState {
      */
     principal?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The grant status.
      */
     status?: pulumi.Input<string>;
@@ -181,4 +191,8 @@ export interface LicenseGrantAccepterArgs {
      * The ARN of the grant to accept.
      */
     grantArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

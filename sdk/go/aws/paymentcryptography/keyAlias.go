@@ -80,6 +80,8 @@ type KeyAlias struct {
 	AliasName pulumi.StringOutput `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn pulumi.StringPtrOutput `pulumi:"keyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewKeyAlias registers a new resource with the given unique name, arguments, and options.
@@ -121,6 +123,8 @@ type keyAliasState struct {
 	AliasName *string `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn *string `pulumi:"keyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type KeyAliasState struct {
@@ -130,6 +134,8 @@ type KeyAliasState struct {
 	AliasName pulumi.StringPtrInput
 	// ARN of the key.
 	KeyArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (KeyAliasState) ElementType() reflect.Type {
@@ -143,6 +149,8 @@ type keyAliasArgs struct {
 	AliasName string `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn *string `pulumi:"keyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a KeyAlias resource.
@@ -153,6 +161,8 @@ type KeyAliasArgs struct {
 	AliasName pulumi.StringInput
 	// ARN of the key.
 	KeyArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (KeyAliasArgs) ElementType() reflect.Type {
@@ -252,6 +262,11 @@ func (o KeyAliasOutput) AliasName() pulumi.StringOutput {
 // ARN of the key.
 func (o KeyAliasOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyAlias) pulumi.StringPtrOutput { return v.KeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KeyAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type KeyAliasArrayOutput struct{ *pulumi.OutputState }

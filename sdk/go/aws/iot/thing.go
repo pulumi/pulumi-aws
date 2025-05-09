@@ -60,6 +60,8 @@ type Thing struct {
 	DefaultClientId pulumi.StringOutput `pulumi:"defaultClientId"`
 	// The name of the thing.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The thing type name.
 	ThingTypeName pulumi.StringPtrOutput `pulumi:"thingTypeName"`
 	// The current version of the thing record in the registry.
@@ -104,6 +106,8 @@ type thingState struct {
 	DefaultClientId *string `pulumi:"defaultClientId"`
 	// The name of the thing.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The thing type name.
 	ThingTypeName *string `pulumi:"thingTypeName"`
 	// The current version of the thing record in the registry.
@@ -119,6 +123,8 @@ type ThingState struct {
 	DefaultClientId pulumi.StringPtrInput
 	// The name of the thing.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The thing type name.
 	ThingTypeName pulumi.StringPtrInput
 	// The current version of the thing record in the registry.
@@ -134,6 +140,8 @@ type thingArgs struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The name of the thing.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The thing type name.
 	ThingTypeName *string `pulumi:"thingTypeName"`
 }
@@ -144,6 +152,8 @@ type ThingArgs struct {
 	Attributes pulumi.StringMapInput
 	// The name of the thing.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The thing type name.
 	ThingTypeName pulumi.StringPtrInput
 }
@@ -253,6 +263,11 @@ func (o ThingOutput) DefaultClientId() pulumi.StringOutput {
 // The name of the thing.
 func (o ThingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ThingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The thing type name.

@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Detective
         [Output("graphArn")]
         public Output<string> GraphArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -93,6 +99,12 @@ namespace Pulumi.Aws.Detective
         [Input("graphArn", required: true)]
         public Input<string> GraphArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationConfigurationArgs()
         {
         }
@@ -112,6 +124,12 @@ namespace Pulumi.Aws.Detective
         /// </summary>
         [Input("graphArn")]
         public Input<string>? GraphArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationConfigurationState()
         {

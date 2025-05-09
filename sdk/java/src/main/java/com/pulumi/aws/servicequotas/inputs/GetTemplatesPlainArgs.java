@@ -3,11 +3,8 @@
 
 package com.pulumi.aws.servicequotas.inputs;
 
-import com.pulumi.aws.servicequotas.inputs.GetTemplatesTemplate;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,37 +18,45 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
      * AWS Region to which the quota increases apply.
      * 
      */
-    @Import(name="region", required=true)
-    private String region;
+    @Import(name="awsRegion")
+    private @Nullable String awsRegion;
 
     /**
      * @return AWS Region to which the quota increases apply.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> awsRegion() {
+        return Optional.ofNullable(this.awsRegion);
     }
 
     /**
-     * A list of quota increase templates for specified region. See `templates`.
+     * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
-    @Import(name="templates")
-    private @Nullable List<GetTemplatesTemplate> templates;
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    @Import(name="region")
+    private @Nullable String region;
 
     /**
-     * @return A list of quota increase templates for specified region. See `templates`.
+     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
-    public Optional<List<GetTemplatesTemplate>> templates() {
-        return Optional.ofNullable(this.templates);
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetTemplatesPlainArgs() {}
 
     private GetTemplatesPlainArgs(GetTemplatesPlainArgs $) {
+        this.awsRegion = $.awsRegion;
         this.region = $.region;
-        this.templates = $.templates;
     }
 
     public static Builder builder() {
@@ -73,41 +78,32 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param region AWS Region to which the quota increases apply.
+         * @param awsRegion AWS Region to which the quota increases apply.
          * 
          * @return builder
          * 
          */
-        public Builder region(String region) {
+        public Builder awsRegion(@Nullable String awsRegion) {
+            $.awsRegion = awsRegion;
+            return this;
+        }
+
+        /**
+         * @param region AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
+        public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param templates A list of quota increase templates for specified region. See `templates`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder templates(@Nullable List<GetTemplatesTemplate> templates) {
-            $.templates = templates;
-            return this;
-        }
-
-        /**
-         * @param templates A list of quota increase templates for specified region. See `templates`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder templates(GetTemplatesTemplate... templates) {
-            return templates(List.of(templates));
-        }
-
         public GetTemplatesPlainArgs build() {
-            if ($.region == null) {
-                throw new MissingRequiredPropertyException("GetTemplatesPlainArgs", "region");
-            }
             return $;
         }
     }

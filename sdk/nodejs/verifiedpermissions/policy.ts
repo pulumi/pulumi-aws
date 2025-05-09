@@ -80,6 +80,10 @@ export class Policy extends pulumi.CustomResource {
      * The Policy Store ID of the policy store.
      */
     public readonly policyStoreId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.policyStoreId === undefined) && !opts.urn) {
@@ -105,6 +110,7 @@ export class Policy extends pulumi.CustomResource {
             }
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
         }
@@ -133,6 +139,10 @@ export interface PolicyState {
      * The Policy Store ID of the policy store.
      */
     policyStoreId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -147,4 +157,8 @@ export interface PolicyArgs {
      * The Policy Store ID of the policy store.
      */
     policyStoreId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

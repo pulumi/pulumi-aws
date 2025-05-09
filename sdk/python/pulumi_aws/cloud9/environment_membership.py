@@ -22,16 +22,20 @@ class EnvironmentMembershipArgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[builtins.str],
                  permissions: pulumi.Input[builtins.str],
-                 user_arn: pulumi.Input[builtins.str]):
+                 user_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EnvironmentMembership resource.
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "user_arn", user_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="environmentId")
@@ -69,18 +73,32 @@ class EnvironmentMembershipArgs:
     def user_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "user_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EnvironmentMembershipState:
     def __init__(__self__, *,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentMembership resources.
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         :param pulumi.Input[builtins.str] user_id: The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
@@ -88,6 +106,8 @@ class _EnvironmentMembershipState:
             pulumi.set(__self__, "environment_id", environment_id)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if user_arn is not None:
             pulumi.set(__self__, "user_arn", user_arn)
         if user_id is not None:
@@ -116,6 +136,18 @@ class _EnvironmentMembershipState:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="userArn")
@@ -152,6 +184,7 @@ class EnvironmentMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -185,6 +218,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         """
         ...
@@ -237,6 +271,7 @@ class EnvironmentMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -253,6 +288,7 @@ class EnvironmentMembership(pulumi.CustomResource):
             if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["region"] = region
             if user_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_arn'")
             __props__.__dict__["user_arn"] = user_arn
@@ -269,6 +305,7 @@ class EnvironmentMembership(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             environment_id: Optional[pulumi.Input[builtins.str]] = None,
             permissions: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             user_arn: Optional[pulumi.Input[builtins.str]] = None,
             user_id: Optional[pulumi.Input[builtins.str]] = None) -> 'EnvironmentMembership':
         """
@@ -280,6 +317,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         :param pulumi.Input[builtins.str] user_id: The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
@@ -289,6 +327,7 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["region"] = region
         __props__.__dict__["user_arn"] = user_arn
         __props__.__dict__["user_id"] = user_id
         return EnvironmentMembership(resource_name, opts=opts, __props__=__props__)
@@ -308,6 +347,14 @@ class EnvironmentMembership(pulumi.CustomResource):
         The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         """
         return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="userArn")

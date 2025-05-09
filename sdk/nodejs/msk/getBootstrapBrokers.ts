@@ -22,6 +22,7 @@ export function getBootstrapBrokers(args: GetBootstrapBrokersArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getBootstrapBrokers:getBootstrapBrokers", {
         "clusterArn": args.clusterArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetBootstrapBrokersArgs {
      * ARN of the cluster the nodes belong to.
      */
     clusterArn: string;
+    region?: string;
 }
 
 /**
@@ -84,6 +86,7 @@ export interface GetBootstrapBrokersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Get a list of brokers that a client application can use to bootstrap.
@@ -103,6 +106,7 @@ export function getBootstrapBrokersOutput(args: GetBootstrapBrokersOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getBootstrapBrokers:getBootstrapBrokers", {
         "clusterArn": args.clusterArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -114,4 +118,5 @@ export interface GetBootstrapBrokersOutputArgs {
      * ARN of the cluster the nodes belong to.
      */
     clusterArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

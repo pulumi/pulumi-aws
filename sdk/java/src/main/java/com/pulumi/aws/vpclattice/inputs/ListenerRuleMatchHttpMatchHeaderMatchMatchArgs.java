@@ -46,14 +46,16 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
     }
 
     /**
-     * Specifies a prefix type match. Matches the value with the prefix.
+     * Specifies a prefix type match.
+     * Matches the value with the prefix.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Specifies a prefix type match. Matches the value with the prefix.
+     * @return Specifies a prefix type match.
+     * Matches the value with the prefix.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -129,7 +131,8 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param prefix Specifies a prefix type match. Matches the value with the prefix.
+         * @param prefix Specifies a prefix type match.
+         * Matches the value with the prefix.
          * 
          * @return builder
          * 
@@ -140,7 +143,8 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param prefix Specifies a prefix type match. Matches the value with the prefix.
+         * @param prefix Specifies a prefix type match.
+         * Matches the value with the prefix.
          * 
          * @return builder
          * 

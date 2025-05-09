@@ -48,6 +48,21 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      * 
      */
@@ -82,6 +97,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     private RouteArgs(RouteArgs $) {
         this.blackhole = $.blackhole;
         this.destinationCidrBlock = $.destinationCidrBlock;
+        this.region = $.region;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
@@ -144,6 +160,27 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destinationCidrBlock(String destinationCidrBlock) {
             return destinationCidrBlock(Output.of(destinationCidrBlock));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

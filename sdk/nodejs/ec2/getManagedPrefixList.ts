@@ -46,6 +46,7 @@ export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pul
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -56,6 +57,10 @@ export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pul
 export interface GetManagedPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetManagedPrefixListFilter[];
     /**
@@ -66,6 +71,7 @@ export interface GetManagedPrefixListArgs {
      * Name of the prefix list to select.
      */
     name?: string;
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -105,6 +111,7 @@ export interface GetManagedPrefixListResult {
      * Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -150,6 +157,7 @@ export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -160,6 +168,10 @@ export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs
 export interface GetManagedPrefixListOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListFilterArgs>[]>;
     /**
@@ -170,6 +182,7 @@ export interface GetManagedPrefixListOutputArgs {
      * Name of the prefix list to select.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

@@ -57,6 +57,7 @@ public final class GetNamespaceResult {
      */
     private String namespaceId;
     private String namespaceName;
+    private String region;
 
     private GetNamespaceResult() {}
     /**
@@ -125,6 +126,9 @@ public final class GetNamespaceResult {
     public String namespaceName() {
         return this.namespaceName;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -145,6 +149,7 @@ public final class GetNamespaceResult {
         private List<String> logExports;
         private String namespaceId;
         private String namespaceName;
+        private String region;
         public Builder() {}
         public Builder(GetNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -158,6 +163,7 @@ public final class GetNamespaceResult {
     	      this.logExports = defaults.logExports;
     	      this.namespaceId = defaults.namespaceId;
     	      this.namespaceName = defaults.namespaceName;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -246,6 +252,14 @@ public final class GetNamespaceResult {
             this.namespaceName = namespaceName;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetNamespaceResult build() {
             final var _resultValue = new GetNamespaceResult();
             _resultValue.adminUsername = adminUsername;
@@ -258,6 +272,7 @@ public final class GetNamespaceResult {
             _resultValue.logExports = logExports;
             _resultValue.namespaceId = namespaceId;
             _resultValue.namespaceName = namespaceName;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -129,8 +129,9 @@ type GetObjectArgs struct {
 	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
 	ChecksumMode *string `pulumi:"checksumMode"`
 	// Full path to the object inside the bucket
-	Key   string  `pulumi:"key"`
-	Range *string `pulumi:"range"`
+	Key    string  `pulumi:"key"`
+	Range  *string `pulumi:"range"`
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
@@ -189,6 +190,7 @@ type GetObjectResult struct {
 	// The date and time when this object's object lock will expire.
 	ObjectLockRetainUntilDate string  `pulumi:"objectLockRetainUntilDate"`
 	Range                     *string `pulumi:"range"`
+	Region                    string  `pulumi:"region"`
 	// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
 	ServerSideEncryption string `pulumi:"serverSideEncryption"`
 	// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
@@ -219,8 +221,9 @@ type GetObjectOutputArgs struct {
 	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
 	ChecksumMode pulumi.StringPtrInput `pulumi:"checksumMode"`
 	// Full path to the object inside the bucket
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Range pulumi.StringPtrInput `pulumi:"range"`
+	Key    pulumi.StringInput    `pulumi:"key"`
+	Range  pulumi.StringPtrInput `pulumi:"range"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
@@ -375,6 +378,10 @@ func (o GetObjectResultOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
 
 func (o GetObjectResultOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetObjectResult) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+func (o GetObjectResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.

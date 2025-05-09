@@ -70,6 +70,8 @@ type IngestionDestination struct {
 	IngestionArn pulumi.StringOutput `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrOutput `pulumi:"processingConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -123,6 +125,8 @@ type ingestionDestinationState struct {
 	IngestionArn *string `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -141,6 +145,8 @@ type IngestionDestinationState struct {
 	IngestionArn pulumi.StringPtrInput
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -161,6 +167,8 @@ type ingestionDestinationArgs struct {
 	IngestionArn string `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *IngestionDestinationTimeouts `pulumi:"timeouts"`
@@ -176,6 +184,8 @@ type IngestionDestinationArgs struct {
 	IngestionArn pulumi.StringInput
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts IngestionDestinationTimeoutsPtrInput
@@ -295,6 +305,11 @@ func (o IngestionDestinationOutput) ProcessingConfiguration() IngestionDestinati
 	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationProcessingConfigurationPtrOutput {
 		return v.ProcessingConfiguration
 	}).(IngestionDestinationProcessingConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IngestionDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

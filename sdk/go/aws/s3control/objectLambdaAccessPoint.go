@@ -90,6 +90,8 @@ type ObjectLambdaAccessPoint struct {
 	Configuration ObjectLambdaAccessPointConfigurationOutput `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewObjectLambdaAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +137,8 @@ type objectLambdaAccessPointState struct {
 	Configuration *ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ObjectLambdaAccessPointState struct {
@@ -148,6 +152,8 @@ type ObjectLambdaAccessPointState struct {
 	Configuration ObjectLambdaAccessPointConfigurationPtrInput
 	// The name for this Object Lambda Access Point.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointState) ElementType() reflect.Type {
@@ -161,6 +167,8 @@ type objectLambdaAccessPointArgs struct {
 	Configuration ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ObjectLambdaAccessPoint resource.
@@ -171,6 +179,8 @@ type ObjectLambdaAccessPointArgs struct {
 	Configuration ObjectLambdaAccessPointConfigurationInput
 	// The name for this Object Lambda Access Point.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointArgs) ElementType() reflect.Type {
@@ -283,6 +293,11 @@ func (o ObjectLambdaAccessPointOutput) Configuration() ObjectLambdaAccessPointCo
 // The name for this Object Lambda Access Point.
 func (o ObjectLambdaAccessPointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ObjectLambdaAccessPointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ObjectLambdaAccessPointArrayOutput struct{ *pulumi.OutputState }

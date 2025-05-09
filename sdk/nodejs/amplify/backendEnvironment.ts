@@ -75,6 +75,10 @@ export class BackendEnvironment extends pulumi.CustomResource {
      */
     public readonly environmentName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * AWS CloudFormation stack name of a backend environment.
      */
     public readonly stackName!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class BackendEnvironment extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["deploymentArtifacts"] = state ? state.deploymentArtifacts : undefined;
             resourceInputs["environmentName"] = state ? state.environmentName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["stackName"] = state ? state.stackName : undefined;
         } else {
             const args = argsOrState as BackendEnvironmentArgs | undefined;
@@ -108,6 +113,7 @@ export class BackendEnvironment extends pulumi.CustomResource {
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["deploymentArtifacts"] = args ? args.deploymentArtifacts : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["stackName"] = args ? args.stackName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -137,6 +143,10 @@ export interface BackendEnvironmentState {
      */
     environmentName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * AWS CloudFormation stack name of a backend environment.
      */
     stackName?: pulumi.Input<string>;
@@ -158,6 +168,10 @@ export interface BackendEnvironmentArgs {
      * Name for the backend environment.
      */
     environmentName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS CloudFormation stack name of a backend environment.
      */

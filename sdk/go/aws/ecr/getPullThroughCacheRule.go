@@ -51,7 +51,8 @@ func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCach
 // A collection of arguments for invoking getPullThroughCacheRule.
 type LookupPullThroughCacheRuleArgs struct {
 	// The repository name prefix to use when caching images from the source registry.
-	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
+	EcrRepositoryPrefix string  `pulumi:"ecrRepositoryPrefix"`
+	Region              *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPullThroughCacheRule.
@@ -62,7 +63,8 @@ type LookupPullThroughCacheRuleResult struct {
 	CustomRoleArn       string `pulumi:"customRoleArn"`
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId string `pulumi:"registryId"`
 	// The registry URL of the upstream registry to use as the source.
@@ -83,7 +85,8 @@ func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroug
 // A collection of arguments for invoking getPullThroughCacheRule.
 type LookupPullThroughCacheRuleOutputArgs struct {
 	// The repository name prefix to use when caching images from the source registry.
-	EcrRepositoryPrefix pulumi.StringInput `pulumi:"ecrRepositoryPrefix"`
+	EcrRepositoryPrefix pulumi.StringInput    `pulumi:"ecrRepositoryPrefix"`
+	Region              pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPullThroughCacheRuleOutputArgs) ElementType() reflect.Type {
@@ -122,6 +125,10 @@ func (o LookupPullThroughCacheRuleResultOutput) EcrRepositoryPrefix() pulumi.Str
 // The provider-assigned unique ID for this managed resource.
 func (o LookupPullThroughCacheRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPullThroughCacheRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID where the repository was created.

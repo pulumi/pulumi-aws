@@ -83,6 +83,12 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         /// </summary>
         [Output("secretBinary")]
@@ -165,6 +171,12 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class SecretVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("secretBinary")]
         private Input<string>? _secretBinary;
 
@@ -230,6 +242,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("secretBinary")]
         private Input<string>? _secretBinary;

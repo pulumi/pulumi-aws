@@ -85,6 +85,21 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
@@ -143,6 +158,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         this.jobStateTimeLimitActions = $.jobStateTimeLimitActions;
         this.name = $.name;
         this.priority = $.priority;
+        this.region = $.region;
         this.schedulingPolicyArn = $.schedulingPolicyArn;
         this.state = $.state;
         this.tags = $.tags;
@@ -271,6 +287,27 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

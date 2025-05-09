@@ -25,6 +25,7 @@ class NamespaceArgs:
                  namespace: pulumi.Input[builtins.str],
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None):
         """
@@ -34,6 +35,7 @@ class NamespaceArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] identity_store: User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -41,6 +43,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if identity_store is not None:
             pulumi.set(__self__, "identity_store", identity_store)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -86,6 +90,18 @@ class NamespaceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -115,6 +131,7 @@ class _NamespaceState:
                  creation_status: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None):
@@ -128,6 +145,7 @@ class _NamespaceState:
         :param pulumi.Input[builtins.str] namespace: Name of the namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -143,6 +161,8 @@ class _NamespaceState:
             pulumi.set(__self__, "identity_store", identity_store)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -226,6 +246,18 @@ class _NamespaceState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -269,6 +301,7 @@ class Namespace(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -301,6 +334,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace: Name of the namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -349,6 +383,7 @@ class Namespace(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -365,6 +400,7 @@ class Namespace(pulumi.CustomResource):
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -387,6 +423,7 @@ class Namespace(pulumi.CustomResource):
             creation_status: Optional[pulumi.Input[builtins.str]] = None,
             identity_store: Optional[pulumi.Input[builtins.str]] = None,
             namespace: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None) -> 'Namespace':
@@ -405,6 +442,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace: Name of the namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -418,6 +456,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["creation_status"] = creation_status
         __props__.__dict__["identity_store"] = identity_store
         __props__.__dict__["namespace"] = namespace
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -472,6 +511,14 @@ class Namespace(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

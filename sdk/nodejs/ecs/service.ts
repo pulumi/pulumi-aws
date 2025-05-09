@@ -249,6 +249,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
@@ -325,6 +329,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             resourceInputs["serviceConnectConfiguration"] = state ? state.serviceConnectConfiguration : undefined;
             resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
@@ -360,6 +365,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             resourceInputs["serviceConnectConfiguration"] = args ? args.serviceConnectConfiguration : undefined;
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
@@ -475,6 +481,10 @@ export interface ServiceState {
      * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     propagateTags?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
@@ -616,6 +626,10 @@ export interface ServiceArgs {
      * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     propagateTags?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */

@@ -89,6 +89,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> ContainerUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
         [Output("sasConfiguration")]
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.DataSync
         public Input<string> ContainerUrl { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
         [Input("sasConfiguration")]
@@ -282,6 +294,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("containerUrl")]
         public Input<string>? ContainerUrl { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.

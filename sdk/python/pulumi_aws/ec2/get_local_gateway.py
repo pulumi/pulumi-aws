@@ -29,7 +29,7 @@ class GetLocalGatewayResult:
     """
     A collection of values returned by getLocalGateway.
     """
-    def __init__(__self__, filters=None, id=None, outpost_arn=None, owner_id=None, state=None, tags=None):
+    def __init__(__self__, filters=None, id=None, outpost_arn=None, owner_id=None, region=None, state=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -42,6 +42,9 @@ class GetLocalGatewayResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -77,6 +80,11 @@ class GetLocalGatewayResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         State of the local gateway.
@@ -99,12 +107,14 @@ class AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
             id=self.id,
             outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
+            region=self.region,
             state=self.state,
             tags=self.tags)
 
 
 def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']]] = None,
                       id: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       state: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayResult:
@@ -132,12 +142,14 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired Local Gateway.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available
+           Local Gateways in the current region. The given filters must match exactly one
+           Local Gateway whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -148,10 +160,12 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
         id=pulumi.get(__ret__, 'id'),
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']]]]] = None,
                              id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayResult]:
@@ -179,12 +193,14 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired Local Gateway.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available
+           Local Gateways in the current region. The given filters must match exactly one
+           Local Gateway whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -194,5 +210,6 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
         id=pulumi.get(__response__, 'id'),
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

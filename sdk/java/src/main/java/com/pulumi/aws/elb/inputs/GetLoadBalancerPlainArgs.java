@@ -31,6 +31,13 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -42,6 +49,7 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
 
     private GetLoadBalancerPlainArgs(GetLoadBalancerPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -71,6 +79,11 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

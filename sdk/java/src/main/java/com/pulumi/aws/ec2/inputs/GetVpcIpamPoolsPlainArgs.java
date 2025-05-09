@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilter;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,8 @@ public final class GetVpcIpamPoolsPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * Custom filter block as described below.
      * 
+     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
+     * 
      */
     @Import(name="filters")
     private @Nullable List<GetVpcIpamPoolsFilter> filters;
@@ -25,15 +28,25 @@ public final class GetVpcIpamPoolsPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * @return Custom filter block as described below.
      * 
+     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
+     * 
      */
     public Optional<List<GetVpcIpamPoolsFilter>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetVpcIpamPoolsPlainArgs() {}
 
     private GetVpcIpamPoolsPlainArgs(GetVpcIpamPoolsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -57,6 +70,8 @@ public final class GetVpcIpamPoolsPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Custom filter block as described below.
          * 
+         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
+         * 
          * @return builder
          * 
          */
@@ -68,11 +83,18 @@ public final class GetVpcIpamPoolsPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Custom filter block as described below.
          * 
+         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
+         * 
          * @return builder
          * 
          */
         public Builder filters(GetVpcIpamPoolsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetVpcIpamPoolsPlainArgs build() {

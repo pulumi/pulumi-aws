@@ -96,6 +96,10 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
@@ -145,6 +149,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
@@ -163,6 +168,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             }
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -230,6 +236,10 @@ export interface ClusterSnapshotState {
      */
     port?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
@@ -269,6 +279,10 @@ export interface ClusterSnapshotArgs {
      * The Identifier for the snapshot.
      */
     dbClusterSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */

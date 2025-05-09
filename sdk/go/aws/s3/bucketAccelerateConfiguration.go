@@ -72,6 +72,8 @@ type BucketAccelerateConfiguration struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
@@ -125,6 +127,8 @@ type bucketAccelerateConfigurationState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status *string `pulumi:"status"`
 }
@@ -134,6 +138,8 @@ type BucketAccelerateConfigurationState struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status pulumi.StringPtrInput
 }
@@ -147,6 +153,8 @@ type bucketAccelerateConfigurationArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status string `pulumi:"status"`
 }
@@ -157,6 +165,8 @@ type BucketAccelerateConfigurationArgs struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status pulumi.StringInput
 }
@@ -256,6 +266,11 @@ func (o BucketAccelerateConfigurationOutput) Bucket() pulumi.StringOutput {
 // Account ID of the expected bucket owner.
 func (o BucketAccelerateConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketAccelerateConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketAccelerateConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.

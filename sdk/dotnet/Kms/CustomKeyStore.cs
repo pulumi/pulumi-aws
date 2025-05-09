@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Kms
         [Output("keyStorePassword")]
         public Output<string?> KeyStorePassword { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("trustAnchorCertificate")]
         public Output<string?> TrustAnchorCertificate { get; private set; } = null!;
 
@@ -209,6 +215,12 @@ namespace Pulumi.Aws.Kms
         [Input("keyStorePassword")]
         public Input<string>? KeyStorePassword { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("trustAnchorCertificate")]
         public Input<string>? TrustAnchorCertificate { get; set; }
 
@@ -254,6 +266,12 @@ namespace Pulumi.Aws.Kms
 
         [Input("keyStorePassword")]
         public Input<string>? KeyStorePassword { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("trustAnchorCertificate")]
         public Input<string>? TrustAnchorCertificate { get; set; }

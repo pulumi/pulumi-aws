@@ -113,6 +113,12 @@ namespace Pulumi.Aws.CloudSearch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Domain scaling parameters. Documented below.
         /// </summary>
         [Output("scalingParameters")]
@@ -201,6 +207,12 @@ namespace Pulumi.Aws.CloudSearch
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Domain scaling parameters. Documented below.
         /// </summary>
         [Input("scalingParameters")]
@@ -261,6 +273,12 @@ namespace Pulumi.Aws.CloudSearch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Domain scaling parameters. Documented below.

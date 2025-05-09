@@ -94,6 +94,10 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID the scanning configuration applies to.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryScanningConfigurationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["scanType"] = state ? state.scanType : undefined;
@@ -127,6 +132,7 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
             if ((!args || args.scanType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scanType'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scanType"] = args ? args.scanType : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -140,6 +146,10 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegistryScanningConfiguration resources.
  */
 export interface RegistryScanningConfigurationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID the scanning configuration applies to.
      */
@@ -158,6 +168,10 @@ export interface RegistryScanningConfigurationState {
  * The set of arguments for constructing a RegistryScanningConfiguration resource.
  */
 export interface RegistryScanningConfigurationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */

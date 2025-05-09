@@ -29,10 +29,12 @@ class DefaultVpcArgs:
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpc resource.
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
@@ -52,6 +54,8 @@ class DefaultVpcArgs:
             pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
             pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -141,6 +145,18 @@ class DefaultVpcArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -172,6 +188,7 @@ class _DefaultVpcState:
                  ipv6_netmask_length: Optional[pulumi.Input[builtins.int]] = None,
                  main_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -179,6 +196,7 @@ class _DefaultVpcState:
         :param pulumi.Input[builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -220,6 +238,8 @@ class _DefaultVpcState:
             pulumi.set(__self__, "main_route_table_id", main_route_table_id)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -416,6 +436,18 @@ class _DefaultVpcState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -450,6 +482,7 @@ class DefaultVpc(pulumi.CustomResource):
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -489,6 +522,7 @@ class DefaultVpc(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -554,6 +588,7 @@ class DefaultVpc(pulumi.CustomResource):
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -573,6 +608,7 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["ipv6_cidr_block_network_border_group"] = ipv6_cidr_block_network_border_group
             __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
             __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["cidr_block"] = None
@@ -616,6 +652,7 @@ class DefaultVpc(pulumi.CustomResource):
             ipv6_netmask_length: Optional[pulumi.Input[builtins.int]] = None,
             main_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'DefaultVpc':
         """
@@ -628,6 +665,7 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -653,6 +691,7 @@ class DefaultVpc(pulumi.CustomResource):
         __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
         __props__.__dict__["main_route_table_id"] = main_route_table_id
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return DefaultVpc(resource_name, opts=opts, __props__=__props__)
@@ -765,6 +804,14 @@ class DefaultVpc(pulumi.CustomResource):
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

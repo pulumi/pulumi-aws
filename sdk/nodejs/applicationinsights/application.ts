@@ -93,6 +93,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the resource group.
      *
      * The following arguments are optional:
@@ -127,6 +131,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["groupingType"] = state ? state.groupingType : undefined;
             resourceInputs["opsCenterEnabled"] = state ? state.opsCenterEnabled : undefined;
             resourceInputs["opsItemSnsTopicArn"] = state ? state.opsItemSnsTopicArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -141,6 +146,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["groupingType"] = args ? args.groupingType : undefined;
             resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
             resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -183,6 +189,10 @@ export interface ApplicationState {
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
     opsItemSnsTopicArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      *
@@ -227,6 +237,10 @@ export interface ApplicationArgs {
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
     opsItemSnsTopicArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      *

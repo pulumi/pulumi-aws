@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.ReplicationConfigComputeConfig> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
         [Output("replicationConfigIdentifier")]
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.ReplicationConfigComputeConfigArgs> ComputeConfig { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
         [Input("replicationConfigIdentifier", required: true)]
@@ -286,6 +298,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("computeConfig")]
         public Input<Inputs.ReplicationConfigComputeConfigGetArgs>? ComputeConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Unique identifier that you want to use to create the config.

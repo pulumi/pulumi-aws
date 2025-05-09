@@ -89,6 +89,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> ProductId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         /// 
         /// The following arguments are optional:
@@ -227,6 +239,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }

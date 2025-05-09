@@ -51,7 +51,8 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 // A collection of arguments for invoking getComponent.
 type LookupComponentArgs struct {
 	// ARN of the component.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the component.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -79,6 +80,7 @@ type LookupComponentResult struct {
 	Owner string `pulumi:"owner"`
 	// Platform of the component.
 	Platform string `pulumi:"platform"`
+	Region   string `pulumi:"region"`
 	// Operating Systems (OSes) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component.
@@ -101,7 +103,8 @@ func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, 
 // A collection of arguments for invoking getComponent.
 type LookupComponentOutputArgs struct {
 	// ARN of the component.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the component.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -177,6 +180,10 @@ func (o LookupComponentResultOutput) Owner() pulumi.StringOutput {
 // Platform of the component.
 func (o LookupComponentResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComponentResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o LookupComponentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Operating Systems (OSes) supported by the component.

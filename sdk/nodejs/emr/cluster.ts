@@ -424,6 +424,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly placementGroupConfigs!: pulumi.Output<outputs.emr.ClusterPlacementGroupConfig[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Release label for the Amazon EMR release.
      */
     public readonly releaseLabel!: pulumi.Output<string>;
@@ -507,6 +511,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["placementGroupConfigs"] = state ? state.placementGroupConfigs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
             resourceInputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
@@ -547,6 +552,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["placementGroupConfigs"] = args ? args.placementGroupConfigs : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
@@ -687,6 +693,10 @@ export interface ClusterState {
      * The specified placement group configuration for an Amazon EMR cluster.
      */
     placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Release label for the Amazon EMR release.
      */
@@ -846,6 +856,10 @@ export interface ClusterArgs {
      * The specified placement group configuration for an Amazon EMR cluster.
      */
     placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Release label for the Amazon EMR release.
      */

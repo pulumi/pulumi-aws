@@ -169,6 +169,162 @@ func (o ConnectionAliasTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DirectoryCertificateBasedAuthProperties struct {
+	// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
+	// Status of certificate-based authentication. Default `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DirectoryCertificateBasedAuthPropertiesInput is an input type that accepts DirectoryCertificateBasedAuthPropertiesArgs and DirectoryCertificateBasedAuthPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryCertificateBasedAuthPropertiesInput` via:
+//
+//	DirectoryCertificateBasedAuthPropertiesArgs{...}
+type DirectoryCertificateBasedAuthPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryCertificateBasedAuthPropertiesOutput() DirectoryCertificateBasedAuthPropertiesOutput
+	ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(context.Context) DirectoryCertificateBasedAuthPropertiesOutput
+}
+
+type DirectoryCertificateBasedAuthPropertiesArgs struct {
+	// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
+	// Status of certificate-based authentication. Default `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DirectoryCertificateBasedAuthPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesOutput() DirectoryCertificateBasedAuthPropertiesOutput {
+	return i.ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryCertificateBasedAuthPropertiesOutput)
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return i.ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryCertificateBasedAuthPropertiesArgs) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryCertificateBasedAuthPropertiesOutput).ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryCertificateBasedAuthPropertiesPtrInput is an input type that accepts DirectoryCertificateBasedAuthPropertiesArgs, DirectoryCertificateBasedAuthPropertiesPtr and DirectoryCertificateBasedAuthPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryCertificateBasedAuthPropertiesPtrInput` via:
+//
+//	        DirectoryCertificateBasedAuthPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryCertificateBasedAuthPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput
+	ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput
+}
+
+type directoryCertificateBasedAuthPropertiesPtrType DirectoryCertificateBasedAuthPropertiesArgs
+
+func DirectoryCertificateBasedAuthPropertiesPtr(v *DirectoryCertificateBasedAuthPropertiesArgs) DirectoryCertificateBasedAuthPropertiesPtrInput {
+	return (*directoryCertificateBasedAuthPropertiesPtrType)(v)
+}
+
+func (*directoryCertificateBasedAuthPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (i *directoryCertificateBasedAuthPropertiesPtrType) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return i.ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryCertificateBasedAuthPropertiesPtrType) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryCertificateBasedAuthPropertiesPtrOutput)
+}
+
+type DirectoryCertificateBasedAuthPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryCertificateBasedAuthPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesOutput() DirectoryCertificateBasedAuthPropertiesOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o.ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryCertificateBasedAuthProperties) *DirectoryCertificateBasedAuthProperties {
+		return &v
+	}).(DirectoryCertificateBasedAuthPropertiesPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+func (o DirectoryCertificateBasedAuthPropertiesOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryCertificateBasedAuthProperties) *string { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
+}
+
+// Status of certificate-based authentication. Default `DISABLED`.
+func (o DirectoryCertificateBasedAuthPropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryCertificateBasedAuthProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryCertificateBasedAuthPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryCertificateBasedAuthPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutput() DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) ToDirectoryCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryCertificateBasedAuthPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) Elem() DirectoryCertificateBasedAuthPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) DirectoryCertificateBasedAuthProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryCertificateBasedAuthProperties
+		return ret
+	}).(DirectoryCertificateBasedAuthPropertiesOutput)
+}
+
+// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthorityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of certificate-based authentication. Default `DISABLED`.
+func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type DirectorySamlProperties struct {
 	// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
 	RelayStateParameterName *string `pulumi:"relayStateParameterName"`
@@ -1650,6 +1806,106 @@ func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserS
 	}).(GetBundleUserStorageOutput)
 }
 
+type GetDirectoryCertificateBasedAuthProperty struct {
+	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	Status                  string `pulumi:"status"`
+}
+
+// GetDirectoryCertificateBasedAuthPropertyInput is an input type that accepts GetDirectoryCertificateBasedAuthPropertyArgs and GetDirectoryCertificateBasedAuthPropertyOutput values.
+// You can construct a concrete instance of `GetDirectoryCertificateBasedAuthPropertyInput` via:
+//
+//	GetDirectoryCertificateBasedAuthPropertyArgs{...}
+type GetDirectoryCertificateBasedAuthPropertyInput interface {
+	pulumi.Input
+
+	ToGetDirectoryCertificateBasedAuthPropertyOutput() GetDirectoryCertificateBasedAuthPropertyOutput
+	ToGetDirectoryCertificateBasedAuthPropertyOutputWithContext(context.Context) GetDirectoryCertificateBasedAuthPropertyOutput
+}
+
+type GetDirectoryCertificateBasedAuthPropertyArgs struct {
+	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
+	Status                  pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetDirectoryCertificateBasedAuthPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryCertificateBasedAuthProperty)(nil)).Elem()
+}
+
+func (i GetDirectoryCertificateBasedAuthPropertyArgs) ToGetDirectoryCertificateBasedAuthPropertyOutput() GetDirectoryCertificateBasedAuthPropertyOutput {
+	return i.ToGetDirectoryCertificateBasedAuthPropertyOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryCertificateBasedAuthPropertyArgs) ToGetDirectoryCertificateBasedAuthPropertyOutputWithContext(ctx context.Context) GetDirectoryCertificateBasedAuthPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryCertificateBasedAuthPropertyOutput)
+}
+
+// GetDirectoryCertificateBasedAuthPropertyArrayInput is an input type that accepts GetDirectoryCertificateBasedAuthPropertyArray and GetDirectoryCertificateBasedAuthPropertyArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryCertificateBasedAuthPropertyArrayInput` via:
+//
+//	GetDirectoryCertificateBasedAuthPropertyArray{ GetDirectoryCertificateBasedAuthPropertyArgs{...} }
+type GetDirectoryCertificateBasedAuthPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectoryCertificateBasedAuthPropertyArrayOutput() GetDirectoryCertificateBasedAuthPropertyArrayOutput
+	ToGetDirectoryCertificateBasedAuthPropertyArrayOutputWithContext(context.Context) GetDirectoryCertificateBasedAuthPropertyArrayOutput
+}
+
+type GetDirectoryCertificateBasedAuthPropertyArray []GetDirectoryCertificateBasedAuthPropertyInput
+
+func (GetDirectoryCertificateBasedAuthPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryCertificateBasedAuthProperty)(nil)).Elem()
+}
+
+func (i GetDirectoryCertificateBasedAuthPropertyArray) ToGetDirectoryCertificateBasedAuthPropertyArrayOutput() GetDirectoryCertificateBasedAuthPropertyArrayOutput {
+	return i.ToGetDirectoryCertificateBasedAuthPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryCertificateBasedAuthPropertyArray) ToGetDirectoryCertificateBasedAuthPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryCertificateBasedAuthPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryCertificateBasedAuthPropertyArrayOutput)
+}
+
+type GetDirectoryCertificateBasedAuthPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryCertificateBasedAuthPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryCertificateBasedAuthProperty)(nil)).Elem()
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyOutput) ToGetDirectoryCertificateBasedAuthPropertyOutput() GetDirectoryCertificateBasedAuthPropertyOutput {
+	return o
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyOutput) ToGetDirectoryCertificateBasedAuthPropertyOutputWithContext(ctx context.Context) GetDirectoryCertificateBasedAuthPropertyOutput {
+	return o
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyOutput) CertificateAuthorityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryCertificateBasedAuthProperty) string { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryCertificateBasedAuthProperty) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetDirectoryCertificateBasedAuthPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryCertificateBasedAuthPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryCertificateBasedAuthProperty)(nil)).Elem()
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyArrayOutput) ToGetDirectoryCertificateBasedAuthPropertyArrayOutput() GetDirectoryCertificateBasedAuthPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyArrayOutput) ToGetDirectoryCertificateBasedAuthPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryCertificateBasedAuthPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectoryCertificateBasedAuthPropertyArrayOutput) Index(i pulumi.IntInput) GetDirectoryCertificateBasedAuthPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryCertificateBasedAuthProperty {
+		return vs[0].([]GetDirectoryCertificateBasedAuthProperty)[vs[1].(int)]
+	}).(GetDirectoryCertificateBasedAuthPropertyOutput)
+}
+
 type GetDirectorySamlProperty struct {
 	RelayStateParameterName string `pulumi:"relayStateParameterName"`
 	Status                  string `pulumi:"status"`
@@ -2318,6 +2574,8 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsPtrInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesPtrInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesPtrInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
@@ -2336,6 +2594,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleRootStorageArrayInput)(nil)).Elem(), GetBundleRootStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageInput)(nil)).Elem(), GetBundleUserStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageArrayInput)(nil)).Elem(), GetBundleUserStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryCertificateBasedAuthPropertyInput)(nil)).Elem(), GetDirectoryCertificateBasedAuthPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryCertificateBasedAuthPropertyArrayInput)(nil)).Elem(), GetDirectoryCertificateBasedAuthPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySamlPropertyInput)(nil)).Elem(), GetDirectorySamlPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySamlPropertyArrayInput)(nil)).Elem(), GetDirectorySamlPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySelfServicePermissionInput)(nil)).Elem(), GetDirectorySelfServicePermissionArgs{})
@@ -2348,6 +2608,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyArrayInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArray{})
 	pulumi.RegisterOutputType(ConnectionAliasTimeoutsOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DirectorySamlPropertiesOutput{})
 	pulumi.RegisterOutputType(DirectorySamlPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
@@ -2366,6 +2628,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBundleRootStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectoryCertificateBasedAuthPropertyOutput{})
+	pulumi.RegisterOutputType(GetDirectoryCertificateBasedAuthPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectorySamlPropertyOutput{})
 	pulumi.RegisterOutputType(GetDirectorySamlPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionOutput{})

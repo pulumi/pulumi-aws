@@ -60,6 +60,8 @@ type KxCluster struct {
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
@@ -166,6 +168,8 @@ type kxClusterState struct {
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the cluster that you want to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
@@ -228,6 +232,8 @@ type KxClusterState struct {
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringPtrInput
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
@@ -288,6 +294,8 @@ type kxClusterArgs struct {
 	InitializationScript *string `pulumi:"initializationScript"`
 	// Unique name for the cluster that you want to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
@@ -343,6 +351,8 @@ type KxClusterArgs struct {
 	InitializationScript pulumi.StringPtrInput
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringInput
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
@@ -535,6 +545,11 @@ func (o KxClusterOutput) LastModifiedTimestamp() pulumi.StringOutput {
 // Unique name for the cluster that you want to create.
 func (o KxClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KxClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Version of FinSpace Managed kdb to run.

@@ -21,6 +21,7 @@ public final class GetLocationsResult {
      * 
      */
     private List<String> locationCodes;
+    private String region;
 
     private GetLocationsResult() {}
     /**
@@ -37,6 +38,9 @@ public final class GetLocationsResult {
     public List<String> locationCodes() {
         return this.locationCodes;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +53,13 @@ public final class GetLocationsResult {
     public static final class Builder {
         private String id;
         private List<String> locationCodes;
+        private String region;
         public Builder() {}
         public Builder(GetLocationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.locationCodes = defaults.locationCodes;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -75,10 +81,19 @@ public final class GetLocationsResult {
         public Builder locationCodes(String... locationCodes) {
             return locationCodes(List.of(locationCodes));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocationsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLocationsResult build() {
             final var _resultValue = new GetLocationsResult();
             _resultValue.id = id;
             _resultValue.locationCodes = locationCodes;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

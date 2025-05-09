@@ -48,6 +48,7 @@ func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs,
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenArgs struct {
+	Region *string `pulumi:"region"`
 	// AWS account ID of the ECR Repository. If not specified the default account is assumed.
 	RegistryId *string `pulumi:"registryId"`
 }
@@ -64,6 +65,7 @@ type GetAuthorizationTokenResult struct {
 	Password string `pulumi:"password"`
 	// Registry URL to use in the docker login command.
 	ProxyEndpoint string  `pulumi:"proxyEndpoint"`
+	Region        string  `pulumi:"region"`
 	RegistryId    *string `pulumi:"registryId"`
 	// User name decoded from the authorization token.
 	UserName string `pulumi:"userName"`
@@ -80,6 +82,7 @@ func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationToken
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// AWS account ID of the ECR Repository. If not specified the default account is assumed.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 }
@@ -126,6 +129,10 @@ func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringOutput {
 // Registry URL to use in the docker login command.
 func (o GetAuthorizationTokenResultOutput) ProxyEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ProxyEndpoint }).(pulumi.StringOutput)
+}
+
+func (o GetAuthorizationTokenResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAuthorizationTokenResultOutput) RegistryId() pulumi.StringPtrOutput {

@@ -75,6 +75,8 @@ type ManagedPrefixListEntry struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewManagedPrefixListEntry registers a new resource with the given unique name, arguments, and options.
@@ -119,6 +121,8 @@ type managedPrefixListEntryState struct {
 	Description *string `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId *string `pulumi:"prefixListId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ManagedPrefixListEntryState struct {
@@ -128,6 +132,8 @@ type ManagedPrefixListEntryState struct {
 	Description pulumi.StringPtrInput
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedPrefixListEntryState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type managedPrefixListEntryArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId string `pulumi:"prefixListId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ManagedPrefixListEntry resource.
@@ -151,6 +159,8 @@ type ManagedPrefixListEntryArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedPrefixListEntryArgs) ElementType() reflect.Type {
@@ -253,6 +263,11 @@ func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
 // The ID of the prefix list.
 func (o ManagedPrefixListEntryOutput) PrefixListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ManagedPrefixListEntryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }

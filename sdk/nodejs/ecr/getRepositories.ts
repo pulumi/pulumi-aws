@@ -18,10 +18,19 @@ import * as utilities from "../utilities";
  * const example = aws.ecr.getRepositories({});
  * ```
  */
-export function getRepositories(opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
+export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepositories:getRepositories", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getRepositories.
+ */
+export interface GetRepositoriesArgs {
+    region?: string;
 }
 
 /**
@@ -36,6 +45,7 @@ export interface GetRepositoriesResult {
      * A list if AWS Elastic Container Registries for the region.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
@@ -51,8 +61,17 @@ export interface GetRepositoriesResult {
  * const example = aws.ecr.getRepositories({});
  * ```
  */
-export function getRepositoriesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoriesResult> {
+export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoriesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getRepositories:getRepositories", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getRepositories.
+ */
+export interface GetRepositoriesOutputArgs {
+    region?: pulumi.Input<string>;
 }

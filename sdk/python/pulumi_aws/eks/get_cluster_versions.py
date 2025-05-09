@@ -28,7 +28,7 @@ class GetClusterVersionsResult:
     """
     A collection of values returned by getClusterVersions.
     """
-    def __init__(__self__, cluster_type=None, cluster_versions=None, cluster_versions_onlies=None, default_only=None, id=None, include_all=None, version_status=None):
+    def __init__(__self__, cluster_type=None, cluster_versions=None, cluster_versions_onlies=None, default_only=None, id=None, include_all=None, region=None, version_status=None):
         if cluster_type and not isinstance(cluster_type, str):
             raise TypeError("Expected argument 'cluster_type' to be a str")
         pulumi.set(__self__, "cluster_type", cluster_type)
@@ -47,6 +47,9 @@ class GetClusterVersionsResult:
         if include_all and not isinstance(include_all, bool):
             raise TypeError("Expected argument 'include_all' to be a bool")
         pulumi.set(__self__, "include_all", include_all)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if version_status and not isinstance(version_status, str):
             raise TypeError("Expected argument 'version_status' to be a str")
         pulumi.set(__self__, "version_status", version_status)
@@ -88,6 +91,11 @@ class GetClusterVersionsResult:
         return pulumi.get(self, "include_all")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="versionStatus")
     def version_status(self) -> Optional[builtins.str]:
         """
@@ -108,6 +116,7 @@ class AwaitableGetClusterVersionsResult(GetClusterVersionsResult):
             default_only=self.default_only,
             id=self.id,
             include_all=self.include_all,
+            region=self.region,
             version_status=self.version_status)
 
 
@@ -115,6 +124,7 @@ def get_cluster_versions(cluster_type: Optional[builtins.str] = None,
                          cluster_versions_onlies: Optional[Sequence[builtins.str]] = None,
                          default_only: Optional[builtins.bool] = None,
                          include_all: Optional[builtins.bool] = None,
+                         region: Optional[builtins.str] = None,
                          version_status: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterVersionsResult:
     """
@@ -162,6 +172,7 @@ def get_cluster_versions(cluster_type: Optional[builtins.str] = None,
     __args__['clusterVersionsOnlies'] = cluster_versions_onlies
     __args__['defaultOnly'] = default_only
     __args__['includeAll'] = include_all
+    __args__['region'] = region
     __args__['versionStatus'] = version_status
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusterVersions:getClusterVersions', __args__, opts=opts, typ=GetClusterVersionsResult).value
@@ -173,11 +184,13 @@ def get_cluster_versions(cluster_type: Optional[builtins.str] = None,
         default_only=pulumi.get(__ret__, 'default_only'),
         id=pulumi.get(__ret__, 'id'),
         include_all=pulumi.get(__ret__, 'include_all'),
+        region=pulumi.get(__ret__, 'region'),
         version_status=pulumi.get(__ret__, 'version_status'))
 def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 cluster_versions_onlies: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                 default_only: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                 include_all: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 version_status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterVersionsResult]:
     """
@@ -225,6 +238,7 @@ def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[bui
     __args__['clusterVersionsOnlies'] = cluster_versions_onlies
     __args__['defaultOnly'] = default_only
     __args__['includeAll'] = include_all
+    __args__['region'] = region
     __args__['versionStatus'] = version_status
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getClusterVersions:getClusterVersions', __args__, opts=opts, typ=GetClusterVersionsResult)
@@ -235,4 +249,5 @@ def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[bui
         default_only=pulumi.get(__response__, 'default_only'),
         id=pulumi.get(__response__, 'id'),
         include_all=pulumi.get(__response__, 'include_all'),
+        region=pulumi.get(__response__, 'region'),
         version_status=pulumi.get(__response__, 'version_status')))

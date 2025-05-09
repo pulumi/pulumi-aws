@@ -45,11 +45,19 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.qualifier);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetFunctionUrlPlainArgs() {}
 
     private GetFunctionUrlPlainArgs(GetFunctionUrlPlainArgs $) {
         this.functionName = $.functionName;
         this.qualifier = $.qualifier;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -89,6 +97,11 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

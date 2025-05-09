@@ -20,10 +20,19 @@ import * as utilities from "../utilities";
  * export const canonicalUserId = current.then(current => current.id);
  * ```
  */
-export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
+export function getCanonicalUserId(args?: GetCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getCanonicalUserId.
+ */
+export interface GetCanonicalUserIdArgs {
+    region?: string;
 }
 
 /**
@@ -38,6 +47,7 @@ export interface GetCanonicalUserIdResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -55,8 +65,17 @@ export interface GetCanonicalUserIdResult {
  * export const canonicalUserId = current.then(current => current.id);
  * ```
  */
-export function getCanonicalUserIdOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCanonicalUserIdResult> {
+export function getCanonicalUserIdOutput(args?: GetCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCanonicalUserIdResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getCanonicalUserId.
+ */
+export interface GetCanonicalUserIdOutputArgs {
+    region?: pulumi.Input<string>;
 }

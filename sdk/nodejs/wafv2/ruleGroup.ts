@@ -61,6 +61,10 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
@@ -101,6 +105,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["lockToken"] = state ? state.lockToken : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -122,6 +127,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -164,6 +170,10 @@ export interface RuleGroupState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
@@ -210,6 +220,10 @@ export interface RuleGroupArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */

@@ -62,6 +62,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of the EC2 Security Group.
      * 
      */
@@ -97,6 +112,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.accessType = $.accessType;
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.outpostId = $.outpostId;
+        this.region = $.region;
         this.securityGroupId = $.securityGroupId;
         this.subnetId = $.subnetId;
     }
@@ -180,6 +196,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder outpostId(String outpostId) {
             return outpostId(Output.of(outpostId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -191,6 +191,10 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     public readonly requestTemplate!: pulumi.Output<string | undefined>;
@@ -233,6 +237,7 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
             resourceInputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestTemplate"] = state ? state.requestTemplate : undefined;
             resourceInputs["responseTemplate"] = state ? state.responseTemplate : undefined;
             resourceInputs["runtime"] = state ? state.runtime : undefined;
@@ -257,6 +262,7 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
             resourceInputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestTemplate"] = args ? args.requestTemplate : undefined;
             resourceInputs["responseTemplate"] = args ? args.responseTemplate : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
@@ -309,6 +315,10 @@ export interface ResolverState {
      * The caching configuration for the resolver. See Pipeline Config.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
@@ -367,6 +377,10 @@ export interface ResolverArgs {
      * The caching configuration for the resolver. See Pipeline Config.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */

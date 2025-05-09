@@ -50,6 +50,21 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
      * 
      */
@@ -99,6 +114,7 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
     private FsxOpenZfsFileSystemArgs(FsxOpenZfsFileSystemArgs $) {
         this.fsxFilesystemArn = $.fsxFilesystemArn;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.securityGroupArns = $.securityGroupArns;
         this.subdirectory = $.subdirectory;
         this.tags = $.tags;
@@ -162,6 +178,27 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
          */
         public Builder protocol(FsxOpenZfsFileSystemProtocolArgs protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

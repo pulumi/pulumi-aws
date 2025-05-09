@@ -82,6 +82,10 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             resourceInputs["filterPattern"] = state ? state.filterPattern : undefined;
             resourceInputs["logGroup"] = state ? state.logGroup : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LogSubscriptionFilterArgs | undefined;
@@ -121,6 +126,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
             resourceInputs["logGroup"] = args ? args.logGroup : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,6 +159,10 @@ export interface LogSubscriptionFilterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */
     roleArn?: pulumi.Input<string>;
@@ -182,6 +192,10 @@ export interface LogSubscriptionFilterArgs {
      * A name for the subscription filter
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */

@@ -32,6 +32,21 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      * 
      */
@@ -97,6 +112,7 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
 
     private ContributorManagedInsightRuleState(ContributorManagedInsightRuleState $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
         this.ruleName = $.ruleName;
         this.state = $.state;
@@ -142,6 +158,27 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

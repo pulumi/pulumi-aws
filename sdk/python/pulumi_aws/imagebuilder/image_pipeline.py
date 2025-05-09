@@ -32,6 +32,7 @@ class ImagePipelineArgs:
                  image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -50,6 +51,7 @@ class ImagePipelineArgs:
         :param pulumi.Input[builtins.str] name: Name of the image pipeline.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -74,6 +76,8 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if status is not None:
@@ -207,6 +211,18 @@ class ImagePipelineArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
         """
         Configuration block with schedule settings. Detailed below.
@@ -273,6 +289,7 @@ class _ImagePipelineState:
                  infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -298,6 +315,7 @@ class _ImagePipelineState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] platform: Platform of the image pipeline.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -336,6 +354,8 @@ class _ImagePipelineState:
             pulumi.set(__self__, "name", name)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if status is not None:
@@ -543,6 +563,18 @@ class _ImagePipelineState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
         """
         Configuration block with schedule settings. Detailed below.
@@ -620,6 +652,7 @@ class ImagePipeline(pulumi.CustomResource):
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -652,6 +685,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the image pipeline.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -701,6 +735,7 @@ class ImagePipeline(pulumi.CustomResource):
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -726,6 +761,7 @@ class ImagePipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -763,6 +799,7 @@ class ImagePipeline(pulumi.CustomResource):
             infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             platform: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -793,6 +830,7 @@ class ImagePipeline(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] platform: Platform of the image pipeline.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -819,6 +857,7 @@ class ImagePipeline(pulumi.CustomResource):
         __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["platform"] = platform
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -955,6 +994,14 @@ class ImagePipeline(pulumi.CustomResource):
         Platform of the image pipeline.
         """
         return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

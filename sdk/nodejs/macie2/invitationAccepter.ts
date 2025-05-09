@@ -72,6 +72,10 @@ export class InvitationAccepter extends pulumi.CustomResource {
      * The unique identifier for the invitation.
      */
     public /*out*/ readonly invitationId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InvitationAccepter resource with the given unique name, arguments, and options.
@@ -88,12 +92,14 @@ export class InvitationAccepter extends pulumi.CustomResource {
             const state = argsOrState as InvitationAccepterState | undefined;
             resourceInputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
             resourceInputs["invitationId"] = state ? state.invitationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InvitationAccepterArgs | undefined;
             if ((!args || args.administratorAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorAccountId'");
             }
             resourceInputs["administratorAccountId"] = args ? args.administratorAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["invitationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -113,6 +119,10 @@ export interface InvitationAccepterState {
      * The unique identifier for the invitation.
      */
     invitationId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface InvitationAccepterArgs {
      * The AWS account ID for the account that sent the invitation.
      */
     administratorAccountId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

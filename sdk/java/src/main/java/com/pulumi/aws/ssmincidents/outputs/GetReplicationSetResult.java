@@ -39,6 +39,19 @@ public final class GetReplicationSetResult {
      * 
      */
     private String lastModifiedBy;
+    /**
+     * @return (**Deprecated**) The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use regions instead. */
+    private List<GetReplicationSetRegion> region;
+    /**
+     * @return The replication set&#39;s Regions.
+     * 
+     */
     private List<GetReplicationSetRegion> regions;
     /**
      * @return The current status of the Region.
@@ -88,6 +101,21 @@ public final class GetReplicationSetResult {
     public String lastModifiedBy() {
         return this.lastModifiedBy;
     }
+    /**
+     * @return (**Deprecated**) The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use regions instead. */
+    public List<GetReplicationSetRegion> region() {
+        return this.region;
+    }
+    /**
+     * @return The replication set&#39;s Regions.
+     * 
+     */
     public List<GetReplicationSetRegion> regions() {
         return this.regions;
     }
@@ -121,6 +149,7 @@ public final class GetReplicationSetResult {
         private Boolean deletionProtected;
         private String id;
         private String lastModifiedBy;
+        private List<GetReplicationSetRegion> region;
         private List<GetReplicationSetRegion> regions;
         private String status;
         private Map<String,String> tags;
@@ -132,6 +161,7 @@ public final class GetReplicationSetResult {
     	      this.deletionProtected = defaults.deletionProtected;
     	      this.id = defaults.id;
     	      this.lastModifiedBy = defaults.lastModifiedBy;
+    	      this.region = defaults.region;
     	      this.regions = defaults.regions;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -178,6 +208,17 @@ public final class GetReplicationSetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(List<GetReplicationSetRegion> region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        public Builder region(GetReplicationSetRegion... region) {
+            return region(List.of(region));
+        }
+        @CustomType.Setter
         public Builder regions(List<GetReplicationSetRegion> regions) {
             if (regions == null) {
               throw new MissingRequiredPropertyException("GetReplicationSetResult", "regions");
@@ -211,6 +252,7 @@ public final class GetReplicationSetResult {
             _resultValue.deletionProtected = deletionProtected;
             _resultValue.id = id;
             _resultValue.lastModifiedBy = lastModifiedBy;
+            _resultValue.region = region;
             _resultValue.regions = regions;
             _resultValue.status = status;
             _resultValue.tags = tags;

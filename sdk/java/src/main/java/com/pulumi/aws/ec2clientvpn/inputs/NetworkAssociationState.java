@@ -46,6 +46,21 @@ public final class NetworkAssociationState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
@@ -80,6 +95,7 @@ public final class NetworkAssociationState extends com.pulumi.resources.Resource
     private NetworkAssociationState(NetworkAssociationState $) {
         this.associationId = $.associationId;
         this.clientVpnEndpointId = $.clientVpnEndpointId;
+        this.region = $.region;
         this.subnetId = $.subnetId;
         this.vpcId = $.vpcId;
     }
@@ -142,6 +158,27 @@ public final class NetworkAssociationState extends com.pulumi.resources.Resource
          */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -26,7 +26,8 @@ class FunctionUrlArgs:
                  function_name: pulumi.Input[builtins.str],
                  cors: Optional[pulumi.Input['FunctionUrlCorsArgs']] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[builtins.str]] = None):
+                 qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionUrl resource.
         :param pulumi.Input[builtins.str] authorization_type: The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
@@ -34,6 +35,7 @@ class FunctionUrlArgs:
         :param pulumi.Input['FunctionUrlCorsArgs'] cors: The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
         :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
         :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "authorization_type", authorization_type)
         pulumi.set(__self__, "function_name", function_name)
@@ -43,6 +45,8 @@ class FunctionUrlArgs:
             pulumi.set(__self__, "invoke_mode", invoke_mode)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -104,6 +108,18 @@ class FunctionUrlArgs:
     def qualifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _FunctionUrlState:
@@ -115,6 +131,7 @@ class _FunctionUrlState:
                  function_url: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  url_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionUrl resources.
@@ -125,6 +142,7 @@ class _FunctionUrlState:
         :param pulumi.Input[builtins.str] function_url: The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
         :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
         :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] url_id: A generated ID for the endpoint.
         """
         if authorization_type is not None:
@@ -141,6 +159,8 @@ class _FunctionUrlState:
             pulumi.set(__self__, "invoke_mode", invoke_mode)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if url_id is not None:
             pulumi.set(__self__, "url_id", url_id)
 
@@ -229,6 +249,18 @@ class _FunctionUrlState:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="urlId")
     def url_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -254,6 +286,7 @@ class FunctionUrl(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
@@ -304,6 +337,7 @@ class FunctionUrl(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] function_name: The name (or ARN) of the Lambda function.
         :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
         :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -373,6 +407,7 @@ class FunctionUrl(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,6 +426,7 @@ class FunctionUrl(pulumi.CustomResource):
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["invoke_mode"] = invoke_mode
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_url"] = None
             __props__.__dict__["url_id"] = None
@@ -411,6 +447,7 @@ class FunctionUrl(pulumi.CustomResource):
             function_url: Optional[pulumi.Input[builtins.str]] = None,
             invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             url_id: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionUrl':
         """
         Get an existing FunctionUrl resource's state with the given name, id, and optional extra
@@ -426,6 +463,7 @@ class FunctionUrl(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] function_url: The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
         :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
         :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] url_id: A generated ID for the endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -439,6 +477,7 @@ class FunctionUrl(pulumi.CustomResource):
         __props__.__dict__["function_url"] = function_url
         __props__.__dict__["invoke_mode"] = invoke_mode
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["url_id"] = url_id
         return FunctionUrl(resource_name, opts=opts, __props__=__props__)
 
@@ -497,6 +536,14 @@ class FunctionUrl(pulumi.CustomResource):
         The alias name or `"$LATEST"`.
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="urlId")

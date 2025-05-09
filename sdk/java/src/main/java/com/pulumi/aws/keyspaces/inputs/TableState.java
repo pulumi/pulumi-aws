@@ -145,6 +145,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Describes the schema of the table.
      * 
      */
@@ -234,6 +249,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.encryptionSpecification = $.encryptionSpecification;
         this.keyspaceName = $.keyspaceName;
         this.pointInTimeRecovery = $.pointInTimeRecovery;
+        this.region = $.region;
         this.schemaDefinition = $.schemaDefinition;
         this.tableName = $.tableName;
         this.tags = $.tags;
@@ -425,6 +441,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pointInTimeRecovery(TablePointInTimeRecoveryArgs pointInTimeRecovery) {
             return pointInTimeRecovery(Output.of(pointInTimeRecovery));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

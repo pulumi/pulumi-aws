@@ -83,6 +83,10 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      */
     public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogDestinationPolicy resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             resourceInputs["destinationName"] = state ? state.destinationName : undefined;
             resourceInputs["forceUpdate"] = state ? state.forceUpdate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogDestinationPolicyArgs | undefined;
             if ((!args || args.accessPolicy === undefined) && !opts.urn) {
@@ -111,6 +116,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             resourceInputs["destinationName"] = args ? args.destinationName : undefined;
             resourceInputs["forceUpdate"] = args ? args.forceUpdate : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDestinationPolicy.__pulumiType, name, resourceInputs, opts);
@@ -133,6 +139,10 @@ export interface LogDestinationPolicyState {
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      */
     forceUpdate?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -151,4 +161,8 @@ export interface LogDestinationPolicyArgs {
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      */
     forceUpdate?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

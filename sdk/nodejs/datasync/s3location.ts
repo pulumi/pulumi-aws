@@ -91,6 +91,10 @@ export class S3Location extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
     public readonly s3BucketArn!: pulumi.Output<ARN>;
@@ -131,6 +135,7 @@ export class S3Location extends pulumi.CustomResource {
             const state = argsOrState as S3LocationState | undefined;
             resourceInputs["agentArns"] = state ? state.agentArns : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             resourceInputs["s3Config"] = state ? state.s3Config : undefined;
             resourceInputs["s3StorageClass"] = state ? state.s3StorageClass : undefined;
@@ -150,6 +155,7 @@ export class S3Location extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subdirectory'");
             }
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
             resourceInputs["s3Config"] = args ? args.s3Config : undefined;
             resourceInputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
@@ -176,6 +182,10 @@ export interface S3LocationState {
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
@@ -211,6 +221,10 @@ export interface S3LocationArgs {
      * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */

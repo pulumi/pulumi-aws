@@ -25,6 +25,7 @@ export function getInstanceType(args: GetInstanceTypeArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceType:getInstanceType", {
         "instanceType": args.instanceType,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetInstanceTypeArgs {
      * Instance
      */
     instanceType: string;
+    region?: string;
 }
 
 /**
@@ -264,6 +266,7 @@ export interface GetInstanceTypeResult {
      * `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
      */
     readonly phcSupport: string;
+    readonly region: string;
     /**
      * A list of strings of architectures supported by the instance type.
      */
@@ -343,6 +346,7 @@ export function getInstanceTypeOutput(args: GetInstanceTypeOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getInstanceType:getInstanceType", {
         "instanceType": args.instanceType,
+        "region": args.region,
     }, opts);
 }
 
@@ -354,4 +358,5 @@ export interface GetInstanceTypeOutputArgs {
      * Instance
      */
     instanceType: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

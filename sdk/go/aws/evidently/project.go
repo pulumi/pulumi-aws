@@ -150,6 +150,8 @@ type Project struct {
 	LaunchCount pulumi.IntOutput `pulumi:"launchCount"`
 	// A name for the project.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -210,6 +212,8 @@ type projectState struct {
 	LaunchCount *int `pulumi:"launchCount"`
 	// A name for the project.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -241,6 +245,8 @@ type ProjectState struct {
 	LaunchCount pulumi.IntPtrInput
 	// A name for the project.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -260,6 +266,8 @@ type projectArgs struct {
 	Description *string `pulumi:"description"`
 	// A name for the project.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -272,6 +280,8 @@ type ProjectArgs struct {
 	Description pulumi.StringPtrInput
 	// A name for the project.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -416,6 +426,11 @@ func (o ProjectOutput) LaunchCount() pulumi.IntOutput {
 // A name for the project.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProjectOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.

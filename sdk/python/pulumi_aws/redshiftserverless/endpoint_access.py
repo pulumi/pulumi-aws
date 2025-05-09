@@ -26,6 +26,7 @@ class EndpointAccessArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  workgroup_name: pulumi.Input[builtins.str],
                  owner_account: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
@@ -33,6 +34,7 @@ class EndpointAccessArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[builtins.str] workgroup_name: The name of the workgroup.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
@@ -40,6 +42,8 @@ class EndpointAccessArgs:
         pulumi.set(__self__, "workgroup_name", workgroup_name)
         if owner_account is not None:
             pulumi.set(__self__, "owner_account", owner_account)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -92,6 +96,18 @@ class EndpointAccessArgs:
         pulumi.set(self, "owner_account", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -112,6 +128,7 @@ class _EndpointAccessState:
                  endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -123,6 +140,7 @@ class _EndpointAccessState:
         :param pulumi.Input[builtins.str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[builtins.int] port: The port that Amazon Redshift Serverless listens on.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
@@ -138,6 +156,8 @@ class _EndpointAccessState:
             pulumi.set(__self__, "owner_account", owner_account)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_endpoints is not None:
@@ -208,6 +228,18 @@ class _EndpointAccessState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -266,6 +298,7 @@ class EndpointAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -296,6 +329,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[builtins.str] workgroup_name: The name of the workgroup.
@@ -345,6 +379,7 @@ class EndpointAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -361,6 +396,7 @@ class EndpointAccess(pulumi.CustomResource):
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["owner_account"] = owner_account
+            __props__.__dict__["region"] = region
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -387,6 +423,7 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -403,6 +440,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[builtins.int] port: The port that Amazon Redshift Serverless listens on.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
@@ -417,6 +455,7 @@ class EndpointAccess(pulumi.CustomResource):
         __props__.__dict__["endpoint_name"] = endpoint_name
         __props__.__dict__["owner_account"] = owner_account
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["vpc_endpoints"] = vpc_endpoints
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
@@ -462,6 +501,14 @@ class EndpointAccess(pulumi.CustomResource):
         The port that Amazon Redshift Serverless listens on.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="subnetIds")

@@ -137,6 +137,8 @@ type CachesIscsiVolume struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -215,6 +217,8 @@ type cachesIscsiVolumeState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -252,6 +256,8 @@ type CachesIscsiVolumeState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -285,6 +291,8 @@ type cachesIscsiVolumeArgs struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -307,6 +315,8 @@ type CachesIscsiVolumeArgs struct {
 	KmsKey pulumi.StringPtrInput
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -444,6 +454,11 @@ func (o CachesIscsiVolumeOutput) NetworkInterfaceId() pulumi.StringOutput {
 // The port used to communicate with iSCSI targets.
 func (o CachesIscsiVolumeOutput) NetworkInterfacePort() pulumi.IntOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.IntOutput { return v.NetworkInterfacePort }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CachesIscsiVolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.

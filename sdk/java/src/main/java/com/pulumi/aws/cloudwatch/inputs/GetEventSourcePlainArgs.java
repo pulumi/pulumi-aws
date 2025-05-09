@@ -29,10 +29,18 @@ public final class GetEventSourcePlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.namePrefix);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetEventSourcePlainArgs() {}
 
     private GetEventSourcePlainArgs(GetEventSourcePlainArgs $) {
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -61,6 +69,11 @@ public final class GetEventSourcePlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder namePrefix(@Nullable String namePrefix) {
             $.namePrefix = namePrefix;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

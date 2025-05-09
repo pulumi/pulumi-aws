@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.GetClusters(ctx, map[string]interface{}{}, nil)
+//			_, err := ecs.GetClusters(ctx, &ecs.GetClustersArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,19 @@ import (
 //	}
 //
 // ```
-func GetClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
+func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClustersResult
-	err := ctx.Invoke("aws:ecs/getClusters:getClusters", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ecs/getClusters:getClusters", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getClusters.
+type GetClustersArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusters.
@@ -53,14 +58,26 @@ type GetClustersResult struct {
 	// List of ECS cluster ARNs associated with the account.
 	ClusterArns []string `pulumi:"clusterArns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetClustersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClustersResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetClustersResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ecs/getClusters:getClusters", nil, GetClustersResultOutput{}, options).(GetClustersResultOutput), nil
-	}).(GetClustersResultOutput)
+func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetClustersResultOutput, error) {
+			args := v.(GetClustersArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ecs/getClusters:getClusters", args, GetClustersResultOutput{}, options).(GetClustersResultOutput), nil
+		}).(GetClustersResultOutput)
+}
+
+// A collection of arguments for invoking getClusters.
+type GetClustersOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetClustersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClustersArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getClusters.
@@ -86,6 +103,10 @@ func (o GetClustersResultOutput) ClusterArns() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetClustersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClustersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetClustersResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClustersResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

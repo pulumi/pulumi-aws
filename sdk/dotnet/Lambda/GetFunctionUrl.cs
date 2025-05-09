@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Lambda
         [Input("qualifier")]
         public string? Qualifier { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetFunctionUrlArgs()
         {
         }
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetFunctionUrlInvokeArgs()
         {
@@ -169,6 +175,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string LastModifiedTime;
         public readonly string? Qualifier;
+        public readonly string Region;
         /// <summary>
         /// Generated ID for the endpoint.
         /// </summary>
@@ -196,6 +203,8 @@ namespace Pulumi.Aws.Lambda
 
             string? qualifier,
 
+            string region,
+
             string urlId)
         {
             AuthorizationType = authorizationType;
@@ -208,6 +217,7 @@ namespace Pulumi.Aws.Lambda
             InvokeMode = invokeMode;
             LastModifiedTime = lastModifiedTime;
             Qualifier = qualifier;
+            Region = region;
             UrlId = urlId;
         }
     }

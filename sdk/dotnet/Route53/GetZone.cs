@@ -155,6 +155,10 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+        /// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -199,6 +203,10 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+        /// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
         /// </summary>
         public InputMap<string> Tags
         {

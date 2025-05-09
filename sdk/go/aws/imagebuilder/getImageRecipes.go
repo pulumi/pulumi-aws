@@ -61,7 +61,8 @@ type GetImageRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImageRecipesFilter `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner *string `pulumi:"owner"`
+	Owner  *string `pulumi:"owner"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getImageRecipes.
@@ -72,8 +73,9 @@ type GetImageRecipesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Image Recipes.
-	Names []string `pulumi:"names"`
-	Owner *string  `pulumi:"owner"`
+	Names  []string `pulumi:"names"`
+	Owner  *string  `pulumi:"owner"`
+	Region string   `pulumi:"region"`
 }
 
 func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, opts ...pulumi.InvokeOption) GetImageRecipesResultOutput {
@@ -90,7 +92,8 @@ type GetImageRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImageRecipesFilterArrayInput `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	Owner  pulumi.StringPtrInput `pulumi:"owner"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetImageRecipesOutputArgs) ElementType() reflect.Type {
@@ -133,6 +136,10 @@ func (o GetImageRecipesResultOutput) Names() pulumi.StringArrayOutput {
 
 func (o GetImageRecipesResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageRecipesResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GetImageRecipesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

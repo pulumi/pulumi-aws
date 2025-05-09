@@ -112,6 +112,8 @@ type DataRepositoryAssociation struct {
 	FileSystemPath pulumi.StringOutput `pulumi:"fileSystemPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize pulumi.IntOutput `pulumi:"importedFileChunkSize"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// See the `s3` configuration block. Max of 1.
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3Output `pulumi:"s3"`
@@ -175,6 +177,8 @@ type dataRepositoryAssociationState struct {
 	FileSystemPath *string `pulumi:"fileSystemPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// See the `s3` configuration block. Max of 1.
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
@@ -200,6 +204,8 @@ type DataRepositoryAssociationState struct {
 	FileSystemPath pulumi.StringPtrInput
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// See the `s3` configuration block. Max of 1.
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrInput
@@ -226,6 +232,8 @@ type dataRepositoryAssociationArgs struct {
 	FileSystemPath string `pulumi:"fileSystemPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// See the `s3` configuration block. Max of 1.
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
@@ -247,6 +255,8 @@ type DataRepositoryAssociationArgs struct {
 	FileSystemPath pulumi.StringInput
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// See the `s3` configuration block. Max of 1.
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrInput
@@ -378,6 +388,11 @@ func (o DataRepositoryAssociationOutput) FileSystemPath() pulumi.StringOutput {
 // For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.IntOutput { return v.ImportedFileChunkSize }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataRepositoryAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // See the `s3` configuration block. Max of 1.

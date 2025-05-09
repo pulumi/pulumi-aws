@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Amplify
         public Output<string> EnvironmentName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Output("stackName")]
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.Amplify
         public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Input("stackName")]
@@ -180,6 +192,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// AWS CloudFormation stack name of a backend environment.

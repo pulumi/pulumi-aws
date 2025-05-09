@@ -148,9 +148,11 @@ type LanguageModel struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// The model name.
-	ModelName pulumi.StringOutput    `pulumi:"modelName"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ModelName pulumi.StringOutput `pulumi:"modelName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLanguageModel registers a new resource with the given unique name, arguments, and options.
@@ -204,9 +206,11 @@ type languageModelState struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode *string `pulumi:"languageCode"`
 	// The model name.
-	ModelName *string           `pulumi:"modelName"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	ModelName *string `pulumi:"modelName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type LanguageModelState struct {
@@ -220,8 +224,10 @@ type LanguageModelState struct {
 	LanguageCode pulumi.StringPtrInput
 	// The model name.
 	ModelName pulumi.StringPtrInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (LanguageModelState) ElementType() reflect.Type {
@@ -236,8 +242,10 @@ type languageModelArgs struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode string `pulumi:"languageCode"`
 	// The model name.
-	ModelName string            `pulumi:"modelName"`
-	Tags      map[string]string `pulumi:"tags"`
+	ModelName string `pulumi:"modelName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LanguageModel resource.
@@ -250,7 +258,9 @@ type LanguageModelArgs struct {
 	LanguageCode pulumi.StringInput
 	// The model name.
 	ModelName pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (LanguageModelArgs) ElementType() reflect.Type {
@@ -363,6 +373,11 @@ func (o LanguageModelOutput) LanguageCode() pulumi.StringOutput {
 // The model name.
 func (o LanguageModelOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.ModelName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LanguageModelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LanguageModelOutput) Tags() pulumi.StringMapOutput {

@@ -55,7 +55,8 @@ type LookupInstanceStorageConfigArgs struct {
 	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId string `pulumi:"associationId"`
 	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
+	InstanceId string  `pulumi:"instanceId"`
+	Region     *string `pulumi:"region"`
 	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
 	ResourceType string `pulumi:"resourceType"`
 }
@@ -66,6 +67,7 @@ type LookupInstanceStorageConfigResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	InstanceId   string `pulumi:"instanceId"`
+	Region       string `pulumi:"region"`
 	ResourceType string `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfigs []GetInstanceStorageConfigStorageConfig `pulumi:"storageConfigs"`
@@ -85,7 +87,8 @@ type LookupInstanceStorageConfigOutputArgs struct {
 	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
 	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	InstanceId pulumi.StringInput    `pulumi:"instanceId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
@@ -120,6 +123,10 @@ func (o LookupInstanceStorageConfigResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupInstanceStorageConfigResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o LookupInstanceStorageConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceStorageConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupInstanceStorageConfigResultOutput) ResourceType() pulumi.StringOutput {

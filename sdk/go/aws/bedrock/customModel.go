@@ -92,6 +92,8 @@ type CustomModel struct {
 	JobStatus pulumi.StringOutput `pulumi:"jobStatus"`
 	// S3 location for the output data.
 	OutputDataConfig CustomModelOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -176,6 +178,8 @@ type customModelState struct {
 	JobStatus *string `pulumi:"jobStatus"`
 	// S3 location for the output data.
 	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -216,6 +220,8 @@ type CustomModelState struct {
 	JobStatus pulumi.StringPtrInput
 	// S3 location for the output data.
 	OutputDataConfig CustomModelOutputDataConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -254,6 +260,8 @@ type customModelArgs struct {
 	JobName string `pulumi:"jobName"`
 	// S3 location for the output data.
 	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -283,6 +291,8 @@ type CustomModelArgs struct {
 	JobName pulumi.StringInput
 	// S3 location for the output data.
 	OutputDataConfig CustomModelOutputDataConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -431,6 +441,11 @@ func (o CustomModelOutput) JobStatus() pulumi.StringOutput {
 // S3 location for the output data.
 func (o CustomModelOutput) OutputDataConfig() CustomModelOutputDataConfigPtrOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelOutputDataConfigPtrOutput { return v.OutputDataConfig }).(CustomModelOutputDataConfigPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomModelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.

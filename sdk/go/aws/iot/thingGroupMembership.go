@@ -54,6 +54,8 @@ type ThingGroupMembership struct {
 
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrOutput `pulumi:"overrideDynamicGroup"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the group to which you are adding a thing.
 	ThingGroupName pulumi.StringOutput `pulumi:"thingGroupName"`
 	// The name of the thing to add to a group.
@@ -98,6 +100,8 @@ func GetThingGroupMembership(ctx *pulumi.Context,
 type thingGroupMembershipState struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the group to which you are adding a thing.
 	ThingGroupName *string `pulumi:"thingGroupName"`
 	// The name of the thing to add to a group.
@@ -107,6 +111,8 @@ type thingGroupMembershipState struct {
 type ThingGroupMembershipState struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the group to which you are adding a thing.
 	ThingGroupName pulumi.StringPtrInput
 	// The name of the thing to add to a group.
@@ -120,6 +126,8 @@ func (ThingGroupMembershipState) ElementType() reflect.Type {
 type thingGroupMembershipArgs struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the group to which you are adding a thing.
 	ThingGroupName string `pulumi:"thingGroupName"`
 	// The name of the thing to add to a group.
@@ -130,6 +138,8 @@ type thingGroupMembershipArgs struct {
 type ThingGroupMembershipArgs struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the group to which you are adding a thing.
 	ThingGroupName pulumi.StringInput
 	// The name of the thing to add to a group.
@@ -226,6 +236,11 @@ func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutputWithContext(ctx 
 // Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 func (o ThingGroupMembershipOutput) OverrideDynamicGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThingGroupMembership) pulumi.BoolPtrOutput { return v.OverrideDynamicGroup }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ThingGroupMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingGroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the group to which you are adding a thing.

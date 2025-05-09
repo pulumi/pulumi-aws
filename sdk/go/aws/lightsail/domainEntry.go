@@ -67,6 +67,8 @@ type DomainEntry struct {
 	IsAlias pulumi.BoolPtrOutput `pulumi:"isAlias"`
 	// Name of the entry record
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Target of the domain entry
 	Target pulumi.StringOutput `pulumi:"target"`
 	// Type of record
@@ -118,6 +120,8 @@ type domainEntryState struct {
 	IsAlias *bool `pulumi:"isAlias"`
 	// Name of the entry record
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Target of the domain entry
 	Target *string `pulumi:"target"`
 	// Type of record
@@ -131,6 +135,8 @@ type DomainEntryState struct {
 	IsAlias pulumi.BoolPtrInput
 	// Name of the entry record
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Target of the domain entry
 	Target pulumi.StringPtrInput
 	// Type of record
@@ -148,6 +154,8 @@ type domainEntryArgs struct {
 	IsAlias *bool `pulumi:"isAlias"`
 	// Name of the entry record
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Target of the domain entry
 	Target string `pulumi:"target"`
 	// Type of record
@@ -162,6 +170,8 @@ type DomainEntryArgs struct {
 	IsAlias pulumi.BoolPtrInput
 	// Name of the entry record
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Target of the domain entry
 	Target pulumi.StringInput
 	// Type of record
@@ -268,6 +278,11 @@ func (o DomainEntryOutput) IsAlias() pulumi.BoolPtrOutput {
 // Name of the entry record
 func (o DomainEntryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainEntryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Target of the domain entry

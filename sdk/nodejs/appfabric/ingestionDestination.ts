@@ -88,6 +88,10 @@ export class IngestionDestination extends pulumi.CustomResource {
      */
     public readonly processingConfiguration!: pulumi.Output<outputs.appfabric.IngestionDestinationProcessingConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +119,7 @@ export class IngestionDestination extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = state ? state.destinationConfiguration : undefined;
             resourceInputs["ingestionArn"] = state ? state.ingestionArn : undefined;
             resourceInputs["processingConfiguration"] = state ? state.processingConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -130,6 +135,7 @@ export class IngestionDestination extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
             resourceInputs["ingestionArn"] = args ? args.ingestionArn : undefined;
             resourceInputs["processingConfiguration"] = args ? args.processingConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -165,6 +171,10 @@ export interface IngestionDestinationState {
      */
     processingConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -195,6 +205,10 @@ export interface IngestionDestinationArgs {
      * Contains information about how ingested data is processed.
      */
     processingConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

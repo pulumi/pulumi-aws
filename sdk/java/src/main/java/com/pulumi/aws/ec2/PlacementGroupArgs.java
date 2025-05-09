@@ -55,6 +55,21 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
@@ -106,6 +121,7 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
     private PlacementGroupArgs(PlacementGroupArgs $) {
         this.name = $.name;
         this.partitionCount = $.partitionCount;
+        this.region = $.region;
         this.spreadLevel = $.spreadLevel;
         this.strategy = $.strategy;
         this.tags = $.tags;
@@ -173,6 +189,27 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder partitionCount(Integer partitionCount) {
             return partitionCount(Output.of(partitionCount));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

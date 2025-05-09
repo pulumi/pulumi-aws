@@ -88,6 +88,10 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationRule[]>;
@@ -107,6 +111,7 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
             const state = argsOrState as BucketServerSideEncryptionConfigurationState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as BucketServerSideEncryptionConfigurationArgs | undefined;
@@ -118,6 +123,7 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -140,6 +146,10 @@ export interface BucketServerSideEncryptionConfigurationState {
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRule>[]>;
@@ -157,6 +167,10 @@ export interface BucketServerSideEncryptionConfigurationArgs {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */

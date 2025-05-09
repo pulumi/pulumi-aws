@@ -30,6 +30,7 @@ class FleetArgs:
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  overflow_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_configuration: Optional[pulumi.Input['FleetScalingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -46,6 +47,7 @@ class FleetArgs:
         :param pulumi.Input[builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['FleetScalingConfigurationArgs'] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]] vpc_configs: Configuration block. See `vpc_config` below.
@@ -63,6 +65,8 @@ class FleetArgs:
             pulumi.set(__self__, "name", name)
         if overflow_behavior is not None:
             pulumi.set(__self__, "overflow_behavior", overflow_behavior)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_configuration is not None:
             pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         if tags is not None:
@@ -171,6 +175,18 @@ class FleetArgs:
         pulumi.set(self, "overflow_behavior", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationArgs']]:
         """
@@ -230,6 +246,7 @@ class _FleetState:
                  last_modified: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  overflow_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_configuration: Optional[pulumi.Input['FleetScalingConfigurationArgs']] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -250,6 +267,7 @@ class _FleetState:
         :param pulumi.Input[builtins.str] last_modified: Last modification time of the fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['FleetScalingConfigurationArgs'] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]] statuses: Nested attribute containing information about the current status of the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -277,6 +295,8 @@ class _FleetState:
             pulumi.set(__self__, "name", name)
         if overflow_behavior is not None:
             pulumi.set(__self__, "overflow_behavior", overflow_behavior)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_configuration is not None:
             pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         if statuses is not None:
@@ -423,6 +443,18 @@ class _FleetState:
         pulumi.set(self, "overflow_behavior", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationArgs']]:
         """
@@ -496,6 +528,7 @@ class Fleet(pulumi.CustomResource):
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  overflow_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -555,6 +588,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]] vpc_configs: Configuration block. See `vpc_config` below.
@@ -630,6 +664,7 @@ class Fleet(pulumi.CustomResource):
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  overflow_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -657,6 +692,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["image_id"] = image_id
             __props__.__dict__["name"] = name
             __props__.__dict__["overflow_behavior"] = overflow_behavior
+            __props__.__dict__["region"] = region
             __props__.__dict__["scaling_configuration"] = scaling_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -686,6 +722,7 @@ class Fleet(pulumi.CustomResource):
             last_modified: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             overflow_behavior: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
             statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -711,6 +748,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_modified: Last modification time of the fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]] statuses: Nested attribute containing information about the current status of the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -731,6 +769,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["last_modified"] = last_modified
         __props__.__dict__["name"] = name
         __props__.__dict__["overflow_behavior"] = overflow_behavior
+        __props__.__dict__["region"] = region
         __props__.__dict__["scaling_configuration"] = scaling_configuration
         __props__.__dict__["statuses"] = statuses
         __props__.__dict__["tags"] = tags
@@ -827,6 +866,14 @@ class Fleet(pulumi.CustomResource):
         Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         """
         return pulumi.get(self, "overflow_behavior")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scalingConfiguration")

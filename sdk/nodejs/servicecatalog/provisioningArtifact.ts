@@ -102,6 +102,10 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningArtifactId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */
     public readonly templatePhysicalId!: pulumi.Output<string | undefined>;
@@ -138,6 +142,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["productId"] = state ? state.productId : undefined;
             resourceInputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["templatePhysicalId"] = state ? state.templatePhysicalId : undefined;
             resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -153,6 +158,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
             resourceInputs["guidance"] = args ? args.guidance : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["templatePhysicalId"] = args ? args.templatePhysicalId : undefined;
             resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -205,6 +211,10 @@ export interface ProvisioningArtifactState {
      */
     provisioningArtifactId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */
     templatePhysicalId?: pulumi.Input<string>;
@@ -252,6 +262,10 @@ export interface ProvisioningArtifactArgs {
      * Identifier of the product.
      */
     productId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */

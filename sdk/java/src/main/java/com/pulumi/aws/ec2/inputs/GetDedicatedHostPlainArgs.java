@@ -35,6 +35,9 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
     /**
      * ID of the Dedicated Host.
      * 
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
+     * 
      */
     @Import(name="hostId")
     private @Nullable String hostId;
@@ -42,9 +45,19 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
     /**
      * @return ID of the Dedicated Host.
      * 
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
+     * 
      */
     public Optional<String> hostId() {
         return Optional.ofNullable(this.hostId);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     @Import(name="tags")
@@ -59,6 +72,7 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
     private GetDedicatedHostPlainArgs(GetDedicatedHostPlainArgs $) {
         this.filters = $.filters;
         this.hostId = $.hostId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -104,11 +118,19 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
         /**
          * @param hostId ID of the Dedicated Host.
          * 
+         * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+         * The given filters must match exactly one host whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
         public Builder hostId(@Nullable String hostId) {
             $.hostId = hostId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -51,7 +51,8 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 // A collection of arguments for invoking getConnector.
 type LookupConnectorArgs struct {
 	// Name of the connector.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,8 +64,9 @@ type LookupConnectorResult struct {
 	// Summary description of the connector.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Current version of the connector.
@@ -83,7 +85,8 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 // A collection of arguments for invoking getConnector.
 type LookupConnectorOutputArgs struct {
 	// Name of the connector.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -124,6 +127,10 @@ func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupConnectorResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectorResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to the resource.

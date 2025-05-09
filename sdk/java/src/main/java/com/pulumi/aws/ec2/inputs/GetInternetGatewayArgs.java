@@ -54,6 +54,13 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.internetGatewayId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
@@ -76,6 +83,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
     private GetInternetGatewayArgs(GetInternetGatewayArgs $) {
         this.filters = $.filters;
         this.internetGatewayId = $.internetGatewayId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -156,6 +164,15 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder internetGatewayId(String internetGatewayId) {
             return internetGatewayId(Output.of(internetGatewayId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

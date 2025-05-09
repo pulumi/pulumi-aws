@@ -84,6 +84,10 @@ export class LbAttachment extends pulumi.CustomResource {
      * The name of the Lightsail load balancer.
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbAttachment resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class LbAttachment extends pulumi.CustomResource {
             const state = argsOrState as LbAttachmentState | undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbAttachmentArgs | undefined;
             if ((!args || args.instanceName === undefined) && !opts.urn) {
@@ -110,6 +115,7 @@ export class LbAttachment extends pulumi.CustomResource {
             }
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbAttachment.__pulumiType, name, resourceInputs, opts);
@@ -128,6 +134,10 @@ export interface LbAttachmentState {
      * The name of the Lightsail load balancer.
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -142,4 +152,8 @@ export interface LbAttachmentArgs {
      * The name of the Lightsail load balancer.
      */
     lbName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

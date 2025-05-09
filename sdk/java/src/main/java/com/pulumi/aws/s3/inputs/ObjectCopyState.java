@@ -590,6 +590,21 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * If present, indicates that the requester was successfully charged for the request.
      * 
      */
@@ -845,6 +860,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         this.objectLockMode = $.objectLockMode;
         this.objectLockRetainUntilDate = $.objectLockRetainUntilDate;
         this.overrideProvider = $.overrideProvider;
+        this.region = $.region;
         this.requestCharged = $.requestCharged;
         this.requestPayer = $.requestPayer;
         this.serverSideEncryption = $.serverSideEncryption;
@@ -1682,6 +1698,27 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
 
         public Builder overrideProvider(ObjectCopyOverrideProviderArgs overrideProvider) {
             return overrideProvider(Output.of(overrideProvider));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ResourceAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceAssociationArgs Empty = new ResourceAssociationArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
@@ -47,6 +64,7 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
     private ResourceAssociationArgs() {}
 
     private ResourceAssociationArgs(ResourceAssociationArgs $) {
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
         this.resourceShareArn = $.resourceShareArn;
     }
@@ -67,6 +85,27 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
 
         public Builder(ResourceAssociationArgs defaults) {
             $ = new ResourceAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

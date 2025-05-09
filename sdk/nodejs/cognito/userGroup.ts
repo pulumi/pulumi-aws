@@ -98,6 +98,10 @@ export class UserGroup extends pulumi.CustomResource {
      */
     public readonly precedence!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role to be associated with the user group.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -122,6 +126,7 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["precedence"] = state ? state.precedence : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
@@ -132,6 +137,7 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["precedence"] = args ? args.precedence : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
@@ -156,6 +162,10 @@ export interface UserGroupState {
      * The precedence of the user group.
      */
     precedence?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
@@ -182,6 +192,10 @@ export interface UserGroupArgs {
      * The precedence of the user group.
      */
     precedence?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */

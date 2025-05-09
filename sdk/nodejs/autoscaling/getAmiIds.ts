@@ -47,6 +47,7 @@ export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:autoscaling/getAmiIds:getAmiIds", {
         "filters": args.filters,
         "names": args.names,
+        "region": args.region,
     }, opts);
 }
 
@@ -62,6 +63,7 @@ export interface GetAmiIdsArgs {
      * List of autoscaling group names
      */
     names?: string[];
+    region?: string;
 }
 
 /**
@@ -81,6 +83,7 @@ export interface GetAmiIdsResult {
      * List of the Autoscaling Groups in the current region.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * The Autoscaling Groups data source allows access to the list of AWS
@@ -122,6 +125,7 @@ export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("aws:autoscaling/getAmiIds:getAmiIds", {
         "filters": args.filters,
         "names": args.names,
+        "region": args.region,
     }, opts);
 }
 
@@ -137,4 +141,5 @@ export interface GetAmiIdsOutputArgs {
      * List of autoscaling group names
      */
     names?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
 }

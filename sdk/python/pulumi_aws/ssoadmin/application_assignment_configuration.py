@@ -21,14 +21,18 @@ __all__ = ['ApplicationAssignmentConfigurationArgs', 'ApplicationAssignmentConfi
 class ApplicationAssignmentConfigurationArgs:
     def __init__(__self__, *,
                  application_arn: pulumi.Input[builtins.str],
-                 assignment_required: pulumi.Input[builtins.bool]):
+                 assignment_required: pulumi.Input[builtins.bool],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAssignmentConfiguration resource.
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "assignment_required", assignment_required)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -54,21 +58,37 @@ class ApplicationAssignmentConfigurationArgs:
     def assignment_required(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "assignment_required", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ApplicationAssignmentConfigurationState:
     def __init__(__self__, *,
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 assignment_required: Optional[pulumi.Input[builtins.bool]] = None):
+                 assignment_required: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAssignmentConfiguration resources.
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
         if assignment_required is not None:
             pulumi.set(__self__, "assignment_required", assignment_required)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -94,6 +114,18 @@ class _ApplicationAssignmentConfigurationState:
     def assignment_required(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "assignment_required", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class ApplicationAssignmentConfiguration(pulumi.CustomResource):
 
@@ -105,6 +137,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  assignment_required: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSO Admin Application Assignment Configuration.
@@ -139,6 +172,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -192,6 +226,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  assignment_required: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,6 +242,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
             if assignment_required is None and not opts.urn:
                 raise TypeError("Missing required property 'assignment_required'")
             __props__.__dict__["assignment_required"] = assignment_required
+            __props__.__dict__["region"] = region
         super(ApplicationAssignmentConfiguration, __self__).__init__(
             'aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration',
             resource_name,
@@ -218,7 +254,8 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_arn: Optional[pulumi.Input[builtins.str]] = None,
-            assignment_required: Optional[pulumi.Input[builtins.bool]] = None) -> 'ApplicationAssignmentConfiguration':
+            assignment_required: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ApplicationAssignmentConfiguration':
         """
         Get an existing ApplicationAssignmentConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -228,6 +265,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,6 +273,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["application_arn"] = application_arn
         __props__.__dict__["assignment_required"] = assignment_required
+        __props__.__dict__["region"] = region
         return ApplicationAssignmentConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -252,4 +291,12 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         """
         return pulumi.get(self, "assignment_required")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

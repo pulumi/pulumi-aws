@@ -6,6 +6,7 @@ package com.pulumi.aws.servicequotas;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class TemplateAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateAssociationArgs Empty = new TemplateAssociationArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
@@ -25,6 +41,7 @@ public final class TemplateAssociationArgs extends com.pulumi.resources.Resource
     private TemplateAssociationArgs() {}
 
     private TemplateAssociationArgs(TemplateAssociationArgs $) {
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
     }
 
@@ -44,6 +61,27 @@ public final class TemplateAssociationArgs extends com.pulumi.resources.Resource
 
         public Builder(TemplateAssociationArgs defaults) {
             $ = new TemplateAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {

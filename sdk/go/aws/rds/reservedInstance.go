@@ -92,6 +92,8 @@ type ReservedInstance struct {
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrOutput `pulumi:"reservationId"`
 	// Time the reservation started.
@@ -165,6 +167,8 @@ type reservedInstanceState struct {
 	ProductDescription *string `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
 	// Time the reservation started.
@@ -206,6 +210,8 @@ type ReservedInstanceState struct {
 	ProductDescription pulumi.StringPtrInput
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
 	// Time the reservation started.
@@ -231,6 +237,8 @@ type reservedInstanceArgs struct {
 	//
 	// The following arguments are optional:
 	OfferingId string `pulumi:"offeringId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -245,6 +253,8 @@ type ReservedInstanceArgs struct {
 	//
 	// The following arguments are optional:
 	OfferingId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -398,6 +408,11 @@ func (o ReservedInstanceOutput) ProductDescription() pulumi.StringOutput {
 // Recurring price charged to run this reserved DB instance.
 func (o ReservedInstanceOutput) RecurringCharges() ReservedInstanceRecurringChargeArrayOutput {
 	return o.ApplyT(func(v *ReservedInstance) ReservedInstanceRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedInstanceRecurringChargeArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReservedInstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Customer-specified identifier to track this reservation.

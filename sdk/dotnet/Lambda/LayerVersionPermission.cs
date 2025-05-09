@@ -80,6 +80,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A unique identifier for the current revision of the policy.
         /// </summary>
         [Output("revisionId")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
         [Input("skipDestroy")]
@@ -228,6 +240,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A unique identifier for the current revision of the policy.

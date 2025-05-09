@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Lex
         public Output<ImmutableArray<Outputs.V2modelsSlotObfuscationSetting>> ObfuscationSettings { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier associated with the slot.
         /// </summary>
         [Output("slotId")]
@@ -205,6 +211,12 @@ namespace Pulumi.Aws.Lex
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Unique identifier for the slot type associated with this slot.
         /// </summary>
         [Input("slotTypeId")]
@@ -298,6 +310,12 @@ namespace Pulumi.Aws.Lex
             get => _obfuscationSettings ?? (_obfuscationSettings = new InputList<Inputs.V2modelsSlotObfuscationSettingGetArgs>());
             set => _obfuscationSettings = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Unique identifier associated with the slot.

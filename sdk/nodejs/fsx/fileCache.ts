@@ -131,6 +131,10 @@ export class FileCache extends pulumi.CustomResource {
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -179,6 +183,7 @@ export class FileCache extends pulumi.CustomResource {
             resourceInputs["lustreConfigurations"] = state ? state.lustreConfigurations : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -205,6 +210,7 @@ export class FileCache extends pulumi.CustomResource {
             resourceInputs["fileCacheTypeVersion"] = args ? args.fileCacheTypeVersion : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["lustreConfigurations"] = args ? args.lustreConfigurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -274,6 +280,10 @@ export interface FileCacheState {
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     ownerId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -327,6 +337,10 @@ export interface FileCacheArgs {
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
     lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */

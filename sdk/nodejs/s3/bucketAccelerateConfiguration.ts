@@ -76,6 +76,10 @@ export class BucketAccelerateConfiguration extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class BucketAccelerateConfiguration extends pulumi.CustomResource {
             const state = argsOrState as BucketAccelerateConfigurationState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as BucketAccelerateConfigurationArgs | undefined;
@@ -106,6 +111,7 @@ export class BucketAccelerateConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -128,6 +134,10 @@ export interface BucketAccelerateConfigurationState {
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
     status?: pulumi.Input<string>;
@@ -145,6 +155,10 @@ export interface BucketAccelerateConfigurationArgs {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */

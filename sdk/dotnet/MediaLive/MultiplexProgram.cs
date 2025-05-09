@@ -100,6 +100,12 @@ namespace Pulumi.Aws.MediaLive
         [Output("programName")]
         public Output<string> ProgramName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.MultiplexProgramTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.MediaLive
         [Input("programName", required: true)]
         public Input<string> ProgramName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.MultiplexProgramTimeoutsArgs>? Timeouts { get; set; }
 
@@ -199,6 +211,12 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Input("programName")]
         public Input<string>? ProgramName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.MultiplexProgramTimeoutsGetArgs>? Timeouts { get; set; }

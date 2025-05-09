@@ -638,6 +638,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */
     public readonly serviceLinkedRoleArn!: pulumi.Output<string>;
@@ -737,6 +741,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
             resourceInputs["predictedCapacity"] = state ? state.predictedCapacity : undefined;
             resourceInputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
             resourceInputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -786,6 +791,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
             resourceInputs["protectFromScaleIn"] = args ? args.protectFromScaleIn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
             resourceInputs["suspendedProcesses"] = args ? args.suspendedProcesses : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -961,6 +967,10 @@ export interface GroupState {
      * in the Amazon EC2 Auto Scaling User Guide.
      */
     protectFromScaleIn?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */
@@ -1165,6 +1175,10 @@ export interface GroupArgs {
      * in the Amazon EC2 Auto Scaling User Guide.
      */
     protectFromScaleIn?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */

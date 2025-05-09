@@ -79,6 +79,7 @@ class InstanceArgs:
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']] = None,
@@ -202,6 +203,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -357,6 +359,8 @@ class InstanceArgs:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replica_mode is not None:
             pulumi.set(__self__, "replica_mode", replica_mode)
         if replicate_source_db is not None:
@@ -1109,6 +1113,18 @@ class InstanceArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicaMode")
     def replica_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1370,6 +1386,7 @@ class _InstanceState:
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
@@ -1505,6 +1522,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -1680,6 +1698,8 @@ class _InstanceState:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replica_mode is not None:
             pulumi.set(__self__, "replica_mode", replica_mode)
         if replicas is not None:
@@ -2536,6 +2556,18 @@ class _InstanceState:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicaMode")
     def replica_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -2839,6 +2871,7 @@ class Instance(pulumi.CustomResource):
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
@@ -3216,6 +3249,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -3587,6 +3621,7 @@ class Instance(pulumi.CustomResource):
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
@@ -3668,6 +3703,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
             __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             __props__.__dict__["replica_mode"] = replica_mode
             __props__.__dict__["replicate_source_db"] = replicate_source_db
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
@@ -3770,6 +3806,7 @@ class Instance(pulumi.CustomResource):
             performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replica_mode: Optional[pulumi.Input[builtins.str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
@@ -3910,6 +3947,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -4022,6 +4060,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
         __props__.__dict__["port"] = port
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["region"] = region
         __props__.__dict__["replica_mode"] = replica_mode
         __props__.__dict__["replicas"] = replicas
         __props__.__dict__["replicate_source_db"] = replicate_source_db
@@ -4603,6 +4642,14 @@ class Instance(pulumi.CustomResource):
         accessible. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicaMode")

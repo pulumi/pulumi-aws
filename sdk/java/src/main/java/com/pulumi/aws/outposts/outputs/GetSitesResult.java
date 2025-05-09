@@ -21,6 +21,7 @@ public final class GetSitesResult {
      * 
      */
     private List<String> ids;
+    private String region;
 
     private GetSitesResult() {}
     /**
@@ -37,6 +38,9 @@ public final class GetSitesResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +53,13 @@ public final class GetSitesResult {
     public static final class Builder {
         private String id;
         private List<String> ids;
+        private String region;
         public Builder() {}
         public Builder(GetSitesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -75,10 +81,19 @@ public final class GetSitesResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSitesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetSitesResult build() {
             final var _resultValue = new GetSitesResult();
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

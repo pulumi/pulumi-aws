@@ -78,6 +78,10 @@ export class RouteCalculation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -108,6 +112,7 @@ export class RouteCalculation extends pulumi.CustomResource {
             resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["dataSource"] = state ? state.dataSource : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["updateTime"] = state ? state.updateTime : undefined;
@@ -122,6 +127,7 @@ export class RouteCalculation extends pulumi.CustomResource {
             resourceInputs["calculatorName"] = args ? args.calculatorName : undefined;
             resourceInputs["dataSource"] = args ? args.dataSource : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["calculatorArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
@@ -160,6 +166,10 @@ export interface RouteCalculationState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -191,6 +201,10 @@ export interface RouteCalculationArgs {
      * The optional description for the route calculator resource.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

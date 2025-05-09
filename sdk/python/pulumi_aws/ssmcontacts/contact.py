@@ -23,6 +23,7 @@ class ContactArgs:
                  alias: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Contact resource.
@@ -32,12 +33,15 @@ class ContactArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "type", type)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -82,6 +86,18 @@ class ContactArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource.
@@ -99,6 +115,7 @@ class _ContactState:
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
@@ -107,6 +124,7 @@ class _ContactState:
         :param pulumi.Input[builtins.str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[builtins.str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
@@ -120,6 +138,8 @@ class _ContactState:
             pulumi.set(__self__, "arn", arn)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -162,6 +182,18 @@ class _ContactState:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -213,6 +245,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -261,6 +294,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[builtins.str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[builtins.str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
@@ -331,6 +365,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -346,6 +381,7 @@ class Contact(pulumi.CustomResource):
                 raise TypeError("Missing required property 'alias'")
             __props__.__dict__["alias"] = alias
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -365,6 +401,7 @@ class Contact(pulumi.CustomResource):
             alias: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             display_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'Contact':
@@ -378,6 +415,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[builtins.str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
@@ -392,6 +430,7 @@ class Contact(pulumi.CustomResource):
         __props__.__dict__["alias"] = alias
         __props__.__dict__["arn"] = arn
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
@@ -420,6 +459,14 @@ class Contact(pulumi.CustomResource):
         Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

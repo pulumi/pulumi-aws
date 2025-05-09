@@ -70,6 +70,10 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      */
     public readonly assignmentRequired!: pulumi.Output<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ApplicationAssignmentConfiguration resource with the given unique name, arguments, and options.
@@ -86,6 +90,7 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
             const state = argsOrState as ApplicationAssignmentConfigurationState | undefined;
             resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
             resourceInputs["assignmentRequired"] = state ? state.assignmentRequired : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ApplicationAssignmentConfigurationArgs | undefined;
             if ((!args || args.applicationArn === undefined) && !opts.urn) {
@@ -96,6 +101,7 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
             resourceInputs["assignmentRequired"] = args ? args.assignmentRequired : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationAssignmentConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -114,6 +120,10 @@ export interface ApplicationAssignmentConfigurationState {
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      */
     assignmentRequired?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -128,4 +138,8 @@ export interface ApplicationAssignmentConfigurationArgs {
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      */
     assignmentRequired: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

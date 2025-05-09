@@ -29,6 +29,7 @@ class PipelineArgs:
                  buffer_options: Optional[pulumi.Input['PipelineBufferOptionsArgs']] = None,
                  encryption_at_rest_options: Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']] = None,
                  log_publishing_options: Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['PipelineTimeoutsArgs']] = None,
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
@@ -43,6 +44,7 @@ class PipelineArgs:
         :param pulumi.Input['PipelineBufferOptionsArgs'] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
         :param pulumi.Input['PipelineEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         :param pulumi.Input['PipelineLogPublishingOptionsArgs'] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['PipelineVpcOptionsArgs'] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
@@ -56,6 +58,8 @@ class PipelineArgs:
             pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
         if log_publishing_options is not None:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -151,6 +155,18 @@ class PipelineArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,6 +211,7 @@ class _PipelineState:
                  pipeline_arn: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_configuration_body: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['PipelineTimeoutsArgs']] = None,
@@ -212,6 +229,7 @@ class _PipelineState:
         :param pulumi.Input[builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['PipelineVpcOptionsArgs'] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
@@ -233,6 +251,8 @@ class _PipelineState:
             pulumi.set(__self__, "pipeline_configuration_body", pipeline_configuration_body)
         if pipeline_name is not None:
             pulumi.set(__self__, "pipeline_name", pipeline_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -354,6 +374,18 @@ class _PipelineState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -410,6 +442,7 @@ class Pipeline(pulumi.CustomResource):
                  min_units: Optional[pulumi.Input[builtins.int]] = None,
                  pipeline_configuration_body: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict']]] = None,
                  vpc_options: Optional[pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
@@ -493,6 +526,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
@@ -592,6 +626,7 @@ class Pipeline(pulumi.CustomResource):
                  min_units: Optional[pulumi.Input[builtins.int]] = None,
                  pipeline_configuration_body: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict']]] = None,
                  vpc_options: Optional[pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
@@ -619,6 +654,7 @@ class Pipeline(pulumi.CustomResource):
             if pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["vpc_options"] = vpc_options
@@ -644,6 +680,7 @@ class Pipeline(pulumi.CustomResource):
             pipeline_arn: Optional[pulumi.Input[builtins.str]] = None,
             pipeline_configuration_body: Optional[pulumi.Input[builtins.str]] = None,
             pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict']]] = None,
@@ -666,6 +703,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
@@ -682,6 +720,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["pipeline_arn"] = pipeline_arn
         __props__.__dict__["pipeline_configuration_body"] = pipeline_configuration_body
         __props__.__dict__["pipeline_name"] = pipeline_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -761,6 +800,14 @@ class Pipeline(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "pipeline_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

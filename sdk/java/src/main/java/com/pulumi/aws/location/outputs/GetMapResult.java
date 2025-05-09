@@ -39,6 +39,7 @@ public final class GetMapResult {
      */
     private String mapArn;
     private String mapName;
+    private String region;
     /**
      * @return Key-value map of resource tags for the map.
      * 
@@ -89,6 +90,9 @@ public final class GetMapResult {
     public String mapName() {
         return this.mapName;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the map.
      * 
@@ -119,6 +123,7 @@ public final class GetMapResult {
         private String id;
         private String mapArn;
         private String mapName;
+        private String region;
         private Map<String,String> tags;
         private String updateTime;
         public Builder() {}
@@ -130,6 +135,7 @@ public final class GetMapResult {
     	      this.id = defaults.id;
     	      this.mapArn = defaults.mapArn;
     	      this.mapName = defaults.mapName;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.updateTime = defaults.updateTime;
         }
@@ -186,6 +192,14 @@ public final class GetMapResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetMapResult", "tags");
@@ -209,6 +223,7 @@ public final class GetMapResult {
             _resultValue.id = id;
             _resultValue.mapArn = mapArn;
             _resultValue.mapName = mapName;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.updateTime = updateTime;
             return _resultValue;

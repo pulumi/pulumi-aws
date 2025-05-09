@@ -5,25 +5,26 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.ListenerRuleMatchHttpMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleMatch {
     /**
      * @return The HTTP criteria that a rule must match.
+     * See `http_match` Block for details.
      * 
      */
-    private @Nullable ListenerRuleMatchHttpMatch httpMatch;
+    private ListenerRuleMatchHttpMatch httpMatch;
 
     private ListenerRuleMatch() {}
     /**
      * @return The HTTP criteria that a rule must match.
+     * See `http_match` Block for details.
      * 
      */
-    public Optional<ListenerRuleMatchHttpMatch> httpMatch() {
-        return Optional.ofNullable(this.httpMatch);
+    public ListenerRuleMatchHttpMatch httpMatch() {
+        return this.httpMatch;
     }
 
     public static Builder builder() {
@@ -35,7 +36,7 @@ public final class ListenerRuleMatch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ListenerRuleMatchHttpMatch httpMatch;
+        private ListenerRuleMatchHttpMatch httpMatch;
         public Builder() {}
         public Builder(ListenerRuleMatch defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +44,10 @@ public final class ListenerRuleMatch {
         }
 
         @CustomType.Setter
-        public Builder httpMatch(@Nullable ListenerRuleMatchHttpMatch httpMatch) {
-
+        public Builder httpMatch(ListenerRuleMatchHttpMatch httpMatch) {
+            if (httpMatch == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleMatch", "httpMatch");
+            }
             this.httpMatch = httpMatch;
             return this;
         }

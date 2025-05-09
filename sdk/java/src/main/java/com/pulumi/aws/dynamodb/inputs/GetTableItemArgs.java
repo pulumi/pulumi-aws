@@ -62,6 +62,13 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.projectionExpression);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The name of the table containing the requested item.
      * 
@@ -83,6 +90,7 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         this.expressionAttributeNames = $.expressionAttributeNames;
         this.key = $.key;
         this.projectionExpression = $.projectionExpression;
+        this.region = $.region;
         this.tableName = $.tableName;
     }
 
@@ -161,6 +169,15 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder projectionExpression(String projectionExpression) {
             return projectionExpression(Output.of(projectionExpression));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -25,6 +25,7 @@ class EmailIdentityArgs:
                  email_identity: pulumi.Input[builtins.str],
                  configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
@@ -33,6 +34,7 @@ class EmailIdentityArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "email_identity", email_identity)
@@ -40,6 +42,8 @@ class EmailIdentityArgs:
             pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         if dkim_signing_attributes is not None:
             pulumi.set(__self__, "dkim_signing_attributes", dkim_signing_attributes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -83,6 +87,18 @@ class EmailIdentityArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -102,6 +118,7 @@ class _EmailIdentityState:
                  dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
                  identity_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verified_for_sending_status: Optional[pulumi.Input[builtins.bool]] = None):
@@ -114,6 +131,7 @@ class _EmailIdentityState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] identity_type: The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] verified_for_sending_status: Specifies whether or not the identity is verified.
@@ -128,6 +146,8 @@ class _EmailIdentityState:
             pulumi.set(__self__, "email_identity", email_identity)
         if identity_type is not None:
             pulumi.set(__self__, "identity_type", identity_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -199,6 +219,18 @@ class _EmailIdentityState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -245,6 +277,7 @@ class EmailIdentity(pulumi.CustomResource):
                  configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  dkim_signing_attributes: Optional[pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -313,6 +346,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_identity: The email address or domain to verify.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -398,6 +432,7 @@ class EmailIdentity(pulumi.CustomResource):
                  configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  dkim_signing_attributes: Optional[pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -413,6 +448,7 @@ class EmailIdentity(pulumi.CustomResource):
             if email_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'email_identity'")
             __props__.__dict__["email_identity"] = email_identity
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["identity_type"] = None
@@ -433,6 +469,7 @@ class EmailIdentity(pulumi.CustomResource):
             dkim_signing_attributes: Optional[pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
             email_identity: Optional[pulumi.Input[builtins.str]] = None,
             identity_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             verified_for_sending_status: Optional[pulumi.Input[builtins.bool]] = None) -> 'EmailIdentity':
@@ -450,6 +487,7 @@ class EmailIdentity(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] identity_type: The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] verified_for_sending_status: Specifies whether or not the identity is verified.
@@ -463,6 +501,7 @@ class EmailIdentity(pulumi.CustomResource):
         __props__.__dict__["dkim_signing_attributes"] = dkim_signing_attributes
         __props__.__dict__["email_identity"] = email_identity
         __props__.__dict__["identity_type"] = identity_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["verified_for_sending_status"] = verified_for_sending_status
@@ -509,6 +548,14 @@ class EmailIdentity(pulumi.CustomResource):
         The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         """
         return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -103,6 +103,8 @@ type Cluster struct {
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 	Port pulumi.IntOutput `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Set of shards in this cluster.
@@ -204,6 +206,8 @@ type clusterState struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 	Port *int `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Set of shards in this cluster.
@@ -270,6 +274,8 @@ type ClusterState struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 	Port pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Set of shards in this cluster.
@@ -335,6 +341,8 @@ type clusterArgs struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 	Port *int `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -393,6 +401,8 @@ type ClusterArgs struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 	Port pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds pulumi.StringArrayInput
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -599,6 +609,11 @@ func (o ClusterOutput) ParameterGroupName() pulumi.StringOutput {
 // The port number on which each of the nodes accepts connections. Defaults to `6379`.
 func (o ClusterOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of VPC Security Group ID-s to associate with this cluster.

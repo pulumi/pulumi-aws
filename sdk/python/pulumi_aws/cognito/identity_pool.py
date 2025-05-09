@@ -28,6 +28,7 @@ class IdentityPoolArgs:
                  cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
                  developer_provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -40,6 +41,7 @@ class IdentityPoolArgs:
         :param pulumi.Input[builtins.str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -55,6 +57,8 @@ class IdentityPoolArgs:
             pulumi.set(__self__, "developer_provider_name", developer_provider_name)
         if openid_connect_provider_arns is not None:
             pulumi.set(__self__, "openid_connect_provider_arns", openid_connect_provider_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if saml_provider_arns is not None:
             pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
         if supported_login_providers is not None:
@@ -136,6 +140,18 @@ class IdentityPoolArgs:
         pulumi.set(self, "openid_connect_provider_arns", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -182,6 +198,7 @@ class _IdentityPoolState:
                  developer_provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity_pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -196,6 +213,7 @@ class _IdentityPoolState:
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,6 +233,8 @@ class _IdentityPoolState:
             pulumi.set(__self__, "identity_pool_name", identity_pool_name)
         if openid_connect_provider_arns is not None:
             pulumi.set(__self__, "openid_connect_provider_arns", openid_connect_provider_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if saml_provider_arns is not None:
             pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
         if supported_login_providers is not None:
@@ -310,6 +330,18 @@ class _IdentityPoolState:
         pulumi.set(self, "openid_connect_provider_arns", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -372,6 +404,7 @@ class IdentityPool(pulumi.CustomResource):
                  developer_provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity_pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -430,6 +463,7 @@ class IdentityPool(pulumi.CustomResource):
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -506,6 +540,7 @@ class IdentityPool(pulumi.CustomResource):
                  developer_provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity_pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -526,6 +561,7 @@ class IdentityPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity_pool_name'")
             __props__.__dict__["identity_pool_name"] = identity_pool_name
             __props__.__dict__["openid_connect_provider_arns"] = openid_connect_provider_arns
+            __props__.__dict__["region"] = region
             __props__.__dict__["saml_provider_arns"] = saml_provider_arns
             __props__.__dict__["supported_login_providers"] = supported_login_providers
             __props__.__dict__["tags"] = tags
@@ -548,6 +584,7 @@ class IdentityPool(pulumi.CustomResource):
             developer_provider_name: Optional[pulumi.Input[builtins.str]] = None,
             identity_pool_name: Optional[pulumi.Input[builtins.str]] = None,
             openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -567,6 +604,7 @@ class IdentityPool(pulumi.CustomResource):
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -583,6 +621,7 @@ class IdentityPool(pulumi.CustomResource):
         __props__.__dict__["developer_provider_name"] = developer_provider_name
         __props__.__dict__["identity_pool_name"] = identity_pool_name
         __props__.__dict__["openid_connect_provider_arns"] = openid_connect_provider_arns
+        __props__.__dict__["region"] = region
         __props__.__dict__["saml_provider_arns"] = saml_provider_arns
         __props__.__dict__["supported_login_providers"] = supported_login_providers
         __props__.__dict__["tags"] = tags
@@ -645,6 +684,14 @@ class IdentityPool(pulumi.CustomResource):
         Set of OpendID Connect provider ARNs.
         """
         return pulumi.get(self, "openid_connect_provider_arns")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="samlProviderArns")

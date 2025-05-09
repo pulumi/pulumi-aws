@@ -25,6 +25,7 @@ public final class GetCipherTextResult {
     private String id;
     private String keyId;
     private String plaintext;
+    private String region;
 
     private GetCipherTextResult() {}
     /**
@@ -50,6 +51,9 @@ public final class GetCipherTextResult {
     public String plaintext() {
         return this.plaintext;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -65,6 +69,7 @@ public final class GetCipherTextResult {
         private String id;
         private String keyId;
         private String plaintext;
+        private String region;
         public Builder() {}
         public Builder(GetCipherTextResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,6 +78,7 @@ public final class GetCipherTextResult {
     	      this.id = defaults.id;
     	      this.keyId = defaults.keyId;
     	      this.plaintext = defaults.plaintext;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -113,6 +119,14 @@ public final class GetCipherTextResult {
             this.plaintext = plaintext;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCipherTextResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetCipherTextResult build() {
             final var _resultValue = new GetCipherTextResult();
             _resultValue.ciphertextBlob = ciphertextBlob;
@@ -120,6 +134,7 @@ public final class GetCipherTextResult {
             _resultValue.id = id;
             _resultValue.keyId = keyId;
             _resultValue.plaintext = plaintext;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

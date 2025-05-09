@@ -117,11 +117,16 @@ func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.
 // A collection of arguments for invoking getPrefixList.
 type GetPrefixListArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// prefix lists. The given filters must match exactly one prefix list
+	// whose data will be exported as attributes.
 	Filters []GetPrefixListFilter `pulumi:"filters"`
 	// Name of the prefix list to select.
 	Name *string `pulumi:"name"`
 	// ID of the prefix list to select.
 	PrefixListId *string `pulumi:"prefixListId"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPrefixList.
@@ -134,6 +139,7 @@ type GetPrefixListResult struct {
 	// Name of the selected prefix list.
 	Name         string  `pulumi:"name"`
 	PrefixListId *string `pulumi:"prefixListId"`
+	Region       string  `pulumi:"region"`
 }
 
 func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts ...pulumi.InvokeOption) GetPrefixListResultOutput {
@@ -148,11 +154,16 @@ func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts
 // A collection of arguments for invoking getPrefixList.
 type GetPrefixListOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// prefix lists. The given filters must match exactly one prefix list
+	// whose data will be exported as attributes.
 	Filters GetPrefixListFilterArrayInput `pulumi:"filters"`
 	// Name of the prefix list to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the prefix list to select.
 	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPrefixListOutputArgs) ElementType() reflect.Type {
@@ -195,6 +206,10 @@ func (o GetPrefixListResultOutput) Name() pulumi.StringOutput {
 
 func (o GetPrefixListResultOutput) PrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPrefixListResult) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetPrefixListResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

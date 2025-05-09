@@ -71,6 +71,11 @@ public final class GetCatalogTableResult {
     private List<GetCatalogTablePartitionKey> partitionKeys;
     private @Nullable String queryAsOfTime;
     /**
+     * @return Region of the target table.
+     * 
+     */
+    private String region;
+    /**
      * @return Retention time for this table.
      * 
      */
@@ -177,6 +182,13 @@ public final class GetCatalogTableResult {
         return Optional.ofNullable(this.queryAsOfTime);
     }
     /**
+     * @return Region of the target table.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return Retention time for this table.
      * 
      */
@@ -242,6 +254,7 @@ public final class GetCatalogTableResult {
         private List<GetCatalogTablePartitionIndex> partitionIndices;
         private List<GetCatalogTablePartitionKey> partitionKeys;
         private @Nullable String queryAsOfTime;
+        private String region;
         private Integer retention;
         private List<GetCatalogTableStorageDescriptor> storageDescriptors;
         private String tableType;
@@ -263,6 +276,7 @@ public final class GetCatalogTableResult {
     	      this.partitionIndices = defaults.partitionIndices;
     	      this.partitionKeys = defaults.partitionKeys;
     	      this.queryAsOfTime = defaults.queryAsOfTime;
+    	      this.region = defaults.region;
     	      this.retention = defaults.retention;
     	      this.storageDescriptors = defaults.storageDescriptors;
     	      this.tableType = defaults.tableType;
@@ -365,6 +379,14 @@ public final class GetCatalogTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder retention(Integer retention) {
             if (retention == null) {
               throw new MissingRequiredPropertyException("GetCatalogTableResult", "retention");
@@ -437,6 +459,7 @@ public final class GetCatalogTableResult {
             _resultValue.partitionIndices = partitionIndices;
             _resultValue.partitionKeys = partitionKeys;
             _resultValue.queryAsOfTime = queryAsOfTime;
+            _resultValue.region = region;
             _resultValue.retention = retention;
             _resultValue.storageDescriptors = storageDescriptors;
             _resultValue.tableType = tableType;

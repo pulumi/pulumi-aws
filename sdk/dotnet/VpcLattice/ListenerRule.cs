@@ -22,7 +22,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
+    ///     var example = new Aws.VpcLattice.ListenerRule("example", new()
     ///     {
     ///         Name = "example",
     ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.VpcLattice
     ///                 {
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
     ///                     {
-    ///                         TargetGroupIdentifier = example.Id,
+    ///                         TargetGroupIdentifier = exampleAwsVpclatticeTargetGroup.Id,
     ///                         Weight = 1,
     ///                     },
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
@@ -88,10 +88,10 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
+    ///     var example = new Aws.VpcLattice.ListenerRule("example", new()
     ///     {
     ///         Name = "example",
-    ///         ListenerIdentifier = example.ListenerId,
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
     ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
     ///         Priority = 10,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
@@ -133,6 +133,7 @@ namespace Pulumi.Aws.VpcLattice
     {
         /// <summary>
         /// The action for the listener rule.
+        /// See `action` Block for details.
         /// </summary>
         [Output("action")]
         public Output<Outputs.ListenerRuleAction> Action { get; private set; } = null!;
@@ -151,6 +152,7 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The rule match.
+        /// See `match` Block
         /// </summary>
         [Output("match")]
         public Output<Outputs.ListenerRuleMatch> Match { get; private set; } = null!;
@@ -168,6 +170,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for the listener rule.
@@ -241,6 +249,7 @@ namespace Pulumi.Aws.VpcLattice
     {
         /// <summary>
         /// The action for the listener rule.
+        /// See `action` Block for details.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.ListenerRuleActionArgs> Action { get; set; } = null!;
@@ -253,6 +262,7 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The rule match.
+        /// See `match` Block
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.ListenerRuleMatchArgs> Match { get; set; } = null!;
@@ -270,6 +280,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
@@ -299,6 +315,7 @@ namespace Pulumi.Aws.VpcLattice
     {
         /// <summary>
         /// The action for the listener rule.
+        /// See `action` Block for details.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ListenerRuleActionGetArgs>? Action { get; set; }
@@ -317,6 +334,7 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The rule match.
+        /// See `match` Block
         /// </summary>
         [Input("match")]
         public Input<Inputs.ListenerRuleMatchGetArgs>? Match { get; set; }
@@ -334,6 +352,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Unique identifier for the listener rule.

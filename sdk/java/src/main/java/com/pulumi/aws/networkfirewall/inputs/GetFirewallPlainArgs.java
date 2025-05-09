@@ -33,6 +33,8 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Descriptive name of the firewall.
      * 
+     * One or more of these arguments is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
@@ -40,9 +42,18 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return Descriptive name of the firewall.
      * 
+     * One or more of these arguments is required.
+     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -65,6 +76,7 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     private GetFirewallPlainArgs(GetFirewallPlainArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -100,11 +112,18 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param name Descriptive name of the firewall.
          * 
+         * One or more of these arguments is required.
+         * 
          * @return builder
          * 
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -23,14 +23,18 @@ __all__ = ['TargetGroupAttachmentArgs', 'TargetGroupAttachment']
 class TargetGroupAttachmentArgs:
     def __init__(__self__, *,
                  target: pulumi.Input['TargetGroupAttachmentTargetArgs'],
-                 target_group_identifier: pulumi.Input[builtins.str]):
+                 target_group_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
         :param pulumi.Input[builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -56,21 +60,49 @@ class TargetGroupAttachmentArgs:
     def target_group_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "target_group_identifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TargetGroupAttachmentState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']] = None,
                  target_group_identifier: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroupAttachment resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
         :param pulumi.Input[builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if target_group_identifier is not None:
             pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -105,6 +137,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']]] = None,
                  target_group_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -129,6 +162,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']] target: The target.
         :param pulumi.Input[builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
@@ -172,6 +206,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']]] = None,
                  target_group_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -183,6 +218,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TargetGroupAttachmentArgs.__new__(TargetGroupAttachmentArgs)
 
+            __props__.__dict__["region"] = region
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
@@ -199,6 +235,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target: Optional[pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']]] = None,
             target_group_identifier: Optional[pulumi.Input[builtins.str]] = None) -> 'TargetGroupAttachment':
         """
@@ -208,6 +245,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']] target: The target.
         :param pulumi.Input[builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
@@ -215,9 +253,18 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         __props__ = _TargetGroupAttachmentState.__new__(_TargetGroupAttachmentState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["target"] = target
         __props__.__dict__["target_group_identifier"] = target_group_identifier
         return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -121,6 +121,8 @@ type NetworkInterface struct {
 	PrivateIps pulumi.StringArrayOutput `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntOutput `pulumi:"privateIpsCount"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Whether to enable source destination checking for the ENI. Default true.
@@ -210,6 +212,8 @@ type networkInterfaceState struct {
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether to enable source destination checking for the ENI. Default true.
@@ -267,6 +271,8 @@ type NetworkInterfaceState struct {
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayInput
 	// Whether to enable source destination checking for the ENI. Default true.
@@ -319,6 +325,8 @@ type networkInterfaceArgs struct {
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether to enable source destination checking for the ENI. Default true.
@@ -366,6 +374,8 @@ type NetworkInterfaceArgs struct {
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayInput
 	// Whether to enable source destination checking for the ENI. Default true.
@@ -571,6 +581,11 @@ func (o NetworkInterfaceOutput) PrivateIps() pulumi.StringArrayOutput {
 // Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 func (o NetworkInterfaceOutput) PrivateIpsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.PrivateIpsCount }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o NetworkInterfaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of security group IDs to assign to the ENI.

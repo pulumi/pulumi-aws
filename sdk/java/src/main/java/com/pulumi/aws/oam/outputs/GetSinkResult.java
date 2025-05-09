@@ -26,6 +26,7 @@ public final class GetSinkResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Random ID string that AWS generated as part of the sink ARN.
      * 
@@ -60,6 +61,9 @@ public final class GetSinkResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Random ID string that AWS generated as part of the sink ARN.
      * 
@@ -90,6 +94,7 @@ public final class GetSinkResult {
         private String arn;
         private String id;
         private String name;
+        private String region;
         private String sinkId;
         private String sinkIdentifier;
         private Map<String,String> tags;
@@ -99,6 +104,7 @@ public final class GetSinkResult {
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.sinkId = defaults.sinkId;
     	      this.sinkIdentifier = defaults.sinkIdentifier;
     	      this.tags = defaults.tags;
@@ -126,6 +132,14 @@ public final class GetSinkResult {
               throw new MissingRequiredPropertyException("GetSinkResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -157,6 +171,7 @@ public final class GetSinkResult {
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.sinkId = sinkId;
             _resultValue.sinkIdentifier = sinkIdentifier;
             _resultValue.tags = tags;

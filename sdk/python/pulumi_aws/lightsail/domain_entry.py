@@ -24,7 +24,8 @@ class DomainEntryArgs:
                  target: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
                  is_alias: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DomainEntry resource.
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
@@ -32,6 +33,7 @@ class DomainEntryArgs:
         :param pulumi.Input[builtins.str] type: Type of record
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "target", target)
@@ -40,6 +42,8 @@ class DomainEntryArgs:
             pulumi.set(__self__, "is_alias", is_alias)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="domainName")
@@ -101,6 +105,18 @@ class DomainEntryArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DomainEntryState:
@@ -108,6 +124,7 @@ class _DomainEntryState:
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  is_alias: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -115,6 +132,7 @@ class _DomainEntryState:
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: Target of the domain entry
         :param pulumi.Input[builtins.str] type: Type of record
         """
@@ -124,6 +142,8 @@ class _DomainEntryState:
             pulumi.set(__self__, "is_alias", is_alias)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if type is not None:
@@ -167,6 +187,18 @@ class _DomainEntryState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def target(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Target of the domain entry
@@ -201,6 +233,7 @@ class DomainEntry(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  is_alias: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -236,6 +269,7 @@ class DomainEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: Target of the domain entry
         :param pulumi.Input[builtins.str] type: Type of record
         """
@@ -290,6 +324,7 @@ class DomainEntry(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  is_alias: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -306,6 +341,7 @@ class DomainEntry(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["is_alias"] = is_alias
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
@@ -325,6 +361,7 @@ class DomainEntry(pulumi.CustomResource):
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             is_alias: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'DomainEntry':
         """
@@ -337,6 +374,7 @@ class DomainEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: Target of the domain entry
         :param pulumi.Input[builtins.str] type: Type of record
         """
@@ -347,6 +385,7 @@ class DomainEntry(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["is_alias"] = is_alias
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["target"] = target
         __props__.__dict__["type"] = type
         return DomainEntry(resource_name, opts=opts, __props__=__props__)
@@ -374,6 +413,14 @@ class DomainEntry(pulumi.CustomResource):
         Name of the entry record
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

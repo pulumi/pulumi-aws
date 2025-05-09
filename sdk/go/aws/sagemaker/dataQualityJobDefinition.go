@@ -93,6 +93,8 @@ type DataQualityJobDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -164,6 +166,8 @@ type dataQualityJobDefinitionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -191,6 +195,8 @@ type DataQualityJobDefinitionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -220,6 +226,8 @@ type dataQualityJobDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -244,6 +252,8 @@ type DataQualityJobDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -387,6 +397,11 @@ func (o DataQualityJobDefinitionOutput) NetworkConfig() DataQualityJobDefinition
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionNetworkConfigPtrOutput {
 		return v.NetworkConfig
 	}).(DataQualityJobDefinitionNetworkConfigPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataQualityJobDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.

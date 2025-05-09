@@ -78,7 +78,8 @@ type LookupCustomerGatewayArgs struct {
 	// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
 	// ID of the gateway.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -99,6 +100,7 @@ type LookupCustomerGatewayResult struct {
 	Id         string                     `pulumi:"id"`
 	// IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
+	Region    string `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
@@ -121,7 +123,8 @@ type LookupCustomerGatewayOutputArgs struct {
 	// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
 	Filters GetCustomerGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the gateway.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -181,6 +184,10 @@ func (o LookupCustomerGatewayResultOutput) Id() pulumi.StringOutput {
 // IP address of the gateway's Internet-routable external interface.
 func (o LookupCustomerGatewayResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupCustomerGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of key-value pairs assigned to the gateway.

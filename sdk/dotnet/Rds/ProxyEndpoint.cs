@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Rds
         public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -165,6 +171,12 @@ namespace Pulumi.Aws.Rds
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -244,6 +256,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

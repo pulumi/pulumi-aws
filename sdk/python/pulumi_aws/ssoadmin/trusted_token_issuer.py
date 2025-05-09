@@ -26,6 +26,7 @@ class TrustedTokenIssuerArgs:
                  trusted_token_issuer_type: pulumi.Input[builtins.str],
                  client_token: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trusted_token_issuer_configuration: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']] = None):
         """
@@ -36,6 +37,7 @@ class TrustedTokenIssuerArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[builtins.str] name: Name of the trusted token issuer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs'] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         """
@@ -45,6 +47,8 @@ class TrustedTokenIssuerArgs:
             pulumi.set(__self__, "client_token", client_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trusted_token_issuer_configuration is not None:
@@ -102,6 +106,18 @@ class TrustedTokenIssuerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,6 +148,7 @@ class _TrustedTokenIssuerState:
                  client_token: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trusted_token_issuer_configuration: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']] = None,
@@ -142,6 +159,7 @@ class _TrustedTokenIssuerState:
         :param pulumi.Input[builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
         :param pulumi.Input[builtins.str] name: Name of the trusted token issuer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs'] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
@@ -157,6 +175,8 @@ class _TrustedTokenIssuerState:
             pulumi.set(__self__, "instance_arn", instance_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -213,6 +233,18 @@ class _TrustedTokenIssuerState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -276,6 +308,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                  client_token: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trusted_token_issuer_configuration: Optional[pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']]] = None,
                  trusted_token_issuer_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -319,6 +352,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
         :param pulumi.Input[builtins.str] name: Name of the trusted token issuer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         :param pulumi.Input[builtins.str] trusted_token_issuer_type: Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
@@ -383,6 +417,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                  client_token: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trusted_token_issuer_configuration: Optional[pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']]] = None,
                  trusted_token_issuer_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -400,6 +435,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_token_issuer_configuration"] = trusted_token_issuer_configuration
             if trusted_token_issuer_type is None and not opts.urn:
@@ -421,6 +457,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
             client_token: Optional[pulumi.Input[builtins.str]] = None,
             instance_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             trusted_token_issuer_configuration: Optional[pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']]] = None,
@@ -436,6 +473,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
         :param pulumi.Input[builtins.str] name: Name of the trusted token issuer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
@@ -451,6 +489,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         __props__.__dict__["client_token"] = client_token
         __props__.__dict__["instance_arn"] = instance_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["trusted_token_issuer_configuration"] = trusted_token_issuer_configuration
@@ -488,6 +527,14 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         Name of the trusted token issuer.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

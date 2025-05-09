@@ -70,6 +70,8 @@ type BucketRequestPaymentConfiguration struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketRequestPaymentConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -123,6 +125,8 @@ type bucketRequestPaymentConfigurationState struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketRequestPaymentConfigurationState struct {
@@ -132,6 +136,8 @@ type BucketRequestPaymentConfigurationState struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketRequestPaymentConfigurationState) ElementType() reflect.Type {
@@ -145,6 +151,8 @@ type bucketRequestPaymentConfigurationArgs struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketRequestPaymentConfiguration resource.
@@ -155,6 +163,8 @@ type BucketRequestPaymentConfigurationArgs struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketRequestPaymentConfigurationArgs) ElementType() reflect.Type {
@@ -257,6 +267,11 @@ func (o BucketRequestPaymentConfigurationOutput) ExpectedBucketOwner() pulumi.St
 // Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 func (o BucketRequestPaymentConfigurationOutput) Payer() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Payer }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketRequestPaymentConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketRequestPaymentConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -630,6 +630,21 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
@@ -1013,6 +1028,7 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         this.privateIp = $.privateIp;
         this.publicDns = $.publicDns;
         this.publicIp = $.publicIp;
+        this.region = $.region;
         this.rootBlockDevice = $.rootBlockDevice;
         this.secondaryPrivateIps = $.secondaryPrivateIps;
         this.securityGroups = $.securityGroups;
@@ -1922,6 +1938,27 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
          */
         public Builder publicIp(String publicIp) {
             return publicIp(Output.of(publicIp));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

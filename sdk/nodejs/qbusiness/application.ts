@@ -96,6 +96,10 @@ export class Application extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly identityCenterInstanceArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -124,6 +128,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["iamServiceRoleArn"] = state ? state.iamServiceRoleArn : undefined;
             resourceInputs["identityCenterApplicationArn"] = state ? state.identityCenterApplicationArn : undefined;
             resourceInputs["identityCenterInstanceArn"] = state ? state.identityCenterInstanceArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -144,6 +149,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["iamServiceRoleArn"] = args ? args.iamServiceRoleArn : undefined;
             resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -193,6 +199,10 @@ export interface ApplicationState {
      * The following arguments are optional:
      */
     identityCenterInstanceArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -231,6 +241,10 @@ export interface ApplicationArgs {
      * The following arguments are optional:
      */
     identityCenterInstanceArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.qbusiness.ApplicationTimeouts>;
 }

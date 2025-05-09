@@ -64,6 +64,8 @@ type HumanTaskUI struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringOutput `pulumi:"humanTaskUiName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -112,6 +114,8 @@ type humanTaskUIState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName *string `pulumi:"humanTaskUiName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +129,8 @@ type HumanTaskUIState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -140,6 +146,8 @@ func (HumanTaskUIState) ElementType() reflect.Type {
 type humanTaskUIArgs struct {
 	// The name of the Human Task UI.
 	HumanTaskUiName string `pulumi:"humanTaskUiName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The Liquid template for the worker user interface. See UI Template below.
@@ -150,6 +158,8 @@ type humanTaskUIArgs struct {
 type HumanTaskUIArgs struct {
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The Liquid template for the worker user interface. See UI Template below.
@@ -251,6 +261,11 @@ func (o HumanTaskUIOutput) Arn() pulumi.StringOutput {
 // The name of the Human Task UI.
 func (o HumanTaskUIOutput) HumanTaskUiName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.HumanTaskUiName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HumanTaskUIOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -116,6 +116,7 @@ public final class GetGroupResult {
      * 
      */
     private Integer predictedCapacity;
+    private String region;
     /**
      * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
@@ -307,6 +308,9 @@ public final class GetGroupResult {
     public Integer predictedCapacity() {
         return this.predictedCapacity;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
@@ -408,6 +412,7 @@ public final class GetGroupResult {
         private Boolean newInstancesProtectedFromScaleIn;
         private String placementGroup;
         private Integer predictedCapacity;
+        private String region;
         private String serviceLinkedRoleArn;
         private String status;
         private List<String> suspendedProcesses;
@@ -442,6 +447,7 @@ public final class GetGroupResult {
     	      this.newInstancesProtectedFromScaleIn = defaults.newInstancesProtectedFromScaleIn;
     	      this.placementGroup = defaults.placementGroup;
     	      this.predictedCapacity = defaults.predictedCapacity;
+    	      this.region = defaults.region;
     	      this.serviceLinkedRoleArn = defaults.serviceLinkedRoleArn;
     	      this.status = defaults.status;
     	      this.suspendedProcesses = defaults.suspendedProcesses;
@@ -641,6 +647,14 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceLinkedRoleArn(String serviceLinkedRoleArn) {
             if (serviceLinkedRoleArn == null) {
               throw new MissingRequiredPropertyException("GetGroupResult", "serviceLinkedRoleArn");
@@ -761,6 +775,7 @@ public final class GetGroupResult {
             _resultValue.newInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
             _resultValue.placementGroup = placementGroup;
             _resultValue.predictedCapacity = predictedCapacity;
+            _resultValue.region = region;
             _resultValue.serviceLinkedRoleArn = serviceLinkedRoleArn;
             _resultValue.status = status;
             _resultValue.suspendedProcesses = suspendedProcesses;

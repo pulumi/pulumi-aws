@@ -63,10 +63,12 @@ type Host struct {
 	// The endpoint of the infrastructure to be represented by the host after it is created.
 	ProviderEndpoint pulumi.StringOutput `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringOutput    `pulumi:"providerType"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Timeouts     HostTimeoutsPtrOutput  `pulumi:"timeouts"`
+	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput    `pulumi:"region"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Timeouts HostTimeoutsPtrOutput  `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -114,10 +116,12 @@ type hostState struct {
 	// The endpoint of the infrastructure to be represented by the host after it is created.
 	ProviderEndpoint *string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string           `pulumi:"providerType"`
-	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
-	Timeouts     *HostTimeouts     `pulumi:"timeouts"`
+	ProviderType *string `pulumi:"providerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
+	TagsAll  map[string]string `pulumi:"tagsAll"`
+	Timeouts *HostTimeouts     `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -131,9 +135,11 @@ type HostState struct {
 	ProviderEndpoint pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
-	Timeouts     HostTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
+	Timeouts HostTimeoutsPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
@@ -148,9 +154,11 @@ type hostArgs struct {
 	// The endpoint of the infrastructure to be represented by the host after it is created.
 	ProviderEndpoint string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType string            `pulumi:"providerType"`
-	Tags         map[string]string `pulumi:"tags"`
-	Timeouts     *HostTimeouts     `pulumi:"timeouts"`
+	ProviderType string `pulumi:"providerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
+	Timeouts *HostTimeouts     `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -163,8 +171,10 @@ type HostArgs struct {
 	ProviderEndpoint pulumi.StringInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringInput
-	Tags         pulumi.StringMapInput
-	Timeouts     HostTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	Timeouts HostTimeoutsPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
@@ -274,6 +284,11 @@ func (o HostOutput) ProviderEndpoint() pulumi.StringOutput {
 // The name of the external provider where your third-party code repository is configured.
 func (o HostOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HostOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o HostOutput) Tags() pulumi.StringMapOutput {

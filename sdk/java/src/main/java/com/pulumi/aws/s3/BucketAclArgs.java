@@ -77,6 +77,21 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private BucketAclArgs() {}
 
     private BucketAclArgs(BucketAclArgs $) {
@@ -84,6 +99,7 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         this.acl = $.acl;
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -186,6 +202,27 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public BucketAclArgs build() {

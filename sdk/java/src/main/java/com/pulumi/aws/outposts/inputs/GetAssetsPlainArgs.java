@@ -46,6 +46,13 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.hostIdFilters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
      * 
@@ -66,6 +73,7 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAssetsPlainArgs(GetAssetsPlainArgs $) {
         this.arn = $.arn;
         this.hostIdFilters = $.hostIdFilters;
+        this.region = $.region;
         this.statusIdFilters = $.statusIdFilters;
     }
 
@@ -117,6 +125,11 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder hostIdFilters(String... hostIdFilters) {
             return hostIdFilters(List.of(hostIdFilters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

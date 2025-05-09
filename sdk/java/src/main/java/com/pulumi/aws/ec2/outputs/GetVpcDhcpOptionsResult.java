@@ -65,6 +65,7 @@ public final class GetVpcDhcpOptionsResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -145,6 +146,9 @@ public final class GetVpcDhcpOptionsResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -173,6 +177,7 @@ public final class GetVpcDhcpOptionsResult {
         private String netbiosNodeType;
         private List<String> ntpServers;
         private String ownerId;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetVpcDhcpOptionsResult defaults) {
@@ -188,6 +193,7 @@ public final class GetVpcDhcpOptionsResult {
     	      this.netbiosNodeType = defaults.netbiosNodeType;
     	      this.ntpServers = defaults.ntpServers;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -290,6 +296,14 @@ public final class GetVpcDhcpOptionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "tags");
@@ -310,6 +324,7 @@ public final class GetVpcDhcpOptionsResult {
             _resultValue.netbiosNodeType = netbiosNodeType;
             _resultValue.ntpServers = ntpServers;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

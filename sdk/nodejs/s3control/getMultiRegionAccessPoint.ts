@@ -26,6 +26,7 @@ export function getMultiRegionAccessPoint(args: GetMultiRegionAccessPointArgs, o
     return pulumi.runtime.invoke("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", {
         "accountId": args.accountId,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetMultiRegionAccessPointArgs {
      * The name of the Multi-Region Access Point.
      */
     name: string;
+    /**
+     * The name of the region.
+     */
+    region?: string;
 }
 
 /**
@@ -74,6 +79,10 @@ export interface GetMultiRegionAccessPointResult {
      */
     readonly publicAccessBlocks: outputs.s3control.GetMultiRegionAccessPointPublicAccessBlock[];
     /**
+     * The name of the region.
+     */
+    readonly region: string;
+    /**
      * A collection of the regions and buckets associated with the Multi-Region Access Point.
      */
     readonly regions: outputs.s3control.GetMultiRegionAccessPointRegion[];
@@ -101,6 +110,7 @@ export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointO
     return pulumi.runtime.invokeOutput("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", {
         "accountId": args.accountId,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -116,4 +126,8 @@ export interface GetMultiRegionAccessPointOutputArgs {
      * The name of the Multi-Region Access Point.
      */
     name: pulumi.Input<string>;
+    /**
+     * The name of the region.
+     */
+    region?: pulumi.Input<string>;
 }

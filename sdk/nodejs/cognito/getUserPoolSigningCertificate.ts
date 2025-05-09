@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolSigningCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", {
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -29,6 +30,7 @@ export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificat
  * A collection of arguments for invoking getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateArgs {
+    region?: string;
     /**
      * Cognito user pool ID.
      */
@@ -47,6 +49,7 @@ export interface GetUserPoolSigningCertificateResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly userPoolId: string;
 }
 /**
@@ -66,6 +69,7 @@ export interface GetUserPoolSigningCertificateResult {
 export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolSigningCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", {
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -74,6 +78,7 @@ export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCert
  * A collection of arguments for invoking getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Cognito user pool ID.
      */

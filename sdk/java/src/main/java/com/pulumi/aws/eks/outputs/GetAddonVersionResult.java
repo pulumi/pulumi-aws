@@ -21,6 +21,7 @@ public final class GetAddonVersionResult {
     private String id;
     private String kubernetesVersion;
     private @Nullable Boolean mostRecent;
+    private String region;
     /**
      * @return Version of the EKS add-on.
      * 
@@ -44,6 +45,9 @@ public final class GetAddonVersionResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Version of the EKS add-on.
      * 
@@ -65,6 +69,7 @@ public final class GetAddonVersionResult {
         private String id;
         private String kubernetesVersion;
         private @Nullable Boolean mostRecent;
+        private String region;
         private String version;
         public Builder() {}
         public Builder(GetAddonVersionResult defaults) {
@@ -73,6 +78,7 @@ public final class GetAddonVersionResult {
     	      this.id = defaults.id;
     	      this.kubernetesVersion = defaults.kubernetesVersion;
     	      this.mostRecent = defaults.mostRecent;
+    	      this.region = defaults.region;
     	      this.version = defaults.version;
         }
 
@@ -107,6 +113,14 @@ public final class GetAddonVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAddonVersionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder version(String version) {
             if (version == null) {
               throw new MissingRequiredPropertyException("GetAddonVersionResult", "version");
@@ -120,6 +134,7 @@ public final class GetAddonVersionResult {
             _resultValue.id = id;
             _resultValue.kubernetesVersion = kubernetesVersion;
             _resultValue.mostRecent = mostRecent;
+            _resultValue.region = region;
             _resultValue.version = version;
             return _resultValue;
         }

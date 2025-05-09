@@ -93,6 +93,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("logGroupNamePrefix")]
         public string? LogGroupNamePrefix { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetLogGroupsArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("logGroupNamePrefix")]
         public Input<string>? LogGroupNamePrefix { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetLogGroupsInvokeArgs()
         {
@@ -130,6 +136,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Set of names of the Cloudwatch log groups
         /// </summary>
         public readonly ImmutableArray<string> LogGroupNames;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetLogGroupsResult(
@@ -139,12 +146,15 @@ namespace Pulumi.Aws.CloudWatch
 
             string? logGroupNamePrefix,
 
-            ImmutableArray<string> logGroupNames)
+            ImmutableArray<string> logGroupNames,
+
+            string region)
         {
             Arns = arns;
             Id = id;
             LogGroupNamePrefix = logGroupNamePrefix;
             LogGroupNames = logGroupNames;
+            Region = region;
         }
     }
 }

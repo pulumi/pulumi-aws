@@ -170,6 +170,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> DirectoryId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Region where you want to add domain controllers for replication.
         /// </summary>
         [Output("regionName")]
@@ -252,6 +258,12 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string> DirectoryId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the Region where you want to add domain controllers for replication.
         /// </summary>
         [Input("regionName", required: true)]
@@ -294,6 +306,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the Region where you want to add domain controllers for replication.

@@ -91,6 +91,8 @@ type Endpoint struct {
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrOutput      `pulumi:"policyDocument"`
 	RdsOptions     EndpointRdsOptionsPtrOutput `pulumi:"rdsOptions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -169,6 +171,8 @@ type endpointState struct {
 	// The policy document that is associated with this resource.
 	PolicyDocument *string             `pulumi:"policyDocument"`
 	RdsOptions     *EndpointRdsOptions `pulumi:"rdsOptions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -209,6 +213,8 @@ type EndpointState struct {
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
 	RdsOptions     EndpointRdsOptionsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -249,6 +255,8 @@ type endpointArgs struct {
 	// The policy document that is associated with this resource.
 	PolicyDocument *string             `pulumi:"policyDocument"`
 	RdsOptions     *EndpointRdsOptions `pulumi:"rdsOptions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -285,6 +293,8 @@ type EndpointArgs struct {
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
 	RdsOptions     EndpointRdsOptionsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -447,6 +457,11 @@ func (o EndpointOutput) PolicyDocument() pulumi.StringPtrOutput {
 
 func (o EndpointOutput) RdsOptions() EndpointRdsOptionsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointRdsOptionsPtrOutput { return v.RdsOptions }).(EndpointRdsOptionsPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of the the security groups IDs to associate with the Verified Access endpoint.

@@ -64,6 +64,8 @@ type DomainConfiguration struct {
 	DomainType pulumi.StringOutput `pulumi:"domainType"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns pulumi.StringArrayOutput `pulumi:"serverCertificateArns"`
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
@@ -120,6 +122,8 @@ type domainConfigurationState struct {
 	DomainType *string `pulumi:"domainType"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
@@ -147,6 +151,8 @@ type DomainConfigurationState struct {
 	DomainType pulumi.StringPtrInput
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns pulumi.StringArrayInput
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
@@ -174,6 +180,8 @@ type domainConfigurationArgs struct {
 	DomainName *string `pulumi:"domainName"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
@@ -198,6 +206,8 @@ type DomainConfigurationArgs struct {
 	DomainName pulumi.StringPtrInput
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns pulumi.StringArrayInput
 	// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
@@ -324,6 +334,11 @@ func (o DomainConfigurationOutput) DomainType() pulumi.StringOutput {
 // The name of the domain configuration. This value must be unique to a region.
 func (o DomainConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.

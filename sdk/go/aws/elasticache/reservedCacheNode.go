@@ -45,6 +45,8 @@ type ReservedCacheNode struct {
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved cache node.
 	RecurringCharges ReservedCacheNodeRecurringChargeArrayOutput `pulumi:"recurringCharges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -113,6 +115,8 @@ type reservedCacheNodeState struct {
 	ProductDescription *string `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved cache node.
 	RecurringCharges []ReservedCacheNodeRecurringCharge `pulumi:"recurringCharges"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -149,6 +153,8 @@ type ReservedCacheNodeState struct {
 	ProductDescription pulumi.StringPtrInput
 	// Recurring price charged to run this reserved cache node.
 	RecurringCharges ReservedCacheNodeRecurringChargeArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -175,6 +181,8 @@ type reservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.
 	CacheNodeCount *int `pulumi:"cacheNodeCount"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -190,6 +198,8 @@ type ReservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.
 	CacheNodeCount pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -326,6 +336,11 @@ func (o ReservedCacheNodeOutput) ProductDescription() pulumi.StringOutput {
 // Recurring price charged to run this reserved cache node.
 func (o ReservedCacheNodeOutput) RecurringCharges() ReservedCacheNodeRecurringChargeArrayOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) ReservedCacheNodeRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedCacheNodeRecurringChargeArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReservedCacheNodeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the reserved cache node offering to purchase.

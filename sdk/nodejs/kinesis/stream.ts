@@ -93,6 +93,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
@@ -136,6 +140,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["enforceConsumerDeletion"] = state ? state.enforceConsumerDeletion : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
             resourceInputs["shardCount"] = state ? state.shardCount : undefined;
             resourceInputs["shardLevelMetrics"] = state ? state.shardLevelMetrics : undefined;
@@ -149,6 +154,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["shardCount"] = args ? args.shardCount : undefined;
             resourceInputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
@@ -185,6 +191,10 @@ export interface StreamState {
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */
@@ -236,6 +246,10 @@ export interface StreamArgs {
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
      */

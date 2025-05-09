@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Location
         [Input("indexName", required: true)]
         public string IndexName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Location
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -166,6 +172,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly string IndexArn;
         public readonly string IndexName;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the place index.
         /// </summary>
@@ -191,6 +198,8 @@ namespace Pulumi.Aws.Location
 
             string indexName,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string updateTime)
@@ -202,6 +211,7 @@ namespace Pulumi.Aws.Location
             Id = id;
             IndexArn = indexArn;
             IndexName = indexName;
+            Region = region;
             Tags = tags;
             UpdateTime = updateTime;
         }

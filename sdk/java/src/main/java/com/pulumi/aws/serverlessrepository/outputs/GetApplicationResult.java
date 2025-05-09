@@ -26,6 +26,7 @@ public final class GetApplicationResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return A list of capabilities describing the permissions needed to deploy the application.
      * 
@@ -65,6 +66,9 @@ public final class GetApplicationResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A list of capabilities describing the permissions needed to deploy the application.
      * 
@@ -102,6 +106,7 @@ public final class GetApplicationResult {
         private String applicationId;
         private String id;
         private String name;
+        private String region;
         private List<String> requiredCapabilities;
         private String semanticVersion;
         private String sourceCodeUrl;
@@ -112,6 +117,7 @@ public final class GetApplicationResult {
     	      this.applicationId = defaults.applicationId;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.requiredCapabilities = defaults.requiredCapabilities;
     	      this.semanticVersion = defaults.semanticVersion;
     	      this.sourceCodeUrl = defaults.sourceCodeUrl;
@@ -140,6 +146,14 @@ public final class GetApplicationResult {
               throw new MissingRequiredPropertyException("GetApplicationResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -182,6 +196,7 @@ public final class GetApplicationResult {
             _resultValue.applicationId = applicationId;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.requiredCapabilities = requiredCapabilities;
             _resultValue.semanticVersion = semanticVersion;
             _resultValue.sourceCodeUrl = sourceCodeUrl;

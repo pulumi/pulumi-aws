@@ -17,14 +17,14 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     public static final AggregateAuthorizationState Empty = new AggregateAuthorizationState();
 
     /**
-     * Account ID
+     * Account ID.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return Account ID
+     * @return Account ID.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -47,16 +47,39 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Region
+     * The region authorized to collect aggregated data.
      * 
      */
+    @Import(name="authorizedAwsRegion")
+    private @Nullable Output<String> authorizedAwsRegion;
+
+    /**
+     * @return The region authorized to collect aggregated data.
+     * 
+     */
+    public Optional<Output<String>> authorizedAwsRegion() {
+        return Optional.ofNullable(this.authorizedAwsRegion);
+    }
+
+    /**
+     * The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use authorized_aws_region instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region
+     * @return The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use authorized_aws_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -96,6 +119,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     private AggregateAuthorizationState(AggregateAuthorizationState $) {
         this.accountId = $.accountId;
         this.arn = $.arn;
+        this.authorizedAwsRegion = $.authorizedAwsRegion;
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -120,7 +144,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accountId Account ID
+         * @param accountId Account ID.
          * 
          * @return builder
          * 
@@ -131,7 +155,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accountId Account ID
+         * @param accountId Account ID.
          * 
          * @return builder
          * 
@@ -162,22 +186,51 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param region Region
+         * @param authorizedAwsRegion The region authorized to collect aggregated data.
          * 
          * @return builder
          * 
          */
+        public Builder authorizedAwsRegion(@Nullable Output<String> authorizedAwsRegion) {
+            $.authorizedAwsRegion = authorizedAwsRegion;
+            return this;
+        }
+
+        /**
+         * @param authorizedAwsRegion The region authorized to collect aggregated data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizedAwsRegion(String authorizedAwsRegion) {
+            return authorizedAwsRegion(Output.of(authorizedAwsRegion));
+        }
+
+        /**
+         * @param region The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use authorized_aws_region instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region Region
+         * @param region The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use authorized_aws_region instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }

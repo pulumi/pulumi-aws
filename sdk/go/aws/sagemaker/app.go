@@ -63,6 +63,8 @@ type App struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
@@ -122,6 +124,8 @@ type appState struct {
 	Arn *string `pulumi:"arn"`
 	// The domain ID.
 	DomainId *string `pulumi:"domainId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
@@ -143,6 +147,8 @@ type AppState struct {
 	Arn pulumi.StringPtrInput
 	// The domain ID.
 	DomainId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
@@ -166,6 +172,8 @@ type appArgs struct {
 	AppType string `pulumi:"appType"`
 	// The domain ID.
 	DomainId string `pulumi:"domainId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
@@ -184,6 +192,8 @@ type AppArgs struct {
 	AppType pulumi.StringInput
 	// The domain ID.
 	DomainId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
@@ -299,6 +309,11 @@ func (o AppOutput) Arn() pulumi.StringOutput {
 // The domain ID.
 func (o AppOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AppOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.

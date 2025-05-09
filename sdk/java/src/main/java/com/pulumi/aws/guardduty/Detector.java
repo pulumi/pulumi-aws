@@ -124,7 +124,11 @@ public class Detector extends com.pulumi.resources.CustomResource {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
     @Export(name="datasources", refs={DetectorDatasources.class}, tree="[0]")
     private Output<DetectorDatasources> datasources;
 
@@ -162,6 +166,20 @@ public class Detector extends com.pulumi.resources.CustomResource {
      */
     public Output<String> findingPublishingFrequency() {
         return this.findingPublishingFrequency;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -128,6 +128,10 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
@@ -170,6 +174,7 @@ export class Method extends pulumi.CustomResource {
             resourceInputs["authorizerId"] = state ? state.authorizerId : undefined;
             resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
             resourceInputs["operationName"] = state ? state.operationName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestModels"] = state ? state.requestModels : undefined;
             resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
             resourceInputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
@@ -195,6 +200,7 @@ export class Method extends pulumi.CustomResource {
             resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
             resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
             resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestModels"] = args ? args.requestModels : undefined;
             resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
             resourceInputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
@@ -234,6 +240,10 @@ export interface MethodState {
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
     operationName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
@@ -287,6 +297,10 @@ export interface MethodArgs {
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
     operationName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)

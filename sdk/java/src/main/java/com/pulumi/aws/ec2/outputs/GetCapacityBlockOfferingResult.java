@@ -35,6 +35,7 @@ public final class GetCapacityBlockOfferingResult {
     private String id;
     private Integer instanceCount;
     private String instanceType;
+    private String region;
     private String startDateRange;
     /**
      * @return Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -88,6 +89,9 @@ public final class GetCapacityBlockOfferingResult {
     public String instanceType() {
         return this.instanceType;
     }
+    public String region() {
+        return this.region;
+    }
     public String startDateRange() {
         return this.startDateRange;
     }
@@ -123,6 +127,7 @@ public final class GetCapacityBlockOfferingResult {
         private String id;
         private Integer instanceCount;
         private String instanceType;
+        private String region;
         private String startDateRange;
         private String tenancy;
         private String upfrontFee;
@@ -137,6 +142,7 @@ public final class GetCapacityBlockOfferingResult {
     	      this.id = defaults.id;
     	      this.instanceCount = defaults.instanceCount;
     	      this.instanceType = defaults.instanceType;
+    	      this.region = defaults.region;
     	      this.startDateRange = defaults.startDateRange;
     	      this.tenancy = defaults.tenancy;
     	      this.upfrontFee = defaults.upfrontFee;
@@ -207,6 +213,14 @@ public final class GetCapacityBlockOfferingResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCapacityBlockOfferingResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startDateRange(String startDateRange) {
             if (startDateRange == null) {
               throw new MissingRequiredPropertyException("GetCapacityBlockOfferingResult", "startDateRange");
@@ -240,6 +254,7 @@ public final class GetCapacityBlockOfferingResult {
             _resultValue.id = id;
             _resultValue.instanceCount = instanceCount;
             _resultValue.instanceType = instanceType;
+            _resultValue.region = region;
             _resultValue.startDateRange = startDateRange;
             _resultValue.tenancy = tenancy;
             _resultValue.upfrontFee = upfrontFee;

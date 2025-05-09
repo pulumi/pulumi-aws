@@ -74,6 +74,8 @@ type LoadBalancerCookieStickinessPolicy struct {
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// The name of the stickiness policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLoadBalancerCookieStickinessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -130,6 +132,8 @@ type loadBalancerCookieStickinessPolicyState struct {
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// The name of the stickiness policy.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LoadBalancerCookieStickinessPolicyState struct {
@@ -145,6 +149,8 @@ type LoadBalancerCookieStickinessPolicyState struct {
 	LoadBalancer pulumi.StringPtrInput
 	// The name of the stickiness policy.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoadBalancerCookieStickinessPolicyState) ElementType() reflect.Type {
@@ -164,6 +170,8 @@ type loadBalancerCookieStickinessPolicyArgs struct {
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// The name of the stickiness policy.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LoadBalancerCookieStickinessPolicy resource.
@@ -180,6 +188,8 @@ type LoadBalancerCookieStickinessPolicyArgs struct {
 	LoadBalancer pulumi.StringInput
 	// The name of the stickiness policy.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoadBalancerCookieStickinessPolicyArgs) ElementType() reflect.Type {
@@ -291,6 +301,11 @@ func (o LoadBalancerCookieStickinessPolicyOutput) LoadBalancer() pulumi.StringOu
 // The name of the stickiness policy.
 func (o LoadBalancerCookieStickinessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LoadBalancerCookieStickinessPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LoadBalancerCookieStickinessPolicyArrayOutput struct{ *pulumi.OutputState }

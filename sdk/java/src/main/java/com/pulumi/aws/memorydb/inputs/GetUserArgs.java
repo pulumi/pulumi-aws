@@ -17,6 +17,13 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserArgs Empty = new GetUserArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the user.
      * 
@@ -50,6 +57,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserArgs() {}
 
     private GetUserArgs(GetUserArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.userName = $.userName;
     }
@@ -70,6 +78,15 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetUserArgs defaults) {
             $ = new GetUserArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

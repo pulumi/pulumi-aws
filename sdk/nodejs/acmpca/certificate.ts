@@ -113,6 +113,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      */
     public readonly signingAlgorithm!: pulumi.Output<string>;
@@ -145,6 +149,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
             resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
             resourceInputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["signingAlgorithm"] = state ? state.signingAlgorithm : undefined;
             resourceInputs["templateArn"] = state ? state.templateArn : undefined;
             resourceInputs["validity"] = state ? state.validity : undefined;
@@ -165,6 +170,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
             resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
             resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
             resourceInputs["templateArn"] = args ? args.templateArn : undefined;
             resourceInputs["validity"] = args ? args.validity : undefined;
@@ -206,6 +212,10 @@ export interface CertificateState {
      */
     certificateSigningRequest?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      */
     signingAlgorithm?: pulumi.Input<string>;
@@ -236,6 +246,10 @@ export interface CertificateArgs {
      * Certificate Signing Request in PEM format.
      */
     certificateSigningRequest: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      */

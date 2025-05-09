@@ -22,6 +22,7 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetLedgerArgs {
      * Friendly name of the ledger to match.
      */
     name: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -50,6 +52,7 @@ export interface GetLedgerResult {
     readonly kmsKey: string;
     readonly name: string;
     readonly permissionsMode: string;
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -70,6 +73,7 @@ export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:qldb/getLedger:getLedger", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -82,5 +86,6 @@ export interface GetLedgerOutputArgs {
      * Friendly name of the ledger to match.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

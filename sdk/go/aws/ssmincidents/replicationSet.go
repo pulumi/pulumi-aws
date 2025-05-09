@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -174,12 +173,20 @@ type ReplicationSet struct {
 	// If `true`, the last region in a replication set cannot be deleted.
 	DeletionProtected pulumi.BoolOutput `pulumi:"deletionProtected"`
 	// A timestamp showing when the replication set was last modified.
-	LastModifiedBy pulumi.StringOutput             `pulumi:"lastModifiedBy"`
-	Regions        ReplicationSetRegionArrayOutput `pulumi:"regions"`
+	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region ReplicationSetRegionArrayOutput `pulumi:"region"`
+	// The replication set's Regions.
+	Regions ReplicationSetRegionArrayOutput `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -188,12 +195,9 @@ type ReplicationSet struct {
 func NewReplicationSet(ctx *pulumi.Context,
 	name string, args *ReplicationSetArgs, opts ...pulumi.ResourceOption) (*ReplicationSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ReplicationSetArgs{}
 	}
 
-	if args.Regions == nil {
-		return nil, errors.New("invalid value for required argument 'Regions'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSet
 	err := ctx.RegisterResource("aws:ssmincidents/replicationSet:ReplicationSet", name, args, &resource, opts...)
@@ -224,12 +228,20 @@ type replicationSetState struct {
 	// If `true`, the last region in a replication set cannot be deleted.
 	DeletionProtected *bool `pulumi:"deletionProtected"`
 	// A timestamp showing when the replication set was last modified.
-	LastModifiedBy *string                `pulumi:"lastModifiedBy"`
-	Regions        []ReplicationSetRegion `pulumi:"regions"`
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region []ReplicationSetRegion `pulumi:"region"`
+	// The replication set's Regions.
+	Regions []ReplicationSetRegion `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -243,11 +255,19 @@ type ReplicationSetState struct {
 	DeletionProtected pulumi.BoolPtrInput
 	// A timestamp showing when the replication set was last modified.
 	LastModifiedBy pulumi.StringPtrInput
-	Regions        ReplicationSetRegionArrayInput
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region ReplicationSetRegionArrayInput
+	// The replication set's Regions.
+	Regions ReplicationSetRegionArrayInput
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -257,14 +277,30 @@ func (ReplicationSetState) ElementType() reflect.Type {
 }
 
 type replicationSetArgs struct {
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region []ReplicationSetRegion `pulumi:"region"`
+	// The replication set's Regions.
 	Regions []ReplicationSetRegion `pulumi:"regions"`
-	Tags    map[string]string      `pulumi:"tags"`
+	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicationSet resource.
 type ReplicationSetArgs struct {
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region ReplicationSetRegionArrayInput
+	// The replication set's Regions.
 	Regions ReplicationSetRegionArrayInput
-	Tags    pulumi.StringMapInput
+	// Tags applied to the replication set.
+	//
+	// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+	Tags pulumi.StringMapInput
 }
 
 func (ReplicationSetArgs) ElementType() reflect.Type {
@@ -374,6 +410,14 @@ func (o ReplicationSetOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
+// The replication set's Regions. Use `regions` instead.
+//
+// Deprecated: region is deprecated. Use regions instead.
+func (o ReplicationSetOutput) Region() ReplicationSetRegionArrayOutput {
+	return o.ApplyT(func(v *ReplicationSet) ReplicationSetRegionArrayOutput { return v.Region }).(ReplicationSetRegionArrayOutput)
+}
+
+// The replication set's Regions.
 func (o ReplicationSetOutput) Regions() ReplicationSetRegionArrayOutput {
 	return o.ApplyT(func(v *ReplicationSet) ReplicationSetRegionArrayOutput { return v.Regions }).(ReplicationSetRegionArrayOutput)
 }
@@ -384,6 +428,9 @@ func (o ReplicationSetOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Tags applied to the replication set.
+//
+// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
 func (o ReplicationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

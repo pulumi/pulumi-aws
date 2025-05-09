@@ -163,6 +163,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly privateIpsCount!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of security group IDs to assign to the ENI.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -220,6 +224,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["privateIpLists"] = state ? state.privateIpLists : undefined;
             resourceInputs["privateIps"] = state ? state.privateIps : undefined;
             resourceInputs["privateIpsCount"] = state ? state.privateIpsCount : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
@@ -247,6 +252,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["privateIpLists"] = args ? args.privateIpLists : undefined;
             resourceInputs["privateIps"] = args ? args.privateIps : undefined;
             resourceInputs["privateIpsCount"] = args ? args.privateIpsCount : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
@@ -350,6 +356,10 @@ export interface NetworkInterfaceState {
      */
     privateIpsCount?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of security group IDs to assign to the ENI.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -442,6 +452,10 @@ export interface NetworkInterfaceArgs {
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
     privateIpsCount?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of security group IDs to assign to the ENI.
      */

@@ -51,6 +51,7 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getServer.
 type LookupServerArgs struct {
+	Region *string `pulumi:"region"`
 	// ID for an SFTP server.
 	ServerId string `pulumi:"serverId"`
 	// Map of tags assigned to the resource.
@@ -79,6 +80,7 @@ type LookupServerResult struct {
 	LoggingRole string `pulumi:"loggingRole"`
 	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 	Protocols []string `pulumi:"protocols"`
+	Region    string   `pulumi:"region"`
 	// The name of the security policy that is attached to the server.
 	SecurityPolicyName string `pulumi:"securityPolicyName"`
 	ServerId           string `pulumi:"serverId"`
@@ -101,6 +103,7 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 
 // A collection of arguments for invoking getServer.
 type LookupServerOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID for an SFTP server.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// Map of tags assigned to the resource.
@@ -174,6 +177,10 @@ func (o LookupServerResultOutput) LoggingRole() pulumi.StringOutput {
 // File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 func (o LookupServerResultOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupServerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the security policy that is attached to the server.

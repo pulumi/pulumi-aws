@@ -87,6 +87,8 @@ type PrefixListReference struct {
 	// Identifier of EC2 Prefix List.
 	PrefixListId      pulumi.StringOutput `pulumi:"prefixListId"`
 	PrefixListOwnerId pulumi.StringOutput `pulumi:"prefixListOwnerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -136,6 +138,8 @@ type prefixListReferenceState struct {
 	// Identifier of EC2 Prefix List.
 	PrefixListId      *string `pulumi:"prefixListId"`
 	PrefixListOwnerId *string `pulumi:"prefixListOwnerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -150,6 +154,8 @@ type PrefixListReferenceState struct {
 	// Identifier of EC2 Prefix List.
 	PrefixListId      pulumi.StringPtrInput
 	PrefixListOwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -167,6 +173,8 @@ type prefixListReferenceArgs struct {
 	Blackhole *bool `pulumi:"blackhole"`
 	// Identifier of EC2 Prefix List.
 	PrefixListId string `pulumi:"prefixListId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -181,6 +189,8 @@ type PrefixListReferenceArgs struct {
 	Blackhole pulumi.BoolPtrInput
 	// Identifier of EC2 Prefix List.
 	PrefixListId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -288,6 +298,11 @@ func (o PrefixListReferenceOutput) PrefixListId() pulumi.StringOutput {
 
 func (o PrefixListReferenceOutput) PrefixListOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.PrefixListOwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PrefixListReferenceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of EC2 Transit Gateway Attachment.

@@ -29,6 +29,7 @@ export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", {
         "applicationId": args.applicationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,7 @@ export interface GetConfigurationProfilesArgs {
      * ID of the AppConfig Application.
      */
     applicationId: string;
+    region?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export interface GetConfigurationProfilesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
@@ -81,6 +84,7 @@ export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", {
         "applicationId": args.applicationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -92,4 +96,5 @@ export interface GetConfigurationProfilesOutputArgs {
      * ID of the AppConfig Application.
      */
     applicationId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

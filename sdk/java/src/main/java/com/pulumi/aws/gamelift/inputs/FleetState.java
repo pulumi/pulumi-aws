@@ -224,6 +224,21 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      * 
      */
@@ -330,6 +345,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.newGameSessionProtectionPolicy = $.newGameSessionProtectionPolicy;
         this.operatingSystem = $.operatingSystem;
+        this.region = $.region;
         this.resourceCreationLimitPolicy = $.resourceCreationLimitPolicy;
         this.runtimeConfiguration = $.runtimeConfiguration;
         this.scriptArn = $.scriptArn;
@@ -660,6 +676,27 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder operatingSystem(String operatingSystem) {
             return operatingSystem(Output.of(operatingSystem));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -27,6 +27,7 @@ class KeyArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
         """
@@ -37,6 +38,7 @@ class KeyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "exportable", exportable)
@@ -48,6 +50,8 @@ class KeyArgs:
             pulumi.set(__self__, "key_attributes", key_attributes)
         if key_check_value_algorithm is not None:
             pulumi.set(__self__, "key_check_value_algorithm", key_check_value_algorithm)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -114,6 +118,18 @@ class KeyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -146,6 +162,7 @@ class _KeyState:
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  key_origin: Optional[pulumi.Input[builtins.str]] = None,
                  key_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
@@ -161,6 +178,7 @@ class _KeyState:
         :param pulumi.Input[builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         :param pulumi.Input[builtins.str] key_origin: Source of the key material.
         :param pulumi.Input[builtins.str] key_state: State of key that is being created or deleted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -182,6 +200,8 @@ class _KeyState:
             pulumi.set(__self__, "key_origin", key_origin)
         if key_state is not None:
             pulumi.set(__self__, "key_state", key_state)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -298,6 +318,18 @@ class _KeyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -343,6 +375,7 @@ class Key(pulumi.CustomResource):
                  exportable: Optional[pulumi.Input[builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -388,6 +421,7 @@ class Key(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -450,6 +484,7 @@ class Key(pulumi.CustomResource):
                  exportable: Optional[pulumi.Input[builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -468,6 +503,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["exportable"] = exportable
             __props__.__dict__["key_attributes"] = key_attributes
             __props__.__dict__["key_check_value_algorithm"] = key_check_value_algorithm
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -494,6 +530,7 @@ class Key(pulumi.CustomResource):
             key_check_value_algorithm: Optional[pulumi.Input[builtins.str]] = None,
             key_origin: Optional[pulumi.Input[builtins.str]] = None,
             key_state: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None) -> 'Key':
@@ -514,6 +551,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         :param pulumi.Input[builtins.str] key_origin: Source of the key material.
         :param pulumi.Input[builtins.str] key_state: State of key that is being created or deleted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -530,6 +568,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_check_value_algorithm"] = key_check_value_algorithm
         __props__.__dict__["key_origin"] = key_origin
         __props__.__dict__["key_state"] = key_state
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -605,6 +644,14 @@ class Key(pulumi.CustomResource):
         State of key that is being created or deleted.
         """
         return pulumi.get(self, "key_state")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

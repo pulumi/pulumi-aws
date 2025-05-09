@@ -117,6 +117,10 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The theme creation status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -162,6 +166,7 @@ export class Theme extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -181,6 +186,7 @@ export class Theme extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["themeId"] = args ? args.themeId : undefined;
@@ -235,6 +241,10 @@ export interface ThemeState {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The theme creation status.
      */
     status?: pulumi.Input<string>;
@@ -286,6 +296,10 @@ export interface ThemeArgs {
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

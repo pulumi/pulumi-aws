@@ -67,6 +67,8 @@ type UserStackAssociation struct {
 
 	// Authentication type for the user.
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
 	// Name of the stack that is associated with the user.
@@ -118,6 +120,8 @@ func GetUserStackAssociation(ctx *pulumi.Context,
 type userStackAssociationState struct {
 	// Authentication type for the user.
 	AuthenticationType *string `pulumi:"authenticationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Name of the stack that is associated with the user.
@@ -131,6 +135,8 @@ type userStackAssociationState struct {
 type UserStackAssociationState struct {
 	// Authentication type for the user.
 	AuthenticationType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Name of the stack that is associated with the user.
@@ -148,6 +154,8 @@ func (UserStackAssociationState) ElementType() reflect.Type {
 type userStackAssociationArgs struct {
 	// Authentication type for the user.
 	AuthenticationType string `pulumi:"authenticationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Name of the stack that is associated with the user.
@@ -162,6 +170,8 @@ type userStackAssociationArgs struct {
 type UserStackAssociationArgs struct {
 	// Authentication type for the user.
 	AuthenticationType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Name of the stack that is associated with the user.
@@ -262,6 +272,11 @@ func (o UserStackAssociationOutput) ToUserStackAssociationOutputWithContext(ctx 
 // Authentication type for the user.
 func (o UserStackAssociationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserStackAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether a welcome email is sent to a user after the user is created in the user pool.

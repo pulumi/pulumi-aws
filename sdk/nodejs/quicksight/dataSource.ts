@@ -180,6 +180,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourcePermission[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties>;
@@ -222,6 +226,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sslProperties"] = state ? state.sslProperties : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -244,6 +249,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -288,6 +294,10 @@ export interface DataSourceState {
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourcePermission>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */
@@ -340,6 +350,10 @@ export interface DataSourceArgs {
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourcePermission>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */

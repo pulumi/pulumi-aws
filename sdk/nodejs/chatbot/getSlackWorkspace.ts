@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSlackWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
+        "region": args.region,
         "slackTeamName": args.slackTeamName,
     }, opts);
 }
@@ -31,6 +32,7 @@ export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSlackWorkspace.
  */
 export interface GetSlackWorkspaceArgs {
+    region?: string;
     /**
      * Slack workspace name configured with AWS Chatbot.
      */
@@ -45,6 +47,7 @@ export interface GetSlackWorkspaceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * ID of the Slack Workspace assigned by AWS Chatbot.
      */
@@ -70,6 +73,7 @@ export interface GetSlackWorkspaceResult {
 export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSlackWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
+        "region": args.region,
         "slackTeamName": args.slackTeamName,
     }, opts);
 }
@@ -78,6 +82,7 @@ export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?
  * A collection of arguments for invoking getSlackWorkspace.
  */
 export interface GetSlackWorkspaceOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Slack workspace name configured with AWS Chatbot.
      */

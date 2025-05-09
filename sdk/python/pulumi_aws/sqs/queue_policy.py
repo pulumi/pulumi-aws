@@ -21,13 +21,17 @@ __all__ = ['QueuePolicyArgs', 'QueuePolicy']
 class QueuePolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
-                 queue_url: pulumi.Input[builtins.str]):
+                 queue_url: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a QueuePolicy resource.
         :param pulumi.Input[builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "queue_url", queue_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -50,20 +54,36 @@ class QueuePolicyArgs:
     def queue_url(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "queue_url", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _QueuePolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
-                 queue_url: Optional[pulumi.Input[builtins.str]] = None):
+                 queue_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueuePolicy resources.
         :param pulumi.Input[builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if queue_url is not None:
             pulumi.set(__self__, "queue_url", queue_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -86,6 +106,18 @@ class _QueuePolicyState:
     def queue_url(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "queue_url", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class QueuePolicy(pulumi.CustomResource):
 
@@ -97,6 +129,7 @@ class QueuePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  queue_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
@@ -175,6 +208,7 @@ class QueuePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -273,6 +307,7 @@ class QueuePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  queue_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -288,6 +323,7 @@ class QueuePolicy(pulumi.CustomResource):
             if queue_url is None and not opts.urn:
                 raise TypeError("Missing required property 'queue_url'")
             __props__.__dict__["queue_url"] = queue_url
+            __props__.__dict__["region"] = region
         super(QueuePolicy, __self__).__init__(
             'aws:sqs/queuePolicy:QueuePolicy',
             resource_name,
@@ -299,7 +335,8 @@ class QueuePolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
-            queue_url: Optional[pulumi.Input[builtins.str]] = None) -> 'QueuePolicy':
+            queue_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'QueuePolicy':
         """
         Get an existing QueuePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -308,6 +345,7 @@ class QueuePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,6 +353,7 @@ class QueuePolicy(pulumi.CustomResource):
 
         __props__.__dict__["policy"] = policy
         __props__.__dict__["queue_url"] = queue_url
+        __props__.__dict__["region"] = region
         return QueuePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -329,4 +368,12 @@ class QueuePolicy(pulumi.CustomResource):
         URL of the SQS Queue to which to attach the policy.
         """
         return pulumi.get(self, "queue_url")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

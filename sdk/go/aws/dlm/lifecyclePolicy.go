@@ -329,6 +329,8 @@ type LifecyclePolicy struct {
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -384,6 +386,8 @@ type lifecyclePolicyState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -401,6 +405,8 @@ type LifecyclePolicyState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -420,6 +426,8 @@ type lifecyclePolicyArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -434,6 +442,8 @@ type LifecyclePolicyArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetailsInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -545,6 +555,11 @@ func (o LifecyclePolicyOutput) ExecutionRoleArn() pulumi.StringOutput {
 // See the `policyDetails` configuration block. Max of 1.
 func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailsOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailsOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailsOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.

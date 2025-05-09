@@ -27,7 +27,7 @@ class GetResolverFirewallRuleGroupAssociationResult:
     """
     A collection of values returned by getResolverFirewallRuleGroupAssociation.
     """
-    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, firewall_rule_group_association_id=None, firewall_rule_group_id=None, id=None, managed_owner_name=None, modification_time=None, mutation_protection=None, name=None, priority=None, status=None, status_message=None, vpc_id=None):
+    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, firewall_rule_group_association_id=None, firewall_rule_group_id=None, id=None, managed_owner_name=None, modification_time=None, mutation_protection=None, name=None, priority=None, region=None, status=None, status_message=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetResolverFirewallRuleGroupAssociationResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -74,16 +77,25 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the firewall rule group association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> builtins.str:
+        """
+        The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> builtins.str:
+        """
+        A unique string defined by you to identify the request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
@@ -94,6 +106,9 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> builtins.str:
+        """
+        The unique identifier of the firewall rule group.
+        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @property
@@ -107,41 +122,70 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> builtins.str:
+        """
+        The owner of the association, used only for associations that are not managed by you.
+        """
         return pulumi.get(self, "managed_owner_name")
 
     @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> builtins.str:
+        """
+        The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> builtins.str:
+        """
+        If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+        """
         return pulumi.get(self, "mutation_protection")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        The name of the association.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> builtins.int:
+        """
+        The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        The current status of the association.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> builtins.str:
+        """
+        Additional information about the status of the response, if available.
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> builtins.str:
+        """
+        The unique identifier of the VPC that is associated with the rule group.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -162,12 +206,14 @@ class AwaitableGetResolverFirewallRuleGroupAssociationResult(GetResolverFirewall
             mutation_protection=self.mutation_protection,
             name=self.name,
             priority=self.priority,
+            region=self.region,
             status=self.status,
             status_message=self.status_message,
             vpc_id=self.vpc_id)
 
 
 def get_resolver_firewall_rule_group_association(firewall_rule_group_association_id: Optional[builtins.str] = None,
+                                                 region: Optional[builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRuleGroupAssociationResult:
     """
     `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
@@ -187,11 +233,10 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetResolverFirewallRuleGroupAssociationResult).value
 
@@ -207,10 +252,12 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
         mutation_protection=pulumi.get(__ret__, 'mutation_protection'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_resolver_firewall_rule_group_association_output(firewall_rule_group_association_id: Optional[pulumi.Input[builtins.str]] = None,
+                                                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupAssociationResult]:
     """
     `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
@@ -230,11 +277,10 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetResolverFirewallRuleGroupAssociationResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallRuleGroupAssociationResult(
@@ -249,6 +295,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
         mutation_protection=pulumi.get(__response__, 'mutation_protection'),
         name=pulumi.get(__response__, 'name'),
         priority=pulumi.get(__response__, 'priority'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         status_message=pulumi.get(__response__, 'status_message'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

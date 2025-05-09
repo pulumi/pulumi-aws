@@ -32,6 +32,13 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * SAML options for the security configuration.
      * 
@@ -51,6 +58,7 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
 
     private GetServerlessSecurityConfigPlainArgs(GetServerlessSecurityConfigPlainArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.samlOptions = $.samlOptions;
     }
 
@@ -80,6 +88,11 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

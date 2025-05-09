@@ -124,6 +124,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> OwnerInformation { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
         [Output("resourceType")]
@@ -207,6 +213,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? OwnerInformation { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
         [Input("resourceType", required: true)]
@@ -256,6 +268,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("ownerInformation")]
         public Input<string>? OwnerInformation { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.

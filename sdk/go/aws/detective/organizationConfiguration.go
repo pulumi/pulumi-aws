@@ -28,6 +28,8 @@ type OrganizationConfiguration struct {
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
 	// ARN of the behavior graph.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -70,6 +72,8 @@ type organizationConfigurationState struct {
 	AutoEnable *bool `pulumi:"autoEnable"`
 	// ARN of the behavior graph.
 	GraphArn *string `pulumi:"graphArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type OrganizationConfigurationState struct {
@@ -77,6 +81,8 @@ type OrganizationConfigurationState struct {
 	AutoEnable pulumi.BoolPtrInput
 	// ARN of the behavior graph.
 	GraphArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationState) ElementType() reflect.Type {
@@ -88,6 +94,8 @@ type organizationConfigurationArgs struct {
 	AutoEnable bool `pulumi:"autoEnable"`
 	// ARN of the behavior graph.
 	GraphArn string `pulumi:"graphArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
@@ -96,6 +104,8 @@ type OrganizationConfigurationArgs struct {
 	AutoEnable pulumi.BoolInput
 	// ARN of the behavior graph.
 	GraphArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
@@ -193,6 +203,11 @@ func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 // ARN of the behavior graph.
 func (o OrganizationConfigurationOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OrganizationConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -66,6 +66,8 @@ import (
 type MulticastDomainAssociation struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the subnet to associate with the transit gateway multicast domain.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
@@ -113,6 +115,8 @@ func GetMulticastDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MulticastDomainAssociation resources.
 type multicastDomainAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the subnet to associate with the transit gateway multicast domain.
 	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
@@ -122,6 +126,8 @@ type multicastDomainAssociationState struct {
 }
 
 type MulticastDomainAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the subnet to associate with the transit gateway multicast domain.
 	SubnetId pulumi.StringPtrInput
 	// The ID of the transit gateway attachment.
@@ -135,6 +141,8 @@ func (MulticastDomainAssociationState) ElementType() reflect.Type {
 }
 
 type multicastDomainAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the subnet to associate with the transit gateway multicast domain.
 	SubnetId string `pulumi:"subnetId"`
 	// The ID of the transit gateway attachment.
@@ -145,6 +153,8 @@ type multicastDomainAssociationArgs struct {
 
 // The set of arguments for constructing a MulticastDomainAssociation resource.
 type MulticastDomainAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the subnet to associate with the transit gateway multicast domain.
 	SubnetId pulumi.StringInput
 	// The ID of the transit gateway attachment.
@@ -238,6 +248,11 @@ func (o MulticastDomainAssociationOutput) ToMulticastDomainAssociationOutput() M
 
 func (o MulticastDomainAssociationOutput) ToMulticastDomainAssociationOutputWithContext(ctx context.Context) MulticastDomainAssociationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MulticastDomainAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the subnet to associate with the transit gateway multicast domain.

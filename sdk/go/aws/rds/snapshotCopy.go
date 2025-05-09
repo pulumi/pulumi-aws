@@ -100,6 +100,8 @@ type SnapshotCopy struct {
 	Port            pulumi.IntOutput    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrOutput `pulumi:"presignedUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
 	SnapshotType   pulumi.StringOutput      `pulumi:"snapshotType"`
@@ -184,6 +186,8 @@ type snapshotCopyState struct {
 	Port            *int    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl *string `pulumi:"presignedUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	SnapshotType   *string  `pulumi:"snapshotType"`
@@ -233,6 +237,8 @@ type SnapshotCopyState struct {
 	Port            pulumi.IntPtrInput
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
 	SnapshotType   pulumi.StringPtrInput
@@ -269,6 +275,8 @@ type snapshotCopyArgs struct {
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl *string `pulumi:"presignedUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// Snapshot identifier of the source snapshot.
@@ -293,6 +301,8 @@ type SnapshotCopyArgs struct {
 	OptionGroupName pulumi.StringPtrInput
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
 	// Snapshot identifier of the source snapshot.
@@ -459,6 +469,11 @@ func (o SnapshotCopyOutput) Port() pulumi.IntOutput {
 // he URL that contains a Signature Version 4 signed request.
 func (o SnapshotCopyOutput) PresignedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.PresignedUrl }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SnapshotCopyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.

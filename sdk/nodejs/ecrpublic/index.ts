@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetAuthorizationTokenResult } from "./getAuthorizationToken";
+export { GetAuthorizationTokenArgs, GetAuthorizationTokenResult, GetAuthorizationTokenOutputArgs } from "./getAuthorizationToken";
 export const getAuthorizationToken: typeof import("./getAuthorizationToken").getAuthorizationToken = null as any;
 export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));

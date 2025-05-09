@@ -15,8 +15,6 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     {
         /// <summary>
         /// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>

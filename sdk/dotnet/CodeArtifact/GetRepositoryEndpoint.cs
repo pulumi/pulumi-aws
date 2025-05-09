@@ -111,6 +111,9 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("format", required: true)]
         public string Format { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Name of the repository.
         /// </summary>
@@ -143,6 +146,9 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Name of the repository.
         /// </summary>
@@ -166,6 +172,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string Repository;
         /// <summary>
         /// URL of the returned endpoint.
@@ -182,6 +189,8 @@ namespace Pulumi.Aws.CodeArtifact
 
             string id,
 
+            string region,
+
             string repository,
 
             string repositoryEndpoint)
@@ -190,6 +199,7 @@ namespace Pulumi.Aws.CodeArtifact
             DomainOwner = domainOwner;
             Format = format;
             Id = id;
+            Region = region;
             Repository = repository;
             RepositoryEndpoint = repositoryEndpoint;
         }

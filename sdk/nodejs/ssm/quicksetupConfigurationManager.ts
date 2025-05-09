@@ -113,6 +113,10 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
      */
     public /*out*/ readonly statusSummaries!: pulumi.Output<outputs.ssm.QuicksetupConfigurationManagerStatusSummary[]>;
@@ -143,6 +147,7 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["managerArn"] = state ? state.managerArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["statusSummaries"] = state ? state.statusSummaries : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -152,6 +157,7 @@ export class QuicksetupConfigurationManager extends pulumi.CustomResource {
             resourceInputs["configurationDefinition"] = args ? args.configurationDefinition : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["managerArn"] = undefined /*out*/;
@@ -186,6 +192,10 @@ export interface QuicksetupConfigurationManagerState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
      */
     statusSummaries?: pulumi.Input<pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerStatusSummary>[]>;
@@ -218,6 +228,10 @@ export interface QuicksetupConfigurationManagerArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

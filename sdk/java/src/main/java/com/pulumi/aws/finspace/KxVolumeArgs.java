@@ -116,6 +116,21 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      * 
      */
@@ -161,6 +176,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.environmentId = $.environmentId;
         this.name = $.name;
         this.nas1Configurations = $.nas1Configurations;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.type = $.type;
@@ -336,6 +352,27 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nas1Configurations(KxVolumeNas1ConfigurationArgs... nas1Configurations) {
             return nas1Configurations(List.of(nas1Configurations));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

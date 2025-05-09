@@ -54,7 +54,8 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 // A collection of arguments for invoking getRestApi.
 type LookupRestApiArgs struct {
 	// Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -80,6 +81,7 @@ type LookupRestApiResult struct {
 	Name                   string `pulumi:"name"`
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
+	Region string `pulumi:"region"`
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
 	RootResourceId string `pulumi:"rootResourceId"`
 	// Key-value map of resource tags.
@@ -98,7 +100,8 @@ func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts
 // A collection of arguments for invoking getRestApi.
 type LookupRestApiOutputArgs struct {
 	// Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -169,6 +172,10 @@ func (o LookupRestApiResultOutput) Name() pulumi.StringOutput {
 // JSON formatted policy document that controls access to the API Gateway.
 func (o LookupRestApiResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupRestApiResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRestApiResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.

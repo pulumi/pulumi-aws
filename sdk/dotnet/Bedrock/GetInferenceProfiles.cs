@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Bedrock
         /// });
         /// ```
         /// </summary>
-        public static Task<GetInferenceProfilesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetInferenceProfilesResult> InvokeAsync(GetInferenceProfilesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.Bedrock
         /// });
         /// ```
         /// </summary>
-        public static Output<GetInferenceProfilesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetInferenceProfilesResult> Invoke(GetInferenceProfilesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
@@ -77,8 +77,31 @@ namespace Pulumi.Aws.Bedrock
         /// });
         /// ```
         /// </summary>
-        public static Output<GetInferenceProfilesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetInferenceProfilesResult> Invoke(GetInferenceProfilesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetInferenceProfilesArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetInferenceProfilesArgs()
+        {
+        }
+        public static new GetInferenceProfilesArgs Empty => new GetInferenceProfilesArgs();
+    }
+
+    public sealed class GetInferenceProfilesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetInferenceProfilesInvokeArgs()
+        {
+        }
+        public static new GetInferenceProfilesInvokeArgs Empty => new GetInferenceProfilesInvokeArgs();
     }
 
 
@@ -93,15 +116,19 @@ namespace Pulumi.Aws.Bedrock
         /// List of inference profile summary objects. See `inference_profile_summaries`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> InferenceProfileSummaries;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetInferenceProfilesResult(
             string id,
 
-            ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> inferenceProfileSummaries)
+            ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> inferenceProfileSummaries,
+
+            string region)
         {
             Id = id;
             InferenceProfileSummaries = inferenceProfileSummaries;
+            Region = region;
         }
     }
 }

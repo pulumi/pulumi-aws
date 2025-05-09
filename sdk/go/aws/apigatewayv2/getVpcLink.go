@@ -52,6 +52,7 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkArgs struct {
+	Region *string `pulumi:"region"`
 	// VPC Link Tags.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC Link ID
@@ -65,7 +66,8 @@ type LookupVpcLinkResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// VPC Link Name.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// List of security groups associated with the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of subnets attached to the VPC Link.
@@ -86,6 +88,7 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// VPC Link Tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// VPC Link ID
@@ -124,6 +127,10 @@ func (o LookupVpcLinkResultOutput) Id() pulumi.StringOutput {
 // VPC Link Name.
 func (o LookupVpcLinkResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcLinkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of security groups associated with the VPC Link.

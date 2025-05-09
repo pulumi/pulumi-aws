@@ -371,6 +371,12 @@ namespace Pulumi.Aws.Amplify
         public Output<ImmutableArray<Outputs.AppProductionBranch>> ProductionBranches { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Repository for an Amplify app.
         /// </summary>
         [Output("repository")]
@@ -603,6 +609,12 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? Platform { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Repository for an Amplify app.
         /// </summary>
         [Input("repository")]
@@ -813,6 +825,12 @@ namespace Pulumi.Aws.Amplify
             get => _productionBranches ?? (_productionBranches = new InputList<Inputs.AppProductionBranchGetArgs>());
             set => _productionBranches = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Repository for an Amplify app.

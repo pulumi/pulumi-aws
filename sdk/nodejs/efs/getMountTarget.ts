@@ -27,6 +27,7 @@ export function getMountTarget(args?: GetMountTargetArgs, opts?: pulumi.InvokeOp
         "accessPointId": args.accessPointId,
         "fileSystemId": args.fileSystemId,
         "mountTargetId": args.mountTargetId,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,7 @@ export interface GetMountTargetArgs {
      * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
      */
     mountTargetId?: string;
+    region?: string;
 }
 
 /**
@@ -91,6 +93,7 @@ export interface GetMountTargetResult {
      * AWS account ID that owns the resource.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * List of VPC security group IDs attached to the mount target.
      */
@@ -123,6 +126,7 @@ export function getMountTargetOutput(args?: GetMountTargetOutputArgs, opts?: pul
         "accessPointId": args.accessPointId,
         "fileSystemId": args.fileSystemId,
         "mountTargetId": args.mountTargetId,
+        "region": args.region,
     }, opts);
 }
 
@@ -142,4 +146,5 @@ export interface GetMountTargetOutputArgs {
      * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
      */
     mountTargetId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

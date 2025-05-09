@@ -63,6 +63,8 @@ type BaiduChannel struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Platform credential Secret key from Baidu.
 	SecretKey pulumi.StringOutput `pulumi:"secretKey"`
 }
@@ -123,6 +125,8 @@ type baiduChannelState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Platform credential Secret key from Baidu.
 	SecretKey *string `pulumi:"secretKey"`
 }
@@ -134,6 +138,8 @@ type BaiduChannelState struct {
 	ApplicationId pulumi.StringPtrInput
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Platform credential Secret key from Baidu.
 	SecretKey pulumi.StringPtrInput
 }
@@ -149,6 +155,8 @@ type baiduChannelArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Platform credential Secret key from Baidu.
 	SecretKey string `pulumi:"secretKey"`
 }
@@ -161,6 +169,8 @@ type BaiduChannelArgs struct {
 	ApplicationId pulumi.StringInput
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Platform credential Secret key from Baidu.
 	SecretKey pulumi.StringInput
 }
@@ -265,6 +275,11 @@ func (o BaiduChannelOutput) ApplicationId() pulumi.StringOutput {
 // Specifies whether to enable the channel. Defaults to `true`.
 func (o BaiduChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BaiduChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Platform credential Secret key from Baidu.

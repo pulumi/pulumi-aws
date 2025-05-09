@@ -10,6 +10,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.InvokeArgs {
@@ -91,6 +93,13 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         return this.productDescription;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetReservedInstanceOfferingArgs() {}
 
     private GetReservedInstanceOfferingArgs(GetReservedInstanceOfferingArgs $) {
@@ -99,6 +108,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         this.multiAz = $.multiAz;
         this.offeringType = $.offeringType;
         this.productDescription = $.productDescription;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -222,6 +232,15 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
          */
         public Builder productDescription(String productDescription) {
             return productDescription(Output.of(productDescription));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetReservedInstanceOfferingArgs build() {

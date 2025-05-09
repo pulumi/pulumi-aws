@@ -157,6 +157,21 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of SlotTypeValue objects that defines the values that the slot type can take.
      * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
      * See `slot_type_values` argument reference below.
@@ -210,6 +225,7 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         this.localeId = $.localeId;
         this.name = $.name;
         this.parentSlotTypeSignature = $.parentSlotTypeSignature;
+        this.region = $.region;
         this.slotTypeValues = $.slotTypeValues;
         this.timeouts = $.timeouts;
         this.valueSelectionSetting = $.valueSelectionSetting;
@@ -435,6 +451,27 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder parentSlotTypeSignature(String parentSlotTypeSignature) {
             return parentSlotTypeSignature(Output.of(parentSlotTypeSignature));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

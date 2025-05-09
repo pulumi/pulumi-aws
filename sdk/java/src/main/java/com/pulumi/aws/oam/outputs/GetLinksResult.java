@@ -21,6 +21,7 @@ public final class GetLinksResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetLinksResult() {}
     /**
@@ -37,6 +38,9 @@ public final class GetLinksResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +53,13 @@ public final class GetLinksResult {
     public static final class Builder {
         private List<String> arns;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetLinksResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arns = defaults.arns;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -75,10 +81,19 @@ public final class GetLinksResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLinksResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLinksResult build() {
             final var _resultValue = new GetLinksResult();
             _resultValue.arns = arns;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

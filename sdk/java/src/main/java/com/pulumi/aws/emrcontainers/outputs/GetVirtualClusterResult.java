@@ -38,6 +38,7 @@ public final class GetVirtualClusterResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
@@ -86,6 +87,9 @@ public final class GetVirtualClusterResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
@@ -118,6 +122,7 @@ public final class GetVirtualClusterResult {
         private String createdAt;
         private String id;
         private String name;
+        private String region;
         private String state;
         private Map<String,String> tags;
         private String virtualClusterId;
@@ -129,6 +134,7 @@ public final class GetVirtualClusterResult {
     	      this.createdAt = defaults.createdAt;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.virtualClusterId = defaults.virtualClusterId;
@@ -178,6 +184,14 @@ public final class GetVirtualClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVirtualClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetVirtualClusterResult", "state");
@@ -208,6 +222,7 @@ public final class GetVirtualClusterResult {
             _resultValue.createdAt = createdAt;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.virtualClusterId = virtualClusterId;

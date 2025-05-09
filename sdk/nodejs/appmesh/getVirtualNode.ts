@@ -28,6 +28,7 @@ export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOpt
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -48,6 +49,7 @@ export interface GetVirtualNodeArgs {
      * Name of the virtual node.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags.
      */
@@ -77,6 +79,7 @@ export interface GetVirtualNodeResult {
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -111,6 +114,7 @@ export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulu
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -131,6 +135,7 @@ export interface GetVirtualNodeOutputArgs {
      * Name of the virtual node.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

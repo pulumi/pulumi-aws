@@ -54,7 +54,8 @@ type LookupAliasArgs struct {
 	// Name of the aliased Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Name of the Lambda alias.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAlias.
@@ -71,6 +72,7 @@ type LookupAliasResult struct {
 	// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
 	InvokeArn string `pulumi:"invokeArn"`
 	Name      string `pulumi:"name"`
+	Region    string `pulumi:"region"`
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
@@ -87,7 +89,8 @@ type LookupAliasOutputArgs struct {
 	// Name of the aliased Lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Name of the Lambda alias.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupAliasOutputArgs) ElementType() reflect.Type {
@@ -140,6 +143,10 @@ func (o LookupAliasResultOutput) InvokeArn() pulumi.StringOutput {
 
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAliasResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

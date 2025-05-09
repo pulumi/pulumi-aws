@@ -57,11 +57,9 @@ func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs,
 type GetSecurityGroupRulesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
+	Region  *string                       `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group rule.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -70,8 +68,9 @@ type GetSecurityGroupRulesResult struct {
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
 	Id      string                        `pulumi:"id"`
 	// List of all the security group rule IDs found.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRulesResultOutput {
@@ -87,11 +86,9 @@ func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRules
 type GetSecurityGroupRulesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetSecurityGroupRulesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                 `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group rule.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -125,6 +122,10 @@ func (o GetSecurityGroupRulesResultOutput) Id() pulumi.StringOutput {
 // List of all the security group rule IDs found.
 func (o GetSecurityGroupRulesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSecurityGroupRulesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupRulesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecurityGroupRulesResultOutput) Tags() pulumi.StringMapOutput {

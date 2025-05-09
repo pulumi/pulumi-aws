@@ -98,6 +98,10 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -132,6 +136,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableReference"] = state ? state.tableReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -151,6 +156,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["analysisMethod"] = args ? args.analysisMethod : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableReference"] = args ? args.tableReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -192,6 +198,10 @@ export interface ConfiguredTableState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -228,6 +238,10 @@ export interface ConfiguredTableArgs {
      * The name of the configured table.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.

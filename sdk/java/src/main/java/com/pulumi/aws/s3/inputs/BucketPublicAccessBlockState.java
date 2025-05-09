@@ -85,6 +85,21 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      * 
@@ -108,6 +123,7 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
         this.blockPublicPolicy = $.blockPublicPolicy;
         this.bucket = $.bucket;
         this.ignorePublicAcls = $.ignorePublicAcls;
+        this.region = $.region;
         this.restrictPublicBuckets = $.restrictPublicBuckets;
     }
 
@@ -219,6 +235,27 @@ public final class BucketPublicAccessBlockState extends com.pulumi.resources.Res
          */
         public Builder ignorePublicAcls(Boolean ignorePublicAcls) {
             return ignorePublicAcls(Output.of(ignorePublicAcls));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

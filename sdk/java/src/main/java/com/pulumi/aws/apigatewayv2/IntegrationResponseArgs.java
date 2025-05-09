@@ -78,6 +78,21 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
@@ -114,6 +129,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         this.contentHandlingStrategy = $.contentHandlingStrategy;
         this.integrationId = $.integrationId;
         this.integrationResponseKey = $.integrationResponseKey;
+        this.region = $.region;
         this.responseTemplates = $.responseTemplates;
         this.templateSelectionExpression = $.templateSelectionExpression;
     }
@@ -218,6 +234,27 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
          */
         public Builder integrationResponseKey(String integrationResponseKey) {
             return integrationResponseKey(Output.of(integrationResponseKey));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

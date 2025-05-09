@@ -26,6 +26,7 @@ class RegexPatternSetArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class RegexPatternSetArgs:
         :param pulumi.Input[builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -44,6 +46,8 @@ class RegexPatternSetArgs:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regular_expressions is not None:
             pulumi.set(__self__, "regular_expressions", regular_expressions)
         if tags is not None:
@@ -98,6 +102,18 @@ class RegexPatternSetArgs:
         pulumi.set(self, "name_prefix", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="regularExpressions")
     def regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]]:
         """
@@ -130,6 +146,7 @@ class _RegexPatternSetState:
                  lock_token: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -140,6 +157,7 @@ class _RegexPatternSetState:
         :param pulumi.Input[builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -155,6 +173,8 @@ class _RegexPatternSetState:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regular_expressions is not None:
             pulumi.set(__self__, "regular_expressions", regular_expressions)
         if scope is not None:
@@ -222,6 +242,18 @@ class _RegexPatternSetState:
         pulumi.set(self, "name_prefix", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="regularExpressions")
     def regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]]:
         """
@@ -281,6 +313,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegexPatternSetRegularExpressionArgs', 'RegexPatternSetRegularExpressionArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -325,6 +358,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegexPatternSetRegularExpressionArgs', 'RegexPatternSetRegularExpressionArgsDict']]]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -388,6 +422,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegexPatternSetRegularExpressionArgs', 'RegexPatternSetRegularExpressionArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -403,6 +438,7 @@ class RegexPatternSet(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["region"] = region
             __props__.__dict__["regular_expressions"] = regular_expressions
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -426,6 +462,7 @@ class RegexPatternSet(pulumi.CustomResource):
             lock_token: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegexPatternSetRegularExpressionArgs', 'RegexPatternSetRegularExpressionArgsDict']]]]] = None,
             scope: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -441,6 +478,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegexPatternSetRegularExpressionArgs', 'RegexPatternSetRegularExpressionArgsDict']]]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -455,6 +493,7 @@ class RegexPatternSet(pulumi.CustomResource):
         __props__.__dict__["lock_token"] = lock_token
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["region"] = region
         __props__.__dict__["regular_expressions"] = regular_expressions
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
@@ -497,6 +536,14 @@ class RegexPatternSet(pulumi.CustomResource):
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="regularExpressions")

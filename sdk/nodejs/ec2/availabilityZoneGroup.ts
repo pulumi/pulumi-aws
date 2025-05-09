@@ -65,6 +65,10 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
     public readonly optInStatus!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AvailabilityZoneGroup resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
             const state = argsOrState as AvailabilityZoneGroupState | undefined;
             resourceInputs["groupName"] = state ? state.groupName : undefined;
             resourceInputs["optInStatus"] = state ? state.optInStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AvailabilityZoneGroupArgs | undefined;
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -91,6 +96,7 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
             }
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["optInStatus"] = args ? args.optInStatus : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AvailabilityZoneGroup.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +115,10 @@ export interface AvailabilityZoneGroupState {
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
     optInStatus?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface AvailabilityZoneGroupArgs {
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
     optInStatus: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

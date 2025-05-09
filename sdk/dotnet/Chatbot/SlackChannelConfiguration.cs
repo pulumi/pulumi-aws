@@ -81,6 +81,12 @@ namespace Pulumi.Aws.Chatbot
         public Output<string> LoggingLevel { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.
         /// </summary>
         [Output("slackChannelId")]
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.Chatbot
         public Input<string>? LoggingLevel { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.
         /// </summary>
         [Input("slackChannelId", required: true)]
@@ -299,6 +311,12 @@ namespace Pulumi.Aws.Chatbot
         /// </summary>
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.

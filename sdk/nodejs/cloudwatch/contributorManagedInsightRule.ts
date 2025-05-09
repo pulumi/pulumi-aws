@@ -50,6 +50,10 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ContributorManagedInsightRuleState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["ruleName"] = state ? state.ruleName : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -92,6 +97,7 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -114,6 +120,10 @@ export interface ContributorManagedInsightRuleState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     resourceArn?: pulumi.Input<string>;
@@ -133,6 +143,10 @@ export interface ContributorManagedInsightRuleState {
  * The set of arguments for constructing a ContributorManagedInsightRule resource.
  */
 export interface ContributorManagedInsightRuleArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */

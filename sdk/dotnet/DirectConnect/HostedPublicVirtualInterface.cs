@@ -117,6 +117,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of routes to be advertised to the AWS network in this region.
         /// </summary>
         [Output("routeFilterPrefixes")]
@@ -222,6 +228,12 @@ namespace Pulumi.Aws.DirectConnect
         [Input("ownerAccountId", required: true)]
         public Input<string> OwnerAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routeFilterPrefixes", required: true)]
         private InputList<string>? _routeFilterPrefixes;
 
@@ -310,6 +322,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routeFilterPrefixes")]
         private InputList<string>? _routeFilterPrefixes;

@@ -50,7 +50,7 @@ export const getFunction: typeof import("./getFunction").getFunction = null as a
 export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
 utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
 
-export { GetLogDeliveryCanonicalUserIdArgs, GetLogDeliveryCanonicalUserIdResult, GetLogDeliveryCanonicalUserIdOutputArgs } from "./getLogDeliveryCanonicalUserId";
+export { GetLogDeliveryCanonicalUserIdResult } from "./getLogDeliveryCanonicalUserId";
 export const getLogDeliveryCanonicalUserId: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserId = null as any;
 export const getLogDeliveryCanonicalUserIdOutput: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserIdOutput = null as any;
 utilities.lazyLoad(exports, ["getLogDeliveryCanonicalUserId","getLogDeliveryCanonicalUserIdOutput"], () => require("./getLogDeliveryCanonicalUserId"));

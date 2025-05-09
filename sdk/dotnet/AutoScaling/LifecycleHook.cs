@@ -130,6 +130,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> NotificationTargetArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
         [Output("roleArn")]
@@ -224,6 +230,12 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NotificationTargetArn { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
         [Input("roleArn")]
@@ -278,6 +290,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("notificationTargetArn")]
         public Input<string>? NotificationTargetArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.

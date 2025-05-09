@@ -62,6 +62,13 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.range);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the object.
      * 
@@ -98,6 +105,7 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
         this.bucket = $.bucket;
         this.key = $.key;
         this.range = $.range;
+        this.region = $.region;
         this.tags = $.tags;
         this.versionId = $.versionId;
     }
@@ -177,6 +185,15 @@ public final class GetBucketObjectArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder range(String range) {
             return range(Output.of(range));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -101,6 +101,8 @@ type BucketCorsConfiguration struct {
 	CorsRules BucketCorsConfigurationCorsRuleArrayOutput `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketCorsConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -154,6 +156,8 @@ type bucketCorsConfigurationState struct {
 	CorsRules []BucketCorsConfigurationCorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketCorsConfigurationState struct {
@@ -163,6 +167,8 @@ type BucketCorsConfigurationState struct {
 	CorsRules BucketCorsConfigurationCorsRuleArrayInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketCorsConfigurationState) ElementType() reflect.Type {
@@ -176,6 +182,8 @@ type bucketCorsConfigurationArgs struct {
 	CorsRules []BucketCorsConfigurationCorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketCorsConfiguration resource.
@@ -186,6 +194,8 @@ type BucketCorsConfigurationArgs struct {
 	CorsRules BucketCorsConfigurationCorsRuleArrayInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketCorsConfigurationArgs) ElementType() reflect.Type {
@@ -288,6 +298,11 @@ func (o BucketCorsConfigurationOutput) CorsRules() BucketCorsConfigurationCorsRu
 // Account ID of the expected bucket owner.
 func (o BucketCorsConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketCorsConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketCorsConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketCorsConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketCorsConfigurationArrayOutput struct{ *pulumi.OutputState }

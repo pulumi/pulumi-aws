@@ -231,6 +231,8 @@ type Broker struct {
 	PendingDataReplicationMode pulumi.StringOutput `pulumi:"pendingDataReplicationMode"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
@@ -327,6 +329,8 @@ type brokerState struct {
 	PendingDataReplicationMode *string `pulumi:"pendingDataReplicationMode"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
@@ -382,6 +386,8 @@ type BrokerState struct {
 	PendingDataReplicationMode pulumi.StringPtrInput
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayInput
 	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
@@ -435,6 +441,8 @@ type brokerArgs struct {
 	MaintenanceWindowStartTime *BrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
@@ -483,6 +491,8 @@ type BrokerArgs struct {
 	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimePtrInput
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayInput
 	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
@@ -677,6 +687,11 @@ func (o BrokerOutput) PendingDataReplicationMode() pulumi.StringOutput {
 // Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 func (o BrokerOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Broker) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BrokerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of security group IDs assigned to the broker.

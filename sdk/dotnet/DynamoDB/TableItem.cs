@@ -84,6 +84,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> RangeKey { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the table to contain the item.
         /// </summary>
         [Output("tableName")]
@@ -154,6 +160,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the table to contain the item.
         /// </summary>
         [Input("tableName", required: true)]
@@ -184,6 +196,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the table to contain the item.

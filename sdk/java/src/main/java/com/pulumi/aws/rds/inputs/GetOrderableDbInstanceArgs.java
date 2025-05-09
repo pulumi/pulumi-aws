@@ -153,6 +153,13 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.readReplicaCapable);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      * 
@@ -375,6 +382,7 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
         this.preferredEngineVersions = $.preferredEngineVersions;
         this.preferredInstanceClasses = $.preferredInstanceClasses;
         this.readReplicaCapable = $.readReplicaCapable;
+        this.region = $.region;
         this.storageType = $.storageType;
         this.supportedEngineModes = $.supportedEngineModes;
         this.supportedNetworkTypes = $.supportedNetworkTypes;
@@ -616,6 +624,15 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
          */
         public Builder readReplicaCapable(Boolean readReplicaCapable) {
             return readReplicaCapable(Output.of(readReplicaCapable));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

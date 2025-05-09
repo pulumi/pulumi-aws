@@ -66,6 +66,12 @@ namespace Pulumi.Aws.LakeFormation
         public Output<string> LastModified { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Role that has read/write access to the resource.
         /// </summary>
         [Output("roleArn")]
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<bool>? HybridAccessEnabled { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Role that has read/write access to the resource.
         /// </summary>
         [Input("roleArn")]
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Role that has read/write access to the resource.

@@ -115,6 +115,10 @@ export class Membership extends pulumi.CustomResource {
      */
     public readonly queryLogStatus!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the membership.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -152,6 +156,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["memberAbilities"] = state ? state.memberAbilities : undefined;
             resourceInputs["paymentConfiguration"] = state ? state.paymentConfiguration : undefined;
             resourceInputs["queryLogStatus"] = state ? state.queryLogStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -168,6 +173,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
             resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
@@ -231,6 +237,10 @@ export interface MembershipState {
      */
     queryLogStatus?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the membership.
      */
     status?: pulumi.Input<string>;
@@ -262,6 +272,10 @@ export interface MembershipArgs {
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      */
     queryLogStatus: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key value pairs which tag the membership.
      */

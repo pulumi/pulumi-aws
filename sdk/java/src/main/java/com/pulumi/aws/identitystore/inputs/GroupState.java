@@ -96,6 +96,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.identityStoreId);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GroupState() {}
 
     private GroupState(GroupState $) {
@@ -104,6 +119,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.externalIds = $.externalIds;
         this.groupId = $.groupId;
         this.identityStoreId = $.identityStoreId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -241,6 +257,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GroupState build() {

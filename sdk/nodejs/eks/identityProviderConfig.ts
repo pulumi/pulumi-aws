@@ -75,6 +75,10 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
      */
     public readonly oidc!: pulumi.Output<outputs.eks.IdentityProviderConfigOidc>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the EKS Identity Provider Configuration.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["oidc"] = state ? state.oidc : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -116,6 +121,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["oidc"] = args ? args.oidc : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -143,6 +149,10 @@ export interface IdentityProviderConfigState {
      */
     oidc?: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of the EKS Identity Provider Configuration.
      */
     status?: pulumi.Input<string>;
@@ -168,6 +178,10 @@ export interface IdentityProviderConfigArgs {
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      */
     oidc: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

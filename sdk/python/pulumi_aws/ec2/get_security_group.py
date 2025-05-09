@@ -29,7 +29,7 @@ class GetSecurityGroupResult:
     """
     A collection of values returned by getSecurityGroup.
     """
-    def __init__(__self__, arn=None, description=None, filters=None, id=None, name=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, description=None, filters=None, id=None, name=None, region=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetSecurityGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -85,6 +88,11 @@ class GetSecurityGroupResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         return pulumi.get(self, "tags")
 
@@ -105,6 +113,7 @@ class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
             filters=self.filters,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             vpc_id=self.vpc_id)
 
@@ -112,6 +121,7 @@ class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
 def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]] = None,
                        id: Optional[builtins.str] = None,
                        name: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        vpc_id: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupResult:
@@ -155,6 +165,7 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -166,11 +177,13 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]]]] = None,
                               id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               vpc_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupResult]:
@@ -214,6 +227,7 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -224,5 +238,6 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[U
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

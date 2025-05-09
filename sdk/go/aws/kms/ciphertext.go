@@ -61,6 +61,8 @@ type Ciphertext struct {
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringOutput `pulumi:"plaintext"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewCiphertext registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +116,8 @@ type ciphertextState struct {
 	KeyId *string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext *string `pulumi:"plaintext"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type CiphertextState struct {
@@ -125,6 +129,8 @@ type CiphertextState struct {
 	KeyId pulumi.StringPtrInput
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CiphertextState) ElementType() reflect.Type {
@@ -138,6 +144,8 @@ type ciphertextArgs struct {
 	KeyId string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext string `pulumi:"plaintext"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Ciphertext resource.
@@ -148,6 +156,8 @@ type CiphertextArgs struct {
 	KeyId pulumi.StringInput
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CiphertextArgs) ElementType() reflect.Type {
@@ -255,6 +265,11 @@ func (o CiphertextOutput) KeyId() pulumi.StringOutput {
 // Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 func (o CiphertextOutput) Plaintext() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.Plaintext }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CiphertextOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type CiphertextArrayOutput struct{ *pulumi.OutputState }

@@ -88,6 +88,8 @@ type ResiliencyPolicy struct {
 	//
 	// The following arguments are optional:
 	Policy ResiliencyPolicyPolicyPtrOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -148,6 +150,8 @@ type resiliencyPolicyState struct {
 	//
 	// The following arguments are optional:
 	Policy *ResiliencyPolicyPolicy `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -176,6 +180,8 @@ type ResiliencyPolicyState struct {
 	//
 	// The following arguments are optional:
 	Policy ResiliencyPolicyPolicyPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -204,6 +210,8 @@ type resiliencyPolicyArgs struct {
 	//
 	// The following arguments are optional:
 	Policy *ResiliencyPolicyPolicy `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Resiliency Policy Tier.
@@ -227,6 +235,8 @@ type ResiliencyPolicyArgs struct {
 	//
 	// The following arguments are optional:
 	Policy ResiliencyPolicyPolicyPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Resiliency Policy Tier.
@@ -355,6 +365,11 @@ func (o ResiliencyPolicyOutput) Name() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ResiliencyPolicyOutput) Policy() ResiliencyPolicyPolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyPolicyPtrOutput { return v.Policy }).(ResiliencyPolicyPolicyPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResiliencyPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

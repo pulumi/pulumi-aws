@@ -61,6 +61,8 @@ type CustomDomainAssociation struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrOutput `pulumi:"enableWwwSubdomain"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the App Runner service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
@@ -111,6 +113,8 @@ type customDomainAssociationState struct {
 	DomainName *string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain *bool `pulumi:"enableWwwSubdomain"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the App Runner service.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
@@ -126,6 +130,8 @@ type CustomDomainAssociationState struct {
 	DomainName pulumi.StringPtrInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the App Runner service.
 	ServiceArn pulumi.StringPtrInput
 	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
@@ -141,6 +147,8 @@ type customDomainAssociationArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain *bool `pulumi:"enableWwwSubdomain"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the App Runner service.
 	ServiceArn string `pulumi:"serviceArn"`
 }
@@ -151,6 +159,8 @@ type CustomDomainAssociationArgs struct {
 	DomainName pulumi.StringInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the App Runner service.
 	ServiceArn pulumi.StringInput
 }
@@ -262,6 +272,11 @@ func (o CustomDomainAssociationOutput) DomainName() pulumi.StringOutput {
 // Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 func (o CustomDomainAssociationOutput) EnableWwwSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.BoolPtrOutput { return v.EnableWwwSubdomain }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomDomainAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the App Runner service.

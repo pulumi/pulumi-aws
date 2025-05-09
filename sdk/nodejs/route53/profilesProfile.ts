@@ -72,6 +72,10 @@ export class ProfilesProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Share status of the Profile.
      */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class ProfilesProfile extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["shareStatus"] = state ? state.shareStatus : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusMessage"] = state ? state.statusMessage : undefined;
@@ -118,6 +123,7 @@ export class ProfilesProfile extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ProfilesProfileArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface ProfilesProfileState {
      */
     name?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Share status of the Profile.
      */
@@ -176,6 +186,10 @@ export interface ProfilesProfileArgs {
      * Name of the Profile.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

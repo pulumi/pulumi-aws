@@ -29,6 +29,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:appconfig/getEnvironment:getEnvironment", {
         "applicationId": args.applicationId,
         "environmentId": args.environmentId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,7 @@ export interface GetEnvironmentArgs {
      * ID of the AppConfig Environment.
      */
     environmentId: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -77,6 +79,7 @@ export interface GetEnvironmentResult {
      * Name of the environment.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
@@ -109,6 +112,7 @@ export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulu
     return pulumi.runtime.invokeOutput("aws:appconfig/getEnvironment:getEnvironment", {
         "applicationId": args.applicationId,
         "environmentId": args.environmentId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -125,6 +129,7 @@ export interface GetEnvironmentOutputArgs {
      * ID of the AppConfig Environment.
      */
     environmentId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

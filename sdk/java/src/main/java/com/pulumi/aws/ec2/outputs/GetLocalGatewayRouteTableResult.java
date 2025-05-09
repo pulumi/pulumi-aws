@@ -23,6 +23,7 @@ public final class GetLocalGatewayRouteTableResult {
     private String localGatewayId;
     private String localGatewayRouteTableId;
     private String outpostArn;
+    private String region;
     private String state;
     private Map<String,String> tags;
 
@@ -46,6 +47,9 @@ public final class GetLocalGatewayRouteTableResult {
     public String outpostArn() {
         return this.outpostArn;
     }
+    public String region() {
+        return this.region;
+    }
     public String state() {
         return this.state;
     }
@@ -67,6 +71,7 @@ public final class GetLocalGatewayRouteTableResult {
         private String localGatewayId;
         private String localGatewayRouteTableId;
         private String outpostArn;
+        private String region;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -77,6 +82,7 @@ public final class GetLocalGatewayRouteTableResult {
     	      this.localGatewayId = defaults.localGatewayId;
     	      this.localGatewayRouteTableId = defaults.localGatewayRouteTableId;
     	      this.outpostArn = defaults.outpostArn;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -123,6 +129,14 @@ public final class GetLocalGatewayRouteTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "state");
@@ -145,6 +159,7 @@ public final class GetLocalGatewayRouteTableResult {
             _resultValue.localGatewayId = localGatewayId;
             _resultValue.localGatewayRouteTableId = localGatewayRouteTableId;
             _resultValue.outpostArn = outpostArn;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

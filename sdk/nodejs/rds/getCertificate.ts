@@ -25,6 +25,7 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
         "defaultForNewLaunches": args.defaultForNewLaunches,
         "id": args.id,
         "latestValidTill": args.latestValidTill,
+        "region": args.region,
     }, opts);
 }
 
@@ -44,6 +45,7 @@ export interface GetCertificateArgs {
      * When enabled, returns the certificate with the latest `ValidTill`.
      */
     latestValidTill?: boolean;
+    region?: string;
 }
 
 /**
@@ -69,6 +71,7 @@ export interface GetCertificateResult {
     readonly defaultForNewLaunches?: boolean;
     readonly id: string;
     readonly latestValidTill?: boolean;
+    readonly region: string;
     /**
      * Thumbprint of the certificate.
      */
@@ -103,6 +106,7 @@ export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pul
         "defaultForNewLaunches": args.defaultForNewLaunches,
         "id": args.id,
         "latestValidTill": args.latestValidTill,
+        "region": args.region,
     }, opts);
 }
 
@@ -122,4 +126,5 @@ export interface GetCertificateOutputArgs {
      * When enabled, returns the certificate with the latest `ValidTill`.
      */
     latestValidTill?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
 }

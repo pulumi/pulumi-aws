@@ -546,6 +546,8 @@ type BucketNotification struct {
 	LambdaFunctions BucketNotificationLambdaFunctionArrayOutput `pulumi:"lambdaFunctions"`
 	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayOutput `pulumi:"queues"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Notification configuration to SNS Topic. See below.
 	Topics BucketNotificationTopicArrayOutput `pulumi:"topics"`
 }
@@ -593,6 +595,8 @@ type bucketNotificationState struct {
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
 	// Notification configuration to SQS Queue. See below.
 	Queues []BucketNotificationQueue `pulumi:"queues"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Notification configuration to SNS Topic. See below.
 	Topics []BucketNotificationTopic `pulumi:"topics"`
 }
@@ -608,6 +612,8 @@ type BucketNotificationState struct {
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
 	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Notification configuration to SNS Topic. See below.
 	Topics BucketNotificationTopicArrayInput
 }
@@ -627,6 +633,8 @@ type bucketNotificationArgs struct {
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
 	// Notification configuration to SQS Queue. See below.
 	Queues []BucketNotificationQueue `pulumi:"queues"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Notification configuration to SNS Topic. See below.
 	Topics []BucketNotificationTopic `pulumi:"topics"`
 }
@@ -643,6 +651,8 @@ type BucketNotificationArgs struct {
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
 	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Notification configuration to SNS Topic. See below.
 	Topics BucketNotificationTopicArrayInput
 }
@@ -754,6 +764,11 @@ func (o BucketNotificationOutput) LambdaFunctions() BucketNotificationLambdaFunc
 // Notification configuration to SQS Queue. See below.
 func (o BucketNotificationOutput) Queues() BucketNotificationQueueArrayOutput {
 	return o.ApplyT(func(v *BucketNotification) BucketNotificationQueueArrayOutput { return v.Queues }).(BucketNotificationQueueArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketNotificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketNotification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Notification configuration to SNS Topic. See below.

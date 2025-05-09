@@ -443,6 +443,12 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
         public Output<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration?> RealTimeAlertConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         /// </summary>
         [Output("resourceAccessRoleArn")]
@@ -528,6 +534,12 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
         public Input<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs>? RealTimeAlertConfiguration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         /// </summary>
         [Input("resourceAccessRoleArn", required: true)]
@@ -582,6 +594,12 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
         /// </summary>
         [Input("realTimeAlertConfiguration")]
         public Input<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationGetArgs>? RealTimeAlertConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.

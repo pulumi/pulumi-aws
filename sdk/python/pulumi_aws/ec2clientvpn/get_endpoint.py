@@ -29,7 +29,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
+    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, region=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -66,6 +66,9 @@ class GetEndpointResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -188,6 +191,11 @@ class GetEndpointResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[builtins.str]:
         """
@@ -283,6 +291,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             dns_servers=self.dns_servers,
             filters=self.filters,
             id=self.id,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             self_service_portal=self.self_service_portal,
             self_service_portal_url=self.self_service_portal_url,
@@ -297,6 +306,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
 
 def get_endpoint(client_vpn_endpoint_id: Optional[builtins.str] = None,
                  filters: Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
@@ -333,6 +343,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['clientVpnEndpointId'] = client_vpn_endpoint_id
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2clientvpn/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
@@ -350,6 +361,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[builtins.str] = None,
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         self_service_portal=pulumi.get(__ret__, 'self_service_portal'),
         self_service_portal_url=pulumi.get(__ret__, 'self_service_portal_url'),
@@ -362,6 +374,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[builtins.str] = None,
         vpn_port=pulumi.get(__ret__, 'vpn_port'))
 def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
@@ -398,6 +411,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[b
     __args__ = dict()
     __args__['clientVpnEndpointId'] = client_vpn_endpoint_id
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2clientvpn/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
@@ -414,6 +428,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[b
         dns_servers=pulumi.get(__response__, 'dns_servers'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         self_service_portal=pulumi.get(__response__, 'self_service_portal'),
         self_service_portal_url=pulumi.get(__response__, 'self_service_portal_url'),

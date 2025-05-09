@@ -24,6 +24,7 @@ class RepositoryArgs:
                  default_branch: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
@@ -31,6 +32,7 @@ class RepositoryArgs:
         :param pulumi.Input[builtins.str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[builtins.str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
@@ -40,6 +42,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +97,18 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,6 +129,7 @@ class _RepositoryState:
                  default_branch: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_id: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -125,6 +142,7 @@ class _RepositoryState:
         :param pulumi.Input[builtins.str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[builtins.str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_id: The ID of the repository
         :param pulumi.Input[builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -142,6 +160,8 @@ class _RepositoryState:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository_id is not None:
             pulumi.set(__self__, "repository_id", repository_id)
         if repository_name is not None:
@@ -224,6 +244,18 @@ class _RepositoryState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -283,6 +315,7 @@ class Repository(pulumi.CustomResource):
                  default_branch: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -328,6 +361,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[builtins.str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -392,6 +426,7 @@ class Repository(pulumi.CustomResource):
                  default_branch: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -406,6 +441,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["default_branch"] = default_branch
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["region"] = region
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
@@ -431,6 +467,7 @@ class Repository(pulumi.CustomResource):
             default_branch: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository_id: Optional[pulumi.Input[builtins.str]] = None,
             repository_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -448,6 +485,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[builtins.str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_id: The ID of the repository
         :param pulumi.Input[builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -463,6 +501,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["default_branch"] = default_branch
         __props__.__dict__["description"] = description
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["repository_name"] = repository_name
         __props__.__dict__["tags"] = tags
@@ -516,6 +555,14 @@ class Repository(pulumi.CustomResource):
         The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="repositoryId")

@@ -57,6 +57,7 @@ type LookupFunctionArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
 	Qualifier *string           `pulumi:"qualifier"`
+	Region    *string           `pulumi:"region"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
@@ -104,6 +105,7 @@ type LookupFunctionResult struct {
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
 	QualifiedInvokeArn string  `pulumi:"qualifiedInvokeArn"`
 	Qualifier          *string `pulumi:"qualifier"`
+	Region             string  `pulumi:"region"`
 	// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
 	ReservedConcurrentExecutions int `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function.
@@ -146,6 +148,7 @@ type LookupFunctionOutputArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -274,6 +277,10 @@ func (o LookupFunctionResultOutput) QualifiedInvokeArn() pulumi.StringOutput {
 
 func (o LookupFunctionResultOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.

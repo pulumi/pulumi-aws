@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -74,6 +74,8 @@ type TrustedTokenIssuer struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// Name of the trusted token issuer.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -130,6 +132,8 @@ type trustedTokenIssuerState struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// Name of the trusted token issuer.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -151,6 +155,8 @@ type TrustedTokenIssuerState struct {
 	InstanceArn pulumi.StringPtrInput
 	// Name of the trusted token issuer.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -174,6 +180,8 @@ type trustedTokenIssuerArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// Name of the trusted token issuer.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
@@ -192,6 +200,8 @@ type TrustedTokenIssuerArgs struct {
 	InstanceArn pulumi.StringInput
 	// Name of the trusted token issuer.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
@@ -307,6 +317,11 @@ func (o TrustedTokenIssuerOutput) InstanceArn() pulumi.StringOutput {
 // Name of the trusted token issuer.
 func (o TrustedTokenIssuerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TrustedTokenIssuerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

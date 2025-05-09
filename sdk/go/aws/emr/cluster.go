@@ -475,6 +475,8 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayOutput `pulumi:"placementGroupConfigs"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -621,6 +623,8 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -732,6 +736,8 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringPtrInput
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -842,6 +848,8 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -947,6 +955,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringInput
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -1217,6 +1227,11 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 // The specified placement group configuration for an Amazon EMR cluster.
 func (o ClusterOutput) PlacementGroupConfigs() ClusterPlacementGroupConfigArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterPlacementGroupConfigArrayOutput { return v.PlacementGroupConfigs }).(ClusterPlacementGroupConfigArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Release label for the Amazon EMR release.

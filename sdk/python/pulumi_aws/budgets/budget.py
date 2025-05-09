@@ -34,6 +34,7 @@ class BudgetArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
@@ -54,6 +55,7 @@ class BudgetArgs:
         :param pulumi.Input[builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -81,6 +83,8 @@ class BudgetArgs:
             pulumi.set(__self__, "notifications", notifications)
         if planned_limits is not None:
             pulumi.set(__self__, "planned_limits", planned_limits)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -238,6 +242,18 @@ class BudgetArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -300,6 +316,7 @@ class _BudgetState:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
@@ -319,6 +336,7 @@ class _BudgetState:
         :param pulumi.Input[builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -351,6 +369,8 @@ class _BudgetState:
             pulumi.set(__self__, "notifications", notifications)
         if planned_limits is not None:
             pulumi.set(__self__, "planned_limits", planned_limits)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -508,6 +528,18 @@ class _BudgetState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -588,6 +620,7 @@ class Budget(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
@@ -772,6 +805,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -977,6 +1011,7 @@ class Budget(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
                  planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_period_end: Optional[pulumi.Input[builtins.str]] = None,
@@ -1004,6 +1039,7 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["planned_limits"] = planned_limits
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["time_period_end"] = time_period_end
@@ -1034,6 +1070,7 @@ class Budget(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
             planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             time_period_end: Optional[pulumi.Input[builtins.str]] = None,
@@ -1058,6 +1095,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -1082,6 +1120,7 @@ class Budget(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["notifications"] = notifications
         __props__.__dict__["planned_limits"] = planned_limits
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["time_period_end"] = time_period_end
@@ -1184,6 +1223,14 @@ class Budget(pulumi.CustomResource):
         Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         """
         return pulumi.get(self, "planned_limits")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

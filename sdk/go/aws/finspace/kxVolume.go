@@ -84,6 +84,8 @@ type KxVolume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayOutput `pulumi:"nas1Configurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of volume creation.
 	// * `CREATING` – The volume creation is in progress.
 	// * `CREATE_FAILED` – The volume creation has failed.
@@ -168,6 +170,8 @@ type kxVolumeState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of volume creation.
 	// * `CREATING` – The volume creation is in progress.
 	// * `CREATE_FAILED` – The volume creation has failed.
@@ -211,6 +215,8 @@ type KxVolumeState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of volume creation.
 	// * `CREATING` – The volume creation is in progress.
 	// * `CREATE_FAILED` – The volume creation has failed.
@@ -251,6 +257,8 @@ type kxVolumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -275,6 +283,8 @@ type KxVolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -419,6 +429,11 @@ func (o KxVolumeOutput) Name() pulumi.StringOutput {
 // Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 func (o KxVolumeOutput) Nas1Configurations() KxVolumeNas1ConfigurationArrayOutput {
 	return o.ApplyT(func(v *KxVolume) KxVolumeNas1ConfigurationArrayOutput { return v.Nas1Configurations }).(KxVolumeNas1ConfigurationArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KxVolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of volume creation.

@@ -215,6 +215,8 @@ type FlowLog struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -281,6 +283,8 @@ type flowLogState struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -318,6 +322,8 @@ type FlowLogState struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -357,6 +363,8 @@ type flowLogArgs struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -391,6 +399,8 @@ type FlowLogArgs struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -537,6 +547,11 @@ func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
 // When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 func (o FlowLogOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.IntPtrOutput { return v.MaxAggregationInterval }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FlowLogOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Subnet ID to attach to.

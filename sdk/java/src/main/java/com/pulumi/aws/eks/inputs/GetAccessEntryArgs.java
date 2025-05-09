@@ -47,6 +47,13 @@ public final class GetAccessEntryArgs extends com.pulumi.resources.InvokeArgs {
         return this.principalArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -74,6 +81,7 @@ public final class GetAccessEntryArgs extends com.pulumi.resources.InvokeArgs {
     private GetAccessEntryArgs(GetAccessEntryArgs $) {
         this.clusterName = $.clusterName;
         this.principalArn = $.principalArn;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -136,6 +144,15 @@ public final class GetAccessEntryArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

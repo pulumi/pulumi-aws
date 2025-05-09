@@ -75,6 +75,8 @@ type DomainPolicy struct {
 	AccessPolicies pulumi.StringOutput `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainPolicy registers a new resource with the given unique name, arguments, and options.
@@ -117,6 +119,8 @@ type domainPolicyState struct {
 	AccessPolicies interface{} `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName *string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DomainPolicyState struct {
@@ -124,6 +128,8 @@ type DomainPolicyState struct {
 	AccessPolicies pulumi.Input
 	// Name of the domain.
 	DomainName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainPolicyState) ElementType() reflect.Type {
@@ -135,6 +141,8 @@ type domainPolicyArgs struct {
 	AccessPolicies interface{} `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainPolicy resource.
@@ -143,6 +151,8 @@ type DomainPolicyArgs struct {
 	AccessPolicies pulumi.Input
 	// Name of the domain.
 	DomainName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainPolicyArgs) ElementType() reflect.Type {
@@ -240,6 +250,11 @@ func (o DomainPolicyOutput) AccessPolicies() pulumi.StringOutput {
 // Name of the domain.
 func (o DomainPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DomainPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -32,6 +32,13 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
         return this.accessPointId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value mapping of resource tags.
      * 
@@ -51,6 +58,7 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetAccessPointArgs(GetAccessPointArgs $) {
         this.accessPointId = $.accessPointId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder accessPointId(String accessPointId) {
             return accessPointId(Output.of(accessPointId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

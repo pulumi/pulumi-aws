@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,8 +19,6 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
     /**
      * The ID of the rule group.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallRuleGroupId", required=true)
     private Output<String> firewallRuleGroupId;
@@ -26,17 +26,23 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
     /**
      * @return The ID of the rule group.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     public Output<String> firewallRuleGroupId() {
         return this.firewallRuleGroupId;
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetResolverFirewallRuleGroupArgs() {}
 
     private GetResolverFirewallRuleGroupArgs(GetResolverFirewallRuleGroupArgs $) {
         this.firewallRuleGroupId = $.firewallRuleGroupId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,8 +66,6 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
         /**
          * @param firewallRuleGroupId The ID of the rule group.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
@@ -73,13 +77,20 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
         /**
          * @param firewallRuleGroupId The ID of the rule group.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             return firewallRuleGroupId(Output.of(firewallRuleGroupId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetResolverFirewallRuleGroupArgs build() {

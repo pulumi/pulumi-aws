@@ -60,6 +60,8 @@ type ReceiptFilter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Block or Allow
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewReceiptFilter registers a new resource with the given unique name, arguments, and options.
@@ -106,6 +108,8 @@ type receiptFilterState struct {
 	Name *string `pulumi:"name"`
 	// Block or Allow
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ReceiptFilterState struct {
@@ -117,6 +121,8 @@ type ReceiptFilterState struct {
 	Name pulumi.StringPtrInput
 	// Block or Allow
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ReceiptFilterState) ElementType() reflect.Type {
@@ -130,6 +136,8 @@ type receiptFilterArgs struct {
 	Name *string `pulumi:"name"`
 	// Block or Allow
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ReceiptFilter resource.
@@ -140,6 +148,8 @@ type ReceiptFilterArgs struct {
 	Name pulumi.StringPtrInput
 	// Block or Allow
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ReceiptFilterArgs) ElementType() reflect.Type {
@@ -247,6 +257,11 @@ func (o ReceiptFilterOutput) Name() pulumi.StringOutput {
 // Block or Allow
 func (o ReceiptFilterOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReceiptFilterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ReceiptFilterArrayOutput struct{ *pulumi.OutputState }

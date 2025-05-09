@@ -33,6 +33,7 @@ export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,7 @@ export interface GetManagedPrefixListsArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetManagedPrefixListsFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired .
@@ -68,6 +70,7 @@ export interface GetManagedPrefixListsResult {
      * List of all the managed prefix list ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -96,6 +99,7 @@ export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputAr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -108,6 +112,7 @@ export interface GetManagedPrefixListsOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired .

@@ -90,6 +90,12 @@ namespace Pulumi.Aws.S3
         public Output<string> BucketPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// AWS region this bucket resides in.
+        /// </summary>
+        [Output("bucketRegion")]
+        public Output<string> BucketRegion { get; private set; } = null!;
+
+        /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
         [Output("bucketRegionalDomainName")]
@@ -156,7 +162,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// AWS region this bucket resides in.
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -377,6 +383,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Policy { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
@@ -474,6 +486,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
+        /// AWS region this bucket resides in.
+        /// </summary>
+        [Input("bucketRegion")]
+        public Input<string>? BucketRegion { get; set; }
+
+        /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
         [Input("bucketRegionalDomainName")]
@@ -561,7 +579,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// AWS region this bucket resides in.
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

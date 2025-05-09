@@ -25,6 +25,7 @@ class JobTemplateArgs:
                  job_template_data: pulumi.Input['JobTemplateJobTemplateDataArgs'],
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,6 +33,7 @@ class JobTemplateArgs:
         :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[builtins.str] name: The specified name of the job template.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -40,6 +42,8 @@ class JobTemplateArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -83,6 +87,18 @@ class JobTemplateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,6 +129,7 @@ class _JobTemplateState:
                  job_template_data: Optional[pulumi.Input['JobTemplateJobTemplateDataArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -121,6 +138,7 @@ class _JobTemplateState:
         :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[builtins.str] name: The specified name of the job template.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -132,6 +150,8 @@ class _JobTemplateState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -187,6 +207,18 @@ class _JobTemplateState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -221,6 +253,7 @@ class JobTemplate(pulumi.CustomResource):
                  job_template_data: Optional[pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -261,6 +294,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[builtins.str] name: The specified name of the job template.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -320,6 +354,7 @@ class JobTemplate(pulumi.CustomResource):
                  job_template_data: Optional[pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -336,6 +371,7 @@ class JobTemplate(pulumi.CustomResource):
             __props__.__dict__["job_template_data"] = job_template_data
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
@@ -353,6 +389,7 @@ class JobTemplate(pulumi.CustomResource):
             job_template_data: Optional[pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
             kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'JobTemplate':
         """
@@ -366,6 +403,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[builtins.str] name: The specified name of the job template.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -377,6 +415,7 @@ class JobTemplate(pulumi.CustomResource):
         __props__.__dict__["job_template_data"] = job_template_data
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return JobTemplate(resource_name, opts=opts, __props__=__props__)
@@ -412,6 +451,14 @@ class JobTemplate(pulumi.CustomResource):
         The specified name of the job template.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

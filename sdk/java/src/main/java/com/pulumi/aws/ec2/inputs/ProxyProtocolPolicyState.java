@@ -50,11 +50,27 @@ public final class ProxyProtocolPolicyState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.loadBalancer);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private ProxyProtocolPolicyState() {}
 
     private ProxyProtocolPolicyState(ProxyProtocolPolicyState $) {
         this.instancePorts = $.instancePorts;
         this.loadBalancer = $.loadBalancer;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -130,6 +146,27 @@ public final class ProxyProtocolPolicyState extends com.pulumi.resources.Resourc
          */
         public Builder loadBalancer(String loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public ProxyProtocolPolicyState build() {

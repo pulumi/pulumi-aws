@@ -119,6 +119,21 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      * 
      */
@@ -207,6 +222,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         this.configurationValues = $.configurationValues;
         this.podIdentityAssociations = $.podIdentityAssociations;
         this.preserve = $.preserve;
+        this.region = $.region;
         this.resolveConflictsOnCreate = $.resolveConflictsOnCreate;
         this.resolveConflictsOnUpdate = $.resolveConflictsOnUpdate;
         this.serviceAccountRoleArn = $.serviceAccountRoleArn;
@@ -373,6 +389,27 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder preserve(Boolean preserve) {
             return preserve(Output.of(preserve));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

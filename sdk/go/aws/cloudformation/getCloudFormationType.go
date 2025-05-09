@@ -52,7 +52,8 @@ func LookupCloudFormationType(ctx *pulumi.Context, args *LookupCloudFormationTyp
 // A collection of arguments for invoking getCloudFormationType.
 type LookupCloudFormationTypeArgs struct {
 	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
-	Arn *string `pulumi:"arn"`
+	Arn    *string `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type *string `pulumi:"type"`
 	// CloudFormation Type name. For example, `AWS::EC2::VPC`.
@@ -82,6 +83,7 @@ type LookupCloudFormationTypeResult struct {
 	LoggingConfigs []GetCloudFormationTypeLoggingConfig `pulumi:"loggingConfigs"`
 	// Provisioning behavior of the CloudFormation Type.
 	ProvisioningType string `pulumi:"provisioningType"`
+	Region           string `pulumi:"region"`
 	// JSON document of the CloudFormation Type schema.
 	Schema string `pulumi:"schema"`
 	// URL of the source code for the CloudFormation Type.
@@ -106,7 +108,8 @@ func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormati
 // A collection of arguments for invoking getCloudFormationType.
 type LookupCloudFormationTypeOutputArgs struct {
 	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// CloudFormation Type name. For example, `AWS::EC2::VPC`.
@@ -181,6 +184,10 @@ func (o LookupCloudFormationTypeResultOutput) LoggingConfigs() GetCloudFormation
 // Provisioning behavior of the CloudFormation Type.
 func (o LookupCloudFormationTypeResultOutput) ProvisioningType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.ProvisioningType }).(pulumi.StringOutput)
+}
+
+func (o LookupCloudFormationTypeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // JSON document of the CloudFormation Type schema.

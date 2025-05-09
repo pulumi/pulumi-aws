@@ -68,6 +68,10 @@ export class AssessmentTarget extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
     public readonly resourceGroupArn!: pulumi.Output<string | undefined>;
@@ -87,10 +91,12 @@ export class AssessmentTarget extends pulumi.CustomResource {
             const state = argsOrState as AssessmentTargetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;
         } else {
             const args = argsOrState as AssessmentTargetArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -112,6 +118,10 @@ export interface AssessmentTargetState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
     resourceGroupArn?: pulumi.Input<string>;
@@ -125,6 +135,10 @@ export interface AssessmentTargetArgs {
      * The name of the assessment target.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */

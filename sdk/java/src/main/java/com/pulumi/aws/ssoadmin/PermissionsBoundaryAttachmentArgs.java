@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PermissionsBoundaryAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -60,12 +62,28 @@ public final class PermissionsBoundaryAttachmentArgs extends com.pulumi.resource
         return this.permissionsBoundary;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PermissionsBoundaryAttachmentArgs() {}
 
     private PermissionsBoundaryAttachmentArgs(PermissionsBoundaryAttachmentArgs $) {
         this.instanceArn = $.instanceArn;
         this.permissionSetArn = $.permissionSetArn;
         this.permissionsBoundary = $.permissionsBoundary;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +165,27 @@ public final class PermissionsBoundaryAttachmentArgs extends com.pulumi.resource
          */
         public Builder permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs permissionsBoundary) {
             return permissionsBoundary(Output.of(permissionsBoundary));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PermissionsBoundaryAttachmentArgs build() {

@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
 export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetProducerDataSharesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getProducerDataShares:getProducerDataShares", {
-        "dataShares": args.dataShares,
         "producerArn": args.producerArn,
+        "region": args.region,
         "status": args.status,
     }, opts);
 }
@@ -37,15 +37,12 @@ export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pu
  */
 export interface GetProducerDataSharesArgs {
     /**
-     * An array of all data shares in the producer. See `dataShares` below.
-     */
-    dataShares?: inputs.redshift.GetProducerDataSharesDataShare[];
-    /**
      * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
      *
      * The following arguments are optional:
      */
     producerArn: string;
+    region?: string;
     /**
      * Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
      */
@@ -59,7 +56,7 @@ export interface GetProducerDataSharesResult {
     /**
      * An array of all data shares in the producer. See `dataShares` below.
      */
-    readonly dataShares?: outputs.redshift.GetProducerDataSharesDataShare[];
+    readonly dataShares: outputs.redshift.GetProducerDataSharesDataShare[];
     /**
      * Producer ARN.
      */
@@ -68,6 +65,7 @@ export interface GetProducerDataSharesResult {
      * ARN (Amazon Resource Name) of the producer.
      */
     readonly producerArn: string;
+    readonly region: string;
     readonly status?: string;
 }
 /**
@@ -89,8 +87,8 @@ export interface GetProducerDataSharesResult {
 export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProducerDataSharesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", {
-        "dataShares": args.dataShares,
         "producerArn": args.producerArn,
+        "region": args.region,
         "status": args.status,
     }, opts);
 }
@@ -100,15 +98,12 @@ export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArg
  */
 export interface GetProducerDataSharesOutputArgs {
     /**
-     * An array of all data shares in the producer. See `dataShares` below.
-     */
-    dataShares?: pulumi.Input<pulumi.Input<inputs.redshift.GetProducerDataSharesDataShareArgs>[]>;
-    /**
      * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
      *
      * The following arguments are optional:
      */
     producerArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
      */

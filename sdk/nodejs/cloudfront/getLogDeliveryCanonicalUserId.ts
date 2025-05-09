@@ -42,22 +42,10 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
-    args = args || {};
+export function getLogDeliveryCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", {
-        "region": args.region,
     }, opts);
-}
-
-/**
- * A collection of arguments for invoking getLogDeliveryCanonicalUserId.
- */
-export interface GetLogDeliveryCanonicalUserIdArgs {
-    /**
-     * Region you'd like the zone for. By default, fetches the current region.
-     */
-    region?: string;
 }
 
 /**
@@ -68,7 +56,6 @@ export interface GetLogDeliveryCanonicalUserIdResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly region?: string;
 }
 /**
  * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
@@ -108,20 +95,8 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  * });
  * ```
  */
-export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
-    args = args || {};
+export function getLogDeliveryCanonicalUserIdOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", {
-        "region": args.region,
     }, opts);
-}
-
-/**
- * A collection of arguments for invoking getLogDeliveryCanonicalUserId.
- */
-export interface GetLogDeliveryCanonicalUserIdOutputArgs {
-    /**
-     * Region you'd like the zone for. By default, fetches the current region.
-     */
-    region?: pulumi.Input<string>;
 }

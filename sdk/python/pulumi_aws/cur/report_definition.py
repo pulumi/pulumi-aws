@@ -29,6 +29,7 @@ class ReportDefinitionArgs:
                  time_unit: pulumi.Input[builtins.str],
                  additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  refresh_closed_reports: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  report_versioning: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -43,6 +44,7 @@ class ReportDefinitionArgs:
         :param pulumi.Input[builtins.str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -58,6 +60,8 @@ class ReportDefinitionArgs:
             pulumi.set(__self__, "additional_artifacts", additional_artifacts)
         if refresh_closed_reports is not None:
             pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if report_versioning is not None:
             pulumi.set(__self__, "report_versioning", report_versioning)
         if s3_prefix is not None:
@@ -174,6 +178,18 @@ class ReportDefinitionArgs:
         pulumi.set(self, "refresh_closed_reports", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reportVersioning")
     def report_versioning(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -219,6 +235,7 @@ class _ReportDefinitionState:
                  compression: Optional[pulumi.Input[builtins.str]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  refresh_closed_reports: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  report_name: Optional[pulumi.Input[builtins.str]] = None,
                  report_versioning: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -235,6 +252,7 @@ class _ReportDefinitionState:
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
@@ -256,6 +274,8 @@ class _ReportDefinitionState:
             pulumi.set(__self__, "format", format)
         if refresh_closed_reports is not None:
             pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if report_name is not None:
             pulumi.set(__self__, "report_name", report_name)
         if report_versioning is not None:
@@ -344,6 +364,18 @@ class _ReportDefinitionState:
     @refresh_closed_reports.setter
     def refresh_closed_reports(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "refresh_closed_reports", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="reportName")
@@ -455,6 +487,7 @@ class ReportDefinition(pulumi.CustomResource):
                  compression: Optional[pulumi.Input[builtins.str]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  refresh_closed_reports: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  report_name: Optional[pulumi.Input[builtins.str]] = None,
                  report_versioning: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -506,6 +539,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
@@ -576,6 +610,7 @@ class ReportDefinition(pulumi.CustomResource):
                  compression: Optional[pulumi.Input[builtins.str]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  refresh_closed_reports: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  report_name: Optional[pulumi.Input[builtins.str]] = None,
                  report_versioning: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -603,6 +638,7 @@ class ReportDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'format'")
             __props__.__dict__["format"] = format
             __props__.__dict__["refresh_closed_reports"] = refresh_closed_reports
+            __props__.__dict__["region"] = region
             if report_name is None and not opts.urn:
                 raise TypeError("Missing required property 'report_name'")
             __props__.__dict__["report_name"] = report_name
@@ -636,6 +672,7 @@ class ReportDefinition(pulumi.CustomResource):
             compression: Optional[pulumi.Input[builtins.str]] = None,
             format: Optional[pulumi.Input[builtins.str]] = None,
             refresh_closed_reports: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             report_name: Optional[pulumi.Input[builtins.str]] = None,
             report_versioning: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -657,6 +694,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
@@ -676,6 +714,7 @@ class ReportDefinition(pulumi.CustomResource):
         __props__.__dict__["compression"] = compression
         __props__.__dict__["format"] = format
         __props__.__dict__["refresh_closed_reports"] = refresh_closed_reports
+        __props__.__dict__["region"] = region
         __props__.__dict__["report_name"] = report_name
         __props__.__dict__["report_versioning"] = report_versioning
         __props__.__dict__["s3_bucket"] = s3_bucket
@@ -733,6 +772,14 @@ class ReportDefinition(pulumi.CustomResource):
         Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         """
         return pulumi.get(self, "refresh_closed_reports")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reportName")

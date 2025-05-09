@@ -53,7 +53,8 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusArgs struct {
 	// Name of the event bus.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventBus.
@@ -67,6 +68,7 @@ type LookupEventBusResult struct {
 	// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
 	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -81,7 +83,8 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusOutputArgs struct {
 	// Name of the event bus.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEventBusOutputArgs) ElementType() reflect.Type {
@@ -125,6 +128,10 @@ func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
 
 func (o LookupEventBusResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupEventBusResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventBusResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

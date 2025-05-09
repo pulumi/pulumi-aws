@@ -151,6 +151,21 @@ public final class NetworkAclRuleArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      * 
      */
@@ -206,6 +221,7 @@ public final class NetworkAclRuleArgs extends com.pulumi.resources.ResourceArgs 
         this.ipv6CidrBlock = $.ipv6CidrBlock;
         this.networkAclId = $.networkAclId;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.ruleAction = $.ruleAction;
         this.ruleNumber = $.ruleNumber;
         this.toPort = $.toPort;
@@ -407,6 +423,27 @@ public final class NetworkAclRuleArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

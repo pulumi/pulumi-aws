@@ -28,6 +28,7 @@ class V2modelsBotLocaleArgs:
                  n_lu_intent_confidence_threshold: pulumi.Input[builtins.float],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']] = None,
                  voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
@@ -40,6 +41,7 @@ class V2modelsBotLocaleArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
         :param pulumi.Input[builtins.str] name: Specified locale name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         pulumi.set(__self__, "bot_id", bot_id)
@@ -50,6 +52,8 @@ class V2modelsBotLocaleArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if voice_settings is not None:
@@ -131,6 +135,18 @@ class V2modelsBotLocaleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -160,6 +176,7 @@ class _V2modelsBotLocaleState:
                  locale_id: Optional[pulumi.Input[builtins.str]] = None,
                  n_lu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']] = None,
                  voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
@@ -172,6 +189,7 @@ class _V2modelsBotLocaleState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Specified locale name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         if bot_id is not None:
@@ -186,6 +204,8 @@ class _V2modelsBotLocaleState:
             pulumi.set(__self__, "n_lu_intent_confidence_threshold", n_lu_intent_confidence_threshold)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if voice_settings is not None:
@@ -267,6 +287,18 @@ class _V2modelsBotLocaleState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -301,6 +333,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                  locale_id: Optional[pulumi.Input[builtins.str]] = None,
                  n_lu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
                  voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
@@ -357,6 +390,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Specified locale name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         ...
@@ -429,6 +463,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                  locale_id: Optional[pulumi.Input[builtins.str]] = None,
                  n_lu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
                  voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
@@ -454,6 +489,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                 raise TypeError("Missing required property 'n_lu_intent_confidence_threshold'")
             __props__.__dict__["n_lu_intent_confidence_threshold"] = n_lu_intent_confidence_threshold
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["voice_settings"] = voice_settings
         super(V2modelsBotLocale, __self__).__init__(
@@ -472,6 +508,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
             locale_id: Optional[pulumi.Input[builtins.str]] = None,
             n_lu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
             voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None) -> 'V2modelsBotLocale':
         """
@@ -489,6 +526,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: Specified locale name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -501,6 +539,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         __props__.__dict__["locale_id"] = locale_id
         __props__.__dict__["n_lu_intent_confidence_threshold"] = n_lu_intent_confidence_threshold
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["voice_settings"] = voice_settings
         return V2modelsBotLocale(resource_name, opts=opts, __props__=__props__)
@@ -554,6 +593,14 @@ class V2modelsBotLocale(pulumi.CustomResource):
         Specified locale name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

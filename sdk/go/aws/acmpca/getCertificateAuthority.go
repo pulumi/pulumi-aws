@@ -51,7 +51,8 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityArgs struct {
 	// ARN of the certificate authority.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -72,6 +73,7 @@ type LookupCertificateAuthorityResult struct {
 	NotAfter string `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore string `pulumi:"notBefore"`
+	Region    string `pulumi:"region"`
 	// Nested attribute containing revocation configuration.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
@@ -98,7 +100,8 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityOutputArgs struct {
 	// ARN of the certificate authority.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -158,6 +161,10 @@ func (o LookupCertificateAuthorityResultOutput) NotAfter() pulumi.StringOutput {
 // Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.NotBefore }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateAuthorityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Nested attribute containing revocation configuration.

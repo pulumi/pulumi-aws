@@ -26,11 +26,9 @@ func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulum
 type GetNatGatewaysArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
+	Region  *string                `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired NAT Gateways.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
@@ -42,9 +40,10 @@ type GetNatGatewaysResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all the NAT gateway ids found.
-	Ids   []string          `pulumi:"ids"`
-	Tags  map[string]string `pulumi:"tags"`
-	VpcId *string           `pulumi:"vpcId"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
+	VpcId  *string           `pulumi:"vpcId"`
 }
 
 func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetNatGatewaysResultOutput {
@@ -60,11 +59,9 @@ func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, op
 type GetNatGatewaysOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetNatGatewaysFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired NAT Gateways.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
@@ -101,6 +98,10 @@ func (o GetNatGatewaysResultOutput) Id() pulumi.StringOutput {
 // List of all the NAT gateway ids found.
 func (o GetNatGatewaysResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNatGatewaysResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetNatGatewaysResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewaysResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetNatGatewaysResultOutput) Tags() pulumi.StringMapOutput {

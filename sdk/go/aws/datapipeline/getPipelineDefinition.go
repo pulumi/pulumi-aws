@@ -53,7 +53,8 @@ type LookupPipelineDefinitionArgs struct {
 	// Parameter values used in the pipeline definition. See below
 	ParameterValues []GetPipelineDefinitionParameterValue `pulumi:"parameterValues"`
 	// ID of the pipeline.
-	PipelineId string `pulumi:"pipelineId"`
+	PipelineId string  `pulumi:"pipelineId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPipelineDefinition.
@@ -67,6 +68,7 @@ type LookupPipelineDefinitionResult struct {
 	PipelineId      string                                `pulumi:"pipelineId"`
 	// Objects defined in the pipeline. See below
 	PipelineObjects []GetPipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
+	Region          string                                `pulumi:"region"`
 }
 
 func LookupPipelineDefinitionOutput(ctx *pulumi.Context, args LookupPipelineDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineDefinitionResultOutput {
@@ -83,7 +85,8 @@ type LookupPipelineDefinitionOutputArgs struct {
 	// Parameter values used in the pipeline definition. See below
 	ParameterValues GetPipelineDefinitionParameterValueArrayInput `pulumi:"parameterValues"`
 	// ID of the pipeline.
-	PipelineId pulumi.StringInput `pulumi:"pipelineId"`
+	PipelineId pulumi.StringInput    `pulumi:"pipelineId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPipelineDefinitionOutputArgs) ElementType() reflect.Type {
@@ -129,6 +132,10 @@ func (o LookupPipelineDefinitionResultOutput) PipelineId() pulumi.StringOutput {
 // Objects defined in the pipeline. See below
 func (o LookupPipelineDefinitionResultOutput) PipelineObjects() GetPipelineDefinitionPipelineObjectArrayOutput {
 	return o.ApplyT(func(v LookupPipelineDefinitionResult) []GetPipelineDefinitionPipelineObject { return v.PipelineObjects }).(GetPipelineDefinitionPipelineObjectArrayOutput)
+}
+
+func (o LookupPipelineDefinitionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

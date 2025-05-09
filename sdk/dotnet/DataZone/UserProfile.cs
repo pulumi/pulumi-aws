@@ -58,6 +58,12 @@ namespace Pulumi.Aws.DataZone
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The user profile status.
         /// </summary>
         [Output("status")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.DataZone
         public Input<string> DomainIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The user profile status.
         /// </summary>
         [Input("status")]
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The user profile status.

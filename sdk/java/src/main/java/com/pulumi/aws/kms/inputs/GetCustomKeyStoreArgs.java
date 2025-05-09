@@ -45,11 +45,19 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.customKeyStoreName);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetCustomKeyStoreArgs() {}
 
     private GetCustomKeyStoreArgs(GetCustomKeyStoreArgs $) {
         this.customKeyStoreId = $.customKeyStoreId;
         this.customKeyStoreName = $.customKeyStoreName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -110,6 +118,15 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder customKeyStoreName(String customKeyStoreName) {
             return customKeyStoreName(Output.of(customKeyStoreName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetCustomKeyStoreArgs build() {

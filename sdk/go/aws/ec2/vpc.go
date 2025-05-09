@@ -182,6 +182,8 @@ type Vpc struct {
 	MainRouteTableId pulumi.StringOutput `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -260,6 +262,8 @@ type vpcState struct {
 	MainRouteTableId *string `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -309,6 +313,8 @@ type VpcState struct {
 	MainRouteTableId pulumi.StringPtrInput
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -344,6 +350,8 @@ type vpcArgs struct {
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -374,6 +382,8 @@ type VpcArgs struct {
 	Ipv6IpamPoolId pulumi.StringPtrInput
 	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
 	Ipv6NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -565,6 +575,11 @@ func (o VpcOutput) MainRouteTableId() pulumi.StringOutput {
 // The ID of the AWS account that owns the VPC.
 func (o VpcOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

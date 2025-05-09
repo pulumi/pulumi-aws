@@ -21,6 +21,7 @@ public final class GetTrackerAssociationsResult {
      * 
      */
     private String id;
+    private String region;
     private String trackerName;
 
     private GetTrackerAssociationsResult() {}
@@ -38,6 +39,9 @@ public final class GetTrackerAssociationsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public String trackerName() {
         return this.trackerName;
     }
@@ -53,12 +57,14 @@ public final class GetTrackerAssociationsResult {
     public static final class Builder {
         private List<String> consumerArns;
         private String id;
+        private String region;
         private String trackerName;
         public Builder() {}
         public Builder(GetTrackerAssociationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerArns = defaults.consumerArns;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.trackerName = defaults.trackerName;
         }
 
@@ -82,6 +88,14 @@ public final class GetTrackerAssociationsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTrackerAssociationsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trackerName(String trackerName) {
             if (trackerName == null) {
               throw new MissingRequiredPropertyException("GetTrackerAssociationsResult", "trackerName");
@@ -93,6 +107,7 @@ public final class GetTrackerAssociationsResult {
             final var _resultValue = new GetTrackerAssociationsResult();
             _resultValue.consumerArns = consumerArns;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.trackerName = trackerName;
             return _resultValue;
         }

@@ -50,6 +50,7 @@ func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigning
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateArgs struct {
+	Region *string `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -60,6 +61,7 @@ type GetUserPoolSigningCertificateResult struct {
 	Certificate string `pulumi:"certificate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
+	Region     string `pulumi:"region"`
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -74,6 +76,7 @@ func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSi
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -105,6 +108,10 @@ func (o GetUserPoolSigningCertificateResultOutput) Certificate() pulumi.StringOu
 // The provider-assigned unique ID for this managed resource.
 func (o GetUserPoolSigningCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolSigningCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetUserPoolSigningCertificateResultOutput) UserPoolId() pulumi.StringOutput {

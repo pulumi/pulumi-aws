@@ -121,6 +121,10 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
     public readonly netmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpamPoolCidr resource with the given unique name, arguments, and options.
@@ -140,6 +144,7 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
             resourceInputs["ipamPoolCidrId"] = state ? state.ipamPoolCidrId : undefined;
             resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VpcIpamPoolCidrArgs | undefined;
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
@@ -149,6 +154,7 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
             resourceInputs["cidrAuthorizationContext"] = args ? args.cidrAuthorizationContext : undefined;
             resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ipamPoolCidrId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -180,6 +186,10 @@ export interface VpcIpamPoolCidrState {
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -202,4 +212,8 @@ export interface VpcIpamPoolCidrArgs {
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

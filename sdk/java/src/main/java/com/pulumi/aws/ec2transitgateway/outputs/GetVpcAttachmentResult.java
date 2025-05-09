@@ -40,6 +40,7 @@ public final class GetVpcAttachmentResult {
      * 
      */
     private String ipv6Support;
+    private String region;
     /**
      * @return Whether Security Group Referencing Support is enabled.
      * 
@@ -110,6 +111,9 @@ public final class GetVpcAttachmentResult {
     public String ipv6Support() {
         return this.ipv6Support;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Whether Security Group Referencing Support is enabled.
      * 
@@ -168,6 +172,7 @@ public final class GetVpcAttachmentResult {
         private @Nullable List<GetVpcAttachmentFilter> filters;
         private String id;
         private String ipv6Support;
+        private String region;
         private String securityGroupReferencingSupport;
         private List<String> subnetIds;
         private Map<String,String> tags;
@@ -183,6 +188,7 @@ public final class GetVpcAttachmentResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ipv6Support = defaults.ipv6Support;
+    	      this.region = defaults.region;
     	      this.securityGroupReferencingSupport = defaults.securityGroupReferencingSupport;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
@@ -238,6 +244,14 @@ public final class GetVpcAttachmentResult {
               throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "ipv6Support");
             }
             this.ipv6Support = ipv6Support;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -299,6 +313,7 @@ public final class GetVpcAttachmentResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ipv6Support = ipv6Support;
+            _resultValue.region = region;
             _resultValue.securityGroupReferencingSupport = securityGroupReferencingSupport;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;

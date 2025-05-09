@@ -185,6 +185,9 @@ namespace Pulumi.Aws.Ec2
             set => _owners = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Used to sort AMIs by creation time.
         /// If no value is specified, the default value is `false`.
@@ -256,6 +259,9 @@ namespace Pulumi.Aws.Ec2
             set => _owners = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Used to sort AMIs by creation time.
         /// If no value is specified, the default value is `false`.
@@ -279,10 +285,14 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;
         public readonly string? NameRegex;
         public readonly ImmutableArray<string> Owners;
+        public readonly string Region;
         public readonly bool? SortAscending;
 
         [OutputConstructor]
@@ -301,6 +311,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> owners,
 
+            string region,
+
             bool? sortAscending)
         {
             ExecutableUsers = executableUsers;
@@ -310,6 +322,7 @@ namespace Pulumi.Aws.Ec2
             IncludeDeprecated = includeDeprecated;
             NameRegex = nameRegex;
             Owners = owners;
+            Region = region;
             SortAscending = sortAscending;
         }
     }

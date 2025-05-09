@@ -128,6 +128,12 @@ namespace Pulumi.Aws.WafRegional
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         /// </summary>
         [Output("resourceArn")]
@@ -186,6 +192,12 @@ namespace Pulumi.Aws.WafRegional
     public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -205,6 +217,12 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         /// </summary>

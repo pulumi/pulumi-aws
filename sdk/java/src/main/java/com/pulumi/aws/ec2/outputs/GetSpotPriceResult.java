@@ -22,6 +22,7 @@ public final class GetSpotPriceResult {
      */
     private String id;
     private @Nullable String instanceType;
+    private String region;
     /**
      * @return Most recent Spot Price value for the given instance type and AZ.
      * 
@@ -49,6 +50,9 @@ public final class GetSpotPriceResult {
     }
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Most recent Spot Price value for the given instance type and AZ.
@@ -78,6 +82,7 @@ public final class GetSpotPriceResult {
         private @Nullable List<GetSpotPriceFilter> filters;
         private String id;
         private @Nullable String instanceType;
+        private String region;
         private String spotPrice;
         private String spotPriceTimestamp;
         public Builder() {}
@@ -87,6 +92,7 @@ public final class GetSpotPriceResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.instanceType = defaults.instanceType;
+    	      this.region = defaults.region;
     	      this.spotPrice = defaults.spotPrice;
     	      this.spotPriceTimestamp = defaults.spotPriceTimestamp;
         }
@@ -121,6 +127,14 @@ public final class GetSpotPriceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSpotPriceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder spotPrice(String spotPrice) {
             if (spotPrice == null) {
               throw new MissingRequiredPropertyException("GetSpotPriceResult", "spotPrice");
@@ -142,6 +156,7 @@ public final class GetSpotPriceResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.instanceType = instanceType;
+            _resultValue.region = region;
             _resultValue.spotPrice = spotPrice;
             _resultValue.spotPriceTimestamp = spotPriceTimestamp;
             return _resultValue;

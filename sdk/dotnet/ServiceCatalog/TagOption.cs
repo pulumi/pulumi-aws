@@ -60,6 +60,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Tag option value.
         /// 
         /// The following arguments are optional:
@@ -126,6 +132,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Tag option value.
         /// 
         /// The following arguments are optional:
@@ -155,6 +167,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
         [Input("owner")]
         public Input<string>? Owner { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Tag option value.

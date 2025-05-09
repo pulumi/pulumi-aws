@@ -71,6 +71,21 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
      * time, and instead just remove the attachment from this provider state. This is
@@ -131,6 +146,7 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.ResourceArg
         this.deviceName = $.deviceName;
         this.forceDetach = $.forceDetach;
         this.instanceId = $.instanceId;
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
         this.stopInstanceBeforeDetaching = $.stopInstanceBeforeDetaching;
         this.volumeId = $.volumeId;
@@ -223,6 +239,27 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

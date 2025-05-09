@@ -39,6 +39,7 @@ export function getGroupMemberships(args: GetGroupMembershipsArgs, opts?: pulumi
     return pulumi.runtime.invoke("aws:identitystore/getGroupMemberships:getGroupMemberships", {
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -54,6 +55,7 @@ export interface GetGroupMembershipsArgs {
      * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: string;
+    region?: string;
 }
 
 /**
@@ -76,6 +78,7 @@ export interface GetGroupMembershipsResult {
      * Identity store identifier.
      */
     readonly identityStoreId: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get a list of members in an Identity Store Group.
@@ -109,6 +112,7 @@ export function getGroupMembershipsOutput(args: GetGroupMembershipsOutputArgs, o
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroupMemberships:getGroupMemberships", {
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -124,4 +128,5 @@ export interface GetGroupMembershipsOutputArgs {
      * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

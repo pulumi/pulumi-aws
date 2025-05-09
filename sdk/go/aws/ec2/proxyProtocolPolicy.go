@@ -76,6 +76,8 @@ type ProxyProtocolPolicy struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewProxyProtocolPolicy registers a new resource with the given unique name, arguments, and options.
@@ -120,6 +122,8 @@ type proxyProtocolPolicyState struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer *string `pulumi:"loadBalancer"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ProxyProtocolPolicyState struct {
@@ -129,6 +133,8 @@ type ProxyProtocolPolicyState struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProxyProtocolPolicyState) ElementType() reflect.Type {
@@ -142,6 +148,8 @@ type proxyProtocolPolicyArgs struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer string `pulumi:"loadBalancer"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ProxyProtocolPolicy resource.
@@ -152,6 +160,8 @@ type ProxyProtocolPolicyArgs struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProxyProtocolPolicyArgs) ElementType() reflect.Type {
@@ -251,6 +261,11 @@ func (o ProxyProtocolPolicyOutput) InstancePorts() pulumi.StringArrayOutput {
 // should be attached.
 func (o ProxyProtocolPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyProtocolPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProxyProtocolPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProxyProtocolPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ProxyProtocolPolicyArrayOutput struct{ *pulumi.OutputState }

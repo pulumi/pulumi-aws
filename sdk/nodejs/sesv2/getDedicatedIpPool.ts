@@ -27,6 +27,7 @@ export function getDedicatedIpPool(args: GetDedicatedIpPoolArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", {
         "poolName": args.poolName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetDedicatedIpPoolArgs {
      * Name of the dedicated IP pool.
      */
     poolName: string;
+    region?: string;
     /**
      * A map of tags attached to the pool.
      */
@@ -62,6 +64,7 @@ export interface GetDedicatedIpPoolResult {
      */
     readonly id: string;
     readonly poolName: string;
+    readonly region: string;
     /**
      * (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      */
@@ -91,6 +94,7 @@ export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", {
         "poolName": args.poolName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -103,6 +107,7 @@ export interface GetDedicatedIpPoolOutputArgs {
      * Name of the dedicated IP pool.
      */
     poolName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A map of tags attached to the pool.
      */

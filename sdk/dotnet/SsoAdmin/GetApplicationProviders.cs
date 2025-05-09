@@ -84,17 +84,8 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationProvidersArgs : global::Pulumi.InvokeArgs
     {
-        [Input("applicationProviders")]
-        private List<Inputs.GetApplicationProvidersApplicationProviderArgs>? _applicationProviders;
-
-        /// <summary>
-        /// A list of application providers available in the current region. See `application_providers` below.
-        /// </summary>
-        public List<Inputs.GetApplicationProvidersApplicationProviderArgs> ApplicationProviders
-        {
-            get => _applicationProviders ?? (_applicationProviders = new List<Inputs.GetApplicationProvidersApplicationProviderArgs>());
-            set => _applicationProviders = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetApplicationProvidersArgs()
         {
@@ -104,17 +95,8 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationProvidersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("applicationProviders")]
-        private InputList<Inputs.GetApplicationProvidersApplicationProviderInputArgs>? _applicationProviders;
-
-        /// <summary>
-        /// A list of application providers available in the current region. See `application_providers` below.
-        /// </summary>
-        public InputList<Inputs.GetApplicationProvidersApplicationProviderInputArgs> ApplicationProviders
-        {
-            get => _applicationProviders ?? (_applicationProviders = new InputList<Inputs.GetApplicationProvidersApplicationProviderInputArgs>());
-            set => _applicationProviders = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetApplicationProvidersInvokeArgs()
         {
@@ -134,15 +116,19 @@ namespace Pulumi.Aws.SsoAdmin
         /// AWS region.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetApplicationProvidersResult(
             ImmutableArray<Outputs.GetApplicationProvidersApplicationProviderResult> applicationProviders,
 
-            string id)
+            string id,
+
+            string region)
         {
             ApplicationProviders = applicationProviders;
             Id = id;
+            Region = region;
         }
     }
 }

@@ -87,7 +87,8 @@ type LookupVirtualServiceArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the virtual service.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -105,6 +106,7 @@ type LookupVirtualServiceResult struct {
 	MeshName        string `pulumi:"meshName"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Virtual service specification. See the `appmesh.VirtualService` resource for details.
@@ -129,7 +131,8 @@ type LookupVirtualServiceOutputArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the virtual service.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -183,6 +186,10 @@ func (o LookupVirtualServiceResultOutput) MeshOwner() pulumi.StringOutput {
 
 func (o LookupVirtualServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualServiceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

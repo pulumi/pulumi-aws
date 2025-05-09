@@ -31,6 +31,21 @@ public final class ConfigurationPolicyAssociationState extends com.pulumi.resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      * 
      */
@@ -49,6 +64,7 @@ public final class ConfigurationPolicyAssociationState extends com.pulumi.resour
 
     private ConfigurationPolicyAssociationState(ConfigurationPolicyAssociationState $) {
         this.policyId = $.policyId;
+        this.region = $.region;
         this.targetId = $.targetId;
     }
 
@@ -89,6 +105,27 @@ public final class ConfigurationPolicyAssociationState extends com.pulumi.resour
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

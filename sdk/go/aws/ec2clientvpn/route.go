@@ -85,6 +85,8 @@ type Route struct {
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 	Origin pulumi.StringOutput `pulumi:"origin"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId pulumi.StringOutput `pulumi:"targetVpcSubnetId"`
 	// The type of the route.
@@ -138,6 +140,8 @@ type routeState struct {
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 	Origin *string `pulumi:"origin"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId *string `pulumi:"targetVpcSubnetId"`
 	// The type of the route.
@@ -153,6 +157,8 @@ type RouteState struct {
 	DestinationCidrBlock pulumi.StringPtrInput
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 	Origin pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId pulumi.StringPtrInput
 	// The type of the route.
@@ -170,6 +176,8 @@ type routeArgs struct {
 	Description *string `pulumi:"description"`
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId string `pulumi:"targetVpcSubnetId"`
 }
@@ -182,6 +190,8 @@ type RouteArgs struct {
 	Description pulumi.StringPtrInput
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId pulumi.StringInput
 }
@@ -291,6 +301,11 @@ func (o RouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 // Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 func (o RouteOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.

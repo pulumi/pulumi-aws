@@ -25,6 +25,7 @@ export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrockfoundation/getModel:getModel", {
         "modelId": args.modelId,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetModelArgs {
      * Model identifier.
      */
     modelId: string;
+    region?: string;
 }
 
 /**
@@ -72,6 +74,7 @@ export interface GetModelResult {
      * Model provider name.
      */
     readonly providerName: string;
+    readonly region: string;
     /**
      * Indicates whether the model supports streaming.
      */
@@ -98,6 +101,7 @@ export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrockfoundation/getModel:getModel", {
         "modelId": args.modelId,
+        "region": args.region,
     }, opts);
 }
 
@@ -109,4 +113,5 @@ export interface GetModelOutputArgs {
      * Model identifier.
      */
     modelId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -157,6 +157,20 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.qualifier);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
      * 
      */

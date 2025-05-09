@@ -178,14 +178,15 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public List<Inputs.GetResolverEndpointFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetResolverEndpointFilterArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// ID of the Route53 Resolver Endpoint.
@@ -208,14 +209,15 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public InputList<Inputs.GetResolverEndpointFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetResolverEndpointFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the Route53 Resolver Endpoint.
@@ -233,19 +235,41 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverEndpointResult
     {
+        /// <summary>
+        /// Computed ARN of the Route53 Resolver Endpoint.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Direction of the queries to or from the Resolver Endpoint .
+        /// </summary>
         public readonly string Direction;
         public readonly ImmutableArray<Outputs.GetResolverEndpointFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of IPaddresses that have been associated with the Resolver Endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         public readonly string Name;
+        /// <summary>
+        /// The protocols used by the Resolver endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> Protocols;
+        public readonly string Region;
         public readonly string? ResolverEndpointId;
+        /// <summary>
+        /// The Resolver endpoint IP address type.
+        /// </summary>
         public readonly string ResolverEndpointType;
+        /// <summary>
+        /// Current status of the Resolver Endpoint.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// ID of the Host VPC that the Resolver Endpoint resides in.
+        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]
@@ -264,6 +288,8 @@ namespace Pulumi.Aws.Route53
 
             ImmutableArray<string> protocols,
 
+            string region,
+
             string? resolverEndpointId,
 
             string resolverEndpointType,
@@ -279,6 +305,7 @@ namespace Pulumi.Aws.Route53
             IpAddresses = ipAddresses;
             Name = name;
             Protocols = protocols;
+            Region = region;
             ResolverEndpointId = resolverEndpointId;
             ResolverEndpointType = resolverEndpointType;
             Status = status;

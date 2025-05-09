@@ -17,12 +17,16 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
     /**
      * Name of the WAF rule group.
      * 
+     * At least one of `name` or `metric_name` must be configured.
+     * 
      */
     @Import(name="metricName")
     private @Nullable String metricName;
 
     /**
      * @return Name of the WAF rule group.
+     * 
+     * At least one of `name` or `metric_name` must be configured.
      * 
      */
     public Optional<String> metricName() {
@@ -44,11 +48,19 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetSubscribedRuleGroupPlainArgs() {}
 
     private GetSubscribedRuleGroupPlainArgs(GetSubscribedRuleGroupPlainArgs $) {
         this.metricName = $.metricName;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,6 +84,8 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
         /**
          * @param metricName Name of the WAF rule group.
          * 
+         * At least one of `name` or `metric_name` must be configured.
+         * 
          * @return builder
          * 
          */
@@ -88,6 +102,11 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -150,6 +150,12 @@ namespace Pulumi.Aws.DataZone
         [Output("provisionedResources")]
         public Output<ImmutableArray<Outputs.EnvironmentProvisionedResource>> ProvisionedResources { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.EnvironmentTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -266,6 +272,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("projectIdentifier", required: true)]
         public Input<string> ProjectIdentifier { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.EnvironmentTimeoutsArgs>? Timeouts { get; set; }
@@ -389,6 +401,12 @@ namespace Pulumi.Aws.DataZone
             get => _provisionedResources ?? (_provisionedResources = new InputList<Inputs.EnvironmentProvisionedResourceGetArgs>());
             set => _provisionedResources = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.EnvironmentTimeoutsGetArgs>? Timeouts { get; set; }

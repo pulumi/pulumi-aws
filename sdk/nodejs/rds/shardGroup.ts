@@ -113,6 +113,10 @@ export class ShardGroup extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -144,6 +148,7 @@ export class ShardGroup extends pulumi.CustomResource {
             resourceInputs["maxAcu"] = state ? state.maxAcu : undefined;
             resourceInputs["minAcu"] = state ? state.minAcu : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -164,6 +169,7 @@ export class ShardGroup extends pulumi.CustomResource {
             resourceInputs["maxAcu"] = args ? args.maxAcu : undefined;
             resourceInputs["minAcu"] = args ? args.minAcu : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -217,6 +223,10 @@ export interface ShardGroupState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -255,6 +265,10 @@ export interface ShardGroupArgs {
      * Indicates whether the DB shard group is publicly accessible.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -74,6 +74,7 @@ public final class GetCustomModelResult {
      * 
      */
     private List<GetCustomModelOutputDataConfig> outputDataConfigs;
+    private String region;
     /**
      * @return Information about the training dataset.
      * 
@@ -179,6 +180,9 @@ public final class GetCustomModelResult {
     public List<GetCustomModelOutputDataConfig> outputDataConfigs() {
         return this.outputDataConfigs;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Information about the training dataset.
      * 
@@ -230,6 +234,7 @@ public final class GetCustomModelResult {
         private String modelName;
         private Map<String,String> modelTags;
         private List<GetCustomModelOutputDataConfig> outputDataConfigs;
+        private String region;
         private List<GetCustomModelTrainingDataConfig> trainingDataConfigs;
         private List<GetCustomModelTrainingMetric> trainingMetrics;
         private List<GetCustomModelValidationDataConfig> validationDataConfigs;
@@ -250,6 +255,7 @@ public final class GetCustomModelResult {
     	      this.modelName = defaults.modelName;
     	      this.modelTags = defaults.modelTags;
     	      this.outputDataConfigs = defaults.outputDataConfigs;
+    	      this.region = defaults.region;
     	      this.trainingDataConfigs = defaults.trainingDataConfigs;
     	      this.trainingMetrics = defaults.trainingMetrics;
     	      this.validationDataConfigs = defaults.validationDataConfigs;
@@ -364,6 +370,14 @@ public final class GetCustomModelResult {
             return outputDataConfigs(List.of(outputDataConfigs));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCustomModelResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trainingDataConfigs(List<GetCustomModelTrainingDataConfig> trainingDataConfigs) {
             if (trainingDataConfigs == null) {
               throw new MissingRequiredPropertyException("GetCustomModelResult", "trainingDataConfigs");
@@ -422,6 +436,7 @@ public final class GetCustomModelResult {
             _resultValue.modelName = modelName;
             _resultValue.modelTags = modelTags;
             _resultValue.outputDataConfigs = outputDataConfigs;
+            _resultValue.region = region;
             _resultValue.trainingDataConfigs = trainingDataConfigs;
             _resultValue.trainingMetrics = trainingMetrics;
             _resultValue.validationDataConfigs = validationDataConfigs;

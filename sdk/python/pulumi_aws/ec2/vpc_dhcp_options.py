@@ -26,6 +26,7 @@ class VpcDhcpOptionsArgs:
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcDhcpOptions resource.
@@ -35,6 +36,7 @@ class VpcDhcpOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ntp_servers: List of NTP servers to configure.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if domain_name is not None:
@@ -49,6 +51,8 @@ class VpcDhcpOptionsArgs:
             pulumi.set(__self__, "netbios_node_type", netbios_node_type)
         if ntp_servers is not None:
             pulumi.set(__self__, "ntp_servers", ntp_servers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -126,6 +130,18 @@ class VpcDhcpOptionsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,6 +164,7 @@ class _VpcDhcpOptionsState:
                  netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -160,6 +177,7 @@ class _VpcDhcpOptionsState:
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -179,6 +197,8 @@ class _VpcDhcpOptionsState:
             pulumi.set(__self__, "ntp_servers", ntp_servers)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -282,6 +302,18 @@ class _VpcDhcpOptionsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -319,6 +351,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -383,6 +416,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ntp_servers: List of NTP servers to configure.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -466,6 +500,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -482,6 +517,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
             __props__.__dict__["netbios_name_servers"] = netbios_name_servers
             __props__.__dict__["netbios_node_type"] = netbios_node_type
             __props__.__dict__["ntp_servers"] = ntp_servers
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
@@ -504,6 +540,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
             netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
             ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'VpcDhcpOptions':
         """
@@ -521,6 +558,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -536,6 +574,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         __props__.__dict__["netbios_node_type"] = netbios_node_type
         __props__.__dict__["ntp_servers"] = ntp_servers
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return VpcDhcpOptions(resource_name, opts=opts, __props__=__props__)
@@ -603,6 +642,14 @@ class VpcDhcpOptions(pulumi.CustomResource):
         The ID of the AWS account that owns the DHCP options set.
         """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

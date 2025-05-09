@@ -563,6 +563,12 @@ namespace Pulumi.Aws.Emr
         public Output<ImmutableArray<Outputs.ClusterPlacementGroupConfig>> PlacementGroupConfigs { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Release label for the Amazon EMR release.
         /// </summary>
         [Output("releaseLabel")]
@@ -859,6 +865,12 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Release label for the Amazon EMR release.
         /// </summary>
         [Input("releaseLabel", required: true)]
@@ -1136,6 +1148,12 @@ namespace Pulumi.Aws.Emr
             get => _placementGroupConfigs ?? (_placementGroupConfigs = new InputList<Inputs.ClusterPlacementGroupConfigGetArgs>());
             set => _placementGroupConfigs = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Release label for the Amazon EMR release.

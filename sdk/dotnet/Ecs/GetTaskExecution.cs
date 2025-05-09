@@ -243,6 +243,9 @@ namespace Pulumi.Aws.Ecs
         [Input("referenceId")]
         public string? ReferenceId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// An optional tag specified when a task is started.
         /// </summary>
@@ -385,6 +388,9 @@ namespace Pulumi.Aws.Ecs
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// An optional tag specified when a task is started.
         /// </summary>
@@ -440,6 +446,7 @@ namespace Pulumi.Aws.Ecs
         public readonly string? PlatformVersion;
         public readonly string? PropagateTags;
         public readonly string? ReferenceId;
+        public readonly string Region;
         public readonly string? StartedBy;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -482,6 +489,8 @@ namespace Pulumi.Aws.Ecs
 
             string? referenceId,
 
+            string region,
+
             string? startedBy,
 
             ImmutableDictionary<string, string>? tags,
@@ -506,6 +515,7 @@ namespace Pulumi.Aws.Ecs
             PlatformVersion = platformVersion;
             PropagateTags = propagateTags;
             ReferenceId = referenceId;
+            Region = region;
             StartedBy = startedBy;
             Tags = tags;
             TaskArns = taskArns;

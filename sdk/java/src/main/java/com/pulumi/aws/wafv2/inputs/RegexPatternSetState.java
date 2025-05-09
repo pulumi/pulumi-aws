@@ -86,6 +86,21 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
@@ -153,6 +168,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         this.lockToken = $.lockToken;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.regularExpressions = $.regularExpressions;
         this.scope = $.scope;
         this.tags = $.tags;
@@ -268,6 +284,27 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

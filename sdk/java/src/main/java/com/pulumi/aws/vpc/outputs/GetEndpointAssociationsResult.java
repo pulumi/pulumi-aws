@@ -22,6 +22,7 @@ public final class GetEndpointAssociationsResult {
      * 
      */
     private String id;
+    private String region;
     private String vpcEndpointId;
 
     private GetEndpointAssociationsResult() {}
@@ -39,6 +40,9 @@ public final class GetEndpointAssociationsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -54,12 +58,14 @@ public final class GetEndpointAssociationsResult {
     public static final class Builder {
         private List<GetEndpointAssociationsAssociation> associations;
         private String id;
+        private String region;
         private String vpcEndpointId;
         public Builder() {}
         public Builder(GetEndpointAssociationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associations = defaults.associations;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
         }
 
@@ -83,6 +89,14 @@ public final class GetEndpointAssociationsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEndpointAssociationsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcEndpointId(String vpcEndpointId) {
             if (vpcEndpointId == null) {
               throw new MissingRequiredPropertyException("GetEndpointAssociationsResult", "vpcEndpointId");
@@ -94,6 +108,7 @@ public final class GetEndpointAssociationsResult {
             final var _resultValue = new GetEndpointAssociationsResult();
             _resultValue.associations = associations;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.vpcEndpointId = vpcEndpointId;
             return _resultValue;
         }

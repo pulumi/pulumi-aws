@@ -23,15 +23,19 @@ __all__ = ['ObservabilityConfigurationArgs', 'ObservabilityConfiguration']
 class ObservabilityConfigurationArgs:
     def __init__(__self__, *,
                  observability_configuration_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
         :param pulumi.Input[builtins.str] observability_configuration_name: Name of the observability configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         pulumi.set(__self__, "observability_configuration_name", observability_configuration_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trace_configuration is not None:
@@ -48,6 +52,18 @@ class ObservabilityConfigurationArgs:
     @observability_configuration_name.setter
     def observability_configuration_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "observability_configuration_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -81,6 +97,7 @@ class _ObservabilityConfigurationState:
                  latest: Optional[pulumi.Input[builtins.bool]] = None,
                  observability_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
                  observability_configuration_revision: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -91,6 +108,7 @@ class _ObservabilityConfigurationState:
         :param pulumi.Input[builtins.bool] latest: Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         :param pulumi.Input[builtins.str] observability_configuration_name: Name of the observability configuration.
         :param pulumi.Input[builtins.int] observability_configuration_revision: The revision of this observability configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -104,6 +122,8 @@ class _ObservabilityConfigurationState:
             pulumi.set(__self__, "observability_configuration_name", observability_configuration_name)
         if observability_configuration_revision is not None:
             pulumi.set(__self__, "observability_configuration_revision", observability_configuration_revision)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -163,6 +183,18 @@ class _ObservabilityConfigurationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
@@ -219,6 +251,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  observability_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -252,6 +285,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] observability_configuration_name: Name of the observability configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
@@ -304,6 +338,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  observability_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -318,6 +353,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             if observability_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'observability_configuration_name'")
             __props__.__dict__["observability_configuration_name"] = observability_configuration_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trace_configuration"] = trace_configuration
             __props__.__dict__["arn"] = None
@@ -339,6 +375,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             latest: Optional[pulumi.Input[builtins.bool]] = None,
             observability_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
             observability_configuration_revision: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -354,6 +391,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] latest: Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         :param pulumi.Input[builtins.str] observability_configuration_name: Name of the observability configuration.
         :param pulumi.Input[builtins.int] observability_configuration_revision: The revision of this observability configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -367,6 +405,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         __props__.__dict__["latest"] = latest
         __props__.__dict__["observability_configuration_name"] = observability_configuration_name
         __props__.__dict__["observability_configuration_revision"] = observability_configuration_revision
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -404,6 +443,14 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         The revision of this observability configuration.
         """
         return pulumi.get(self, "observability_configuration_revision")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

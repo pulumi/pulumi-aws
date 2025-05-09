@@ -52,6 +52,7 @@ func GetPeeringAttachments(ctx *pulumi.Context, args *GetPeeringAttachmentsArgs,
 type GetPeeringAttachmentsArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetPeeringAttachmentsFilter `pulumi:"filters"`
+	Region  *string                       `pulumi:"region"`
 }
 
 // A collection of values returned by getPeeringAttachments.
@@ -60,7 +61,8 @@ type GetPeeringAttachmentsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
 func GetPeeringAttachmentsOutput(ctx *pulumi.Context, args GetPeeringAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetPeeringAttachmentsResultOutput {
@@ -76,6 +78,7 @@ func GetPeeringAttachmentsOutput(ctx *pulumi.Context, args GetPeeringAttachments
 type GetPeeringAttachmentsOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetPeeringAttachmentsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                 `pulumi:"region"`
 }
 
 func (GetPeeringAttachmentsOutputArgs) ElementType() reflect.Type {
@@ -109,6 +112,10 @@ func (o GetPeeringAttachmentsResultOutput) Id() pulumi.StringOutput {
 // A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
 func (o GetPeeringAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPeeringAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetPeeringAttachmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAttachmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

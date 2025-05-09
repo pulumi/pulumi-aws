@@ -61,6 +61,8 @@ type ResourceLfTag struct {
 	//
 	// Exactly one of the following is required:
 	LfTag ResourceLfTagLfTagPtrOutput `pulumi:"lfTag"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for a table resource. See Table for more details.
 	Table ResourceLfTagTablePtrOutput `pulumi:"table"`
 	// Configuration block for a table with columns resource. See Table With Columns for more details.
@@ -108,6 +110,8 @@ type resourceLfTagState struct {
 	//
 	// Exactly one of the following is required:
 	LfTag *ResourceLfTagLfTag `pulumi:"lfTag"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. See Table for more details.
 	Table *ResourceLfTagTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. See Table With Columns for more details.
@@ -126,6 +130,8 @@ type ResourceLfTagState struct {
 	//
 	// Exactly one of the following is required:
 	LfTag ResourceLfTagLfTagPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. See Table for more details.
 	Table ResourceLfTagTablePtrInput
 	// Configuration block for a table with columns resource. See Table With Columns for more details.
@@ -148,6 +154,8 @@ type resourceLfTagArgs struct {
 	//
 	// Exactly one of the following is required:
 	LfTag *ResourceLfTagLfTag `pulumi:"lfTag"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. See Table for more details.
 	Table *ResourceLfTagTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. See Table With Columns for more details.
@@ -167,6 +175,8 @@ type ResourceLfTagArgs struct {
 	//
 	// Exactly one of the following is required:
 	LfTag ResourceLfTagLfTagPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. See Table for more details.
 	Table ResourceLfTagTablePtrInput
 	// Configuration block for a table with columns resource. See Table With Columns for more details.
@@ -278,6 +288,11 @@ func (o ResourceLfTagOutput) Database() ResourceLfTagDatabasePtrOutput {
 // Exactly one of the following is required:
 func (o ResourceLfTagOutput) LfTag() ResourceLfTagLfTagPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagLfTagPtrOutput { return v.LfTag }).(ResourceLfTagLfTagPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceLfTagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceLfTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block for a table resource. See Table for more details.

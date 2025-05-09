@@ -169,6 +169,10 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly policyDocument!: pulumi.Output<string | undefined>;
     public readonly rdsOptions!: pulumi.Output<outputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -215,6 +219,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["networkInterfaceOptions"] = state ? state.networkInterfaceOptions : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["rdsOptions"] = state ? state.rdsOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -243,6 +248,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["rdsOptions"] = args ? args.rdsOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -311,6 +317,10 @@ export interface EndpointState {
     policyDocument?: pulumi.Input<string>;
     rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -377,6 +387,10 @@ export interface EndpointArgs {
      */
     policyDocument?: pulumi.Input<string>;
     rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */

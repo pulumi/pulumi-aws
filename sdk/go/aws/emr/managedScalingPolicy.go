@@ -76,6 +76,8 @@ type ManagedScalingPolicy struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayOutput `pulumi:"computeLimits"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewManagedScalingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -118,6 +120,8 @@ type managedScalingPolicyState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ManagedScalingPolicyState struct {
@@ -125,6 +129,8 @@ type ManagedScalingPolicyState struct {
 	ClusterId pulumi.StringPtrInput
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedScalingPolicyState) ElementType() reflect.Type {
@@ -136,6 +142,8 @@ type managedScalingPolicyArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ManagedScalingPolicy resource.
@@ -144,6 +152,8 @@ type ManagedScalingPolicyArgs struct {
 	ClusterId pulumi.StringInput
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedScalingPolicyArgs) ElementType() reflect.Type {
@@ -241,6 +251,11 @@ func (o ManagedScalingPolicyOutput) ClusterId() pulumi.StringOutput {
 // Configuration block with compute limit settings. Described below.
 func (o ManagedScalingPolicyOutput) ComputeLimits() ManagedScalingPolicyComputeLimitArrayOutput {
 	return o.ApplyT(func(v *ManagedScalingPolicy) ManagedScalingPolicyComputeLimitArrayOutput { return v.ComputeLimits }).(ManagedScalingPolicyComputeLimitArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ManagedScalingPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedScalingPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ManagedScalingPolicyArrayOutput struct{ *pulumi.OutputState }

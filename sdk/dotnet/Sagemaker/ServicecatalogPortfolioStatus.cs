@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Sagemaker
     public partial class ServicecatalogPortfolioStatus : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         /// </summary>
         [Output("status")]
@@ -96,6 +102,12 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class ServicecatalogPortfolioStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("status", required: true)]
@@ -109,6 +121,12 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ServicecatalogPortfolioStatusState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         /// </summary>

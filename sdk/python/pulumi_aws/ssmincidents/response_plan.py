@@ -29,10 +29,12 @@ class ResponsePlanArgs:
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  integration: Optional[pulumi.Input['ResponsePlanIntegrationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
         :param pulumi.Input[builtins.str] name: The name of the response plan.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "incident_template", incident_template)
         if action is not None:
@@ -47,6 +49,8 @@ class ResponsePlanArgs:
             pulumi.set(__self__, "integration", integration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -118,6 +122,18 @@ class ResponsePlanArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -137,12 +153,14 @@ class _ResponsePlanState:
                  incident_template: Optional[pulumi.Input['ResponsePlanIncidentTemplateArgs']] = None,
                  integration: Optional[pulumi.Input['ResponsePlanIntegrationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResponsePlan resources.
         :param pulumi.Input[builtins.str] arn: The ARN of the response plan.
         :param pulumi.Input[builtins.str] name: The name of the response plan.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if action is not None:
@@ -161,6 +179,8 @@ class _ResponsePlanState:
             pulumi.set(__self__, "integration", integration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -246,6 +266,18 @@ class _ResponsePlanState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -281,6 +313,7 @@ class ResponsePlan(pulumi.CustomResource):
                  incident_template: Optional[pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']]] = None,
                  integration: Optional[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -383,6 +416,7 @@ class ResponsePlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the response plan.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -509,6 +543,7 @@ class ResponsePlan(pulumi.CustomResource):
                  incident_template: Optional[pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']]] = None,
                  integration: Optional[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -528,6 +563,7 @@ class ResponsePlan(pulumi.CustomResource):
             __props__.__dict__["incident_template"] = incident_template
             __props__.__dict__["integration"] = integration
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -549,6 +585,7 @@ class ResponsePlan(pulumi.CustomResource):
             incident_template: Optional[pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']]] = None,
             integration: Optional[pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'ResponsePlan':
         """
@@ -560,6 +597,7 @@ class ResponsePlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The ARN of the response plan.
         :param pulumi.Input[builtins.str] name: The name of the response plan.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -574,6 +612,7 @@ class ResponsePlan(pulumi.CustomResource):
         __props__.__dict__["incident_template"] = incident_template
         __props__.__dict__["integration"] = integration
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return ResponsePlan(resource_name, opts=opts, __props__=__props__)
@@ -623,6 +662,14 @@ class ResponsePlan(pulumi.CustomResource):
         The name of the response plan.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

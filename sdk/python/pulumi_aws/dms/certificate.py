@@ -23,6 +23,7 @@ class CertificateArgs:
                  certificate_id: pulumi.Input[builtins.str],
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_wallet: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -31,6 +32,7 @@ class CertificateArgs:
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "certificate_id", certificate_id)
@@ -38,6 +40,8 @@ class CertificateArgs:
             pulumi.set(__self__, "certificate_pem", certificate_pem)
         if certificate_wallet is not None:
             pulumi.set(__self__, "certificate_wallet", certificate_wallet)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -81,6 +85,18 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,6 +115,7 @@ class _CertificateState:
                  certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_wallet: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -109,6 +126,7 @@ class _CertificateState:
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -120,6 +138,8 @@ class _CertificateState:
             pulumi.set(__self__, "certificate_pem", certificate_pem)
         if certificate_wallet is not None:
             pulumi.set(__self__, "certificate_wallet", certificate_wallet)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -177,6 +197,18 @@ class _CertificateState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -211,6 +243,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_wallet: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -246,6 +279,7 @@ class Certificate(pulumi.CustomResource):
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -298,6 +332,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_wallet: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -313,6 +348,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_id"] = certificate_id
             __props__.__dict__["certificate_pem"] = None if certificate_pem is None else pulumi.Output.secret(certificate_pem)
             __props__.__dict__["certificate_wallet"] = None if certificate_wallet is None else pulumi.Output.secret(certificate_wallet)
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["certificate_arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -332,6 +368,7 @@ class Certificate(pulumi.CustomResource):
             certificate_id: Optional[pulumi.Input[builtins.str]] = None,
             certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
             certificate_wallet: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Certificate':
         """
@@ -347,6 +384,7 @@ class Certificate(pulumi.CustomResource):
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -358,6 +396,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_id"] = certificate_id
         __props__.__dict__["certificate_pem"] = certificate_pem
         __props__.__dict__["certificate_wallet"] = certificate_wallet
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Certificate(resource_name, opts=opts, __props__=__props__)
@@ -395,6 +434,14 @@ class Certificate(pulumi.CustomResource):
         The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         """
         return pulumi.get(self, "certificate_wallet")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

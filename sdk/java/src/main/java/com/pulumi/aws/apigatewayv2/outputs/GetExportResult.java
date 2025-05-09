@@ -27,6 +27,7 @@ public final class GetExportResult {
     private String id;
     private @Nullable Boolean includeExtensions;
     private String outputType;
+    private String region;
     private String specification;
     private @Nullable String stageName;
 
@@ -57,6 +58,9 @@ public final class GetExportResult {
     public String outputType() {
         return this.outputType;
     }
+    public String region() {
+        return this.region;
+    }
     public String specification() {
         return this.specification;
     }
@@ -79,6 +83,7 @@ public final class GetExportResult {
         private String id;
         private @Nullable Boolean includeExtensions;
         private String outputType;
+        private String region;
         private String specification;
         private @Nullable String stageName;
         public Builder() {}
@@ -90,6 +95,7 @@ public final class GetExportResult {
     	      this.id = defaults.id;
     	      this.includeExtensions = defaults.includeExtensions;
     	      this.outputType = defaults.outputType;
+    	      this.region = defaults.region;
     	      this.specification = defaults.specification;
     	      this.stageName = defaults.stageName;
         }
@@ -139,6 +145,14 @@ public final class GetExportResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder specification(String specification) {
             if (specification == null) {
               throw new MissingRequiredPropertyException("GetExportResult", "specification");
@@ -160,6 +174,7 @@ public final class GetExportResult {
             _resultValue.id = id;
             _resultValue.includeExtensions = includeExtensions;
             _resultValue.outputType = outputType;
+            _resultValue.region = region;
             _resultValue.specification = specification;
             _resultValue.stageName = stageName;
             return _resultValue;

@@ -175,7 +175,7 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public readonly string Id;
         public readonly string? LoadBalancerType;
-        public readonly string? Region;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetHostedZoneIdResult(
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.LB
 
             string? loadBalancerType,
 
-            string? region)
+            string region)
         {
             Id = id;
             LoadBalancerType = loadBalancerType;

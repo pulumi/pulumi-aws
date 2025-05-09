@@ -62,6 +62,10 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<outputs.datasync.LocationFsxOntapFileSystemProtocol>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
      * * Server Message Block (SMB): TCP port 445
@@ -104,6 +108,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
             resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
             resourceInputs["storageVirtualMachineArn"] = state ? state.storageVirtualMachineArn : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
@@ -122,6 +127,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageVirtualMachineArn'");
             }
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             resourceInputs["storageVirtualMachineArn"] = args ? args.storageVirtualMachineArn : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
@@ -154,6 +160,10 @@ export interface LocationFsxOntapFileSystemState {
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
     protocol?: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocol>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -189,6 +199,10 @@ export interface LocationFsxOntapFileSystemArgs {
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
     protocol: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocol>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049

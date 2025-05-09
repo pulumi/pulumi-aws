@@ -111,6 +111,8 @@ type FileCache struct {
 	// A list of network interface IDs.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	OwnerId             pulumi.StringOutput      `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -192,6 +194,8 @@ type fileCacheState struct {
 	// A list of network interface IDs.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	OwnerId             *string  `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -232,6 +236,8 @@ type FileCacheState struct {
 	// A list of network interface IDs.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	OwnerId             pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -265,6 +271,8 @@ type fileCacheArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
 	LustreConfigurations []FileCacheLustreConfiguration `pulumi:"lustreConfigurations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -292,6 +300,8 @@ type FileCacheArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
 	LustreConfigurations FileCacheLustreConfigurationArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -449,6 +459,11 @@ func (o FileCacheOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 
 func (o FileCacheOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FileCacheOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.

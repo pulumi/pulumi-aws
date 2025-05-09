@@ -38,6 +38,7 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -57,6 +58,7 @@ export interface GetVolumeArgs {
      * recent volume.
      */
     mostRecent?: boolean;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -105,6 +107,7 @@ export interface GetVolumeResult {
      * ARN of the Outpost.
      */
     readonly outpostArn: string;
+    readonly region: string;
     /**
      * Size of the drive in GiBs.
      */
@@ -161,6 +164,7 @@ export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -180,6 +184,7 @@ export interface GetVolumeOutputArgs {
      * recent volume.
      */
     mostRecent?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

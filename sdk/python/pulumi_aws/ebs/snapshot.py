@@ -24,6 +24,7 @@ class SnapshotArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[builtins.int]] = None):
@@ -33,6 +34,7 @@ class SnapshotArgs:
         :param pulumi.Input[builtins.str] description: A description of what the snapshot is.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -44,6 +46,8 @@ class SnapshotArgs:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
         if permanent_restore is not None:
             pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_tier is not None:
             pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
@@ -100,6 +104,18 @@ class SnapshotArgs:
         pulumi.set(self, "permanent_restore", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -148,6 +164,7 @@ class _SnapshotState:
                  owner_alias: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -165,6 +182,7 @@ class _SnapshotState:
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -190,6 +208,8 @@ class _SnapshotState:
             pulumi.set(__self__, "owner_id", owner_id)
         if permanent_restore is not None:
             pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_tier is not None:
             pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
@@ -312,6 +332,18 @@ class _SnapshotState:
         pulumi.set(self, "permanent_restore", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -395,6 +427,7 @@ class Snapshot(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[builtins.int]] = None,
@@ -435,6 +468,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of what the snapshot is.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -494,6 +528,7 @@ class Snapshot(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[builtins.int]] = None,
@@ -510,6 +545,7 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["permanent_restore"] = permanent_restore
+            __props__.__dict__["region"] = region
             __props__.__dict__["storage_tier"] = storage_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["temporary_restore_days"] = temporary_restore_days
@@ -543,6 +579,7 @@ class Snapshot(pulumi.CustomResource):
             owner_alias: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_tier: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -565,6 +602,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -585,6 +623,7 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["owner_alias"] = owner_alias
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["permanent_restore"] = permanent_restore
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_tier"] = storage_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -664,6 +703,14 @@ class Snapshot(pulumi.CustomResource):
         Indicates whether to permanently restore an archived snapshot.
         """
         return pulumi.get(self, "permanent_restore")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="storageTier")

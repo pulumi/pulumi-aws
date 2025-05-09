@@ -41,6 +41,7 @@ public final class GetWorkspaceResult {
      * 
      */
     private String prometheusEndpoint;
+    private String region;
     /**
      * @return Status of the Prometheus workspace.
      * 
@@ -96,6 +97,9 @@ public final class GetWorkspaceResult {
     public String prometheusEndpoint() {
         return this.prometheusEndpoint;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the Prometheus workspace.
      * 
@@ -129,6 +133,7 @@ public final class GetWorkspaceResult {
         private String id;
         private String kmsKeyArn;
         private String prometheusEndpoint;
+        private String region;
         private String status;
         private Map<String,String> tags;
         private String workspaceId;
@@ -141,6 +146,7 @@ public final class GetWorkspaceResult {
     	      this.id = defaults.id;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.prometheusEndpoint = defaults.prometheusEndpoint;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.workspaceId = defaults.workspaceId;
@@ -195,6 +201,14 @@ public final class GetWorkspaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "status");
@@ -226,6 +240,7 @@ public final class GetWorkspaceResult {
             _resultValue.id = id;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.prometheusEndpoint = prometheusEndpoint;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.tags = tags;
             _resultValue.workspaceId = workspaceId;

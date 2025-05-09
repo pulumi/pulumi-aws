@@ -377,6 +377,10 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketLifecycleConfigurationRule[] | undefined>;
@@ -401,6 +405,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
             const state = argsOrState as BucketLifecycleConfigurationState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["transitionDefaultMinimumObjectSize"] = state ? state.transitionDefaultMinimumObjectSize : undefined;
@@ -411,6 +416,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["transitionDefaultMinimumObjectSize"] = args ? args.transitionDefaultMinimumObjectSize : undefined;
@@ -435,6 +441,10 @@ export interface BucketLifecycleConfigurationState {
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationRule>[]>;
@@ -457,6 +467,10 @@ export interface BucketLifecycleConfigurationArgs {
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */

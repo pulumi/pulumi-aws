@@ -85,7 +85,8 @@ type GetRuntimeVersionArgs struct {
 	// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
 	//
 	// The following arguments are optional:
-	Prefix string `pulumi:"prefix"`
+	Prefix string  `pulumi:"prefix"`
+	Region *string `pulumi:"region"`
 	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
 	Version *string `pulumi:"version"`
 }
@@ -100,6 +101,7 @@ type GetRuntimeVersionResult struct {
 	Id     string `pulumi:"id"`
 	Latest *bool  `pulumi:"latest"`
 	Prefix string `pulumi:"prefix"`
+	Region string `pulumi:"region"`
 	// Date that the runtime version was released.
 	ReleaseDate string  `pulumi:"releaseDate"`
 	Version     *string `pulumi:"version"`
@@ -123,7 +125,8 @@ type GetRuntimeVersionOutputArgs struct {
 	// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
 	//
 	// The following arguments are optional:
-	Prefix pulumi.StringInput `pulumi:"prefix"`
+	Prefix pulumi.StringInput    `pulumi:"prefix"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -168,6 +171,10 @@ func (o GetRuntimeVersionResultOutput) Latest() pulumi.BoolPtrOutput {
 
 func (o GetRuntimeVersionResultOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRuntimeVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Date that the runtime version was released.

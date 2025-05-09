@@ -18,10 +18,19 @@ import * as utilities from "../utilities";
  * const example = aws.oam.getSinks({});
  * ```
  */
-export function getSinks(opts?: pulumi.InvokeOptions): Promise<GetSinksResult> {
+export function getSinks(args?: GetSinksArgs, opts?: pulumi.InvokeOptions): Promise<GetSinksResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getSinks:getSinks", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSinks.
+ */
+export interface GetSinksArgs {
+    region?: string;
 }
 
 /**
@@ -36,6 +45,7 @@ export interface GetSinksResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -51,8 +61,17 @@ export interface GetSinksResult {
  * const example = aws.oam.getSinks({});
  * ```
  */
-export function getSinksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSinksResult> {
+export function getSinksOutput(args?: GetSinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSinksResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getSinks:getSinks", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSinks.
+ */
+export interface GetSinksOutputArgs {
+    region?: pulumi.Input<string>;
 }

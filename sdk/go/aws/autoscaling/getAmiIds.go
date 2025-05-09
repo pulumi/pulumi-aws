@@ -80,7 +80,8 @@ type GetAmiIdsArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
 	// List of autoscaling group names
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region *string  `pulumi:"region"`
 }
 
 // A collection of values returned by getAmiIds.
@@ -91,7 +92,8 @@ type GetAmiIdsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of the Autoscaling Groups in the current region.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulumi.InvokeOption) GetAmiIdsResultOutput {
@@ -108,7 +110,8 @@ type GetAmiIdsOutputArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
 	// List of autoscaling group names
-	Names pulumi.StringArrayInput `pulumi:"names"`
+	Names  pulumi.StringArrayInput `pulumi:"names"`
+	Region pulumi.StringPtrInput   `pulumi:"region"`
 }
 
 func (GetAmiIdsOutputArgs) ElementType() reflect.Type {
@@ -147,6 +150,10 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 // List of the Autoscaling Groups in the current region.
 func (o GetAmiIdsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

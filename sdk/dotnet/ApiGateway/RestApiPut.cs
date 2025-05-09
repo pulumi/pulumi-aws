@@ -104,6 +104,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the associated REST API.
         /// 
         /// The following arguments are optional:
@@ -191,6 +197,12 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the associated REST API.
         /// 
         /// The following arguments are optional:
@@ -244,6 +256,12 @@ namespace Pulumi.Aws.ApiGateway
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of the associated REST API.

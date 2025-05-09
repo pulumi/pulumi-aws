@@ -34,6 +34,7 @@ public final class GetAvailabilityZonesResult {
      * 
      */
     private List<String> names;
+    private String region;
     private @Nullable String state;
     /**
      * @return List of the Availability Zone IDs available to the account.
@@ -75,6 +76,9 @@ public final class GetAvailabilityZonesResult {
     public List<String> names() {
         return this.names;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
@@ -102,6 +106,7 @@ public final class GetAvailabilityZonesResult {
         private List<String> groupNames;
         private String id;
         private List<String> names;
+        private String region;
         private @Nullable String state;
         private List<String> zoneIds;
         public Builder() {}
@@ -114,6 +119,7 @@ public final class GetAvailabilityZonesResult {
     	      this.groupNames = defaults.groupNames;
     	      this.id = defaults.id;
     	      this.names = defaults.names;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.zoneIds = defaults.zoneIds;
         }
@@ -182,6 +188,14 @@ public final class GetAvailabilityZonesResult {
             return names(List.of(names));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZonesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
 
             this.state = state;
@@ -207,6 +221,7 @@ public final class GetAvailabilityZonesResult {
             _resultValue.groupNames = groupNames;
             _resultValue.id = id;
             _resultValue.names = names;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.zoneIds = zoneIds;
             return _resultValue;

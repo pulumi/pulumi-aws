@@ -90,6 +90,8 @@ type Vocabulary struct {
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayOutput `pulumi:"phrases"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -145,6 +147,8 @@ type vocabularyState struct {
 	LanguageCode *string `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -165,6 +169,8 @@ type VocabularyState struct {
 	LanguageCode pulumi.StringPtrInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -185,6 +191,8 @@ type vocabularyArgs struct {
 	LanguageCode string `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -201,6 +209,8 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -316,6 +326,11 @@ func (o VocabularyOutput) LanguageCode() pulumi.StringOutput {
 // A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 func (o VocabularyOutput) Phrases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringArrayOutput { return v.Phrases }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VocabularyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

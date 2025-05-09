@@ -136,6 +136,10 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
      */
     public readonly mediaInsightsConfiguration!: pulumi.Output<outputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
     public readonly streamingNotificationTargets!: pulumi.Output<string[] | undefined>;
@@ -160,6 +164,7 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
             resourceInputs["dataRetention"] = state ? state.dataRetention : undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
             resourceInputs["mediaInsightsConfiguration"] = state ? state.mediaInsightsConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["streamingNotificationTargets"] = state ? state.streamingNotificationTargets : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
@@ -173,6 +178,7 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
             resourceInputs["dataRetention"] = args ? args.dataRetention : undefined;
             resourceInputs["disabled"] = args ? args.disabled : undefined;
             resourceInputs["mediaInsightsConfiguration"] = args ? args.mediaInsightsConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["streamingNotificationTargets"] = args ? args.streamingNotificationTargets : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
@@ -197,6 +203,10 @@ export interface VoiceConnectorStreamingState {
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
     mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
@@ -223,6 +233,10 @@ export interface VoiceConnectorStreamingArgs {
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
     mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */

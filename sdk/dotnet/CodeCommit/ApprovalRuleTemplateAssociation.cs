@@ -49,6 +49,12 @@ namespace Pulumi.Aws.CodeCommit
         public Output<string> ApprovalRuleTemplateName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the repository that you want to associate with the template.
         /// </summary>
         [Output("repositoryName")]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string> ApprovalRuleTemplateName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the repository that you want to associate with the template.
         /// </summary>
         [Input("repositoryName", required: true)]
@@ -125,6 +137,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Input("approvalRuleTemplateName")]
         public Input<string>? ApprovalRuleTemplateName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the repository that you want to associate with the template.

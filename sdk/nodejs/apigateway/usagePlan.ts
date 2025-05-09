@@ -67,16 +67,23 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly productCode!: pulumi.Output<string | undefined>;
     /**
-     * Quota of the usage plan.
+     * The quota settings of the usage plan.
      */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Throttling limits of the usage plan.
+     * The throttling limits of the usage plan.
      */
     public readonly throttleSettings!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
 
@@ -99,6 +106,7 @@ export class UsagePlan extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["productCode"] = state ? state.productCode : undefined;
             resourceInputs["quotaSettings"] = state ? state.quotaSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
@@ -109,6 +117,7 @@ export class UsagePlan extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["productCode"] = args ? args.productCode : undefined;
             resourceInputs["quotaSettings"] = args ? args.quotaSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throttleSettings"] = args ? args.throttleSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -144,16 +153,23 @@ export interface UsagePlanState {
      */
     productCode?: pulumi.Input<string>;
     /**
-     * Quota of the usage plan.
+     * The quota settings of the usage plan.
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Throttling limits of the usage plan.
+     * The throttling limits of the usage plan.
      */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }
@@ -179,12 +195,19 @@ export interface UsagePlanArgs {
      */
     productCode?: pulumi.Input<string>;
     /**
-     * Quota of the usage plan.
+     * The quota settings of the usage plan.
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Throttling limits of the usage plan.
+     * The throttling limits of the usage plan.
      */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }

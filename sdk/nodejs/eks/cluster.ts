@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     accessConfig: {
  *         authenticationMode: "API",
  *     },
- *     roleArn: exampleAwsIamRole.arn,
+ *     roleArn: cluster.arn,
  *     version: "1.31",
  *     vpcConfig: {
  *         subnetIds: [
@@ -259,7 +259,7 @@ import * as utilities from "../utilities";
  *     accessConfig: {
  *         authenticationMode: "CONFIG_MAP",
  *     },
- *     roleArn: exampleAwsIamRole.arn,
+ *     roleArn: cluster.arn,
  *     version: "1.31",
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
@@ -381,6 +381,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly platformVersion!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
     public readonly remoteNetworkConfig!: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
@@ -453,6 +457,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outpostConfig"] = state ? state.outpostConfig : undefined;
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteNetworkConfig"] = state ? state.remoteNetworkConfig : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -480,6 +485,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteNetworkConfig"] = args ? args.remoteNetworkConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
@@ -574,6 +580,10 @@ export interface ClusterState {
      */
     platformVersion?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
     remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfig>;
@@ -657,6 +667,10 @@ export interface ClusterArgs {
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
     outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */

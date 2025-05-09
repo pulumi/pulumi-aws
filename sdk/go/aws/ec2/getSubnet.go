@@ -122,6 +122,7 @@ type LookupSubnetArgs struct {
 	Id *string `pulumi:"id"`
 	// IPv6 CIDR block of the desired subnet.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	Region        *string `pulumi:"region"`
 	// State that the desired subnet must have.
 	State *string `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match a pair on the desired subnet.
@@ -169,6 +170,7 @@ type LookupSubnetResult struct {
 	OwnerId string `pulumi:"ownerId"`
 	// The type of hostnames assigned to instances in the subnet at launch.
 	PrivateDnsHostnameTypeOnLaunch string            `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         string            `pulumi:"region"`
 	State                          string            `pulumi:"state"`
 	Tags                           map[string]string `pulumi:"tags"`
 	VpcId                          string            `pulumi:"vpcId"`
@@ -199,6 +201,7 @@ type LookupSubnetOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// IPv6 CIDR block of the desired subnet.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 	// State that the desired subnet must have.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match a pair on the desired subnet.
@@ -327,6 +330,10 @@ func (o LookupSubnetResultOutput) OwnerId() pulumi.StringOutput {
 // The type of hostnames assigned to instances in the subnet at launch.
 func (o LookupSubnetResultOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupSubnetResultOutput) State() pulumi.StringOutput {

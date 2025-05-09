@@ -30,6 +30,13 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags for the resource.
      * 
@@ -49,6 +56,7 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetDetectorPlainArgs(GetDetectorPlainArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -78,6 +86,11 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder id(@Nullable String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

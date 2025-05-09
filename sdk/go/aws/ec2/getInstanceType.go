@@ -51,7 +51,8 @@ func GetInstanceType(ctx *pulumi.Context, args *GetInstanceTypeArgs, opts ...pul
 // A collection of arguments for invoking getInstanceType.
 type GetInstanceTypeArgs struct {
 	// Instance
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType string  `pulumi:"instanceType"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceType.
@@ -182,6 +183,7 @@ type GetInstanceTypeResult struct {
 	NitroTpmSupportedVersions []string `pulumi:"nitroTpmSupportedVersions"`
 	// `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
 	PhcSupport string `pulumi:"phcSupport"`
+	Region     string `pulumi:"region"`
 	// A list of strings of architectures supported by the instance type.
 	SupportedArchitectures []string `pulumi:"supportedArchitectures"`
 	// A set of strings indicating supported CPU features.
@@ -226,7 +228,8 @@ func GetInstanceTypeOutput(ctx *pulumi.Context, args GetInstanceTypeOutputArgs, 
 // A collection of arguments for invoking getInstanceType.
 type GetInstanceTypeOutputArgs struct {
 	// Instance
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	InstanceType pulumi.StringInput    `pulumi:"instanceType"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstanceTypeOutputArgs) ElementType() reflect.Type {
@@ -519,6 +522,10 @@ func (o GetInstanceTypeResultOutput) NitroTpmSupportedVersions() pulumi.StringAr
 // `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
 func (o GetInstanceTypeResultOutput) PhcSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.PhcSupport }).(pulumi.StringOutput)
+}
+
+func (o GetInstanceTypeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of strings of architectures supported by the instance type.

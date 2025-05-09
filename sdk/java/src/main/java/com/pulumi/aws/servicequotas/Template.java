@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Template("example", TemplateArgs.builder()
- *             .region("us-east-1")
+ *             .awsRegion("us-east-1")
  *             .quotaCode("L-2ACBD22F")
  *             .serviceCode("lambda")
  *             .value(80.0)
@@ -71,6 +71,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:servicequotas/template:Template")
 public class Template extends com.pulumi.resources.CustomResource {
+    /**
+     * AWS Region to which the template applies.
+     * 
+     */
+    @Export(name="awsRegion", refs={String.class}, tree="[0]")
+    private Output<String> awsRegion;
+
+    /**
+     * @return AWS Region to which the template applies.
+     * 
+     */
+    public Output<String> awsRegion() {
+        return this.awsRegion;
+    }
     /**
      * Indicates whether the quota is global.
      * 
@@ -114,14 +128,18 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.quotaName;
     }
     /**
-     * AWS Region to which the template applies.
+     * AWS Region to which the template applies. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return AWS Region to which the template applies.
+     * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
      * 
      */
     public Output<String> region() {

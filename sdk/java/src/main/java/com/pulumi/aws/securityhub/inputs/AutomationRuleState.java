@@ -97,6 +97,21 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the rule.
      * 
      */
@@ -163,6 +178,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         this.criteria = $.criteria;
         this.description = $.description;
         this.isTerminal = $.isTerminal;
+        this.region = $.region;
         this.ruleName = $.ruleName;
         this.ruleOrder = $.ruleOrder;
         this.ruleStatus = $.ruleStatus;
@@ -301,6 +317,27 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
          */
         public Builder isTerminal(Boolean isTerminal) {
             return isTerminal(Output.of(isTerminal));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

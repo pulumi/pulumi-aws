@@ -72,6 +72,8 @@ type AssessmentTemplate struct {
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayOutput `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
 	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -129,6 +131,8 @@ type assessmentTemplateState struct {
 	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
 	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,6 +152,8 @@ type AssessmentTemplateState struct {
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
 	// The name of the assessment template.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
 	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -169,6 +175,8 @@ type assessmentTemplateArgs struct {
 	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
 	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -185,6 +193,8 @@ type AssessmentTemplateArgs struct {
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
 	// The name of the assessment template.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
 	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -300,6 +310,11 @@ func (o AssessmentTemplateOutput) EventSubscriptions() AssessmentTemplateEventSu
 // The name of the assessment template.
 func (o AssessmentTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AssessmentTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The rules to be used during the run.

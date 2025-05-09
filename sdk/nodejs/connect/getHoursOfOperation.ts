@@ -42,6 +42,7 @@ export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -62,6 +63,7 @@ export interface GetHoursOfOperationArgs {
      * Returns information on a specific Hours of Operation by name
      */
     name?: string;
+    region?: string;
     /**
      * Map of tags to assign to the Hours of Operation.
      */
@@ -100,6 +102,7 @@ export interface GetHoursOfOperationResult {
      * Name of the Hours of Operation.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the Hours of Operation.
      */
@@ -144,6 +147,7 @@ export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, o
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -164,6 +168,7 @@ export interface GetHoursOfOperationOutputArgs {
      * Returns information on a specific Hours of Operation by name
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the Hours of Operation.
      */

@@ -104,6 +104,12 @@ namespace Pulumi.Aws.Fsx
         public Output<int?> RecordSizeKib { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Output("storageCapacityQuotaGib")]
@@ -237,6 +243,12 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? RecordSizeKib { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Input("storageCapacityQuotaGib")]
@@ -342,6 +354,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("recordSizeKib")]
         public Input<int>? RecordSizeKib { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.

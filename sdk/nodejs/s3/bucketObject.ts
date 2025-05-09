@@ -246,6 +246,10 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly objectLockRetainUntilDate!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     public readonly serverSideEncryption!: pulumi.Output<string>;
@@ -312,6 +316,7 @@ export class BucketObject extends pulumi.CustomResource {
             resourceInputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceHash"] = state ? state.sourceHash : undefined;
@@ -343,6 +348,7 @@ export class BucketObject extends pulumi.CustomResource {
             resourceInputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
@@ -440,6 +446,10 @@ export interface BucketObjectState {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
@@ -554,6 +564,10 @@ export interface BucketObjectArgs {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */

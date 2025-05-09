@@ -219,6 +219,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
     public /*out*/ readonly requesterManaged!: pulumi.Output<boolean>;
@@ -300,6 +304,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
             resourceInputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requesterManaged"] = state ? state.requesterManaged : undefined;
             resourceInputs["resourceConfigurationArn"] = state ? state.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
@@ -324,6 +329,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceConfigurationArn"] = args ? args.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -399,6 +405,10 @@ export interface VpcEndpointState {
      * Defaults to `false`.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
@@ -483,6 +493,10 @@ export interface VpcEndpointArgs {
      * Defaults to `false`.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */

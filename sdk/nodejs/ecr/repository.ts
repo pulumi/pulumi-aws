@@ -87,6 +87,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the repository was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -133,6 +138,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -173,6 +179,10 @@ export interface RepositoryState {
      * Name of the repository.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
@@ -216,6 +226,10 @@ export interface RepositoryArgs {
      * Name of the repository.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

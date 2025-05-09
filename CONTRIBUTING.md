@@ -60,8 +60,6 @@ git branch upstream-v5.60.0 && git checkout upstream-v5.60.0
 ./scripts/upstream.sh checkout
 ./scripts/upstream.sh rebase -o v5.60.0
 # in ./rebase finish the Git rebase and resolve conflicts
-./scripts/patch_computed_only.sh
-# if patch_computed_only edited anything in ./upstream, commit it
 (cd ./upstream && go build ./...) # verify everything builds
 # add commits as needed to make it build
 ./scripts/upstream.sh format_patches

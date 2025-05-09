@@ -19,6 +19,7 @@ public final class GetInstanceStorageConfigResult {
      */
     private String id;
     private String instanceId;
+    private String region;
     private String resourceType;
     /**
      * @return Specifies the storage configuration options for the Connect Instance. Documented below.
@@ -39,6 +40,9 @@ public final class GetInstanceStorageConfigResult {
     }
     public String instanceId() {
         return this.instanceId;
+    }
+    public String region() {
+        return this.region;
     }
     public String resourceType() {
         return this.resourceType;
@@ -63,6 +67,7 @@ public final class GetInstanceStorageConfigResult {
         private String associationId;
         private String id;
         private String instanceId;
+        private String region;
         private String resourceType;
         private List<GetInstanceStorageConfigStorageConfig> storageConfigs;
         public Builder() {}
@@ -71,6 +76,7 @@ public final class GetInstanceStorageConfigResult {
     	      this.associationId = defaults.associationId;
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
+    	      this.region = defaults.region;
     	      this.resourceType = defaults.resourceType;
     	      this.storageConfigs = defaults.storageConfigs;
         }
@@ -100,6 +106,14 @@ public final class GetInstanceStorageConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             if (resourceType == null) {
               throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "resourceType");
@@ -123,6 +137,7 @@ public final class GetInstanceStorageConfigResult {
             _resultValue.associationId = associationId;
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
+            _resultValue.region = region;
             _resultValue.resourceType = resourceType;
             _resultValue.storageConfigs = storageConfigs;
             return _resultValue;

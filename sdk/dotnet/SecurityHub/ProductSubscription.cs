@@ -101,6 +101,12 @@ namespace Pulumi.Aws.SecurityHub
         [Output("productArn")]
         public Output<string> ProductArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ProductSubscription resource with the given unique name, arguments, and options.
@@ -191,6 +197,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("productArn", required: true)]
         public Input<string> ProductArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ProductSubscriptionArgs()
         {
         }
@@ -248,6 +260,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("productArn")]
         public Input<string>? ProductArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ProductSubscriptionState()
         {

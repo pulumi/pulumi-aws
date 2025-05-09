@@ -41,6 +41,7 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -55,14 +56,16 @@ export interface GetNatGatewayArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetNatGatewayFilter[];
     /**
      * ID of the specific NAT Gateway to retrieve.
      */
     id?: string;
+    region?: string;
     /**
      * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      */
@@ -112,6 +115,7 @@ export interface GetNatGatewayResult {
      * Public IP (EIP) address of the selected NAT Gateway.
      */
     readonly publicIp: string;
+    readonly region: string;
     /**
      * Secondary allocation EIP IDs for the selected NAT Gateway.
      */
@@ -163,6 +167,7 @@ export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -177,14 +182,16 @@ export interface GetNatGatewayOutputArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
     /**
      * ID of the specific NAT Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      */

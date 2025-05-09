@@ -31,6 +31,7 @@ class FleetArgs:
                  fulfilled_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  on_demand_options: Optional[pulumi.Input['FleetOnDemandOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -50,6 +51,7 @@ class FleetArgs:
         :param pulumi.Input[builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
         :param pulumi.Input[builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
         :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -75,6 +77,8 @@ class FleetArgs:
             pulumi.set(__self__, "fulfilled_on_demand_capacity", fulfilled_on_demand_capacity)
         if on_demand_options is not None:
             pulumi.set(__self__, "on_demand_options", on_demand_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_options is not None:
@@ -201,6 +205,18 @@ class FleetArgs:
         pulumi.set(self, "on_demand_options", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -309,6 +325,7 @@ class _FleetState:
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]] = None,
                  on_demand_options: Optional[pulumi.Input['FleetOnDemandOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -330,6 +347,7 @@ class _FleetState:
         :param pulumi.Input[builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
         :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -359,6 +377,8 @@ class _FleetState:
             pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         if on_demand_options is not None:
             pulumi.set(__self__, "on_demand_options", on_demand_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_options is not None:
@@ -487,6 +507,18 @@ class _FleetState:
     @on_demand_options.setter
     def on_demand_options(self, value: Optional[pulumi.Input['FleetOnDemandOptionsArgs']]):
         pulumi.set(self, "on_demand_options", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")
@@ -625,6 +657,7 @@ class Fleet(pulumi.CustomResource):
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -675,6 +708,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -744,6 +778,7 @@ class Fleet(pulumi.CustomResource):
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -772,6 +807,7 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'launch_template_configs'")
             __props__.__dict__["launch_template_configs"] = launch_template_configs
             __props__.__dict__["on_demand_options"] = on_demand_options
+            __props__.__dict__["region"] = region
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
             __props__.__dict__["spot_options"] = spot_options
             __props__.__dict__["tags"] = tags
@@ -804,6 +840,7 @@ class Fleet(pulumi.CustomResource):
             fulfilled_on_demand_capacity: Optional[pulumi.Input[builtins.float]] = None,
             launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
             on_demand_options: Optional[pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
             spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -830,6 +867,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -854,6 +892,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["fulfilled_on_demand_capacity"] = fulfilled_on_demand_capacity
         __props__.__dict__["launch_template_configs"] = launch_template_configs
         __props__.__dict__["on_demand_options"] = on_demand_options
+        __props__.__dict__["region"] = region
         __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
         __props__.__dict__["spot_options"] = spot_options
         __props__.__dict__["tags"] = tags
@@ -937,6 +976,14 @@ class Fleet(pulumi.CustomResource):
         Nested argument containing On-Demand configurations. Defined below.
         """
         return pulumi.get(self, "on_demand_options")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")

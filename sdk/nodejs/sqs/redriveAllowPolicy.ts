@@ -74,6 +74,10 @@ export class RedriveAllowPolicy extends pulumi.CustomResource {
      * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
     public readonly redriveAllowPolicy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a RedriveAllowPolicy resource with the given unique name, arguments, and options.
@@ -90,6 +94,7 @@ export class RedriveAllowPolicy extends pulumi.CustomResource {
             const state = argsOrState as RedriveAllowPolicyState | undefined;
             resourceInputs["queueUrl"] = state ? state.queueUrl : undefined;
             resourceInputs["redriveAllowPolicy"] = state ? state.redriveAllowPolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as RedriveAllowPolicyArgs | undefined;
             if ((!args || args.queueUrl === undefined) && !opts.urn) {
@@ -100,6 +105,7 @@ export class RedriveAllowPolicy extends pulumi.CustomResource {
             }
             resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
             resourceInputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RedriveAllowPolicy.__pulumiType, name, resourceInputs, opts);
@@ -118,6 +124,10 @@ export interface RedriveAllowPolicyState {
      * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
     redriveAllowPolicy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -132,4 +142,8 @@ export interface RedriveAllowPolicyArgs {
      * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
     redriveAllowPolicy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

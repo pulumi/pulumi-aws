@@ -23,7 +23,8 @@ class PublishingDestinationArgs:
                  destination_arn: pulumi.Input[builtins.str],
                  detector_id: pulumi.Input[builtins.str],
                  kms_key_arn: pulumi.Input[builtins.str],
-                 destination_type: Optional[pulumi.Input[builtins.str]] = None):
+                 destination_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PublishingDestination resource.
         :param pulumi.Input[builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
@@ -32,12 +33,15 @@ class PublishingDestinationArgs:
         :param pulumi.Input[builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
                
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if destination_type is not None:
             pulumi.set(__self__, "destination_type", destination_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -89,6 +93,18 @@ class PublishingDestinationArgs:
     def destination_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "destination_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PublishingDestinationState:
@@ -96,7 +112,8 @@ class _PublishingDestinationState:
                  destination_arn: Optional[pulumi.Input[builtins.str]] = None,
                  destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PublishingDestination resources.
         :param pulumi.Input[builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
@@ -105,6 +122,7 @@ class _PublishingDestinationState:
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
@@ -114,6 +132,8 @@ class _PublishingDestinationState:
             pulumi.set(__self__, "detector_id", detector_id)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -165,6 +185,18 @@ class _PublishingDestinationState:
     def kms_key_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class PublishingDestination(pulumi.CustomResource):
 
@@ -178,6 +210,7 @@ class PublishingDestination(pulumi.CustomResource):
                  destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
@@ -269,6 +302,7 @@ class PublishingDestination(pulumi.CustomResource):
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -377,6 +411,7 @@ class PublishingDestination(pulumi.CustomResource):
                  destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -396,6 +431,7 @@ class PublishingDestination(pulumi.CustomResource):
             if kms_key_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key_arn'")
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            __props__.__dict__["region"] = region
         super(PublishingDestination, __self__).__init__(
             'aws:guardduty/publishingDestination:PublishingDestination',
             resource_name,
@@ -409,7 +445,8 @@ class PublishingDestination(pulumi.CustomResource):
             destination_arn: Optional[pulumi.Input[builtins.str]] = None,
             destination_type: Optional[pulumi.Input[builtins.str]] = None,
             detector_id: Optional[pulumi.Input[builtins.str]] = None,
-            kms_key_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'PublishingDestination':
+            kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'PublishingDestination':
         """
         Get an existing PublishingDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -423,6 +460,7 @@ class PublishingDestination(pulumi.CustomResource):
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,6 +470,7 @@ class PublishingDestination(pulumi.CustomResource):
         __props__.__dict__["destination_type"] = destination_type
         __props__.__dict__["detector_id"] = detector_id
         __props__.__dict__["kms_key_arn"] = kms_key_arn
+        __props__.__dict__["region"] = region
         return PublishingDestination(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -467,4 +506,12 @@ class PublishingDestination(pulumi.CustomResource):
         The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -138,6 +138,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableArray<Outputs.LifecyclePolicyPolicyDetail>> PolicyDetails { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         /// 
         /// The following arguments are optional:
@@ -246,6 +252,12 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         /// 
         /// The following arguments are optional:
@@ -320,6 +332,12 @@ namespace Pulumi.Aws.ImageBuilder
             get => _policyDetails ?? (_policyDetails = new InputList<Inputs.LifecyclePolicyPolicyDetailGetArgs>());
             set => _policyDetails = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.

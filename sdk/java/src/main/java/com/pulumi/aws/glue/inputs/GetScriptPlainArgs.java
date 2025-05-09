@@ -63,12 +63,20 @@ public final class GetScriptPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.language);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetScriptPlainArgs() {}
 
     private GetScriptPlainArgs(GetScriptPlainArgs $) {
         this.dagEdges = $.dagEdges;
         this.dagNodes = $.dagNodes;
         this.language = $.language;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -139,6 +147,11 @@ public final class GetScriptPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder language(@Nullable String language) {
             $.language = language;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

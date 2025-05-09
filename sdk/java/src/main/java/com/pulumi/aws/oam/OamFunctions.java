@@ -6,8 +6,12 @@ package com.pulumi.aws.oam;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.oam.inputs.GetLinkArgs;
 import com.pulumi.aws.oam.inputs.GetLinkPlainArgs;
+import com.pulumi.aws.oam.inputs.GetLinksArgs;
+import com.pulumi.aws.oam.inputs.GetLinksPlainArgs;
 import com.pulumi.aws.oam.inputs.GetSinkArgs;
 import com.pulumi.aws.oam.inputs.GetSinkPlainArgs;
+import com.pulumi.aws.oam.inputs.GetSinksArgs;
+import com.pulumi.aws.oam.inputs.GetSinksPlainArgs;
 import com.pulumi.aws.oam.outputs.GetLinkResult;
 import com.pulumi.aws.oam.outputs.GetLinksResult;
 import com.pulumi.aws.oam.outputs.GetSinkResult;
@@ -17,7 +21,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OamFunctions {
@@ -257,6 +260,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -270,7 +274,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -280,7 +285,7 @@ public final class OamFunctions {
      * 
      */
     public static Output<GetLinksResult> getLinks() {
-        return getLinks(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getLinks(GetLinksArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
@@ -298,6 +303,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -311,7 +317,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -321,7 +328,7 @@ public final class OamFunctions {
      * 
      */
     public static CompletableFuture<GetLinksResult> getLinksPlain() {
-        return getLinksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getLinksPlain(GetLinksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
@@ -339,6 +346,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -352,7 +360,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -361,7 +370,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLinksResult> getLinks(InvokeArgs args) {
+    public static Output<GetLinksResult> getLinks(GetLinksArgs args) {
         return getLinks(args, InvokeOptions.Empty);
     }
     /**
@@ -380,6 +389,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -393,7 +403,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -402,7 +413,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetLinksResult> getLinksPlain(InvokeArgs args) {
+    public static CompletableFuture<GetLinksResult> getLinksPlain(GetLinksPlainArgs args) {
         return getLinksPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -421,6 +432,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -434,7 +446,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -443,7 +456,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLinksResult> getLinks(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetLinksResult> getLinks(GetLinksArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:oam/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -462,6 +475,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -475,7 +489,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -484,7 +499,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLinksResult> getLinks(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetLinksResult> getLinks(GetLinksArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:oam/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -503,6 +518,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -516,7 +532,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getLinks(GetLinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -525,7 +542,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetLinksResult> getLinksPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetLinksResult> getLinksPlain(GetLinksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:oam/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -764,6 +781,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -777,7 +795,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -787,7 +806,7 @@ public final class OamFunctions {
      * 
      */
     public static Output<GetSinksResult> getSinks() {
-        return getSinks(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSinks(GetSinksArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -805,6 +824,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -818,7 +838,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -828,7 +849,7 @@ public final class OamFunctions {
      * 
      */
     public static CompletableFuture<GetSinksResult> getSinksPlain() {
-        return getSinksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSinksPlain(GetSinksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -846,6 +867,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -859,7 +881,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -868,7 +891,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSinksResult> getSinks(InvokeArgs args) {
+    public static Output<GetSinksResult> getSinks(GetSinksArgs args) {
         return getSinks(args, InvokeOptions.Empty);
     }
     /**
@@ -887,6 +910,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -900,7 +924,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -909,7 +934,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSinksResult> getSinksPlain(InvokeArgs args) {
+    public static CompletableFuture<GetSinksResult> getSinksPlain(GetSinksPlainArgs args) {
         return getSinksPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -928,6 +953,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -941,7 +967,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -950,7 +977,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSinksResult> getSinks(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetSinksResult> getSinks(GetSinksArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:oam/getSinks:getSinks", TypeShape.of(GetSinksResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -969,6 +996,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -982,7 +1010,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -991,7 +1020,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSinksResult> getSinks(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetSinksResult> getSinks(GetSinksArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:oam/getSinks:getSinks", TypeShape.of(GetSinksResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1010,6 +1039,7 @@ public final class OamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetSinksArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1023,7 +1053,8 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OamFunctions.getSinks(GetSinksArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1032,7 +1063,7 @@ public final class OamFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSinksResult> getSinksPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetSinksResult> getSinksPlain(GetSinksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:oam/getSinks:getSinks", TypeShape.of(GetSinksResult.class), args, Utilities.withVersion(options));
     }
 }

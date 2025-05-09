@@ -3,9 +3,8 @@
 
 package com.pulumi.aws.synthetics.inputs;
 
-import com.pulumi.aws.synthetics.inputs.GetRuntimeVersionsRuntimeVersion;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,25 +14,17 @@ public final class GetRuntimeVersionsPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetRuntimeVersionsPlainArgs Empty = new GetRuntimeVersionsPlainArgs();
 
-    /**
-     * List of runtime versions. See `runtime_versions` attribute reference.
-     * 
-     */
-    @Import(name="runtimeVersions")
-    private @Nullable List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
+    @Import(name="region")
+    private @Nullable String region;
 
-    /**
-     * @return List of runtime versions. See `runtime_versions` attribute reference.
-     * 
-     */
-    public Optional<List<GetRuntimeVersionsRuntimeVersion>> runtimeVersions() {
-        return Optional.ofNullable(this.runtimeVersions);
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetRuntimeVersionsPlainArgs() {}
 
     private GetRuntimeVersionsPlainArgs(GetRuntimeVersionsPlainArgs $) {
-        this.runtimeVersions = $.runtimeVersions;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -54,25 +45,9 @@ public final class GetRuntimeVersionsPlainArgs extends com.pulumi.resources.Invo
             $ = new GetRuntimeVersionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param runtimeVersions List of runtime versions. See `runtime_versions` attribute reference.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder runtimeVersions(@Nullable List<GetRuntimeVersionsRuntimeVersion> runtimeVersions) {
-            $.runtimeVersions = runtimeVersions;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
-        }
-
-        /**
-         * @param runtimeVersions List of runtime versions. See `runtime_versions` attribute reference.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder runtimeVersions(GetRuntimeVersionsRuntimeVersion... runtimeVersions) {
-            return runtimeVersions(List.of(runtimeVersions));
         }
 
         public GetRuntimeVersionsPlainArgs build() {

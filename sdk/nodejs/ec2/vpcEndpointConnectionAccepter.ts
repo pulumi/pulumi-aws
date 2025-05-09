@@ -69,6 +69,10 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * AWS VPC Endpoint ID.
      */
     public readonly vpcEndpointId!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointConnectionAccepterState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
             resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
             resourceInputs["vpcEndpointState"] = state ? state.vpcEndpointState : undefined;
@@ -105,6 +110,7 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointServiceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
             resourceInputs["vpcEndpointState"] = undefined /*out*/;
@@ -118,6 +124,10 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
  */
 export interface VpcEndpointConnectionAccepterState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS VPC Endpoint ID.
      */
@@ -136,6 +146,10 @@ export interface VpcEndpointConnectionAccepterState {
  * The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
  */
 export interface VpcEndpointConnectionAccepterArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS VPC Endpoint ID.
      */

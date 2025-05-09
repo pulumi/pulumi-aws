@@ -28,6 +28,7 @@ export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,
+        "region": args.region,
         "restApiId": args.restApiId,
         "sdkType": args.sdkType,
         "stageName": args.stageName,
@@ -42,6 +43,7 @@ export interface GetSdkArgs {
      * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
      */
     parameters?: {[key: string]: string};
+    region?: string;
     /**
      * Identifier of the associated REST API.
      */
@@ -77,6 +79,7 @@ export interface GetSdkResult {
      */
     readonly id: string;
     readonly parameters?: {[key: string]: string};
+    readonly region: string;
     readonly restApiId: string;
     readonly sdkType: string;
     readonly stageName: string;
@@ -105,6 +108,7 @@ export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,
+        "region": args.region,
         "restApiId": args.restApiId,
         "sdkType": args.sdkType,
         "stageName": args.stageName,
@@ -119,6 +123,7 @@ export interface GetSdkOutputArgs {
      * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the associated REST API.
      */

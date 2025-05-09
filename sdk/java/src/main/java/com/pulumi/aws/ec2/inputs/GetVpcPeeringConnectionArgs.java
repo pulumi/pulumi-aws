@@ -109,21 +109,6 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-     * 
-     */
-    @Import(name="peerRegion")
-    private @Nullable Output<String> peerRegion;
-
-    /**
-     * @return Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-     * 
-     */
-    public Optional<Output<String>> peerRegion() {
-        return Optional.ofNullable(this.peerRegion);
-    }
-
-    /**
      * ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      * 
      */
@@ -136,21 +121,6 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
      */
     public Optional<Output<String>> peerVpcId() {
         return Optional.ofNullable(this.peerVpcId);
-    }
-
-    /**
-     * Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-     * 
-     */
-    @Import(name="region")
-    private @Nullable Output<String> region;
-
-    /**
-     * @return Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-     * 
-     */
-    public Optional<Output<String>> region() {
-        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -172,8 +142,8 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
      * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connection.
+     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
      * 
      */
     @Import(name="tags")
@@ -183,8 +153,8 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connection.
+     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -215,9 +185,7 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
         this.ownerId = $.ownerId;
         this.peerCidrBlock = $.peerCidrBlock;
         this.peerOwnerId = $.peerOwnerId;
-        this.peerRegion = $.peerRegion;
         this.peerVpcId = $.peerVpcId;
-        this.region = $.region;
         this.status = $.status;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
@@ -378,27 +346,6 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param peerRegion Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder peerRegion(@Nullable Output<String> peerRegion) {
-            $.peerRegion = peerRegion;
-            return this;
-        }
-
-        /**
-         * @param peerRegion Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder peerRegion(String peerRegion) {
-            return peerRegion(Output.of(peerRegion));
-        }
-
-        /**
          * @param peerVpcId ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
          * 
          * @return builder
@@ -417,27 +364,6 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
          */
         public Builder peerVpcId(String peerVpcId) {
             return peerVpcId(Output.of(peerVpcId));
-        }
-
-        /**
-         * @param region Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(@Nullable Output<String> region) {
-            $.region = region;
-            return this;
-        }
-
-        /**
-         * @param region Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(String region) {
-            return region(Output.of(region));
         }
 
         /**
@@ -465,8 +391,8 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC peering connection.
+         * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -480,8 +406,8 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC peering connection.
+         * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
          * 
          * @return builder
          * 

@@ -189,6 +189,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -226,6 +229,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             get => _filters ?? (_filters = new InputList<Inputs.GetMulticastDomainFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -284,6 +290,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// EC2 Multicast Domain Group Sources
         /// </summary>
@@ -325,6 +332,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string ownerId,
 
+            string region,
+
             ImmutableArray<Outputs.GetMulticastDomainSourceResult> sources,
 
             string state,
@@ -347,6 +356,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Igmpv2Support = igmpv2Support;
             Members = members;
             OwnerId = ownerId;
+            Region = region;
             Sources = sources;
             State = state;
             StaticSourcesSupport = staticSourcesSupport;

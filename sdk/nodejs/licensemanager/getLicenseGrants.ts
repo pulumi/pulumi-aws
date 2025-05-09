@@ -32,6 +32,7 @@ export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getLicenseGrants:getLicenseGrants", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,11 +42,9 @@ export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.Invo
 export interface GetLicenseGrantsArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.licensemanager.GetLicenseGrantsFilter[];
+    region?: string;
 }
 
 /**
@@ -61,6 +60,7 @@ export interface GetLicenseGrantsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * This resource can be used to get a set of license grant ARNs matching a filter.
@@ -87,6 +87,7 @@ export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?:
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getLicenseGrants:getLicenseGrants", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -96,9 +97,7 @@ export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?:
 export interface GetLicenseGrantsOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetLicenseGrantsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

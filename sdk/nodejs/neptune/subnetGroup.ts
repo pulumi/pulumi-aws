@@ -78,6 +78,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of VPC subnet IDs.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -107,6 +111,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -118,6 +123,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -149,6 +155,10 @@ export interface SubnetGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of VPC subnet IDs.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -178,6 +188,10 @@ export interface SubnetGroupArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of VPC subnet IDs.
      */

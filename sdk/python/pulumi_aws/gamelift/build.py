@@ -25,6 +25,7 @@ class BuildArgs:
                  operating_system: pulumi.Input[builtins.str],
                  storage_location: pulumi.Input['BuildStorageLocationArgs'],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -32,6 +33,7 @@ class BuildArgs:
         :param pulumi.Input[builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[builtins.str] name: Name of the build
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] version: Version that is associated with this build.
         """
@@ -39,6 +41,8 @@ class BuildArgs:
         pulumi.set(__self__, "storage_location", storage_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -82,6 +86,18 @@ class BuildArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -111,6 +127,7 @@ class _BuildState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -120,6 +137,7 @@ class _BuildState:
         :param pulumi.Input[builtins.str] arn: GameLift Build ARN.
         :param pulumi.Input[builtins.str] name: Name of the build
         :param pulumi.Input[builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -131,6 +149,8 @@ class _BuildState:
             pulumi.set(__self__, "name", name)
         if operating_system is not None:
             pulumi.set(__self__, "operating_system", operating_system)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_location is not None:
             pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
@@ -175,6 +195,18 @@ class _BuildState:
     @operating_system.setter
     def operating_system(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "operating_system", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="storageLocation")
@@ -235,6 +267,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -270,6 +303,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the build
         :param pulumi.Input[builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] version: Version that is associated with this build.
@@ -324,6 +358,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -340,6 +375,7 @@ class Build(pulumi.CustomResource):
             if operating_system is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_system'")
             __props__.__dict__["operating_system"] = operating_system
+            __props__.__dict__["region"] = region
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location
@@ -360,6 +396,7 @@ class Build(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             operating_system: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -374,6 +411,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: GameLift Build ARN.
         :param pulumi.Input[builtins.str] name: Name of the build
         :param pulumi.Input[builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -386,6 +424,7 @@ class Build(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["operating_system"] = operating_system
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_location"] = storage_location
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -415,6 +454,14 @@ class Build(pulumi.CustomResource):
         Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         """
         return pulumi.get(self, "operating_system")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="storageLocation")

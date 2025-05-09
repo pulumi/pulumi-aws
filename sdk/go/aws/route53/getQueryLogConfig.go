@@ -90,31 +90,35 @@ type GetQueryLogConfigArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
-	//
-	// In addition to all arguments above, the following attributes are exported:
 	Filters []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The name of the query logging configuration.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
-	//
-	// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueryLogConfig.
 type GetQueryLogConfigResult struct {
-	Arn            string                    `pulumi:"arn"`
+	// Computed ARN of the Route53 Resolver Query Logging Configuration.
+	Arn string `pulumi:"arn"`
+	// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
 	DestinationArn string                    `pulumi:"destinationArn"`
 	Filters        []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string            `pulumi:"id"`
-	Name                     *string           `pulumi:"name"`
-	OwnerId                  string            `pulumi:"ownerId"`
-	ResolverQueryLogConfigId *string           `pulumi:"resolverQueryLogConfigId"`
-	ShareStatus              string            `pulumi:"shareStatus"`
-	Tags                     map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// The name of the query logging configuration.
+	Name *string `pulumi:"name"`
+	// The AWS account ID for the account that created the query logging configuration.
+	OwnerId                  string  `pulumi:"ownerId"`
+	Region                   string  `pulumi:"region"`
+	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
+	// An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
+	ShareStatus string `pulumi:"shareStatus"`
+	// Map of tags to assign to the service.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func GetQueryLogConfigOutput(ctx *pulumi.Context, args GetQueryLogConfigOutputArgs, opts ...pulumi.InvokeOption) GetQueryLogConfigResultOutput {
@@ -131,16 +135,13 @@ type GetQueryLogConfigOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
-	//
-	// In addition to all arguments above, the following attributes are exported:
 	Filters GetQueryLogConfigFilterArrayInput `pulumi:"filters"`
 	// The name of the query logging configuration.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId pulumi.StringPtrInput `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
-	//
-	// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -163,10 +164,12 @@ func (o GetQueryLogConfigResultOutput) ToGetQueryLogConfigResultOutputWithContex
 	return o
 }
 
+// Computed ARN of the Route53 Resolver Query Logging Configuration.
 func (o GetQueryLogConfigResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
 func (o GetQueryLogConfigResultOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
@@ -180,22 +183,30 @@ func (o GetQueryLogConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the query logging configuration.
 func (o GetQueryLogConfigResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The AWS account ID for the account that created the query logging configuration.
 func (o GetQueryLogConfigResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o GetQueryLogConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetQueryLogConfigResultOutput) ResolverQueryLogConfigId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) *string { return v.ResolverQueryLogConfigId }).(pulumi.StringPtrOutput)
 }
 
+// An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
 func (o GetQueryLogConfigResultOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
+// Map of tags to assign to the service.
 func (o GetQueryLogConfigResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

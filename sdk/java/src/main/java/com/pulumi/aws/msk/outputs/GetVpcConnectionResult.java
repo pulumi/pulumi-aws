@@ -28,6 +28,7 @@ public final class GetVpcConnectionResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return The security groups attached to the ENIs for the broker nodes.
      * 
@@ -74,6 +75,9 @@ public final class GetVpcConnectionResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The security groups attached to the ENIs for the broker nodes.
      * 
@@ -116,6 +120,7 @@ public final class GetVpcConnectionResult {
         private String authentication;
         private List<String> clientSubnets;
         private String id;
+        private String region;
         private List<String> securityGroups;
         private Map<String,String> tags;
         private String targetClusterArn;
@@ -127,6 +132,7 @@ public final class GetVpcConnectionResult {
     	      this.authentication = defaults.authentication;
     	      this.clientSubnets = defaults.clientSubnets;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.securityGroups = defaults.securityGroups;
     	      this.tags = defaults.tags;
     	      this.targetClusterArn = defaults.targetClusterArn;
@@ -166,6 +172,14 @@ public final class GetVpcConnectionResult {
               throw new MissingRequiredPropertyException("GetVpcConnectionResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -209,6 +223,7 @@ public final class GetVpcConnectionResult {
             _resultValue.authentication = authentication;
             _resultValue.clientSubnets = clientSubnets;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.securityGroups = securityGroups;
             _resultValue.tags = tags;
             _resultValue.targetClusterArn = targetClusterArn;

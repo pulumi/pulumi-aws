@@ -29,6 +29,7 @@ class RuleGroupArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -40,6 +41,7 @@ class RuleGroupArgs:
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -54,6 +56,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -145,6 +149,18 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
@@ -178,6 +194,7 @@ class _RuleGroupState:
                  lock_token: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -191,6 +208,7 @@ class _RuleGroupState:
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -211,6 +229,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if scope is not None:
@@ -305,6 +325,18 @@ class _RuleGroupState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
@@ -377,6 +409,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -391,6 +424,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -424,6 +458,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -444,6 +479,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["region"] = region
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -472,6 +508,7 @@ class RuleGroup(pulumi.CustomResource):
             lock_token: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
             scope: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -490,6 +527,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -507,6 +545,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["lock_token"] = lock_token
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
@@ -566,6 +605,14 @@ class RuleGroup(pulumi.CustomResource):
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -31,6 +31,13 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instance.
      * 
@@ -50,6 +57,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetInstanceArgs(GetInstanceArgs $) {
         this.dbInstanceIdentifier = $.dbInstanceIdentifier;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -90,6 +98,15 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

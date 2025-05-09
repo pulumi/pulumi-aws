@@ -5,17 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * `aws.getRegion` provides details about a specific AWS region.
+ * `aws.getRegion` provides details about a specific AWS Region.
  *
- * As well as validating a given region name this resource can be used to
- * discover the name of the region configured within the provider. The latter
+ * As well as validating a given Region name this resource can be used to
+ * discover the name of the Region configured within the provider. The latter
  * can be useful in a child module which is inheriting an AWS provider
  * configuration from its parent module.
  *
  * ## Example Usage
  *
  * The following example shows how the resource might be used to obtain
- * the name of the AWS region configured on the provider.
+ * the name of the AWS Region configured on the provider.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -31,6 +31,7 @@ export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Pr
         "endpoint": args.endpoint,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -44,9 +45,15 @@ export interface GetRegionArgs {
     endpoint?: string;
     id?: string;
     /**
-     * Full name of the region to select.
+     * Full name of the region to select. Use `region` instead.
+     *
+     * @deprecated name is deprecated. Use region instead.
      */
     name?: string;
+    /**
+     * Full name of the region to select (e.g. `us-east-1`)
+     */
+    region?: string;
 }
 
 /**
@@ -57,28 +64,26 @@ export interface GetRegionResult {
      * Region's description in this format: "Location (Region name)".
      */
     readonly description: string;
-    /**
-     * EC2 endpoint for the selected region.
-     */
     readonly endpoint: string;
     readonly id: string;
     /**
-     * Name of the selected region.
+     * @deprecated name is deprecated. Use region instead.
      */
     readonly name: string;
+    readonly region: string;
 }
 /**
- * `aws.getRegion` provides details about a specific AWS region.
+ * `aws.getRegion` provides details about a specific AWS Region.
  *
- * As well as validating a given region name this resource can be used to
- * discover the name of the region configured within the provider. The latter
+ * As well as validating a given Region name this resource can be used to
+ * discover the name of the Region configured within the provider. The latter
  * can be useful in a child module which is inheriting an AWS provider
  * configuration from its parent module.
  *
  * ## Example Usage
  *
  * The following example shows how the resource might be used to obtain
- * the name of the AWS region configured on the provider.
+ * the name of the AWS Region configured on the provider.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -94,6 +99,7 @@ export function getRegionOutput(args?: GetRegionOutputArgs, opts?: pulumi.Invoke
         "endpoint": args.endpoint,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -107,7 +113,13 @@ export interface GetRegionOutputArgs {
     endpoint?: pulumi.Input<string>;
     id?: pulumi.Input<string>;
     /**
-     * Full name of the region to select.
+     * Full name of the region to select. Use `region` instead.
+     *
+     * @deprecated name is deprecated. Use region instead.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Full name of the region to select (e.g. `us-east-1`)
+     */
+    region?: pulumi.Input<string>;
 }

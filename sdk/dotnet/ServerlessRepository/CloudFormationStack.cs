@@ -92,6 +92,12 @@ namespace Pulumi.Aws.ServerlessRepository
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Output("semanticVersion")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.ServerlessRepository
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Input("semanticVersion")]
@@ -264,6 +276,12 @@ namespace Pulumi.Aws.ServerlessRepository
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.

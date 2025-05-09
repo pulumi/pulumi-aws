@@ -19,8 +19,7 @@ public final class GetVpcIpamsPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      * 
      */
     @Import(name="filters")
@@ -29,8 +28,7 @@ public final class GetVpcIpamsPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      * 
      */
     public Optional<List<GetVpcIpamsFilter>> filters() {
@@ -52,11 +50,19 @@ public final class GetVpcIpamsPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.ipamIds);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetVpcIpamsPlainArgs() {}
 
     private GetVpcIpamsPlainArgs(GetVpcIpamsPlainArgs $) {
         this.filters = $.filters;
         this.ipamIds = $.ipamIds;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -80,8 +86,7 @@ public final class GetVpcIpamsPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available IPAMs.
          * 
          * @return builder
          * 
@@ -94,8 +99,7 @@ public final class GetVpcIpamsPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available IPAMs.
          * 
          * @return builder
          * 
@@ -123,6 +127,11 @@ public final class GetVpcIpamsPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder ipamIds(String... ipamIds) {
             return ipamIds(List.of(ipamIds));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetVpcIpamsPlainArgs build() {

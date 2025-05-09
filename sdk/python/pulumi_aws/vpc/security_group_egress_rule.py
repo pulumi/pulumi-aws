@@ -28,6 +28,7 @@ class SecurityGroupEgressRuleArgs:
                  from_port: Optional[pulumi.Input[builtins.int]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  referenced_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  to_port: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -40,6 +41,7 @@ class SecurityGroupEgressRuleArgs:
         :param pulumi.Input[builtins.int] from_port: The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the destination prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The destination security group that is referenced in the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         """
@@ -57,6 +59,8 @@ class SecurityGroupEgressRuleArgs:
             pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         if referenced_security_group_id is not None:
             pulumi.set(__self__, "referenced_security_group_id", referenced_security_group_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if to_port is not None:
@@ -160,6 +164,18 @@ class SecurityGroupEgressRuleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,6 +210,7 @@ class _SecurityGroupEgressRuleState:
                  ip_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  referenced_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -209,6 +226,7 @@ class _SecurityGroupEgressRuleState:
         :param pulumi.Input[builtins.str] ip_protocol: The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the destination prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The destination security group that is referenced in the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[builtins.str] security_group_rule_id: The ID of the security group rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -231,6 +249,8 @@ class _SecurityGroupEgressRuleState:
             pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         if referenced_security_group_id is not None:
             pulumi.set(__self__, "referenced_security_group_id", referenced_security_group_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
         if security_group_rule_id is not None:
@@ -339,6 +359,18 @@ class _SecurityGroupEgressRuleState:
         pulumi.set(self, "referenced_security_group_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -414,6 +446,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
                  ip_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  referenced_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  to_port: Optional[pulumi.Input[builtins.int]] = None,
@@ -458,6 +491,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_protocol: The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the destination prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The destination security group that is referenced in the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
@@ -521,6 +555,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
                  ip_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  referenced_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  to_port: Optional[pulumi.Input[builtins.int]] = None,
@@ -542,6 +577,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             __props__.__dict__["ip_protocol"] = ip_protocol
             __props__.__dict__["prefix_list_id"] = prefix_list_id
             __props__.__dict__["referenced_security_group_id"] = referenced_security_group_id
+            __props__.__dict__["region"] = region
             if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
             __props__.__dict__["security_group_id"] = security_group_id
@@ -568,6 +604,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             ip_protocol: Optional[pulumi.Input[builtins.str]] = None,
             prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
             referenced_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_id: Optional[pulumi.Input[builtins.str]] = None,
             security_group_rule_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -588,6 +625,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_protocol: The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the destination prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The destination security group that is referenced in the rule.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[builtins.str] security_group_rule_id: The ID of the security group rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -606,6 +644,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         __props__.__dict__["ip_protocol"] = ip_protocol
         __props__.__dict__["prefix_list_id"] = prefix_list_id
         __props__.__dict__["referenced_security_group_id"] = referenced_security_group_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["security_group_rule_id"] = security_group_rule_id
         __props__.__dict__["tags"] = tags
@@ -676,6 +715,14 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         The destination security group that is referenced in the rule.
         """
         return pulumi.get(self, "referenced_security_group_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupId")

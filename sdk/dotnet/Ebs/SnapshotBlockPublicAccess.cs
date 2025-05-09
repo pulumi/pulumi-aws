@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Ebs
     public partial class SnapshotBlockPublicAccess : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>
         [Output("state")]
@@ -92,6 +98,12 @@ namespace Pulumi.Aws.Ebs
     public sealed class SnapshotBlockPublicAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>
         [Input("state", required: true)]
@@ -105,6 +117,12 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class SnapshotBlockPublicAccessState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>

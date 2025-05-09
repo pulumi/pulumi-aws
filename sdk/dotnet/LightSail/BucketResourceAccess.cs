@@ -30,6 +30,12 @@ namespace Pulumi.Aws.LightSail
         public Output<string> BucketName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource to be granted bucket access.
         /// </summary>
         [Output("resourceName")]
@@ -88,6 +94,12 @@ namespace Pulumi.Aws.LightSail
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the resource to be granted bucket access.
         /// </summary>
         [Input("resourceName", required: true)]
@@ -106,6 +118,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the resource to be granted bucket access.

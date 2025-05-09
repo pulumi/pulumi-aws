@@ -21,6 +21,7 @@ public final class GetExportResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
@@ -45,6 +46,9 @@ public final class GetExportResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
@@ -65,6 +69,7 @@ public final class GetExportResult {
         private String exportingStackId;
         private String id;
         private String name;
+        private String region;
         private String value;
         public Builder() {}
         public Builder(GetExportResult defaults) {
@@ -72,6 +77,7 @@ public final class GetExportResult {
     	      this.exportingStackId = defaults.exportingStackId;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.value = defaults.value;
         }
 
@@ -100,6 +106,14 @@ public final class GetExportResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder value(String value) {
             if (value == null) {
               throw new MissingRequiredPropertyException("GetExportResult", "value");
@@ -112,6 +126,7 @@ public final class GetExportResult {
             _resultValue.exportingStackId = exportingStackId;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.value = value;
             return _resultValue;
         }

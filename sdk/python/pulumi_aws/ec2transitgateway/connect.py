@@ -23,6 +23,7 @@ class ConnectArgs:
                  transit_gateway_id: pulumi.Input[builtins.str],
                  transport_attachment_id: pulumi.Input[builtins.str],
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[builtins.bool]] = None):
@@ -31,6 +32,7 @@ class ConnectArgs:
         :param pulumi.Input[builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[builtins.str] transport_attachment_id: The underlaying VPC attachment
         :param pulumi.Input[builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -39,6 +41,8 @@ class ConnectArgs:
         pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_default_route_table_association is not None:
@@ -84,6 +88,18 @@ class ConnectArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,6 +139,7 @@ class ConnectArgs:
 class _ConnectState:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
@@ -132,6 +149,7 @@ class _ConnectState:
         """
         Input properties used for looking up and filtering Connect resources.
         :param pulumi.Input[builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -141,6 +159,8 @@ class _ConnectState:
         """
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -165,6 +185,18 @@ class _ConnectState:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -248,6 +280,7 @@ class Connect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[builtins.bool]] = None,
@@ -283,6 +316,7 @@ class Connect(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -337,6 +371,7 @@ class Connect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[builtins.bool]] = None,
@@ -352,6 +387,7 @@ class Connect(pulumi.CustomResource):
             __props__ = ConnectArgs.__new__(ConnectArgs)
 
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_default_route_table_association"] = transit_gateway_default_route_table_association
             __props__.__dict__["transit_gateway_default_route_table_propagation"] = transit_gateway_default_route_table_propagation
@@ -373,6 +409,7 @@ class Connect(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
@@ -387,6 +424,7 @@ class Connect(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -399,6 +437,7 @@ class Connect(pulumi.CustomResource):
         __props__ = _ConnectState.__new__(_ConnectState)
 
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_gateway_default_route_table_association"] = transit_gateway_default_route_table_association
@@ -414,6 +453,14 @@ class Connect(pulumi.CustomResource):
         The tunnel protocol. Valid values: `gre`. Default is `gre`.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

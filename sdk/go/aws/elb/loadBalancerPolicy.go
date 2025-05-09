@@ -152,6 +152,8 @@ type LoadBalancerPolicy struct {
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 	// The policy type.
 	PolicyTypeName pulumi.StringOutput `pulumi:"policyTypeName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLoadBalancerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -207,6 +209,8 @@ type loadBalancerPolicyState struct {
 	PolicyName *string `pulumi:"policyName"`
 	// The policy type.
 	PolicyTypeName *string `pulumi:"policyTypeName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LoadBalancerPolicyState struct {
@@ -218,6 +222,8 @@ type LoadBalancerPolicyState struct {
 	PolicyName pulumi.StringPtrInput
 	// The policy type.
 	PolicyTypeName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoadBalancerPolicyState) ElementType() reflect.Type {
@@ -233,6 +239,8 @@ type loadBalancerPolicyArgs struct {
 	PolicyName string `pulumi:"policyName"`
 	// The policy type.
 	PolicyTypeName string `pulumi:"policyTypeName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LoadBalancerPolicy resource.
@@ -245,6 +253,8 @@ type LoadBalancerPolicyArgs struct {
 	PolicyName pulumi.StringInput
 	// The policy type.
 	PolicyTypeName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoadBalancerPolicyArgs) ElementType() reflect.Type {
@@ -352,6 +362,11 @@ func (o LoadBalancerPolicyOutput) PolicyName() pulumi.StringOutput {
 // The policy type.
 func (o LoadBalancerPolicyOutput) PolicyTypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerPolicy) pulumi.StringOutput { return v.PolicyTypeName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LoadBalancerPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LoadBalancerPolicyArrayOutput struct{ *pulumi.OutputState }

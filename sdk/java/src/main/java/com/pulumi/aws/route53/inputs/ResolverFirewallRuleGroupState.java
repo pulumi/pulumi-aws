@@ -62,6 +62,21 @@ public final class ResolverFirewallRuleGroupState extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
      * 
      */
@@ -112,6 +127,7 @@ public final class ResolverFirewallRuleGroupState extends com.pulumi.resources.R
         this.arn = $.arn;
         this.name = $.name;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.shareStatus = $.shareStatus;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -196,6 +212,27 @@ public final class ResolverFirewallRuleGroupState extends com.pulumi.resources.R
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

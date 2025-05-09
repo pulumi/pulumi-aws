@@ -50,6 +50,7 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyArgs struct {
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that identifies the resource policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -60,6 +61,7 @@ type LookupResourcePolicyResult struct {
 	Id string `pulumi:"id"`
 	// The [policy][1] for the resource.
 	Policy      string `pulumi:"policy"`
+	Region      string `pulumi:"region"`
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -74,6 +76,7 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that identifies the resource policy.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
@@ -105,6 +108,10 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringOutput {
 // The [policy][1] for the resource.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupResourcePolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResourcePolicyResultOutput) ResourceArn() pulumi.StringOutput {

@@ -63,6 +63,10 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for a S3 Destination. Defined below
      */
     public readonly s3Destination!: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination | undefined>;
@@ -80,9 +84,11 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClassificationExportConfigurationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
             const args = argsOrState as ClassificationExportConfigurationArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -95,6 +101,10 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
  */
 export interface ClassificationExportConfigurationState {
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for a S3 Destination. Defined below
      */
     s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
@@ -104,6 +114,10 @@ export interface ClassificationExportConfigurationState {
  * The set of arguments for constructing a ClassificationExportConfiguration resource.
  */
 export interface ClassificationExportConfigurationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a S3 Destination. Defined below
      */

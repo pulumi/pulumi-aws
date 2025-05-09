@@ -24,6 +24,7 @@ public final class GetAppregistryAttributeGroupResult {
     private String description;
     private String id;
     private String name;
+    private String region;
     /**
      * @return A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -54,6 +55,9 @@ public final class GetAppregistryAttributeGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -76,6 +80,7 @@ public final class GetAppregistryAttributeGroupResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetAppregistryAttributeGroupResult defaults) {
@@ -85,6 +90,7 @@ public final class GetAppregistryAttributeGroupResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -129,6 +135,14 @@ public final class GetAppregistryAttributeGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAppregistryAttributeGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetAppregistryAttributeGroupResult", "tags");
@@ -143,6 +157,7 @@ public final class GetAppregistryAttributeGroupResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

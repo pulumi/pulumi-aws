@@ -108,6 +108,10 @@ export class FunctionUrl extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A generated ID for the endpoint.
      */
     public /*out*/ readonly urlId!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class FunctionUrl extends pulumi.CustomResource {
             resourceInputs["functionUrl"] = state ? state.functionUrl : undefined;
             resourceInputs["invokeMode"] = state ? state.invokeMode : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["urlId"] = state ? state.urlId : undefined;
         } else {
             const args = argsOrState as FunctionUrlArgs | undefined;
@@ -146,6 +151,7 @@ export class FunctionUrl extends pulumi.CustomResource {
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
             resourceInputs["urlId"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface FunctionUrlState {
      */
     qualifier?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A generated ID for the endpoint.
      */
     urlId?: pulumi.Input<string>;
@@ -217,4 +227,8 @@ export interface FunctionUrlArgs {
      * The alias name or `"$LATEST"`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -97,6 +97,8 @@ type Table struct {
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
 	// The following argument is optional:
@@ -178,6 +180,8 @@ type tableState struct {
 	Namespace *string `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
 	// The following argument is optional:
@@ -221,6 +225,8 @@ type TableState struct {
 	Namespace pulumi.StringPtrInput
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
 	// The following argument is optional:
@@ -254,6 +260,8 @@ type tableArgs struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
 	// The following argument is optional:
@@ -277,6 +285,8 @@ type TableArgs struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
 	// The following argument is optional:
@@ -430,6 +440,11 @@ func (o TableOutput) Namespace() pulumi.StringOutput {
 // Account ID of the account that owns the namespace.
 func (o TableOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN referencing the Table Bucket that contains this Namespace.

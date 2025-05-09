@@ -63,6 +63,8 @@ type Connect struct {
 
 	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -115,6 +117,8 @@ func GetConnect(ctx *pulumi.Context,
 type connectState struct {
 	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -132,6 +136,8 @@ type connectState struct {
 type ConnectState struct {
 	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -153,6 +159,8 @@ func (ConnectState) ElementType() reflect.Type {
 type connectArgs struct {
 	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -169,6 +177,8 @@ type connectArgs struct {
 type ConnectArgs struct {
 	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -271,6 +281,11 @@ func (o ConnectOutput) ToConnectOutputWithContext(ctx context.Context) ConnectOu
 // The tunnel protocol. Valid values: `gre`. Default is `gre`.
 func (o ConnectOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connect) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConnectOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connect) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

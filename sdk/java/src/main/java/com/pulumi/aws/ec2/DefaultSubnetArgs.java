@@ -126,6 +126,21 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.privateDnsHostnameTypeOnLaunch);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -148,6 +163,7 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
         this.mapCustomerOwnedIpOnLaunch = $.mapCustomerOwnedIpOnLaunch;
         this.mapPublicIpOnLaunch = $.mapPublicIpOnLaunch;
         this.privateDnsHostnameTypeOnLaunch = $.privateDnsHostnameTypeOnLaunch;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -307,6 +323,27 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder privateDnsHostnameTypeOnLaunch(String privateDnsHostnameTypeOnLaunch) {
             return privateDnsHostnameTypeOnLaunch(Output.of(privateDnsHostnameTypeOnLaunch));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

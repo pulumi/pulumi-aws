@@ -147,6 +147,10 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly ramdiskId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     public /*out*/ readonly rootDeviceName!: pulumi.Output<string>;
@@ -225,6 +229,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["platformDetails"] = state ? state.platformDetails : undefined;
             resourceInputs["public"] = state ? state.public : undefined;
             resourceInputs["ramdiskId"] = state ? state.ramdiskId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
             resourceInputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
             resourceInputs["sourceAmiId"] = state ? state.sourceAmiId : undefined;
@@ -252,6 +257,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceAmiId"] = args ? args.sourceAmiId : undefined;
             resourceInputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -373,6 +379,10 @@ export interface AmiCopyState {
      */
     ramdiskId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     rootDeviceName?: pulumi.Input<string>;
@@ -453,6 +463,10 @@ export interface AmiCopyArgs {
      * Region-unique name for the AMI.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Id of the AMI to copy. This id must be valid in the region
      * given by `sourceAmiRegion`.

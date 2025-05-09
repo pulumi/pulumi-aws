@@ -56,7 +56,8 @@ type GetPromptArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Prompt by name
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPrompt.
@@ -69,6 +70,7 @@ type GetPromptResult struct {
 	Name       string `pulumi:"name"`
 	// Identifier for the prompt.
 	PromptId string `pulumi:"promptId"`
+	Region   string `pulumi:"region"`
 }
 
 func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulumi.InvokeOption) GetPromptResultOutput {
@@ -85,7 +87,8 @@ type GetPromptOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Prompt by name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPromptOutputArgs) ElementType() reflect.Type {
@@ -128,6 +131,10 @@ func (o GetPromptResultOutput) Name() pulumi.StringOutput {
 // Identifier for the prompt.
 func (o GetPromptResultOutput) PromptId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.PromptId }).(pulumi.StringOutput)
+}
+
+func (o GetPromptResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPromptResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

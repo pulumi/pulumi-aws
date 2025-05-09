@@ -27,6 +27,7 @@ export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
         "id": args.id,
+        "region": args.region,
         "samlOptions": args.samlOptions,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetServerlessSecurityConfigArgs {
      * The unique identifier of the security configuration.
      */
     id: string;
+    region?: string;
     /**
      * SAML options for the security configuration.
      */
@@ -66,6 +68,7 @@ export interface GetServerlessSecurityConfigResult {
      * The date the configuration was last modified.
      */
     readonly lastModifiedDate: string;
+    readonly region: string;
     /**
      * SAML options for the security configuration.
      */
@@ -95,6 +98,7 @@ export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityCon
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
         "id": args.id,
+        "region": args.region,
         "samlOptions": args.samlOptions,
     }, opts);
 }
@@ -107,6 +111,7 @@ export interface GetServerlessSecurityConfigOutputArgs {
      * The unique identifier of the security configuration.
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * SAML options for the security configuration.
      */

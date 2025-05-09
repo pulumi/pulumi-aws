@@ -76,6 +76,10 @@ export class NfsLocation extends pulumi.CustomResource {
      */
     public readonly onPremConfig!: pulumi.Output<outputs.datasync.NfsLocationOnPremConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
     public readonly serverHostname!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class NfsLocation extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["mountOptions"] = state ? state.mountOptions : undefined;
             resourceInputs["onPremConfig"] = state ? state.onPremConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverHostname"] = state ? state.serverHostname : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -127,6 +132,7 @@ export class NfsLocation extends pulumi.CustomResource {
             }
             resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
             resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -155,6 +161,10 @@ export interface NfsLocationState {
      * Configuration block containing information for connecting to the NFS File System.
      */
     onPremConfig?: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
@@ -186,6 +196,10 @@ export interface NfsLocationArgs {
      * Configuration block containing information for connecting to the NFS File System.
      */
     onPremConfig: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */

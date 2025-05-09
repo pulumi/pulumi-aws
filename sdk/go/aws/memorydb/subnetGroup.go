@@ -78,6 +78,8 @@ type SubnetGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 	//
 	// The following arguments are optional:
@@ -131,6 +133,8 @@ type subnetGroupState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 	//
 	// The following arguments are optional:
@@ -152,6 +156,8 @@ type SubnetGroupState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 	//
 	// The following arguments are optional:
@@ -175,6 +181,8 @@ type subnetGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 	//
 	// The following arguments are optional:
@@ -191,6 +199,8 @@ type SubnetGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 	//
 	// The following arguments are optional:
@@ -304,6 +314,11 @@ func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o SubnetGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SubnetGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.

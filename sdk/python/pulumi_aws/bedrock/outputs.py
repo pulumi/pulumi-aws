@@ -1090,7 +1090,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
                  share_point_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration'] = None,
                  web_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration'] = None):
         """
-        :param builtins.str type: Type of storage for the data source. Valid values: `S3`.
+        :param builtins.str type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs' confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
         :param 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs' s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs' salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
@@ -1113,7 +1113,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of storage for the data source. Valid values: `S3`.
+        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         """
         return pulumi.get(self, "type")
 

@@ -54,6 +54,7 @@ func GetBrokerEngineTypes(ctx *pulumi.Context, args *GetBrokerEngineTypesArgs, o
 type GetBrokerEngineTypesArgs struct {
 	// The MQ engine type to return version details for.
 	EngineType *string `pulumi:"engineType"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerEngineTypes.
@@ -63,7 +64,8 @@ type GetBrokerEngineTypesResult struct {
 	// The broker's engine type.
 	EngineType *string `pulumi:"engineType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetBrokerEngineTypesOutput(ctx *pulumi.Context, args GetBrokerEngineTypesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerEngineTypesResultOutput {
@@ -79,6 +81,7 @@ func GetBrokerEngineTypesOutput(ctx *pulumi.Context, args GetBrokerEngineTypesOu
 type GetBrokerEngineTypesOutputArgs struct {
 	// The MQ engine type to return version details for.
 	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerEngineTypesOutputArgs) ElementType() reflect.Type {
@@ -113,6 +116,10 @@ func (o GetBrokerEngineTypesResultOutput) EngineType() pulumi.StringPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetBrokerEngineTypesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerEngineTypesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetBrokerEngineTypesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerEngineTypesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

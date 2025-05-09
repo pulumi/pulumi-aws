@@ -61,12 +61,20 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
         return this.plaintext;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetCipherTextPlainArgs() {}
 
     private GetCipherTextPlainArgs(GetCipherTextPlainArgs $) {
         this.context = $.context;
         this.keyId = $.keyId;
         this.plaintext = $.plaintext;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -117,6 +125,11 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder plaintext(String plaintext) {
             $.plaintext = plaintext;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

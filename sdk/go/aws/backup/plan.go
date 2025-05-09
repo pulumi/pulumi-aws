@@ -74,6 +74,8 @@ type Plan struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The display name of a backup plan.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayOutput `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,6 +125,8 @@ type planState struct {
 	Arn *string `pulumi:"arn"`
 	// The display name of a backup plan.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,6 +144,8 @@ type PlanState struct {
 	Arn pulumi.StringPtrInput
 	// The display name of a backup plan.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -159,6 +165,8 @@ type planArgs struct {
 	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
 	// The display name of a backup plan.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -171,6 +179,8 @@ type PlanArgs struct {
 	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
 	// The display name of a backup plan.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -277,6 +287,11 @@ func (o PlanOutput) Arn() pulumi.StringOutput {
 // The display name of a backup plan.
 func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A rule object that specifies a scheduled task that is used to back up a selection of resources.

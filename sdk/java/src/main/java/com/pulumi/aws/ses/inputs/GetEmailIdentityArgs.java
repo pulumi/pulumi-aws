@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,10 +31,18 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
         return this.email;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetEmailIdentityArgs() {}
 
     private GetEmailIdentityArgs(GetEmailIdentityArgs $) {
         this.email = $.email;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,6 +82,15 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder email(String email) {
             return email(Output.of(email));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetEmailIdentityArgs build() {

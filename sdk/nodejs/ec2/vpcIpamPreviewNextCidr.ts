@@ -81,6 +81,10 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     public readonly netmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpamPreviewNextCidr resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
             resourceInputs["disallowedCidrs"] = state ? state.disallowedCidrs : undefined;
             resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VpcIpamPreviewNextCidrArgs | undefined;
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
@@ -107,6 +112,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
             resourceInputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
             resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["cidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,6 +140,10 @@ export interface VpcIpamPreviewNextCidrState {
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -152,4 +162,8 @@ export interface VpcIpamPreviewNextCidrArgs {
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

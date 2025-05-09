@@ -35,6 +35,7 @@ public final class GetAliasResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Routing Configuration of state machine alias
      * 
@@ -74,6 +75,9 @@ public final class GetAliasResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Routing Configuration of state machine alias
      * 
@@ -99,6 +103,7 @@ public final class GetAliasResult {
         private @Nullable String description;
         private String id;
         private String name;
+        private String region;
         private List<GetAliasRoutingConfiguration> routingConfigurations;
         private String statemachineArn;
         public Builder() {}
@@ -109,6 +114,7 @@ public final class GetAliasResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.routingConfigurations = defaults.routingConfigurations;
     	      this.statemachineArn = defaults.statemachineArn;
         }
@@ -152,6 +158,14 @@ public final class GetAliasResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routingConfigurations(List<GetAliasRoutingConfiguration> routingConfigurations) {
             if (routingConfigurations == null) {
               throw new MissingRequiredPropertyException("GetAliasResult", "routingConfigurations");
@@ -177,6 +191,7 @@ public final class GetAliasResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.routingConfigurations = routingConfigurations;
             _resultValue.statemachineArn = statemachineArn;
             return _resultValue;

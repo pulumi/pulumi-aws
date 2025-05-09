@@ -79,6 +79,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
     public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
@@ -108,6 +112,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["projectDescription"] = state ? state.projectDescription : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceCatalogProvisioningDetails"] = state ? state.serviceCatalogProvisioningDetails : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -121,6 +126,7 @@ export class Project extends pulumi.CustomResource {
             }
             resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface ProjectState {
      */
     projectName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
     serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
@@ -178,6 +188,10 @@ export interface ProjectArgs {
      * The name of the Project.
      */
     projectName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */

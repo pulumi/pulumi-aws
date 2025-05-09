@@ -82,14 +82,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Type of storage for the data source. Valid values: `S3`.
+     * Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of storage for the data source. Valid values: `S3`.
+     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
      * 
      */
     public Output<String> type() {
@@ -225,7 +225,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param type Type of storage for the data source. Valid values: `S3`.
+         * @param type Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param type Type of storage for the data source. Valid values: `S3`.
+         * @param type Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
          * 
          * @return builder
          * 

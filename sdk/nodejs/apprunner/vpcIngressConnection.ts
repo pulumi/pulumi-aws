@@ -82,6 +82,10 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     public readonly serviceArn!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["ingressVpcConfiguration"] = state ? state.ingressVpcConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -129,6 +134,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
             }
             resourceInputs["ingressVpcConfiguration"] = args ? args.ingressVpcConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export interface VpcIngressConnectionState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     serviceArn?: pulumi.Input<string>;
@@ -191,6 +201,10 @@ export interface VpcIngressConnectionArgs {
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */

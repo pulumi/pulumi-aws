@@ -12,6 +12,8 @@ import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
 import com.pulumi.aws.lambda.inputs.GetFunctionPlainArgs;
 import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
 import com.pulumi.aws.lambda.inputs.GetFunctionUrlPlainArgs;
+import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+import com.pulumi.aws.lambda.inputs.GetFunctionsPlainArgs;
 import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
 import com.pulumi.aws.lambda.inputs.GetInvocationPlainArgs;
 import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
@@ -28,7 +30,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class LambdaFunctions {
@@ -921,6 +922,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -934,7 +936,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -944,7 +947,7 @@ public final class LambdaFunctions {
      * 
      */
     public static Output<GetFunctionsResult> getFunctions() {
-        return getFunctions(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getFunctions(GetFunctionsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data resource to get a list of Lambda Functions.
@@ -960,6 +963,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -973,7 +977,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -983,7 +988,7 @@ public final class LambdaFunctions {
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain() {
-        return getFunctionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getFunctionsPlain(GetFunctionsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data resource to get a list of Lambda Functions.
@@ -999,6 +1004,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1012,7 +1018,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1021,7 +1028,7 @@ public final class LambdaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args) {
+    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args) {
         return getFunctions(args, InvokeOptions.Empty);
     }
     /**
@@ -1038,6 +1045,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1051,7 +1059,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1060,7 +1069,7 @@ public final class LambdaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args) {
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args) {
         return getFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -1077,6 +1086,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1090,7 +1100,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1099,7 +1110,7 @@ public final class LambdaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1116,6 +1127,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1129,7 +1141,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1138,7 +1151,7 @@ public final class LambdaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1155,6 +1168,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1168,7 +1182,8 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1177,7 +1192,7 @@ public final class LambdaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**

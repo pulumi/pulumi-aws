@@ -99,6 +99,10 @@ export class Dashboard extends pulumi.CustomResource {
      * The name of the dashboard.
      */
     public readonly dashboardName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -116,6 +120,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["dashboardArn"] = state ? state.dashboardArn : undefined;
             resourceInputs["dashboardBody"] = state ? state.dashboardBody : undefined;
             resourceInputs["dashboardName"] = state ? state.dashboardName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
             if ((!args || args.dashboardBody === undefined) && !opts.urn) {
@@ -126,6 +131,7 @@ export class Dashboard extends pulumi.CustomResource {
             }
             resourceInputs["dashboardBody"] = args ? args.dashboardBody : undefined;
             resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["dashboardArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,6 +155,10 @@ export interface DashboardState {
      * The name of the dashboard.
      */
     dashboardName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -163,4 +173,8 @@ export interface DashboardArgs {
      * The name of the dashboard.
      */
     dashboardName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

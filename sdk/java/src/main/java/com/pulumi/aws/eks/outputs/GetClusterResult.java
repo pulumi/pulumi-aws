@@ -89,6 +89,7 @@ public final class GetClusterResult {
      * 
      */
     private String platformVersion;
+    private String region;
     /**
      * @return Contains remote network configuration for EKS Hybrid Nodes.
      * 
@@ -230,6 +231,9 @@ public final class GetClusterResult {
     public String platformVersion() {
         return this.platformVersion;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Contains remote network configuration for EKS Hybrid Nodes.
      * 
@@ -317,6 +321,7 @@ public final class GetClusterResult {
         private String name;
         private List<GetClusterOutpostConfig> outpostConfigs;
         private String platformVersion;
+        private String region;
         private List<GetClusterRemoteNetworkConfig> remoteNetworkConfigs;
         private String roleArn;
         private String status;
@@ -343,6 +348,7 @@ public final class GetClusterResult {
     	      this.name = defaults.name;
     	      this.outpostConfigs = defaults.outpostConfigs;
     	      this.platformVersion = defaults.platformVersion;
+    	      this.region = defaults.region;
     	      this.remoteNetworkConfigs = defaults.remoteNetworkConfigs;
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
@@ -488,6 +494,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder remoteNetworkConfigs(List<GetClusterRemoteNetworkConfig> remoteNetworkConfigs) {
             if (remoteNetworkConfigs == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "remoteNetworkConfigs");
@@ -587,6 +601,7 @@ public final class GetClusterResult {
             _resultValue.name = name;
             _resultValue.outpostConfigs = outpostConfigs;
             _resultValue.platformVersion = platformVersion;
+            _resultValue.region = region;
             _resultValue.remoteNetworkConfigs = remoteNetworkConfigs;
             _resultValue.roleArn = roleArn;
             _resultValue.status = status;

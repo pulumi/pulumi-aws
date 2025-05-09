@@ -72,6 +72,8 @@ type Volume struct {
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size pulumi.IntOutput `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
@@ -139,6 +141,8 @@ type volumeState struct {
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
@@ -174,6 +178,8 @@ type VolumeState struct {
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Size of the drive in GiBs.
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
@@ -209,6 +215,8 @@ type volumeArgs struct {
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
@@ -239,6 +247,8 @@ type VolumeArgs struct {
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Size of the drive in GiBs.
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
@@ -383,6 +393,11 @@ func (o VolumeOutput) MultiAttachEnabled() pulumi.BoolPtrOutput {
 // Amazon Resource Name (ARN) of the Outpost.
 func (o VolumeOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Size of the drive in GiBs.

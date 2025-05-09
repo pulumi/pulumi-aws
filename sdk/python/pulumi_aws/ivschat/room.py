@@ -27,6 +27,7 @@ class RoomArgs:
                  maximum_message_rate_per_second: Optional[pulumi.Input[builtins.int]] = None,
                  message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Room resource.
@@ -40,6 +41,7 @@ class RoomArgs:
         :param pulumi.Input['RoomMessageReviewHandlerArgs'] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[builtins.str] name: Room name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if logging_configuration_identifiers is not None:
@@ -52,6 +54,8 @@ class RoomArgs:
             pulumi.set(__self__, "message_review_handler", message_review_handler)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -122,6 +126,18 @@ class RoomArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -142,6 +158,7 @@ class _RoomState:
                  maximum_message_rate_per_second: Optional[pulumi.Input[builtins.int]] = None,
                  message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -157,6 +174,7 @@ class _RoomState:
         :param pulumi.Input['RoomMessageReviewHandlerArgs'] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[builtins.str] name: Room name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -172,6 +190,8 @@ class _RoomState:
             pulumi.set(__self__, "message_review_handler", message_review_handler)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -256,6 +276,18 @@ class _RoomState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -292,6 +324,7 @@ class Room(pulumi.CustomResource):
                  maximum_message_rate_per_second: Optional[pulumi.Input[builtins.int]] = None,
                  message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -328,6 +361,7 @@ class Room(pulumi.CustomResource):
         :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[builtins.str] name: Room name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -378,6 +412,7 @@ class Room(pulumi.CustomResource):
                  maximum_message_rate_per_second: Optional[pulumi.Input[builtins.int]] = None,
                  message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -393,6 +428,7 @@ class Room(pulumi.CustomResource):
             __props__.__dict__["maximum_message_rate_per_second"] = maximum_message_rate_per_second
             __props__.__dict__["message_review_handler"] = message_review_handler
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -412,6 +448,7 @@ class Room(pulumi.CustomResource):
             maximum_message_rate_per_second: Optional[pulumi.Input[builtins.int]] = None,
             message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Room':
         """
@@ -432,6 +469,7 @@ class Room(pulumi.CustomResource):
         :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[builtins.str] name: Room name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -445,6 +483,7 @@ class Room(pulumi.CustomResource):
         __props__.__dict__["maximum_message_rate_per_second"] = maximum_message_rate_per_second
         __props__.__dict__["message_review_handler"] = message_review_handler
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Room(resource_name, opts=opts, __props__=__props__)
@@ -501,6 +540,14 @@ class Room(pulumi.CustomResource):
         Room name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

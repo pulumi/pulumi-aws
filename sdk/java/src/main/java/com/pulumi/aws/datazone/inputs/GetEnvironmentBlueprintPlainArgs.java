@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetEnvironmentBlueprintPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -59,12 +61,20 @@ public final class GetEnvironmentBlueprintPlainArgs extends com.pulumi.resources
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetEnvironmentBlueprintPlainArgs() {}
 
     private GetEnvironmentBlueprintPlainArgs(GetEnvironmentBlueprintPlainArgs $) {
         this.domainId = $.domainId;
         this.managed = $.managed;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -115,6 +125,11 @@ public final class GetEnvironmentBlueprintPlainArgs extends com.pulumi.resources
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

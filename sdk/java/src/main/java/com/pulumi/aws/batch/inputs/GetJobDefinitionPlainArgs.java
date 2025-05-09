@@ -45,6 +45,13 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The revision of the job definition.
      * 
@@ -80,6 +87,7 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
     private GetJobDefinitionPlainArgs(GetJobDefinitionPlainArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.revision = $.revision;
         this.status = $.status;
     }
@@ -121,6 +129,11 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

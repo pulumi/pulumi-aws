@@ -84,6 +84,10 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      */
     public readonly permission!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.ec2.NetworkInterfacePermissionTimeouts | undefined>;
 
     /**
@@ -103,6 +107,7 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["networkInterfacePermissionId"] = state ? state.networkInterfacePermissionId : undefined;
             resourceInputs["permission"] = state ? state.permission : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as NetworkInterfacePermissionArgs | undefined;
@@ -118,6 +123,7 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["networkInterfacePermissionId"] = undefined /*out*/;
         }
@@ -146,6 +152,10 @@ export interface NetworkInterfacePermissionState {
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      */
     permission?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts>;
 }
 
@@ -165,5 +175,9 @@ export interface NetworkInterfacePermissionArgs {
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      */
     permission: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts>;
 }

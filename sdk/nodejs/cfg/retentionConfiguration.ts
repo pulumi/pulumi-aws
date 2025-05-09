@@ -58,6 +58,10 @@ export class RetentionConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The number of days AWS Config stores historical information.
      */
     public readonly retentionPeriodInDays!: pulumi.Output<number>;
@@ -76,12 +80,14 @@ export class RetentionConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RetentionConfigurationState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriodInDays"] = state ? state.retentionPeriodInDays : undefined;
         } else {
             const args = argsOrState as RetentionConfigurationArgs | undefined;
             if ((!args || args.retentionPeriodInDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPeriodInDays'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriodInDays"] = args ? args.retentionPeriodInDays : undefined;
             resourceInputs["name"] = undefined /*out*/;
         }
@@ -99,6 +105,10 @@ export interface RetentionConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The number of days AWS Config stores historical information.
      */
     retentionPeriodInDays?: pulumi.Input<number>;
@@ -108,6 +118,10 @@ export interface RetentionConfigurationState {
  * The set of arguments for constructing a RetentionConfiguration resource.
  */
 export interface RetentionConfigurationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The number of days AWS Config stores historical information.
      */

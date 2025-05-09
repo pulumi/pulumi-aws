@@ -51,7 +51,8 @@ func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opt
 // A collection of arguments for invoking getBootstrapBrokers.
 type GetBootstrapBrokersArgs struct {
 	// ARN of the cluster the nodes belong to.
-	ClusterArn string `pulumi:"clusterArn"`
+	ClusterArn string  `pulumi:"clusterArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBootstrapBrokers.
@@ -78,7 +79,8 @@ type GetBootstrapBrokersResult struct {
 	BootstrapBrokersVpcConnectivityTls string `pulumi:"bootstrapBrokersVpcConnectivityTls"`
 	ClusterArn                         string `pulumi:"clusterArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutputArgs, opts ...pulumi.InvokeOption) GetBootstrapBrokersResultOutput {
@@ -93,7 +95,8 @@ func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutp
 // A collection of arguments for invoking getBootstrapBrokers.
 type GetBootstrapBrokersOutputArgs struct {
 	// ARN of the cluster the nodes belong to.
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	ClusterArn pulumi.StringInput    `pulumi:"clusterArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBootstrapBrokersOutputArgs) ElementType() reflect.Type {
@@ -172,6 +175,10 @@ func (o GetBootstrapBrokersResultOutput) ClusterArn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetBootstrapBrokersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetBootstrapBrokersResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

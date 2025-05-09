@@ -292,6 +292,21 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
@@ -376,6 +391,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         this.preventUserExistenceErrors = $.preventUserExistenceErrors;
         this.readAttributes = $.readAttributes;
         this.refreshTokenValidity = $.refreshTokenValidity;
+        this.region = $.region;
         this.supportedIdentityProviders = $.supportedIdentityProviders;
         this.tokenValidityUnits = $.tokenValidityUnits;
         this.userPoolId = $.userPoolId;
@@ -836,6 +852,27 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder refreshTokenValidity(Integer refreshTokenValidity) {
             return refreshTokenValidity(Output.of(refreshTokenValidity));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

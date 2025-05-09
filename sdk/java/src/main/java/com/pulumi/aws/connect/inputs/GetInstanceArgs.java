@@ -46,6 +46,13 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.instanceId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags to assigned to the instance.
      * 
@@ -66,6 +73,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     private GetInstanceArgs(GetInstanceArgs $) {
         this.instanceAlias = $.instanceAlias;
         this.instanceId = $.instanceId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -127,6 +135,15 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

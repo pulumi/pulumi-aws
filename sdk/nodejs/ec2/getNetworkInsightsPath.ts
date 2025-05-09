@@ -27,6 +27,7 @@ export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?:
     return pulumi.runtime.invoke("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", {
         "filters": args.filters,
         "networkInsightsPathId": args.networkInsightsPathId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,12 +38,17 @@ export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?:
 export interface GetNetworkInsightsPathArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetNetworkInsightsPathFilter[];
     /**
      * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: string;
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -91,6 +97,7 @@ export interface GetNetworkInsightsPathResult {
      * Protocol.
      */
     readonly protocol: string;
+    readonly region: string;
     /**
      * AWS resource that is the source of the path.
      */
@@ -128,6 +135,7 @@ export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutput
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", {
         "filters": args.filters,
         "networkInsightsPathId": args.networkInsightsPathId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -138,12 +146,17 @@ export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutput
 export interface GetNetworkInsightsPathOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[]>;
     /**
      * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

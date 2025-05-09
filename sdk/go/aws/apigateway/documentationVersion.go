@@ -72,6 +72,8 @@ type DocumentationVersion struct {
 
 	// Description of the API documentation version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// Version identifier of the API documentation snapshot.
@@ -116,6 +118,8 @@ func GetDocumentationVersion(ctx *pulumi.Context,
 type documentationVersionState struct {
 	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId *string `pulumi:"restApiId"`
 	// Version identifier of the API documentation snapshot.
@@ -125,6 +129,8 @@ type documentationVersionState struct {
 type DocumentationVersionState struct {
 	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringPtrInput
 	// Version identifier of the API documentation snapshot.
@@ -138,6 +144,8 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 type documentationVersionArgs struct {
 	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId string `pulumi:"restApiId"`
 	// Version identifier of the API documentation snapshot.
@@ -148,6 +156,8 @@ type documentationVersionArgs struct {
 type DocumentationVersionArgs struct {
 	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringInput
 	// Version identifier of the API documentation snapshot.
@@ -244,6 +254,11 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx 
 // Description of the API documentation version.
 func (o DocumentationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DocumentationVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated Rest API

@@ -59,6 +59,8 @@ type MetricsDestination struct {
 	DestinationArn pulumi.StringPtrOutput `pulumi:"destinationArn"`
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewMetricsDestination registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type metricsDestinationState struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type MetricsDestinationState struct {
@@ -116,6 +120,8 @@ type MetricsDestinationState struct {
 	DestinationArn pulumi.StringPtrInput
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MetricsDestinationState) ElementType() reflect.Type {
@@ -131,6 +137,8 @@ type metricsDestinationArgs struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MetricsDestination resource.
@@ -143,6 +151,8 @@ type MetricsDestinationArgs struct {
 	DestinationArn pulumi.StringPtrInput
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MetricsDestinationArgs) ElementType() reflect.Type {
@@ -250,6 +260,11 @@ func (o MetricsDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
 // This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 func (o MetricsDestinationOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MetricsDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricsDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type MetricsDestinationArrayOutput struct{ *pulumi.OutputState }

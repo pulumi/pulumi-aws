@@ -24,6 +24,7 @@ class GuardrailVersionArgs:
     def __init__(__self__, *,
                  guardrail_arn: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['GuardrailVersionTimeoutsArgs']] = None):
         """
@@ -32,11 +33,14 @@ class GuardrailVersionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the Guardrail version.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         """
         pulumi.set(__self__, "guardrail_arn", guardrail_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if timeouts is not None:
@@ -69,6 +73,18 @@ class GuardrailVersionArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -95,6 +111,7 @@ class _GuardrailVersionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  guardrail_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['GuardrailVersionTimeoutsArgs']] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
@@ -104,6 +121,7 @@ class _GuardrailVersionState:
         :param pulumi.Input[builtins.str] guardrail_arn: Guardrail ARN.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         :param pulumi.Input[builtins.str] version: Guardrail version.
         """
@@ -111,6 +129,8 @@ class _GuardrailVersionState:
             pulumi.set(__self__, "description", description)
         if guardrail_arn is not None:
             pulumi.set(__self__, "guardrail_arn", guardrail_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if timeouts is not None:
@@ -143,6 +163,18 @@ class _GuardrailVersionState:
     @guardrail_arn.setter
     def guardrail_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "guardrail_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="skipDestroy")
@@ -188,6 +220,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  guardrail_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -222,6 +255,7 @@ class GuardrailVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] guardrail_arn: Guardrail ARN.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         """
         ...
@@ -272,6 +306,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  guardrail_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -287,6 +322,7 @@ class GuardrailVersion(pulumi.CustomResource):
             if guardrail_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'guardrail_arn'")
             __props__.__dict__["guardrail_arn"] = guardrail_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["version"] = None
@@ -302,6 +338,7 @@ class GuardrailVersion(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             guardrail_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             timeouts: Optional[pulumi.Input[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None) -> 'GuardrailVersion':
@@ -316,6 +353,7 @@ class GuardrailVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] guardrail_arn: Guardrail ARN.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         :param pulumi.Input[builtins.str] version: Guardrail version.
         """
@@ -325,6 +363,7 @@ class GuardrailVersion(pulumi.CustomResource):
 
         __props__.__dict__["description"] = description
         __props__.__dict__["guardrail_arn"] = guardrail_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["version"] = version
@@ -347,6 +386,14 @@ class GuardrailVersion(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "guardrail_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipDestroy")

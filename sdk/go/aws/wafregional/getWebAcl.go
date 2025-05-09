@@ -51,14 +51,16 @@ func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.In
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclArgs struct {
 	// Name of the WAF Regional Web ACL.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getWebAcl.
 type LookupWebAclResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
@@ -73,7 +75,8 @@ func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts .
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclOutputArgs struct {
 	// Name of the WAF Regional Web ACL.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupWebAclOutputArgs) ElementType() reflect.Type {
@@ -102,6 +105,10 @@ func (o LookupWebAclResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupWebAclResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWebAclResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupWebAclResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAclResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

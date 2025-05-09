@@ -92,6 +92,10 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["details"] = state ? state.details : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointArgs | undefined;
@@ -122,6 +127,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface MultiRegionAccessPointState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
     status?: pulumi.Input<string>;
@@ -174,4 +184,8 @@ export interface MultiRegionAccessPointArgs {
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
     details: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

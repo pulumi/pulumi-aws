@@ -27,6 +27,7 @@ public final class GetPipelineResult {
      */
     private String name;
     private String pipelineId;
+    private String region;
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -58,6 +59,9 @@ public final class GetPipelineResult {
     public String pipelineId() {
         return this.pipelineId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -79,6 +83,7 @@ public final class GetPipelineResult {
         private String id;
         private String name;
         private String pipelineId;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetPipelineResult defaults) {
@@ -87,6 +92,7 @@ public final class GetPipelineResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.pipelineId = defaults.pipelineId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -123,6 +129,14 @@ public final class GetPipelineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPipelineResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPipelineResult", "tags");
@@ -136,6 +150,7 @@ public final class GetPipelineResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.pipelineId = pipelineId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

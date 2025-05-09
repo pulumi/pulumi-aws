@@ -45,8 +45,6 @@ if not MYPY:
         kms_key_arn: NotRequired[pulumi.Input[builtins.str]]
         """
         The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-
-        The following arguments are optional:
         """
         status: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -70,8 +68,6 @@ class ReplicationSetRegionArgs:
         """
         :param pulumi.Input[builtins.str] name: The name of the Region, such as `ap-southeast-2`.
         :param pulumi.Input[builtins.str] kms_key_arn: The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param pulumi.Input[builtins.str] status_message: More information about the status of a Region.
@@ -101,8 +97,6 @@ class ReplicationSetRegionArgs:
     def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "kms_key_arn")
 

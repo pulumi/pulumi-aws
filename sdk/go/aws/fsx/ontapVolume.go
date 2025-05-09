@@ -113,6 +113,8 @@ type OntapVolume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringOutput `pulumi:"ontapVolumeType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -198,6 +200,8 @@ type ontapVolumeState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -251,6 +255,8 @@ type OntapVolumeState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
 	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -302,6 +308,8 @@ type ontapVolumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -346,6 +354,8 @@ type OntapVolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
 	// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -509,6 +519,11 @@ func (o OntapVolumeOutput) Name() pulumi.StringOutput {
 // Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 func (o OntapVolumeOutput) OntapVolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.OntapVolumeType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OntapVolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.

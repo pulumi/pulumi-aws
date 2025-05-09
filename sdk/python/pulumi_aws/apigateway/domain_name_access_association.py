@@ -23,17 +23,21 @@ class DomainNameAccessAssociationArgs:
                  access_association_source: pulumi.Input[builtins.str],
                  access_association_source_type: pulumi.Input[builtins.str],
                  domain_name_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainNameAccessAssociation resource.
         :param pulumi.Input[builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         :param pulumi.Input[builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_association_source", access_association_source)
         pulumi.set(__self__, "access_association_source_type", access_association_source_type)
         pulumi.set(__self__, "domain_name_arn", domain_name_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -75,6 +79,18 @@ class DomainNameAccessAssociationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -93,6 +109,7 @@ class _DomainNameAccessAssociationState:
                  access_association_source_type: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -101,6 +118,7 @@ class _DomainNameAccessAssociationState:
         :param pulumi.Input[builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[builtins.str] arn: ARN of the domain name access association.
         :param pulumi.Input[builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -112,6 +130,8 @@ class _DomainNameAccessAssociationState:
             pulumi.set(__self__, "arn", arn)
         if domain_name_arn is not None:
             pulumi.set(__self__, "domain_name_arn", domain_name_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -167,6 +187,18 @@ class _DomainNameAccessAssociationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -201,6 +233,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
                  access_association_source: Optional[pulumi.Input[builtins.str]] = None,
                  access_association_source_type: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -231,6 +264,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         :param pulumi.Input[builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -280,6 +314,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
                  access_association_source: Optional[pulumi.Input[builtins.str]] = None,
                  access_association_source_type: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -299,6 +334,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
             if domain_name_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name_arn'")
             __props__.__dict__["domain_name_arn"] = domain_name_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -316,6 +352,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
             access_association_source_type: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             domain_name_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'DomainNameAccessAssociation':
         """
@@ -329,6 +366,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[builtins.str] arn: ARN of the domain name access association.
         :param pulumi.Input[builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -340,6 +378,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         __props__.__dict__["access_association_source_type"] = access_association_source_type
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_name_arn"] = domain_name_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return DomainNameAccessAssociation(resource_name, opts=opts, __props__=__props__)
@@ -375,6 +414,14 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         The ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

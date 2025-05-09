@@ -56,6 +56,10 @@ export class RouteTablePropagation extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the resource
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class RouteTablePropagation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTablePropagationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
@@ -97,6 +102,7 @@ export class RouteTablePropagation extends pulumi.CustomResource {
             if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             resourceInputs["resourceId"] = undefined /*out*/;
@@ -111,6 +117,10 @@ export class RouteTablePropagation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTablePropagation resources.
  */
 export interface RouteTablePropagationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the resource
      */
@@ -133,6 +143,10 @@ export interface RouteTablePropagationState {
  * The set of arguments for constructing a RouteTablePropagation resource.
  */
 export interface RouteTablePropagationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */

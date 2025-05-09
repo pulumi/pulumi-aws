@@ -93,6 +93,10 @@ export class BucketLogging extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */
     public readonly targetBucket!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class BucketLogging extends pulumi.CustomResource {
             const state = argsOrState as BucketLoggingState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetBucket"] = state ? state.targetBucket : undefined;
             resourceInputs["targetGrants"] = state ? state.targetGrants : undefined;
             resourceInputs["targetObjectKeyFormat"] = state ? state.targetObjectKeyFormat : undefined;
@@ -141,6 +146,7 @@ export class BucketLogging extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetBucket"] = args ? args.targetBucket : undefined;
             resourceInputs["targetGrants"] = args ? args.targetGrants : undefined;
             resourceInputs["targetObjectKeyFormat"] = args ? args.targetObjectKeyFormat : undefined;
@@ -165,6 +171,10 @@ export interface BucketLoggingState {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */
@@ -195,6 +205,10 @@ export interface BucketLoggingArgs {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */

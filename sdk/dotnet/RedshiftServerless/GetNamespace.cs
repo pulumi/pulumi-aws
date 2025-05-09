@@ -93,6 +93,9 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetNamespaceArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetNamespaceInvokeArgs()
         {
@@ -154,6 +160,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string NamespaceId;
         public readonly string NamespaceName;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetNamespaceResult(
@@ -175,7 +182,9 @@ namespace Pulumi.Aws.RedshiftServerless
 
             string namespaceId,
 
-            string namespaceName)
+            string namespaceName,
+
+            string region)
         {
             AdminUsername = adminUsername;
             Arn = arn;
@@ -187,6 +196,7 @@ namespace Pulumi.Aws.RedshiftServerless
             LogExports = logExports;
             NamespaceId = namespaceId;
             NamespaceName = namespaceName;
+            Region = region;
         }
     }
 }

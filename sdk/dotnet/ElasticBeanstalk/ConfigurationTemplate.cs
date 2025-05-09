@@ -77,6 +77,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("settings")]
         private InputList<Inputs.ConfigurationTemplateSettingArgs>? _settings;
 
@@ -213,6 +225,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.ConfigurationTemplateSettingGetArgs>? _settings;

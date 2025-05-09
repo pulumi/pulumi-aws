@@ -47,6 +47,7 @@ public final class GetBucketObjectsResult {
      */
     private List<String> owners;
     private @Nullable String prefix;
+    private String region;
     private @Nullable String startAfter;
 
     private GetBucketObjectsResult() {}
@@ -102,6 +103,9 @@ public final class GetBucketObjectsResult {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> startAfter() {
         return Optional.ofNullable(this.startAfter);
     }
@@ -125,6 +129,7 @@ public final class GetBucketObjectsResult {
         private @Nullable Integer maxKeys;
         private List<String> owners;
         private @Nullable String prefix;
+        private String region;
         private @Nullable String startAfter;
         public Builder() {}
         public Builder(GetBucketObjectsResult defaults) {
@@ -139,6 +144,7 @@ public final class GetBucketObjectsResult {
     	      this.maxKeys = defaults.maxKeys;
     	      this.owners = defaults.owners;
     	      this.prefix = defaults.prefix;
+    	      this.region = defaults.region;
     	      this.startAfter = defaults.startAfter;
         }
 
@@ -222,6 +228,14 @@ public final class GetBucketObjectsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startAfter(@Nullable String startAfter) {
 
             this.startAfter = startAfter;
@@ -239,6 +253,7 @@ public final class GetBucketObjectsResult {
             _resultValue.maxKeys = maxKeys;
             _resultValue.owners = owners;
             _resultValue.prefix = prefix;
+            _resultValue.region = region;
             _resultValue.startAfter = startAfter;
             return _resultValue;
         }

@@ -87,6 +87,8 @@ export class Detector extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
+     *
+     * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
     public readonly datasources!: pulumi.Output<outputs.guardduty.DetectorDatasources>;
     /**
@@ -97,6 +99,10 @@ export class Detector extends pulumi.CustomResource {
      * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      */
     public readonly findingPublishingFrequency!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -124,6 +130,7 @@ export class Detector extends pulumi.CustomResource {
             resourceInputs["datasources"] = state ? state.datasources : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -131,6 +138,7 @@ export class Detector extends pulumi.CustomResource {
             resourceInputs["datasources"] = args ? args.datasources : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -155,6 +163,8 @@ export interface DetectorState {
     arn?: pulumi.Input<string>;
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
+     *
+     * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
     /**
@@ -165,6 +175,10 @@ export interface DetectorState {
      * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      */
     findingPublishingFrequency?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -181,6 +195,8 @@ export interface DetectorState {
 export interface DetectorArgs {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
+     *
+     * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
     /**
@@ -191,6 +207,10 @@ export interface DetectorArgs {
      * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      */
     findingPublishingFrequency?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

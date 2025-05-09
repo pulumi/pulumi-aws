@@ -68,6 +68,8 @@ type EventIntegration struct {
 	EventbridgeBus pulumi.StringOutput `pulumi:"eventbridgeBus"`
 	// Name of the Event Integration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -120,6 +122,8 @@ type eventIntegrationState struct {
 	EventbridgeBus *string `pulumi:"eventbridgeBus"`
 	// Name of the Event Integration.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -137,6 +141,8 @@ type EventIntegrationState struct {
 	EventbridgeBus pulumi.StringPtrInput
 	// Name of the Event Integration.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -156,6 +162,8 @@ type eventIntegrationArgs struct {
 	EventbridgeBus string `pulumi:"eventbridgeBus"`
 	// Name of the Event Integration.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -170,6 +178,8 @@ type EventIntegrationArgs struct {
 	EventbridgeBus pulumi.StringInput
 	// Name of the Event Integration.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -284,6 +294,11 @@ func (o EventIntegrationOutput) EventbridgeBus() pulumi.StringOutput {
 // Name of the Event Integration.
 func (o EventIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventIntegrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

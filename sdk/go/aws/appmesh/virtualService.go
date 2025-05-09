@@ -106,6 +106,8 @@ type VirtualService struct {
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// Virtual service specification to apply.
@@ -164,6 +166,8 @@ type virtualServiceState struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Virtual service specification to apply.
@@ -187,6 +191,8 @@ type VirtualServiceState struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
 	// Virtual service specification to apply.
@@ -208,6 +214,8 @@ type virtualServiceArgs struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Virtual service specification to apply.
 	Spec VirtualServiceSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -222,6 +230,8 @@ type VirtualServiceArgs struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Virtual service specification to apply.
 	Spec VirtualServiceSpecInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -343,6 +353,11 @@ func (o VirtualServiceOutput) MeshOwner() pulumi.StringOutput {
 // Name to use for the virtual service. Must be between 1 and 255 characters in length.
 func (o VirtualServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VirtualServiceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

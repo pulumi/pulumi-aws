@@ -18,12 +18,16 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
     /**
      * Name of the WAF rule group.
      * 
+     * At least one of `name` or `metric_name` must be configured.
+     * 
      */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
     /**
      * @return Name of the WAF rule group.
+     * 
+     * At least one of `name` or `metric_name` must be configured.
      * 
      */
     public Optional<Output<String>> metricName() {
@@ -45,11 +49,19 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetSubscribedRuleGroupArgs() {}
 
     private GetSubscribedRuleGroupArgs(GetSubscribedRuleGroupArgs $) {
         this.metricName = $.metricName;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -73,6 +85,8 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
         /**
          * @param metricName Name of the WAF rule group.
          * 
+         * At least one of `name` or `metric_name` must be configured.
+         * 
          * @return builder
          * 
          */
@@ -83,6 +97,8 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
 
         /**
          * @param metricName Name of the WAF rule group.
+         * 
+         * At least one of `name` or `metric_name` must be configured.
          * 
          * @return builder
          * 
@@ -110,6 +126,15 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetSubscribedRuleGroupArgs build() {

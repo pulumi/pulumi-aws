@@ -105,6 +105,8 @@ type ProductSubscription struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringOutput `pulumi:"productArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewProductSubscription registers a new resource with the given unique name, arguments, and options.
@@ -182,6 +184,8 @@ type productSubscriptionState struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn *string `pulumi:"productArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ProductSubscriptionState struct {
@@ -227,6 +231,8 @@ type ProductSubscriptionState struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProductSubscriptionState) ElementType() reflect.Type {
@@ -274,6 +280,8 @@ type productSubscriptionArgs struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn string `pulumi:"productArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ProductSubscription resource.
@@ -318,6 +326,8 @@ type ProductSubscriptionArgs struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProductSubscriptionArgs) ElementType() reflect.Type {
@@ -453,6 +463,11 @@ func (o ProductSubscriptionOutput) Arn() pulumi.StringOutput {
 // * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 func (o ProductSubscriptionOutput) ProductArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductSubscription) pulumi.StringOutput { return v.ProductArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProductSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ProductSubscriptionArrayOutput struct{ *pulumi.OutputState }

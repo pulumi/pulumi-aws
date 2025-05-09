@@ -61,6 +61,12 @@ namespace Pulumi.Aws.AppFabric
         public Output<Outputs.AppAuthorizationConnectionAuthRequest?> AuthRequest { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Contains information about an application tenant, such as the application display name and identifier.
         /// </summary>
         [Output("tenants")]
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.AppFabric
         [Input("authRequest")]
         public Input<Inputs.AppAuthorizationConnectionAuthRequestArgs>? AuthRequest { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.AppAuthorizationConnectionTimeoutsArgs>? Timeouts { get; set; }
 
@@ -167,6 +179,12 @@ namespace Pulumi.Aws.AppFabric
         /// </summary>
         [Input("authRequest")]
         public Input<Inputs.AppAuthorizationConnectionAuthRequestGetArgs>? AuthRequest { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tenants")]
         private InputList<Inputs.AppAuthorizationConnectionTenantGetArgs>? _tenants;

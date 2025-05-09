@@ -60,12 +60,28 @@ public final class BucketRequestPaymentConfigurationState extends com.pulumi.res
         return Optional.ofNullable(this.payer);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private BucketRequestPaymentConfigurationState() {}
 
     private BucketRequestPaymentConfigurationState(BucketRequestPaymentConfigurationState $) {
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.payer = $.payer;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class BucketRequestPaymentConfigurationState extends com.pulumi.res
          */
         public Builder payer(String payer) {
             return payer(Output.of(payer));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public BucketRequestPaymentConfigurationState build() {

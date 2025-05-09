@@ -49,6 +49,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block to use KMS keys for server-side encryption.
      * 
      */
@@ -109,6 +124,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs(GroupArgs $) {
         this.description = $.description;
         this.policyDocument = $.policyDocument;
+        this.region = $.region;
         this.sseConfiguration = $.sseConfiguration;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -173,6 +189,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

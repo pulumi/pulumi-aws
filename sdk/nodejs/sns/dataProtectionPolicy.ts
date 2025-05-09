@@ -77,6 +77,10 @@ export class DataProtectionPolicy extends pulumi.CustomResource {
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DataProtectionPolicy resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class DataProtectionPolicy extends pulumi.CustomResource {
             const state = argsOrState as DataProtectionPolicyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DataProtectionPolicyArgs | undefined;
             if ((!args || args.arn === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class DataProtectionPolicy extends pulumi.CustomResource {
             }
             resourceInputs["arn"] = args ? args.arn : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataProtectionPolicy.__pulumiType, name, resourceInputs, opts);
@@ -121,6 +127,10 @@ export interface DataProtectionPolicyState {
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -135,4 +145,8 @@ export interface DataProtectionPolicyArgs {
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

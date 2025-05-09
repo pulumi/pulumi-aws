@@ -239,6 +239,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
         /// </summary>
         [Output("serviceConnectDefaults")]
@@ -323,6 +329,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
         /// </summary>
         [Input("serviceConnectDefaults")]
@@ -379,6 +391,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.

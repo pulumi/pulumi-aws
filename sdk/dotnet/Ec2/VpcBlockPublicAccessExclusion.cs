@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InternetGatewayExclusionMode { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) the excluded resource.
         /// </summary>
         [Output("resourceArn")]
@@ -175,6 +181,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> InternetGatewayExclusionMode { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         /// </summary>
         [Input("subnetId")]
@@ -216,6 +228,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("internetGatewayExclusionMode")]
         public Input<string>? InternetGatewayExclusionMode { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) the excluded resource.

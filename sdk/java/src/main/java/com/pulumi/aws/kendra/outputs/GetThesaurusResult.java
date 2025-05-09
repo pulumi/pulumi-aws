@@ -50,6 +50,7 @@ public final class GetThesaurusResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
@@ -140,6 +141,9 @@ public final class GetThesaurusResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
@@ -210,6 +214,7 @@ public final class GetThesaurusResult {
         private String id;
         private String indexId;
         private String name;
+        private String region;
         private String roleArn;
         private List<GetThesaurusSourceS3Path> sourceS3Paths;
         private String status;
@@ -229,6 +234,7 @@ public final class GetThesaurusResult {
     	      this.id = defaults.id;
     	      this.indexId = defaults.indexId;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.sourceS3Paths = defaults.sourceS3Paths;
     	      this.status = defaults.status;
@@ -301,6 +307,14 @@ public final class GetThesaurusResult {
               throw new MissingRequiredPropertyException("GetThesaurusResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -380,6 +394,7 @@ public final class GetThesaurusResult {
             _resultValue.id = id;
             _resultValue.indexId = indexId;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.sourceS3Paths = sourceS3Paths;
             _resultValue.status = status;

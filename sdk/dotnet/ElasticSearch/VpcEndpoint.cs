@@ -69,6 +69,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.
         /// </summary>
         [Output("vpcOptions")]
@@ -127,6 +133,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string> DomainArn { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.
         /// </summary>
         [Input("vpcOptions", required: true)]
@@ -151,6 +163,12 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.

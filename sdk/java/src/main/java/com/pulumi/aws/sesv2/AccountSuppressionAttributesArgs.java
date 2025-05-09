@@ -9,11 +9,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountSuppressionAttributesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountSuppressionAttributesArgs Empty = new AccountSuppressionAttributesArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
@@ -33,6 +50,7 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
     private AccountSuppressionAttributesArgs() {}
 
     private AccountSuppressionAttributesArgs(AccountSuppressionAttributesArgs $) {
+        this.region = $.region;
         this.suppressedReasons = $.suppressedReasons;
     }
 
@@ -52,6 +70,27 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
 
         public Builder(AccountSuppressionAttributesArgs defaults) {
             $ = new AccountSuppressionAttributesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

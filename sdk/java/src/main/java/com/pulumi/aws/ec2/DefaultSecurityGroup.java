@@ -242,6 +242,20 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
     @Export(name="revokeRulesOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revokeRulesOnDelete;
 

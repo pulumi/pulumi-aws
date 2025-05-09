@@ -73,6 +73,8 @@ type SdkvoiceVoiceProfileDomain struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of Voice Profile Domain.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              pulumi.StringMapOutput                                            `pulumi:"tags"`
@@ -118,6 +120,8 @@ type sdkvoiceVoiceProfileDomainState struct {
 	Description *string `pulumi:"description"`
 	// Name of Voice Profile Domain.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                            `pulumi:"tags"`
@@ -131,6 +135,8 @@ type SdkvoiceVoiceProfileDomainState struct {
 	Description pulumi.StringPtrInput
 	// Name of Voice Profile Domain.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput
 	Tags                              pulumi.StringMapInput
@@ -146,6 +152,8 @@ type sdkvoiceVoiceProfileDomainArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of Voice Profile Domain.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                           `pulumi:"tags"`
@@ -158,6 +166,8 @@ type SdkvoiceVoiceProfileDomainArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of Voice Profile Domain.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput
 	Tags                              pulumi.StringMapInput
@@ -264,6 +274,11 @@ func (o SdkvoiceVoiceProfileDomainOutput) Description() pulumi.StringPtrOutput {
 // Name of Voice Profile Domain.
 func (o SdkvoiceVoiceProfileDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SdkvoiceVoiceProfileDomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration for server side encryption.

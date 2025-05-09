@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetInferenceProfiles(ctx, map[string]interface{}{}, nil)
+//			_, err := bedrock.GetInferenceProfiles(ctx, &bedrock.GetInferenceProfilesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,19 @@ import (
 //	}
 //
 // ```
-func GetInferenceProfiles(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetInferenceProfilesResult, error) {
+func GetInferenceProfiles(ctx *pulumi.Context, args *GetInferenceProfilesArgs, opts ...pulumi.InvokeOption) (*GetInferenceProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInferenceProfilesResult
-	err := ctx.Invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", nil, &rv, opts...)
+	err := ctx.Invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getInferenceProfiles.
+type GetInferenceProfilesArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInferenceProfiles.
@@ -54,13 +59,25 @@ type GetInferenceProfilesResult struct {
 	Id string `pulumi:"id"`
 	// List of inference profile summary objects. See `inferenceProfileSummaries`.
 	InferenceProfileSummaries []GetInferenceProfilesInferenceProfileSummary `pulumi:"inferenceProfileSummaries"`
+	Region                    string                                        `pulumi:"region"`
 }
 
-func GetInferenceProfilesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetInferenceProfilesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetInferenceProfilesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", nil, GetInferenceProfilesResultOutput{}, options).(GetInferenceProfilesResultOutput), nil
-	}).(GetInferenceProfilesResultOutput)
+func GetInferenceProfilesOutput(ctx *pulumi.Context, args GetInferenceProfilesOutputArgs, opts ...pulumi.InvokeOption) GetInferenceProfilesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetInferenceProfilesResultOutput, error) {
+			args := v.(GetInferenceProfilesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args, GetInferenceProfilesResultOutput{}, options).(GetInferenceProfilesResultOutput), nil
+		}).(GetInferenceProfilesResultOutput)
+}
+
+// A collection of arguments for invoking getInferenceProfiles.
+type GetInferenceProfilesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetInferenceProfilesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfilesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getInferenceProfiles.
@@ -88,6 +105,10 @@ func (o GetInferenceProfilesResultOutput) InferenceProfileSummaries() GetInferen
 	return o.ApplyT(func(v GetInferenceProfilesResult) []GetInferenceProfilesInferenceProfileSummary {
 		return v.InferenceProfileSummaries
 	}).(GetInferenceProfilesInferenceProfileSummaryArrayOutput)
+}
+
+func (o GetInferenceProfilesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

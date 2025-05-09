@@ -61,6 +61,8 @@ type RoleMembership struct {
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
 	// Name of the namespace. Defaults to `default`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -109,6 +111,8 @@ type roleMembershipState struct {
 	MemberName *string `pulumi:"memberName"`
 	// Name of the namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -122,6 +126,8 @@ type RoleMembershipState struct {
 	MemberName pulumi.StringPtrInput
 	// Name of the namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -139,6 +145,8 @@ type roleMembershipArgs struct {
 	MemberName string `pulumi:"memberName"`
 	// Name of the namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -153,6 +161,8 @@ type RoleMembershipArgs struct {
 	MemberName pulumi.StringInput
 	// Name of the namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -259,6 +269,11 @@ func (o RoleMembershipOutput) MemberName() pulumi.StringOutput {
 // Name of the namespace. Defaults to `default`.
 func (o RoleMembershipOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RoleMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.

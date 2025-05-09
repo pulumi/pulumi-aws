@@ -269,6 +269,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -306,6 +310,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
             resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
@@ -324,6 +329,7 @@ export class Policy extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
@@ -358,6 +364,10 @@ export interface PolicyState {
      */
     policyType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      */
     resourceId?: pulumi.Input<string>;
@@ -391,6 +401,10 @@ export interface PolicyArgs {
      * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      */
     policyType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      */

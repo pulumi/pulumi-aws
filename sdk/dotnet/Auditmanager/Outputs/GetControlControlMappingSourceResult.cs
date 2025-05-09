@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
         public readonly string SourceDescription;
         public readonly string SourceFrequency;
         public readonly string SourceId;
-        public readonly Outputs.GetControlControlMappingSourceSourceKeywordResult? SourceKeyword;
+        public readonly ImmutableArray<Outputs.GetControlControlMappingSourceSourceKeywordResult> SourceKeywords;
         public readonly string SourceName;
         public readonly string SourceSetUpOption;
         public readonly string SourceType;
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
 
             string sourceId,
 
-            Outputs.GetControlControlMappingSourceSourceKeywordResult? sourceKeyword,
+            ImmutableArray<Outputs.GetControlControlMappingSourceSourceKeywordResult> sourceKeywords,
 
             string sourceName,
 
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
             SourceDescription = sourceDescription;
             SourceFrequency = sourceFrequency;
             SourceId = sourceId;
-            SourceKeyword = sourceKeyword;
+            SourceKeywords = sourceKeywords;
             SourceName = sourceName;
             SourceSetUpOption = sourceSetUpOption;
             SourceType = sourceType;

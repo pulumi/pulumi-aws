@@ -21,15 +21,19 @@ __all__ = ['ContributorInsightsArgs', 'ContributorInsights']
 class ContributorInsightsArgs:
     def __init__(__self__, *,
                  table_name: pulumi.Input[builtins.str],
-                 index_name: Optional[pulumi.Input[builtins.str]] = None):
+                 index_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ContributorInsights resource.
         :param pulumi.Input[builtins.str] table_name: The name of the table to enable contributor insights
         :param pulumi.Input[builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "table_name", table_name)
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="tableName")
@@ -55,19 +59,35 @@ class ContributorInsightsArgs:
     def index_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "index_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ContributorInsightsState:
     def __init__(__self__, *,
                  index_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContributorInsights resources.
         :param pulumi.Input[builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table to enable contributor insights
         """
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -82,6 +102,18 @@ class _ContributorInsightsState:
     @index_name.setter
     def index_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="tableName")
@@ -105,6 +137,7 @@ class ContributorInsights(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  index_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -130,6 +163,7 @@ class ContributorInsights(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table to enable contributor insights
         """
         ...
@@ -174,6 +208,7 @@ class ContributorInsights(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  index_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -185,6 +220,7 @@ class ContributorInsights(pulumi.CustomResource):
             __props__ = ContributorInsightsArgs.__new__(ContributorInsightsArgs)
 
             __props__.__dict__["index_name"] = index_name
+            __props__.__dict__["region"] = region
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
@@ -199,6 +235,7 @@ class ContributorInsights(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             index_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ContributorInsights':
         """
         Get an existing ContributorInsights resource's state with the given name, id, and optional extra
@@ -208,6 +245,7 @@ class ContributorInsights(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_name: The global secondary index name
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table to enable contributor insights
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -215,6 +253,7 @@ class ContributorInsights(pulumi.CustomResource):
         __props__ = _ContributorInsightsState.__new__(_ContributorInsightsState)
 
         __props__.__dict__["index_name"] = index_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_name"] = table_name
         return ContributorInsights(resource_name, opts=opts, __props__=__props__)
 
@@ -225,6 +264,14 @@ class ContributorInsights(pulumi.CustomResource):
         The global secondary index name
         """
         return pulumi.get(self, "index_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableName")

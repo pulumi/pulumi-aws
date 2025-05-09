@@ -145,6 +145,10 @@ export class MethodResponse extends pulumi.CustomResource {
      */
     public readonly httpMethod!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Resource identifier for the method resource.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -181,6 +185,7 @@ export class MethodResponse extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MethodResponseState | undefined;
             resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["responseModels"] = state ? state.responseModels : undefined;
             resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
@@ -201,6 +206,7 @@ export class MethodResponse extends pulumi.CustomResource {
                 throw new Error("Missing required property 'statusCode'");
             }
             resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["responseModels"] = args ? args.responseModels : undefined;
             resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
@@ -220,6 +226,10 @@ export interface MethodResponseState {
      * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      */
     httpMethod?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Resource identifier for the method resource.
      */
@@ -252,6 +262,10 @@ export interface MethodResponseArgs {
      * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      */
     httpMethod: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Resource identifier for the method resource.
      */

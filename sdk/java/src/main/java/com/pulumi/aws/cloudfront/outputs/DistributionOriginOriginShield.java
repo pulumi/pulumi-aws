@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionOriginOriginShield {
     /**
-     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     private Boolean enabled;
@@ -26,7 +26,7 @@ public final class DistributionOriginOriginShield {
 
     private DistributionOriginOriginShield() {}
     /**
-     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Boolean enabled() {

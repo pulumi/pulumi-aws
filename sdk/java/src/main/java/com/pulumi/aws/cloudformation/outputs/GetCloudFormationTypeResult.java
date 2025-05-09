@@ -61,6 +61,7 @@ public final class GetCloudFormationTypeResult {
      * 
      */
     private String provisioningType;
+    private String region;
     /**
      * @return JSON document of the CloudFormation Type schema.
      * 
@@ -148,6 +149,9 @@ public final class GetCloudFormationTypeResult {
     public String provisioningType() {
         return this.provisioningType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return JSON document of the CloudFormation Type schema.
      * 
@@ -201,6 +205,7 @@ public final class GetCloudFormationTypeResult {
         private Boolean isDefaultVersion;
         private List<GetCloudFormationTypeLoggingConfig> loggingConfigs;
         private String provisioningType;
+        private String region;
         private String schema;
         private String sourceUrl;
         private String type;
@@ -221,6 +226,7 @@ public final class GetCloudFormationTypeResult {
     	      this.isDefaultVersion = defaults.isDefaultVersion;
     	      this.loggingConfigs = defaults.loggingConfigs;
     	      this.provisioningType = defaults.provisioningType;
+    	      this.region = defaults.region;
     	      this.schema = defaults.schema;
     	      this.sourceUrl = defaults.sourceUrl;
     	      this.type = defaults.type;
@@ -314,6 +320,14 @@ public final class GetCloudFormationTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schema(String schema) {
             if (schema == null) {
               throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "schema");
@@ -379,6 +393,7 @@ public final class GetCloudFormationTypeResult {
             _resultValue.isDefaultVersion = isDefaultVersion;
             _resultValue.loggingConfigs = loggingConfigs;
             _resultValue.provisioningType = provisioningType;
+            _resultValue.region = region;
             _resultValue.schema = schema;
             _resultValue.sourceUrl = sourceUrl;
             _resultValue.type = type;

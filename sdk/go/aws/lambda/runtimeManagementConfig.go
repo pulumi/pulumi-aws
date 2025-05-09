@@ -96,6 +96,8 @@ type RuntimeManagementConfig struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
 	RuntimeVersionArn pulumi.StringPtrOutput `pulumi:"runtimeVersionArn"`
 	// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
@@ -143,6 +145,8 @@ type runtimeManagementConfigState struct {
 	FunctionName *string `pulumi:"functionName"`
 	// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
 	RuntimeVersionArn *string `pulumi:"runtimeVersionArn"`
 	// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
@@ -158,6 +162,8 @@ type RuntimeManagementConfigState struct {
 	FunctionName pulumi.StringPtrInput
 	// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
 	RuntimeVersionArn pulumi.StringPtrInput
 	// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
@@ -175,6 +181,8 @@ type runtimeManagementConfigArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
 	RuntimeVersionArn *string `pulumi:"runtimeVersionArn"`
 	// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
@@ -189,6 +197,8 @@ type RuntimeManagementConfigArgs struct {
 	FunctionName pulumi.StringInput
 	// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
 	RuntimeVersionArn pulumi.StringPtrInput
 	// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
@@ -297,6 +307,11 @@ func (o RuntimeManagementConfigOutput) FunctionName() pulumi.StringOutput {
 // Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
 func (o RuntimeManagementConfigOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuntimeManagementConfig) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RuntimeManagementConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuntimeManagementConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.

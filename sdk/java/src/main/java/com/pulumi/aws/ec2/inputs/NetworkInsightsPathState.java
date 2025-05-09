@@ -128,6 +128,21 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
@@ -213,6 +228,7 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
         this.filterAtDestination = $.filterAtDestination;
         this.filterAtSource = $.filterAtSource;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.source = $.source;
         this.sourceArn = $.sourceArn;
         this.sourceIp = $.sourceIp;
@@ -384,6 +400,27 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

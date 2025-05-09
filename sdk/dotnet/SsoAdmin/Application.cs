@@ -133,6 +133,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<Outputs.ApplicationPortalOptions?> PortalOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Output("status")]
@@ -235,6 +241,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<Inputs.ApplicationPortalOptionsArgs>? PortalOptions { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("status")]
@@ -309,6 +321,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("portalOptions")]
         public Input<Inputs.ApplicationPortalOptionsGetArgs>? PortalOptions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.

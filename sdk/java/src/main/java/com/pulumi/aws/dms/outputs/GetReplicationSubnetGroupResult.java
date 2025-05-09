@@ -17,6 +17,7 @@ public final class GetReplicationSubnetGroupResult {
      * 
      */
     private String id;
+    private String region;
     private String replicationSubnetGroupArn;
     /**
      * @return Description for the subnet group.
@@ -44,6 +45,9 @@ public final class GetReplicationSubnetGroupResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public String replicationSubnetGroupArn() {
         return this.replicationSubnetGroupArn;
@@ -89,6 +93,7 @@ public final class GetReplicationSubnetGroupResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String replicationSubnetGroupArn;
         private String replicationSubnetGroupDescription;
         private String replicationSubnetGroupId;
@@ -100,6 +105,7 @@ public final class GetReplicationSubnetGroupResult {
         public Builder(GetReplicationSubnetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.replicationSubnetGroupArn = defaults.replicationSubnetGroupArn;
     	      this.replicationSubnetGroupDescription = defaults.replicationSubnetGroupDescription;
     	      this.replicationSubnetGroupId = defaults.replicationSubnetGroupId;
@@ -115,6 +121,14 @@ public final class GetReplicationSubnetGroupResult {
               throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -179,6 +193,7 @@ public final class GetReplicationSubnetGroupResult {
         public GetReplicationSubnetGroupResult build() {
             final var _resultValue = new GetReplicationSubnetGroupResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.replicationSubnetGroupArn = replicationSubnetGroupArn;
             _resultValue.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
             _resultValue.replicationSubnetGroupId = replicationSubnetGroupId;

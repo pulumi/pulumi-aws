@@ -85,6 +85,8 @@ type OrganizationConfiguration struct {
 	Datasources OrganizationConfigurationDatasourcesOutput `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -132,6 +134,8 @@ type organizationConfigurationState struct {
 	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId *string `pulumi:"detectorId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type OrganizationConfigurationState struct {
@@ -144,6 +148,8 @@ type OrganizationConfigurationState struct {
 	Datasources OrganizationConfigurationDatasourcesPtrInput
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationState) ElementType() reflect.Type {
@@ -160,6 +166,8 @@ type organizationConfigurationArgs struct {
 	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId string `pulumi:"detectorId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
@@ -173,6 +181,8 @@ type OrganizationConfigurationArgs struct {
 	Datasources OrganizationConfigurationDatasourcesPtrInput
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
@@ -278,6 +288,11 @@ func (o OrganizationConfigurationOutput) Datasources() OrganizationConfiguration
 // The detector ID of the GuardDuty account.
 func (o OrganizationConfigurationOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OrganizationConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -156,6 +156,21 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
@@ -305,6 +320,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         this.kmsKeyId = $.kmsKeyId;
         this.licenseModel = $.licenseModel;
         this.presignedUrl = $.presignedUrl;
+        this.region = $.region;
         this.sharedAccounts = $.sharedAccounts;
         this.snapshotType = $.snapshotType;
         this.sourceDbClusterSnapshotIdentifier = $.sourceDbClusterSnapshotIdentifier;
@@ -522,6 +538,27 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
          */
         public Builder presignedUrl(String presignedUrl) {
             return presignedUrl(Output.of(presignedUrl));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

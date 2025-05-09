@@ -62,6 +62,10 @@ export class PolicyTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The state of the EC2 Transit Gateway Policy Table.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class PolicyTable extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyTableState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -101,6 +106,7 @@ export class PolicyTable extends pulumi.CustomResource {
             if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export interface PolicyTableState {
      * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The state of the EC2 Transit Gateway Policy Table.
      */
@@ -142,6 +152,10 @@ export interface PolicyTableState {
  * The set of arguments for constructing a PolicyTable resource.
  */
 export interface PolicyTableArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

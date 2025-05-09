@@ -128,6 +128,20 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.projectName;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      * 
      */

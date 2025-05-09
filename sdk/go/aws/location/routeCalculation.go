@@ -63,6 +63,8 @@ type RouteCalculation struct {
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -119,6 +121,8 @@ type routeCalculationState struct {
 	DataSource *string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -140,6 +144,8 @@ type RouteCalculationState struct {
 	DataSource pulumi.StringPtrInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -161,6 +167,8 @@ type routeCalculationArgs struct {
 	DataSource string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -175,6 +183,8 @@ type RouteCalculationArgs struct {
 	DataSource pulumi.StringInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -291,6 +301,11 @@ func (o RouteCalculationOutput) DataSource() pulumi.StringOutput {
 // The optional description for the route calculator resource.
 func (o RouteCalculationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RouteCalculationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

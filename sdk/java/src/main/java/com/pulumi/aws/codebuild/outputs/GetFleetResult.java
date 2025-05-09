@@ -73,6 +73,7 @@ public final class GetFleetResult {
      * 
      */
     private String overflowBehavior;
+    private String region;
     /**
      * @return Nested attribute containing information about the scaling configuration.
      * 
@@ -175,6 +176,9 @@ public final class GetFleetResult {
     public String overflowBehavior() {
         return this.overflowBehavior;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Nested attribute containing information about the scaling configuration.
      * 
@@ -225,6 +229,7 @@ public final class GetFleetResult {
         private String lastModified;
         private String name;
         private String overflowBehavior;
+        private String region;
         private List<GetFleetScalingConfiguration> scalingConfigurations;
         private List<GetFleetStatus> statuses;
         private Map<String,String> tags;
@@ -244,6 +249,7 @@ public final class GetFleetResult {
     	      this.lastModified = defaults.lastModified;
     	      this.name = defaults.name;
     	      this.overflowBehavior = defaults.overflowBehavior;
+    	      this.region = defaults.region;
     	      this.scalingConfigurations = defaults.scalingConfigurations;
     	      this.statuses = defaults.statuses;
     	      this.tags = defaults.tags;
@@ -350,6 +356,14 @@ public final class GetFleetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFleetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scalingConfigurations(List<GetFleetScalingConfiguration> scalingConfigurations) {
             if (scalingConfigurations == null) {
               throw new MissingRequiredPropertyException("GetFleetResult", "scalingConfigurations");
@@ -404,6 +418,7 @@ public final class GetFleetResult {
             _resultValue.lastModified = lastModified;
             _resultValue.name = name;
             _resultValue.overflowBehavior = overflowBehavior;
+            _resultValue.region = region;
             _resultValue.scalingConfigurations = scalingConfigurations;
             _resultValue.statuses = statuses;
             _resultValue.tags = tags;

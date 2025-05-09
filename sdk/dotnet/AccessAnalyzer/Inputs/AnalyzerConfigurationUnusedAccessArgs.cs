@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
     public sealed class AnalyzerConfigurationUnusedAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A block for analysis rules. Documented below
+        /// </summary>
+        [Input("analysisRule")]
+        public Input<Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs>? AnalysisRule { get; set; }
+
+        /// <summary>
         /// The specified access age in days for which to generate findings for unused access.
         /// </summary>
         [Input("unusedAccessAge")]

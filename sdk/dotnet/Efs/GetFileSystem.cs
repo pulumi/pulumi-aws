@@ -129,6 +129,9 @@ namespace Pulumi.Aws.Efs
         [Input("fileSystemId")]
         public string? FileSystemId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -160,6 +163,9 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -231,6 +237,7 @@ namespace Pulumi.Aws.Efs
         /// The throughput, measured in MiB/s, that you want to provision for the file system.
         /// </summary>
         public readonly double ProvisionedThroughputInMibps;
+        public readonly string Region;
         /// <summary>
         /// Current byte count used by the file system.
         /// </summary>
@@ -276,6 +283,8 @@ namespace Pulumi.Aws.Efs
 
             double provisionedThroughputInMibps,
 
+            string region,
+
             int sizeInBytes,
 
             ImmutableDictionary<string, string> tags,
@@ -297,6 +306,7 @@ namespace Pulumi.Aws.Efs
             PerformanceMode = performanceMode;
             Protections = protections;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
+            Region = region;
             SizeInBytes = sizeInBytes;
             Tags = tags;
             ThroughputMode = throughputMode;

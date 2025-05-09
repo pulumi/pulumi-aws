@@ -183,6 +183,9 @@ namespace Pulumi.Aws.Ssm
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetDocumentArgs()
         {
         }
@@ -208,6 +211,9 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDocumentInvokeArgs()
         {
@@ -238,6 +244,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetDocumentResult(
@@ -253,7 +260,9 @@ namespace Pulumi.Aws.Ssm
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             Arn = arn;
             Content = content;
@@ -262,6 +271,7 @@ namespace Pulumi.Aws.Ssm
             DocumentVersion = documentVersion;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

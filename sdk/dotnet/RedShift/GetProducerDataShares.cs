@@ -93,18 +93,6 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetProducerDataSharesArgs : global::Pulumi.InvokeArgs
     {
-        [Input("dataShares")]
-        private List<Inputs.GetProducerDataSharesDataShareArgs>? _dataShares;
-
-        /// <summary>
-        /// An array of all data shares in the producer. See `data_shares` below.
-        /// </summary>
-        public List<Inputs.GetProducerDataSharesDataShareArgs> DataShares
-        {
-            get => _dataShares ?? (_dataShares = new List<Inputs.GetProducerDataSharesDataShareArgs>());
-            set => _dataShares = value;
-        }
-
         /// <summary>
         /// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
         /// 
@@ -112,6 +100,9 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("producerArn", required: true)]
         public string ProducerArn { get; set; } = null!;
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
@@ -127,18 +118,6 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetProducerDataSharesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("dataShares")]
-        private InputList<Inputs.GetProducerDataSharesDataShareInputArgs>? _dataShares;
-
-        /// <summary>
-        /// An array of all data shares in the producer. See `data_shares` below.
-        /// </summary>
-        public InputList<Inputs.GetProducerDataSharesDataShareInputArgs> DataShares
-        {
-            get => _dataShares ?? (_dataShares = new InputList<Inputs.GetProducerDataSharesDataShareInputArgs>());
-            set => _dataShares = value;
-        }
-
         /// <summary>
         /// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
         /// 
@@ -146,6 +125,9 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("producerArn", required: true)]
         public Input<string> ProducerArn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
@@ -175,6 +157,7 @@ namespace Pulumi.Aws.RedShift
         /// ARN (Amazon Resource Name) of the producer.
         /// </summary>
         public readonly string ProducerArn;
+        public readonly string Region;
         public readonly string? Status;
 
         [OutputConstructor]
@@ -185,11 +168,14 @@ namespace Pulumi.Aws.RedShift
 
             string producerArn,
 
+            string region,
+
             string? status)
         {
             DataShares = dataShares;
             Id = id;
             ProducerArn = producerArn;
+            Region = region;
             Status = status;
         }
     }

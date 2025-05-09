@@ -206,6 +206,8 @@ type FunctionEventInvokeConfig struct {
 	MaximumRetryAttempts pulumi.IntPtrOutput `pulumi:"maximumRetryAttempts"`
 	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewFunctionEventInvokeConfig registers a new resource with the given unique name, arguments, and options.
@@ -253,6 +255,8 @@ type functionEventInvokeConfigState struct {
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
 	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type FunctionEventInvokeConfigState struct {
@@ -268,6 +272,8 @@ type FunctionEventInvokeConfigState struct {
 	MaximumRetryAttempts pulumi.IntPtrInput
 	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FunctionEventInvokeConfigState) ElementType() reflect.Type {
@@ -287,6 +293,8 @@ type functionEventInvokeConfigArgs struct {
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
 	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FunctionEventInvokeConfig resource.
@@ -303,6 +311,8 @@ type FunctionEventInvokeConfigArgs struct {
 	MaximumRetryAttempts pulumi.IntPtrInput
 	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FunctionEventInvokeConfigArgs) ElementType() reflect.Type {
@@ -419,6 +429,11 @@ func (o FunctionEventInvokeConfigOutput) MaximumRetryAttempts() pulumi.IntPtrOut
 // Lambda Function published version, `$LATEST`, or Lambda Alias name.
 func (o FunctionEventInvokeConfigOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FunctionEventInvokeConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type FunctionEventInvokeConfigArrayOutput struct{ *pulumi.OutputState }

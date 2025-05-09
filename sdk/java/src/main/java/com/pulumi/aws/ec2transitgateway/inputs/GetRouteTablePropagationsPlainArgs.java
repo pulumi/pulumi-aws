@@ -38,10 +38,15 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Import(name="transitGatewayRouteTableId", required=true)
@@ -49,8 +54,6 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String transitGatewayRouteTableId() {
@@ -61,6 +64,7 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
 
     private GetRouteTablePropagationsPlainArgs(GetRouteTablePropagationsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
 
@@ -109,10 +113,13 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -10,17 +10,17 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetControlResult {
     private String actionPlanInstructions;
     private String actionPlanTitle;
     private String arn;
-    private @Nullable List<GetControlControlMappingSource> controlMappingSources;
+    private List<GetControlControlMappingSource> controlMappingSources;
     private String description;
     private String id;
     private String name;
+    private String region;
     private Map<String,String> tags;
     private String testingInformation;
     private String type;
@@ -36,7 +36,7 @@ public final class GetControlResult {
         return this.arn;
     }
     public List<GetControlControlMappingSource> controlMappingSources() {
-        return this.controlMappingSources == null ? List.of() : this.controlMappingSources;
+        return this.controlMappingSources;
     }
     public String description() {
         return this.description;
@@ -46,6 +46,9 @@ public final class GetControlResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     public Map<String,String> tags() {
         return this.tags;
@@ -69,10 +72,11 @@ public final class GetControlResult {
         private String actionPlanInstructions;
         private String actionPlanTitle;
         private String arn;
-        private @Nullable List<GetControlControlMappingSource> controlMappingSources;
+        private List<GetControlControlMappingSource> controlMappingSources;
         private String description;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private String testingInformation;
         private String type;
@@ -86,6 +90,7 @@ public final class GetControlResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.testingInformation = defaults.testingInformation;
     	      this.type = defaults.type;
@@ -116,8 +121,10 @@ public final class GetControlResult {
             return this;
         }
         @CustomType.Setter
-        public Builder controlMappingSources(@Nullable List<GetControlControlMappingSource> controlMappingSources) {
-
+        public Builder controlMappingSources(List<GetControlControlMappingSource> controlMappingSources) {
+            if (controlMappingSources == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "controlMappingSources");
+            }
             this.controlMappingSources = controlMappingSources;
             return this;
         }
@@ -146,6 +153,14 @@ public final class GetControlResult {
               throw new MissingRequiredPropertyException("GetControlResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -181,6 +196,7 @@ public final class GetControlResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.testingInformation = testingInformation;
             _resultValue.type = type;

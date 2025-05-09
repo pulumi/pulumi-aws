@@ -69,6 +69,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableArray<Outputs.ServiceNetworkServiceAssociationDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
         [Output("serviceIdentifier")]
@@ -146,6 +152,12 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceNetworkServiceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier", required: true)]
@@ -207,6 +219,12 @@ namespace Pulumi.Aws.VpcLattice
             get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.ServiceNetworkServiceAssociationDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.

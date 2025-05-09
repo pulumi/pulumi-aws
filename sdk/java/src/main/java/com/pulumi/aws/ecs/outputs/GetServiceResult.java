@@ -34,6 +34,7 @@ public final class GetServiceResult {
      * 
      */
     private String launchType;
+    private String region;
     /**
      * @return Scheduling strategy for the ECS Service
      * 
@@ -86,6 +87,9 @@ public final class GetServiceResult {
     public String launchType() {
         return this.launchType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Scheduling strategy for the ECS Service
      * 
@@ -126,6 +130,7 @@ public final class GetServiceResult {
         private Integer desiredCount;
         private String id;
         private String launchType;
+        private String region;
         private String schedulingStrategy;
         private String serviceName;
         private Map<String,String> tags;
@@ -139,6 +144,7 @@ public final class GetServiceResult {
     	      this.desiredCount = defaults.desiredCount;
     	      this.id = defaults.id;
     	      this.launchType = defaults.launchType;
+    	      this.region = defaults.region;
     	      this.schedulingStrategy = defaults.schedulingStrategy;
     	      this.serviceName = defaults.serviceName;
     	      this.tags = defaults.tags;
@@ -194,6 +200,14 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schedulingStrategy(String schedulingStrategy) {
             if (schedulingStrategy == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "schedulingStrategy");
@@ -233,6 +247,7 @@ public final class GetServiceResult {
             _resultValue.desiredCount = desiredCount;
             _resultValue.id = id;
             _resultValue.launchType = launchType;
+            _resultValue.region = region;
             _resultValue.schedulingStrategy = schedulingStrategy;
             _resultValue.serviceName = serviceName;
             _resultValue.tags = tags;

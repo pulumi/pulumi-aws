@@ -23,18 +23,22 @@ class RuleGroupNamespaceArgs:
                  data: pulumi.Input[builtins.str],
                  workspace_id: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleGroupNamespace resource.
         :param pulumi.Input[builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         :param pulumi.Input[builtins.str] name: The name of the rule group namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -76,6 +80,18 @@ class RuleGroupNamespaceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -93,6 +109,7 @@ class _RuleGroupNamespaceState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  data: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -101,6 +118,7 @@ class _RuleGroupNamespaceState:
         :param pulumi.Input[builtins.str] arn: The ARN of the rule group namespace.
         :param pulumi.Input[builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         :param pulumi.Input[builtins.str] name: The name of the rule group namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
@@ -111,6 +129,8 @@ class _RuleGroupNamespaceState:
             pulumi.set(__self__, "data", data)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -153,6 +173,18 @@ class _RuleGroupNamespaceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -201,6 +233,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -237,6 +270,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         :param pulumi.Input[builtins.str] name: The name of the rule group namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
@@ -292,6 +326,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -307,6 +342,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data'")
             __props__.__dict__["data"] = data
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
@@ -326,6 +362,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             data: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'RuleGroupNamespace':
@@ -339,6 +376,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN of the rule group namespace.
         :param pulumi.Input[builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         :param pulumi.Input[builtins.str] name: The name of the rule group namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
@@ -350,6 +388,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["data"] = data
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["workspace_id"] = workspace_id
@@ -378,6 +417,14 @@ class RuleGroupNamespace(pulumi.CustomResource):
         The name of the rule group namespace.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

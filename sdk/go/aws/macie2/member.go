@@ -77,6 +77,8 @@ type Member struct {
 	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
 	InvitedAt       pulumi.StringOutput `pulumi:"invitedAt"`
 	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current status of the relationship between the account and the administrator account.
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
@@ -142,6 +144,8 @@ type memberState struct {
 	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
 	InvitedAt       *string `pulumi:"invitedAt"`
 	MasterAccountId *string `pulumi:"masterAccountId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current status of the relationship between the account and the administrator account.
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
@@ -172,6 +176,8 @@ type MemberState struct {
 	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
 	InvitedAt       pulumi.StringPtrInput
 	MasterAccountId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current status of the relationship between the account and the administrator account.
 	RelationshipStatus pulumi.StringPtrInput
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
@@ -199,6 +205,8 @@ type memberArgs struct {
 	InvitationMessage *string `pulumi:"invitationMessage"`
 	// Send an invitation to a member
 	Invite *bool `pulumi:"invite"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status *string `pulumi:"status"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -217,6 +225,8 @@ type MemberArgs struct {
 	InvitationMessage pulumi.StringPtrInput
 	// Send an invitation to a member
 	Invite pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -352,6 +362,11 @@ func (o MemberOutput) InvitedAt() pulumi.StringOutput {
 
 func (o MemberOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MemberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current status of the relationship between the account and the administrator account.

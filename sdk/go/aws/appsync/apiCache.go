@@ -66,6 +66,8 @@ type ApiCache struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
@@ -122,6 +124,8 @@ type apiCacheState struct {
 	ApiId *string `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
@@ -137,6 +141,8 @@ type ApiCacheState struct {
 	ApiId pulumi.StringPtrInput
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	// TTL in seconds for cache entries.
@@ -156,6 +162,8 @@ type apiCacheArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
@@ -172,6 +180,8 @@ type ApiCacheArgs struct {
 	ApiId pulumi.StringInput
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	// TTL in seconds for cache entries.
@@ -280,6 +290,11 @@ func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 // At-rest encryption flag for cache. You cannot update this setting after creation.
 func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ApiCacheOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Transit encryption flag when connecting to cache. You cannot update this setting after creation.

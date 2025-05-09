@@ -21,14 +21,18 @@ __all__ = ['VpcDhcpOptionsAssociationArgs', 'VpcDhcpOptionsAssociation']
 class VpcDhcpOptionsAssociationArgs:
     def __init__(__self__, *,
                  dhcp_options_id: pulumi.Input[builtins.str],
-                 vpc_id: pulumi.Input[builtins.str]):
+                 vpc_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
         :param pulumi.Input[builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
@@ -54,19 +58,35 @@ class VpcDhcpOptionsAssociationArgs:
     def vpc_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "vpc_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VpcDhcpOptionsAssociationState:
     def __init__(__self__, *,
                  dhcp_options_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
         :param pulumi.Input[builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         if dhcp_options_id is not None:
             pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -81,6 +101,18 @@ class _VpcDhcpOptionsAssociationState:
     @dhcp_options_id.setter
     def dhcp_options_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "dhcp_options_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -104,6 +136,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dhcp_options_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -136,6 +169,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         ...
@@ -187,6 +221,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dhcp_options_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -200,6 +235,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             if dhcp_options_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dhcp_options_id'")
             __props__.__dict__["dhcp_options_id"] = dhcp_options_id
+            __props__.__dict__["region"] = region
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
@@ -214,6 +250,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dhcp_options_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VpcDhcpOptionsAssociation':
         """
         Get an existing VpcDhcpOptionsAssociation resource's state with the given name, id, and optional extra
@@ -223,6 +260,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -230,6 +268,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         __props__ = _VpcDhcpOptionsAssociationState.__new__(_VpcDhcpOptionsAssociationState)
 
         __props__.__dict__["dhcp_options_id"] = dhcp_options_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["vpc_id"] = vpc_id
         return VpcDhcpOptionsAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -240,6 +279,14 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         The ID of the DHCP Options Set to associate to the VPC.
         """
         return pulumi.get(self, "dhcp_options_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="vpcId")

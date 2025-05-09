@@ -58,6 +58,8 @@ type AccountSettingDefault struct {
 	// Name of the account setting to set.
 	Name         pulumi.StringOutput `pulumi:"name"`
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the setting.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -98,6 +100,8 @@ type accountSettingDefaultState struct {
 	// Name of the account setting to set.
 	Name         *string `pulumi:"name"`
 	PrincipalArn *string `pulumi:"principalArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the setting.
 	Value *string `pulumi:"value"`
 }
@@ -106,6 +110,8 @@ type AccountSettingDefaultState struct {
 	// Name of the account setting to set.
 	Name         pulumi.StringPtrInput
 	PrincipalArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the setting.
 	Value pulumi.StringPtrInput
 }
@@ -117,6 +123,8 @@ func (AccountSettingDefaultState) ElementType() reflect.Type {
 type accountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the setting.
 	Value string `pulumi:"value"`
 }
@@ -125,6 +133,8 @@ type accountSettingDefaultArgs struct {
 type AccountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the setting.
 	Value pulumi.StringInput
 }
@@ -223,6 +233,11 @@ func (o AccountSettingDefaultOutput) Name() pulumi.StringOutput {
 
 func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccountSettingDefaultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the setting.

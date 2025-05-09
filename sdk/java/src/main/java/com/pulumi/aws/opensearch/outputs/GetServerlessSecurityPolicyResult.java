@@ -41,6 +41,7 @@ public final class GetServerlessSecurityPolicyResult {
      * 
      */
     private String policyVersion;
+    private String region;
     private String type;
 
     private GetServerlessSecurityPolicyResult() {}
@@ -89,6 +90,9 @@ public final class GetServerlessSecurityPolicyResult {
     public String policyVersion() {
         return this.policyVersion;
     }
+    public String region() {
+        return this.region;
+    }
     public String type() {
         return this.type;
     }
@@ -109,6 +113,7 @@ public final class GetServerlessSecurityPolicyResult {
         private String name;
         private String policy;
         private String policyVersion;
+        private String region;
         private String type;
         public Builder() {}
         public Builder(GetServerlessSecurityPolicyResult defaults) {
@@ -120,6 +125,7 @@ public final class GetServerlessSecurityPolicyResult {
     	      this.name = defaults.name;
     	      this.policy = defaults.policy;
     	      this.policyVersion = defaults.policyVersion;
+    	      this.region = defaults.region;
     	      this.type = defaults.type;
         }
 
@@ -180,6 +186,14 @@ public final class GetServerlessSecurityPolicyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityPolicyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetServerlessSecurityPolicyResult", "type");
@@ -196,6 +210,7 @@ public final class GetServerlessSecurityPolicyResult {
             _resultValue.name = name;
             _resultValue.policy = policy;
             _resultValue.policyVersion = policyVersion;
+            _resultValue.region = region;
             _resultValue.type = type;
             return _resultValue;
         }

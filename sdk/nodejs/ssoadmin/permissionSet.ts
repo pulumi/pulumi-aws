@@ -82,6 +82,10 @@ export class PermissionSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      */
     public readonly relayState!: pulumi.Output<string | undefined>;
@@ -116,6 +120,7 @@ export class PermissionSet extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relayState"] = state ? state.relayState : undefined;
             resourceInputs["sessionDuration"] = state ? state.sessionDuration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -128,6 +133,7 @@ export class PermissionSet extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relayState"] = args ? args.relayState : undefined;
             resourceInputs["sessionDuration"] = args ? args.sessionDuration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -165,6 +171,10 @@ export interface PermissionSetState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      */
     relayState?: pulumi.Input<string>;
@@ -198,6 +208,10 @@ export interface PermissionSetArgs {
      * The name of the Permission Set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      */

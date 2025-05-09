@@ -90,6 +90,8 @@ type Activity struct {
 	EncryptionConfiguration ActivityEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -132,6 +134,8 @@ type activityState struct {
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -145,6 +149,8 @@ type ActivityState struct {
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -160,6 +166,8 @@ type activityArgs struct {
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -170,6 +178,8 @@ type ActivityArgs struct {
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -274,6 +284,11 @@ func (o ActivityOutput) EncryptionConfiguration() ActivityEncryptionConfiguratio
 // The name of the activity to create.
 func (o ActivityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ActivityOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

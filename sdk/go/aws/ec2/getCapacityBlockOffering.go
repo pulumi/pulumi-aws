@@ -61,7 +61,8 @@ type GetCapacityBlockOfferingArgs struct {
 	// The number of instances for which to reserve capacity.
 	InstanceCount int `pulumi:"instanceCount"`
 	// The instance type for which to reserve capacity.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType string  `pulumi:"instanceType"`
+	Region       *string `pulumi:"region"`
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	StartDateRange *string `pulumi:"startDateRange"`
 }
@@ -80,6 +81,7 @@ type GetCapacityBlockOfferingResult struct {
 	Id             string `pulumi:"id"`
 	InstanceCount  int    `pulumi:"instanceCount"`
 	InstanceType   string `pulumi:"instanceType"`
+	Region         string `pulumi:"region"`
 	StartDateRange string `pulumi:"startDateRange"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy string `pulumi:"tenancy"`
@@ -105,7 +107,8 @@ type GetCapacityBlockOfferingOutputArgs struct {
 	// The number of instances for which to reserve capacity.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// The instance type for which to reserve capacity.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	InstanceType pulumi.StringInput    `pulumi:"instanceType"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	StartDateRange pulumi.StringPtrInput `pulumi:"startDateRange"`
 }
@@ -163,6 +166,10 @@ func (o GetCapacityBlockOfferingResultOutput) InstanceCount() pulumi.IntOutput {
 
 func (o GetCapacityBlockOfferingResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o GetCapacityBlockOfferingResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCapacityBlockOfferingResultOutput) StartDateRange() pulumi.StringOutput {

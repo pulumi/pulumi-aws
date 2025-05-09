@@ -123,6 +123,9 @@ namespace Pulumi.Aws.CodeCatalyst
         [Input("projectName", required: true)]
         public string ProjectName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("repositories")]
         private List<Inputs.GetDevEnvironmentRepositoryArgs>? _repositories;
 
@@ -180,6 +183,9 @@ namespace Pulumi.Aws.CodeCatalyst
         /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("repositories")]
         private InputList<Inputs.GetDevEnvironmentRepositoryInputArgs>? _repositories;
@@ -251,6 +257,7 @@ namespace Pulumi.Aws.CodeCatalyst
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDevEnvironmentPersistentStorageResult> PersistentStorages;
         public readonly string ProjectName;
+        public readonly string Region;
         /// <summary>
         /// The source repository that contains the branch to clone into the Dev Environment.
         /// </summary>
@@ -288,6 +295,8 @@ namespace Pulumi.Aws.CodeCatalyst
 
             string projectName,
 
+            string region,
+
             ImmutableArray<Outputs.GetDevEnvironmentRepositoryResult> repositories,
 
             string spaceName,
@@ -308,6 +317,7 @@ namespace Pulumi.Aws.CodeCatalyst
             LastUpdatedTime = lastUpdatedTime;
             PersistentStorages = persistentStorages;
             ProjectName = projectName;
+            Region = region;
             Repositories = repositories;
             SpaceName = spaceName;
             Status = status;

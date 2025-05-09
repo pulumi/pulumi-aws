@@ -99,6 +99,9 @@ namespace Pulumi.Aws.SsmContacts
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetContactChannelArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetContactChannelInvokeArgs()
         {
@@ -144,6 +150,7 @@ namespace Pulumi.Aws.SsmContacts
         /// Name of the contact channel.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Type of the contact channel.
         /// </summary>
@@ -163,6 +170,8 @@ namespace Pulumi.Aws.SsmContacts
 
             string name,
 
+            string region,
+
             string type)
         {
             ActivationStatus = activationStatus;
@@ -171,6 +180,7 @@ namespace Pulumi.Aws.SsmContacts
             DeliveryAddresses = deliveryAddresses;
             Id = id;
             Name = name;
+            Region = region;
             Type = type;
         }
     }

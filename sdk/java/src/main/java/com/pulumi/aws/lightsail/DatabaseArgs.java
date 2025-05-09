@@ -199,6 +199,21 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      * 
      */
@@ -258,6 +273,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.relationalDatabaseName = $.relationalDatabaseName;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.tags = $.tags;
@@ -531,6 +547,27 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

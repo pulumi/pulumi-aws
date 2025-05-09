@@ -29,8 +29,8 @@ namespace Pulumi.Aws.S3
         /// });
         /// ```
         /// </summary>
-        public static Task<GetDirectoryBucketsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetDirectoryBucketsResult> InvokeAsync(GetDirectoryBucketsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args ?? new GetDirectoryBucketsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists Amazon S3 Express directory buckets.
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.S3
         /// });
         /// ```
         /// </summary>
-        public static Output<GetDirectoryBucketsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetDirectoryBucketsResult> Invoke(GetDirectoryBucketsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args ?? new GetDirectoryBucketsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists Amazon S3 Express directory buckets.
@@ -71,8 +71,31 @@ namespace Pulumi.Aws.S3
         /// });
         /// ```
         /// </summary>
-        public static Output<GetDirectoryBucketsResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetDirectoryBucketsResult> Invoke(GetDirectoryBucketsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args ?? new GetDirectoryBucketsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetDirectoryBucketsArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetDirectoryBucketsArgs()
+        {
+        }
+        public static new GetDirectoryBucketsArgs Empty => new GetDirectoryBucketsArgs();
+    }
+
+    public sealed class GetDirectoryBucketsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetDirectoryBucketsInvokeArgs()
+        {
+        }
+        public static new GetDirectoryBucketsInvokeArgs Empty => new GetDirectoryBucketsInvokeArgs();
     }
 
 
@@ -88,6 +111,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableArray<string> Buckets;
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetDirectoryBucketsResult(
@@ -95,11 +119,14 @@ namespace Pulumi.Aws.S3
 
             ImmutableArray<string> buckets,
 
-            string id)
+            string id,
+
+            string region)
         {
             Arns = arns;
             Buckets = buckets;
             Id = id;
+            Region = region;
         }
     }
 }

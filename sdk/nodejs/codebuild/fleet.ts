@@ -125,6 +125,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly overflowBehavior!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     public readonly scalingConfiguration!: pulumi.Output<outputs.codebuild.FleetScalingConfiguration | undefined>;
@@ -166,6 +170,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["overflowBehavior"] = state ? state.overflowBehavior : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
             resourceInputs["statuses"] = state ? state.statuses : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -190,6 +195,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -255,6 +261,10 @@ export interface FleetState {
      */
     overflowBehavior?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration>;
@@ -311,6 +321,10 @@ export interface FleetArgs {
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      */
     overflowBehavior?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */

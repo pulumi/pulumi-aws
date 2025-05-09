@@ -107,6 +107,21 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
@@ -149,6 +164,7 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
         this.networkInterfaceId = $.networkInterfaceId;
         this.networkLoadBalancerArn = $.networkLoadBalancerArn;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -295,6 +311,27 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

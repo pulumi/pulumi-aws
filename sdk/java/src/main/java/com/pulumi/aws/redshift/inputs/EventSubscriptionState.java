@@ -94,6 +94,21 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      * 
      */
@@ -198,6 +213,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         this.enabled = $.enabled;
         this.eventCategories = $.eventCategories;
         this.name = $.name;
+        this.region = $.region;
         this.severity = $.severity;
         this.snsTopicArn = $.snsTopicArn;
         this.sourceIds = $.sourceIds;
@@ -338,6 +354,27 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

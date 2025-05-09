@@ -45,6 +45,13 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      * 
@@ -69,6 +76,7 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
     private GetLoadBalancerPlainArgs(GetLoadBalancerPlainArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -109,6 +117,11 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

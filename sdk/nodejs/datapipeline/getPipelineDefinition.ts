@@ -26,6 +26,7 @@ export function getPipelineDefinition(args: GetPipelineDefinitionArgs, opts?: pu
     return pulumi.runtime.invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
         "parameterValues": args.parameterValues,
         "pipelineId": args.pipelineId,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,7 @@ export interface GetPipelineDefinitionArgs {
      * ID of the pipeline.
      */
     pipelineId: string;
+    region?: string;
 }
 
 /**
@@ -64,6 +66,7 @@ export interface GetPipelineDefinitionResult {
      * Objects defined in the pipeline. See below
      */
     readonly pipelineObjects: outputs.datapipeline.GetPipelineDefinitionPipelineObject[];
+    readonly region: string;
 }
 /**
  * Provides details about a specific DataPipeline Pipeline Definition.
@@ -84,6 +87,7 @@ export function getPipelineDefinitionOutput(args: GetPipelineDefinitionOutputArg
     return pulumi.runtime.invokeOutput("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
         "parameterValues": args.parameterValues,
         "pipelineId": args.pipelineId,
+        "region": args.region,
     }, opts);
 }
 
@@ -99,4 +103,5 @@ export interface GetPipelineDefinitionOutputArgs {
      * ID of the pipeline.
      */
     pipelineId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

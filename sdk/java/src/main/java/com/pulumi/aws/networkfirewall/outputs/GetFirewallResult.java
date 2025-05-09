@@ -32,6 +32,11 @@ public final class GetFirewallResult {
      */
     private String description;
     /**
+     * @return Set of types for which to collect analysis metrics.
+     * 
+     */
+    private List<String> enabledAnalysisTypes;
+    /**
      * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      * 
      */
@@ -61,6 +66,7 @@ public final class GetFirewallResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
@@ -110,6 +116,13 @@ public final class GetFirewallResult {
         return this.description;
     }
     /**
+     * @return Set of types for which to collect analysis metrics.
+     * 
+     */
+    public List<String> enabledAnalysisTypes() {
+        return this.enabledAnalysisTypes;
+    }
+    /**
      * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      * 
      */
@@ -150,6 +163,9 @@ public final class GetFirewallResult {
      */
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
@@ -199,12 +215,14 @@ public final class GetFirewallResult {
         private String arn;
         private Boolean deleteProtection;
         private String description;
+        private List<String> enabledAnalysisTypes;
         private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
         private String firewallPolicyArn;
         private Boolean firewallPolicyChangeProtection;
         private List<GetFirewallFirewallStatus> firewallStatuses;
         private String id;
         private String name;
+        private String region;
         private Boolean subnetChangeProtection;
         private List<GetFirewallSubnetMapping> subnetMappings;
         private Map<String,String> tags;
@@ -216,12 +234,14 @@ public final class GetFirewallResult {
     	      this.arn = defaults.arn;
     	      this.deleteProtection = defaults.deleteProtection;
     	      this.description = defaults.description;
+    	      this.enabledAnalysisTypes = defaults.enabledAnalysisTypes;
     	      this.encryptionConfigurations = defaults.encryptionConfigurations;
     	      this.firewallPolicyArn = defaults.firewallPolicyArn;
     	      this.firewallPolicyChangeProtection = defaults.firewallPolicyChangeProtection;
     	      this.firewallStatuses = defaults.firewallStatuses;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.subnetChangeProtection = defaults.subnetChangeProtection;
     	      this.subnetMappings = defaults.subnetMappings;
     	      this.tags = defaults.tags;
@@ -252,6 +272,17 @@ public final class GetFirewallResult {
             }
             this.description = description;
             return this;
+        }
+        @CustomType.Setter
+        public Builder enabledAnalysisTypes(List<String> enabledAnalysisTypes) {
+            if (enabledAnalysisTypes == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "enabledAnalysisTypes");
+            }
+            this.enabledAnalysisTypes = enabledAnalysisTypes;
+            return this;
+        }
+        public Builder enabledAnalysisTypes(String... enabledAnalysisTypes) {
+            return enabledAnalysisTypes(List.of(enabledAnalysisTypes));
         }
         @CustomType.Setter
         public Builder encryptionConfigurations(List<GetFirewallEncryptionConfiguration> encryptionConfigurations) {
@@ -308,6 +339,14 @@ public final class GetFirewallResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subnetChangeProtection(Boolean subnetChangeProtection) {
             if (subnetChangeProtection == null) {
               throw new MissingRequiredPropertyException("GetFirewallResult", "subnetChangeProtection");
@@ -355,12 +394,14 @@ public final class GetFirewallResult {
             _resultValue.arn = arn;
             _resultValue.deleteProtection = deleteProtection;
             _resultValue.description = description;
+            _resultValue.enabledAnalysisTypes = enabledAnalysisTypes;
             _resultValue.encryptionConfigurations = encryptionConfigurations;
             _resultValue.firewallPolicyArn = firewallPolicyArn;
             _resultValue.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
             _resultValue.firewallStatuses = firewallStatuses;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.subnetChangeProtection = subnetChangeProtection;
             _resultValue.subnetMappings = subnetMappings;
             _resultValue.tags = tags;

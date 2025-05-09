@@ -54,6 +54,7 @@ type LookupDomainArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Off Peak update options
 	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
+	Region               *string                        `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -108,7 +109,8 @@ type LookupDomainResult struct {
 	// Off Peak update options
 	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Status of a configuration change in the domain.
-	Processing bool `pulumi:"processing"`
+	Processing bool   `pulumi:"processing"`
+	Region     string `pulumi:"region"`
 	// Domain snapshot related options.
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// Software update options for the domain
@@ -134,6 +136,7 @@ type LookupDomainOutputArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Off Peak update options
 	OffPeakWindowOptions GetDomainOffPeakWindowOptionsPtrInput `pulumi:"offPeakWindowOptions"`
+	Region               pulumi.StringPtrInput                 `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -279,6 +282,10 @@ func (o LookupDomainResultOutput) OffPeakWindowOptions() GetDomainOffPeakWindowO
 // Status of a configuration change in the domain.
 func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Processing }).(pulumi.BoolOutput)
+}
+
+func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Domain snapshot related options.

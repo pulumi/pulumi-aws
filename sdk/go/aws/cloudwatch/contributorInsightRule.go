@@ -54,6 +54,8 @@ import (
 type ContributorInsightRule struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the Contributor Insight Rule.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -104,6 +106,8 @@ func GetContributorInsightRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContributorInsightRule resources.
 type contributorInsightRuleState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the Contributor Insight Rule.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -119,6 +123,8 @@ type contributorInsightRuleState struct {
 }
 
 type ContributorInsightRuleState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the Contributor Insight Rule.
 	ResourceArn pulumi.StringPtrInput
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -138,6 +144,8 @@ func (ContributorInsightRuleState) ElementType() reflect.Type {
 }
 
 type contributorInsightRuleArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
 	RuleDefinition string `pulumi:"ruleDefinition"`
 	// Unique name of the rule.
@@ -151,6 +159,8 @@ type contributorInsightRuleArgs struct {
 
 // The set of arguments for constructing a ContributorInsightRule resource.
 type ContributorInsightRuleArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
 	RuleDefinition pulumi.StringInput
 	// Unique name of the rule.
@@ -247,6 +257,11 @@ func (o ContributorInsightRuleOutput) ToContributorInsightRuleOutput() Contribut
 
 func (o ContributorInsightRuleOutput) ToContributorInsightRuleOutputWithContext(ctx context.Context) ContributorInsightRuleOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ContributorInsightRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the Contributor Insight Rule.

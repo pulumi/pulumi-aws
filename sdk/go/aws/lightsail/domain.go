@@ -52,6 +52,8 @@ type Domain struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Lightsail domain to manage
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -91,6 +93,8 @@ type domainState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the Lightsail domain to manage
 	DomainName *string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DomainState struct {
@@ -98,6 +102,8 @@ type DomainState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the Lightsail domain to manage
 	DomainName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -107,12 +113,16 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// The name of the Lightsail domain to manage
 	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// The name of the Lightsail domain to manage
 	DomainName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -210,6 +220,11 @@ func (o DomainOutput) Arn() pulumi.StringOutput {
 // The name of the Lightsail domain to manage
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DomainArrayOutput struct{ *pulumi.OutputState }

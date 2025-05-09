@@ -99,6 +99,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEventConnectionArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEventConnectionInvokeArgs()
         {
@@ -139,6 +145,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Name of the connection.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
         /// </summary>
@@ -154,12 +161,15 @@ namespace Pulumi.Aws.CloudWatch
 
             string name,
 
+            string region,
+
             string secretArn)
         {
             Arn = arn;
             AuthorizationType = authorizationType;
             Id = id;
             Name = name;
+            Region = region;
             SecretArn = secretArn;
         }
     }

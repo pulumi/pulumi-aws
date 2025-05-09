@@ -352,6 +352,10 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether to replace the security groups on the function's VPC configuration prior to destruction.
      * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
      * By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -475,6 +479,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["publish"] = state ? state.publish : undefined;
             resourceInputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
             resourceInputs["qualifiedInvokeArn"] = state ? state.qualifiedInvokeArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replaceSecurityGroupsOnDestroy"] = state ? state.replaceSecurityGroupsOnDestroy : undefined;
             resourceInputs["replacementSecurityGroupIds"] = state ? state.replacementSecurityGroupIds : undefined;
             resourceInputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
@@ -518,6 +523,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
             resourceInputs["publish"] = args ? args.publish : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replaceSecurityGroupsOnDestroy"] = args ? args.replaceSecurityGroupsOnDestroy : undefined;
             resourceInputs["replacementSecurityGroupIds"] = args ? args.replacementSecurityGroupIds : undefined;
             resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
@@ -650,6 +656,10 @@ export interface FunctionState {
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
     qualifiedInvokeArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to replace the security groups on the function's VPC configuration prior to destruction.
      * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
@@ -814,6 +824,10 @@ export interface FunctionArgs {
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
     publish?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to replace the security groups on the function's VPC configuration prior to destruction.
      * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.

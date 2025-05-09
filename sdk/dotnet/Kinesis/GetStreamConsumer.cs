@@ -108,6 +108,9 @@ namespace Pulumi.Aws.Kinesis
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ARN of the data stream the consumer is registered with.
         /// </summary>
@@ -133,6 +136,9 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the data stream the consumer is registered with.
@@ -160,6 +166,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Current status of the stream consumer.
         /// </summary>
@@ -176,6 +183,8 @@ namespace Pulumi.Aws.Kinesis
 
             string name,
 
+            string region,
+
             string status,
 
             string streamArn)
@@ -184,6 +193,7 @@ namespace Pulumi.Aws.Kinesis
             CreationTimestamp = creationTimestamp;
             Id = id;
             Name = name;
+            Region = region;
             Status = status;
             StreamArn = streamArn;
         }

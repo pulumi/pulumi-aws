@@ -79,6 +79,12 @@ namespace Pulumi.Aws.S3Tables
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TableBucket resource with the given unique name, arguments, and options.
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.S3Tables
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public TableBucketArgs()
         {
         }
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.S3Tables
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public TableBucketState()
         {

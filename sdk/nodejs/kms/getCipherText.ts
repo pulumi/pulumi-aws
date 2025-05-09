@@ -36,6 +36,7 @@ export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptio
         "context": args.context,
         "keyId": args.keyId,
         "plaintext": args.plaintext,
+        "region": args.region,
     }, opts);
 }
 
@@ -55,6 +56,7 @@ export interface GetCipherTextArgs {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     plaintext: string;
+    region?: string;
 }
 
 /**
@@ -72,6 +74,7 @@ export interface GetCipherTextResult {
     readonly id: string;
     readonly keyId: string;
     readonly plaintext: string;
+    readonly region: string;
 }
 /**
  * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -105,6 +108,7 @@ export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi
         "context": args.context,
         "keyId": args.keyId,
         "plaintext": args.plaintext,
+        "region": args.region,
     }, opts);
 }
 
@@ -124,4 +128,5 @@ export interface GetCipherTextOutputArgs {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     plaintext: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

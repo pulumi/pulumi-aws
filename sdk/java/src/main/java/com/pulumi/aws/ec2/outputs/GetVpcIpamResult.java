@@ -70,6 +70,7 @@ public final class GetVpcIpamResult {
      * 
      */
     private String publicDefaultScopeId;
+    private String region;
     /**
      * @return Number of resource discovery associations.
      * 
@@ -179,6 +180,9 @@ public final class GetVpcIpamResult {
     public String publicDefaultScopeId() {
         return this.publicDefaultScopeId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Number of resource discovery associations.
      * 
@@ -242,6 +246,7 @@ public final class GetVpcIpamResult {
         private String ownerId;
         private String privateDefaultScopeId;
         private String publicDefaultScopeId;
+        private String region;
         private Integer resourceDiscoveryAssociationCount;
         private Integer scopeCount;
         private String state;
@@ -262,6 +267,7 @@ public final class GetVpcIpamResult {
     	      this.ownerId = defaults.ownerId;
     	      this.privateDefaultScopeId = defaults.privateDefaultScopeId;
     	      this.publicDefaultScopeId = defaults.publicDefaultScopeId;
+    	      this.region = defaults.region;
     	      this.resourceDiscoveryAssociationCount = defaults.resourceDiscoveryAssociationCount;
     	      this.scopeCount = defaults.scopeCount;
     	      this.state = defaults.state;
@@ -362,6 +368,14 @@ public final class GetVpcIpamResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceDiscoveryAssociationCount(Integer resourceDiscoveryAssociationCount) {
             if (resourceDiscoveryAssociationCount == null) {
               throw new MissingRequiredPropertyException("GetVpcIpamResult", "resourceDiscoveryAssociationCount");
@@ -422,6 +436,7 @@ public final class GetVpcIpamResult {
             _resultValue.ownerId = ownerId;
             _resultValue.privateDefaultScopeId = privateDefaultScopeId;
             _resultValue.publicDefaultScopeId = publicDefaultScopeId;
+            _resultValue.region = region;
             _resultValue.resourceDiscoveryAssociationCount = resourceDiscoveryAssociationCount;
             _resultValue.scopeCount = scopeCount;
             _resultValue.state = state;

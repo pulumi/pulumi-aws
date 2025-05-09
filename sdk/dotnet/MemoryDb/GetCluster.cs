@@ -93,6 +93,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -214,6 +220,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Port number that this node is listening on.
         /// </summary>
         public readonly int Port;
+        public readonly string Region;
         /// <summary>
         /// Set of VPC Security Group ID-s associated with this cluster.
         /// </summary>
@@ -287,6 +294,8 @@ namespace Pulumi.Aws.MemoryDb
 
             int port,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<Outputs.GetClusterShardResult> shards,
@@ -322,6 +331,7 @@ namespace Pulumi.Aws.MemoryDb
             NumShards = numShards;
             ParameterGroupName = parameterGroupName;
             Port = port;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             Shards = shards;
             SnapshotRetentionLimit = snapshotRetentionLimit;

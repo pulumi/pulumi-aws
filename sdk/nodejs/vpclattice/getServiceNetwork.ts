@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
+        "region": args.region,
         "serviceNetworkIdentifier": args.serviceNetworkIdentifier,
         "tags": args.tags,
     }, opts);
@@ -32,6 +33,7 @@ export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getServiceNetwork.
  */
 export interface GetServiceNetworkArgs {
+    region?: string;
     /**
      * Identifier of the service network.
      */
@@ -75,6 +77,7 @@ export interface GetServiceNetworkResult {
      * Number of VPCs associated with this service network.
      */
     readonly numberOfAssociatedVpcs: number;
+    readonly region: string;
     readonly serviceNetworkIdentifier: string;
     readonly tags: {[key: string]: string};
 }
@@ -97,6 +100,7 @@ export interface GetServiceNetworkResult {
 export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
+        "region": args.region,
         "serviceNetworkIdentifier": args.serviceNetworkIdentifier,
         "tags": args.tags,
     }, opts);
@@ -106,6 +110,7 @@ export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?
  * A collection of arguments for invoking getServiceNetwork.
  */
 export interface GetServiceNetworkOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the service network.
      */

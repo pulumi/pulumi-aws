@@ -36,6 +36,7 @@ public final class GetContactFlowResult {
     private String id;
     private String instanceId;
     private String name;
+    private String region;
     /**
      * @return Tags to assign to the Contact Flow.
      * 
@@ -85,6 +86,9 @@ public final class GetContactFlowResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Tags to assign to the Contact Flow.
      * 
@@ -116,6 +120,7 @@ public final class GetContactFlowResult {
         private String id;
         private String instanceId;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private @Nullable String type;
         public Builder() {}
@@ -128,6 +133,7 @@ public final class GetContactFlowResult {
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -189,6 +195,14 @@ public final class GetContactFlowResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetContactFlowResult", "tags");
@@ -211,6 +225,7 @@ public final class GetContactFlowResult {
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;

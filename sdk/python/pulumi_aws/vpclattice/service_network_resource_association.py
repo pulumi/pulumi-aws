@@ -24,6 +24,7 @@ class ServiceNetworkResourceAssociationArgs:
     def __init__(__self__, *,
                  resource_configuration_identifier: pulumi.Input[builtins.str],
                  service_network_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
@@ -32,10 +33,13 @@ class ServiceNetworkResourceAssociationArgs:
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -69,6 +73,18 @@ class ServiceNetworkResourceAssociationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -94,6 +110,7 @@ class _ServiceNetworkResourceAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -103,6 +120,7 @@ class _ServiceNetworkResourceAssociationState:
         Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]] dns_entries: DNS entry of the association in the service network.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -114,6 +132,8 @@ class _ServiceNetworkResourceAssociationState:
             pulumi.set(__self__, "arn", arn)
         if dns_entries is not None:
             pulumi.set(__self__, "dns_entries", dns_entries)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_configuration_identifier is not None:
             pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
         if service_network_identifier is not None:
@@ -148,6 +168,18 @@ class _ServiceNetworkResourceAssociationState:
     @dns_entries.setter
     def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]):
         pulumi.set(self, "dns_entries", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceConfigurationIdentifier")
@@ -217,6 +249,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -251,6 +284,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -305,6 +339,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -318,6 +353,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceNetworkResourceAssociationArgs.__new__(ServiceNetworkResourceAssociationArgs)
 
+            __props__.__dict__["region"] = region
             if resource_configuration_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_configuration_identifier'")
             __props__.__dict__["resource_configuration_identifier"] = resource_configuration_identifier
@@ -341,6 +377,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_configuration_identifier: Optional[pulumi.Input[builtins.str]] = None,
             service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -355,6 +392,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]] dns_entries: DNS entry of the association in the service network.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -368,6 +406,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["dns_entries"] = dns_entries
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_configuration_identifier"] = resource_configuration_identifier
         __props__.__dict__["service_network_identifier"] = service_network_identifier
         __props__.__dict__["tags"] = tags
@@ -390,6 +429,14 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         DNS entry of the association in the service network.
         """
         return pulumi.get(self, "dns_entries")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceConfigurationIdentifier")

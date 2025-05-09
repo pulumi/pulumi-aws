@@ -345,6 +345,20 @@ public class Bot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.processBehavior);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * When you send a request to create or update a bot, Amazon Lex sets the status response
      * element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can&#39;t
      * build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the

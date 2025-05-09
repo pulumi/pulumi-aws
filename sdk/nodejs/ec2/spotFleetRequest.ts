@@ -309,6 +309,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly onDemandTargetCapacity!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
@@ -399,6 +403,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["onDemandAllocationStrategy"] = state ? state.onDemandAllocationStrategy : undefined;
             resourceInputs["onDemandMaxTotalPrice"] = state ? state.onDemandMaxTotalPrice : undefined;
             resourceInputs["onDemandTargetCapacity"] = state ? state.onDemandTargetCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             resourceInputs["spotMaintenanceStrategies"] = state ? state.spotMaintenanceStrategies : undefined;
             resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
@@ -434,6 +439,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["onDemandAllocationStrategy"] = args ? args.onDemandAllocationStrategy : undefined;
             resourceInputs["onDemandMaxTotalPrice"] = args ? args.onDemandMaxTotalPrice : undefined;
             resourceInputs["onDemandTargetCapacity"] = args ? args.onDemandTargetCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             resourceInputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
             resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
@@ -533,6 +539,10 @@ export interface SpotFleetRequestState {
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      */
     onDemandTargetCapacity?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
@@ -675,6 +685,10 @@ export interface SpotFleetRequestArgs {
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      */
     onDemandTargetCapacity?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */

@@ -292,6 +292,8 @@ type ComputeEnvironment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -355,6 +357,8 @@ type computeEnvironmentState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -386,6 +390,8 @@ type ComputeEnvironmentState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringPtrInput
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -417,6 +423,8 @@ type computeEnvironmentArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -439,6 +447,8 @@ type ComputeEnvironmentArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringPtrInput
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -566,6 +576,11 @@ func (o ComputeEnvironmentOutput) Name() pulumi.StringOutput {
 // Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 func (o ComputeEnvironmentOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ComputeEnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

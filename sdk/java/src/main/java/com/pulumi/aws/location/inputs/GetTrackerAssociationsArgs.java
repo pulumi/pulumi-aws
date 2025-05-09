@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTrackerAssociationsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTrackerAssociationsArgs Empty = new GetTrackerAssociationsArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Name of the tracker resource associated with a geofence collection.
@@ -32,6 +41,7 @@ public final class GetTrackerAssociationsArgs extends com.pulumi.resources.Invok
     private GetTrackerAssociationsArgs() {}
 
     private GetTrackerAssociationsArgs(GetTrackerAssociationsArgs $) {
+        this.region = $.region;
         this.trackerName = $.trackerName;
     }
 
@@ -51,6 +61,15 @@ public final class GetTrackerAssociationsArgs extends com.pulumi.resources.Invok
 
         public Builder(GetTrackerAssociationsArgs defaults) {
             $ = new GetTrackerAssociationsArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -46,6 +46,13 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Returns information on a specific Security Profile by Security Profile id
      * 
@@ -81,6 +88,7 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
     private GetSecurityProfilePlainArgs(GetSecurityProfilePlainArgs $) {
         this.instanceId = $.instanceId;
         this.name = $.name;
+        this.region = $.region;
         this.securityProfileId = $.securityProfileId;
         this.tags = $.tags;
     }
@@ -122,6 +130,11 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

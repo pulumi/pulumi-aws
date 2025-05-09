@@ -48,6 +48,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> IndexName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the table to enable contributor insights
         /// </summary>
         [Output("tableName")]
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? IndexName { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the table to enable contributor insights
         /// </summary>
         [Input("tableName", required: true)]
@@ -124,6 +136,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the table to enable contributor insights

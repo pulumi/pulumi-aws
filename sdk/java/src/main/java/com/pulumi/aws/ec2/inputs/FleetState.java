@@ -160,6 +160,21 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
@@ -321,6 +336,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         this.fulfilledOnDemandCapacity = $.fulfilledOnDemandCapacity;
         this.launchTemplateConfigs = $.launchTemplateConfigs;
         this.onDemandOptions = $.onDemandOptions;
+        this.region = $.region;
         this.replaceUnhealthyInstances = $.replaceUnhealthyInstances;
         this.spotOptions = $.spotOptions;
         this.tags = $.tags;
@@ -558,6 +574,27 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder onDemandOptions(FleetOnDemandOptionsArgs onDemandOptions) {
             return onDemandOptions(Output.of(onDemandOptions));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

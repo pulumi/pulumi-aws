@@ -86,7 +86,8 @@ type LookupDocumentArgs struct {
 	// The document version.
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The name of the document.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDocument.
@@ -100,8 +101,9 @@ type LookupDocumentResult struct {
 	DocumentType    string  `pulumi:"documentType"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
@@ -120,7 +122,8 @@ type LookupDocumentOutputArgs struct {
 	// The document version.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
 	// The name of the document.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDocumentOutputArgs) ElementType() reflect.Type {
@@ -172,6 +175,10 @@ func (o LookupDocumentResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupDocumentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDocumentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDocumentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

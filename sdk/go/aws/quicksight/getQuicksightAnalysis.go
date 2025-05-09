@@ -53,11 +53,10 @@ func GetQuicksightAnalysis(ctx *pulumi.Context, args *GetQuicksightAnalysisArgs,
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisArgs struct {
 	// Identifier for the analysis.
-	//
-	// The following arguments are optional:
 	AnalysisId string `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId *string           `pulumi:"awsAccountId"`
+	Region       *string           `pulumi:"region"`
 	Tags         map[string]string `pulumi:"tags"`
 }
 
@@ -73,6 +72,7 @@ type GetQuicksightAnalysisResult struct {
 	LastUpdatedTime   string                            `pulumi:"lastUpdatedTime"`
 	Name              string                            `pulumi:"name"`
 	Permissions       []GetQuicksightAnalysisPermission `pulumi:"permissions"`
+	Region            string                            `pulumi:"region"`
 	Status            string                            `pulumi:"status"`
 	Tags              map[string]string                 `pulumi:"tags"`
 	ThemeArn          string                            `pulumi:"themeArn"`
@@ -90,11 +90,10 @@ func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysis
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisOutputArgs struct {
 	// Identifier for the analysis.
-	//
-	// The following arguments are optional:
 	AnalysisId pulumi.StringInput `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	Tags         pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -152,6 +151,10 @@ func (o GetQuicksightAnalysisResultOutput) Name() pulumi.StringOutput {
 
 func (o GetQuicksightAnalysisResultOutput) Permissions() GetQuicksightAnalysisPermissionArrayOutput {
 	return o.ApplyT(func(v GetQuicksightAnalysisResult) []GetQuicksightAnalysisPermission { return v.Permissions }).(GetQuicksightAnalysisPermissionArrayOutput)
+}
+
+func (o GetQuicksightAnalysisResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuicksightAnalysisResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetQuicksightAnalysisResultOutput) Status() pulumi.StringOutput {

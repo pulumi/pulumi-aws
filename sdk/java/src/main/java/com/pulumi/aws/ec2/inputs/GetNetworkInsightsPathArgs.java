@@ -21,12 +21,20 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsPathFilterArgs>> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetNetworkInsightsPathFilterArgs>>> filters() {
@@ -46,6 +54,13 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
      */
     public Optional<Output<String>> networkInsightsPathId() {
         return Optional.ofNullable(this.networkInsightsPathId);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -68,6 +83,7 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
     private GetNetworkInsightsPathArgs(GetNetworkInsightsPathArgs $) {
         this.filters = $.filters;
         this.networkInsightsPathId = $.networkInsightsPathId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -92,6 +108,10 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -103,6 +123,10 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -112,6 +136,10 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -139,6 +167,15 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
          */
         public Builder networkInsightsPathId(String networkInsightsPathId) {
             return networkInsightsPathId(Output.of(networkInsightsPathId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

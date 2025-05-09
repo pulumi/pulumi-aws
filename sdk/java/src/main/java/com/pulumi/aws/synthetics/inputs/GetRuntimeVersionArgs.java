@@ -51,6 +51,13 @@ public final class GetRuntimeVersionArgs extends com.pulumi.resources.InvokeArgs
         return this.prefix;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
      * 
@@ -71,6 +78,7 @@ public final class GetRuntimeVersionArgs extends com.pulumi.resources.InvokeArgs
     private GetRuntimeVersionArgs(GetRuntimeVersionArgs $) {
         this.latest = $.latest;
         this.prefix = $.prefix;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -136,6 +144,15 @@ public final class GetRuntimeVersionArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

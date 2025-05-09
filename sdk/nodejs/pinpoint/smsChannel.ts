@@ -66,6 +66,10 @@ export class SmsChannel extends pulumi.CustomResource {
      */
     public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the sender for your messages.
      */
     public readonly senderId!: pulumi.Output<string | undefined>;
@@ -94,6 +98,7 @@ export class SmsChannel extends pulumi.CustomResource {
             resourceInputs["applicationId"] = state ? state.applicationId : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["promotionalMessagesPerSecond"] = state ? state.promotionalMessagesPerSecond : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["senderId"] = state ? state.senderId : undefined;
             resourceInputs["shortCode"] = state ? state.shortCode : undefined;
             resourceInputs["transactionalMessagesPerSecond"] = state ? state.transactionalMessagesPerSecond : undefined;
@@ -104,6 +109,7 @@ export class SmsChannel extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["senderId"] = args ? args.senderId : undefined;
             resourceInputs["shortCode"] = args ? args.shortCode : undefined;
             resourceInputs["promotionalMessagesPerSecond"] = undefined /*out*/;
@@ -131,6 +137,10 @@ export interface SmsChannelState {
      */
     promotionalMessagesPerSecond?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Identifier of the sender for your messages.
      */
     senderId?: pulumi.Input<string>;
@@ -156,6 +166,10 @@ export interface SmsChannelArgs {
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the sender for your messages.
      */

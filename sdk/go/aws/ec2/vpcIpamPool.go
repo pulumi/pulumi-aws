@@ -165,6 +165,8 @@ type VpcIpamPool struct {
 	PublicIpSource pulumi.StringPtrOutput `pulumi:"publicIpSource"`
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable pulumi.BoolPtrOutput `pulumi:"publiclyAdvertisable"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
 	// The ID of the IPAM
@@ -242,6 +244,8 @@ type vpcIpamPoolState struct {
 	PublicIpSource *string `pulumi:"publicIpSource"`
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
 	// The ID of the IPAM
@@ -284,6 +288,8 @@ type VpcIpamPoolState struct {
 	PublicIpSource pulumi.StringPtrInput
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
 	// The ID of the IPAM
@@ -326,6 +332,8 @@ type vpcIpamPoolArgs struct {
 	PublicIpSource *string `pulumi:"publicIpSource"`
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -361,6 +369,8 @@ type VpcIpamPoolArgs struct {
 	PublicIpSource pulumi.StringPtrInput
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -531,6 +541,11 @@ func (o VpcIpamPoolOutput) PublicIpSource() pulumi.StringPtrOutput {
 // Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 func (o VpcIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.BoolPtrOutput { return v.PubliclyAdvertisable }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIpamPoolOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.

@@ -53,24 +53,30 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 // A collection of arguments for invoking getParameter.
 type LookupParameterArgs struct {
 	// Name of the parameter.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
-	//
-	// In addition to all arguments above, the following attributes are exported:
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
 // A collection of values returned by getParameter.
 type LookupParameterResult struct {
+	// ARN of the parameter.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	InsecureValue  string `pulumi:"insecureValue"`
-	Name           string `pulumi:"name"`
-	Type           string `pulumi:"type"`
-	Value          string `pulumi:"value"`
-	Version        int    `pulumi:"version"`
-	WithDecryption *bool  `pulumi:"withDecryption"`
+	Id string `pulumi:"id"`
+	// Value of the parameter. **Use caution:** This value is never marked as sensitive.
+	InsecureValue string `pulumi:"insecureValue"`
+	// Name of the parameter.
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
+	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+	Type string `pulumi:"type"`
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+	Value string `pulumi:"value"`
+	// Version of the parameter.
+	Version        int   `pulumi:"version"`
+	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
 func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
@@ -85,10 +91,9 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 // A collection of arguments for invoking getParameter.
 type LookupParameterOutputArgs struct {
 	// Name of the parameter.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
-	//
-	// In addition to all arguments above, the following attributes are exported:
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
 
@@ -111,6 +116,7 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ct
 	return o
 }
 
+// ARN of the parameter.
 func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -120,22 +126,31 @@ func (o LookupParameterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Value of the parameter. **Use caution:** This value is never marked as sensitive.
 func (o LookupParameterResultOutput) InsecureValue() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.InsecureValue }).(pulumi.StringOutput)
 }
 
+// Name of the parameter.
 func (o LookupParameterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o LookupParameterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 func (o LookupParameterResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
 func (o LookupParameterResultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Value }).(pulumi.StringOutput)
 }
 
+// Version of the parameter.
 func (o LookupParameterResultOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupParameterResult) int { return v.Version }).(pulumi.IntOutput)
 }

@@ -60,12 +60,28 @@ public final class PermissionSetInlinePolicyState extends com.pulumi.resources.R
         return Optional.ofNullable(this.permissionSetArn);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PermissionSetInlinePolicyState() {}
 
     private PermissionSetInlinePolicyState(PermissionSetInlinePolicyState $) {
         this.inlinePolicy = $.inlinePolicy;
         this.instanceArn = $.instanceArn;
         this.permissionSetArn = $.permissionSetArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class PermissionSetInlinePolicyState extends com.pulumi.resources.R
          */
         public Builder permissionSetArn(String permissionSetArn) {
             return permissionSetArn(Output.of(permissionSetArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PermissionSetInlinePolicyState build() {

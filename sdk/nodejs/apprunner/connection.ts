@@ -73,6 +73,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly providerType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["connectionName"] = state ? state.connectionName : undefined;
             resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -114,6 +119,7 @@ export class Connection extends pulumi.CustomResource {
             }
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -141,6 +147,10 @@ export interface ConnectionState {
      */
     providerType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
      */
     status?: pulumi.Input<string>;
@@ -166,6 +176,10 @@ export interface ConnectionArgs {
      * Source repository provider. Valid values: `GITHUB`.
      */
     providerType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -135,6 +135,12 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
         [Output("ruleVersion")]
@@ -231,6 +237,12 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
         [Input("ruleVersion", required: true)]
@@ -311,6 +323,12 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Rule schema version in this particular Cost Category.

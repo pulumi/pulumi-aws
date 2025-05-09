@@ -32,6 +32,7 @@ public final class GetEngineVersionResult {
     private String id;
     private String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
+    private String region;
     /**
      * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
@@ -80,6 +81,9 @@ public final class GetEngineVersionResult {
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
@@ -120,6 +124,7 @@ public final class GetEngineVersionResult {
         private String id;
         private String parameterGroupFamily;
         private @Nullable List<String> preferredVersions;
+        private String region;
         private Boolean supportsLogExportsToCloudwatch;
         private List<String> validUpgradeTargets;
         private String version;
@@ -133,6 +138,7 @@ public final class GetEngineVersionResult {
     	      this.id = defaults.id;
     	      this.parameterGroupFamily = defaults.parameterGroupFamily;
     	      this.preferredVersions = defaults.preferredVersions;
+    	      this.region = defaults.region;
     	      this.supportsLogExportsToCloudwatch = defaults.supportsLogExportsToCloudwatch;
     	      this.validUpgradeTargets = defaults.validUpgradeTargets;
     	      this.version = defaults.version;
@@ -190,6 +196,14 @@ public final class GetEngineVersionResult {
             return preferredVersions(List.of(preferredVersions));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportsLogExportsToCloudwatch(Boolean supportsLogExportsToCloudwatch) {
             if (supportsLogExportsToCloudwatch == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLogExportsToCloudwatch");
@@ -232,6 +246,7 @@ public final class GetEngineVersionResult {
             _resultValue.id = id;
             _resultValue.parameterGroupFamily = parameterGroupFamily;
             _resultValue.preferredVersions = preferredVersions;
+            _resultValue.region = region;
             _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             _resultValue.validUpgradeTargets = validUpgradeTargets;
             _resultValue.version = version;

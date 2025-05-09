@@ -207,6 +207,9 @@ namespace Pulumi.Aws.AutoScaling
             set => _names = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAmiIdsArgs()
         {
         }
@@ -239,6 +242,9 @@ namespace Pulumi.Aws.AutoScaling
             set => _names = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAmiIdsInvokeArgs()
         {
         }
@@ -262,6 +268,7 @@ namespace Pulumi.Aws.AutoScaling
         /// List of the Autoscaling Groups in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAmiIdsResult(
@@ -271,12 +278,15 @@ namespace Pulumi.Aws.AutoScaling
 
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             Arns = arns;
             Filters = filters;
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

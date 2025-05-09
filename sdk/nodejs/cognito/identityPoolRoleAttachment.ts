@@ -51,6 +51,10 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
      */
     public readonly identityPoolId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A List of Role Mapping.
      */
     public readonly roleMappings!: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
@@ -73,6 +77,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IdentityPoolRoleAttachmentState | undefined;
             resourceInputs["identityPoolId"] = state ? state.identityPoolId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleMappings"] = state ? state.roleMappings : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
         } else {
@@ -84,6 +89,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roles'");
             }
             resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
         }
@@ -100,6 +106,10 @@ export interface IdentityPoolRoleAttachmentState {
      * An identity pool ID in the format `REGION_GUID`.
      */
     identityPoolId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A List of Role Mapping.
      */
@@ -118,6 +128,10 @@ export interface IdentityPoolRoleAttachmentArgs {
      * An identity pool ID in the format `REGION_GUID`.
      */
     identityPoolId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A List of Role Mapping.
      */

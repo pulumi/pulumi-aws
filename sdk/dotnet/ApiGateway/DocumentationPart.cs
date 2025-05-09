@@ -72,6 +72,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the associated Rest API
         /// </summary>
         [Output("restApiId")]
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> Properties { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the associated Rest API
         /// </summary>
         [Input("restApiId", required: true)]
@@ -166,6 +178,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("properties")]
         public Input<string>? Properties { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the associated Rest API

@@ -85,6 +85,7 @@ public final class GetBotResult {
      * 
      */
     private Double nluIntentConfidenceThreshold;
+    private String region;
     /**
      * @return Status of the bot.
      * 
@@ -200,6 +201,9 @@ public final class GetBotResult {
     public Double nluIntentConfidenceThreshold() {
         return this.nluIntentConfidenceThreshold;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the bot.
      * 
@@ -245,6 +249,7 @@ public final class GetBotResult {
         private String locale;
         private String name;
         private Double nluIntentConfidenceThreshold;
+        private String region;
         private String status;
         private @Nullable String version;
         private String voiceId;
@@ -265,6 +270,7 @@ public final class GetBotResult {
     	      this.locale = defaults.locale;
     	      this.name = defaults.name;
     	      this.nluIntentConfidenceThreshold = defaults.nluIntentConfidenceThreshold;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.version = defaults.version;
     	      this.voiceId = defaults.voiceId;
@@ -383,6 +389,14 @@ public final class GetBotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBotResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetBotResult", "status");
@@ -420,6 +434,7 @@ public final class GetBotResult {
             _resultValue.locale = locale;
             _resultValue.name = name;
             _resultValue.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.version = version;
             _resultValue.voiceId = voiceId;

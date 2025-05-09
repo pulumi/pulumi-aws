@@ -63,6 +63,8 @@ type Ledger struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode pulumi.StringOutput `pulumi:"permissionsMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -112,6 +114,8 @@ type ledgerState struct {
 	Name *string `pulumi:"name"`
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode *string `pulumi:"permissionsMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -129,6 +133,8 @@ type LedgerState struct {
 	Name pulumi.StringPtrInput
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -148,6 +154,8 @@ type ledgerArgs struct {
 	Name *string `pulumi:"name"`
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode string `pulumi:"permissionsMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -162,6 +170,8 @@ type LedgerArgs struct {
 	Name pulumi.StringPtrInput
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -276,6 +286,11 @@ func (o LedgerOutput) Name() pulumi.StringOutput {
 // The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 func (o LedgerOutput) PermissionsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.PermissionsMode }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LedgerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

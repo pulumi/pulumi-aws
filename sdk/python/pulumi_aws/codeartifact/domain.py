@@ -22,16 +22,20 @@ class DomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[builtins.str],
                  encryption_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain", domain)
         if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,6 +65,18 @@ class DomainArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -81,6 +97,7 @@ class _DomainState:
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_count: Optional[pulumi.Input[builtins.int]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -93,6 +110,7 @@ class _DomainState:
         :param pulumi.Input[builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[builtins.str] owner: The AWS account ID that owns the domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] repository_count: The number of repositories in the domain.
         :param pulumi.Input[builtins.str] s3_bucket_arn: The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -110,6 +128,8 @@ class _DomainState:
             pulumi.set(__self__, "encryption_key", encryption_key)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository_count is not None:
             pulumi.set(__self__, "repository_count", repository_count)
         if s3_bucket_arn is not None:
@@ -192,6 +212,18 @@ class _DomainState:
         pulumi.set(self, "owner", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="repositoryCount")
     def repository_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -250,6 +282,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -276,6 +309,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -321,6 +355,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -335,6 +370,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
             __props__.__dict__["encryption_key"] = encryption_key
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["asset_size_bytes"] = None
@@ -359,6 +395,7 @@ class Domain(pulumi.CustomResource):
             domain: Optional[pulumi.Input[builtins.str]] = None,
             encryption_key: Optional[pulumi.Input[builtins.str]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository_count: Optional[pulumi.Input[builtins.int]] = None,
             s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -376,6 +413,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[builtins.str] owner: The AWS account ID that owns the domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] repository_count: The number of repositories in the domain.
         :param pulumi.Input[builtins.str] s3_bucket_arn: The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -391,6 +429,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["domain"] = domain
         __props__.__dict__["encryption_key"] = encryption_key
         __props__.__dict__["owner"] = owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository_count"] = repository_count
         __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
         __props__.__dict__["tags"] = tags
@@ -444,6 +483,14 @@ class Domain(pulumi.CustomResource):
         The AWS account ID that owns the domain.
         """
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="repositoryCount")

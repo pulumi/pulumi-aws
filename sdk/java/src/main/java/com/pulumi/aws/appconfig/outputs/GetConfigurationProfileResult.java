@@ -41,6 +41,7 @@ public final class GetConfigurationProfileResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return ARN of an IAM role with permission to access the configuration at the specified location_uri.
      * 
@@ -107,6 +108,9 @@ public final class GetConfigurationProfileResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of an IAM role with permission to access the configuration at the specified location_uri.
      * 
@@ -153,6 +157,7 @@ public final class GetConfigurationProfileResult {
         private String kmsKeyIdentifier;
         private String locationUri;
         private String name;
+        private String region;
         private String retrievalRoleArn;
         private Map<String,String> tags;
         private String type;
@@ -168,6 +173,7 @@ public final class GetConfigurationProfileResult {
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.locationUri = defaults.locationUri;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.retrievalRoleArn = defaults.retrievalRoleArn;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
@@ -239,6 +245,14 @@ public final class GetConfigurationProfileResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder retrievalRoleArn(String retrievalRoleArn) {
             if (retrievalRoleArn == null) {
               throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "retrievalRoleArn");
@@ -283,6 +297,7 @@ public final class GetConfigurationProfileResult {
             _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.locationUri = locationUri;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.retrievalRoleArn = retrievalRoleArn;
             _resultValue.tags = tags;
             _resultValue.type = type;

@@ -133,6 +133,10 @@ export class ConformancePack extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */
     public readonly templateBody!: pulumi.Output<string | undefined>;
@@ -159,6 +163,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = state ? state.deliveryS3KeyPrefix : undefined;
             resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["templateBody"] = state ? state.templateBody : undefined;
             resourceInputs["templateS3Uri"] = state ? state.templateS3Uri : undefined;
         } else {
@@ -167,6 +172,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -201,6 +207,10 @@ export interface ConformancePackState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */
     templateBody?: pulumi.Input<string>;
@@ -230,6 +240,10 @@ export interface ConformancePackArgs {
      * The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */

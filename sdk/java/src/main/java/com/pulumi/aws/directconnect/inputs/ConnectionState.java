@@ -214,6 +214,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      * 
      * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
@@ -308,6 +323,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         this.partnerName = $.partnerName;
         this.portEncryptionStatus = $.portEncryptionStatus;
         this.providerName = $.providerName;
+        this.region = $.region;
         this.requestMacsec = $.requestMacsec;
         this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
@@ -604,6 +620,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

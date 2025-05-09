@@ -194,6 +194,12 @@ namespace Pulumi.Aws.WafRegional
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of configuration blocks containing rules for the web ACL. Detailed below.
         /// </summary>
         [Output("rules")]
@@ -281,6 +287,12 @@ namespace Pulumi.Aws.WafRegional
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.WebAclRuleArgs>? _rules;
 
@@ -342,6 +354,12 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;

@@ -77,6 +77,11 @@ public final class GetUserResult {
      */
     private String profileUrl;
     /**
+     * @return The region of the address.
+     * 
+     */
+    private String region;
+    /**
      * @return The user&#39;s time zone.
      * 
      */
@@ -183,6 +188,13 @@ public final class GetUserResult {
         return this.profileUrl;
     }
     /**
+     * @return The region of the address.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return The user&#39;s time zone.
      * 
      */
@@ -236,6 +248,7 @@ public final class GetUserResult {
         private List<GetUserPhoneNumber> phoneNumbers;
         private String preferredLanguage;
         private String profileUrl;
+        private String region;
         private String timezone;
         private String title;
         private String userId;
@@ -257,6 +270,7 @@ public final class GetUserResult {
     	      this.phoneNumbers = defaults.phoneNumbers;
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.profileUrl = defaults.profileUrl;
+    	      this.region = defaults.region;
     	      this.timezone = defaults.timezone;
     	      this.title = defaults.title;
     	      this.userId = defaults.userId;
@@ -382,6 +396,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timezone(String timezone) {
             if (timezone == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "timezone");
@@ -436,6 +458,7 @@ public final class GetUserResult {
             _resultValue.phoneNumbers = phoneNumbers;
             _resultValue.preferredLanguage = preferredLanguage;
             _resultValue.profileUrl = profileUrl;
+            _resultValue.region = region;
             _resultValue.timezone = timezone;
             _resultValue.title = title;
             _resultValue.userId = userId;

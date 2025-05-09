@@ -73,6 +73,12 @@ namespace Pulumi.Aws.S3
         [Output("payer")]
         public Output<string> Payer { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BucketRequestPaymentConfiguration resource with the given unique name, arguments, and options.
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.S3
         [Input("payer", required: true)]
         public Input<string> Payer { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BucketRequestPaymentConfigurationArgs()
         {
         }
@@ -167,6 +179,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("payer")]
         public Input<string>? Payer { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BucketRequestPaymentConfigurationState()
         {

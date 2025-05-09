@@ -31,6 +31,13 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Registry ID where the repository was created.
      * 
@@ -65,6 +72,7 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetRepositoryPlainArgs(GetRepositoryPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.registryId = $.registryId;
         this.tags = $.tags;
     }
@@ -95,6 +103,11 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

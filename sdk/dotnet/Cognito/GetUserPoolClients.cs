@@ -87,6 +87,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolClientsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Cognito user pool ID.
         /// </summary>
@@ -101,6 +104,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolClientsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Cognito user pool ID.
         /// </summary>
@@ -129,6 +135,7 @@ namespace Pulumi.Aws.Cognito
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string UserPoolId;
 
         [OutputConstructor]
@@ -139,11 +146,14 @@ namespace Pulumi.Aws.Cognito
 
             string id,
 
+            string region,
+
             string userPoolId)
         {
             ClientIds = clientIds;
             ClientNames = clientNames;
             Id = id;
+            Region = region;
             UserPoolId = userPoolId;
         }
     }

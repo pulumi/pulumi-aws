@@ -129,6 +129,10 @@ export class LogAccountPolicy extends pulumi.CustomResource {
      */
     public readonly policyType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Currently defaults to and only accepts the value: `ALL`.
      */
     public readonly scope!: pulumi.Output<string | undefined>;
@@ -153,6 +157,7 @@ export class LogAccountPolicy extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["policyName"] = state ? state.policyName : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["selectionCriteria"] = state ? state.selectionCriteria : undefined;
         } else {
@@ -169,6 +174,7 @@ export class LogAccountPolicy extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["selectionCriteria"] = args ? args.selectionCriteria : undefined;
         }
@@ -193,6 +199,10 @@ export interface LogAccountPolicyState {
      * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      */
     policyType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Currently defaults to and only accepts the value: `ALL`.
      */
@@ -219,6 +229,10 @@ export interface LogAccountPolicyArgs {
      * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      */
     policyType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Currently defaults to and only accepts the value: `ALL`.
      */

@@ -66,8 +66,10 @@ type EipDomainName struct {
 	// The domain name to modify for the IP address.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The DNS pointer (PTR) record for the IP address.
-	PtrRecord pulumi.StringOutput            `pulumi:"ptrRecord"`
-	Timeouts  EipDomainNameTimeoutsPtrOutput `pulumi:"timeouts"`
+	PtrRecord pulumi.StringOutput `pulumi:"ptrRecord"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput            `pulumi:"region"`
+	Timeouts EipDomainNameTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewEipDomainName registers a new resource with the given unique name, arguments, and options.
@@ -111,8 +113,10 @@ type eipDomainNameState struct {
 	// The domain name to modify for the IP address.
 	DomainName *string `pulumi:"domainName"`
 	// The DNS pointer (PTR) record for the IP address.
-	PtrRecord *string                `pulumi:"ptrRecord"`
-	Timeouts  *EipDomainNameTimeouts `pulumi:"timeouts"`
+	PtrRecord *string `pulumi:"ptrRecord"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                `pulumi:"region"`
+	Timeouts *EipDomainNameTimeouts `pulumi:"timeouts"`
 }
 
 type EipDomainNameState struct {
@@ -122,7 +126,9 @@ type EipDomainNameState struct {
 	DomainName pulumi.StringPtrInput
 	// The DNS pointer (PTR) record for the IP address.
 	PtrRecord pulumi.StringPtrInput
-	Timeouts  EipDomainNameTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts EipDomainNameTimeoutsPtrInput
 }
 
 func (EipDomainNameState) ElementType() reflect.Type {
@@ -133,8 +139,10 @@ type eipDomainNameArgs struct {
 	// The allocation ID.
 	AllocationId string `pulumi:"allocationId"`
 	// The domain name to modify for the IP address.
-	DomainName string                 `pulumi:"domainName"`
-	Timeouts   *EipDomainNameTimeouts `pulumi:"timeouts"`
+	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                `pulumi:"region"`
+	Timeouts *EipDomainNameTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a EipDomainName resource.
@@ -143,7 +151,9 @@ type EipDomainNameArgs struct {
 	AllocationId pulumi.StringInput
 	// The domain name to modify for the IP address.
 	DomainName pulumi.StringInput
-	Timeouts   EipDomainNameTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts EipDomainNameTimeoutsPtrInput
 }
 
 func (EipDomainNameArgs) ElementType() reflect.Type {
@@ -246,6 +256,11 @@ func (o EipDomainNameOutput) DomainName() pulumi.StringOutput {
 // The DNS pointer (PTR) record for the IP address.
 func (o EipDomainNameOutput) PtrRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.PtrRecord }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EipDomainNameOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o EipDomainNameOutput) Timeouts() EipDomainNameTimeoutsPtrOutput {

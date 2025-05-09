@@ -91,6 +91,10 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
     public readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociationProposal resource with the given unique name, arguments, and options.
@@ -111,6 +115,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             resourceInputs["associatedGatewayType"] = state ? state.associatedGatewayType : undefined;
             resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             resourceInputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GatewayAssociationProposalArgs | undefined;
             if ((!args || args.associatedGatewayId === undefined) && !opts.urn) {
@@ -126,6 +131,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             resourceInputs["associatedGatewayId"] = args ? args.associatedGatewayId : undefined;
             resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             resourceInputs["dxGatewayOwnerAccountId"] = args ? args.dxGatewayOwnerAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["associatedGatewayOwnerAccountId"] = undefined /*out*/;
             resourceInputs["associatedGatewayType"] = undefined /*out*/;
         }
@@ -162,6 +168,10 @@ export interface GatewayAssociationProposalState {
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
     dxGatewayOwnerAccountId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -184,4 +194,8 @@ export interface GatewayAssociationProposalArgs {
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
     dxGatewayOwnerAccountId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

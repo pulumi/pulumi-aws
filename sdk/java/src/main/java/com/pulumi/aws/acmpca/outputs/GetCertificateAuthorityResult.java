@@ -45,6 +45,7 @@ public final class GetCertificateAuthorityResult {
      * 
      */
     private String notBefore;
+    private String region;
     /**
      * @return Nested attribute containing revocation configuration.
      * 
@@ -125,6 +126,9 @@ public final class GetCertificateAuthorityResult {
     public String notBefore() {
         return this.notBefore;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Nested attribute containing revocation configuration.
      * 
@@ -185,6 +189,7 @@ public final class GetCertificateAuthorityResult {
         private String keyStorageSecurityStandard;
         private String notAfter;
         private String notBefore;
+        private String region;
         private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
         private String serial;
         private String status;
@@ -202,6 +207,7 @@ public final class GetCertificateAuthorityResult {
     	      this.keyStorageSecurityStandard = defaults.keyStorageSecurityStandard;
     	      this.notAfter = defaults.notAfter;
     	      this.notBefore = defaults.notBefore;
+    	      this.region = defaults.region;
     	      this.revocationConfigurations = defaults.revocationConfigurations;
     	      this.serial = defaults.serial;
     	      this.status = defaults.status;
@@ -275,6 +281,14 @@ public final class GetCertificateAuthorityResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder revocationConfigurations(List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations) {
             if (revocationConfigurations == null) {
               throw new MissingRequiredPropertyException("GetCertificateAuthorityResult", "revocationConfigurations");
@@ -335,6 +349,7 @@ public final class GetCertificateAuthorityResult {
             _resultValue.keyStorageSecurityStandard = keyStorageSecurityStandard;
             _resultValue.notAfter = notAfter;
             _resultValue.notBefore = notBefore;
+            _resultValue.region = region;
             _resultValue.revocationConfigurations = revocationConfigurations;
             _resultValue.serial = serial;
             _resultValue.status = status;

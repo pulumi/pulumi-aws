@@ -370,6 +370,10 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     public readonly recentlyFailedRuns!: pulumi.Output<outputs.timestreamquery.ScheduledQueryRecentlyFailedRun[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for schedule configuration for the query. See below.
      */
     public readonly scheduleConfiguration!: pulumi.Output<outputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
@@ -418,6 +422,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
             resourceInputs["previousInvocationTime"] = state ? state.previousInvocationTime : undefined;
             resourceInputs["queryString"] = state ? state.queryString : undefined;
             resourceInputs["recentlyFailedRuns"] = state ? state.recentlyFailedRuns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleConfiguration"] = state ? state.scheduleConfiguration : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -452,6 +457,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
             resourceInputs["queryString"] = args ? args.queryString : undefined;
             resourceInputs["recentlyFailedRuns"] = args ? args.recentlyFailedRuns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
@@ -521,6 +527,10 @@ export interface ScheduledQueryState {
      */
     recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for schedule configuration for the query. See below.
      */
     scheduleConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
@@ -581,6 +591,10 @@ export interface ScheduledQueryArgs {
      * Runtime summary for the last five failed scheduled query runs.
      */
     recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for schedule configuration for the query. See below.
      */

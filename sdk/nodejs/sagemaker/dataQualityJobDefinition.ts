@@ -115,6 +115,10 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
      */
     public readonly networkConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -152,6 +156,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             resourceInputs["jobResources"] = state ? state.jobResources : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConfig"] = state ? state.networkConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stoppingCondition"] = state ? state.stoppingCondition : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -180,6 +185,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             resourceInputs["jobResources"] = args ? args.jobResources : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -227,6 +233,10 @@ export interface DataQualityJobDefinitionState {
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
     networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
@@ -277,6 +287,10 @@ export interface DataQualityJobDefinitionArgs {
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
     networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */

@@ -53,7 +53,8 @@ func LookupIdentityPool(ctx *pulumi.Context, args *LookupIdentityPoolArgs, opts 
 // A collection of arguments for invoking getIdentityPool.
 type LookupIdentityPoolArgs struct {
 	// The Cognito Identity Pool name.
-	IdentityPoolName string `pulumi:"identityPoolName"`
+	IdentityPoolName string  `pulumi:"identityPoolName"`
+	Region           *string `pulumi:"region"`
 	// A map of tags to assigned to the Identity Pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -75,6 +76,7 @@ type LookupIdentityPoolResult struct {
 	IdentityPoolName string `pulumi:"identityPoolName"`
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
+	Region                    string   `pulumi:"region"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
@@ -95,7 +97,8 @@ func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutput
 // A collection of arguments for invoking getIdentityPool.
 type LookupIdentityPoolOutputArgs struct {
 	// The Cognito Identity Pool name.
-	IdentityPoolName pulumi.StringInput `pulumi:"identityPoolName"`
+	IdentityPoolName pulumi.StringInput    `pulumi:"identityPoolName"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assigned to the Identity Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -158,6 +161,10 @@ func (o LookupIdentityPoolResultOutput) IdentityPoolName() pulumi.StringOutput {
 // Set of OpendID Connect provider ARNs.
 func (o LookupIdentityPoolResultOutput) OpenidConnectProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.OpenidConnectProviderArns }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupIdentityPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.

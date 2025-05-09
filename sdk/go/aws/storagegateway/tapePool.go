@@ -55,6 +55,8 @@ type TapePool struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays pulumi.IntPtrOutput `pulumi:"retentionLockTimeInDays"`
 	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
@@ -107,6 +109,8 @@ type tapePoolState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName *string `pulumi:"poolName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays *int `pulumi:"retentionLockTimeInDays"`
 	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
@@ -124,6 +128,8 @@ type TapePoolState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays pulumi.IntPtrInput
 	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
@@ -143,6 +149,8 @@ func (TapePoolState) ElementType() reflect.Type {
 type tapePoolArgs struct {
 	// The name of the new custom tape pool.
 	PoolName string `pulumi:"poolName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays *int `pulumi:"retentionLockTimeInDays"`
 	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
@@ -157,6 +165,8 @@ type tapePoolArgs struct {
 type TapePoolArgs struct {
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays pulumi.IntPtrInput
 	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
@@ -262,6 +272,11 @@ func (o TapePoolOutput) Arn() pulumi.StringOutput {
 // The name of the new custom tape pool.
 func (o TapePoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TapePoolOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.

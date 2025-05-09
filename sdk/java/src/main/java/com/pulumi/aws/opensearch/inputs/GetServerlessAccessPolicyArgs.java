@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServerlessAccessPolicyArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +31,13 @@ public final class GetServerlessAccessPolicyArgs extends com.pulumi.resources.In
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Type of access policy. Must be `data`.
      * 
@@ -48,6 +57,7 @@ public final class GetServerlessAccessPolicyArgs extends com.pulumi.resources.In
 
     private GetServerlessAccessPolicyArgs(GetServerlessAccessPolicyArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -88,6 +98,15 @@ public final class GetServerlessAccessPolicyArgs extends com.pulumi.resources.In
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

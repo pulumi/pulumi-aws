@@ -78,6 +78,10 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      */
     public readonly recoveryPointSelection!: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The schedule expression for the restore testing plan.
      */
     public readonly scheduleExpression!: pulumi.Output<string>;
@@ -111,6 +115,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recoveryPointSelection"] = state ? state.recoveryPointSelection : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["scheduleExpressionTimezone"] = state ? state.scheduleExpressionTimezone : undefined;
             resourceInputs["startWindowHours"] = state ? state.startWindowHours : undefined;
@@ -123,6 +128,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recoveryPointSelection"] = args ? args.recoveryPointSelection : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
             resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
@@ -151,6 +157,10 @@ export interface RestoreTestingPlanState {
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule expression for the restore testing plan.
      */
@@ -182,6 +192,10 @@ export interface RestoreTestingPlanArgs {
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule expression for the restore testing plan.
      */

@@ -113,6 +113,12 @@ namespace Pulumi.Aws.S3Control
         public Output<string> ConfigId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         /// </summary>
         [Output("storageLensConfiguration")]
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.S3Control
         public Input<string> ConfigId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         /// </summary>
         [Input("storageLensConfiguration", required: true)]
@@ -231,6 +243,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("configId")]
         public Input<string>? ConfigId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.

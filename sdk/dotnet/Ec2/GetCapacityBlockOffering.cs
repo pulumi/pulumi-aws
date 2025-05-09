@@ -123,6 +123,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType", required: true)]
         public string InstanceType { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
@@ -161,6 +164,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
@@ -197,6 +203,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         public readonly int InstanceCount;
         public readonly string InstanceType;
+        public readonly string Region;
         public readonly string StartDateRange;
         /// <summary>
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -225,6 +232,8 @@ namespace Pulumi.Aws.Ec2
 
             string instanceType,
 
+            string region,
+
             string startDateRange,
 
             string tenancy,
@@ -239,6 +248,7 @@ namespace Pulumi.Aws.Ec2
             Id = id;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
+            Region = region;
             StartDateRange = startDateRange;
             Tenancy = tenancy;
             UpfrontFee = upfrontFee;

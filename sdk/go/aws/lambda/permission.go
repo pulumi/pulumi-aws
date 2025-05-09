@@ -375,6 +375,8 @@ type Permission struct {
 	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -446,6 +448,8 @@ type permissionState struct {
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -479,6 +483,8 @@ type PermissionState struct {
 	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -516,6 +522,8 @@ type permissionArgs struct {
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -550,6 +558,8 @@ type PermissionArgs struct {
 	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -688,6 +698,11 @@ func (o PermissionOutput) PrincipalOrgId() pulumi.StringPtrOutput {
 // Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 func (o PermissionOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.

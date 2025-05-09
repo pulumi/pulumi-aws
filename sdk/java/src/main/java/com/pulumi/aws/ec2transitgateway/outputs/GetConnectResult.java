@@ -25,6 +25,7 @@ public final class GetConnectResult {
      * 
      */
     private String protocol;
+    private String region;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect
      * 
@@ -59,6 +60,9 @@ public final class GetConnectResult {
      */
     public String protocol() {
         return this.protocol;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect
@@ -97,6 +101,7 @@ public final class GetConnectResult {
         private @Nullable List<GetConnectFilter> filters;
         private String id;
         private String protocol;
+        private String region;
         private Map<String,String> tags;
         private String transitGatewayConnectId;
         private String transitGatewayId;
@@ -107,6 +112,7 @@ public final class GetConnectResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.protocol = defaults.protocol;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.transitGatewayConnectId = defaults.transitGatewayConnectId;
     	      this.transitGatewayId = defaults.transitGatewayId;
@@ -136,6 +142,14 @@ public final class GetConnectResult {
               throw new MissingRequiredPropertyException("GetConnectResult", "protocol");
             }
             this.protocol = protocol;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -175,6 +189,7 @@ public final class GetConnectResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.protocol = protocol;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.transitGatewayConnectId = transitGatewayConnectId;
             _resultValue.transitGatewayId = transitGatewayId;

@@ -15,10 +15,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     {
         /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// 
-        /// The following arguments are optional:
-        /// 
-        /// There are no optional arguments.
         /// </summary>
         public readonly string ResourceArn;
         /// <summary>

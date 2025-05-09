@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationInstanceMetadataOption;
 import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationLogging;
+import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationPlacement;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -62,6 +63,12 @@ public final class GetInfrastructureConfigurationResult {
      * 
      */
     private String name;
+    /**
+     * @return Placement settings that define where the instances that are launched from your image will run.
+     * 
+     */
+    private List<GetInfrastructureConfigurationPlacement> placements;
+    private String region;
     /**
      * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      * 
@@ -164,6 +171,16 @@ public final class GetInfrastructureConfigurationResult {
         return this.name;
     }
     /**
+     * @return Placement settings that define where the instances that are launched from your image will run.
+     * 
+     */
+    public List<GetInfrastructureConfigurationPlacement> placements() {
+        return this.placements;
+    }
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      * 
      */
@@ -226,6 +243,8 @@ public final class GetInfrastructureConfigurationResult {
         private String keyPair;
         private List<GetInfrastructureConfigurationLogging> loggings;
         private String name;
+        private List<GetInfrastructureConfigurationPlacement> placements;
+        private String region;
         private Map<String,String> resourceTags;
         private List<String> securityGroupIds;
         private String snsTopicArn;
@@ -246,6 +265,8 @@ public final class GetInfrastructureConfigurationResult {
     	      this.keyPair = defaults.keyPair;
     	      this.loggings = defaults.loggings;
     	      this.name = defaults.name;
+    	      this.placements = defaults.placements;
+    	      this.region = defaults.region;
     	      this.resourceTags = defaults.resourceTags;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.snsTopicArn = defaults.snsTopicArn;
@@ -352,6 +373,25 @@ public final class GetInfrastructureConfigurationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder placements(List<GetInfrastructureConfigurationPlacement> placements) {
+            if (placements == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "placements");
+            }
+            this.placements = placements;
+            return this;
+        }
+        public Builder placements(GetInfrastructureConfigurationPlacement... placements) {
+            return placements(List.of(placements));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceTags(Map<String,String> resourceTags) {
             if (resourceTags == null) {
               throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "resourceTags");
@@ -415,6 +455,8 @@ public final class GetInfrastructureConfigurationResult {
             _resultValue.keyPair = keyPair;
             _resultValue.loggings = loggings;
             _resultValue.name = name;
+            _resultValue.placements = placements;
+            _resultValue.region = region;
             _resultValue.resourceTags = resourceTags;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.snsTopicArn = snsTopicArn;

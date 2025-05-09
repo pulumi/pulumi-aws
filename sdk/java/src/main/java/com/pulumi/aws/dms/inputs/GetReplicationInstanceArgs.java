@@ -17,6 +17,13 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
 
     public static final GetReplicationInstanceArgs Empty = new GetReplicationInstanceArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The replication instance identifier.
      * 
@@ -42,6 +49,7 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
     private GetReplicationInstanceArgs() {}
 
     private GetReplicationInstanceArgs(GetReplicationInstanceArgs $) {
+        this.region = $.region;
         this.replicationInstanceId = $.replicationInstanceId;
         this.tags = $.tags;
     }
@@ -62,6 +70,15 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
 
         public Builder(GetReplicationInstanceArgs defaults) {
             $ = new GetReplicationInstanceArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

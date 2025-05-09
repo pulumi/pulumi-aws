@@ -26,7 +26,8 @@ class EventConnectionArgs:
                  authorization_type: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EventConnection resource.
         :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
@@ -34,6 +35,7 @@ class EventConnectionArgs:
         :param pulumi.Input[builtins.str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input['EventConnectionInvocationConnectivityParametersArgs'] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "auth_parameters", auth_parameters)
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -43,6 +45,8 @@ class EventConnectionArgs:
             pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="authParameters")
@@ -104,6 +108,18 @@ class EventConnectionArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EventConnectionState:
@@ -114,6 +130,7 @@ class _EventConnectionState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventConnection resources.
@@ -123,6 +140,7 @@ class _EventConnectionState:
         :param pulumi.Input[builtins.str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input['EventConnectionInvocationConnectivityParametersArgs'] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
         if arn is not None:
@@ -137,6 +155,8 @@ class _EventConnectionState:
             pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -213,6 +233,18 @@ class _EventConnectionState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -238,6 +270,7 @@ class EventConnection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an EventBridge connection resource.
@@ -376,6 +409,7 @@ class EventConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -533,6 +567,7 @@ class EventConnection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -551,6 +586,7 @@ class EventConnection(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["secret_arn"] = None
         super(EventConnection, __self__).__init__(
@@ -569,6 +605,7 @@ class EventConnection(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             invocation_connectivity_parameters: Optional[pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'EventConnection':
         """
         Get an existing EventConnection resource's state with the given name, id, and optional extra
@@ -583,6 +620,7 @@ class EventConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -595,6 +633,7 @@ class EventConnection(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_arn"] = secret_arn
         return EventConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -645,6 +684,14 @@ class EventConnection(pulumi.CustomResource):
         The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretArn")

@@ -261,6 +261,12 @@ namespace Pulumi.Aws.Kinesis
         public Output<Outputs.AnalyticsApplicationReferenceDataSources?> ReferenceDataSources { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
         /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         /// </summary>
@@ -388,6 +394,12 @@ namespace Pulumi.Aws.Kinesis
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesArgs>? ReferenceDataSources { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
         /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         /// </summary>
@@ -481,6 +493,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("referenceDataSources")]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesGetArgs>? ReferenceDataSources { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.

@@ -11,9 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallDomainListResult {
+    /**
+     * @return The Amazon Resource Name (ARN) of the firewall domain list.
+     * 
+     */
     private String arn;
+    /**
+     * @return The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String creationTime;
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     private String creatorRequestId;
+    /**
+     * @return The number of domain names that are specified in the domain list.
+     * 
+     */
     private Integer domainCount;
     private String firewallDomainListId;
     /**
@@ -21,22 +37,59 @@ public final class GetResolverFirewallDomainListResult {
      * 
      */
     private String id;
+    /**
+     * @return The owner of the list, used only for lists that are not managed by you.
+     * 
+     */
     private String managedOwnerName;
+    /**
+     * @return The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String modificationTime;
+    /**
+     * @return The name of the domain list.
+     * 
+     */
     private String name;
+    private String region;
+    /**
+     * @return The status of the domain list.
+     * 
+     */
     private String status;
+    /**
+     * @return Additional information about the status of the list, if available.
+     * 
+     */
     private String statusMessage;
 
     private GetResolverFirewallDomainListResult() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the firewall domain list.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String creationTime() {
         return this.creationTime;
     }
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     public String creatorRequestId() {
         return this.creatorRequestId;
     }
+    /**
+     * @return The number of domain names that are specified in the domain list.
+     * 
+     */
     public Integer domainCount() {
         return this.domainCount;
     }
@@ -50,18 +103,41 @@ public final class GetResolverFirewallDomainListResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The owner of the list, used only for lists that are not managed by you.
+     * 
+     */
     public String managedOwnerName() {
         return this.managedOwnerName;
     }
+    /**
+     * @return The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String modificationTime() {
         return this.modificationTime;
     }
+    /**
+     * @return The name of the domain list.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
+    /**
+     * @return The status of the domain list.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Additional information about the status of the list, if available.
+     * 
+     */
     public String statusMessage() {
         return this.statusMessage;
     }
@@ -84,6 +160,7 @@ public final class GetResolverFirewallDomainListResult {
         private String managedOwnerName;
         private String modificationTime;
         private String name;
+        private String region;
         private String status;
         private String statusMessage;
         public Builder() {}
@@ -98,6 +175,7 @@ public final class GetResolverFirewallDomainListResult {
     	      this.managedOwnerName = defaults.managedOwnerName;
     	      this.modificationTime = defaults.modificationTime;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.statusMessage = defaults.statusMessage;
         }
@@ -175,6 +253,14 @@ public final class GetResolverFirewallDomainListResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "status");
@@ -201,6 +287,7 @@ public final class GetResolverFirewallDomainListResult {
             _resultValue.managedOwnerName = managedOwnerName;
             _resultValue.modificationTime = modificationTime;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.statusMessage = statusMessage;
             return _resultValue;

@@ -53,6 +53,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> BudgetName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Resource identifier.
         /// </summary>
         [Output("resourceId")]
@@ -111,6 +117,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> BudgetName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Resource identifier.
         /// </summary>
         [Input("resourceId", required: true)]
@@ -129,6 +141,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("budgetName")]
         public Input<string>? BudgetName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Resource identifier.

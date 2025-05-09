@@ -66,6 +66,8 @@ type VpcEndpoint struct {
 	DomainArn pulumi.StringOutput `pulumi:"domainArn"`
 	// The connection endpoint ID for connecting to the domain.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Options to specify the subnets and security groups for the endpoint.
 	VpcOptions VpcEndpointVpcOptionsOutput `pulumi:"vpcOptions"`
 }
@@ -110,6 +112,8 @@ type vpcEndpointState struct {
 	DomainArn *string `pulumi:"domainArn"`
 	// The connection endpoint ID for connecting to the domain.
 	Endpoint *string `pulumi:"endpoint"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Options to specify the subnets and security groups for the endpoint.
 	VpcOptions *VpcEndpointVpcOptions `pulumi:"vpcOptions"`
 }
@@ -119,6 +123,8 @@ type VpcEndpointState struct {
 	DomainArn pulumi.StringPtrInput
 	// The connection endpoint ID for connecting to the domain.
 	Endpoint pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Options to specify the subnets and security groups for the endpoint.
 	VpcOptions VpcEndpointVpcOptionsPtrInput
 }
@@ -130,6 +136,8 @@ func (VpcEndpointState) ElementType() reflect.Type {
 type vpcEndpointArgs struct {
 	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
 	DomainArn string `pulumi:"domainArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Options to specify the subnets and security groups for the endpoint.
 	VpcOptions VpcEndpointVpcOptions `pulumi:"vpcOptions"`
 }
@@ -138,6 +146,8 @@ type vpcEndpointArgs struct {
 type VpcEndpointArgs struct {
 	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
 	DomainArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Options to specify the subnets and security groups for the endpoint.
 	VpcOptions VpcEndpointVpcOptionsInput
 }
@@ -237,6 +247,11 @@ func (o VpcEndpointOutput) DomainArn() pulumi.StringOutput {
 // The connection endpoint ID for connecting to the domain.
 func (o VpcEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Options to specify the subnets and security groups for the endpoint.

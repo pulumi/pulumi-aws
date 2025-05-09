@@ -6,6 +6,8 @@ package com.pulumi.aws.route53;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
 import com.pulumi.aws.route53.inputs.GetDelegationSetPlainArgs;
+import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
+import com.pulumi.aws.route53.inputs.GetProfilesProfilesPlainArgs;
 import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
 import com.pulumi.aws.route53.inputs.GetQueryLogConfigPlainArgs;
 import com.pulumi.aws.route53.inputs.GetRecordsArgs;
@@ -300,6 +302,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -313,7 +316,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -323,7 +327,7 @@ public final class Route53Functions {
      * 
      */
     public static Output<GetProfilesProfilesResult> getProfilesProfiles() {
-        return getProfilesProfiles(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getProfilesProfiles(GetProfilesProfilesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS Route 53 Profiles.
@@ -341,6 +345,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -354,7 +359,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -364,7 +370,7 @@ public final class Route53Functions {
      * 
      */
     public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain() {
-        return getProfilesProfilesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getProfilesProfilesPlain(GetProfilesProfilesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS Route 53 Profiles.
@@ -382,6 +388,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -395,7 +402,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -404,7 +412,7 @@ public final class Route53Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetProfilesProfilesResult> getProfilesProfiles(InvokeArgs args) {
+    public static Output<GetProfilesProfilesResult> getProfilesProfiles(GetProfilesProfilesArgs args) {
         return getProfilesProfiles(args, InvokeOptions.Empty);
     }
     /**
@@ -423,6 +431,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -436,7 +445,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -445,7 +455,7 @@ public final class Route53Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain(GetProfilesProfilesPlainArgs args) {
         return getProfilesProfilesPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -464,6 +474,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -477,7 +488,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -486,7 +498,7 @@ public final class Route53Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetProfilesProfilesResult> getProfilesProfiles(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetProfilesProfilesResult> getProfilesProfiles(GetProfilesProfilesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getProfilesProfiles:getProfilesProfiles", TypeShape.of(GetProfilesProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -505,6 +517,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -518,7 +531,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -527,7 +541,7 @@ public final class Route53Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetProfilesProfilesResult> getProfilesProfiles(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetProfilesProfilesResult> getProfilesProfiles(GetProfilesProfilesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getProfilesProfiles:getProfilesProfiles", TypeShape.of(GetProfilesProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -546,6 +560,7 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -559,7 +574,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = Route53Functions.getProfilesProfiles(GetProfilesProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -568,7 +584,7 @@ public final class Route53Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain(GetProfilesProfilesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getProfilesProfiles:getProfilesProfiles", TypeShape.of(GetProfilesProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**

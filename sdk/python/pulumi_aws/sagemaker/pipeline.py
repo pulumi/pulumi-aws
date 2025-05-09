@@ -28,6 +28,7 @@ class PipelineArgs:
                  pipeline_definition: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_definition_s3_location: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']] = None,
                  pipeline_description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -39,6 +40,7 @@ class PipelineArgs:
         :param pulumi.Input[builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[builtins.str] pipeline_description: A description of the pipeline.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -53,6 +55,8 @@ class PipelineArgs:
             pulumi.set(__self__, "pipeline_definition_s3_location", pipeline_definition_s3_location)
         if pipeline_description is not None:
             pulumi.set(__self__, "pipeline_description", pipeline_description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
@@ -133,6 +137,18 @@ class PipelineArgs:
         pulumi.set(self, "pipeline_description", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -179,6 +195,7 @@ class _PipelineState:
                  pipeline_description: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -191,6 +208,7 @@ class _PipelineState:
         :param pulumi.Input[builtins.str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_name: The name of the pipeline.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -209,6 +227,8 @@ class _PipelineState:
             pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
         if pipeline_name is not None:
             pulumi.set(__self__, "pipeline_name", pipeline_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
@@ -301,6 +321,18 @@ class _PipelineState:
         pulumi.set(self, "pipeline_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -351,6 +383,7 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_description: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -399,6 +432,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_name: The name of the pipeline.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -466,6 +500,7 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_description: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -488,6 +523,7 @@ class Pipeline(pulumi.CustomResource):
             if pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
@@ -509,6 +545,7 @@ class Pipeline(pulumi.CustomResource):
             pipeline_description: Optional[pulumi.Input[builtins.str]] = None,
             pipeline_display_name: Optional[pulumi.Input[builtins.str]] = None,
             pipeline_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Pipeline':
@@ -526,6 +563,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_name: The name of the pipeline.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -541,6 +579,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["pipeline_description"] = pipeline_description
         __props__.__dict__["pipeline_display_name"] = pipeline_display_name
         __props__.__dict__["pipeline_name"] = pipeline_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -601,6 +640,14 @@ class Pipeline(pulumi.CustomResource):
         The name of the pipeline.
         """
         return pulumi.get(self, "pipeline_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

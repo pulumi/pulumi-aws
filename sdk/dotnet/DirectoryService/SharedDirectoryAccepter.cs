@@ -78,6 +78,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> OwnerDirectoryId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
         [Output("sharedDirectoryId")]
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class SharedDirectoryAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
         [Input("sharedDirectoryId", required: true)]
@@ -166,6 +178,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("ownerDirectoryId")]
         public Input<string>? OwnerDirectoryId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.

@@ -28,10 +28,13 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, tags=None):
+    def __init__(__self__, arn=None, athena_properties=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if athena_properties and not isinstance(athena_properties, dict):
+            raise TypeError("Expected argument 'athena_properties' to be a dict")
+        pulumi.set(__self__, "athena_properties", athena_properties)
         if catalog_id and not isinstance(catalog_id, str):
             raise TypeError("Expected argument 'catalog_id' to be a str")
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -56,6 +59,9 @@ class GetConnectionResult:
         if physical_connection_requirements and not isinstance(physical_connection_requirements, list):
             raise TypeError("Expected argument 'physical_connection_requirements' to be a list")
         pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -69,6 +75,14 @@ class GetConnectionResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> Mapping[str, builtins.str]:
+        """
+        A map of connection properties specific to the Athena compute environment.
+        """
+        return pulumi.get(self, "athena_properties")
+
+    @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> builtins.str:
         """
@@ -79,6 +93,9 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Mapping[str, builtins.str]:
+        """
+        A map of connection properties.
+        """
         return pulumi.get(self, "connection_properties")
 
     @property
@@ -128,6 +145,11 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Tags assigned to the resource
@@ -142,6 +164,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             yield self
         return GetConnectionResult(
             arn=self.arn,
+            athena_properties=self.athena_properties,
             catalog_id=self.catalog_id,
             connection_properties=self.connection_properties,
             connection_type=self.connection_type,
@@ -150,10 +173,12 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             match_criterias=self.match_criterias,
             name=self.name,
             physical_connection_requirements=self.physical_connection_requirements,
+            region=self.region,
             tags=self.tags)
 
 
 def get_connection(id: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
@@ -175,12 +200,14 @@ def get_connection(id: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        athena_properties=pulumi.get(__ret__, 'athena_properties'),
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         connection_properties=pulumi.get(__ret__, 'connection_properties'),
         connection_type=pulumi.get(__ret__, 'connection_type'),
@@ -189,8 +216,10 @@ def get_connection(id: Optional[builtins.str] = None,
         match_criterias=pulumi.get(__ret__, 'match_criterias'),
         name=pulumi.get(__ret__, 'name'),
         physical_connection_requirements=pulumi.get(__ret__, 'physical_connection_requirements'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
@@ -212,11 +241,13 @@ def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),
+        athena_properties=pulumi.get(__response__, 'athena_properties'),
         catalog_id=pulumi.get(__response__, 'catalog_id'),
         connection_properties=pulumi.get(__response__, 'connection_properties'),
         connection_type=pulumi.get(__response__, 'connection_type'),
@@ -225,4 +256,5 @@ def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
         match_criterias=pulumi.get(__response__, 'match_criterias'),
         name=pulumi.get(__response__, 'name'),
         physical_connection_requirements=pulumi.get(__response__, 'physical_connection_requirements'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

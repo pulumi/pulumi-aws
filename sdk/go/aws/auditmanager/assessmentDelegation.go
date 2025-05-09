@@ -63,6 +63,8 @@ type AssessmentDelegation struct {
 	ControlSetId pulumi.StringOutput `pulumi:"controlSetId"`
 	// Unique identifier for the delegation.
 	DelegationId pulumi.StringOutput `pulumi:"delegationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -123,6 +125,8 @@ type assessmentDelegationState struct {
 	ControlSetId *string `pulumi:"controlSetId"`
 	// Unique identifier for the delegation.
 	DelegationId *string `pulumi:"delegationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn *string `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -142,6 +146,8 @@ type AssessmentDelegationState struct {
 	ControlSetId pulumi.StringPtrInput
 	// Unique identifier for the delegation.
 	DelegationId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringPtrInput
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -163,6 +169,8 @@ type assessmentDelegationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
 	ControlSetId string `pulumi:"controlSetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn string `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -179,6 +187,8 @@ type AssessmentDelegationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
 	ControlSetId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringInput
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -292,6 +302,11 @@ func (o AssessmentDelegationOutput) ControlSetId() pulumi.StringOutput {
 // Unique identifier for the delegation.
 func (o AssessmentDelegationOutput) DelegationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.DelegationId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AssessmentDelegationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM role.

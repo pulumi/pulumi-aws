@@ -80,6 +80,21 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         return Optional.ofNullable(this.principalType);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PrincipalPortfolioAssociationArgs() {}
 
     private PrincipalPortfolioAssociationArgs(PrincipalPortfolioAssociationArgs $) {
@@ -87,6 +102,7 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         this.portfolioId = $.portfolioId;
         this.principalArn = $.principalArn;
         this.principalType = $.principalType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -193,6 +209,27 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
          */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PrincipalPortfolioAssociationArgs build() {

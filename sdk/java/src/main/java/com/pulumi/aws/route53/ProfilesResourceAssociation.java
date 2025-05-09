@@ -71,6 +71,20 @@ public class ProfilesResourceAssociation extends com.pulumi.resources.CustomReso
         return this.profileId;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Resource ID of the resource to be associated with the profile.
      * 
      */

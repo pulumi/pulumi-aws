@@ -65,6 +65,15 @@ export interface GetReplicationSetResult {
      * The ARN of the user who last modified the replication set.
      */
     readonly lastModifiedBy: string;
+    /**
+     * (**Deprecated**) The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
+     */
+    readonly region: outputs.ssmincidents.GetReplicationSetRegion[];
+    /**
+     * The replication set's Regions.
+     */
     readonly regions: outputs.ssmincidents.GetReplicationSetRegion[];
     /**
      * The current status of the Region.

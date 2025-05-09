@@ -24,6 +24,7 @@ public final class GetVpcLinkResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Status of the VPC link.
      * 
@@ -65,6 +66,9 @@ public final class GetVpcLinkResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Status of the VPC link.
@@ -108,6 +112,7 @@ public final class GetVpcLinkResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private String status;
         private String statusMessage;
         private Map<String,String> tags;
@@ -119,6 +124,7 @@ public final class GetVpcLinkResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.statusMessage = defaults.statusMessage;
     	      this.tags = defaults.tags;
@@ -155,6 +161,14 @@ public final class GetVpcLinkResult {
               throw new MissingRequiredPropertyException("GetVpcLinkResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -198,6 +212,7 @@ public final class GetVpcLinkResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.statusMessage = statusMessage;
             _resultValue.tags = tags;

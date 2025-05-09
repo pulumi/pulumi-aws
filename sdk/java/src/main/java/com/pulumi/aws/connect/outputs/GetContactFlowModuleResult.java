@@ -34,6 +34,7 @@ public final class GetContactFlowModuleResult {
     private String id;
     private String instanceId;
     private String name;
+    private String region;
     /**
      * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
@@ -88,6 +89,9 @@ public final class GetContactFlowModuleResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
@@ -126,6 +130,7 @@ public final class GetContactFlowModuleResult {
         private String id;
         private String instanceId;
         private String name;
+        private String region;
         private String state;
         private String status;
         private Map<String,String> tags;
@@ -139,6 +144,7 @@ public final class GetContactFlowModuleResult {
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -201,6 +207,14 @@ public final class GetContactFlowModuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetContactFlowModuleResult", "state");
@@ -233,6 +247,7 @@ public final class GetContactFlowModuleResult {
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.status = status;
             _resultValue.tags = tags;

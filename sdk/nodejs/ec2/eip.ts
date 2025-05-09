@@ -218,6 +218,10 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -258,6 +262,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["publicDns"] = state ? state.publicDns : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
             resourceInputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -271,6 +276,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
             resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -368,6 +374,10 @@ export interface EipState {
      */
     publicIpv4Pool?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -418,6 +428,10 @@ export interface EipArgs {
      * This option is only available for VPC EIPs.
      */
     publicIpv4Pool?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

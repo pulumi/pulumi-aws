@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
 export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", {
+        "region": args.region,
         "tags": args.tags,
         "virtualClusterId": args.virtualClusterId,
     }, opts);
@@ -35,6 +36,7 @@ export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getVirtualCluster.
  */
 export interface GetVirtualClusterArgs {
+    region?: string;
     /**
      * Key-value mapping of resource tags.
      */
@@ -69,6 +71,7 @@ export interface GetVirtualClusterResult {
      * Name of the cluster.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      */
@@ -98,6 +101,7 @@ export interface GetVirtualClusterResult {
 export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:emrcontainers/getVirtualCluster:getVirtualCluster", {
+        "region": args.region,
         "tags": args.tags,
         "virtualClusterId": args.virtualClusterId,
     }, opts);
@@ -107,6 +111,7 @@ export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?
  * A collection of arguments for invoking getVirtualCluster.
  */
 export interface GetVirtualClusterOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags.
      */

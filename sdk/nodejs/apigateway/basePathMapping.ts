@@ -76,6 +76,10 @@ export class BasePathMapping extends pulumi.CustomResource {
      */
     public readonly domainNameId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the API to connect.
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class BasePathMapping extends pulumi.CustomResource {
             resourceInputs["basePath"] = state ? state.basePath : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainNameId"] = state ? state.domainNameId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["stageName"] = state ? state.stageName : undefined;
         } else {
@@ -113,6 +118,7 @@ export class BasePathMapping extends pulumi.CustomResource {
             resourceInputs["basePath"] = args ? args.basePath : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainNameId"] = args ? args.domainNameId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
@@ -137,6 +143,10 @@ export interface BasePathMappingState {
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the API to connect.
      */
@@ -163,6 +173,10 @@ export interface BasePathMappingArgs {
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the API to connect.
      */

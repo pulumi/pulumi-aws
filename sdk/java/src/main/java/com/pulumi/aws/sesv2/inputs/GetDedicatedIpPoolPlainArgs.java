@@ -31,6 +31,13 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
         return this.poolName;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags attached to the pool.
      * 
@@ -50,6 +57,7 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
 
     private GetDedicatedIpPoolPlainArgs(GetDedicatedIpPoolPlainArgs $) {
         this.poolName = $.poolName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
          */
         public Builder poolName(String poolName) {
             $.poolName = poolName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

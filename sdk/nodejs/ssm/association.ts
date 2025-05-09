@@ -164,6 +164,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
@@ -215,6 +219,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputLocation"] = state ? state.outputLocation : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = state ? state.syncCompliance : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -233,6 +238,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -299,6 +305,10 @@ export interface AssociationState {
      * A block of arbitrary string parameters to pass to the SSM document.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
@@ -371,6 +381,10 @@ export interface AssociationArgs {
      * A block of arbitrary string parameters to pass to the SSM document.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */

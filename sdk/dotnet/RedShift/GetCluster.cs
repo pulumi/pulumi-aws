@@ -39,6 +39,9 @@ namespace Pulumi.Aws.RedShift
         [Input("clusterIdentifier", required: true)]
         public string ClusterIdentifier { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -64,6 +67,9 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -232,6 +238,7 @@ namespace Pulumi.Aws.RedShift
         /// Whether the cluster is publicly accessible
         /// </summary>
         public readonly bool PubliclyAccessible;
+        public readonly string Region;
         /// <summary>
         /// Folder inside the S3 bucket where the log files are stored
         /// </summary>
@@ -325,6 +332,8 @@ namespace Pulumi.Aws.RedShift
 
             bool publiclyAccessible,
 
+            string region,
+
             string s3KeyPrefix,
 
             ImmutableDictionary<string, string> tags,
@@ -370,6 +379,7 @@ namespace Pulumi.Aws.RedShift
             Port = port;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             PubliclyAccessible = publiclyAccessible;
+            Region = region;
             S3KeyPrefix = s3KeyPrefix;
             Tags = tags;
             VpcId = vpcId;

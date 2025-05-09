@@ -66,6 +66,10 @@ export class ConnectionAlias extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current state of the connection alias.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
             const state = argsOrState as ConnectionAliasState | undefined;
             resourceInputs["connectionString"] = state ? state.connectionString : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -104,6 +109,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
                 throw new Error("Missing required property 'connectionString'");
             }
             resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface ConnectionAliasState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current state of the connection alias.
      */
     state?: pulumi.Input<string>;
@@ -150,6 +160,10 @@ export interface ConnectionAliasArgs {
      * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
      */
     connectionString: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

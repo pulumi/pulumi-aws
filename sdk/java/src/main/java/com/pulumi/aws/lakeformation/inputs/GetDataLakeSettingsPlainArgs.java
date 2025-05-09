@@ -29,10 +29,18 @@ public final class GetDataLakeSettingsPlainArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.catalogId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetDataLakeSettingsPlainArgs() {}
 
     private GetDataLakeSettingsPlainArgs(GetDataLakeSettingsPlainArgs $) {
         this.catalogId = $.catalogId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -61,6 +69,11 @@ public final class GetDataLakeSettingsPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder catalogId(@Nullable String catalogId) {
             $.catalogId = catalogId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

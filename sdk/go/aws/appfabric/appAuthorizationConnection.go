@@ -53,6 +53,8 @@ type AppAuthorizationConnection struct {
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrOutput `pulumi:"authRequest"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  AppAuthorizationConnectionTenantArrayOutput `pulumi:"tenants"`
 	Timeouts AppAuthorizationConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -102,6 +104,8 @@ type appAuthorizationConnectionState struct {
 	AppBundleArn *string `pulumi:"appBundleArn"`
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  []AppAuthorizationConnectionTenant  `pulumi:"tenants"`
 	Timeouts *AppAuthorizationConnectionTimeouts `pulumi:"timeouts"`
@@ -116,6 +120,8 @@ type AppAuthorizationConnectionState struct {
 	AppBundleArn pulumi.StringPtrInput
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  AppAuthorizationConnectionTenantArrayInput
 	Timeouts AppAuthorizationConnectionTimeoutsPtrInput
@@ -132,7 +138,9 @@ type appAuthorizationConnectionArgs struct {
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
-	Timeouts    *AppAuthorizationConnectionTimeouts    `pulumi:"timeouts"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Timeouts *AppAuthorizationConnectionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AppAuthorizationConnection resource.
@@ -143,7 +151,9 @@ type AppAuthorizationConnectionArgs struct {
 	AppBundleArn pulumi.StringInput
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
-	Timeouts    AppAuthorizationConnectionTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts AppAuthorizationConnectionTimeoutsPtrInput
 }
 
 func (AppAuthorizationConnectionArgs) ElementType() reflect.Type {
@@ -253,6 +263,11 @@ func (o AppAuthorizationConnectionOutput) AuthRequest() AppAuthorizationConnecti
 	return o.ApplyT(func(v *AppAuthorizationConnection) AppAuthorizationConnectionAuthRequestPtrOutput {
 		return v.AuthRequest
 	}).(AppAuthorizationConnectionAuthRequestPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AppAuthorizationConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Contains information about an application tenant, such as the application display name and identifier.

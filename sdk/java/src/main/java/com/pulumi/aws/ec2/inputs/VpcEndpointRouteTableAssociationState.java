@@ -16,6 +16,21 @@ public final class VpcEndpointRouteTableAssociationState extends com.pulumi.reso
     public static final VpcEndpointRouteTableAssociationState Empty = new VpcEndpointRouteTableAssociationState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      * 
      */
@@ -48,6 +63,7 @@ public final class VpcEndpointRouteTableAssociationState extends com.pulumi.reso
     private VpcEndpointRouteTableAssociationState() {}
 
     private VpcEndpointRouteTableAssociationState(VpcEndpointRouteTableAssociationState $) {
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.vpcEndpointId = $.vpcEndpointId;
     }
@@ -68,6 +84,27 @@ public final class VpcEndpointRouteTableAssociationState extends com.pulumi.reso
 
         public Builder(VpcEndpointRouteTableAssociationState defaults) {
             $ = new VpcEndpointRouteTableAssociationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

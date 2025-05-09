@@ -54,6 +54,8 @@ type Registry struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the registry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Name of the registry.
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,6 +101,8 @@ type registryState struct {
 	Arn *string `pulumi:"arn"`
 	// A description of the registry.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Name of the registry.
 	RegistryName *string `pulumi:"registryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +116,8 @@ type RegistryState struct {
 	Arn pulumi.StringPtrInput
 	// A description of the registry.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Name of the registry.
 	RegistryName pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -127,6 +133,8 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// A description of the registry.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Name of the registry.
 	RegistryName string `pulumi:"registryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -137,6 +145,8 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// A description of the registry.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Name of the registry.
 	RegistryName pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -238,6 +248,11 @@ func (o RegistryOutput) Arn() pulumi.StringOutput {
 // A description of the registry.
 func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RegistryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Name of the registry.

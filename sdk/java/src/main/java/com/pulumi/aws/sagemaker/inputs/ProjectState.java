@@ -78,6 +78,21 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      * 
      */
@@ -129,6 +144,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         this.projectDescription = $.projectDescription;
         this.projectId = $.projectId;
         this.projectName = $.projectName;
+        this.region = $.region;
         this.serviceCatalogProvisioningDetails = $.serviceCatalogProvisioningDetails;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -234,6 +250,27 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

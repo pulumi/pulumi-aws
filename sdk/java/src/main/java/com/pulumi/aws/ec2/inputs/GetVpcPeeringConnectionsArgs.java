@@ -33,12 +33,18 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connections.
      * 
      */
     @Import(name="tags")
@@ -48,8 +54,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connections.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -60,6 +65,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
 
     private GetVpcPeeringConnectionsArgs(GetVpcPeeringConnectionsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -112,12 +118,20 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC peering connections.
          * 
          * @return builder
          * 
@@ -131,8 +145,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC peering connections.
          * 
          * @return builder
          * 

@@ -151,6 +151,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -187,6 +191,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["launchCount"] = state ? state.launchCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -195,6 +200,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["dataDelivery"] = args ? args.dataDelivery : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activeExperimentCount"] = undefined /*out*/;
             resourceInputs["activeLaunchCount"] = undefined /*out*/;
@@ -261,6 +267,10 @@ export interface ProjectState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      */
     status?: pulumi.Input<string>;
@@ -290,6 +300,10 @@ export interface ProjectArgs {
      * A name for the project.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
