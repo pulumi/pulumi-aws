@@ -5507,6 +5507,28 @@ compatibility shim in favor of the new "name" field.`)
 		},
 	}
 
+	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
+		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
+			return true
+		}
+
+		if _, ok := prov.Resources[key]; ok {
+			if prov.Resources[key].GetFields() == nil {
+				prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
+			}
+			fields := prov.Resources[key].GetFields()
+
+			if _, ok := fields["tags_all"]; !ok {
+				fields["tags_all"] = &tfbridge.SchemaInfo{}
+			}
+
+			fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
+			fields["tags_all"].MarkAsOptional = tfbridge.False()
+		}
+
+		return true
+	})
+
 	for k, v := range pluginFrameworkResoures {
 		if _, conflict := prov.Resources[k]; conflict {
 			panic(fmt.Sprintf("Resoruce already defined: %s", k))
@@ -5611,6 +5633,53 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		return true
 	}
 	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
+}
+
+// Like hasNonComputedTagsAndTagsAll but optimized with an ad-hoc cache to avoid calling
+// SchemaFunc() and allocating memory at startup.
+func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
+	switch tfResourceName {
+	case "aws_kinesis_firehose_delivery_stream",
+		"aws_quicksight_analysis",
+		"aws_quicksight_dashboard",
+		"aws_quicksight_data_set",
+		"aws_quicksight_data_source",
+		"aws_quicksight_template",
+		"aws_quicksight_theme",
+		"aws_wafv2_ip_set",
+		"aws_wafv2_regex_pattern_set",
+		"aws_wafv2_rule_group",
+		"aws_wafv2_web_acl",
+		"aws_medialive_channel":
+		return true
+	case "aws_quicksight_user",
+		"aws_wafv2_web_acl_logging_configuration",
+		"aws_quicksight_group_membership",
+		"aws_wafv2_web_acl_association",
+		"aws_quicksight_group",
+		"aws_quicksight_account_subscription":
+		return false
+	}
+
+	return hasNonComputedTagsAndTagsAll(tfResourceName, res)
+}
+
+func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool {
+	// Skip resources that don't have tags.
+	tagsF, ok := res.Schema().GetOk("tags")
+	if !ok {
+		return false
+	}
+	// Skip resources that don't have tags_all.
+	_, ok = res.Schema().GetOk("tags_all")
+	if !ok {
+		return false
+	}
+	// tags must be non-computed.
+	if tagsF.Computed() {
+		return false
+	}
+	return true
 }
 
 func setupComputedIDs(prov *tfbridge.ProviderInfo) {
