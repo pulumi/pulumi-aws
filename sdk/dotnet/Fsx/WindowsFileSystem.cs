@@ -458,18 +458,6 @@ namespace Pulumi.Aws.Fsx
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
         /// 

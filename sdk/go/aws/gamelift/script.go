@@ -144,8 +144,6 @@ type scriptArgs struct {
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version *string `pulumi:"version"`
 	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
@@ -160,8 +158,6 @@ type ScriptArgs struct {
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Version that is associated with this script.
 	Version pulumi.StringPtrInput
 	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.

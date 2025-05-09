@@ -30,8 +30,7 @@ class InstanceArgs:
                  early_media_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_alias: Optional[pulumi.Input[builtins.str]] = None,
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[builtins.str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
@@ -46,7 +45,6 @@ class InstanceArgs:
         :param pulumi.Input[builtins.bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "identity_management_type", identity_management_type)
         pulumi.set(__self__, "inbound_calls_enabled", inbound_calls_enabled)
@@ -67,8 +65,6 @@ class InstanceArgs:
             pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="identityManagementType")
@@ -202,18 +198,6 @@ class InstanceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -501,7 +485,6 @@ class Instance(pulumi.CustomResource):
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect instance resource. For more information see
@@ -574,7 +557,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -665,7 +647,6 @@ class Instance(pulumi.CustomResource):
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -692,11 +673,11 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'outbound_calls_enabled'")
             __props__.__dict__["outbound_calls_enabled"] = outbound_calls_enabled
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["service_role"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(Instance, __self__).__init__(
             'aws:connect/instance:Instance',
             resource_name,

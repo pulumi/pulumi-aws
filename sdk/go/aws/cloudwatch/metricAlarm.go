@@ -542,8 +542,6 @@ type metricAlarmArgs struct {
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold *float64 `pulumi:"threshold"`
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
@@ -601,8 +599,6 @@ type MetricAlarmArgs struct {
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold pulumi.Float64PtrInput
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.

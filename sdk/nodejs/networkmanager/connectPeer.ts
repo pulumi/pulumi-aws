@@ -202,7 +202,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ConnectPeer resource with the given unique name, arguments, and options.
@@ -247,7 +247,6 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
             resourceInputs["subnetArn"] = args ? args.subnetArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configurations"] = undefined /*out*/;
             resourceInputs["connectPeerId"] = undefined /*out*/;
@@ -255,6 +254,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectPeer.__pulumiType, name, resourceInputs, opts);
@@ -357,8 +357,4 @@ export interface ConnectPeerArgs {
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

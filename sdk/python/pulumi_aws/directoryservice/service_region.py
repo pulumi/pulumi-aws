@@ -26,8 +26,7 @@ class ServiceRegionArgs:
                  region_name: pulumi.Input[builtins.str],
                  vpc_settings: pulumi.Input['ServiceRegionVpcSettingsArgs'],
                  desired_number_of_domain_controllers: Optional[pulumi.Input[builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceRegion resource.
         :param pulumi.Input[builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
@@ -35,7 +34,6 @@ class ServiceRegionArgs:
         :param pulumi.Input['ServiceRegionVpcSettingsArgs'] vpc_settings: VPC information in the replicated Region. Detailed below.
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "region_name", region_name)
@@ -44,8 +42,6 @@ class ServiceRegionArgs:
             pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -106,18 +102,6 @@ class ServiceRegionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -236,7 +220,6 @@ class ServiceRegion(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  region_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_settings: Optional[pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
                  __props__=None):
         """
@@ -327,7 +310,6 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
         :param pulumi.Input[builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         ...
@@ -437,7 +419,6 @@ class ServiceRegion(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  region_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_settings: Optional[pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -456,10 +437,10 @@ class ServiceRegion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'region_name'")
             __props__.__dict__["region_name"] = region_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings
+            __props__.__dict__["tags_all"] = None
         super(ServiceRegion, __self__).__init__(
             'aws:directoryservice/serviceRegion:ServiceRegion',
             resource_name,

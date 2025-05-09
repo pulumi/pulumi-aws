@@ -48,13 +48,6 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
@@ -109,7 +102,6 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
     private VocabularyFilterArgs(VocabularyFilterArgs $) {
         this.languageCode = $.languageCode;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.vocabularyFilterFileUri = $.vocabularyFilterFileUri;
         this.vocabularyFilterName = $.vocabularyFilterName;
         this.words = $.words;
@@ -173,15 +165,6 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

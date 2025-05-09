@@ -340,18 +340,6 @@ namespace Pulumi.Aws.Ssm
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         /// </summary>

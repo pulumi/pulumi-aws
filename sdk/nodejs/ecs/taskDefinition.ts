@@ -350,7 +350,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
@@ -424,13 +424,13 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             resourceInputs["trackLatest"] = args ? args.trackLatest : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnWithoutRevision"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TaskDefinition.__pulumiType, name, resourceInputs, opts);
@@ -611,10 +611,6 @@ export interface TaskDefinitionArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */

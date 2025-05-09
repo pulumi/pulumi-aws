@@ -322,8 +322,6 @@ type ontapVolumeArgs struct {
 	StorageVirtualMachineId string `pulumi:"storageVirtualMachineId"`
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
 	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
@@ -368,8 +366,6 @@ type OntapVolumeArgs struct {
 	StorageVirtualMachineId pulumi.StringInput
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
 	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)

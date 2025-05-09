@@ -123,7 +123,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -166,9 +166,9 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts);
@@ -263,8 +263,4 @@ export interface ResolverEndpointArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

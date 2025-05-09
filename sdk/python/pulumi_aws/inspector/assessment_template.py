@@ -27,8 +27,7 @@ class AssessmentTemplateArgs:
                  target_arn: pulumi.Input[builtins.str],
                  event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssessmentTemplate resource.
         :param pulumi.Input[builtins.int] duration: The duration of the inspector run.
@@ -37,7 +36,6 @@ class AssessmentTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[builtins.str] name: The name of the assessment template.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "rules_package_arns", rules_package_arns)
@@ -48,8 +46,6 @@ class AssessmentTemplateArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -122,18 +118,6 @@ class AssessmentTemplateArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -285,7 +269,6 @@ class AssessmentTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -328,7 +311,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the assessment template.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] target_arn: The assessment target ARN to attach the template to.
         """
         ...
@@ -390,7 +372,6 @@ class AssessmentTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -410,11 +391,11 @@ class AssessmentTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rules_package_arns'")
             __props__.__dict__["rules_package_arns"] = rules_package_arns
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(AssessmentTemplate, __self__).__init__(
             'aws:inspector/assessmentTemplate:AssessmentTemplate',
             resource_name,

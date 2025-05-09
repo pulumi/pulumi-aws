@@ -169,7 +169,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      *
@@ -259,7 +259,6 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
             resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -268,6 +267,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["rootVolumeId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -487,10 +487,6 @@ export interface OpenZfsFileSystemArgs {
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      *

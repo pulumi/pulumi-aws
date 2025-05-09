@@ -191,7 +191,6 @@ type defaultVpcArgs struct {
 	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
 	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
 	Tags                            map[string]string `pulumi:"tags"`
-	TagsAll                         map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultVpc resource.
@@ -207,7 +206,6 @@ type DefaultVpcArgs struct {
 	Ipv6IpamPoolId                  pulumi.StringPtrInput
 	Ipv6NetmaskLength               pulumi.IntPtrInput
 	Tags                            pulumi.StringMapInput
-	TagsAll                         pulumi.StringMapInput
 }
 
 func (DefaultVpcArgs) ElementType() reflect.Type {

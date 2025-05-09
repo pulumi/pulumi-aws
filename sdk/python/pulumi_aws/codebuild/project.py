@@ -44,7 +44,6 @@ class ProjectArgs:
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
@@ -86,8 +85,6 @@ class ProjectArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider 
-               `default_tags` configuration block.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         pulumi.set(__self__, "artifacts", artifacts)
@@ -130,8 +127,6 @@ class ProjectArgs:
             pulumi.set(__self__, "source_version", source_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -414,19 +409,6 @@ class ProjectArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider 
-        `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -945,7 +927,6 @@ class Project(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -1208,8 +1189,6 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider 
-               `default_tags` configuration block.
         :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']] vpc_config: Configuration block. Detailed below.
         """
         ...
@@ -1475,7 +1454,6 @@ class Project(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1516,11 +1494,11 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["source_version"] = source_version
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["badge_url"] = None
             __props__.__dict__["public_project_alias"] = None
+            __props__.__dict__["tags_all"] = None
         super(Project, __self__).__init__(
             'aws:codebuild/project:Project',
             resource_name,

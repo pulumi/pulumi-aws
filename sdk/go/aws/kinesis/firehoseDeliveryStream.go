@@ -1232,9 +1232,7 @@ type firehoseDeliveryStreamArgs struct {
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	Tags      map[string]string `pulumi:"tags"`
 	VersionId *string           `pulumi:"versionId"`
 }
 
@@ -1274,9 +1272,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll   pulumi.StringMapInput
+	Tags      pulumi.StringMapInput
 	VersionId pulumi.StringPtrInput
 }
 

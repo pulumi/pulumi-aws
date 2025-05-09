@@ -322,8 +322,7 @@ type amiFromInstanceArgs struct {
 	// ID of the instance to use as the basis of the AMI.
 	SourceInstanceId string `pulumi:"sourceInstanceId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AmiFromInstance resource.
@@ -348,8 +347,7 @@ type AmiFromInstanceArgs struct {
 	// ID of the instance to use as the basis of the AMI.
 	SourceInstanceId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AmiFromInstanceArgs) ElementType() reflect.Type {

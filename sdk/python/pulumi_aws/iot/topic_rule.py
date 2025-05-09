@@ -47,7 +47,6 @@ class TopicRuleArgs:
                  sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
@@ -58,7 +57,6 @@ class TopicRuleArgs:
         :param pulumi.Input['TopicRuleErrorActionArgs'] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         :param pulumi.Input[builtins.str] name: The name of the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "sql", sql)
@@ -107,8 +105,6 @@ class TopicRuleArgs:
             pulumi.set(__self__, "step_functions", step_functions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if timestreams is not None:
             pulumi.set(__self__, "timestreams", timestreams)
 
@@ -357,18 +353,6 @@ class TopicRuleArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -793,7 +777,6 @@ class TopicRule(pulumi.CustomResource):
                  sqs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -864,7 +847,6 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[builtins.str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -971,7 +953,6 @@ class TopicRule(pulumi.CustomResource):
                  sqs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1013,9 +994,9 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["sqs"] = sqs
             __props__.__dict__["step_functions"] = step_functions
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timestreams"] = timestreams
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(TopicRule, __self__).__init__(
             'aws:iot/topicRule:TopicRule',
             resource_name,

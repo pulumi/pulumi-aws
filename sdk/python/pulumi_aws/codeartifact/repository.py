@@ -28,7 +28,6 @@ class RepositoryArgs:
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
@@ -38,7 +37,6 @@ class RepositoryArgs:
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input['RepositoryExternalConnectionsArgs'] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         pulumi.set(__self__, "domain", domain)
@@ -51,8 +49,6 @@ class RepositoryArgs:
             pulumi.set(__self__, "external_connections", external_connections)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if upstreams is not None:
             pulumi.set(__self__, "upstreams", upstreams)
 
@@ -127,18 +123,6 @@ class RepositoryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -335,7 +319,6 @@ class Repository(pulumi.CustomResource):
                  external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -406,7 +389,6 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         ...
@@ -496,7 +478,6 @@ class Repository(pulumi.CustomResource):
                  external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -517,10 +498,10 @@ class Repository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["upstreams"] = upstreams
             __props__.__dict__["administrator_account"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Repository, __self__).__init__(
             'aws:codeartifact/repository:Repository',
             resource_name,

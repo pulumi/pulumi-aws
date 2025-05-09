@@ -171,8 +171,6 @@ type thesaurusArgs struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string     `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
@@ -187,8 +185,6 @@ type ThesaurusArgs struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathInput
 	Tags         pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ThesaurusArgs) ElementType() reflect.Type {

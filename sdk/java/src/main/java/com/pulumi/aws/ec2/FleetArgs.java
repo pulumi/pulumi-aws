@@ -191,21 +191,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Nested argument containing target capacity configurations. Defined below.
      * 
      */
@@ -309,7 +294,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         this.replaceUnhealthyInstances = $.replaceUnhealthyInstances;
         this.spotOptions = $.spotOptions;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.targetCapacitySpecification = $.targetCapacitySpecification;
         this.terminateInstances = $.terminateInstances;
         this.terminateInstancesWithExpiration = $.terminateInstancesWithExpiration;
@@ -585,27 +569,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

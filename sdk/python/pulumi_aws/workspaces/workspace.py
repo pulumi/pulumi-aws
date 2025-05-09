@@ -27,7 +27,6 @@ class WorkspaceArgs:
                  user_name: pulumi.Input[builtins.str],
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
@@ -38,7 +37,6 @@ class WorkspaceArgs:
         :param pulumi.Input[builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[builtins.str] volume_encryption_key: The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
@@ -50,8 +48,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if user_volume_encryption_enabled is not None:
             pulumi.set(__self__, "user_volume_encryption_enabled", user_volume_encryption_enabled)
         if volume_encryption_key is not None:
@@ -118,18 +114,6 @@ class WorkspaceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
@@ -380,7 +364,6 @@ class Workspace(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -432,7 +415,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[builtins.bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[builtins.str] volume_encryption_key: The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
@@ -503,7 +485,6 @@ class Workspace(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -525,7 +506,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["root_volume_encryption_enabled"] = root_volume_encryption_enabled
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
@@ -535,6 +515,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["computer_name"] = None
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(Workspace, __self__).__init__(
             'aws:workspaces/workspace:Workspace',
             resource_name,

@@ -319,8 +319,6 @@ type documentArgs struct {
 	Permissions map[string]string `pulumi:"permissions"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType *string `pulumi:"targetType"`
 	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
@@ -343,8 +341,6 @@ type DocumentArgs struct {
 	Permissions pulumi.StringMapInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType pulumi.StringPtrInput
 	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.

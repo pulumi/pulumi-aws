@@ -26,8 +26,7 @@ class VpcPeeringConnectionAccepterInitArgs:
                  accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
                  requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
         :param pulumi.Input[builtins.str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
@@ -37,7 +36,6 @@ class VpcPeeringConnectionAccepterInitArgs:
         :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs'] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
         if accepter is not None:
@@ -48,8 +46,6 @@ class VpcPeeringConnectionAccepterInitArgs:
             pulumi.set(__self__, "requester", requester)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -112,18 +108,6 @@ class VpcPeeringConnectionAccepterInitArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -326,7 +310,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
                  requester: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -384,7 +367,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
         """
         ...
@@ -459,7 +441,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
                  requester: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -474,7 +455,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             __props__.__dict__["auto_accept"] = auto_accept
             __props__.__dict__["requester"] = requester
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_peering_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_peering_connection_id'")
             __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
@@ -482,6 +462,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             __props__.__dict__["peer_owner_id"] = None
             __props__.__dict__["peer_region"] = None
             __props__.__dict__["peer_vpc_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(VpcPeeringConnectionAccepter, __self__).__init__(
             'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter',

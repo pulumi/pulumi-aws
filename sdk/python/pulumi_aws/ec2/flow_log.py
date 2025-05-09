@@ -32,7 +32,6 @@ class FlowLogArgs:
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -51,7 +50,6 @@ class FlowLogArgs:
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
@@ -77,8 +75,6 @@ class FlowLogArgs:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if traffic_type is not None:
             pulumi.set(__self__, "traffic_type", traffic_type)
         if transit_gateway_attachment_id is not None:
@@ -209,18 +205,6 @@ class FlowLogArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="trafficType")
@@ -557,7 +541,6 @@ class FlowLog(pulumi.CustomResource):
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -663,7 +646,6 @@ class FlowLog(pulumi.CustomResource):
                When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
@@ -786,7 +768,6 @@ class FlowLog(pulumi.CustomResource):
                  max_aggregation_interval: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  traffic_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -810,12 +791,12 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["traffic_type"] = traffic_type
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(FlowLog, __self__).__init__(
             'aws:ec2/flowLog:FlowLog',
             resource_name,

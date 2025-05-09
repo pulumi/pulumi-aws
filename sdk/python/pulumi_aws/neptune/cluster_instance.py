@@ -37,8 +37,7 @@ class ClusterInstanceArgs:
                  promotion_tier: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
         :param pulumi.Input[builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
@@ -61,7 +60,6 @@ class ClusterInstanceArgs:
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "instance_class", instance_class)
@@ -97,8 +95,6 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -317,18 +313,6 @@ class ClusterInstanceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -801,7 +785,6 @@ class ClusterInstance(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
@@ -864,7 +847,6 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -944,7 +926,6 @@ class ClusterInstance(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -976,7 +957,6 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["address"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
@@ -984,6 +964,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["storage_encrypted"] = None
             __props__.__dict__["storage_type"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["writer"] = None
         super(ClusterInstance, __self__).__init__(
             'aws:neptune/clusterInstance:ClusterInstance',

@@ -36,8 +36,7 @@ class DataSetArgs:
                  refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[builtins.str] data_set_id: Identifier for the data set.
@@ -57,7 +56,6 @@ class DataSetArgs:
         :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "import_mode", import_mode)
@@ -87,8 +85,6 @@ class DataSetArgs:
             pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -271,18 +267,6 @@ class DataSetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -604,7 +588,6 @@ class DataSet(pulumi.CustomResource):
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing a QuickSight Data Set.
@@ -791,7 +774,6 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -995,7 +977,6 @@ class DataSet(pulumi.CustomResource):
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1024,9 +1005,9 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
             __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["output_columns"] = None
+            __props__.__dict__["tags_all"] = None
         super(DataSet, __self__).__init__(
             'aws:quicksight/dataSet:DataSet',
             resource_name,

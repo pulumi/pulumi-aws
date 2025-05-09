@@ -168,8 +168,6 @@ type resolverFirewallRuleGroupAssociationArgs struct {
 	Priority int `pulumi:"priority"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The unique identifier of the VPC that you want to associate with the rule group.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -186,8 +184,6 @@ type ResolverFirewallRuleGroupAssociationArgs struct {
 	Priority pulumi.IntInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The unique identifier of the VPC that you want to associate with the rule group.
 	VpcId pulumi.StringInput
 }

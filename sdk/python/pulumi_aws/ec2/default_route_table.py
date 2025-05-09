@@ -25,8 +25,7 @@ class DefaultRouteTableArgs:
                  default_route_table_id: pulumi.Input[builtins.str],
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultRouteTable resource.
         :param pulumi.Input[builtins.str] default_route_table_id: ID of the default route table.
@@ -35,7 +34,6 @@ class DefaultRouteTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "default_route_table_id", default_route_table_id)
         if propagating_vgws is not None:
@@ -44,8 +42,6 @@ class DefaultRouteTableArgs:
             pulumi.set(__self__, "routes", routes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
@@ -96,18 +92,6 @@ class DefaultRouteTableArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -262,7 +246,6 @@ class DefaultRouteTable(pulumi.CustomResource):
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
@@ -326,7 +309,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -407,7 +389,6 @@ class DefaultRouteTable(pulumi.CustomResource):
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -423,9 +404,9 @@ class DefaultRouteTable(pulumi.CustomResource):
             __props__.__dict__["propagating_vgws"] = propagating_vgws
             __props__.__dict__["routes"] = routes
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(DefaultRouteTable, __self__).__init__(
             'aws:ec2/defaultRouteTable:DefaultRouteTable',

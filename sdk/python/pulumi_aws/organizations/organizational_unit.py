@@ -24,22 +24,18 @@ class OrganizationalUnitArgs:
     def __init__(__self__, *,
                  parent_id: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a OrganizationalUnit resource.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent organizational unit, which may be the root
         :param pulumi.Input[builtins.str] name: The name for the organizational unit
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "parent_id", parent_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="parentId")
@@ -76,18 +72,6 @@ class OrganizationalUnitArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -205,7 +189,6 @@ class OrganizationalUnit(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to create an organizational unit.
@@ -234,7 +217,6 @@ class OrganizationalUnit(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the organizational unit
         :param pulumi.Input[builtins.str] parent_id: ID of the parent organizational unit, which may be the root
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -282,7 +264,6 @@ class OrganizationalUnit(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,9 +278,9 @@ class OrganizationalUnit(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parent_id'")
             __props__.__dict__["parent_id"] = parent_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["accounts"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(OrganizationalUnit, __self__).__init__(
             'aws:organizations/organizationalUnit:OrganizationalUnit',
             resource_name,

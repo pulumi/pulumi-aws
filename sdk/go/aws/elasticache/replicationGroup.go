@@ -848,8 +848,6 @@ type replicationGroupArgs struct {
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
 	// Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
 	// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
@@ -965,8 +963,6 @@ type ReplicationGroupArgs struct {
 	SubnetGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	// Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
 	// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.

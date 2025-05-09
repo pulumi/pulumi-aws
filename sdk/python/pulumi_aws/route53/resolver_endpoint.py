@@ -28,8 +28,7 @@ class ResolverEndpointArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
         :param pulumi.Input[builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -44,7 +43,6 @@ class ResolverEndpointArgs:
         :param pulumi.Input[builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
                Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -57,8 +55,6 @@ class ResolverEndpointArgs:
             pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -148,18 +144,6 @@ class ResolverEndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -355,7 +339,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resolver_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Route 53 Resolver endpoint resource.
@@ -414,7 +397,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -487,7 +469,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resolver_endpoint_type: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -510,9 +491,9 @@ class ResolverEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'security_group_ids'")
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["host_vpc_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(ResolverEndpoint, __self__).__init__(
             'aws:route53/resolverEndpoint:ResolverEndpoint',
             resource_name,

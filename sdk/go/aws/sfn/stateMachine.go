@@ -426,8 +426,6 @@ type stateMachineArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 	// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
@@ -452,8 +450,6 @@ type StateMachineArgs struct {
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationPtrInput
 	// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.

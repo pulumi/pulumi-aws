@@ -115,7 +115,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
@@ -156,9 +156,9 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["primaryContainer"] = args ? args.primaryContainer : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Model.__pulumiType, name, resourceInputs, opts);
@@ -243,10 +243,6 @@ export interface ModelArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */

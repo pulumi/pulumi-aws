@@ -103,7 +103,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly stateReason!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RepositoryAssociation resource with the given unique name, arguments, and options.
@@ -139,7 +139,6 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["kmsKeyDetails"] = args ? args.kmsKeyDetails : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["connectionArn"] = undefined /*out*/;
@@ -149,6 +148,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["s3RepositoryDetails"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateReason"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryAssociation.__pulumiType, name, resourceInputs, opts);
@@ -221,5 +221,4 @@ export interface RepositoryAssociationArgs {
      */
     repository: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

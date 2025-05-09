@@ -116,7 +116,7 @@ export class VpcIpam extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      */
@@ -158,7 +158,6 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
@@ -166,6 +165,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
             resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
             resourceInputs["scopeCount"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcIpam.__pulumiType, name, resourceInputs, opts);
@@ -255,10 +255,6 @@ export interface VpcIpamArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      */

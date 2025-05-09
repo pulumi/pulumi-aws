@@ -99,7 +99,7 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -132,11 +132,11 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["keyPairId"] = undefined /*out*/;
             resourceInputs["keyType"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyPair.__pulumiType, name, resourceInputs, opts);
@@ -205,8 +205,4 @@ export interface KeyPairArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

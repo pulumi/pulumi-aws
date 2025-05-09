@@ -409,21 +409,6 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
      * 
      */
@@ -467,7 +452,6 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         this.sqsSuccessFeedbackRoleArn = $.sqsSuccessFeedbackRoleArn;
         this.sqsSuccessFeedbackSampleRate = $.sqsSuccessFeedbackSampleRate;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.tracingConfig = $.tracingConfig;
     }
 
@@ -1033,27 +1017,6 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

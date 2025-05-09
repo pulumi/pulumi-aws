@@ -275,14 +275,6 @@ namespace Pulumi.Aws.ServiceDiscovery
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         /// </summary>

@@ -277,14 +277,6 @@ namespace Pulumi.Aws.Emr
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         /// </summary>

@@ -28,7 +28,6 @@ class AnomalySubscriptionArgs:
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None):
         """
         The set of arguments for constructing a AnomalySubscription resource.
@@ -38,7 +37,6 @@ class AnomalySubscriptionArgs:
         :param pulumi.Input[builtins.str] account_id: The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         :param pulumi.Input[builtins.str] name: The name for the subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionArgs'] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -50,8 +48,6 @@ class AnomalySubscriptionArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if threshold_expression is not None:
             pulumi.set(__self__, "threshold_expression", threshold_expression)
 
@@ -126,18 +122,6 @@ class AnomalySubscriptionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="thresholdExpression")
@@ -318,7 +302,6 @@ class AnomalySubscription(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold_expression: Optional[pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None,
                  __props__=None):
         """
@@ -495,7 +478,6 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         ...
@@ -691,7 +673,6 @@ class AnomalySubscription(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold_expression: Optional[pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -714,9 +695,9 @@ class AnomalySubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["threshold_expression"] = threshold_expression
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(AnomalySubscription, __self__).__init__(
             'aws:costexplorer/anomalySubscription:AnomalySubscription',
             resource_name,

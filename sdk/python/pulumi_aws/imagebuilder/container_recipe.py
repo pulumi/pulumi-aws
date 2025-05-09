@@ -35,7 +35,6 @@ class ContainerRecipeArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerRecipe resource.
@@ -54,7 +53,6 @@ class ContainerRecipeArgs:
         :param pulumi.Input[builtins.str] name: The name of the container recipe.
         :param pulumi.Input[builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
@@ -78,8 +76,6 @@ class ContainerRecipeArgs:
             pulumi.set(__self__, "platform_override", platform_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if working_directory is not None:
             pulumi.set(__self__, "working_directory", working_directory)
 
@@ -240,18 +236,6 @@ class ContainerRecipeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="workingDirectory")
@@ -617,7 +601,6 @@ class ContainerRecipe(pulumi.CustomResource):
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None,
@@ -680,7 +663,6 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_image: The base image for the container recipe.
         :param pulumi.Input[builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[builtins.str] version: Version of the container recipe.
                
@@ -764,7 +746,6 @@ class ContainerRecipe(pulumi.CustomResource):
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None,
@@ -794,7 +775,6 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["platform_override"] = platform_override
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if target_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'target_repository'")
             __props__.__dict__["target_repository"] = target_repository
@@ -807,6 +787,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["encrypted"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
+            __props__.__dict__["tags_all"] = None
         super(ContainerRecipe, __self__).__init__(
             'aws:imagebuilder/containerRecipe:ContainerRecipe',
             resource_name,

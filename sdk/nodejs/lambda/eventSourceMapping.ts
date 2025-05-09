@@ -306,7 +306,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */
@@ -398,7 +398,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
             resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -407,6 +406,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["lastProcessingResult"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateTransitionReason"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -664,10 +664,6 @@ export interface EventSourceMappingArgs {
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */

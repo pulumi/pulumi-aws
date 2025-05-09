@@ -412,7 +412,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      */
@@ -478,7 +478,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
@@ -487,6 +486,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["endpointV2"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
@@ -691,10 +691,6 @@ export interface DomainArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      */

@@ -171,9 +171,7 @@ type openIdConnectProviderArgs struct {
 	// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
 	ClientIdLists []string `pulumi:"clientIdLists"`
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	Tags            map[string]string `pulumi:"tags"`
 	ThumbprintLists []string          `pulumi:"thumbprintLists"`
 	// URL of the identity provider, corresponding to the `iss` claim.
 	Url string `pulumi:"url"`
@@ -184,9 +182,7 @@ type OpenIdConnectProviderArgs struct {
 	// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
 	ClientIdLists pulumi.StringArrayInput
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll         pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
 	ThumbprintLists pulumi.StringArrayInput
 	// URL of the identity provider, corresponding to the `iss` claim.
 	Url pulumi.StringInput

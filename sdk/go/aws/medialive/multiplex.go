@@ -174,8 +174,7 @@ type multiplexArgs struct {
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
 	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Multiplex resource.
@@ -191,8 +190,7 @@ type MultiplexArgs struct {
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
 	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (MultiplexArgs) ElementType() reflect.Type {

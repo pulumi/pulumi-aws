@@ -184,8 +184,6 @@ func (VpcAttachmentAccepterState) ElementType() reflect.Type {
 type vpcAttachmentAccepterArgs struct {
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
@@ -198,8 +196,6 @@ type vpcAttachmentAccepterArgs struct {
 type VpcAttachmentAccepterArgs struct {
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringInput
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.

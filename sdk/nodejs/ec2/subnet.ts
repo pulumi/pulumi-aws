@@ -165,7 +165,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID.
      */
@@ -226,11 +226,11 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["privateDnsHostnameTypeOnLaunch"] = args ? args.privateDnsHostnameTypeOnLaunch : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Subnet.__pulumiType, name, resourceInputs, opts);
@@ -405,10 +405,6 @@ export interface SubnetArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */

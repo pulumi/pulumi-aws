@@ -25,8 +25,7 @@ class TableReplicaInitArgs:
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a TableReplica resource.
         :param pulumi.Input[builtins.str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
@@ -37,7 +36,6 @@ class TableReplicaInitArgs:
         :param pulumi.Input[builtins.bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         :param pulumi.Input[builtins.str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "global_table_arn", global_table_arn)
         if deletion_protection_enabled is not None:
@@ -50,8 +48,6 @@ class TableReplicaInitArgs:
             pulumi.set(__self__, "table_class_override", table_class_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="globalTableArn")
@@ -126,18 +122,6 @@ class TableReplicaInitArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -294,7 +278,6 @@ class TableReplica(pulumi.CustomResource):
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
@@ -349,7 +332,6 @@ class TableReplica(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         :param pulumi.Input[builtins.str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -421,7 +403,6 @@ class TableReplica(pulumi.CustomResource):
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -439,8 +420,8 @@ class TableReplica(pulumi.CustomResource):
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
             __props__.__dict__["table_class_override"] = table_class_override
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(TableReplica, __self__).__init__(
             'aws:dynamodb/tableReplica:TableReplica',
             resource_name,

@@ -381,8 +381,6 @@ type directoryArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
 	WorkspaceAccessProperties *DirectoryWorkspaceAccessProperties `pulumi:"workspaceAccessProperties"`
 	// Default properties that are used for creating WorkSpaces. Defined below.
@@ -403,8 +401,6 @@ type DirectoryArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
 	WorkspaceAccessProperties DirectoryWorkspaceAccessPropertiesPtrInput
 	// Default properties that are used for creating WorkSpaces. Defined below.

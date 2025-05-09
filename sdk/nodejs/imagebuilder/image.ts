@@ -124,7 +124,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Version of the image.
      */
@@ -179,7 +179,6 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["workflows"] = args ? args.workflows : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dateCreated"] = undefined /*out*/;
@@ -187,6 +186,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["osVersion"] = undefined /*out*/;
             resourceInputs["outputResources"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -316,10 +316,6 @@ export interface ImageArgs {
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */

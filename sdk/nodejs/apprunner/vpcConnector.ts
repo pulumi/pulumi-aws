@@ -85,7 +85,7 @@ export class VpcConnector extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name for the VPC connector.
      */
@@ -130,10 +130,10 @@ export class VpcConnector extends pulumi.CustomResource {
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcConnectorName"] = args ? args.vpcConnectorName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcConnectorRevision"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -195,10 +195,6 @@ export interface VpcConnectorArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name for the VPC connector.
      */

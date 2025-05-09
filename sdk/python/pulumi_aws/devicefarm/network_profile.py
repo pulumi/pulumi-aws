@@ -28,7 +28,6 @@ class NetworkProfileArgs:
                  downlink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[builtins.int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[builtins.int]] = None,
@@ -44,7 +43,6 @@ class NetworkProfileArgs:
         :param pulumi.Input[builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         :param pulumi.Input[builtins.str] name: The name for the network profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         :param pulumi.Input[builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         :param pulumi.Input[builtins.int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
@@ -66,8 +64,6 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uplink_bandwidth_bits is not None:
@@ -174,18 +170,6 @@ class NetworkProfileArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -512,7 +496,6 @@ class NetworkProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[builtins.int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[builtins.int]] = None,
@@ -554,7 +537,6 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the network profile.
         :param pulumi.Input[builtins.str] project_arn: The ARN of the project for the network profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         :param pulumi.Input[builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         :param pulumi.Input[builtins.int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
@@ -615,7 +597,6 @@ class NetworkProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[builtins.int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[builtins.int]] = None,
@@ -640,13 +621,13 @@ class NetworkProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project_arn'")
             __props__.__dict__["project_arn"] = project_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["uplink_bandwidth_bits"] = uplink_bandwidth_bits
             __props__.__dict__["uplink_delay_ms"] = uplink_delay_ms
             __props__.__dict__["uplink_jitter_ms"] = uplink_jitter_ms
             __props__.__dict__["uplink_loss_percent"] = uplink_loss_percent
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(NetworkProfile, __self__).__init__(
             'aws:devicefarm/networkProfile:NetworkProfile',
             resource_name,

@@ -127,8 +127,6 @@ type usagePlanArgs struct {
 	// Quota of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
 	Tags          map[string]string       `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
 }
@@ -146,8 +144,6 @@ type UsagePlanArgs struct {
 	// Quota of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
 	Tags          pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
 }

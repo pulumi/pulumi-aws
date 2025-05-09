@@ -165,8 +165,6 @@ type codeSigningConfigArgs struct {
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a CodeSigningConfig resource.
@@ -179,8 +177,6 @@ type CodeSigningConfigArgs struct {
 	Policies CodeSigningConfigPoliciesPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (CodeSigningConfigArgs) ElementType() reflect.Type {

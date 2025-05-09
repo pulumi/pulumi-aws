@@ -148,21 +148,6 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
@@ -188,7 +173,6 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         this.policy = $.policy;
         this.primaryKeyArn = $.primaryKeyArn;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.validTo = $.validTo;
     }
 
@@ -384,27 +368,6 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

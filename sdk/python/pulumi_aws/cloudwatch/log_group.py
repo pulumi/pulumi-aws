@@ -26,8 +26,7 @@ class LogGroupArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  retention_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogGroup resource.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
@@ -41,7 +40,6 @@ class LogGroupArgs:
                If you select 0, the events in the log group are always retained and never expire.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -57,8 +55,6 @@ class LogGroupArgs:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -147,18 +143,6 @@ class LogGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -336,7 +320,6 @@ class LogGroup(pulumi.CustomResource):
                  retention_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Log Group resource.
@@ -376,7 +359,6 @@ class LogGroup(pulumi.CustomResource):
                If you select 0, the events in the log group are always retained and never expire.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -431,7 +413,6 @@ class LogGroup(pulumi.CustomResource):
                  retention_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -448,8 +429,8 @@ class LogGroup(pulumi.CustomResource):
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(LogGroup, __self__).__init__(
             'aws:cloudwatch/logGroup:LogGroup',
             resource_name,

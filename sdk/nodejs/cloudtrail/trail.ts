@@ -390,7 +390,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Trail resource with the given unique name, arguments, and options.
@@ -446,10 +446,10 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Trail.__pulumiType, name, resourceInputs, opts);
@@ -614,8 +614,4 @@ export interface TrailArgs {
      * Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

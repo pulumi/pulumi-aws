@@ -177,7 +177,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      */
@@ -238,7 +238,6 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["retainPhysicalResources"] = args ? args.retainPhysicalResources : undefined;
             resourceInputs["stackSetProvisioningPreferences"] = args ? args.stackSetProvisioningPreferences : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cloudwatchDashboardNames"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -249,6 +248,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -430,8 +430,4 @@ export interface ProvisionedProductArgs {
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

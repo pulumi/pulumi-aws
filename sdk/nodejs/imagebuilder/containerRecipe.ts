@@ -148,7 +148,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The destination repository for the container image. Detailed below.
      */
@@ -225,7 +225,6 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["parentImage"] = args ? args.parentImage : undefined;
             resourceInputs["platformOverride"] = args ? args.platformOverride : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
@@ -234,6 +233,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContainerRecipe.__pulumiType, name, resourceInputs, opts);
@@ -376,10 +376,6 @@ export interface ContainerRecipeArgs {
      * Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The destination repository for the container image. Detailed below.
      */

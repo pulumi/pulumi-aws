@@ -389,8 +389,7 @@ type experimentTemplateArgs struct {
 	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// Target of an action. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -414,8 +413,7 @@ type ExperimentTemplateArgs struct {
 	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }

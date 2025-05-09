@@ -108,7 +108,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a MaintenanceWindow resource with the given unique name, arguments, and options.
@@ -159,7 +159,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             resourceInputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
             resourceInputs["startDate"] = args ? args.startDate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaintenanceWindow.__pulumiType, name, resourceInputs, opts);
@@ -276,8 +276,4 @@ export interface MaintenanceWindowArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

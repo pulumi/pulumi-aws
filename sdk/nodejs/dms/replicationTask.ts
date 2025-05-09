@@ -122,7 +122,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN that uniquely identifies the target endpoint.
      */
@@ -187,10 +187,10 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["startReplicationTask"] = args ? args.startReplicationTask : undefined;
             resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             resourceInputs["replicationTaskArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicationTask.__pulumiType, name, resourceInputs, opts);
@@ -311,10 +311,6 @@ export interface ReplicationTaskArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN that uniquely identifies the target endpoint.
      */

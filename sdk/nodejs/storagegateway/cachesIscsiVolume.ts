@@ -142,7 +142,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
@@ -215,13 +215,13 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetName"] = args ? args.targetName : undefined;
             resourceInputs["volumeSizeInBytes"] = args ? args.volumeSizeInBytes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["chapEnabled"] = undefined /*out*/;
             resourceInputs["lunNumber"] = undefined /*out*/;
             resourceInputs["networkInterfacePort"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["targetArn"] = undefined /*out*/;
             resourceInputs["volumeArn"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
@@ -337,10 +337,6 @@ export interface CachesIscsiVolumeArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */

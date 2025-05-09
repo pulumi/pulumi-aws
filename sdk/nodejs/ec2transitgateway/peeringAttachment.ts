@@ -99,7 +99,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -143,10 +143,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PeeringAttachment.__pulumiType, name, resourceInputs, opts);
@@ -216,10 +216,6 @@ export interface PeeringAttachmentArgs {
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

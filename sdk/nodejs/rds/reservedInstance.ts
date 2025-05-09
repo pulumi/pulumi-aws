@@ -139,7 +139,7 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Hourly price charged for this reserved DB instance.
      */
@@ -185,7 +185,6 @@ export class ReservedInstance extends pulumi.CustomResource {
             resourceInputs["offeringId"] = args ? args.offeringId : undefined;
             resourceInputs["reservationId"] = args ? args.reservationId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currencyCode"] = undefined /*out*/;
             resourceInputs["dbInstanceClass"] = undefined /*out*/;
@@ -198,6 +197,7 @@ export class ReservedInstance extends pulumi.CustomResource {
             resourceInputs["recurringCharges"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["usagePrice"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -307,8 +307,4 @@ export interface ReservedInstanceArgs {
      * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

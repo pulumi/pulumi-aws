@@ -25,15 +25,13 @@ class EndpointArgs:
                  endpoint_config_name: pulumi.Input[builtins.str],
                  deployment_config: Optional[pulumi.Input['EndpointDeploymentConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[builtins.str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[builtins.str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "endpoint_config_name", endpoint_config_name)
         if deployment_config is not None:
@@ -42,8 +40,6 @@ class EndpointArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="endpointConfigName")
@@ -92,18 +88,6 @@ class EndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -222,7 +206,6 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Endpoint resource.
@@ -257,7 +240,6 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input[builtins.str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -311,7 +293,6 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -327,8 +308,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_config_name"] = endpoint_config_name
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Endpoint, __self__).__init__(
             'aws:sagemaker/endpoint:Endpoint',
             resource_name,

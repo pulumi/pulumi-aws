@@ -64,28 +64,12 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private ServiceNetworkServiceAssociationArgs() {}
 
     private ServiceNetworkServiceAssociationArgs(ServiceNetworkServiceAssociationArgs $) {
         this.serviceIdentifier = $.serviceIdentifier;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -169,27 +153,6 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public ServiceNetworkServiceAssociationArgs build() {

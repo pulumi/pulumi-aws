@@ -86,7 +86,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a NotebookInstanceLifecycleConfiguration resource with the given unique name, arguments, and options.
@@ -113,8 +113,8 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             resourceInputs["onCreate"] = args ? args.onCreate : undefined;
             resourceInputs["onStart"] = args ? args.onStart : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -171,8 +171,4 @@ export interface NotebookInstanceLifecycleConfigurationArgs {
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

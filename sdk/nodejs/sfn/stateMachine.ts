@@ -243,7 +243,7 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
@@ -301,7 +301,6 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["publish"] = args ? args.publish : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -310,6 +309,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["revisionId"] = undefined /*out*/;
             resourceInputs["stateMachineVersionArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -422,10 +422,6 @@ export interface StateMachineArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */

@@ -163,8 +163,6 @@ type channelArgs struct {
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
 	Type *string `pulumi:"type"`
 }
@@ -181,8 +179,6 @@ type ChannelArgs struct {
 	RecordingConfigurationArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
 	Type pulumi.StringPtrInput
 }

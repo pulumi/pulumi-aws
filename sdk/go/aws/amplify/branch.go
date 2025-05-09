@@ -482,8 +482,6 @@ type branchArgs struct {
 	Stage *string `pulumi:"stage"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Content Time To Live (TTL) for the website in seconds.
 	Ttl *string `pulumi:"ttl"`
 }
@@ -522,8 +520,6 @@ type BranchArgs struct {
 	Stage pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Content Time To Live (TTL) for the website in seconds.
 	Ttl pulumi.StringPtrInput
 }

@@ -224,8 +224,6 @@ type graphQLApiArgs struct {
 	Schema *string `pulumi:"schema"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
@@ -268,8 +266,6 @@ type GraphQLApiArgs struct {
 	Schema pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.

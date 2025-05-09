@@ -25,8 +25,7 @@ class UserArgs:
                  access_string: pulumi.Input[builtins.str],
                  authentication_mode: pulumi.Input['UserAuthenticationModeArgs'],
                  user_name: pulumi.Input[builtins.str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[builtins.str] access_string: Access permissions string used for this user.
@@ -35,15 +34,12 @@ class UserArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "authentication_mode", authentication_mode)
         pulumi.set(__self__, "user_name", user_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessString")
@@ -94,18 +90,6 @@ class UserArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -243,7 +227,6 @@ class User(pulumi.CustomResource):
                  access_string: Optional[pulumi.Input[builtins.str]] = None,
                  authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -283,7 +266,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_string: Access permissions string used for this user.
         :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
                
                The following arguments are optional:
@@ -344,7 +326,6 @@ class User(pulumi.CustomResource):
                  access_string: Optional[pulumi.Input[builtins.str]] = None,
                  authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -362,12 +343,12 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authentication_mode'")
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["minimum_engine_version"] = None
+            __props__.__dict__["tags_all"] = None
         super(User, __self__).__init__(
             'aws:memorydb/user:User',
             resource_name,

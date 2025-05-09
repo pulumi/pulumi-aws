@@ -91,7 +91,7 @@ export class CustomActionType extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -142,10 +142,10 @@ export class CustomActionType extends pulumi.CustomResource {
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomActionType.__pulumiType, name, resourceInputs, opts);
@@ -201,9 +201,5 @@ export interface CustomActionTypeArgs {
     providerName: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     version: pulumi.Input<string>;
 }

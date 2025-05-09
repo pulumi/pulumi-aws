@@ -29,7 +29,6 @@ class TransitGatewayArgs:
                  multicast_support: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -45,7 +44,6 @@ class TransitGatewayArgs:
         :param pulumi.Input[builtins.str] multicast_support: Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[builtins.str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
@@ -67,8 +65,6 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_cidr_blocks is not None:
             pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
@@ -183,18 +179,6 @@ class TransitGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayCidrBlocks")
@@ -506,7 +490,6 @@ class TransitGateway(pulumi.CustomResource):
                  multicast_support: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -543,7 +526,6 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] multicast_support: Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[builtins.str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
@@ -597,7 +579,6 @@ class TransitGateway(pulumi.CustomResource):
                  multicast_support: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -618,13 +599,13 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["multicast_support"] = multicast_support
             __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_default_route_table_id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["propagation_default_route_table_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(TransitGateway, __self__).__init__(
             'aws:ec2transitgateway/transitGateway:TransitGateway',
             resource_name,

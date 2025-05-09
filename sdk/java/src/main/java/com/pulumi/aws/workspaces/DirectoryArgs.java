@@ -113,21 +113,6 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
@@ -166,7 +151,6 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         this.selfServicePermissions = $.selfServicePermissions;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.workspaceAccessProperties = $.workspaceAccessProperties;
         this.workspaceCreationProperties = $.workspaceCreationProperties;
     }
@@ -333,27 +317,6 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

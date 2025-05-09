@@ -155,8 +155,7 @@ type geofenceCollectionArgs struct {
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
@@ -170,8 +169,7 @@ type GeofenceCollectionArgs struct {
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (GeofenceCollectionArgs) ElementType() reflect.Type {

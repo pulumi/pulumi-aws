@@ -213,8 +213,6 @@ type applicationVersionArgs struct {
 	Process *bool `pulumi:"process"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
@@ -237,8 +235,6 @@ type ApplicationVersionArgs struct {
 	Process pulumi.BoolPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {

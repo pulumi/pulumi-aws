@@ -40,7 +40,6 @@ class MetricAlarmArgs:
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
                  threshold_metric_id: Optional[pulumi.Input[builtins.str]] = None,
                  treat_missing_data: Optional[pulumi.Input[builtins.str]] = None,
@@ -74,7 +73,6 @@ class MetricAlarmArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.float] threshold: The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
         :param pulumi.Input[builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
@@ -114,8 +112,6 @@ class MetricAlarmArgs:
             pulumi.set(__self__, "statistic", statistic)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if threshold is not None:
             pulumi.set(__self__, "threshold", threshold)
         if threshold_metric_id is not None:
@@ -349,18 +345,6 @@ class MetricAlarmArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -847,7 +831,6 @@ class MetricAlarm(pulumi.CustomResource):
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
                  threshold_metric_id: Optional[pulumi.Input[builtins.str]] = None,
                  treat_missing_data: Optional[pulumi.Input[builtins.str]] = None,
@@ -1051,7 +1034,6 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.float] threshold: The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
         :param pulumi.Input[builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
@@ -1265,7 +1247,6 @@ class MetricAlarm(pulumi.CustomResource):
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
                  threshold_metric_id: Optional[pulumi.Input[builtins.str]] = None,
                  treat_missing_data: Optional[pulumi.Input[builtins.str]] = None,
@@ -1301,12 +1282,12 @@ class MetricAlarm(pulumi.CustomResource):
             __props__.__dict__["period"] = period
             __props__.__dict__["statistic"] = statistic
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["threshold"] = threshold
             __props__.__dict__["threshold_metric_id"] = threshold_metric_id
             __props__.__dict__["treat_missing_data"] = treat_missing_data
             __props__.__dict__["unit"] = unit
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(MetricAlarm, __self__).__init__(
             'aws:cloudwatch/metricAlarm:MetricAlarm',
             resource_name,

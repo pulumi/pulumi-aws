@@ -379,8 +379,6 @@ type domainNameArgs struct {
 	//
 	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -417,8 +415,6 @@ type DomainNameArgs struct {
 	//
 	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {

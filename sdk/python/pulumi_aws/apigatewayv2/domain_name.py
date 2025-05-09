@@ -25,15 +25,13 @@ class DomainNameArgs:
                  domain_name: pulumi.Input[builtins.str],
                  domain_name_configuration: pulumi.Input['DomainNameDomainNameConfigurationArgs'],
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
         :param pulumi.Input[builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
         :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "domain_name_configuration", domain_name_configuration)
@@ -41,8 +39,6 @@ class DomainNameArgs:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="domainName")
@@ -91,18 +87,6 @@ class DomainNameArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -237,7 +221,6 @@ class DomainName(pulumi.CustomResource):
                  domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 domain name.
@@ -301,7 +284,6 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -384,7 +366,6 @@ class DomainName(pulumi.CustomResource):
                  domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,9 +383,9 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["domain_name_configuration"] = domain_name_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["api_mapping_selection_expression"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(DomainName, __self__).__init__(
             'aws:apigatewayv2/domainName:DomainName',
             resource_name,

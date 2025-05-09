@@ -25,7 +25,6 @@ class PolicyArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
@@ -38,7 +37,6 @@ class PolicyArgs:
         :param pulumi.Input[builtins.str] name: The friendly name to assign to the policy.
         :param pulumi.Input[builtins.bool] skip_destroy: If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY` (RCP), `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
         """
         pulumi.set(__self__, "content", content)
@@ -50,8 +48,6 @@ class PolicyArgs:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -118,18 +114,6 @@ class PolicyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -301,7 +285,6 @@ class Policy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -342,7 +325,6 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The friendly name to assign to the policy.
         :param pulumi.Input[builtins.bool] skip_destroy: If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY` (RCP), `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
         """
         ...
@@ -398,7 +380,6 @@ class Policy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -416,9 +397,9 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Policy, __self__).__init__(
             'aws:organizations/policy:Policy',
             resource_name,

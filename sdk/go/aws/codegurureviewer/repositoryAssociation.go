@@ -189,7 +189,6 @@ type repositoryAssociationArgs struct {
 	// The following arguments are optional:
 	Repository RepositoryAssociationRepository `pulumi:"repository"`
 	Tags       map[string]string               `pulumi:"tags"`
-	TagsAll    map[string]string               `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a RepositoryAssociation resource.
@@ -201,7 +200,6 @@ type RepositoryAssociationArgs struct {
 	// The following arguments are optional:
 	Repository RepositoryAssociationRepositoryInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 }
 
 func (RepositoryAssociationArgs) ElementType() reflect.Type {

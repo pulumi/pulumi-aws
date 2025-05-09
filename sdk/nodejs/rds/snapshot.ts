@@ -144,7 +144,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Provides the VPC ID associated with the DB snapshot.
      */
@@ -197,7 +197,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
             resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["dbSnapshotArn"] = undefined /*out*/;
@@ -214,6 +213,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -329,8 +329,4 @@ export interface SnapshotArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

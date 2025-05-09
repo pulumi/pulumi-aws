@@ -344,8 +344,6 @@ type featureArgs struct {
 	Project string `pulumi:"project"`
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
 	Variations []FeatureVariation `pulumi:"variations"`
 }
@@ -366,8 +364,6 @@ type FeatureArgs struct {
 	Project pulumi.StringInput
 	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
 	Variations FeatureVariationArrayInput
 }

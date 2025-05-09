@@ -140,14 +140,6 @@ namespace Pulumi.Aws.MediaLive
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         [Input("whitelistRules", required: true)]
         private InputList<Inputs.InputSecurityGroupWhitelistRuleArgs>? _whitelistRules;
 

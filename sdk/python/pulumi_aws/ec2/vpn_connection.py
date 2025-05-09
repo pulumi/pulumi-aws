@@ -32,7 +32,6 @@ class VpnConnectionArgs:
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[builtins.str]] = None,
@@ -89,7 +88,6 @@ class VpnConnectionArgs:
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[builtins.str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[builtins.str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -153,8 +151,6 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if transport_transit_gateway_attachment_id is not None:
@@ -363,18 +359,6 @@ class VpnConnectionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -2082,7 +2066,6 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[builtins.str]] = None,
@@ -2230,7 +2213,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[builtins.str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[builtins.str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -2397,7 +2379,6 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[builtins.str]] = None,
@@ -2463,7 +2444,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["transport_transit_gateway_attachment_id"] = transport_transit_gateway_attachment_id
             __props__.__dict__["tunnel1_dpd_timeout_action"] = tunnel1_dpd_timeout_action
@@ -2516,6 +2496,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["core_network_attachment_arn"] = None
             __props__.__dict__["customer_gateway_configuration"] = None
             __props__.__dict__["routes"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
             __props__.__dict__["tunnel1_address"] = None
             __props__.__dict__["tunnel1_bgp_asn"] = None

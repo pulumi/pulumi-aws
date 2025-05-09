@@ -272,8 +272,7 @@ type linkArgs struct {
 	// The following arguments are optional:
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Link resource.
@@ -289,8 +288,7 @@ type LinkArgs struct {
 	// The following arguments are optional:
 	SinkIdentifier pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LinkArgs) ElementType() reflect.Type {

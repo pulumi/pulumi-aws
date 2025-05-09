@@ -391,8 +391,6 @@ type environmentArgs struct {
 	SolutionStackName *string `pulumi:"solutionStackName"`
 	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName *string `pulumi:"templateName"`
@@ -439,8 +437,6 @@ type EnvironmentArgs struct {
 	SolutionStackName pulumi.StringPtrInput
 	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrInput

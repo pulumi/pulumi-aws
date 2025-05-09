@@ -221,8 +221,6 @@ type configurationAggregatorArgs struct {
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
@@ -237,8 +235,6 @@ type ConfigurationAggregatorArgs struct {
 	//
 	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ConfigurationAggregatorArgs) ElementType() reflect.Type {

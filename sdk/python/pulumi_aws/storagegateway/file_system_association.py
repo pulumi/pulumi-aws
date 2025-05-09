@@ -28,8 +28,7 @@ class FileSystemAssociationArgs:
                  username: pulumi.Input[builtins.str],
                  audit_destination_arn: Optional[pulumi.Input[builtins.str]] = None,
                  cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileSystemAssociation resource.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -39,7 +38,6 @@ class FileSystemAssociationArgs:
         :param pulumi.Input[builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
         :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         pulumi.set(__self__, "location_arn", location_arn)
@@ -51,8 +49,6 @@ class FileSystemAssociationArgs:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -137,18 +133,6 @@ class FileSystemAssociationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -317,7 +301,6 @@ class FileSystemAssociation(pulumi.CustomResource):
                  location_arn: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -400,7 +383,6 @@ class FileSystemAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[builtins.str] password: The password of the user credential.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] username: The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         """
         ...
@@ -502,7 +484,6 @@ class FileSystemAssociation(pulumi.CustomResource):
                  location_arn: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -525,11 +506,11 @@ class FileSystemAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FileSystemAssociation, __self__).__init__(

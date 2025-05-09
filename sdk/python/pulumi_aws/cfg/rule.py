@@ -29,8 +29,7 @@ class RuleArgs:
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -41,7 +40,6 @@ class RuleArgs:
         :param pulumi.Input[builtins.str] name: The name of the rule
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "source", source)
         if description is not None:
@@ -58,8 +56,6 @@ class RuleArgs:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -156,18 +152,6 @@ class RuleArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -370,7 +354,6 @@ class Rule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Config Rule.
@@ -492,7 +475,6 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -633,7 +615,6 @@ class Rule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -653,9 +634,9 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["rule_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Rule, __self__).__init__(
             'aws:cfg/rule:Rule',
             resource_name,

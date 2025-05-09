@@ -29,8 +29,7 @@ class FeatureArgs:
                  entity_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  evaluation_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Feature resource.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new feature.
@@ -41,7 +40,6 @@ class FeatureArgs:
         :param pulumi.Input[builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         :param pulumi.Input[builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "project", project)
         pulumi.set(__self__, "variations", variations)
@@ -57,8 +55,6 @@ class FeatureArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -155,18 +151,6 @@ class FeatureArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -432,7 +416,6 @@ class Feature(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -555,7 +538,6 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         ...
@@ -697,7 +679,6 @@ class Feature(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -717,7 +698,6 @@ class Feature(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if variations is None and not opts.urn:
                 raise TypeError("Missing required property 'variations'")
             __props__.__dict__["variations"] = variations
@@ -726,6 +706,7 @@ class Feature(pulumi.CustomResource):
             __props__.__dict__["evaluation_rules"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["value_type"] = None
         super(Feature, __self__).__init__(
             'aws:evidently/feature:Feature',

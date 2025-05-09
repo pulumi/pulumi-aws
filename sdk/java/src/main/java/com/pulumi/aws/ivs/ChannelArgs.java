@@ -93,21 +93,6 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      * 
      */
@@ -130,7 +115,6 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.recordingConfigurationArn = $.recordingConfigurationArn;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.type = $.type;
     }
 
@@ -255,27 +239,6 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -29,8 +29,7 @@ class VpcPeeringConnectionArgs:
                  peer_owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  peer_region: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input['VpcPeeringConnectionRequesterArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnection resource.
         :param pulumi.Input[builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
@@ -45,7 +44,6 @@ class VpcPeeringConnectionArgs:
         :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -61,8 +59,6 @@ class VpcPeeringConnectionArgs:
             pulumi.set(__self__, "requester", requester)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="peerVpcId")
@@ -163,18 +159,6 @@ class VpcPeeringConnectionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -368,7 +352,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -478,7 +461,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the requester VPC.
         """
         ...
@@ -603,7 +585,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -623,11 +604,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
             __props__.__dict__["requester"] = requester
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["accept_status"] = None
+            __props__.__dict__["tags_all"] = None
         super(VpcPeeringConnection, __self__).__init__(
             'aws:ec2/vpcPeeringConnection:VpcPeeringConnection',
             resource_name,

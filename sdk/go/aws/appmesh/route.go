@@ -346,8 +346,6 @@ type routeArgs struct {
 	Spec RouteSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
@@ -364,8 +362,6 @@ type RouteArgs struct {
 	Spec RouteSpecInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringInput
 }

@@ -26,8 +26,7 @@ class MemberArgs:
                  invitation_message: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Member resource.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the account.
@@ -37,7 +36,6 @@ class MemberArgs:
         :param pulumi.Input[builtins.bool] invite: Send an invitation to a member
         :param pulumi.Input[builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "email", email)
@@ -51,8 +49,6 @@ class MemberArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accountId")
@@ -137,18 +133,6 @@ class MemberArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -394,7 +378,6 @@ class Member(pulumi.CustomResource):
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
@@ -432,7 +415,6 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] invite: Send an invitation to a member
         :param pulumi.Input[builtins.str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -489,7 +471,6 @@ class Member(pulumi.CustomResource):
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -510,12 +491,12 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["invite"] = invite
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["administrator_account_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["invited_at"] = None
             __props__.__dict__["master_account_id"] = None
             __props__.__dict__["relationship_status"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
         super(Member, __self__).__init__(
             'aws:macie2/member:Member',

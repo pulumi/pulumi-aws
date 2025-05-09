@@ -24,15 +24,13 @@ class LbArgs:
                  health_check_path: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lb resource.
         :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
         :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
         :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "instance_port", instance_port)
         if health_check_path is not None:
@@ -43,8 +41,6 @@ class LbArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -102,18 +98,6 @@ class LbArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -325,7 +309,6 @@ class Lb(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a Lightsail load balancer resource.
@@ -359,7 +342,6 @@ class Lb(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
         :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -413,7 +395,6 @@ class Lb(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -430,13 +411,13 @@ class Lb(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["protocol"] = None
             __props__.__dict__["public_ports"] = None
             __props__.__dict__["support_code"] = None
+            __props__.__dict__["tags_all"] = None
         super(Lb, __self__).__init__(
             'aws:lightsail/lb:Lb',
             resource_name,

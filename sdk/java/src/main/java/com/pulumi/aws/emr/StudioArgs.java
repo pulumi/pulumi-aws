@@ -183,13 +183,6 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      * 
@@ -253,7 +246,6 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         this.serviceRole = $.serviceRole;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.userRole = $.userRole;
         this.vpcId = $.vpcId;
         this.workspaceSecurityGroupId = $.workspaceSecurityGroupId;
@@ -516,15 +508,6 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

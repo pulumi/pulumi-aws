@@ -63,21 +63,6 @@ public final class RuleGroupNamespaceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * ID of the prometheus workspace the rule group namespace should be linked to.
      * 
      */
@@ -98,7 +83,6 @@ public final class RuleGroupNamespaceArgs extends com.pulumi.resources.ResourceA
         this.data = $.data;
         this.name = $.name;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.workspaceId = $.workspaceId;
     }
 
@@ -181,27 +165,6 @@ public final class RuleGroupNamespaceArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -489,8 +489,6 @@ type deploymentGroupArgs struct {
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled *bool `pulumi:"terminationHookEnabled"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
@@ -531,8 +529,6 @@ type DeploymentGroupArgs struct {
 	ServiceRoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled pulumi.BoolPtrInput
 	// Configuration block(s) of the triggers for the deployment group (documented below).

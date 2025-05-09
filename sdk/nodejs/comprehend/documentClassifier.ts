@@ -117,7 +117,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name for the version of the Document Classifier.
      * Each version must have a unique name within the Document Classifier.
@@ -192,12 +192,12 @@ export class DocumentClassifier extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["versionNamePrefix"] = args ? args.versionNamePrefix : undefined;
             resourceInputs["volumeKmsKeyId"] = args ? args.volumeKmsKeyId : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DocumentClassifier.__pulumiType, name, resourceInputs, opts);
@@ -333,10 +333,6 @@ export interface DocumentClassifierArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name for the version of the Document Classifier.
      * Each version must have a unique name within the Document Classifier.

@@ -138,8 +138,7 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 
 type inputSecurityGroupArgs struct {
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// Whitelist rules. See Whitelist Rules for more details.
 	//
 	// The following arguments are optional:
@@ -149,8 +148,7 @@ type inputSecurityGroupArgs struct {
 // The set of arguments for constructing a InputSecurityGroup resource.
 type InputSecurityGroupArgs struct {
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
 	//
 	// The following arguments are optional:

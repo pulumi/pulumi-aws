@@ -26,8 +26,7 @@ class ManagedPrefixListArgs:
                  max_entries: pulumi.Input[builtins.int],
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedPrefixList resource.
         :param pulumi.Input[builtins.str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
@@ -35,7 +34,6 @@ class ManagedPrefixListArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "max_entries", max_entries)
@@ -45,8 +43,6 @@ class ManagedPrefixListArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -107,18 +103,6 @@ class ManagedPrefixListArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -286,7 +270,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                  max_entries: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a managed prefix list resource.
@@ -345,7 +328,6 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -423,7 +405,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                  max_entries: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,9 +423,9 @@ class ManagedPrefixList(pulumi.CustomResource):
             __props__.__dict__["max_entries"] = max_entries
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(ManagedPrefixList, __self__).__init__(
             'aws:ec2/managedPrefixList:ManagedPrefixList',

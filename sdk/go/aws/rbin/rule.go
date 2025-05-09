@@ -190,7 +190,6 @@ type ruleArgs struct {
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	Tags            map[string]string   `pulumi:"tags"`
-	TagsAll         map[string]string   `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -208,7 +207,6 @@ type RuleArgs struct {
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

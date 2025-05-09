@@ -529,8 +529,6 @@ type bucketObjectArgs struct {
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
@@ -587,8 +585,6 @@ type BucketObjectArgs struct {
 	StorageClass pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.

@@ -351,14 +351,6 @@ namespace Pulumi.Aws.AppStream
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>

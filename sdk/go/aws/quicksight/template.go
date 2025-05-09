@@ -207,8 +207,6 @@ type templateArgs struct {
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier for the template.
 	TemplateId string `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
@@ -229,8 +227,6 @@ type TemplateArgs struct {
 	SourceEntity TemplateSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Identifier for the template.
 	TemplateId pulumi.StringInput
 	// A description of the current template version being created/updated.

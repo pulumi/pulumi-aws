@@ -240,8 +240,6 @@ type imageRecipeArgs struct {
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
@@ -268,8 +266,6 @@ type ImageRecipeArgs struct {
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringPtrInput
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.

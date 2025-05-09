@@ -24,8 +24,7 @@ class DomainArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[builtins.str] workflow_execution_retention_period_in_days: Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
@@ -33,7 +32,6 @@ class DomainArgs:
         :param pulumi.Input[builtins.str] name: The name of the domain. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "workflow_execution_retention_period_in_days", workflow_execution_retention_period_in_days)
         if description is not None:
@@ -44,8 +42,6 @@ class DomainArgs:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="workflowExecutionRetentionPeriodInDays")
@@ -106,18 +102,6 @@ class DomainArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -252,7 +236,6 @@ class Domain(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflow_execution_retention_period_in_days: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -286,7 +269,6 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the domain. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] workflow_execution_retention_period_in_days: Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
         """
         ...
@@ -339,7 +321,6 @@ class Domain(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflow_execution_retention_period_in_days: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -354,11 +335,11 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if workflow_execution_retention_period_in_days is None and not opts.urn:
                 raise TypeError("Missing required property 'workflow_execution_retention_period_in_days'")
             __props__.__dict__["workflow_execution_retention_period_in_days"] = workflow_execution_retention_period_in_days
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
             'aws:swf/domain:Domain',
             resource_name,

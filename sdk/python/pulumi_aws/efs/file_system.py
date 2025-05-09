@@ -31,7 +31,6 @@ class FileSystemArgs:
                  protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
@@ -47,7 +46,6 @@ class FileSystemArgs:
         :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[builtins.float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         if availability_zone_name is not None:
@@ -68,8 +66,6 @@ class FileSystemArgs:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_mode is not None:
             pulumi.set(__self__, "throughput_mode", throughput_mode)
 
@@ -183,18 +179,6 @@ class FileSystemArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="throughputMode")
@@ -528,7 +512,6 @@ class FileSystem(pulumi.CustomResource):
                  protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -584,7 +567,6 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[builtins.float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         ...
@@ -656,7 +638,6 @@ class FileSystem(pulumi.CustomResource):
                  protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -676,7 +657,6 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["protection"] = protection
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
@@ -685,6 +665,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["number_of_mount_targets"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["size_in_bytes"] = None
+            __props__.__dict__["tags_all"] = None
         super(FileSystem, __self__).__init__(
             'aws:efs/fileSystem:FileSystem',
             resource_name,

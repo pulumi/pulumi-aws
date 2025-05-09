@@ -29,8 +29,7 @@ class OptionGroupArgs:
                  option_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
         :param pulumi.Input[builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
@@ -41,7 +40,6 @@ class OptionGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "engine_name", engine_name)
         pulumi.set(__self__, "major_engine_version", major_engine_version)
@@ -59,8 +57,6 @@ class OptionGroupArgs:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="engineName")
@@ -157,18 +153,6 @@ class OptionGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -357,7 +341,6 @@ class OptionGroup(pulumi.CustomResource):
                  options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
@@ -427,7 +410,6 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -516,7 +498,6 @@ class OptionGroup(pulumi.CustomResource):
                  options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -540,8 +521,8 @@ class OptionGroup(pulumi.CustomResource):
             __props__.__dict__["options"] = options
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(OptionGroup, __self__).__init__(
             'aws:rds/optionGroup:OptionGroup',
             resource_name,

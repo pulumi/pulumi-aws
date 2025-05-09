@@ -28,8 +28,7 @@ class ListenerArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
@@ -53,8 +52,6 @@ class ListenerArgs:
             pulumi.set(__self__, "service_identifier", service_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -140,15 +137,6 @@ class ListenerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -360,7 +348,6 @@ class Listener(pulumi.CustomResource):
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Listener.
@@ -605,7 +592,6 @@ class Listener(pulumi.CustomResource):
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -626,11 +612,11 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["service_arn"] = service_arn
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["listener_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Listener, __self__).__init__(
             'aws:vpclattice/listener:Listener',
             resource_name,

@@ -256,8 +256,6 @@ type stackArgs struct {
 	PolicyUrl *string `pulumi:"policyUrl"`
 	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of a file containing the template body (max size: 460,800 bytes).
@@ -293,8 +291,6 @@ type StackArgs struct {
 	PolicyUrl pulumi.StringPtrInput
 	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody pulumi.StringPtrInput
 	// Location of a file containing the template body (max size: 460,800 bytes).

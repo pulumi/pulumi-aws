@@ -94,21 +94,6 @@ public final class GatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
      * 
      */
@@ -131,7 +116,6 @@ public final class GatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.spec = $.spec;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.virtualGatewayName = $.virtualGatewayName;
     }
 
@@ -256,27 +240,6 @@ public final class GatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

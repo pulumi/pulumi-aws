@@ -240,8 +240,6 @@ type dashboardArgs struct {
 	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn *string `pulumi:"themeArn"`
 	// A description of the current dashboard version being created/updated.
@@ -268,8 +266,6 @@ type DashboardArgs struct {
 	SourceEntity DashboardSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn pulumi.StringPtrInput
 	// A description of the current dashboard version being created/updated.

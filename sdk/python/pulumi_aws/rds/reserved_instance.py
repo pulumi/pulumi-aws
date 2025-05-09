@@ -25,8 +25,7 @@ class ReservedInstanceArgs:
                  offering_id: pulumi.Input[builtins.str],
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReservedInstance resource.
         :param pulumi.Input[builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
@@ -35,7 +34,6 @@ class ReservedInstanceArgs:
         :param pulumi.Input[builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
         :param pulumi.Input[builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "offering_id", offering_id)
         if instance_count is not None:
@@ -44,8 +42,6 @@ class ReservedInstanceArgs:
             pulumi.set(__self__, "reservation_id", reservation_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="offeringId")
@@ -96,18 +92,6 @@ class ReservedInstanceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -422,7 +406,6 @@ class ReservedInstance(pulumi.CustomResource):
                  offering_id: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an RDS DB Reserved Instance.
@@ -464,7 +447,6 @@ class ReservedInstance(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -523,7 +505,6 @@ class ReservedInstance(pulumi.CustomResource):
                  offering_id: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -539,7 +520,6 @@ class ReservedInstance(pulumi.CustomResource):
             __props__.__dict__["offering_id"] = offering_id
             __props__.__dict__["reservation_id"] = reservation_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["currency_code"] = None
             __props__.__dict__["db_instance_class"] = None
@@ -552,6 +532,7 @@ class ReservedInstance(pulumi.CustomResource):
             __props__.__dict__["recurring_charges"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["usage_price"] = None
         super(ReservedInstance, __self__).__init__(
             'aws:rds/reservedInstance:ReservedInstance',

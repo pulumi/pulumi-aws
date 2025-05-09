@@ -86,7 +86,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The associated IAM User name if the virtual MFA device is enabled.
      */
@@ -125,12 +125,12 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             }
             resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["base32StringSeed"] = undefined /*out*/;
             resourceInputs["enableDate"] = undefined /*out*/;
             resourceInputs["qrCodePng"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -192,10 +192,6 @@ export interface VirtualMfaDeviceArgs {
      * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */

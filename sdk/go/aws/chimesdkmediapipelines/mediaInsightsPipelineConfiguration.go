@@ -513,8 +513,7 @@ type mediaInsightsPipelineConfigurationArgs struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MediaInsightsPipelineConfiguration resource.
@@ -528,8 +527,7 @@ type MediaInsightsPipelineConfigurationArgs struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringInput
 	// Key-value map of tags for the resource.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (MediaInsightsPipelineConfigurationArgs) ElementType() reflect.Type {

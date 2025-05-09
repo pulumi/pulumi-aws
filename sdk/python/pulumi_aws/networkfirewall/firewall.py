@@ -31,8 +31,7 @@ class FirewallArgs:
                  firewall_policy_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
         :param pulumi.Input[builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
@@ -45,7 +44,6 @@ class FirewallArgs:
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall.
         :param pulumi.Input[builtins.bool] subnet_change_protection: A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
         pulumi.set(__self__, "subnet_mappings", subnet_mappings)
@@ -64,8 +62,6 @@ class FirewallArgs:
             pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
@@ -186,18 +182,6 @@ class FirewallArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -449,7 +433,6 @@ class Firewall(pulumi.CustomResource):
                  subnet_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -493,7 +476,6 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] subnet_change_protection: A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         ...
@@ -556,7 +538,6 @@ class Firewall(pulumi.CustomResource):
                  subnet_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -580,12 +561,12 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_mappings'")
             __props__.__dict__["subnet_mappings"] = subnet_mappings
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["firewall_statuses"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_token"] = None
         super(Firewall, __self__).__init__(
             'aws:networkfirewall/firewall:Firewall',

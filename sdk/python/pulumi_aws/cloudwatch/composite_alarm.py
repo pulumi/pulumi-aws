@@ -30,8 +30,7 @@ class CompositeAlarmArgs:
                  alarm_description: Optional[pulumi.Input[builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
         :param pulumi.Input[builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
@@ -43,7 +42,6 @@ class CompositeAlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
         pulumi.set(__self__, "alarm_rule", alarm_rule)
@@ -61,8 +59,6 @@ class CompositeAlarmArgs:
             pulumi.set(__self__, "ok_actions", ok_actions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="alarmName")
@@ -171,18 +167,6 @@ class CompositeAlarmArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -386,7 +370,6 @@ class CompositeAlarm(pulumi.CustomResource):
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Composite Alarm resource.
@@ -433,7 +416,6 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -499,7 +481,6 @@ class CompositeAlarm(pulumi.CustomResource):
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -522,8 +503,8 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
             __props__.__dict__["ok_actions"] = ok_actions
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(CompositeAlarm, __self__).__init__(
             'aws:cloudwatch/compositeAlarm:CompositeAlarm',
             resource_name,

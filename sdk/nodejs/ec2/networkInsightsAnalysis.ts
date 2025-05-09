@@ -113,7 +113,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      */
@@ -159,7 +159,6 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
             resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["waitForCompletion"] = args ? args.waitForCompletion : undefined;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -170,6 +169,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["startDate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["warningMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -263,10 +263,6 @@ export interface NetworkInsightsAnalysisArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      */

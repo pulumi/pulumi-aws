@@ -27,8 +27,7 @@ class S3LocationArgs:
                  subdirectory: pulumi.Input[builtins.str],
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a S3Location resource.
         :param pulumi.Input[builtins.str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
@@ -37,7 +36,6 @@ class S3LocationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         :param pulumi.Input[builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         pulumi.set(__self__, "s3_config", s3_config)
@@ -48,8 +46,6 @@ class S3LocationArgs:
             pulumi.set(__self__, "s3_storage_class", s3_storage_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="s3BucketArn")
@@ -122,18 +118,6 @@ class S3LocationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -298,7 +282,6 @@ class S3Location(pulumi.CustomResource):
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an S3 Location within AWS DataSync.
@@ -351,7 +334,6 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[builtins.str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -423,7 +405,6 @@ class S3Location(pulumi.CustomResource):
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -445,8 +426,8 @@ class S3Location(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subdirectory'")
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
         super(S3Location, __self__).__init__(
             'aws:datasync/s3Location:S3Location',

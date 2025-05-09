@@ -30,8 +30,7 @@ class NetworkInsightsPathArgs:
                  filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']] = None,
                  filter_at_source: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
         :param pulumi.Input[builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -43,7 +42,6 @@ class NetworkInsightsPathArgs:
         :param pulumi.Input[builtins.int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "source", source)
@@ -61,8 +59,6 @@ class NetworkInsightsPathArgs:
             pulumi.set(__self__, "source_ip", source_ip)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -167,18 +163,6 @@ class NetworkInsightsPathArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -410,7 +394,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
@@ -446,7 +429,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] source: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -501,7 +483,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -524,10 +505,10 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["source_ip"] = source_ip
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["destination_arn"] = None
             __props__.__dict__["source_arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(NetworkInsightsPath, __self__).__init__(
             'aws:ec2/networkInsightsPath:NetworkInsightsPath',
             resource_name,

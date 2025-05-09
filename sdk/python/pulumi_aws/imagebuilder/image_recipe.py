@@ -30,7 +30,6 @@ class ImageRecipeArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  systems_manager_agent: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -45,7 +44,6 @@ class ImageRecipeArgs:
         :param pulumi.Input[builtins.str] name: Name of the image recipe.
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
@@ -62,8 +60,6 @@ class ImageRecipeArgs:
             pulumi.set(__self__, "systems_manager_agent", systems_manager_agent)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
         if working_directory is not None:
@@ -166,18 +162,6 @@ class ImageRecipeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="userDataBase64")
@@ -471,7 +455,6 @@ class ImageRecipe(pulumi.CustomResource):
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  systems_manager_agent: Optional[pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None,
@@ -529,7 +512,6 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
@@ -608,7 +590,6 @@ class ImageRecipe(pulumi.CustomResource):
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  systems_manager_agent: Optional[pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None,
@@ -632,7 +613,6 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["systems_manager_agent"] = systems_manager_agent
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["user_data_base64"] = user_data_base64
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
@@ -642,6 +622,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["date_created"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
+            __props__.__dict__["tags_all"] = None
         super(ImageRecipe, __self__).__init__(
             'aws:imagebuilder/imageRecipe:ImageRecipe',
             resource_name,

@@ -26,8 +26,7 @@ class ClusterArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
@@ -35,7 +34,6 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "hsm_type", hsm_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -45,8 +43,6 @@ class ClusterArgs:
             pulumi.set(__self__, "source_backup_identifier", source_backup_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="hsmType")
@@ -107,18 +103,6 @@ class ClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -318,7 +302,6 @@ class Cluster(pulumi.CustomResource):
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an Amazon CloudHSM v2 cluster.
@@ -347,7 +330,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -395,7 +377,6 @@ class Cluster(pulumi.CustomResource):
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -414,11 +395,11 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["cluster_certificates"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["cluster_state"] = None
             __props__.__dict__["security_group_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(Cluster, __self__).__init__(
             'aws:cloudhsmv2/cluster:Cluster',

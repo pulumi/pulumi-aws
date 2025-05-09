@@ -31,8 +31,7 @@ class AddonArgs:
                  resolve_conflicts_on_create: Optional[pulumi.Input[builtins.str]] = None,
                  resolve_conflicts_on_update: Optional[pulumi.Input[builtins.str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Addon resource.
         :param pulumi.Input[builtins.str] addon_name: Name of the EKS add-on. The name must match one of
@@ -59,7 +58,6 @@ class AddonArgs:
                for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "addon_name", addon_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -79,8 +77,6 @@ class AddonArgs:
             pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addonName")
@@ -215,18 +211,6 @@ class AddonArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -507,7 +491,6 @@ class Addon(pulumi.CustomResource):
                  resolve_conflicts_on_update: Optional[pulumi.Input[builtins.str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an EKS add-on.
@@ -608,7 +591,6 @@ class Addon(pulumi.CustomResource):
                for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -714,7 +696,6 @@ class Addon(pulumi.CustomResource):
                  resolve_conflicts_on_update: Optional[pulumi.Input[builtins.str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -738,10 +719,10 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["resolve_conflicts_on_update"] = resolve_conflicts_on_update
             __props__.__dict__["service_account_role_arn"] = service_account_role_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
+            __props__.__dict__["tags_all"] = None
         super(Addon, __self__).__init__(
             'aws:eks/addon:Addon',
             resource_name,

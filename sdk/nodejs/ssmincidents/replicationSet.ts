@@ -141,7 +141,7 @@ export class ReplicationSet extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -171,12 +171,12 @@ export class ReplicationSet extends pulumi.CustomResource {
             }
             resourceInputs["regions"] = args ? args.regions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["deletionProtected"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicationSet.__pulumiType, name, resourceInputs, opts);
@@ -222,8 +222,4 @@ export interface ReplicationSetState {
 export interface ReplicationSetArgs {
     regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

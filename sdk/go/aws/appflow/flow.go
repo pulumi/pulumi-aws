@@ -325,8 +325,6 @@ type flowArgs struct {
 	SourceFlowConfig FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks []FlowTask `pulumi:"tasks"`
 	// A Trigger that determine how and when the flow runs.
@@ -349,8 +347,6 @@ type FlowArgs struct {
 	SourceFlowConfig FlowSourceFlowConfigInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks FlowTaskArrayInput
 	// A Trigger that determine how and when the flow runs.

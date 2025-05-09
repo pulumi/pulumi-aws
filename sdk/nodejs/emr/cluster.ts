@@ -456,7 +456,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
@@ -554,13 +554,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["terminationProtection"] = args ? args.terminationProtection : undefined;
             resourceInputs["unhealthyNodeReplacement"] = args ? args.unhealthyNodeReplacement : undefined;
             resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterState"] = undefined /*out*/;
             resourceInputs["masterPublicDns"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
@@ -876,10 +876,6 @@ export interface ClusterArgs {
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */

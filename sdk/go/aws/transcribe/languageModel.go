@@ -238,7 +238,6 @@ type languageModelArgs struct {
 	// The model name.
 	ModelName string            `pulumi:"modelName"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LanguageModel resource.
@@ -252,7 +251,6 @@ type LanguageModelArgs struct {
 	// The model name.
 	ModelName pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 }
 
 func (LanguageModelArgs) ElementType() reflect.Type {

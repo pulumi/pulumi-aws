@@ -31,7 +31,6 @@ class EventDataStoreArgs:
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a EventDataStore resource.
@@ -44,7 +43,6 @@ class EventDataStoreArgs:
         :param pulumi.Input[builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         :param pulumi.Input[builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         if advanced_event_selectors is not None:
@@ -65,8 +63,6 @@ class EventDataStoreArgs:
             pulumi.set(__self__, "suspend", suspend)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if termination_protection_enabled is not None:
             pulumi.set(__self__, "termination_protection_enabled", termination_protection_enabled)
 
@@ -177,18 +173,6 @@ class EventDataStoreArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="terminationProtectionEnabled")
@@ -420,7 +404,6 @@ class EventDataStore(pulumi.CustomResource):
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
@@ -498,7 +481,6 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         :param pulumi.Input[builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         ...
@@ -595,7 +577,6 @@ class EventDataStore(pulumi.CustomResource):
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -615,9 +596,9 @@ class EventDataStore(pulumi.CustomResource):
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["suspend"] = suspend
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["termination_protection_enabled"] = termination_protection_enabled
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(EventDataStore, __self__).__init__(
             'aws:cloudtrail/eventDataStore:EventDataStore',
             resource_name,

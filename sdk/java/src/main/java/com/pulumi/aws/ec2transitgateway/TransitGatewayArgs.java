@@ -158,21 +158,6 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
      * 
      */
@@ -214,7 +199,6 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
         this.multicastSupport = $.multicastSupport;
         this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.transitGatewayCidrBlocks = $.transitGatewayCidrBlocks;
         this.vpnEcmpSupport = $.vpnEcmpSupport;
     }
@@ -428,27 +412,6 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

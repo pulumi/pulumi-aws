@@ -214,14 +214,6 @@ namespace Pulumi.Aws.SesV2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
         /// </summary>

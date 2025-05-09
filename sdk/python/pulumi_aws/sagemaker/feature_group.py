@@ -31,7 +31,6 @@ class FeatureGroupArgs:
                  offline_store_config: Optional[pulumi.Input['FeatureGroupOfflineStoreConfigArgs']] = None,
                  online_store_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_config: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']] = None):
         """
         The set of arguments for constructing a FeatureGroup resource.
@@ -44,7 +43,6 @@ class FeatureGroupArgs:
         :param pulumi.Input['FeatureGroupOfflineStoreConfigArgs'] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
         pulumi.set(__self__, "feature_definitions", feature_definitions)
@@ -59,8 +57,6 @@ class FeatureGroupArgs:
             pulumi.set(__self__, "online_store_config", online_store_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_config is not None:
             pulumi.set(__self__, "throughput_config", throughput_config)
 
@@ -171,18 +167,6 @@ class FeatureGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="throughputConfig")
@@ -407,7 +391,6 @@ class FeatureGroup(pulumi.CustomResource):
                  record_identifier_feature_name: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_config: Optional[pulumi.Input[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -454,7 +437,6 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -519,7 +501,6 @@ class FeatureGroup(pulumi.CustomResource):
                  record_identifier_feature_name: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_config: Optional[pulumi.Input[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -549,9 +530,9 @@ class FeatureGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["throughput_config"] = throughput_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(FeatureGroup, __self__).__init__(
             'aws:sagemaker/featureGroup:FeatureGroup',
             resource_name,

@@ -35,7 +35,6 @@ class AssociationArgs:
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -53,7 +52,6 @@ class AssociationArgs:
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
@@ -85,8 +83,6 @@ class AssociationArgs:
             pulumi.set(__self__, "sync_compliance", sync_compliance)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
         if wait_for_success_timeout_seconds is not None:
@@ -247,18 +243,6 @@ class AssociationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -608,7 +592,6 @@ class Association(pulumi.CustomResource):
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -703,7 +686,6 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
@@ -819,7 +801,6 @@ class Association(pulumi.CustomResource):
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -844,11 +825,11 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["schedule_expression"] = schedule_expression
             __props__.__dict__["sync_compliance"] = sync_compliance
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["targets"] = targets
             __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(Association, __self__).__init__(
             'aws:ssm/association:Association',
             resource_name,

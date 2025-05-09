@@ -76,7 +76,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
      *
@@ -108,10 +108,10 @@ export class InputSecurityGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'whitelistRules'");
             }
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["whitelistRules"] = args ? args.whitelistRules : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InputSecurityGroup.__pulumiType, name, resourceInputs, opts);
@@ -151,7 +151,6 @@ export interface InputSecurityGroupArgs {
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
      *

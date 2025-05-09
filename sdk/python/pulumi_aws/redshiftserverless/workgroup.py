@@ -33,8 +33,7 @@ class WorkgroupArgs:
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
@@ -51,7 +50,6 @@ class WorkgroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -75,8 +73,6 @@ class WorkgroupArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -223,18 +219,6 @@ class WorkgroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -524,7 +508,6 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -562,7 +545,6 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] workgroup_name: The name of the workgroup.
                
                The following arguments are optional:
@@ -621,7 +603,6 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -645,12 +626,12 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if workgroup_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workgroup_name'")
             __props__.__dict__["workgroup_name"] = workgroup_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoints"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["workgroup_id"] = None
         super(Workgroup, __self__).__init__(
             'aws:redshiftserverless/workgroup:Workgroup',

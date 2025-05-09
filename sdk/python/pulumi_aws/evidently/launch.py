@@ -29,8 +29,7 @@ class LaunchArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Launch resource.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]] groups: One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
@@ -41,7 +40,6 @@ class LaunchArgs:
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "project", project)
@@ -57,8 +55,6 @@ class LaunchArgs:
             pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -155,18 +151,6 @@ class LaunchArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -449,7 +433,6 @@ class Launch(pulumi.CustomResource):
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Evidently Launch resource.
@@ -727,7 +710,6 @@ class Launch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1024,7 +1006,6 @@ class Launch(pulumi.CustomResource):
                  randomization_salt: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1046,13 +1027,13 @@ class Launch(pulumi.CustomResource):
             __props__.__dict__["randomization_salt"] = randomization_salt
             __props__.__dict__["scheduled_splits_config"] = scheduled_splits_config
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["executions"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reason"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
         super(Launch, __self__).__init__(
             'aws:evidently/launch:Launch',

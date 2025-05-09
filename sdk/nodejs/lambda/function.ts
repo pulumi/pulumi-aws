@@ -420,7 +420,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */
@@ -530,7 +530,6 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["snapStart"] = args ? args.snapStart : undefined;
             resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
@@ -543,6 +542,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["signingJobArn"] = undefined /*out*/;
             resourceInputs["signingProfileVersionArn"] = undefined /*out*/;
             resourceInputs["sourceCodeSize"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -868,10 +868,6 @@ export interface FunctionArgs {
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */

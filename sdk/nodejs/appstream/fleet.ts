@@ -156,7 +156,7 @@ export class Fleet extends pulumi.CustomResource {
      * Map of tags to attach to AppStream instances.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
@@ -222,11 +222,11 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["streamView"] = args ? args.streamView : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
@@ -400,7 +400,6 @@ export interface FleetArgs {
      * Map of tags to attach to AppStream instances.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */

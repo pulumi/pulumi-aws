@@ -69,21 +69,6 @@ public final class NetworkInsightsAnalysisArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
@@ -104,7 +89,6 @@ public final class NetworkInsightsAnalysisArgs extends com.pulumi.resources.Reso
         this.filterInArns = $.filterInArns;
         this.networkInsightsPathId = $.networkInsightsPathId;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.waitForCompletion = $.waitForCompletion;
     }
 
@@ -201,27 +185,6 @@ public final class NetworkInsightsAnalysisArgs extends com.pulumi.resources.Reso
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

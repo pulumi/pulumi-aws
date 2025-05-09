@@ -423,8 +423,6 @@ type computeEnvironmentArgs struct {
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type string `pulumi:"type"`
 	// Specifies the infrastructure update policy for the compute environment. See details below.
@@ -447,8 +445,6 @@ type ComputeEnvironmentArgs struct {
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringInput
 	// Specifies the infrastructure update policy for the compute environment. See details below.

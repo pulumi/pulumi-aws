@@ -194,7 +194,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
@@ -279,7 +279,6 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
             resourceInputs["throughputCapacityPerHaPair"] = args ? args.throughputCapacityPerHaPair : undefined;
             resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
@@ -288,6 +287,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -467,10 +467,6 @@ export interface OntapFileSystemArgs {
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */

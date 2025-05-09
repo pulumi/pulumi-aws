@@ -25,14 +25,12 @@ class RepositoryArgs:
                  repository_name: pulumi.Input[builtins.str],
                  catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if catalog_data is not None:
@@ -41,8 +39,6 @@ class RepositoryArgs:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -88,18 +84,6 @@ class RepositoryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -246,7 +230,6 @@ class Repository(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Public Elastic Container Registry Repository.
@@ -288,7 +271,6 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -350,7 +332,6 @@ class Repository(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,10 +347,10 @@ class Repository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["registry_id"] = None
             __props__.__dict__["repository_uri"] = None
+            __props__.__dict__["tags_all"] = None
         super(Repository, __self__).__init__(
             'aws:ecrpublic/repository:Repository',
             resource_name,

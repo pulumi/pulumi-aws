@@ -31,8 +31,7 @@ class StreamArgs:
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Stream resource.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -46,7 +45,6 @@ class StreamArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -68,8 +66,6 @@ class StreamArgs:
             pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -191,18 +187,6 @@ class StreamArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -409,7 +393,6 @@ class Stream(pulumi.CustomResource):
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  stream_mode_details: Optional[pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
@@ -460,7 +443,6 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -529,7 +511,6 @@ class Stream(pulumi.CustomResource):
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  stream_mode_details: Optional[pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -549,7 +530,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["shard_level_metrics"] = shard_level_metrics
             __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
+            __props__.__dict__["tags_all"] = None
         super(Stream, __self__).__init__(
             'aws:kinesis/stream:Stream',
             resource_name,

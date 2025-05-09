@@ -40,7 +40,6 @@ class TargetGroupArgs:
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
                  target_group_health: Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]] = None,
@@ -69,7 +68,6 @@ class TargetGroupArgs:
         :param pulumi.Input[builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         :param pulumi.Input['TargetGroupTargetGroupHealthArgs'] target_group_health: Target health requirements block. See target_group_health for more information.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
@@ -122,8 +120,6 @@ class TargetGroupArgs:
             pulumi.set(__self__, "stickiness", stickiness)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if target_failovers is not None:
             pulumi.set(__self__, "target_failovers", target_failovers)
         if target_group_health is not None:
@@ -353,18 +349,6 @@ class TargetGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetFailovers")
@@ -929,7 +913,6 @@ class TargetGroup(pulumi.CustomResource):
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
                  target_group_health: Optional[pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
@@ -1067,7 +1050,6 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         :param pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']] target_group_health: Target health requirements block. See target_group_health for more information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
@@ -1231,7 +1213,6 @@ class TargetGroup(pulumi.CustomResource):
                  slow_start: Optional[pulumi.Input[builtins.int]] = None,
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
                  target_group_health: Optional[pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
@@ -1264,7 +1245,6 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["slow_start"] = slow_start
             __props__.__dict__["stickiness"] = stickiness
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["target_failovers"] = target_failovers
             __props__.__dict__["target_group_health"] = target_group_health
             __props__.__dict__["target_health_states"] = target_health_states
@@ -1273,6 +1253,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_suffix"] = None
             __props__.__dict__["load_balancer_arns"] = None
+            __props__.__dict__["tags_all"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/targetGroup:TargetGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TargetGroup, __self__).__init__(

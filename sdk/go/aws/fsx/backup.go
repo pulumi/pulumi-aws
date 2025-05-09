@@ -263,8 +263,6 @@ type backupArgs struct {
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
 	VolumeId *string `pulumi:"volumeId"`
 }
@@ -275,8 +273,6 @@ type BackupArgs struct {
 	FileSystemId pulumi.StringPtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
 	VolumeId pulumi.StringPtrInput
 }

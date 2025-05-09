@@ -27,8 +27,7 @@ class CoreNetworkArgs:
                  base_policy_regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  create_base_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CoreNetwork resource.
         :param pulumi.Input[builtins.str] global_network_id: The ID of the global network that a core network will be a part of.
@@ -62,7 +61,6 @@ class CoreNetworkArgs:
                ```
         :param pulumi.Input[builtins.str] description: Description of the Core Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if base_policy_document is not None:
@@ -75,8 +73,6 @@ class CoreNetworkArgs:
             pulumi.set(__self__, "description", description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="globalNetworkId")
@@ -174,18 +170,6 @@ class CoreNetworkArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -452,7 +436,6 @@ class CoreNetwork(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  global_network_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a core network resource.
@@ -764,7 +747,6 @@ class CoreNetwork(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the Core Network.
         :param pulumi.Input[builtins.str] global_network_id: The ID of the global network that a core network will be a part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1070,7 +1052,6 @@ class CoreNetwork(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  global_network_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1088,12 +1069,12 @@ class CoreNetwork(pulumi.CustomResource):
                 raise TypeError("Missing required property 'global_network_id'")
             __props__.__dict__["global_network_id"] = global_network_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edges"] = None
             __props__.__dict__["segments"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(CoreNetwork, __self__).__init__(
             'aws:networkmanager/coreNetwork:CoreNetwork',
             resource_name,

@@ -24,7 +24,6 @@ class ProxyEndpointArgs:
                  db_proxy_name: pulumi.Input[builtins.str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_role: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
@@ -41,8 +40,6 @@ class ProxyEndpointArgs:
         pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if target_role is not None:
             pulumi.set(__self__, "target_role", target_role)
         if vpc_security_group_ids is not None:
@@ -95,15 +92,6 @@ class ProxyEndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetRole")
@@ -321,7 +309,6 @@ class ProxyEndpoint(pulumi.CustomResource):
                  db_proxy_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_role: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -407,7 +394,6 @@ class ProxyEndpoint(pulumi.CustomResource):
                  db_proxy_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_role: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -427,7 +413,6 @@ class ProxyEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'db_proxy_name'")
             __props__.__dict__["db_proxy_name"] = db_proxy_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["target_role"] = target_role
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             if vpc_subnet_ids is None and not opts.urn:
@@ -436,6 +421,7 @@ class ProxyEndpoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["is_default"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(ProxyEndpoint, __self__).__init__(
             'aws:rds/proxyEndpoint:ProxyEndpoint',

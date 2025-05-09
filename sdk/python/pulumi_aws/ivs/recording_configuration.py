@@ -26,7 +26,6 @@ class RecordingConfigurationArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
@@ -34,7 +33,6 @@ class RecordingConfigurationArgs:
         :param pulumi.Input[builtins.str] name: Recording Configuration name.
         :param pulumi.Input[builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
         pulumi.set(__self__, "destination_configuration", destination_configuration)
@@ -44,8 +42,6 @@ class RecordingConfigurationArgs:
             pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if thumbnail_configuration is not None:
             pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
 
@@ -96,18 +92,6 @@ class RecordingConfigurationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="thumbnailConfiguration")
@@ -270,7 +254,6 @@ class RecordingConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -307,7 +290,6 @@ class RecordingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Recording Configuration name.
         :param pulumi.Input[builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
         ...
@@ -363,7 +345,6 @@ class RecordingConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -380,10 +361,10 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(RecordingConfiguration, __self__).__init__(
             'aws:ivs/recordingConfiguration:RecordingConfiguration',
             resource_name,

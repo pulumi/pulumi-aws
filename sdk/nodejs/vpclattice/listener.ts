@@ -185,7 +185,7 @@ export class Listener extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -227,11 +227,11 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["listenerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Listener.__pulumiType, name, resourceInputs, opts);
@@ -320,5 +320,4 @@ export interface ListenerArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -115,7 +115,7 @@ export class GatewayRoute extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
      */
@@ -161,12 +161,12 @@ export class GatewayRoute extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["spec"] = args ? args.spec : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["virtualGatewayName"] = args ? args.virtualGatewayName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["lastUpdatedDate"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GatewayRoute.__pulumiType, name, resourceInputs, opts);
@@ -247,10 +247,6 @@ export interface GatewayRouteArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
      */

@@ -27,8 +27,7 @@ class CustomDataIdentifierArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  regex: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
         :param pulumi.Input[builtins.str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
@@ -39,7 +38,6 @@ class CustomDataIdentifierArgs:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -57,8 +55,6 @@ class CustomDataIdentifierArgs:
             pulumi.set(__self__, "regex", regex)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -155,18 +151,6 @@ class CustomDataIdentifierArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -369,7 +353,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  regex: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
@@ -409,7 +392,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -468,7 +450,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  regex: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -486,9 +467,9 @@ class CustomDataIdentifier(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["regex"] = regex
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["tags_all"] = None
         super(CustomDataIdentifier, __self__).__init__(
             'aws:macie/customDataIdentifier:CustomDataIdentifier',
             resource_name,

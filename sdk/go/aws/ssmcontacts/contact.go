@@ -187,8 +187,6 @@ type contactArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
 	//
@@ -204,8 +202,6 @@ type ContactArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
 	//

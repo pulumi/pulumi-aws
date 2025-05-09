@@ -247,8 +247,6 @@ type responsePlanArgs struct {
 	// The name of the response plan.
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ResponsePlan resource.
@@ -262,8 +260,6 @@ type ResponsePlanArgs struct {
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ResponsePlanArgs) ElementType() reflect.Type {

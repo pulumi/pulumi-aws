@@ -170,7 +170,7 @@ export class AmiCopy extends pulumi.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
@@ -255,7 +255,6 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["sourceAmiId"] = args ? args.sourceAmiId : undefined;
             resourceInputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["architecture"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bootMode"] = undefined /*out*/;
@@ -276,6 +275,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["rootDeviceName"] = undefined /*out*/;
             resourceInputs["rootSnapshotId"] = undefined /*out*/;
             resourceInputs["sriovNetSupport"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["tpmSupport"] = undefined /*out*/;
             resourceInputs["uefiData"] = undefined /*out*/;
             resourceInputs["usageOperation"] = undefined /*out*/;
@@ -467,5 +467,4 @@ export interface AmiCopyArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -35,7 +35,6 @@ class PipeArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         The set of arguments for constructing a Pipe resource.
@@ -54,7 +53,6 @@ class PipeArgs:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['PipeTargetParametersArgs'] target_parameters: Parameters to configure a target for your pipe. Detailed below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -80,8 +78,6 @@ class PipeArgs:
             pulumi.set(__self__, "source_parameters", source_parameters)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if target_parameters is not None:
             pulumi.set(__self__, "target_parameters", target_parameters)
 
@@ -242,18 +238,6 @@ class PipeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetParameters")
@@ -556,7 +540,6 @@ class Pipe(pulumi.CustomResource):
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_parameters: Optional[pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  target_parameters: Optional[pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
                  __props__=None):
@@ -753,7 +736,6 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] target: Target resource of the pipe (typically an ARN).
                
                The following arguments are optional:
@@ -971,7 +953,6 @@ class Pipe(pulumi.CustomResource):
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_parameters: Optional[pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  target_parameters: Optional[pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
                  __props__=None):
@@ -999,12 +980,12 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["source_parameters"] = source_parameters
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
             __props__.__dict__["target_parameters"] = target_parameters
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Pipe, __self__).__init__(
             'aws:pipes/pipe:Pipe',
             resource_name,

@@ -49,7 +49,6 @@ class ServiceArgs:
                  service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  volume_configuration: Optional[pulumi.Input['ServiceVolumeConfigurationArgs']] = None,
@@ -87,7 +86,6 @@ class ServiceArgs:
         :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         :param pulumi.Input['ServiceVolumeConfigurationArgs'] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
@@ -148,8 +146,6 @@ class ServiceArgs:
             pulumi.set(__self__, "service_registries", service_registries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
             pulumi.set(__self__, "task_definition", task_definition)
         if triggers is not None:
@@ -487,18 +483,6 @@ class ServiceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="taskDefinition")
@@ -1138,7 +1122,6 @@ class Service(pulumi.CustomResource):
                  service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
                  service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  volume_configuration: Optional[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]] = None,
@@ -1289,7 +1272,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         :param pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
@@ -1456,7 +1438,6 @@ class Service(pulumi.CustomResource):
                  service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
                  service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  task_definition: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  volume_configuration: Optional[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]] = None,
@@ -1498,12 +1479,12 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["service_connect_configuration"] = service_connect_configuration
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["volume_configuration"] = volume_configuration
             __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
             __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
+            __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
             'aws:ecs/service:Service',
             resource_name,

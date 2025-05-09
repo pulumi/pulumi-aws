@@ -196,7 +196,7 @@ export class GameServerGroup extends pulumi.CustomResource {
      * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
@@ -260,10 +260,10 @@ export class GameServerGroup extends pulumi.CustomResource {
             resourceInputs["minSize"] = args ? args.minSize : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GameServerGroup.__pulumiType, name, resourceInputs, opts);
@@ -374,7 +374,6 @@ export interface GameServerGroupArgs {
      * Key-value map of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
      * By default, all GameLift FleetIQ-supported Availability Zones are used.

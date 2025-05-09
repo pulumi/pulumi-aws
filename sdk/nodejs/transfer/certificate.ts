@@ -81,7 +81,7 @@ export class Certificate extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      */
@@ -124,12 +124,12 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["usage"] = args ? args.usage : undefined;
             resourceInputs["activeDate"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["inactiveDate"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["certificate", "certificateChain", "privateKey"] };
@@ -209,7 +209,6 @@ export interface CertificateArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      */

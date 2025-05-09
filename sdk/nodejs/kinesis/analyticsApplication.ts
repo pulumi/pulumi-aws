@@ -222,7 +222,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Version of the application.
      */
@@ -267,11 +267,11 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             resourceInputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
             resourceInputs["startApplication"] = args ? args.startApplication : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTimestamp"] = undefined /*out*/;
             resourceInputs["lastUpdateTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -391,8 +391,4 @@ export interface AnalyticsApplicationArgs {
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -367,8 +367,6 @@ type smbFileShareArgs struct {
 	SmbAclEnabled *bool `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
 	// The DNS name of the VPC endpoint for S3 private link.
@@ -425,8 +423,6 @@ type SmbFileShareArgs struct {
 	SmbAclEnabled pulumi.BoolPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput
 	// The DNS name of the VPC endpoint for S3 private link.

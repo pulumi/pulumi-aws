@@ -145,8 +145,6 @@ func (PeeringAttachmentAccepterState) ElementType() reflect.Type {
 type peeringAttachmentAccepterArgs struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 }
@@ -155,8 +153,6 @@ type peeringAttachmentAccepterArgs struct {
 type PeeringAttachmentAccepterArgs struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringInput
 }

@@ -90,7 +90,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -148,7 +148,6 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
@@ -157,6 +156,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["ipv6Support"] = undefined /*out*/;
             resourceInputs["securityGroupReferencingSupport"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
             resourceInputs["vpcOwnerId"] = undefined /*out*/;
@@ -232,10 +232,6 @@ export interface VpcAttachmentAccepterArgs {
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */

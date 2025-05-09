@@ -210,8 +210,6 @@ type networkProfileArgs struct {
 	ProjectArn string `pulumi:"projectArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type *string `pulumi:"type"`
 	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
@@ -242,8 +240,6 @@ type NetworkProfileArgs struct {
 	ProjectArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type pulumi.StringPtrInput
 	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.

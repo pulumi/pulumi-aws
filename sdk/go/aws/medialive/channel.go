@@ -312,8 +312,7 @@ type channelArgs struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel *bool `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// Settings for the VPC outputs. See VPC for more details.
 	Vpc *ChannelVpc `pulumi:"vpc"`
 }
@@ -345,8 +344,7 @@ type ChannelArgs struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel pulumi.BoolPtrInput
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// Settings for the VPC outputs. See VPC for more details.
 	Vpc ChannelVpcPtrInput
 }

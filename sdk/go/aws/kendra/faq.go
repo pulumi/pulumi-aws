@@ -268,8 +268,6 @@ type faqArgs struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3Path         `pulumi:"s3Path"`
 	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Faq resource.
@@ -286,8 +284,6 @@ type FaqArgs struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathInput
 	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (FaqArgs) ElementType() reflect.Type {

@@ -25,8 +25,7 @@ class ResolverFirewallRuleGroupAssociationArgs:
                  vpc_id: pulumi.Input[builtins.str],
                  mutation_protection: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRuleGroupAssociation resource.
         :param pulumi.Input[builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
@@ -35,7 +34,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
         :param pulumi.Input[builtins.str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[builtins.str] name: A name that lets you identify the rule group association, to manage and use it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
         pulumi.set(__self__, "priority", priority)
@@ -46,8 +44,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="firewallRuleGroupId")
@@ -120,18 +116,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -283,7 +267,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -318,7 +301,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: A name that lets you identify the rule group association, to manage and use it.
         :param pulumi.Input[builtins.int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
         ...
@@ -372,7 +354,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -392,11 +373,11 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ResolverFirewallRuleGroupAssociation, __self__).__init__(
             'aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation',
             resource_name,

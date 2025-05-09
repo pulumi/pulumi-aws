@@ -381,7 +381,7 @@ export class Project extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block. Detailed below.
      */
@@ -463,11 +463,11 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["badgeUrl"] = undefined /*out*/;
             resourceInputs["publicProjectAlias"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Project.__pulumiType, name, resourceInputs, opts);
@@ -713,11 +713,6 @@ export interface ProjectArgs {
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider 
-     * `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */

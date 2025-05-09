@@ -361,8 +361,6 @@ type loadBalancerArgs struct {
 	// Exactly one of `availabilityZones` or `subnets` must be specified: this
 	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -408,8 +406,6 @@ type LoadBalancerArgs struct {
 	// Exactly one of `availabilityZones` or `subnets` must be specified: this
 	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

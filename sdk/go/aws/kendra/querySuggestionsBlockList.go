@@ -173,8 +173,6 @@ type querySuggestionsBlockListArgs struct {
 	// S3 path where your block list text file is located. See details below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string                     `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a QuerySuggestionsBlockList resource.
@@ -189,8 +187,6 @@ type QuerySuggestionsBlockListArgs struct {
 	// S3 path where your block list text file is located. See details below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathInput
 	Tags         pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListArgs) ElementType() reflect.Type {

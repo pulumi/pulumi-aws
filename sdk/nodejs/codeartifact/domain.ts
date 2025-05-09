@@ -91,7 +91,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -124,13 +124,13 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["assetSizeBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["repositoryCount"] = undefined /*out*/;
             resourceInputs["s3BucketArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
@@ -199,8 +199,4 @@ export interface DomainArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -39,7 +39,6 @@ class FirehoseDeliveryStreamArgs:
                  snowflake_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
                  splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FirehoseDeliveryStream resource.
@@ -61,7 +60,6 @@ class FirehoseDeliveryStreamArgs:
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs'] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "destination", destination)
         if arn is not None:
@@ -96,8 +94,6 @@ class FirehoseDeliveryStreamArgs:
             pulumi.set(__self__, "splunk_configuration", splunk_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
 
@@ -303,18 +299,6 @@ class FirehoseDeliveryStreamArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="versionId")
@@ -659,7 +643,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
                  splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -1312,7 +1295,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1982,7 +1964,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
                  splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -2012,8 +1993,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__.__dict__["snowflake_configuration"] = snowflake_configuration
             __props__.__dict__["splunk_configuration"] = splunk_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["version_id"] = version_id
+            __props__.__dict__["tags_all"] = None
         super(FirehoseDeliveryStream, __self__).__init__(
             'aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream',
             resource_name,

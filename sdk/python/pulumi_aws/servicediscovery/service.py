@@ -30,7 +30,6 @@ class ServiceArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
@@ -60,8 +59,6 @@ class ServiceArgs:
             pulumi.set(__self__, "namespace_id", namespace_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -160,15 +157,6 @@ class ServiceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -379,7 +367,6 @@ class Service(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -549,7 +536,6 @@ class Service(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -568,9 +554,9 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["namespace_id"] = namespace_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
             'aws:servicediscovery/service:Service',
             resource_name,

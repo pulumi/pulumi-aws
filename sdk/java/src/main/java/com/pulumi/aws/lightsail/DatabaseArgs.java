@@ -243,21 +243,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private DatabaseArgs() {}
 
     private DatabaseArgs(DatabaseArgs $) {
@@ -276,7 +261,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         this.relationalDatabaseName = $.relationalDatabaseName;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -610,27 +594,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public DatabaseArgs build() {

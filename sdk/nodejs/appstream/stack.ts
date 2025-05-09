@@ -163,7 +163,7 @@ export class Stack extends pulumi.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
@@ -211,10 +211,10 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
             resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userSettings"] = args ? args.userSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Stack.__pulumiType, name, resourceInputs, opts);
@@ -345,7 +345,6 @@ export interface StackArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.

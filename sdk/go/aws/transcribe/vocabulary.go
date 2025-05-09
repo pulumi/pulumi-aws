@@ -186,8 +186,7 @@ type vocabularyArgs struct {
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
@@ -203,8 +202,7 @@ type VocabularyArgs struct {
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.

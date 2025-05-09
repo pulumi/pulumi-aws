@@ -174,9 +174,7 @@ type customActionTypeArgs struct {
 	ProviderName            string                                  `pulumi:"providerName"`
 	Settings                *CustomActionTypeSettings               `pulumi:"settings"`
 	Tags                    map[string]string                       `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	Version string            `pulumi:"version"`
+	Version                 string                                  `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CustomActionType resource.
@@ -190,9 +188,7 @@ type CustomActionTypeArgs struct {
 	ProviderName            pulumi.StringInput
 	Settings                CustomActionTypeSettingsPtrInput
 	Tags                    pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	Version pulumi.StringInput
+	Version                 pulumi.StringInput
 }
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {

@@ -109,21 +109,6 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      * 
      */
@@ -162,7 +147,6 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         this.signingDisabled = $.signingDisabled;
         this.status = $.status;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.tokenKeyName = $.tokenKeyName;
         this.tokenSigningPublicKeys = $.tokenSigningPublicKeys;
     }
@@ -309,27 +293,6 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

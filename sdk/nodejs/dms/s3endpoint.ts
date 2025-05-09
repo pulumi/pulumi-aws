@@ -329,7 +329,7 @@ export class S3Endpoint extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      */
@@ -468,7 +468,6 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["serviceAccessRoleArn"] = args ? args.serviceAccessRoleArn : undefined;
             resourceInputs["sslMode"] = args ? args.sslMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["timestampColumnName"] = args ? args.timestampColumnName : undefined;
             resourceInputs["useCsvNoSupValue"] = args ? args.useCsvNoSupValue : undefined;
             resourceInputs["useTaskStartTimeForFullLoadTimestamp"] = args ? args.useTaskStartTimeForFullLoadTimestamp : undefined;
@@ -476,6 +475,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["engineDisplayName"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(S3Endpoint.__pulumiType, name, resourceInputs, opts);
@@ -888,10 +888,6 @@ export interface S3EndpointArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      */

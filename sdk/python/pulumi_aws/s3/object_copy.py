@@ -61,7 +61,6 @@ class ObjectCopyArgs:
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tagging_directive: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  website_redirect: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectCopy resource.
@@ -104,7 +103,6 @@ class ObjectCopyArgs:
         :param pulumi.Input[builtins.str] storage_class: Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         :param pulumi.Input[builtins.str] tagging_directive: Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -182,8 +180,6 @@ class ObjectCopyArgs:
             pulumi.set(__self__, "tagging_directive", tagging_directive)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if website_redirect is not None:
             pulumi.set(__self__, "website_redirect", website_redirect)
 
@@ -650,18 +646,6 @@ class ObjectCopyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="websiteRedirect")
@@ -1575,7 +1559,6 @@ class ObjectCopy(pulumi.CustomResource):
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tagging_directive: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  website_redirect: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -1659,7 +1642,6 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] storage_class: Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         :param pulumi.Input[builtins.str] tagging_directive: Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         ...
@@ -1762,7 +1744,6 @@ class ObjectCopy(pulumi.CustomResource):
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tagging_directive: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  website_redirect: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1818,7 +1799,6 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["storage_class"] = storage_class
             __props__.__dict__["tagging_directive"] = tagging_directive
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["website_redirect"] = website_redirect
             __props__.__dict__["arn"] = None
             __props__.__dict__["checksum_crc32"] = None
@@ -1831,6 +1811,7 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["request_charged"] = None
             __props__.__dict__["source_version_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

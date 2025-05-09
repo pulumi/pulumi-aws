@@ -39,7 +39,6 @@ class FleetArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Fleet resource.
@@ -96,8 +95,6 @@ class FleetArgs:
             pulumi.set(__self__, "stream_view", stream_view)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -306,15 +303,6 @@ class FleetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -714,7 +702,6 @@ class Fleet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -854,7 +841,6 @@ class Fleet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  stream_view: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -886,11 +872,11 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(Fleet, __self__).__init__(
             'aws:appstream/fleet:Fleet',
             resource_name,

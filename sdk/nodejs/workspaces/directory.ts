@@ -221,7 +221,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
@@ -276,7 +276,6 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
             resourceInputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
             resourceInputs["alias"] = undefined /*out*/;
@@ -286,6 +285,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
             resourceInputs["iamRoleId"] = undefined /*out*/;
             resourceInputs["registrationCode"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -395,10 +395,6 @@ export interface DirectoryArgs {
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */

@@ -182,7 +182,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
      */
@@ -236,11 +236,11 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["stackSetId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackSet.__pulumiType, name, resourceInputs, opts);
@@ -373,10 +373,6 @@ export interface StackSetArgs {
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
      */

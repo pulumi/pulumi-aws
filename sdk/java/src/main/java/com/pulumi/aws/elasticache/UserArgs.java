@@ -110,13 +110,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * The ID of the user.
      * 
@@ -160,7 +153,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         this.noPasswordRequired = $.noPasswordRequired;
         this.passwords = $.passwords;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.userId = $.userId;
         this.userName = $.userName;
     }
@@ -317,15 +309,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

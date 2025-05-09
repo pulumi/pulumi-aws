@@ -48,21 +48,6 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     @Import(name="thumbprintLists")
     private @Nullable Output<List<String>> thumbprintLists;
 
@@ -90,7 +75,6 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
     private OpenIdConnectProviderArgs(OpenIdConnectProviderArgs $) {
         this.clientIdLists = $.clientIdLists;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.thumbprintLists = $.thumbprintLists;
         this.url = $.url;
     }
@@ -163,27 +147,6 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public Builder thumbprintLists(@Nullable Output<List<String>> thumbprintLists) {

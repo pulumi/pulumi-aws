@@ -113,7 +113,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -156,8 +156,8 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
             resourceInputs["okActions"] = args ? args.okActions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CompositeAlarm.__pulumiType, name, resourceInputs, opts);
@@ -254,8 +254,4 @@ export interface CompositeAlarmArgs {
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

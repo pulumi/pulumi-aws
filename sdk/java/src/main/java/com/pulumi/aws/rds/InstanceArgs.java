@@ -1163,21 +1163,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on
      * creation. See [MSSQL User
@@ -1320,7 +1305,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.storageThroughput = $.storageThroughput;
         this.storageType = $.storageType;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.timezone = $.timezone;
         this.upgradeStorageConfig = $.upgradeStorageConfig;
         this.username = $.username;
@@ -2941,27 +2925,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -98,7 +98,7 @@ export class ContactList extends pulumi.CustomResource {
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      */
@@ -133,11 +133,11 @@ export class ContactList extends pulumi.CustomResource {
             resourceInputs["contactListName"] = args ? args.contactListName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["lastUpdatedTimestamp"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContactList.__pulumiType, name, resourceInputs, opts);
@@ -196,7 +196,6 @@ export interface ContactListArgs {
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      */

@@ -165,8 +165,6 @@ type serviceNetworkServiceAssociationArgs struct {
 	ServiceNetworkIdentifier string `pulumi:"serviceNetworkIdentifier"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
@@ -178,8 +176,6 @@ type ServiceNetworkServiceAssociationArgs struct {
 	ServiceNetworkIdentifier pulumi.StringInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ServiceNetworkServiceAssociationArgs) ElementType() reflect.Type {

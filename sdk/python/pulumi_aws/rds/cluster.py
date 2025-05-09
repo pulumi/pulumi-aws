@@ -84,7 +84,6 @@ class ClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -154,7 +153,6 @@ class ClusterArgs:
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         pulumi.set(__self__, "engine", engine)
@@ -278,8 +276,6 @@ class ClusterArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -1017,18 +1013,6 @@ class ClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
@@ -2266,7 +2250,6 @@ class Cluster(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -2541,7 +2524,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         ...
@@ -2830,7 +2812,6 @@ class Cluster(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -2904,7 +2885,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["ca_certificate_valid_till"] = None
@@ -2914,6 +2894,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["reader_endpoint"] = None
+            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(

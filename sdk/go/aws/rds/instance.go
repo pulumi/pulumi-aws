@@ -1402,8 +1402,6 @@ type instanceArgs struct {
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -1626,8 +1624,6 @@ type InstanceArgs struct {
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User

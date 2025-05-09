@@ -187,21 +187,6 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The VLAN ID.
      * 
      */
@@ -230,7 +215,6 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
         this.name = $.name;
         this.sitelinkEnabled = $.sitelinkEnabled;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.vlan = $.vlan;
     }
 
@@ -483,27 +467,6 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

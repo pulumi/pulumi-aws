@@ -30,7 +30,6 @@ class DocumentClassifierArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
                  version_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -55,7 +54,6 @@ class DocumentClassifierArgs:
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version_name: Name for the version of the Document Classifier.
                Each version must have a unique name within the Document Classifier.
                If omitted, the provider will assign a random, unique version name.
@@ -85,8 +83,6 @@ class DocumentClassifierArgs:
             pulumi.set(__self__, "output_data_config", output_data_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if version_name is not None:
             pulumi.set(__self__, "version_name", version_name)
         if version_name_prefix is not None:
@@ -201,18 +197,6 @@ class DocumentClassifierArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="versionName")
@@ -564,7 +548,6 @@ class DocumentClassifier(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_data_config: Optional[pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
                  version_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -621,7 +604,6 @@ class DocumentClassifier(pulumi.CustomResource):
         :param pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version_name: Name for the version of the Document Classifier.
                Each version must have a unique name within the Document Classifier.
                If omitted, the provider will assign a random, unique version name.
@@ -698,7 +680,6 @@ class DocumentClassifier(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_data_config: Optional[pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
                  version_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -726,12 +707,12 @@ class DocumentClassifier(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["output_data_config"] = output_data_config
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["version_name_prefix"] = version_name_prefix
             __props__.__dict__["volume_kms_key_id"] = volume_kms_key_id
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(DocumentClassifier, __self__).__init__(
             'aws:comprehend/documentClassifier:DocumentClassifier',
             resource_name,

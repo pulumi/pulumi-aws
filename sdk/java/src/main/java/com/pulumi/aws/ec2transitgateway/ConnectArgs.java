@@ -49,21 +49,6 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
@@ -128,7 +113,6 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
     private ConnectArgs(ConnectArgs $) {
         this.protocol = $.protocol;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.transitGatewayDefaultRouteTableAssociation = $.transitGatewayDefaultRouteTableAssociation;
         this.transitGatewayDefaultRouteTablePropagation = $.transitGatewayDefaultRouteTablePropagation;
         this.transitGatewayId = $.transitGatewayId;
@@ -193,27 +177,6 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

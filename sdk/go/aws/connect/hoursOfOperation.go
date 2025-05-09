@@ -196,8 +196,6 @@ type hoursOfOperationArgs struct {
 	Name *string `pulumi:"name"`
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone string `pulumi:"timeZone"`
 }
@@ -214,8 +212,6 @@ type HoursOfOperationArgs struct {
 	Name pulumi.StringPtrInput
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone pulumi.StringInput
 }

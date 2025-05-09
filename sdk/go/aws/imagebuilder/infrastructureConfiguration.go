@@ -251,8 +251,6 @@ type infrastructureConfigurationArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
 }
@@ -285,8 +283,6 @@ type InfrastructureConfigurationArgs struct {
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
 }

@@ -32,8 +32,7 @@ class SamplingRuleArgs:
                  version: pulumi.Input[builtins.int],
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
         :param pulumi.Input[builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -49,7 +48,6 @@ class SamplingRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Matches attributes derived from the request.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
         pulumi.set(__self__, "host", host)
@@ -67,8 +65,6 @@ class SamplingRuleArgs:
             pulumi.set(__self__, "rule_name", rule_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="fixedRate")
@@ -225,18 +221,6 @@ class SamplingRuleArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -506,7 +490,6 @@ class SamplingRule(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url_path: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -557,7 +540,6 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[builtins.str] service_type: Matches the `origin` that the service uses to identify its type in segments.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] url_path: Matches the path from a request URL.
         :param pulumi.Input[builtins.int] version: The version of the sampling rule format (`1` )
         """
@@ -627,7 +609,6 @@ class SamplingRule(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url_path: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -666,7 +647,6 @@ class SamplingRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_type'")
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if url_path is None and not opts.urn:
                 raise TypeError("Missing required property 'url_path'")
             __props__.__dict__["url_path"] = url_path
@@ -674,6 +654,7 @@ class SamplingRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(SamplingRule, __self__).__init__(
             'aws:xray/samplingRule:SamplingRule',
             resource_name,

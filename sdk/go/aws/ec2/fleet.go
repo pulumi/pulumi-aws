@@ -245,8 +245,6 @@ type fleetArgs struct {
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -285,8 +283,6 @@ type FleetArgs struct {
 	SpotOptions FleetSpotOptionsPtrInput
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationInput
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.

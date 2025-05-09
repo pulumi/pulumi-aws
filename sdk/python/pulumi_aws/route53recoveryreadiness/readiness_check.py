@@ -22,8 +22,7 @@ class ReadinessCheckArgs:
     def __init__(__self__, *,
                  readiness_check_name: pulumi.Input[builtins.str],
                  resource_set_name: pulumi.Input[builtins.str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReadinessCheck resource.
         :param pulumi.Input[builtins.str] readiness_check_name: Unique name describing the readiness check.
@@ -31,14 +30,11 @@ class ReadinessCheckArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "readiness_check_name", readiness_check_name)
         pulumi.set(__self__, "resource_set_name", resource_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="readinessCheckName")
@@ -77,18 +73,6 @@ class ReadinessCheckArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -194,7 +178,6 @@ class ReadinessCheck(pulumi.CustomResource):
                  readiness_check_name: Optional[pulumi.Input[builtins.str]] = None,
                  resource_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Route 53 Recovery Readiness Readiness Check.
@@ -225,7 +208,6 @@ class ReadinessCheck(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -273,7 +255,6 @@ class ReadinessCheck(pulumi.CustomResource):
                  readiness_check_name: Optional[pulumi.Input[builtins.str]] = None,
                  resource_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,8 +271,8 @@ class ReadinessCheck(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_set_name'")
             __props__.__dict__["resource_set_name"] = resource_set_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ReadinessCheck, __self__).__init__(
             'aws:route53recoveryreadiness/readinessCheck:ReadinessCheck',
             resource_name,

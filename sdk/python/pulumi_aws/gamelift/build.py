@@ -26,7 +26,6 @@ class BuildArgs:
                  storage_location: pulumi.Input['BuildStorageLocationArgs'],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Build resource.
@@ -34,7 +33,6 @@ class BuildArgs:
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[builtins.str] name: Name of the build
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version: Version that is associated with this build.
         """
         pulumi.set(__self__, "operating_system", operating_system)
@@ -43,8 +41,6 @@ class BuildArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -95,18 +91,6 @@ class BuildArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -253,7 +237,6 @@ class Build(pulumi.CustomResource):
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -289,7 +272,6 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version: Version that is associated with this build.
         """
         ...
@@ -344,7 +326,6 @@ class Build(pulumi.CustomResource):
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -363,9 +344,9 @@ class Build(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Build, __self__).__init__(
             'aws:gamelift/build:Build',
             resource_name,

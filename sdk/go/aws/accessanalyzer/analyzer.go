@@ -185,8 +185,6 @@ type analyzerArgs struct {
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
 }
@@ -201,8 +199,6 @@ type AnalyzerArgs struct {
 	Configuration AnalyzerConfigurationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
 }

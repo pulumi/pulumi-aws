@@ -31,8 +31,7 @@ class MetricStreamArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
         :param pulumi.Input[builtins.str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
@@ -47,7 +46,6 @@ class MetricStreamArgs:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
         pulumi.set(__self__, "output_format", output_format)
@@ -66,8 +64,6 @@ class MetricStreamArgs:
             pulumi.set(__self__, "statistics_configurations", statistics_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="firehoseArn")
@@ -190,18 +186,6 @@ class MetricStreamArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -474,7 +458,6 @@ class MetricStream(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Metric Stream resource.
@@ -625,7 +608,6 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -793,7 +775,6 @@ class MetricStream(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -819,11 +800,11 @@ class MetricStream(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["statistics_configurations"] = statistics_configurations
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["last_update_date"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(MetricStream, __self__).__init__(
             'aws:cloudwatch/metricStream:MetricStream',
             resource_name,

@@ -24,22 +24,18 @@ class ServiceNetworkServiceAssociationArgs:
     def __init__(__self__, *,
                  service_identifier: pulumi.Input[builtins.str],
                  service_network_identifier: pulumi.Input[builtins.str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
         :param pulumi.Input[builtins.str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "service_identifier", service_identifier)
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="serviceIdentifier")
@@ -77,18 +73,6 @@ class ServiceNetworkServiceAssociationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -256,7 +240,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Service Network Service Association.
@@ -288,7 +271,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -338,7 +320,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,12 +336,12 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_network_identifier'")
             __props__.__dict__["service_network_identifier"] = service_network_identifier
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["custom_domain_name"] = None
             __props__.__dict__["dns_entries"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(ServiceNetworkServiceAssociation, __self__).__init__(
             'aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation',
             resource_name,

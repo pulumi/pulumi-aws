@@ -146,7 +146,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
@@ -194,7 +194,6 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["protection"] = args ? args.protection : undefined;
             resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
@@ -203,6 +202,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["numberOfMountTargets"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FileSystem.__pulumiType, name, resourceInputs, opts);
@@ -333,10 +333,6 @@ export interface FileSystemArgs {
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */

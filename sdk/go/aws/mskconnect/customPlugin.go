@@ -194,8 +194,6 @@ type customPluginArgs struct {
 	//
 	// The following arguments are optional:
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a CustomPlugin resource.
@@ -212,8 +210,6 @@ type CustomPluginArgs struct {
 	//
 	// The following arguments are optional:
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (CustomPluginArgs) ElementType() reflect.Type {

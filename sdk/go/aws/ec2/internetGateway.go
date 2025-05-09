@@ -242,8 +242,6 @@ type internetGatewayArgs struct {
 	// }
 	// ```
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -281,8 +279,6 @@ type InternetGatewayArgs struct {
 	// }
 	// ```
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId pulumi.StringPtrInput
 }

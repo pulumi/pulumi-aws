@@ -97,21 +97,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      * 
@@ -136,7 +121,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.resolverEndpointId = $.resolverEndpointId;
         this.ruleType = $.ruleType;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.targetIps = $.targetIps;
     }
 
@@ -263,27 +247,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

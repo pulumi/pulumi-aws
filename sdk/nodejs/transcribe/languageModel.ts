@@ -128,7 +128,7 @@ export class LanguageModel extends pulumi.CustomResource {
      */
     public readonly modelName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LanguageModel resource with the given unique name, arguments, and options.
@@ -169,8 +169,8 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["modelName"] = args ? args.modelName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LanguageModel.__pulumiType, name, resourceInputs, opts);
@@ -226,5 +226,4 @@ export interface LanguageModelArgs {
      */
     modelName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

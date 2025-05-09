@@ -295,8 +295,6 @@ type connectorArgs struct {
 	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
@@ -329,8 +327,6 @@ type ConnectorArgs struct {
 	ServiceExecutionRoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrInput
 }

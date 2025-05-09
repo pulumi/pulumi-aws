@@ -28,7 +28,6 @@ class CertificateAuthorityArgs:
                  permanent_deletion_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  usage_mode: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -39,7 +38,6 @@ class CertificateAuthorityArgs:
         :param pulumi.Input[builtins.int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[builtins.str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
@@ -54,8 +52,6 @@ class CertificateAuthorityArgs:
             pulumi.set(__self__, "revocation_configuration", revocation_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if usage_mode is not None:
@@ -132,18 +128,6 @@ class CertificateAuthorityArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -448,7 +432,6 @@ class CertificateAuthority(pulumi.CustomResource):
                  permanent_deletion_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  revocation_configuration: Optional[pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  usage_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -557,7 +540,6 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[builtins.str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
@@ -685,7 +667,6 @@ class CertificateAuthority(pulumi.CustomResource):
                  permanent_deletion_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  revocation_configuration: Optional[pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  usage_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -705,7 +686,6 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["usage_mode"] = usage_mode
             __props__.__dict__["arn"] = None
@@ -715,6 +695,7 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["not_after"] = None
             __props__.__dict__["not_before"] = None
             __props__.__dict__["serial"] = None
+            __props__.__dict__["tags_all"] = None
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
             resource_name,

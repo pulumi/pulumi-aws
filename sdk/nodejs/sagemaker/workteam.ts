@@ -113,7 +113,7 @@ export class Workteam extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      */
@@ -165,12 +165,12 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["workerAccessConfiguration"] = args ? args.workerAccessConfiguration : undefined;
             resourceInputs["workforceName"] = args ? args.workforceName : undefined;
             resourceInputs["workteamName"] = args ? args.workteamName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workteam.__pulumiType, name, resourceInputs, opts);
@@ -243,10 +243,6 @@ export interface WorkteamArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      */

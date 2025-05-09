@@ -44,7 +44,6 @@ class TableArgs:
                  stream_view_type: Optional[pulumi.Input[builtins.str]] = None,
                  table_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
                  write_capacity: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -75,7 +74,6 @@ class TableArgs:
                Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
                Default value is `STANDARD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
         :param pulumi.Input[builtins.int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
@@ -123,8 +121,6 @@ class TableArgs:
             pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
         if write_capacity is not None:
@@ -397,18 +393,6 @@ class TableArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -929,7 +913,6 @@ class Table(pulumi.CustomResource):
                  stream_view_type: Optional[pulumi.Input[builtins.str]] = None,
                  table_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  write_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -1108,7 +1091,6 @@ class Table(pulumi.CustomResource):
                Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
                Default value is `STANDARD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']] ttl: Configuration block for TTL. See below.
         :param pulumi.Input[builtins.int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
@@ -1302,7 +1284,6 @@ class Table(pulumi.CustomResource):
                  stream_view_type: Optional[pulumi.Input[builtins.str]] = None,
                  table_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  write_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -1336,12 +1317,12 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["stream_view_type"] = stream_view_type
             __props__.__dict__["table_class"] = table_class
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["write_capacity"] = write_capacity
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["stream_label"] = None
+            __props__.__dict__["tags_all"] = None
         super(Table, __self__).__init__(
             'aws:dynamodb/table:Table',
             resource_name,

@@ -638,9 +638,6 @@ type projectArgs struct {
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider
-	// `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -707,9 +704,6 @@ type ProjectArgs struct {
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider
-	// `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrInput
 }

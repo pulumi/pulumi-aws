@@ -36,7 +36,6 @@ class BranchArgs:
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Branch resource.
@@ -56,7 +55,6 @@ class BranchArgs:
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -89,8 +87,6 @@ class BranchArgs:
             pulumi.set(__self__, "stage", stage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
 
@@ -285,18 +281,6 @@ class BranchArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -711,7 +695,6 @@ class Branch(pulumi.CustomResource):
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -845,7 +828,6 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
         ...
@@ -998,7 +980,6 @@ class Branch(pulumi.CustomResource):
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1029,13 +1010,13 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
             __props__.__dict__["stage"] = stage
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["arn"] = None
             __props__.__dict__["associated_resources"] = None
             __props__.__dict__["custom_domains"] = None
             __props__.__dict__["destination_branch"] = None
             __props__.__dict__["source_branch"] = None
+            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["basicAuthCredentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Branch, __self__).__init__(

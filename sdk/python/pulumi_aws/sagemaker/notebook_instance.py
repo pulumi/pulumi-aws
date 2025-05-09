@@ -36,7 +36,6 @@ class NotebookInstanceArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  volume_size: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a NotebookInstance resource.
@@ -55,7 +54,6 @@ class NotebookInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The associated security groups.
         :param pulumi.Input[builtins.str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -84,8 +82,6 @@ class NotebookInstanceArgs:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
 
@@ -257,18 +253,6 @@ class NotebookInstanceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -619,7 +603,6 @@ class NotebookInstance(pulumi.CustomResource):
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  volume_size: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
@@ -688,7 +671,6 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The associated security groups.
         :param pulumi.Input[builtins.str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         ...
@@ -775,7 +757,6 @@ class NotebookInstance(pulumi.CustomResource):
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  volume_size: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -804,10 +785,10 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["volume_size"] = volume_size
             __props__.__dict__["arn"] = None
             __props__.__dict__["network_interface_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
         super(NotebookInstance, __self__).__init__(
             'aws:sagemaker/notebookInstance:NotebookInstance',

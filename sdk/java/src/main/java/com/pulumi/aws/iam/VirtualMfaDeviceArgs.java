@@ -48,21 +48,6 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
@@ -82,7 +67,6 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
     private VirtualMfaDeviceArgs(VirtualMfaDeviceArgs $) {
         this.path = $.path;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.virtualMfaDeviceName = $.virtualMfaDeviceName;
     }
 
@@ -144,27 +128,6 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -219,8 +219,6 @@ type workteamArgs struct {
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration *WorkteamWorkerAccessConfiguration `pulumi:"workerAccessConfiguration"`
 	// The name of the workforce.
@@ -239,8 +237,6 @@ type WorkteamArgs struct {
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationPtrInput
 	// The name of the workforce.

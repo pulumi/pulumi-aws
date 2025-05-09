@@ -224,7 +224,7 @@ export class Eip extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Eip resource with the given unique name, arguments, and options.
@@ -272,7 +272,6 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
             resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
@@ -283,6 +282,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["ptrRecord"] = undefined /*out*/;
             resourceInputs["publicDns"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Eip.__pulumiType, name, resourceInputs, opts);
@@ -422,8 +422,4 @@ export interface EipArgs {
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

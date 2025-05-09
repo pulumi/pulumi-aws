@@ -104,7 +104,7 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the signing profile.
      */
@@ -151,11 +151,11 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
             resourceInputs["signingMaterial"] = args ? args.signingMaterial : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["platformDisplayName"] = undefined /*out*/;
             resourceInputs["revocationRecords"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["versionArn"] = undefined /*out*/;
         }
@@ -238,8 +238,4 @@ export interface SigningProfileArgs {
      * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

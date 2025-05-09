@@ -178,7 +178,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
@@ -236,11 +236,11 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Association.__pulumiType, name, resourceInputs, opts);
@@ -383,10 +383,6 @@ export interface AssociationArgs {
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */

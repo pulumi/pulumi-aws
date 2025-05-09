@@ -96,21 +96,6 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The assessment target ARN to attach the template to.
      * 
      */
@@ -133,7 +118,6 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.ResourceA
         this.name = $.name;
         this.rulesPackageArns = $.rulesPackageArns;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.targetArn = $.targetArn;
     }
 
@@ -278,27 +262,6 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -242,8 +242,6 @@ type imageBuilderArgs struct {
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig *ImageBuilderVpcConfig `pulumi:"vpcConfig"`
 }
@@ -276,8 +274,6 @@ type ImageBuilderArgs struct {
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig ImageBuilderVpcConfigPtrInput
 }

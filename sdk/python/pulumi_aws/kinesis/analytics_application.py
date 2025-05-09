@@ -30,8 +30,7 @@ class AnalyticsApplicationArgs:
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]] = None,
                  reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsApplication resource.
         :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
@@ -46,7 +45,6 @@ class AnalyticsApplicationArgs:
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
@@ -66,8 +64,6 @@ class AnalyticsApplicationArgs:
             pulumi.set(__self__, "start_application", start_application)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -179,18 +175,6 @@ class AnalyticsApplicationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -464,7 +448,6 @@ class AnalyticsApplication(pulumi.CustomResource):
                  reference_data_sources: Optional[pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']]] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
@@ -601,7 +584,6 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -754,7 +736,6 @@ class AnalyticsApplication(pulumi.CustomResource):
                  reference_data_sources: Optional[pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']]] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -773,11 +754,11 @@ class AnalyticsApplication(pulumi.CustomResource):
             __props__.__dict__["reference_data_sources"] = reference_data_sources
             __props__.__dict__["start_application"] = start_application
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_timestamp"] = None
             __props__.__dict__["last_update_timestamp"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(AnalyticsApplication, __self__).__init__(
             'aws:kinesis/analyticsApplication:AnalyticsApplication',

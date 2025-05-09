@@ -42,7 +42,6 @@ class ServerArgs:
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
@@ -90,7 +89,6 @@ class ServerArgs:
         :param pulumi.Input[builtins.str] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See `workflow_details` Block below for details.
         """
@@ -134,8 +132,6 @@ class ServerArgs:
             pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if workflow_details is not None:
@@ -403,18 +399,6 @@ class ServerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -939,7 +923,6 @@ class Server(pulumi.CustomResource):
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  workflow_details: Optional[pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
                  __props__=None):
@@ -1112,7 +1095,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']] workflow_details: Specifies the workflow details. See `workflow_details` Block below for details.
         """
@@ -1281,7 +1263,6 @@ class Server(pulumi.CustomResource):
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  workflow_details: Optional[pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
                  __props__=None):
@@ -1313,12 +1294,12 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["sftp_authentication_methods"] = sftp_authentication_methods
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["url"] = url
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["host_key_fingerprint"] = None
+            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(

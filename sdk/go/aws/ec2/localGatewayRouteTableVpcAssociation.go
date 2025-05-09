@@ -148,8 +148,6 @@ type localGatewayRouteTableVpcAssociationArgs struct {
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
 	//
 	// The following arguments are optional:
@@ -162,8 +160,6 @@ type LocalGatewayRouteTableVpcAssociationArgs struct {
 	LocalGatewayRouteTableId pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 VPC.
 	//
 	// The following arguments are optional:

@@ -166,8 +166,7 @@ type vpcIpamScopeArgs struct {
 	// The ID of the IPAM for which you're creating this scope.
 	IpamId string `pulumi:"ipamId"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIpamScope resource.
@@ -177,8 +176,7 @@ type VpcIpamScopeArgs struct {
 	// The ID of the IPAM for which you're creating this scope.
 	IpamId pulumi.StringInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcIpamScopeArgs) ElementType() reflect.Type {
