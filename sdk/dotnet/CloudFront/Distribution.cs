@@ -665,6 +665,18 @@ namespace Pulumi.Aws.CloudFront
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         [Input("viewerCertificate", required: true)]
         public Input<Inputs.DistributionViewerCertificateArgs> ViewerCertificate { get; set; } = null!;
 
@@ -823,7 +835,6 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

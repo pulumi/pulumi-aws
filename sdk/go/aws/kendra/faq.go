@@ -150,8 +150,6 @@ type Faq struct {
 	Status pulumi.StringOutput    `pulumi:"status"`
 	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -219,8 +217,6 @@ type faqState struct {
 	Status *string           `pulumi:"status"`
 	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -250,8 +246,6 @@ type FaqState struct {
 	Status pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringPtrInput
@@ -441,8 +435,6 @@ func (o FaqOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

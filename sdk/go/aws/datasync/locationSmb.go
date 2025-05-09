@@ -75,8 +75,6 @@ type LocationSmb struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
@@ -152,8 +150,6 @@ type locationSmbState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
@@ -178,8 +174,6 @@ type LocationSmbState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 	// The user who can mount the share and has file and folder permissions in the SMB share.
@@ -357,8 +351,6 @@ func (o LocationSmbOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LocationSmbOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

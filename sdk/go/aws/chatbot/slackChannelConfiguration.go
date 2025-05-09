@@ -83,8 +83,6 @@ type SlackChannelConfiguration struct {
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 	Timeouts SlackChannelConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Enables use of a user role requirement in your chat configuration.
@@ -158,8 +156,6 @@ type slackChannelConfigurationState struct {
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                  `pulumi:"tagsAll"`
 	Timeouts *SlackChannelConfigurationTimeouts `pulumi:"timeouts"`
 	// Enables use of a user role requirement in your chat configuration.
@@ -192,8 +188,6 @@ type SlackChannelConfigurationState struct {
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts SlackChannelConfigurationTimeoutsPtrInput
 	// Enables use of a user role requirement in your chat configuration.
@@ -398,8 +392,6 @@ func (o SlackChannelConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SlackChannelConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

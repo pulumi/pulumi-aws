@@ -90,8 +90,7 @@ type LogAnomalyDetector struct {
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayOutput `pulumi:"logGroupArnLists"`
 	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll          pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewLogAnomalyDetector registers a new resource with the given unique name, arguments, and options.
@@ -148,8 +147,7 @@ type logAnomalyDetectorState struct {
 	// The following arguments are optional:
 	LogGroupArnLists []string          `pulumi:"logGroupArnLists"`
 	Tags             map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type LogAnomalyDetectorState struct {
@@ -171,8 +169,7 @@ type LogAnomalyDetectorState struct {
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
 	Tags             pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (LogAnomalyDetectorState) ElementType() reflect.Type {
@@ -350,7 +347,6 @@ func (o LogAnomalyDetectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o LogAnomalyDetectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

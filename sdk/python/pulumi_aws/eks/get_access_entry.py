@@ -164,6 +164,7 @@ class AwaitableGetAccessEntryResult(GetAccessEntryResult):
 def get_access_entry(cluster_name: Optional[builtins.str] = None,
                      principal_arn: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
+                     tags_all: Optional[Mapping[str, builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessEntryResult:
     """
     Access Entry Configurations for an EKS Cluster.
@@ -182,11 +183,13 @@ def get_access_entry(cluster_name: Optional[builtins.str] = None,
 
     :param builtins.str cluster_name: Name of the EKS Cluster.
     :param builtins.str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param Mapping[str, builtins.str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult).value
 
@@ -205,6 +208,7 @@ def get_access_entry(cluster_name: Optional[builtins.str] = None,
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                             principal_arn: Optional[pulumi.Input[builtins.str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+                            tags_all: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     Access Entry Configurations for an EKS Cluster.
@@ -223,11 +227,13 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[builtins.str]] =
 
     :param builtins.str cluster_name: Name of the EKS Cluster.
     :param builtins.str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param Mapping[str, builtins.str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult)
     return __ret__.apply(lambda __response__: GetAccessEntryResult(

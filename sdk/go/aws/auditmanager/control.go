@@ -74,8 +74,7 @@ type Control struct {
 	// Name of the control.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation pulumi.StringPtrOutput `pulumi:"testingInformation"`
@@ -129,8 +128,7 @@ type controlState struct {
 	// Name of the control.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation *string `pulumi:"testingInformation"`
@@ -155,8 +153,7 @@ type ControlState struct {
 	// Name of the control.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation pulumi.StringPtrInput
@@ -332,7 +329,6 @@ func (o ControlOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ControlOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -61,21 +61,9 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -170,27 +158,11 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

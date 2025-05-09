@@ -76,8 +76,6 @@ type VpcConnection struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn pulumi.StringOutput `pulumi:"targetClusterArn"`
@@ -141,8 +139,6 @@ type vpcConnectionState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn *string `pulumi:"targetClusterArn"`
@@ -162,8 +158,6 @@ type VpcConnectionState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn pulumi.StringPtrInput
@@ -184,6 +178,8 @@ type vpcConnectionArgs struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn string `pulumi:"targetClusterArn"`
 	// The VPC ID of the remote client.
@@ -200,6 +196,8 @@ type VpcConnectionArgs struct {
 	SecurityGroups pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn pulumi.StringInput
 	// The VPC ID of the remote client.
@@ -319,8 +317,6 @@ func (o VpcConnectionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

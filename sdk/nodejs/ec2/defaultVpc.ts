@@ -96,9 +96,6 @@ export class DefaultVpc extends pulumi.CustomResource {
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -200,9 +197,6 @@ export interface DefaultVpcState {
     mainRouteTableId?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

@@ -68,8 +68,6 @@ type Channel struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -122,8 +120,6 @@ type channelState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
 	Type *string `pulumi:"type"`
@@ -147,8 +143,6 @@ type ChannelState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
 	Type pulumi.StringPtrInput
@@ -317,8 +311,6 @@ func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

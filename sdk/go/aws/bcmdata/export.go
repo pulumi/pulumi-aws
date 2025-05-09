@@ -91,9 +91,8 @@ type Export struct {
 	pulumi.CustomResourceState
 
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrOutput  `pulumi:"export"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Export   ExportExportPtrOutput   `pulumi:"export"`
+	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts ExportTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -129,18 +128,16 @@ func GetExport(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export *ExportExport     `pulumi:"export"`
-	Tags   map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Export   *ExportExport     `pulumi:"export"`
+	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
 }
 
 type ExportState struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrInput
-	Tags   pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Export   ExportExportPtrInput
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
 }
@@ -260,7 +257,6 @@ func (o ExportOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ExportOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

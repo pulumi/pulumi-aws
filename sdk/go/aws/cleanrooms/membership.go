@@ -90,8 +90,7 @@ type Membership struct {
 	// The status of the membership.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key value pairs which tag the membership.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time the membership was last updated.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -157,8 +156,7 @@ type membershipState struct {
 	// The status of the membership.
 	Status *string `pulumi:"status"`
 	// Key value pairs which tag the membership.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time the membership was last updated.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -189,8 +187,7 @@ type MembershipState struct {
 	// The status of the membership.
 	Status pulumi.StringPtrInput
 	// Key value pairs which tag the membership.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The date and time the membership was last updated.
 	UpdateTime pulumi.StringPtrInput
@@ -376,7 +373,6 @@ func (o MembershipOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o MembershipOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

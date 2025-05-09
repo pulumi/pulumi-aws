@@ -111,8 +111,7 @@ type Connector struct {
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig ConnectorSftpConfigPtrOutput `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -169,8 +168,7 @@ type connectorState struct {
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url *string `pulumi:"url"`
@@ -192,8 +190,7 @@ type ConnectorState struct {
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig ConnectorSftpConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url pulumi.StringPtrInput
@@ -215,7 +212,8 @@ type connectorArgs struct {
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url string `pulumi:"url"`
 }
@@ -233,7 +231,8 @@ type ConnectorArgs struct {
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig ConnectorSftpConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url pulumi.StringInput
 }
@@ -365,7 +364,6 @@ func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ConnectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

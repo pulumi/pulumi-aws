@@ -379,8 +379,6 @@ type Project struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -496,8 +494,6 @@ type projectState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. Detailed below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
@@ -572,8 +568,6 @@ type ProjectState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrInput
@@ -944,8 +938,6 @@ func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 
 // A map of tags assigned to the resource, including those inherited from the provider
 // `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

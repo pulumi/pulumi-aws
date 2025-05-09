@@ -83,6 +83,21 @@ public final class AccessEntryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      * 
      */
@@ -119,6 +134,7 @@ public final class AccessEntryArgs extends com.pulumi.resources.ResourceArgs {
         this.kubernetesGroups = $.kubernetesGroups;
         this.principalArn = $.principalArn;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.type = $.type;
         this.userName = $.userName;
     }
@@ -237,6 +253,27 @@ public final class AccessEntryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

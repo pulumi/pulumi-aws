@@ -66,8 +66,7 @@ type TrustProvider struct {
 	PolicyReferenceName pulumi.StringOutput                 `pulumi:"policyReferenceName"`
 	SseSpecification    TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of trust provider can be either user or device-based.
 	//
@@ -127,8 +126,7 @@ type trustProviderState struct {
 	PolicyReferenceName *string                        `pulumi:"policyReferenceName"`
 	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of trust provider can be either user or device-based.
 	//
@@ -153,8 +151,7 @@ type TrustProviderState struct {
 	PolicyReferenceName pulumi.StringPtrInput
 	SseSpecification    TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of trust provider can be either user or device-based.
 	//
@@ -183,7 +180,8 @@ type trustProviderArgs struct {
 	PolicyReferenceName string                         `pulumi:"policyReferenceName"`
 	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of trust provider can be either user or device-based.
 	//
 	// The following arguments are optional:
@@ -208,7 +206,8 @@ type TrustProviderArgs struct {
 	PolicyReferenceName pulumi.StringInput
 	SseSpecification    TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The type of trust provider can be either user or device-based.
 	//
 	// The following arguments are optional:
@@ -345,7 +344,6 @@ func (o TrustProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o TrustProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -122,6 +122,18 @@ namespace Pulumi.Aws.Eks
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private Dictionary<string, string>? _tagsAll;
+
+        /// <summary>
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public Dictionary<string, string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
+            set => _tagsAll = value;
+        }
+
         public GetAccessEntryArgs()
         {
         }
@@ -148,6 +160,18 @@ namespace Pulumi.Aws.Eks
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public GetAccessEntryInvokeArgs()

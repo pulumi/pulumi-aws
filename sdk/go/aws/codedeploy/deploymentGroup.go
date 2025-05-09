@@ -313,8 +313,6 @@ type DeploymentGroup struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled pulumi.BoolPtrOutput `pulumi:"terminationHookEnabled"`
@@ -400,8 +398,6 @@ type deploymentGroupState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled *bool `pulumi:"terminationHookEnabled"`
@@ -449,8 +445,6 @@ type DeploymentGroupState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled pulumi.BoolPtrInput
@@ -730,8 +724,6 @@ func (o DeploymentGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DeploymentGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

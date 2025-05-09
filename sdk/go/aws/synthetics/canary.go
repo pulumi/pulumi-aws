@@ -103,8 +103,6 @@ type Canary struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines CanaryTimelineArrayOutput `pulumi:"timelines"`
@@ -202,8 +200,6 @@ type canaryState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines []CanaryTimeline `pulumi:"timelines"`
@@ -257,8 +253,6 @@ type CanaryState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
 	Timelines CanaryTimelineArrayInput
@@ -545,8 +539,6 @@ func (o CanaryOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CanaryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

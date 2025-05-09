@@ -209,7 +209,6 @@ namespace Pulumi.Aws.CodeConnections
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

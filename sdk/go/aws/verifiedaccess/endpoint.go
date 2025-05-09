@@ -96,8 +96,7 @@ type Endpoint struct {
 	// The options in use for server side encryption.
 	SseSpecification EndpointSseSpecificationOutput `pulumi:"sseSpecification"`
 	// Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the Verified Access group to associate the endpoint with.
 	//
@@ -175,8 +174,7 @@ type endpointState struct {
 	// The options in use for server side encryption.
 	SseSpecification *EndpointSseSpecification `pulumi:"sseSpecification"`
 	// Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the Verified Access group to associate the endpoint with.
 	//
@@ -216,8 +214,7 @@ type EndpointState struct {
 	// The options in use for server side encryption.
 	SseSpecification EndpointSseSpecificationPtrInput
 	// Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The ID of the Verified Access group to associate the endpoint with.
 	//
@@ -257,7 +254,8 @@ type endpointArgs struct {
 	// The options in use for server side encryption.
 	SseSpecification *EndpointSseSpecification `pulumi:"sseSpecification"`
 	// Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the Verified Access group to associate the endpoint with.
 	//
 	// The following arguments are optional:
@@ -292,7 +290,8 @@ type EndpointArgs struct {
 	// The options in use for server side encryption.
 	SseSpecification EndpointSseSpecificationPtrInput
 	// Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ID of the Verified Access group to associate the endpoint with.
 	//
 	// The following arguments are optional:
@@ -465,7 +464,6 @@ func (o EndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o EndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

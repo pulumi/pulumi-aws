@@ -109,6 +109,13 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
@@ -133,6 +140,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         this.securityPolicyName = $.securityPolicyName;
         this.sftpConfig = $.sftpConfig;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.url = $.url;
     }
 
@@ -278,6 +286,15 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

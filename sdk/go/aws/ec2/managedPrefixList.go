@@ -94,8 +94,6 @@ type ManagedPrefixList struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -152,8 +150,6 @@ type managedPrefixListState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
 	Version *int `pulumi:"version"`
@@ -175,8 +171,6 @@ type ManagedPrefixListState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Latest version of this prefix list.
 	Version pulumi.IntPtrInput
@@ -336,8 +330,6 @@ func (o ManagedPrefixListOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ManagedPrefixListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -118,10 +118,7 @@ export class Connector extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      */
@@ -164,10 +161,10 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
@@ -210,9 +207,6 @@ export interface ConnectorState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
@@ -248,6 +242,7 @@ export interface ConnectorArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      */

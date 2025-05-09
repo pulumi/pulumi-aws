@@ -118,9 +118,6 @@ export class Graph extends pulumi.CustomResource {
      */
     public readonly replicaCount!: pulumi.Output<number>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.neptunegraph.GraphTimeouts | undefined>;
     /**
@@ -226,9 +223,6 @@ export interface GraphState {
      */
     replicaCount?: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;
     /**

@@ -98,8 +98,7 @@ type Assessment struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -160,8 +159,7 @@ type assessmentState struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -187,8 +185,7 @@ type AssessmentState struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -376,7 +373,6 @@ func (o AssessmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AssessmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

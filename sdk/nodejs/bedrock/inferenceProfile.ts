@@ -101,9 +101,6 @@ export class InferenceProfile extends pulumi.CustomResource {
      * Key-value mapping of resource tags for the inference profile.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bedrock.InferenceProfileTimeouts | undefined>;
     /**
@@ -198,9 +195,6 @@ export interface InferenceProfileState {
      * Key-value mapping of resource tags for the inference profile.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts>;
     /**

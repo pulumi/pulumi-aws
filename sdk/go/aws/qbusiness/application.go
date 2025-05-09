@@ -75,8 +75,6 @@ type Application struct {
 	IdentityCenterInstanceArn pulumi.StringOutput    `pulumi:"identityCenterInstanceArn"`
 	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -140,8 +138,6 @@ type applicationState struct {
 	IdentityCenterInstanceArn *string           `pulumi:"identityCenterInstanceArn"`
 	Tags                      map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
@@ -167,8 +163,6 @@ type ApplicationState struct {
 	IdentityCenterInstanceArn pulumi.StringPtrInput
 	Tags                      pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
 }
@@ -350,8 +344,6 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

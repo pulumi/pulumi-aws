@@ -108,8 +108,6 @@ type EntityRecognizer struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name for the version of the Entity Recognizer.
 	// Each version must have a unique name within the Entity Recognizer.
@@ -191,8 +189,6 @@ type entityRecognizerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name for the version of the Entity Recognizer.
 	// Each version must have a unique name within the Entity Recognizer.
@@ -236,8 +232,6 @@ type EntityRecognizerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Name for the version of the Entity Recognizer.
 	// Each version must have a unique name within the Entity Recognizer.
@@ -471,8 +465,6 @@ func (o EntityRecognizerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o EntityRecognizerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

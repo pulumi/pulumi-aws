@@ -159,11 +159,7 @@ public class Map extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={java.util.Map.class,String.class}, tree="[0,1,1]")
     private Output<java.util.Map<String,String>> tagsAll;
 

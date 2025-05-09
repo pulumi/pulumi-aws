@@ -556,12 +556,6 @@ public class MediaInsightsPipelineConfiguration extends com.pulumi.resources.Cus
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

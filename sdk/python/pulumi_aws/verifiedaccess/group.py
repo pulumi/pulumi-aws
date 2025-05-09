@@ -26,7 +26,8 @@ class GroupArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input['GroupSseConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
@@ -46,6 +47,8 @@ class GroupArgs:
             pulumi.set(__self__, "sse_configuration", sse_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="verifiedaccessInstanceId")
@@ -109,6 +112,15 @@ class GroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _GroupState:
@@ -157,9 +169,6 @@ class _GroupState:
             pulumi.set(__self__, "sse_configuration", sse_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if verifiedaccess_group_arn is not None:
@@ -267,7 +276,6 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -326,6 +334,7 @@ class Group(pulumi.CustomResource):
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -419,6 +428,7 @@ class Group(pulumi.CustomResource):
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -433,6 +443,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["sse_configuration"] = sse_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if verifiedaccess_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'verifiedaccess_instance_id'")
             __props__.__dict__["verifiedaccess_instance_id"] = verifiedaccess_instance_id
@@ -440,7 +451,6 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["deletion_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["owner"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["verifiedaccess_group_arn"] = None
             __props__.__dict__["verifiedaccess_group_id"] = None
         super(Group, __self__).__init__(
@@ -570,7 +580,6 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

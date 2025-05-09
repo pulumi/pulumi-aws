@@ -95,8 +95,7 @@ type Group struct {
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationOutput `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of this verified acess group.
 	VerifiedaccessGroupArn pulumi.StringOutput `pulumi:"verifiedaccessGroupArn"`
@@ -156,8 +155,7 @@ type groupState struct {
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of this verified acess group.
 	VerifiedaccessGroupArn *string `pulumi:"verifiedaccessGroupArn"`
@@ -185,8 +183,7 @@ type GroupState struct {
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// ARN of this verified acess group.
 	VerifiedaccessGroupArn pulumi.StringPtrInput
@@ -210,7 +207,8 @@ type groupArgs struct {
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The id of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
@@ -226,7 +224,8 @@ type GroupArgs struct {
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The id of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
@@ -360,7 +359,6 @@ func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

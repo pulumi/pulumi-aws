@@ -134,8 +134,7 @@ type User struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -207,8 +206,7 @@ type userState struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the user.
 	UserId *string `pulumi:"userId"`
@@ -232,8 +230,7 @@ type UserState struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
 	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The ID of the user.
 	UserId pulumi.StringPtrInput
@@ -412,7 +409,6 @@ func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

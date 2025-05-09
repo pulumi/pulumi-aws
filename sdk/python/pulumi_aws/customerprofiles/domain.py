@@ -28,7 +28,8 @@ class DomainArgs:
                  default_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
                  rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
@@ -40,6 +41,7 @@ class DomainArgs:
         :param pulumi.Input['DomainMatchingArgs'] matching: A block that specifies the process of matching duplicate profiles. Documented below.
         :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "default_expiration_days", default_expiration_days)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -53,6 +55,8 @@ class DomainArgs:
             pulumi.set(__self__, "rule_based_matching", rule_based_matching)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="defaultExpirationDays")
@@ -140,6 +144,18 @@ class DomainArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _DomainState:
@@ -183,9 +199,6 @@ class _DomainState:
             pulumi.set(__self__, "rule_based_matching", rule_based_matching)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -289,7 +302,6 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -316,6 +328,7 @@ class Domain(pulumi.CustomResource):
                  matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
                  rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Customer Profiles Domain.
@@ -404,6 +417,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
         :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -509,6 +523,7 @@ class Domain(pulumi.CustomResource):
                  matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
                  rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -529,8 +544,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["matching"] = matching
             __props__.__dict__["rule_based_matching"] = rule_based_matching
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
             'aws:customerprofiles/domain:Domain',
             resource_name,
@@ -652,7 +667,6 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

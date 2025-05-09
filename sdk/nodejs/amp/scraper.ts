@@ -76,9 +76,6 @@ export class Scraper extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.amp.ScraperSource | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.amp.ScraperTimeouts | undefined>;
 
@@ -161,9 +158,6 @@ export interface ScraperState {
      */
     source?: pulumi.Input<inputs.amp.ScraperSource>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.amp.ScraperTimeouts>;
 }

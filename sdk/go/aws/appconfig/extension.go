@@ -112,8 +112,7 @@ type Extension struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 	Parameters ExtensionParameterArrayOutput `pulumi:"parameters"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version number for the extension.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -163,8 +162,7 @@ type extensionState struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 	Parameters []ExtensionParameter `pulumi:"parameters"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The version number for the extension.
 	Version *int `pulumi:"version"`
@@ -182,8 +180,7 @@ type ExtensionState struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 	Parameters ExtensionParameterArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The version number for the extension.
 	Version pulumi.IntPtrInput
@@ -337,7 +334,6 @@ func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ExtensionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

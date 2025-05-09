@@ -137,8 +137,6 @@ type Domain struct {
 	SkipDeletionCheck pulumi.BoolPtrOutput   `pulumi:"skipDeletionCheck"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts DomainTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -196,8 +194,6 @@ type domainState struct {
 	SkipDeletionCheck *bool             `pulumi:"skipDeletionCheck"`
 	Tags              map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *DomainTimeouts   `pulumi:"timeouts"`
 }
@@ -223,8 +219,6 @@ type DomainState struct {
 	SkipDeletionCheck pulumi.BoolPtrInput
 	Tags              pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts DomainTimeoutsPtrInput
 }
@@ -406,8 +400,6 @@ func (o DomainOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

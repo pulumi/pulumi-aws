@@ -36,8 +36,6 @@ type LandingZone struct {
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The landing zone version.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -90,8 +88,6 @@ type landingZoneState struct {
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The landing zone version.
 	Version *string `pulumi:"version"`
@@ -109,8 +105,6 @@ type LandingZoneState struct {
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The landing zone version.
 	Version pulumi.StringPtrInput
@@ -125,6 +119,8 @@ type landingZoneArgs struct {
 	ManifestJson string `pulumi:"manifestJson"`
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The landing zone version.
 	Version string `pulumi:"version"`
 }
@@ -135,6 +131,8 @@ type LandingZoneArgs struct {
 	ManifestJson pulumi.StringInput
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The landing zone version.
 	Version pulumi.StringInput
 }
@@ -252,8 +250,6 @@ func (o LandingZoneOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LandingZoneOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

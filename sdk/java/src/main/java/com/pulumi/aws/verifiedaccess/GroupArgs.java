@@ -78,6 +78,13 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * The id of the verified access instance this group is associated with.
      * 
@@ -104,6 +111,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         this.policyDocument = $.policyDocument;
         this.sseConfiguration = $.sseConfiguration;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.verifiedaccessInstanceId = $.verifiedaccessInstanceId;
     }
 
@@ -207,6 +215,15 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -160,8 +160,7 @@ type Channel struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel pulumi.BoolPtrOutput `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Settings for the VPC outputs. See VPC for more details.
 	Vpc ChannelVpcPtrOutput `pulumi:"vpc"`
@@ -241,8 +240,7 @@ type channelState struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel *bool `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Settings for the VPC outputs. See VPC for more details.
 	Vpc *ChannelVpc `pulumi:"vpc"`
@@ -278,8 +276,7 @@ type ChannelState struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel pulumi.BoolPtrInput
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Settings for the VPC outputs. See VPC for more details.
 	Vpc ChannelVpcPtrInput
@@ -511,7 +508,6 @@ func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

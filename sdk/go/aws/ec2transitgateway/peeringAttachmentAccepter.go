@@ -61,8 +61,6 @@ type PeeringAttachmentAccepter struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
@@ -117,8 +115,6 @@ type peeringAttachmentAccepterState struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
@@ -135,8 +131,6 @@ type PeeringAttachmentAccepterState struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
@@ -270,8 +264,6 @@ func (o PeeringAttachmentAccepterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o PeeringAttachmentAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PeeringAttachmentAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

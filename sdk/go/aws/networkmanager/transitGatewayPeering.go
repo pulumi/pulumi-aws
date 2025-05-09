@@ -68,8 +68,6 @@ type TransitGatewayPeering struct {
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the transit gateway for the peering request.
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
@@ -130,8 +128,6 @@ type transitGatewayPeeringState struct {
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the transit gateway for the peering request.
 	TransitGatewayArn *string `pulumi:"transitGatewayArn"`
@@ -157,8 +153,6 @@ type TransitGatewayPeeringState struct {
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the transit gateway for the peering request.
 	TransitGatewayArn pulumi.StringPtrInput
@@ -317,8 +311,6 @@ func (o TransitGatewayPeeringOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TransitGatewayPeeringOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

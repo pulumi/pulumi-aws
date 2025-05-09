@@ -20,7 +20,6 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.163.0
 	github.com/pulumi/pulumi/sdk/v3 v3.163.0
 	github.com/stretchr/testify v1.10.0
-	pgregory.net/rapid v0.6.1
 )
 
 // This replace is copied from upstream/go.mod, and should be maintained only as long as
